@@ -15,7 +15,7 @@ int newIndex = 0;
 int oldIndex = 0;
 int sensorValue = 0;
 int sensorOffset = 77; // DC offset - the value of the sensor with no ambient noise
-int maxSensorValue = 20; // the max value away from the offset
+int maxSensorValue = 10; // the max value away from the offset
 int maxEver; // The highest it has been since reset
 
 // how many reading should be used to create an average?
