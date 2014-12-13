@@ -5,11 +5,11 @@
 // http://www.ebay.com/itm/181268207260?ssPageName=STRK:MEWNX:IT&_trksid=p3984.m1439.l2649
 // Note - colors for data and ground vary
 // I used a 16MHZ Crystal Oscilator
-#define LEDPIN 10 // connect the Data In pin
+#define LEDPIN 12 // connect the Data In pin
 #define NUMBER_PIEXELS 12// connect the Data In pin
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 // this constant won't change:
-const int  buttonPin = 9;    // the pin that the pushbutton is attached to
+const int  buttonPin = 2;    // the pin that the pushbutton is attached to
 const int ledPin = 13;       // the pin that the LED is attached to to show mode changes
 
 // Variables will change:
@@ -17,19 +17,19 @@ int buttonPushCounter = 0;   // counter for the number of button presses
 int buttonState = 1;         // current state of the button using a pull up is 1
 int lastButtonState = 1;     // previous state of the button
 int mode = 0; // the mode starts at 0 a cycles up to 10 and re-starts
-int number_modes = 5; // the number of different modes
+int number_modes = 7; // the number of different modes
 
 void setup() {
   // initialize the button pin as a input:
   pinMode(buttonPin, INPUT_PULLUP);
   // initialize the LED as an output:
   pinMode(ledPin, OUTPUT);
+  strip.begin(); // sets up the memory
   // initialize serial communication:
   Serial.begin(9600);
   Serial.println("Start");
   Serial.print(" mode: ");
   Serial.println(mode);
-  mainMenu(); // show the initial menu
 }
 
 
@@ -50,12 +50,13 @@ void loop() {
       Serial.print(" mode: ");
       Serial.println(mode);
       switch (mode) {
-        case 0: mainMenu();break;
+        case 0: rainbow7(100);break;
         case 1: colorWipe(strip.Color(255, 0, 0), 50);break; // Red
         case 2: colorWipe(strip.Color(0, 255, 0), 50);break; // Green
         case 3: colorWipe(strip.Color(0, 0, 255), 50);break; // Blue
-        case 4: rainbow(20);break;
-        case 5: rainbowCycle(20);break;
+        case 4: rainbow(10);break;
+        case 5: rainbowCycle(5);break;
+        case 6: candle();break;
      }
     }
     
@@ -80,7 +81,6 @@ void loop() {
 
 // See https://en.wikipedia.org/wiki/Web_colors
 void mainMenu() {
-   strip.begin(); // sets up the memory
    strip.setPixelColor(0, 255, 0, 0);     // make the 1st pixel red
    strip.setPixelColor(1, 0, 255, 0);     // make the 2nd pixel green
    strip.setPixelColor(2, 0, 0, 255);     // make the 3rd pixel blue
@@ -144,9 +144,36 @@ uint32_t Wheel(byte WheelPos) {
   }
 }
 
+void candle() {
+   uint8_t green; // brightness of the green 
+   uint8_t red;  // add a bit for red
+   for(uint8_t i=0; i<100; i++) {
+     green = 50 + random(155);
+     red = green + random(50);
+     strip.setPixelColor(random(strip.numPixels() - 1), red, green, 0);
+     strip.show();
+     delay(5);
+  }
+}
 
-
-
+// a seven segment rainbow with red on the highest pixel
+void rainbow7(uint16_t wait) {
+    for (int i=0; i<strip.numPixels()-1; i++) {
+      int np = strip.numPixels();  // we use the modulo function with this
+      strip.setPixelColor(i     % np, 25, 0, 25); // violet
+      strip.setPixelColor((i+1) % np, 255, 0, 255); // indigo
+      strip.setPixelColor((i+2) % np, 0, 0, 150); // blue
+      strip.setPixelColor((i+3) % np, 0, 150, 0); // green
+      strip.setPixelColor((i+4) % np, 255, 255, 0); // yellow
+      strip.setPixelColor((i+5) % np, 110, 70, 0); // orange
+      strip.setPixelColor((i+6) % np, 150, 0, 0); // red
+      // we don't need to touch 7, 8 and 9
+      strip.setPixelColor((i+10) % np, 0, 0, 0); // turn the second to the last one off
+      strip.setPixelColor((i+11) % np, 0, 0, 0); // turn the last one off
+      strip.show();
+      delay(wait);
+    }
+}
 
 
 
