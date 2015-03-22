@@ -5,6 +5,7 @@
         <options/>
     </meta>
     <projectTree name="oXygen-project.xpr">
+        <folder path="guide/"/>
         <folder path="src/"/>
     </projectTree>
 </project>
