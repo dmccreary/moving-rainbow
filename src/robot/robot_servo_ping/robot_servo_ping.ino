@@ -1,15 +1,19 @@
-
+#include <Servo.h>
+#include <Adafruit_NeoPixel.h>
+// the pin that the servo is on
+const int servoPin = 11;
 // ping sensor
-const int pingPin = 11
-;
-int dist_in_cm = 120;
+const int pingPin = 10;
+const int ledPin = 12; // the pin that the LED strip is on
+const int numberPixels = 10;
 
+int dist_in_cm = 120;
+Servo myservo;  // create servo object to control a servo 
+int servoInitPos = 90;    // variable to store the servo position 
 // This LED strip is used for distance feedback
 // The closer we get to an object in front of us, the further up the blue pixel is on
-#include <Adafruit_NeoPixel.h>
-#define LEDPIN 12 // connect the Data from the strip to this pin on the Arduino
-#define NUMBER_PIEXELS 12 // the number of pixels in your LED strip
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(numberPixels, ledPin, NEO_GRB + NEO_KHZ800);
 
 int old_strip_index = 0;
 int new_strip_index = 0;
@@ -30,12 +34,16 @@ int delay_time_ninty_turn = 200;
 // if we are under this distance, make a turn
 int cm_for_turn = 10;
 int delay_time_forward = 100;
+int look_delay = 1000;
 
 void setup() {
   Serial.begin(9600);
   
   strip.begin();
-  strip.setPixelColor(0, 10, 0, 0);
+  // make the front pixel red
+  strip.setPixelColor(numberPixels - 1, 10, 0, 0);
+  // make the back pixel green
+  strip.setPixelColor(0, 0, 10, 0);
   strip.show();
   
   pinMode(pingPin, INPUT);
@@ -51,26 +59,30 @@ void setup() {
   digitalWrite(left_reverse, LOW);
   // for debugging
   // Serial.println('Start');
-  delay(1000);
+  myservo.attach(servoPin);  // attaches the servo on pin 11 to the servo object 
+  myservo.write(servoInitPos); // the servo scans from 0 to 180
+  delay(1000); // wait to see that we are good to go
 }
 
 void loop() {
-  
+  myservo.write(servoInitPos);
   delay(100);
   
   // get the distance from the ping sensor in CM
   dist_in_cm = get_distance_cm();
-  new_strip_index = dist_in_cm / 5;
   
-  // don't go over the max
-  if (new_strip_index > (NUMBER_PIEXELS - 1)) {
-    new_strip_index = 11;
+  // we are counting 0 in the rear
+  new_strip_index = numberPixels - (dist_in_cm / 5);
+  
+  // don't go over the max distance
+  if (new_strip_index < 0) {
+    new_strip_index = 0;
   }
   
   // only draw if there is a change
   if ( old_strip_index != new_strip_index) {
     // erase the old strip
-     for (int i=0; i < NUMBER_PIEXELS; i++)
+     for (int i=0; i < numberPixels; i++)
         strip.setPixelColor(i, 0, 0, 0);
     // turn on new value to a light blue
      strip.setPixelColor(new_strip_index, 0, 0, 30);
@@ -79,6 +91,16 @@ void loop() {
   
   // if there is something in front, turn right
   if (dist_in_cm < cm_for_turn) {
+      stop();
+      // look left
+      myservo.write(0);
+      delay(look_delay);
+      // look front
+      myservo.write(90);
+      delay(look_delay);
+      // look right
+      myservo.write(180);
+      delay(look_delay);
       turn_right();
     } else {
       move_forward();
@@ -96,6 +118,23 @@ void turn_right() {
   analogWrite(left_forward, power_turn_level);
   analogWrite(left_reverse, LOW);
   delay(delay_time_ninty_turn);
+}
+
+void turn_left() {
+  Serial.println("turning right");
+  analogWrite(right_forward, LOW);
+  analogWrite(right_reverse, power_turn_level);
+  analogWrite(left_forward, power_turn_level);
+  analogWrite(left_reverse, LOW);
+  delay(delay_time_ninty_turn);
+}
+
+void stop() {
+  Serial.println("stop");
+  analogWrite(right_forward, LOW);
+  analogWrite(right_reverse, LOW);
+  analogWrite(left_forward, LOW);
+  analogWrite(left_reverse, LOW);
 }
 
 void move_forward() {
