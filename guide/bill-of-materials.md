@@ -11,8 +11,7 @@ LED Strips
 ----------
 [NeoPixels from Adafruit](http://www.adafruit.com/products/1461)
 
-[Generic WS-2811B Adressible LED Strip]
-(http://www.ebay.com/itm/271630703951?_trksid=p2057872.m2749.l2649)
+[Generic WS-2811B Addressable LED Strip](http://www.ebay.com/itm/271630703951?_trksid=p2057872.m2749.l2649)
 
 Arduino Nano
 ----------
@@ -24,5 +23,5 @@ USB Cable
 
 Solderless Breadboards
 ----------
-[Solderless Breadboards on EBay]http://www.ebay.com/itm/400-Contact-Tie-Points-Mini-Solderless-Electronic-Test-Deck-Prototype-Breadboard-/281624716146
+[Solderless Breadboards on EBay](http://www.ebay.com/itm/400-Contact-Tie-Points-Mini-Solderless-Electronic-Test-Deck-Prototype-Breadboard-/281624716146)
 
