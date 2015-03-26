@@ -7,5 +7,6 @@
     <projectTree name="oXygen-project.xpr">
         <folder path="guide/"/>
         <folder path="src/"/>
+        <file name="README.md"/>
     </projectTree>
 </project>
