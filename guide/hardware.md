@@ -7,9 +7,12 @@ Arduino Moving Rainbow Kits
 
 The Moving Rainbow Kit is based on a strip of 12 "addressable" Red, Green and Blue (RGB) Light Emitting Diodes (LEDs).  We only need a single data signal (and power and ground) to connect the entire strip.
 
+![Basic Arduino Setup](guide/images/basic-200.png/)
 
 Green, red and blue LEDs in a segment of the strip
 on the tape.  You can cut the tape between any LEDs.
+
+![LED Strip in Clear Box with Mode Control](guide/images/boxed.png/)
 
 We will use a software library provided by Adafruit called the "NeoPixel" library to turn lights on and off.  Our LED strip has 12 pixels.  However we start numbering at "0" to show how computer science people are usually off-by-one digit when they access memory locations!
 
