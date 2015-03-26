@@ -19,3 +19,5 @@ We will use a software library provided by Adafruit called the "NeoPixel" librar
 
 ![Pixel Numbering](guide/images/pixel-numbering.png/)
 The first pixel has an address of "0", the second an address called "1" etc.
+
+If you want to purchase your own parts, check out our [Bill of Materials](/bill-of-materials.md/)
