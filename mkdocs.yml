@@ -1,0 +1,8 @@
+site_name: Moving Rainbow
+pages:
+- [README.md, Welcome]
+- [hardware.md, Hardware]
+- [bill-of-materials.md, Bill of Materials]
+- [guide/lab-01/index.md, Lab 1 - Blink!]
+- [guide/lab-02/index.md, Lab 2]
+theme: readthedocs
