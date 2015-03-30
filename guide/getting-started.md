@@ -2,6 +2,7 @@ Getting Started
 =======
 In this section you will learn:
 
+* How to install the Arduino IDE
 * How to download the Ardunio libraries
 * How to install the LED Ardunio libraries to work with your Arduino software
 * How to hook up your LED strip to your Arduino
@@ -10,21 +11,30 @@ In this section you will learn:
 
 ### Download the Adafruit NeoPixel Libaries
 
-
-Put the following URL in your browser:
+Click the link below or copy the following URL in your browser:
 
 [http://github.com/adafruit/Adafruit_NeoPixel](http://github.com/adafruit/Adafruit_NeoPixel)
 
 and "download" the NeoPixel Library zip file.  Look for the "Download Zip" button in the lower right corner.
 
 
-### Unzip the software and you should see a folder like "Adafruit_NeoPixel-master"
+### Unzip and Rename
+The software and you downloaded will be in a single zip file with the name:
+
+Adafruit_NeoPixel-master.zip
+
+You must first unzip this file onto your local hard drive.  One way to do this is to right click over
+the file and look for an "unzip" option.
+
+After you have unziped the file you will see a folder like "Adafruit_NeoPixel-master".
+
+Next, you must ename folder to 'Adafruit_NeoPixel' and copy it into the correct location.
+Typically this is in Arduino/Libraries folder in your home directory.
 
 
-### Rename folder to 'Adafruit_NeoPixel' and install in Arduino/Libraries folder.
+### Restart the Arduino IDE
 
-
-### Restart Arduino IDE, then open File->Sketchbook->Library->Adafruit_NeoPixel->strandtest sketch.
+After you have the library in the right location you must Restart Arduino IDE.  Then open File->Sketchbook->Library->Adafruit_NeoPixel->strandtest sketch.
 ### Change the line that initializes the strip to use pin 12
 
     Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, 12, NEO_GRB + NEO_KHZ800);
