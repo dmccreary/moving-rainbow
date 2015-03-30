@@ -1,4 +1,4 @@
 # Summary
 
-* Getting Started
+* [Getting Started](guide/getting_started.md)
 
