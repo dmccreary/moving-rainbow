@@ -1,6 +1,7 @@
 Getting Started
 =======
 In this section you will learn:
+
 1. How to download the Ardunio libraries
 1. How to install the LED Ardunio libraries to work with your Arduino software
 1. How to hook up your LED strip to your Arduino
