@@ -37,21 +37,25 @@ the file and look for an "unzip" option.
 
 After you have unziped the file you will see a folder like "Adafruit_NeoPixel-master".
 
-Next, you must ename folder to 'Adafruit_NeoPixel' and copy it into the correct location.
+Next, you must rename folder to 'Adafruit_NeoPixel' (remove the -master suffix) and copy it into the correct location.
 Typically this is in Arduino/Libraries folder in your home directory.
 
 
 ### Restart the Arduino IDE
 
-After you have the library in the right location you must Restart Arduino IDE.  Then open File->Sketchbook->Library->Adafruit_NeoPixel->strandtest sketch.
+After you have the library in the right location you must Restart Arduino IDE.  Then open 
+
+    File->Sketchbook->Library->Adafruit_NeoPixel->strandtest sketch.
+
 ### Change the line that initializes the strip to use pin 12
 
     Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, 12, NEO_GRB + NEO_KHZ800);
 
 ### Make the following connections of the LED strip
     connect the red wire to the +5 
-     connect the black wire to GND
-     connect the yellow wire to pin 12
+    connect the black wire to GND
+    connect the yellow wire to pin 12
+    
 ### Connect your Arduino to the USB and press the "upload" button. 
 
 If you have any errors, check to make sure your Tools -> Port is set to the right USB port and make sure your board is set to be "Uno".
