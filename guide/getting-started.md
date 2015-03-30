@@ -9,6 +9,15 @@ In this section you will learn:
 * How configure your programs to match your LED strip
 * How to test and debug your connections
 
+### Download the Arduino Developer Tools
+If you have not already done so, now is a good time to download the main Arudino software from the following location:.
+
+[http://arduino.cc/en/Main/Software](http://arduino.cc/en/Main/Software)
+
+follow the installation directions and then connect your Arduino to your computer using the USB cable.  
+After the two are connected you should be able to go to the Files -> Examples -> Basic -> Blink and open the
+blink program.  You should then be able to see the LED on the Arudion flash on and off.
+
 ### Download the Adafruit NeoPixel Libaries
 
 Click the link below or copy the following URL in your browser:
