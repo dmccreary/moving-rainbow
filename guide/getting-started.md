@@ -2,11 +2,11 @@ Getting Started
 =======
 In this section you will learn:
 
-1. How to download the Ardunio libraries
-1. How to install the LED Ardunio libraries to work with your Arduino software
-1. How to hook up your LED strip to your Arduino
-1. How configure your programs to match your LED strip
-1. How to test and debug your connections
+* How to download the Ardunio libraries
+* How to install the LED Ardunio libraries to work with your Arduino software
+* How to hook up your LED strip to your Arduino
+* How configure your programs to match your LED strip
+* How to test and debug your connections
 
 ### Download the Adafruit NeoPixel Libaries
 
