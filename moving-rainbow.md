@@ -9,7 +9,7 @@ of Arduinos and addressable LED strips to create fun projects.
 Table of Contents
 -----------------
 
-[Hardware](/guide/hardware.md)
+[Hardware](guide/hardware.md)
 
 [set pixel color](/src/lab-01) Set the first pixel to red, green and blue.
 
