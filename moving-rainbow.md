@@ -10,6 +10,7 @@ Table of Contents
 -----------------
 
 [Hardware](guide/hardware.md)
+[Getting Started](guide/getting-started.md)
 
 [set pixel color](/src/lab-01) Set the first pixel to red, green and blue.
 
