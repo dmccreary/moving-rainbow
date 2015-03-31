@@ -1,5 +1,5 @@
 # Summary
 
 * [Getting Started](getting-started.md)
-* Hardware
+* [Hardware](guide/hardware.md)
 
