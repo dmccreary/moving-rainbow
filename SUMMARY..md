@@ -1,5 +1,0 @@
-# Summary
-
-* Moving Rainbow
-* Hardware
-
