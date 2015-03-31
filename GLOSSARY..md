@@ -1,5 +1,5 @@
 # Glossary
 
-## Arduino
+## Light Emitting Diode (LED)
 
-Standard for teaching physical computing and real-time control systems.
+A device that converts DC current into light.  In our project each Pixel element has a red, green and blue LED in it.
