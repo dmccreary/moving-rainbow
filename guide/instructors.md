@@ -13,3 +13,9 @@ The second idea is to mix in the power of social learning.  When students can ta
 We are also opposed to the idea that you have to purchase a $100 to $200 kit to learn these concepts.  By keeping the price under $15 we think that we make these kits available to a much larger audience.
 
 We also feel that learning basic "foundation" skills such as breadboarding is critical for future projects.  Purchasing a kit of propriatary connectors might be fun, but will limit future learing.
+
+References
+--------
+- [Wikipedia Article on Social Constructivism in Education](http://en.wikipedia.org/wiki/Social_constructivism#Social_constructivism_and_education)
+- [Constructivism on Cult of Pedagogy](http://www.cultofpedagogy.com/constructivism/)
+
