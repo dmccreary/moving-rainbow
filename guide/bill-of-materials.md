@@ -61,3 +61,11 @@ Mode Selector
 Rest Buttons
 -----------
 [Momentary Push Buttons](http://www.ebay.com/itm/10PCS-Mini-Push-Button-PushButton-Boat-Momentary-OFF-ON-Switch-7mm-Red-/251757733306) I found 10 fo them for $3.67 with shipping.
+
+Sample Price Estimator Worksheet
+=========
+I have created a sample spreadsheet you can use to estimate the per-kit costs.  You can find a link to it here:
+
+[Price Estimator Worksheet](https://docs.google.com/spreadsheets/d/1uCfGTy7KFnmDBCn1RQVAIOsYzswlU3Z7_YUq1AavHyk/pubhtml)
+
+The current total is around $14.50 for all the parts when purchased in quantity 10.
