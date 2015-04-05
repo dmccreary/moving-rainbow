@@ -55,9 +55,14 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NE
 strip.show();
 ```
 #### Set a pixel color
+The most important function in our programs is the function to set one of the pixels to a specific color.  We use the following function:
 ```
 strip.setPixelColor(index, red, green, blue);
 ```
+Where the "index" is the number of pixel to set, starting at pixel 0.  The second pixel is called "1" etc.  Each of the index numbers is off by one.
+
+![Pixel Numbering](images/pixel-numbering.png)
+The first pixel has an address of "0", the second an address called "1" etc.
 #### Wait
 ```
 delay(milliseconds)
