@@ -13,6 +13,11 @@ Moving Rainbow is a Arduino-based hardware kit and set of labs to teach students
 
 Being able to control the world around us creates a wonderful feeling of empowerment.  We are no longer limited to what our cellphone or laptop can do.  We can program lights and motors around to obey our every command.  The Moving Rainbow kits will be your guide.  You will start out with a simple blink lab but quickly move to exotic colors, patterns and motion.  We can even hook up sensors to change the LEDs based on what is happening in the world around us.
 
+## Book Versions
+In addition to reading the manual directly on [GitHub](https://github.com/dmccreary/moving-rainbow) there are two versions of this book that are rendered in on-line book forms:
+1. [Read the Docs Book](http://moving-rainbow.readthedocs.org/en/latest)
+2. [GitBook](http://dmccreary.gitbooks.io/moving-rainbow)
+
 Moving Rainbow Addressable LED Kits
 ----------
 
