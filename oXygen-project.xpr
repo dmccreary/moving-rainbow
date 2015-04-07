@@ -9,5 +9,6 @@
         <folder path="src/"/>
         <file name="moving-rainbow.md"/>
         <file name="README.md"/>
+        <file name="SUMMARY.md"/>
     </projectTree>
 </project>
