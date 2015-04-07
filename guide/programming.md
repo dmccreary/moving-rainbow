@@ -1,5 +1,4 @@
 # Moving Rainbow Programmer's Guide
-======
 This guide assumes you are somewhat familiar with hooking up your LED strip to your Arduino and are ready to learn how to programthe LED strip.  This programming guide will cover:
 - How to use the setup and loop functions
 - How to set the color of a pixel
