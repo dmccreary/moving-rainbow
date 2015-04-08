@@ -1,5 +1,5 @@
 # Moving Rainbow Programmer's Guide
-This guide assumes you are somewhat familiar with hooking up your LED strip to your Arduino and are ready to learn how to programthe LED strip.  This programming guide will cover:
+This guide assumes you are somewhat familiar with hooking up your LED strip to your Arduino and are ready to learn how to program the LED strip.  This programming guide will cover:
 - How to use the setup and loop functions
 - How to set the color of a pixel
 - How to use a for loop to change all the colors in the strip
@@ -59,6 +59,11 @@ The most important function in our programs is the function to set one of the pi
 strip.setPixelColor(index, red, green, blue);
 ```
 Where the "index" is the number of pixel to set, starting at pixel 0.  The second pixel is called "1" etc.  Each of the index numbers is off by one.
+
+```
+strip.numPixels()
+```
+Returns the number of pixels in the LED strip.
 
 ![Pixel Numbering](images/pixel-numbering.png)
 The first pixel has an address of "0", the second an address called "1" etc.

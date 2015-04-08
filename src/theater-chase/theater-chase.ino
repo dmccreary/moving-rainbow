@@ -15,7 +15,7 @@ void loop() {
   theaterChase(strip.Color(0, 0, 127), delayTime); // blue
 }
 
-// Theatre-style crawling lights.
+// Theatre-style crawling lights with a spacing of 3
 void theaterChase(uint32_t c, uint8_t wait) {
   for (int j=0; j<10; j++) {  //do 10 cycles of chasing
     for (int q=0; q < 3; q++) {
