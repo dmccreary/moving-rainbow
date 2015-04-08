@@ -1,3 +1,11 @@
+# Moving Rainbow
+
+Now let's combine a few of our programs.
+
+We will use the modulo function (%) to get the offset from a counter.
+
+
+```
 #include <Adafruit_NeoPixel.h>
 #define LEDPIN 12 // connect the Data from the strip to this pin on the Arduino
 #define NUMBER_PIEXELS 150 // the number of pixels in your LED strip
@@ -19,7 +27,7 @@ void loop() {
 void rainbow7(uint16_t i, uint16_t wait) {
     int np = strip.numPixels();  // we use the modulo function with this
     strip.setPixelColor(i     % np, 0, 0, 0); // off
-    strip.setPixelColor((i+1)     % np, 25, 0, 25); // violet
+    strip.setPixelColor((i+1) % np, 25, 0, 25); // violet
     strip.setPixelColor((i+2) % np, 255, 0, 255); // indigo
     strip.setPixelColor((i+3) % np, 0, 0, 150); // blue
     strip.setPixelColor((i+4) % np, 0, 150, 0); // green
@@ -29,3 +37,6 @@ void rainbow7(uint16_t i, uint16_t wait) {
     strip.show();
     delay(wait);
 }
+```
+## More to Explore
+Try changing the speed.  How fast can you make it go?

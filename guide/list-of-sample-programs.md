@@ -7,6 +7,6 @@
 5. [Fade In And Out](fade-in-and-out.md) Fade a color in and out.
 6. [Theater Chase](theater-chase.md) Are you ready for a triple loop?
 7. [Random](random.md) Turn on a random pixel with a random color.
-8. [Color Wheel](color-wheel.md)
-7. Candle Flicker
-8. Moving Rainbow
+8. [Color Wheel](color-wheel.md) A walk around the color wheel.
+9. [Candle Flicker](candle-flicker.md) Simulate a flickering candle.
+10. [Moving Rainbow](moving-rainbow.md) My favorite sample program.
