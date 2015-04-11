@@ -2,7 +2,7 @@
 #define NUMBER_PIEXEL 12
 #define LEDPIN    12
 
-// Our equivenlt to "Hello World".  Blink the first pixes (0) on and off every second
+// Our version of "Hello World".  Blink the first pixel (0) on and off every second
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXEL, LEDPIN, NEO_GRB + NEO_KHZ800);
  
