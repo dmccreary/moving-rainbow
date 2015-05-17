@@ -9,7 +9,8 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NE
 // hook up two momentary push buttons to pins 
 volatile int newMode = 0; // the interrupts set this to 1 to indicate that we have a new mode on the way
 volatile int mode = -1; // This gets incremented each button press
-int modeCount = 12; // The number of display modes
+int waitTime = 20; //Typical delay between draws
+int modeCount = 11; // The number of display modes
 
 void setup() {
   strip.begin(); // sets up the memory for the LED strip
@@ -30,7 +31,7 @@ void changeMode(){        // Interrupt service routine
 void loop() {
   // check to see if we should change the mode
   if (newMode == 1) {
-      delay(200); // wait for the switch to settle down used to de-bounce
+      delay(waitTime); // wait for the switch to settle down used to de-bounce
       mode = (mode + 1) % modeCount;
       Serial.print("mode=");
       Serial.println(mode, DEC);
@@ -40,56 +41,50 @@ void loop() {
 
    // select the mode
       switch (mode) {
-        case 0: rainbow7(100);break;
-        case 1: colorWipe(strip.Color(255, 0, 0), 50);break; // Red
-        case 2: colorWipe(strip.Color(0, 255, 0), 50);break; // Green
-        case 3: colorWipe(strip.Color(0, 0, 255), 50);break; // Blue
-        case 4: rainbow(5);break;
-        case 5: rainbowCycle(5);break;
-        case 7: rainbowStatic();break;
-        case 8: randomRGB();break;
-        case 9: randomColor();break;
-        case 10: candle();break;
-        case 11: theaterChaseRainbow(100);break;
+        case 0: rainbow7(20);break;
+        case 1: colorWipe(strip.Color(255, 0, 0), waitTime);break; // Red
+        case 2: colorWipe(strip.Color(0, 255, 0), waitTime);break; // Green
+        case 3: colorWipe(strip.Color(0, 0, 255), waitTime);break; // Blue
+        case 4: singlePixel(waitTime);break;
+        case 5: rainbow(5);break;
+        case 6: rainbowCycle(5);break;
+        case 7: randomRGB(waitTime);break;
+        case 8: randomColor(waitTime);break;
+        case 9: candle();break;
+        case 10: theaterChaseRainbow(100);break;
      }
     
 }
 
 // a seven segment rainbow with red on the highest pixel
 void rainbow7(uint16_t wait) {
-    for (int i=0; i<strip.numPixels()-1; i++) {
-      int np = strip.numPixels();  // we use the modulo function with this
-      strip.setPixelColor(i     % np, 25, 0, 25); // violet
-      strip.setPixelColor((i+1) % np, 255, 0, 255); // indigo
-      strip.setPixelColor((i+2) % np, 0, 0, 150); // blue
-      strip.setPixelColor((i+3) % np, 0, 150, 0); // green
-      strip.setPixelColor((i+4) % np, 255, 255, 0); // yellow
-      strip.setPixelColor((i+5) % np, 110, 70, 0); // orange
-      strip.setPixelColor((i+6) % np, 150, 0, 0); // red
-      // we don't need to touch 7, 8 and 9
-      strip.setPixelColor((i+10) % np, 0, 0, 0); // turn the second to the last one off
-      strip.setPixelColor((i+11) % np, 0, 0, 0); // turn the last one off
+  int np = strip.numPixels();  // we use the modulo function with this
+  for (int i=0; i<strip.numPixels()-1; i++) { 
+      strip.setPixelColor(i     % np, 0, 0, 0); // off
+      strip.setPixelColor((i+1)   % np, 25, 0, 25); // violet
+      strip.setPixelColor((i+2) % np, 255, 0, 255); // indigo
+      strip.setPixelColor((i+3) % np, 0, 0, 150); // blue
+      strip.setPixelColor((i+4) % np, 0, 150, 0); // green
+      strip.setPixelColor((i+5) % np, 255, 255, 0); // yellow
+      strip.setPixelColor((i+6) % np, 110, 70, 0); // orange
+      strip.setPixelColor((i+7) % np, 150, 0, 0); // red
       strip.show();
       delay(wait);
-    }
+  }
 }
 
 // See https://en.wikipedia.org/wiki/Web_colors
-void rainbowStatic() {
-   strip.begin(); // sets up the memory
-   strip.setPixelColor(0, 255, 0, 0);     // make the 1st pixel red
-   strip.setPixelColor(1, 0, 255, 0);     // make the 2nd pixel green
-   strip.setPixelColor(2, 0, 0, 255);     // make the 3rd pixel blue
-   strip.setPixelColor(3, 255, 255, 255); // make the 4th pixel white
-   strip.setPixelColor(4, 255, 255, 0);   // make the 5th pixel yellow
-   strip.setPixelColor(5, 0, 255, 255);   // make the 6th pixel aqua
-   strip.setPixelColor(6, 255, 0, 255);   // make the 7th pixel fuchsia
-   strip.setPixelColor(7, 200, 130, 0);   // make the 8th pixel orange (changed from 255, 165, 0)
-   strip.setPixelColor(8, 80, 0, 80);     // make the 9th pixel purple
-   strip.setPixelColor(9, 143, 188, 143); // make the 10th pixel DarkSeaGreen
-   strip.setPixelColor(10, 218, 165, 32);  // make the 11th pixel Goldenrod
-   strip.setPixelColor(11, 127, 255, 212);  // make the 11th pixel Aquamarine
-   strip.show(); // must use to refresh the strip
+void singlePixel(uint8_t wait) {
+   for(uint8_t i=0; i<strip.numPixels(); i++) {
+     // turn it on
+      strip.setPixelColor(i , 255, 0, 0);
+      // show it
+      strip.show();
+      // wait
+      delay(wait);
+      // turn it off
+      strip.setPixelColor(i , 0, 0, 0);  
+  }
 }
 
 // Fill the dots one after the other with a color
@@ -99,6 +94,11 @@ void colorWipe(uint32_t c, uint8_t wait) {
       strip.show();
       delay(wait);
   }
+  // turn them all off
+  for(uint16_t i=0; i<strip.numPixels(); i++) {
+      strip.setPixelColor(i, 0);
+  }
+  strip.show();
 }
  
 void rainbow(uint8_t wait) {
@@ -152,21 +152,21 @@ void candle() {
   }
 }
 
-void randomRGB() {
+void randomRGB(uint8_t wait) {
   for(uint16_t i=0; i<strip.numPixels(); i++) {
      strip.setPixelColor(i, random(255), random(255), random(255));
      strip.show();
-     delay(100);
+     delay(wait);
   }
 }
 
-void randomColor() {
+void randomColor(uint8_t wait) {
 int newColor;
   for(uint16_t i=0; i<strip.numPixels(); i++) {
      newColor = Wheel(random(255));
      strip.setPixelColor(i, newColor);
      strip.show();
-     delay(100);
+     delay(wait);
   }
 }
 
