@@ -26,7 +26,6 @@ void rainbow7(uint16_t i, uint16_t wait) {
     strip.setPixelColor((i+5) % np, 255, 255, 0); // yellow
     strip.setPixelColor((i+6) % np, 110, 70, 0); // orange
     strip.setPixelColor((i+7) % np, 150, 0, 0); // red
-    
     strip.show();
     delay(wait);
 }

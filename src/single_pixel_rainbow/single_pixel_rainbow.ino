@@ -5,14 +5,14 @@
 // http://www.ebay.com/itm/181268207260?ssPageName=STRK:MEWNX:IT&_trksid=p3984.m1439.l2649
 // Note - colors for data and ground vary
 // I used a 16MHZ Crystal Oscilator
-#define PIN 2 // connect the Data In pin
+#define PIN 12 // connect the Data In pin
  
 // Parameter 1 = number of pixels in strip - I used 12
 // Parameter 2 = pin number (most are valid)
 // Parameter 3 = pixel type flags, add together as needed:
 //   NEO_GRB     Pixels are wired for GRB bitstream
 //   NEO_KHZ800  800 KHz bitstream (e.g. High Density LED strip)
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, PIN, NEO_GRB + NEO_KHZ800);
 
 int delayVal = 100; // how quickly to stay on each of the 255 colors (milliseconds)
 

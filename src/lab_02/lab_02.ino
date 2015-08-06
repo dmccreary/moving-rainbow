@@ -3,24 +3,31 @@
 #define NUMBER_PIEXELS 12 // the number of pixels in your LED strip
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 
+int delayTime = 100; // 1/10 of a second
+
 void setup() {
-  strip.begin(); // initialize all the variables
-  strip.setPixelColor(0, 255, 0, 0); // set the first pixel to be red
-  strip.setPixelColor(1, 0, 255, 0); // set second pixel green
-  strip.setPixelColor(2, 0, 0, 255); // set the third pixel to be blue
-  strip.setPixelColor(3, 128, 128, 0); // set fourth pixel to be olive?
-  strip.setPixelColor(4, 255, 165, 0); // set fifth pixel to be orange
-  strip.setPixelColor(5, 255, 255, 0); // set sixth pixel to be yellow
-  strip.setPixelColor(6, 255, 0, 255); // set seventh pixel to be Fuchsia/Magenta
-  strip.setPixelColor(7, 0, 255, 255); // set eighth pixel to be Aqua/Cyan
-  strip.setPixelColor(8, 255, 105, 180); // set ninth pixel to be hot pink
-  strip.setPixelColor(9, 255, 255, 255); // set tenth pixel to be white
-  strip.setPixelColor(10, 10, 10, 10); // set eleventh pixel to be light gray
-  strip.setPixelColor(11, 1, 1, 1); // set twelfth and last pixel to be almost off
-  strip.show(); // Send to the strip}
+  strip.begin(); // initialize the strip
 }
 
 void loop() {
-  
+  for (int i=0; i<strip.numPixels()-1; i++) {
+    rainbow7(i, delayTime); // starting at i, draw the 7 color rainbow
+  }
 }
 
+// a seven segment rainbow with red on the highest pixel
+void rainbow7(uint16_t i, uint16_t wait) {
+    int np = strip.numPixels();  // we use the modulo function with this
+    strip.setPixelColor(i     % np, 25, 0, 25); // violet
+    strip.setPixelColor((i+1) % np, 255, 0, 255); // indigo
+    strip.setPixelColor((i+2) % np, 0, 0, 150); // blue
+    strip.setPixelColor((i+3) % np, 0, 150, 0); // green
+    strip.setPixelColor((i+4) % np, 255, 255, 0); // yellow
+    strip.setPixelColor((i+5) % np, 110, 70, 0); // orange
+    strip.setPixelColor((i+6) % np, 150, 0, 0); // red
+    // we don't need to touch 7, 8 and 9
+    strip.setPixelColor((i+10) % np, 0, 0, 0); // turn the second to the last one off
+    strip.setPixelColor((i+11) % np, 0, 0, 0); // turn the last one off
+    strip.show();
+    delay(wait);
+}
