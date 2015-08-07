@@ -35,9 +35,9 @@ This is the name coined by Adafruit for an individually addressable LED.
 * [NeoPixel on Adafruit Web Site](http://www.adafruit.com/category/168)
 
 ## NeoPixel Library
-The Arduino librry used in these guides.  We picked this library because of its popularity and the many on-line
+The Arduino library used in these guides.  We picked this library because of its popularity and the many on-line
 tutorials about how to use them.
-* NeoPixel Libary on the Adafruit Web Site]https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library
+* NeoPixel Library on the Adafruit Web Site]https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library
 
 ## Social Constructionism
 Getting students to build things together in teams.  This style of teaching has many benefits over the standard lecture-style learning.
@@ -45,4 +45,4 @@ Getting students to build things together in teams.  This style of teaching has 
 
 ## WS2812B
 A standard for addressable RGB LEDs
-* [Datasheet from Adafruit](http://www.adafruit.com/datasheets/WS2812B.pdf)
+* [Data sheet from Adafruit](http://www.adafruit.com/datasheets/WS2812B.pdf)
