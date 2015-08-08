@@ -1,11 +1,15 @@
 # Moving Rainbow Programmer's Guide
-This guide assumes you are somewhat familiar with hooking up your LED strip to your Arduino and are ready to learn how to program the LED strip.  This programming guide will cover:
+This guide assumes you are somewhat familiar with Arduino programming and using the setup() and loop() functions.
+It assuems you have hooked up your LED strip to your 
+Arduino and are ready to learn how to program the LED strip.  
+
+This programming guide will cover:
 - How to use the setup and loop functions
 - How to set the color of a pixel
 - How to use a for loop to change all the colors in the strip
 - How to use the delay function slow down your patterns
 - How to create and use functions
-- How to use various such as the if/then/else to conditionally turn on pixels
+- How to use various such as the if/then/else statements to conditionally turn on pixels
 
 ## Getting Started
 ### Setup and Loop
@@ -72,4 +76,16 @@ The first pixel has an address of "0", the second an address called "1" etc.
 delay(milliseconds)
 ```
 
+You can also lower the overall brightness of the strip using the strip.setBrightness() function.  
+It is designed to be used only in the "setup()" function and it takes a number from 0 to 255 with 0 for off and 255 for maximum brightness.
+
+If you want to turn your LED strip to 1/4 brightness you can add the following:
+```
+strip.setBrightness(64);
+```
+
+You can put this function in to tone down the brightness when the strip starts.
+
+### Refernces
+[Adafruit NeoPixel Guide](https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library)
 

@@ -71,12 +71,14 @@ The first step is to manually install the driver.  This can be done at the follo
 
 Make sure you have admin rights on your computer before you install this driver.
 
-Note that as of August of 2015, the driver for the Mac is still "unsigned" and will not work on modern Mac OSs.
+Note that as of August of 2015, the driver for the Mac is still "unsigned" and will not work on modern Mac OSs (Yousemite) .
 The workaround this is to temporarly disable checking for a signed driver on the Mac.  To do this run the following
 program in the Mac UNIX Console /Applications- > Utilities -> Terminal
 
      sudo nvram boot-args="kext-dev-mode=1"
      
-After you run this command you must reboot the Mac for it to take effect.
+After you run this command you must reboot the Mac for it to take effect.  This will allow the drivers to be loaded even though they are unsigned drivers.
 
 See this helpful post on [Installing the CH340 Driver on Yosemite on the Mac](http://kiguino.moos.io/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html)
+
+After the driver is installed you should see a non-Bluetooth port appear.  
