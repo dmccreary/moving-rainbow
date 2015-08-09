@@ -12,7 +12,7 @@ void setup()
   digitalWrite(ENC_A, HIGH);
   pinMode(ENC_B, INPUT);
   digitalWrite(ENC_B, HIGH);
-  Serial.begin (19200);
+  Serial.begin (9600);
   Serial.println("Start");
 }
 

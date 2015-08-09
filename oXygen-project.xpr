@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="15.2">
+<project version="17.0">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="15.2" xml:space="preserve">
-                <map>
+            <serialized version="17.0" xml:space="preserve">
+                <serializableOrderedMap>
                     <entry>
                         <String>scenario.associations</String>
                         <scenarioAssociation-array>
@@ -102,6 +102,9 @@
                                     <Boolean>false</Boolean>
                                 </field>
                                 <field name="outputFile">
+                                    <null/>
+                                </field>
+                                <field name="outputResource">
                                     <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
@@ -269,14 +272,13 @@
                             </validationScenario>
                         </validationScenario-array>
                     </entry>
-                </map>
+                </serializableOrderedMap>
             </serialized>
         </options>
     </meta>
     <projectTree name="oXygen-project.xpr">
         <folder path="guide/"/>
         <folder path="src/"/>
-        <file name="moving-rainbow.md"/>
         <file name="README.md"/>
         <file name="SUMMARY.md"/>
     </projectTree>
