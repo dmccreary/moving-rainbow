@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 #define LEDPIN 12 // connect the Data from the strip to this pin on the Arduino
-#define NUMBER_PIEXELS 150 // the number of pixels in your LED strip
+#define NUMBER_PIEXELS 12 // the number of pixels in your LED strip
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 
 int delayTime = 100; // 1/10 of a second

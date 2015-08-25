@@ -25,7 +25,7 @@ void setup()   /*----( SETUP: RUNS ONCE )----*/
 
 //-------- Write characters on the display ------------------
   // NOTE: Cursor Position: Lines and Characters start at 0  
-  lcd.setCursor(0,0); //Start at character 4 on line 0
+  lcd.setCursor(0,0); //Start at character 0 on line 0
   // write 16 chars on line 1
   lcd.print("1234567890123456");
   // write 16 chars on line 1
