@@ -1,7 +1,7 @@
 #include <Adafruit_NeoPixel.h>
 
 #define LEDPIN 12 // connect the Data In pin
-#define NUMBER_PIEXELS 12// connect the Data In pin
+#define NUMBER_PIEXELS 8// connect the Data In pin
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 
 const int analog_red_pin   = 0; // Analog input pin number for reading Red value
