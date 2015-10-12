@@ -16,6 +16,7 @@ volatile int mode = -1; // This gets incremented each button press
 int waitTime = 100; //Typical delay between draws
 int modeCount = 11; // The number of display modes
 int loop_count; // the number of times through the main loop
+int ear_ring_increment_steps = 5; //
 
 void setup() {
   strip.begin(); // sets up the memory for the LED strip
@@ -88,10 +89,10 @@ void rainbow7(uint16_t wait) {
 }
 
 void increment_ears() {
-ear1.setPixelColor(0, Wheel(loop_count % 255));
-ear1.show();
-ear2.setPixelColor(0, Wheel(loop_count % 255));
-ear2.show();
+  ear1.setPixelColor(0, Wheel(loop_count*ear_ring_increment_steps % 255));
+  ear1.show();
+  ear2.setPixelColor(0, Wheel(loop_count*ear_ring_increment_steps % 255));
+  ear2.show();
 };
 
 // See https://en.wikipedia.org/wiki/Web_colors
