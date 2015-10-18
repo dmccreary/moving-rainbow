@@ -77,6 +77,9 @@ program in the Mac UNIX Console /Applications- > Utilities -> Terminal
 
      sudo nvram boot-args="kext-dev-mode=1"
      
+
+The most current version of Mac (El Capitan) has some problems recognizing the NEO board.  Per [this Stack Exchange](http://arduino.stackexchange.com/questions/14018/arduino-not-detected-on-el-capitan-public-beta-6) thread, downloading a paid driver has helped one student in this demo.
+
 After you run this command you must reboot the Mac for it to take effect.  This will allow the drivers to be loaded even though they are unsigned drivers.
 
 See this helpful post on [Installing the CH340 Driver on Yosemite on the Mac](http://kiguino.moos.io/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html)
