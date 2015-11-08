@@ -16,7 +16,7 @@ Being able to control the world around us creates a wonderful feeling of empower
 
 ## Book Versions
 In addition to reading the manual directly on [GitHub](https://github.com/dmccreary/moving-rainbow) there are two versions of this book that are rendered in on-line book forms:
-1. [Read the Docs Book](http://moving-rainbow.readthedocs.org/en/latest)
+1. [Read the Docs Book](http://moving-rainbow.readthedocs.org/en/latest/README/)
 2. [GitBook](http://dmccreary.gitbooks.io/moving-rainbow)
 
 Moving Rainbow Addressable LED Kits
