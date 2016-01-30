@@ -22,7 +22,7 @@ void setup() {
  digitalWrite(pinA,HIGH);
  digitalWrite(pinB,HIGH); // Set up to call our knob function any time pinA rises
  attachInterrupt(0, knobTurned, RISING); // calls our 'knobTurned()' function when pinA goes from LOW to HIGH level = 50; -- a value to start with * Set up for using the on-screen monitor *
- Serial.begin(115200); // make sure your monitor baud rate matches this
+ Serial.begin(9600); // make sure your monitor baud rate matches this
  
  Serial.println("Encoder Ready");
  Serial.print("level = ");

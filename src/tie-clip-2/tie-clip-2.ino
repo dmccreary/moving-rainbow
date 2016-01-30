@@ -1,3 +1,5 @@
+
+
 #include <Adafruit_NeoPixel.h>
 #include <avr/interrupt.h>
 
@@ -11,10 +13,14 @@ volatile int newMode = 0; // the interrupts set this to 1 to indicate that we ha
 volatile int mode = -1; // This gets incremented each button press
 int waitTime = 80; //Typical delay between draws
 int modeCount = 11; // The number of display modes
+int bright_pot_pin = A0; // Brightness Potentiometer Pin.  Put one end of the pot to GND the other to 5v.
+int bright_value = 500; // set the initial brightness in the middle of the pot
+uint8_t brightness = 125; // set the initial brightness scaled from 0 to 255
 
 void setup() {
   strip.begin(); // sets up the memory for the LED strip
   pinMode(13, OUTPUT);     // Pin 13 is output to which an LED is connected
+  pinMode(bright_pot_pin, OUTPUT);     // get an input from the pot from 0 to 1023
   digitalWrite(13, LOW);   // Make pin 13 low, switch LED off
   pinMode(2, INPUT_PULLUP);	   // Pin 2 is input to which a switch is connected = INT0
   attachInterrupt(0, changeMode, RISING); // connect the mode to pin 2
@@ -37,13 +43,17 @@ void loop() {
       digitalWrite(13, LOW);
       newMode = 0;
   }
+  bright_value = analogRead(bright_pot_pin);
+  Serial.print("bright value=");
+  Serial.println(bright_value, DEC);
+  brightness = map(bright_value, 0, 1024, 0, 255);
 
    // select the mode
       switch (mode) {
-        case 0: rainbow7(waitTime);break;
-        case 1: colorWipe(strip.Color(255, 0, 0), waitTime);break; // Red
-        case 2: colorWipe(strip.Color(0, 255, 0), waitTime);break; // Green
-        case 3: colorWipe(strip.Color(0, 0, 255), waitTime);break; // Blue
+        case 0: rainbow7(waitTime, brightness);break;
+        case 1: colorWipe(strip.Color(brightness, 0, 0), waitTime);break; // Red
+        case 2: colorWipe(strip.Color(0, brightness, 0), waitTime);break; // Green
+        case 3: colorWipe(strip.Color(0, 0, brightness), waitTime);break; // Blue
         case 4: singlePixel(waitTime);break;
         case 5: rainbow(5);break;
         case 6: rainbowCycle(5);break;
@@ -56,17 +66,17 @@ void loop() {
 }
 
 // a seven segment rainbow with red on the highest pixel
-void rainbow7(uint16_t wait) {
+void rainbow7(uint16_t wait, uint8_t brightness) {
   int np = strip.numPixels();  // we use the modulo function with this
   for (int i=0; i<strip.numPixels()-1; i++) { 
       strip.setPixelColor(i     % np, 0, 0, 0); // off
-      strip.setPixelColor((i+1)   % np, 25, 0, 25); // violet
-      strip.setPixelColor((i+2) % np, 255, 0, 255); // indigo
-      strip.setPixelColor((i+3) % np, 0, 0, 150); // blue
-      strip.setPixelColor((i+4) % np, 0, 150, 0); // green
-      strip.setPixelColor((i+5) % np, 255, 255, 0); // yellow
-      strip.setPixelColor((i+6) % np, 110, 70, 0); // orange
-      strip.setPixelColor((i+7) % np, 150, 0, 0); // red
+      strip.setPixelColor((i+1)   % np, brightness, 0, brightness); // violet
+      strip.setPixelColor((i+2) % np, brightness, 0, brightness); // indigo
+      strip.setPixelColor((i+3) % np, 0, 0, brightness); // blue
+      strip.setPixelColor((i+4) % np, 0, brightness, 0); // green
+      strip.setPixelColor((i+5) % np, brightness, brightness, 0); // yellow
+      strip.setPixelColor((i+6) % np, brightness / 2, brightness / 3, 0); // orange
+      strip.setPixelColor((i+7) % np, brightness, 0, 0); // red
       strip.show();
       delay(wait);
   }

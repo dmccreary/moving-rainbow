@@ -1,4 +1,6 @@
 #include <Adafruit_NeoPixel.h>
+#include <Encoder.h>
+
 #include <avr/interrupt.h>
 
 #define LEDPIN 12 // connect the Data In pin

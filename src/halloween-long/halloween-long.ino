@@ -159,6 +159,7 @@ for (int i=1; i<NUMBER_PIXELS / 2; i++) {
     
     purplePosition = purplePosition + random(-2, 2);
     strip.setPixelColor(purplePosition, 255, 0, 255); // purple
+    
     strip.show();
     delay(20);
     strip.setPixelColor(purplePosition, 0, 0, 0);
