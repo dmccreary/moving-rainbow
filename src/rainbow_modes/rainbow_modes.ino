@@ -6,7 +6,7 @@
 // Note - colors for data and ground vary
 // I used a 16MHZ Crystal Oscilator
 #define LEDPIN 12 // connect the Data In pin
-#define NUMBER_PIEXELS 12// connect the Data In pin
+#define NUMBER_PIEXELS 24// connect the Data In pin
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 // this constant won't change:
 const int  buttonPin = 3;    // the pin that the pushbutton is attached to
