@@ -14,23 +14,26 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LEDPIN, NEO_GRB + NEO
 
 Setup
 ------------
-```void setup() {
+```
+void setup() {
   strip.begin();
   strip.show();
-}```
+}
+```
 
 Setting Strip Color
 ```strip.setPixelColor(i, red, green, blue);```
 
 where:
 i is the index (0 to 11 for a 12 pixel strip)
-<span style="color:red">red<span> is the value of the red LED (0=off, 255=brightest value)
+<span style="color:red">red</span> is the value of the red LED (0=off, 255=brightest value)
 green is the value of the green LED (0=off, 255=brightest value)
 blue is the value of the blue LED (0=off, 255=brightest value)
 
-```for (i=0; i <= strip.numPixels();; i++) {
-      strip.setPixelColor(i, 100, 100, 100)
-   }
+```
+for (i=0; i <= strip.numPixels();; i++) {
+  strip.setPixelColor(i, 100, 100, 100)
+}
 ```
 
 To Find Out More
