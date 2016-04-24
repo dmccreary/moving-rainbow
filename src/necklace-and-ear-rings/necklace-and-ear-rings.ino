@@ -36,7 +36,7 @@ void changeMode(){        // Interrupt service routine
 }
 
 void loop() {
-  loop_count++;
+  
   // check to see if we should change the mode
   if (newMode == 1) {
       delay(waitTime); // wait for the switch to settle down used to de-bounce
@@ -47,9 +47,6 @@ void loop() {
       newMode = 0;
   };
   
-  Serial.print("loop=");
-  Serial.println(loop_count, DEC);
-   
    // select the mode
       switch (mode) {
         case 0: rainbow7(waitTime);break;
@@ -64,7 +61,9 @@ void loop() {
         case 9: candle();break;
         case 10: theaterChaseRainbow(100);break;
      }
-    
+    loop_count++;
+    Serial.print("loop count=");
+    Serial.println(loop_count);
 }
 
 // a seven segment rainbow with red on the highest pixel
