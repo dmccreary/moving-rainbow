@@ -3,7 +3,8 @@
 
 #include <avr/interrupt.h>
 
-#define LEDPIN 12 // connect the Data In pin
+#define LEDPIN 11 // connect the Data In pin
+#define POTPIN A0 // connect center pin of a potentiometer, sides go to +5 and GND
 #define MODEPIN 2 // pull down to groud to get a new mode
 #define NUMBER_PIEXELS 72// connect the Data In pin
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
@@ -12,19 +13,23 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NE
 volatile int newMode = 0; // the interrupts set this to 1 to indicate that we have a new mode on the way
 volatile int mode = -1; // This gets incremented each button press
 int modeCount = 12; // The number of display modes
+int dimness = 512; // The dimness value from 0 to 1023
+int loop_count = 0;
+float dimness_float = 0.5;
 
 void setup() {
   strip.begin(); // sets up the memory for the LED strip
   pinMode(13, OUTPUT);     // Pin 13 is output to which an LED is connected
+  pinMode(A0, INPUT);     // Pin 13 is output to which an LED is connected
   digitalWrite(13, LOW);   // Make pin 13 low, switch LED off
   pinMode(2, INPUT_PULLUP);	   // Pin 2 is input to which a switch is connected = INT0
-  pinMode(3, INPUT_PULLUP);	   // Pin 3 is input to which a switch is connected = INT1
   attachInterrupt(0, changeMode, RISING); // connect the mode to pin 2
   Serial.begin(9600);
   Serial.println("Start");
 }
 
-void changeMode(){        // Interrupt service routine
+// Interrupt service routine
+void changeMode(){        
   digitalWrite(13, HIGH); // we have a new mode
   newMode = 1;
 }
@@ -32,20 +37,28 @@ void changeMode(){        // Interrupt service routine
 void loop() {
   // check to see if we should change the mode
   if (newMode == 1) {
-      delay(200); // wait for the switch to settle down used to de-bounce
+      delay(100); // wait for the switch to settle down used to de-bounce
       mode = (mode + 1) % modeCount;
+      
       Serial.print("mode=");
       Serial.println(mode, DEC);
+      
+      dimness = analogRead(POTPIN);
+      Serial.print("Dimness=");
+      Serial.println(dimness, DEC);
+      
+      // we now are in a new mode
+      
       digitalWrite(13, LOW);
       newMode = 0;
   }
 
    // select the mode
       switch (mode) {
-        case 0: rainbow7(100);break;
-        case 1: colorWipe(strip.Color(255, 0, 0), 50);break; // Red
-        case 2: colorWipe(strip.Color(0, 255, 0), 50);break; // Green
-        case 3: colorWipe(strip.Color(0, 0, 255), 50);break; // Blue
+        case 0: rainbow7(100, dimness/4);break;
+        case 1: colorWipe(strip.Color(dimness/4, 0, 0), 50);break; // Red
+        case 2: colorWipe(strip.Color(0, dimness/4, 0), 50);break; // Green
+        case 3: colorWipe(strip.Color(0, 0, dimness/4), 50);break; // Blue
         case 4: rainbow(5);break;
         case 5: rainbowCycle(5);break;
         case 7: rainbowStatic();break;
@@ -54,11 +67,13 @@ void loop() {
         case 10: candle();break;
         case 11: theaterChaseRainbow(100);break;
      }
-    
+    loop_count++;
+    Serial.print("Loop=");
+    Serial.print(loop_count); 
 }
 
 // a seven segment rainbow with red on the highest pixel
-void rainbow7(uint16_t wait) {
+void rainbow7(uint16_t wait, int dimness) {
     for (int i=0; i<strip.numPixels()-1; i++) {
       int np = strip.numPixels();  // we use the modulo function with this
       strip.setPixelColor(i     % np, 25, 0, 25); // violet
@@ -96,6 +111,7 @@ void rainbowStatic() {
 
 // Fill the dots one after the other with a color
 void colorWipe(uint32_t c, uint8_t wait) {
+  dimness = analogRead(POTPIN);
   for(uint16_t i=0; i<strip.numPixels(); i++) {
       strip.setPixelColor(i, c);
       strip.show();
@@ -145,8 +161,10 @@ uint32_t Wheel(byte WheelPos) {
 void candle() {
    uint8_t green; // brightness of the green 
    uint8_t red;  // add a bit for red
+   dimness_float = ( analogRead(POTPIN) / 1024 );
+   
    for(uint8_t i=0; i<100; i++) {
-     green = 50 + random(155);
+     green = (50 + random(155)) ;
      red = green + random(50);
      strip.setPixelColor(random(strip.numPixels() - 1), red, green, 0);
      strip.show();
