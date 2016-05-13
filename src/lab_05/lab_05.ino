@@ -9,10 +9,11 @@ void setup() {
 
 void loop() {
   for (int i=0; i<=11; i++) {
-    strip.setPixelColor(i, 255, 0, 0); // turn the "i"th pixel on
+    strip.setPixelColor(i, 55, 155, 0); // turn the "i"th pixel on
     strip.show();
     delay(100); // wait 1/10th of a second
-    strip.setPixelColor(i, 0, 0, 0); // // turn the "i"th pixel off
+    strip.setPixelColor(i, 1, 1, 1); // // turn the "i"th pixel off
   }
 }
+
 
