@@ -3,10 +3,10 @@
 
 #include <avr/interrupt.h>
 
-#define LEDPIN 11 // connect the Data In pin
+#define LEDPIN 12 // connect the Data In pin
 #define POTPIN A0 // connect center pin of a potentiometer, sides go to +5 and GND
 #define MODEPIN 2 // pull down to groud to get a new mode
-#define NUMBER_PIEXELS 72// connect the Data In pin
+#define NUMBER_PIEXELS 16// connect the Data In pin
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 
 // hook up two momentary push buttons to pins 
@@ -69,7 +69,7 @@ void loop() {
      }
     loop_count++;
     Serial.print("Loop=");
-    Serial.print(loop_count); 
+    Serial.println(loop_count); 
 }
 
 // a seven segment rainbow with red on the highest pixel

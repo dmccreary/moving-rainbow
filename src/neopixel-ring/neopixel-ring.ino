@@ -10,7 +10,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NE
 volatile int newMode = 0; // the interrupts set this to 1 to indicate that we have a new mode on the way
 volatile int mode = -1; // This gets incremented each button press
 int waitTime = 70; //Typical delay between draws
-int modeCount = 11; // The number of display modes
+int modeCount = 10; // The number of display modes
 
 void setup() {
   strip.begin(); // sets up the memory for the LED strip
@@ -51,7 +51,6 @@ void loop() {
         case 7: randomRGB(waitTime);break;
         case 8: randomColor(waitTime);break;
         case 9: candle();break;
-        case 10: theaterChaseRainbow(100);break;
      }
     
 }
@@ -167,24 +166,6 @@ int newColor;
      strip.setPixelColor(i, newColor);
      strip.show();
      delay(wait);
-  }
-}
-
-//Theatre-style crawling lights with rainbow effect
-void theaterChaseRainbow(uint8_t wait) {
-  for (int j=0; j < 256; j=j+32) {     // cycle all 256 colors in the wheel
-    for (int q=0; q < 3; q++) {
-        for (int i=0; i < strip.numPixels(); i=i+3) {
-          strip.setPixelColor(i+q, Wheel( (i+j) % 255));    //turn every third pixel on
-        }
-        strip.show();
-       
-        delay(wait);
-       
-        for (int i=0; i < strip.numPixels(); i=i+3) {
-          strip.setPixelColor(i+q, 0);        //turn every third pixel off
-        }
-    }
   }
 }
 

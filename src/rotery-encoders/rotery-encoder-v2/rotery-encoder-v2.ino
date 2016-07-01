@@ -2,8 +2,8 @@
 See: https://www.youtube.com/watch?v=FGxLXqzPe3Q
 */
 
-const byte pinA = 2; // encoder pin A to Arduino pin 2 which is also interrupt pin 0 which we will use
-const byte pinB = 3; // encoder pin B to Arduino pin 3 which is also interrupt pin 1 but we won't use it
+const byte pinA = 3; // encoder pin A to Arduino pin 2 which is also interrupt pin 0 which we will use
+const byte pinB = 4; // encoder pin B to Arduino pin 3 which is also interrupt pin 1 but we won't use it
 byte state = 0; // will store two bits for pins A & B on the encoder which we will get from the pins above
 int level = 0; // a value bumped up or down by the encoder
 int haveNewInterrupt = 0; // 1 if we have a new interrupt to show, 0 otherwise
@@ -21,7 +21,7 @@ void setup() {
  pinMode(pinB,INPUT); // reads Pin B of the encoder * Writing to an Input pin turns on an internal pull up resistor *
  digitalWrite(pinA,HIGH);
  digitalWrite(pinB,HIGH); // Set up to call our knob function any time pinA rises
- attachInterrupt(0, knobTurned, RISING); // calls our 'knobTurned()' function when pinA goes from LOW to HIGH level = 50; -- a value to start with * Set up for using the on-screen monitor *
+ attachInterrupt(1, knobTurned, RISING); // calls our 'knobTurned()' function when pinA goes from LOW to HIGH level = 50; -- a value to start with * Set up for using the on-screen monitor *
  Serial.begin(9600); // make sure your monitor baud rate matches this
  
  Serial.println("Encoder Ready");
@@ -52,6 +52,11 @@ void knobTurned() {
  state = 0; // reset this value each time
  state = state + digitalRead(pinA); // add the state of Pin A
  state <<= 1; // shift the bit over one spot
- state = state + digitalRead(pinB); // add the state of Pin B * now we have a two bit binary number that holds the state of both pins 00 - something is wrong we must have got here with a key bounce 01 - sames as above - first bit should never be 0 10 - knob was turned backwards 11 - knob was turned forwards   We can pull a value out of our truth table and add it to the current level *
+ state = state + digitalRead(pinB);
+ 
+ // add the state of Pin B * now we have a two bit binary number that holds the state of both pins 00 
+ // - something is wrong we must have got here with a key bounce 01 - sames as above - 
+ // first bit should never be 0 10 - knob was turned backwards 11 
+ // - knob was turned forwards   We can pull a value out of our truth table and add it to the current level *
  level = level + bump[state]; // Let's see what happened
 }
