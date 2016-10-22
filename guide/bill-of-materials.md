@@ -40,7 +40,7 @@ I usually include the 400 tie point solderless breadboard in the kits.  It is en
 
 Boxes
 -----
-I have tried dozens of boxes and the one that students like the most are the clear polystyrene boxes that are 8-1/4" long.  You can get these at The Continer Store for $3.99 earch.  If you search for "Shallow Narrow Stackable Rectangle Clear" you will find them.  The link is [here](http://www.containerstore.com/shop?productId=10032168) The dimensions are. 8-1/4" x 3-1/2" x 1-1/2" h.  Note that this box is an ideal size for students to put in their backbacks, take to school and show their friends.  This is critical for the "viral" nature of the these kits.  The more other kids seem them the more the show their friends.
+I have tried dozens of boxes and the one that students like the most are the clear polystyrene boxes that are 8-1/4" long.  You can get these at The Continer Store for $3.99 earch.  If you search for "Shallow Narrow Stackable Rectangle Clear" you will find them.  The link is [here](http://www.containerstore.com/shop?productId=10032168) The dimensions are. 8-1/4" x 3-1/2" x 1-1/2" h.  Note that this box is an ideal size for students to put in their backbacks, take to school and show their friends.  This is critical for the "viral" nature of the these kits.  The more other kids see them the more they show their friends.
 
 One other lower-cost option is to just get the plastic "shoe box" containers from a local retailer.  These are larger, not as clear but lower cost.  I can usually find them for under $1.00.
 
@@ -48,7 +48,7 @@ Other students have found left-over containers at places like the dollar store. 
 
 Other Optional Parts
 ===================
-Many of my kits also have a power switch, a rest button and a "mode selection" dial.  Hooking these up is a bit more challenging,since there are 7 additional wires used.
+Many of our kits also have a power switch, a rest button and a "mode selection" dial.  Hooking these up is a bit more challenging,since there are 7 additional wires used.
 
 On-off switch
 -----------
