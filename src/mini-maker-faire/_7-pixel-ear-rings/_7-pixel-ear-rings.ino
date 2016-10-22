@@ -1,4 +1,3 @@
-
 /* LED Strip with Two Buttons 
 
 This lab allows you to change display "modes" of a WS-2811B addressible LED Strip (NeoPixels)
@@ -17,12 +16,13 @@ int newModeDec = 0; // Set to 1 by the ISR when the Red Decrment Mode button is 
 long lastDebounceTime = 0;  // the last time the output pin was toggled
 long debounceDelay = 150;   // the debounce time; increase if the output flickers
 
-const int LED_STRIP_PIN = 12; // Connect the Data pin of the LED strip here
-const int NUMBER_PIXELS = 12;
+const int RIGHT_EAR_RING = 11; // Connect the Data pin of the RIGHT 7-pixel NeoPixel here
+const int LEFT_EAR_RING = 12; // Connect the Data pin of the LEFT 7-pixel NeoPixel here
 
+const int NUMBER_PIXELS = 7; // Number of pixels in each ear ring
 
-; // Number of pixels in the LED strip
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel right_strip = Adafruit_NeoPixel(NUMBER_PIXELS, RIGHT_EAR_RING, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel left_strip = Adafruit_NeoPixel(NUMBER_PIXELS, LEFT_EAR_RING, NEO_GRB + NEO_KHZ800);
 
 int modeCount = 17; // The number of display modes, we mode the mode to get the actual mode
 int mainLoopCount = 0;  // The number of times we go through the main loop
@@ -36,7 +36,8 @@ void setup()
   attachInterrupt(0, changeModeInc, FALLING  ); // pin 2
   attachInterrupt(1, changeModeDec, FALLING  ); // pin 3
   Serial.begin(9600);
-  strip.begin(); // sets up the memory for the LED strip
+  left_strip.begin(); // sets up the memory for the LED strip
+  right_strip.begin();
   Serial.println("Start");
   Serial.print("Mode=");
   Serial.println(mode, DEC);
@@ -115,37 +116,41 @@ void changeModeDec(){
 
 // move a dot
 void dot(int red, int blue, int green) {
-  int index = mainLoopCount % strip.numPixels();
+  int index = mainLoopCount % left_strip.numPixels();
   clear();
-  strip.setPixelColor(index, red, blue, green);
-  strip.show();
+  left_strip.setPixelColor(index, red, blue, green);
+  right_strip.setPixelColor(index, red, blue, green);
+  left_strip.show();
+  right_strip.show();
 }
 
 void colorWipe(int red, int blue, int green) {
-  int index = mainLoopCount % strip.numPixels();
+  int index = mainLoopCount % left_strip.numPixels();
   if (index == 0) {
     clear();
   }
  else
     for(uint16_t i=0; i<=index; i++) {
-      strip.setPixelColor(i, red, blue, green);
+      left_strip.setPixelColor(i, red, blue, green);
+      right_strip.setPixelColor(i, red, blue, green);
     }
-  strip.show();
+  left_strip.show();
+  right_strip.show();
 }
 
 // make a single color appear to move as a comet flying by
 void swoosh(int red, int blue, int green) {
-  int n = strip.numPixels();
+  int n = left_strip.numPixels();
   int index = mainLoopCount % n;
   clear();
-  strip.setPixelColor((index + 5) % n, red, blue, green);
-  strip.setPixelColor((index + 4) % n, red / 1.5, blue / 1.5, green / 1.5);
-  strip.setPixelColor((index + 3) % n, red / 2, blue/ 2, green/ 2);
-  strip.setPixelColor((index + 2) % n, red / 4, blue/ 4, green/ 4);
-  strip.setPixelColor((index + 1) % n, red / 8, blue/ 8, green/ 8);
-  strip.setPixelColor((index) % n, red / 16, blue/ 16, green/ 16);
+  left_strip.setPixelColor((index + 5) % n, red, blue, green);
+  left_strip.setPixelColor((index + 4) % n, red / 1.5, blue / 1.5, green / 1.5);
+  left_strip.setPixelColor((index + 3) % n, red / 2, blue/ 2, green/ 2);
+  left_strip.setPixelColor((index + 2) % n, red / 4, blue/ 4, green/ 4);
+  left_strip.setPixelColor((index + 1) % n, red / 8, blue/ 8, green/ 8);
+  left_strip.setPixelColor((index) % n, red / 16, blue/ 16, green/ 16);
   
-  strip.show();
+  left_strip.show();
 }
 
 // draw a seven segment rainbow on the LED strip with red on the highest pixel
@@ -153,49 +158,64 @@ void swoosh(int red, int blue, int green) {
 // strip is the LED strip
 void rainbow7() {
     int i = mainLoopCount;
-    int np = strip.numPixels();  // we use the modulo function with this
-    strip.setPixelColor(i     % np, 0, 0, 0); // off
-    strip.setPixelColor((i+1) % np, 25, 0, 25); // violet
-    strip.setPixelColor((i+2) % np, 255, 0, 255); // indigo
-    strip.setPixelColor((i+3) % np, 0, 0, 150); // blue
-    strip.setPixelColor((i+4) % np, 0, 150, 0); // green
-    strip.setPixelColor((i+5) % np, 255, 255, 0); // yellow
-    strip.setPixelColor((i+6) % np, 110, 70, 0); // orange
-    strip.setPixelColor((i+7) % np, 150, 0, 0); // red
+    int np = left_strip.numPixels();  // we use the modulo function with this
+    left_strip.setPixelColor(i     % np, 0, 0, 0); // off
+    left_strip.setPixelColor((i+1) % np, 25, 0, 25); // violet
+    left_strip.setPixelColor((i+2) % np, 255, 0, 255); // indigo
+    left_strip.setPixelColor((i+3) % np, 0, 0, 150); // blue
+    left_strip.setPixelColor((i+4) % np, 0, 150, 0); // green
+    left_strip.setPixelColor((i+5) % np, 255, 255, 0); // yellow
+    left_strip.setPixelColor((i+6) % np, 110, 70, 0); // orange
+    left_strip.setPixelColor((i+7) % np, 150, 0, 0); // red
     // erase the rest
-    strip.setPixelColor((i+8) %np , 0, 0, 0);
-    strip.setPixelColor((i+9) %np , 0, 0, 0);
-    strip.setPixelColor((i+10) %np , 0, 0, 0);
-    strip.setPixelColor((i+11) %np , 0, 0, 0);
-    strip.show();
+    left_strip.setPixelColor((i+8) %np , 0, 0, 0);
+    left_strip.setPixelColor((i+9) %np , 0, 0, 0);
+    left_strip.setPixelColor((i+10) %np , 0, 0, 0);
+    left_strip.setPixelColor((i+11) %np , 0, 0, 0);
+    left_strip.show();
+    
+    right_strip.setPixelColor(i     % np, 0, 0, 0); // off
+    right_strip.setPixelColor((i+1) % np, 25, 0, 25); // violet
+    right_strip.setPixelColor((i+2) % np, 255, 0, 255); // indigo
+    right_strip.setPixelColor((i+3) % np, 0, 0, 150); // blue
+    right_strip.setPixelColor((i+4) % np, 0, 150, 0); // green
+    right_strip.setPixelColor((i+5) % np, 255, 255, 0); // yellow
+    right_strip.setPixelColor((i+6) % np, 110, 70, 0); // orange
+    right_strip.setPixelColor((i+7) % np, 150, 0, 0); // red
+    // erase the rest
+    right_strip.setPixelColor((i+8) %np , 0, 0, 0);
+    right_strip.setPixelColor((i+9) %np , 0, 0, 0);
+    right_strip.setPixelColor((i+10) %np , 0, 0, 0);
+    right_strip.setPixelColor((i+11) %np , 0, 0, 0);
+    right_strip.show();
 }
 
 void rainbowSlide() {
-    for(int i=0; i< strip.numPixels(); i++)
+    for(int i=0; i< left_strip.numPixels(); i++)
     {
-        strip.setPixelColor((i + mainLoopCount) % strip.numPixels(), Wheel(((i * 256 / strip.numPixels()) + mainLoopCount) & 255));
+        left_strip.setPixelColor((i + mainLoopCount) % left_strip.numPixels(), Wheel(((i * 256 / left_strip.numPixels()) + mainLoopCount) & 255));
     }
-    strip.show();
+    left_strip.show();
 }
 
 void randomColor() {
-  int randomIndex = random(strip.numPixels()); // a number from 0 to 11
+  int randomIndex = random(left_strip.numPixels()); // a number from 0 to 11
     clear();
-    strip.setPixelColor(randomIndex, Wheel(random(255)));
-    strip.show();
+    left_strip.setPixelColor(randomIndex, Wheel(random(255)));
+    left_strip.show();
 }
 
 void sparkle() {
-  int randomIndex = random(strip.numPixels()); // a number from 0 to 11
+  int randomIndex = random(left_strip.numPixels()); // a number from 0 to 11
     clear();
-    strip.setPixelColor(randomIndex, 10, 10, 10);
-    strip.show();
+    left_strip.setPixelColor(randomIndex, 10, 10, 10);
+    left_strip.show();
 }
 
 void clear() {
-  for(uint16_t i=0; i<strip.numPixels(); i++) {
-      strip.setPixelColor(i, 0);
-      strip.show();
+  for(uint16_t i=0; i< left_strip.numPixels(); i++) {
+      left_strip.setPixelColor(i, 0);
+      left_strip.show();
   }
 }
 
@@ -203,13 +223,13 @@ void clear() {
 // The colours are a transition r - g - b - back to r.
 uint32_t Wheel(byte WheelPos) {
   if(WheelPos < 85) {
-   return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+   return left_strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
   } else if(WheelPos < 170) {
    WheelPos -= 85;
-   return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+   return left_strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
   } else {
    WheelPos -= 170;
-   return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
+   return left_strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
   }
 }
 
@@ -219,23 +239,23 @@ void candle() {
    for(uint8_t i=0; i<100; i++) {
      green = 50 + random(155);
      red = green + random(50);
-     strip.setPixelColor(random(strip.numPixels() - 1), red, green, 0);
-     strip.show();
+     left_strip.setPixelColor(random(left_strip.numPixels() - 1), red, green, 0);
+     left_strip.show();
      delay(5);
   }
 }
 
 void theaterChase(int red, int blue, int green) {
-int index = mainLoopCount % strip.numPixels();
-for(int i=0; i < strip.numPixels(); i++) {
+int index = mainLoopCount % left_strip.numPixels();
+for(int i=0; i < left_strip.numPixels(); i++) {
       if ((i + index) % 3 == 0)
       {
-          strip.setPixelColor(i, red, green, blue);
+          left_strip.setPixelColor(i, red, green, blue);
       }
       else
       {
-          strip.setPixelColor(i, 0, 0, 0);
+          left_strip.setPixelColor(i, 0, 0, 0);
       }
   }
-  strip.show();
+  left_strip.show();
 }
