@@ -3,6 +3,7 @@
  Backpack Interface labelled "A0 A1 A2" at lower right.
  ..and
  Backpack Interface labelled "YwRobot Arduino LCM1602 IIC V1"
+ MOST use address 0x27, a FEW use 0x3F
  terry@yourduino.com */
 
 /*-----( Import needed libraries )-----*/
@@ -13,14 +14,7 @@
 // See Library "Docs" folder for possible commands etc.
 #include <LiquidCrystal_I2C.h>
 
-/*-----( Declare Constants )-----*/
-/*-----( Declare objects )-----*/
-// set the LCD address to 0x27 for a 20 chars 4 line display
-// Set the pins on the I2C chip used for LCD connections:
-//                    addr, en,rw,rs,d4,d5,d6,d7,bl,blpol
-LiquidCrystal_I2C lcd(0x27,16,2); //set the LCD address to 0x27 for a 16 chars and 2 line display
-
-
+LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // Set the LCD I2C address
 
 /*-----( Declare Variables )-----*/
 //NONE
@@ -44,15 +38,17 @@ void setup()   /*----( SETUP: RUNS ONCE )----*/
 //-------- Write characters on the display ------------------
 // NOTE: Cursor Position: (CHAR, LINE) start at 0  
   lcd.setCursor(0,0); //Start at character 4 on line 0
-  lcd.print("Dan");
+  lcd.print("Hello, world!");
   delay(1000);
- 
+  lcd.setCursor(0,1);
+  lcd.print("HI! Dan");
+  delay(8000);  
 
 // Wait and then tell user they can start the Serial Monitor and type in characters to
 // Display. (Set Serial Monitor option to "No Line Ending")
   lcd.clear();
   lcd.setCursor(0,0); //Start at character 0 on line 0
-  lcd.print("Hi Dan");
+  lcd.print("Use Serial Mon");
   lcd.setCursor(0,1);
   lcd.print("Type to display");  
 
@@ -81,3 +77,4 @@ void loop()   /*----( LOOP: RUNS CONSTANTLY )----*/
 
 
 /* ( THE END ) */
+
