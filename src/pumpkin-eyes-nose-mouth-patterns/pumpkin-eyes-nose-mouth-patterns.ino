@@ -1,4 +1,3 @@
-
 #include <Adafruit_NeoPixel.h>
 
 #define LEFT_EYE_PIN 9 // pin to left eye
