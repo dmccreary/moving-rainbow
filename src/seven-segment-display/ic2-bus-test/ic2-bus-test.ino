@@ -28,7 +28,7 @@
 
 // Here we'll define the I2C address of our S7S. By default it
 //  should be 0x71. This can be changed, though.
-const byte s7sAddress = 0x38;
+const byte s7sAddress = 0x24;
 
 unsigned int counter = 9900;  // This variable will count up to 65k
 char tempString[10];  // Will be used with sprintf to create strings

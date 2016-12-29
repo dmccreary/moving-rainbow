@@ -2,10 +2,10 @@
 /* LED Strip with Two Buttons 
 
 This lab allows you to change display "modes" of a WS-2811B addressible LED Strip (NeoPixels)
-To use this program up two momentary push buttons from pins 2 and 3 to Ground (GND).  
+To use this program hook up two momentary push buttons from pins 2 and 3 to Ground (GND).  
 One button will increment the display mode (an integer), the other will decrment the mode.
 You MUST use pins 2 and 3 because they are the only Interrupt pins on the Arduino (Uno, Nano).
-Remember to connect the other ends of the momentary push buttons to GND.  We us the internal
+Remember to connect the other ends of the momentary push buttons to GND.  We use the internal
 Arduino 20K resistors to pull up the signals to 5 volts when the buttons are open.
 Connect the LED Strip to to power, ground and pin 12 in the lower left corner of the Nano.
 */
