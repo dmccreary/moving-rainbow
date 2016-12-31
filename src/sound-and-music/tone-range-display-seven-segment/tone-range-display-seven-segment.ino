@@ -41,7 +41,7 @@ void loop() {
     display_array[1] = char(48 + (frequency / 100) % 10);
     display_array[0] = char(48 + (frequency / 1000) % 10);
     d.displayString(display_array);
-    }
+  }  
   else d.displayString(" off");
   
 
