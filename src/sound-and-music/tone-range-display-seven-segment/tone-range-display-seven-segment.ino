@@ -25,7 +25,8 @@ void loop() {
 
   // scale the value to the range used by tone()
   // tone can go from 31 to 65535 but the must useful tones are 100 to 5,000 Htz using a piezo crystal
-  frequency = map(sensorValue, 5, 1023, 100, 5000);
+  // under 15 is off
+  frequency = map(sensorValue, 16, 1023, 50, 5000);
   
   // print out the value you read:
   Serial.print("Pot value=");
@@ -34,16 +35,20 @@ void loop() {
   Serial.println(frequency);
 
   // send the frequency to the display
-  display_array[3] = char(48 + (frequency % 10));
-  display_array[2] = char(48 + (frequency / 10) % 10);
-  display_array[1] = char(48 + (frequency / 100) % 10);
-  display_array[0] = char(48 + (frequency / 1000) % 10);
-  d.displayString(display_array);
+  if (sensorValue > 15) {
+    display_array[3] = char(48 + (frequency % 10));
+    display_array[2] = char(48 + (frequency / 10) % 10);
+    display_array[1] = char(48 + (frequency / 100) % 10);
+    display_array[0] = char(48 + (frequency / 1000) % 10);
+    d.displayString(display_array);
+    }
+  else d.displayString(" off");
+  
 
-  // only send if the sensor value is above 3
-  if (sensorValue > 3)
+  // only send if the sensor value is above 15 
+  if (sensorValue > 15)
     tone(speaker_pin, frequency);
-  else noTone(100); // silence
+  else noTone(speaker_pin); // silence
   
   delay(100); // wait for a 1/10th of second
 }
