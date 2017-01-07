@@ -118,7 +118,8 @@ void marquee() {
     delay(delayTime * 2);                      // Pause to slow down the sequence
     digitalWrite(ledPins[index], LOW);     // Turn the LED off
     digitalWrite(ledPins[index+4], LOW);   // Skip four, and turn that LED off
-    digitalWrite(ledPins[index+8], LOW);
+    digitalWrite(ledPins[index+8], LOW
+    );
   }
 }
 
