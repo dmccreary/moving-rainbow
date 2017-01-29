@@ -2,7 +2,6 @@
 /// http://educ8s.tv/arduino-mp3-player/
 //////////////////////////////////////////
 
-
 #include "SoftwareSerial.h"
 SoftwareSerial mySerial(10, 11);
 # define Start_Byte 0x7E
@@ -18,58 +17,46 @@ int buttonPause = 3;
 int buttonPrevious = 4;
 boolean isPlaying = false;
 
-
-
 void setup () {
-
-pinMode(buttonPause, INPUT);
-digitalWrite(buttonPause,HIGH);
-pinMode(buttonNext, INPUT);
-digitalWrite(buttonNext,HIGH);
-pinMode(buttonPrevious, INPUT);
-digitalWrite(buttonPrevious,HIGH);
-
-mySerial.begin (9600);
-delay(1000);
-playFirst();
-isPlaying = true;
-
-
+  pinMode(buttonPause, INPUT);
+  digitalWrite(buttonPause,HIGH);
+  pinMode(buttonNext, INPUT);
+  digitalWrite(buttonNext,HIGH);
+  pinMode(buttonPrevious, INPUT);
+  digitalWrite(buttonPrevious,HIGH);
+  
+  mySerial.begin (9600);
+  delay(1000);
+  // play the first track on the memory card
+  playFirst();
+  isPlaying = true;
 }
 
 
 
 void loop () { 
 
- if (digitalRead(buttonPause) == ACTIVATED)
-  {
-    if(isPlaying)
-    {
+ if (digitalRead(buttonPause) == ACTIVATED) {
+    if (isPlaying) {
       pause();
       isPlaying = false;
-    }else
+    } else
     {
       isPlaying = true;
       play();
     }
-  }
+ }
 
 
- if (digitalRead(buttonNext) == ACTIVATED)
-  {
-    if(isPlaying)
-    {
-      playNext();
-    }
-  }
+   if (digitalRead(buttonNext) == ACTIVATED) {
+      if (isPlaying) playNext();
+   }
 
-   if (digitalRead(buttonPrevious) == ACTIVATED)
-  {
-    if(isPlaying)
-    {
-      playPrevious();
-    }
-  }
+   if (digitalRead(buttonPrevious) == ACTIVATED) {
+        if (isPlaying) playPrevious(); 
+   }
+
+   // TODO - check the volume value
 }
 
 void playFirst()
@@ -112,17 +99,16 @@ void setVolume(int volume)
   delay(2000);
 }
 
-void execute_CMD(byte CMD, byte Par1, byte Par2)
-// Excecute the command and parameters
-{
-// Calculate the checksum (2 bytes)
-word checksum = -(Version_Byte + Command_Length + CMD + Acknowledge + Par1 + Par2);
-// Build the command line
-byte Command_line[10] = { Start_Byte, Version_Byte, Command_Length, CMD, Acknowledge,
-Par1, Par2, highByte(checksum), lowByte(checksum), End_Byte};
-//Send the command line to the module
-for (byte k=0; k<10; k++)
-{
-mySerial.write( Command_line[k]);
-}
+// Excecute the command with parameters by sending 11 bytes to the device over the serial line
+void execute_CMD(byte CMD, byte Par1, byte Par2) {
+  // Calculate the checksum (2 bytes)
+  word checksum = -(Version_Byte + Command_Length + CMD + Acknowledge + Par1 + Par2);
+  // Build the command line
+  byte Command_line[10] =
+     {Start_Byte, Version_Byte, Command_Length, CMD, Acknowledge,
+      Par1, Par2, highByte(checksum), lowByte(checksum), End_Byte};
+  //Send the command line to the module
+  for (byte k=0; k<10; k++) {
+    mySerial.write( Command_line[k]);
+    }
 }
