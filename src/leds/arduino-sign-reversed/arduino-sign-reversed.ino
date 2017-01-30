@@ -18,12 +18,13 @@ long lastDebounceTime = 0;  // the last time the output pin was toggled
 long debounceDelay = 150;   // the debounce time; increase if the output flickers
 
 const int LED_STRIP_PIN = 12; // Connect the Data pin of the LED strip here
-const int NUMBER_PIXELS = 48;
+const int NUMBER_PIXELS = 50;
 
 
 ; // Number of pixels in the LED strip
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
 
+int delay_base = 20;
 int modeCount = 17; // The number of display modes, we mode the mode to get the actual mode
 int mainLoopCount = 0;  // The number of times we go through the main loop
 
@@ -40,8 +41,6 @@ void setup()
   Serial.println("Start");
   Serial.print("Mode=");
   Serial.println(mode, DEC);
-  rainbow7();
-  delay(100);
   newModeInc=0; // must be reset to 0 at the end of setup!
   newModeDec=0;
 }
@@ -77,7 +76,7 @@ void loop() {
   
   // select the mode
   switch (mode) {
-        case 0:rainbow7();break; // 7 pixel rainbow
+        case 0:rainbowSlide();break; // 7 pixel rainbow
         case 1: dot(255, 0, 0);break; // red
         case 2: dot(0, 255, 0);break; // green
         case 3: dot(0, 0, 255);break; // blue
@@ -90,12 +89,12 @@ void loop() {
         case 10: theaterChase(255, 0, 0);break;
         case 11: theaterChase(0, 255, 0);break;
         case 12: theaterChase(0, 0, 255);break;
-        case 13: rainbowSlide();break;
+        case 13: rainbow7();break;
         case 14: candle();break;
         case 15: randomColor();break;
         case 16: sparkle();break;
      }
-  delay(150); // keep this pattern for 1/10th of a second
+  
   mainLoopCount++;
 }  
 
@@ -115,45 +114,51 @@ void changeModeDec(){
 
 // move a dot
 void dot(int red, int blue, int green) {
-  int index = mainLoopCount % strip.numPixels();
-  clear();
+  int n = strip.numPixels();
+  int index =  n - (mainLoopCount % n + 1);
   strip.setPixelColor(index, red, blue, green);
   strip.show();
+  delay(delay_base*2);
+  strip.setPixelColor(index, 0, 0, 0);
 }
 
 void colorWipe(int red, int blue, int green) {
-  int index = mainLoopCount % strip.numPixels();
-  if (index == 0) {
-    clear();
-  }
- else
-    for(uint16_t i=0; i<=index; i++) {
+  int n = strip.numPixels();
+  for(int i=n; i >= 0; i--) {
       strip.setPixelColor(i, red, blue, green);
-    }
-  strip.show();
+      strip.show();
+     delay(delay_base);
+  }
+   delay(delay_base * 10);
+  for(uint16_t i=0; i < n; i++) {
+      strip.setPixelColor(i, 0, 0, 0);
+     strip.show();
+     delay(delay_base);
+  }
 }
 
 // make a single color appear to move as a comet flying by
 void swoosh(int red, int blue, int green) {
   int n = strip.numPixels();
-  int index = mainLoopCount % n;
-  clear();
-  strip.setPixelColor((index + 5) % n, red, blue, green);
-  strip.setPixelColor((index + 4) % n, red / 1.5, blue / 1.5, green / 1.5);
-  strip.setPixelColor((index + 3) % n, red / 2, blue/ 2, green/ 2);
-  strip.setPixelColor((index + 2) % n, red / 4, blue/ 4, green/ 4);
-  strip.setPixelColor((index + 1) % n, red / 8, blue/ 8, green/ 8);
-  strip.setPixelColor((index) % n, red / 16, blue/ 16, green/ 16);
-  
+  int index = n - (mainLoopCount % n);
+  strip.setPixelColor((index - 6) % n, red, blue, green);
+  strip.setPixelColor((index - 5) % n, red / 1.5, blue / 1.5, green / 1.5);
+  strip.setPixelColor((index - 4) % n, red / 2, blue/ 2, green/ 2);
+  strip.setPixelColor((index - 3) % n, red / 4, blue/ 4, green/ 4);
+  strip.setPixelColor((index - 2) % n, red / 8, blue/ 8, green/ 8);
+  strip.setPixelColor((index - 1) % n, red / 16, blue/ 16, green/ 16);
+  strip.setPixelColor(index % n, 0, 0, 0);
   strip.show();
+  delay(delay_base*2);
 }
 
 // draw a seven segment rainbow on the LED strip with red on the highest pixel
 // i is the index of where to start
 // strip is the LED strip
 void rainbow7() {
-    int i = mainLoopCount;
     int np = strip.numPixels();  // we use the modulo function with this
+    int i = (np - (mainLoopCount % np));
+    
     strip.setPixelColor(i     % np, 0, 0, 0); // off
     strip.setPixelColor((i+1) % np, 25, 0, 25); // violet
     strip.setPixelColor((i+2) % np, 255, 0, 255); // indigo
@@ -168,14 +173,14 @@ void rainbow7() {
     strip.setPixelColor((i+10) %np , 0, 0, 0);
     strip.setPixelColor((i+11) %np , 0, 0, 0);
     strip.show();
+    delay(delay_base*4);
 }
 
 void rainbowSlide() {
-    for(int i=0; i< strip.numPixels(); i++)
-    {
-        strip.setPixelColor((i + mainLoopCount) % strip.numPixels(), Wheel(((i * 256 / strip.numPixels()) + mainLoopCount) & 255));
-    }
+    for(int i=0; i<strip.numPixels() ; i++)
+        strip.setPixelColor(i, Wheel((mainLoopCount + (i * 10)) % 255));
     strip.show();
+    delay(delay_base / 3);
 }
 
 void randomColor() {
@@ -183,13 +188,30 @@ void randomColor() {
     clear();
     strip.setPixelColor(randomIndex, Wheel(random(255)));
     strip.show();
+    delay(delay_base);
 }
 
 void sparkle() {
   int randomIndex = random(strip.numPixels()); // a number from 0 to 11
-    clear();
-    strip.setPixelColor(randomIndex, 10, 10, 10);
-    strip.show();
+  clear();
+  // turn on slowly
+    for (int i=0; i < 255; i++) {
+      strip.setPixelColor(randomIndex, i, i, i);
+      strip.show();
+      delay(delay_base/5);
+    }
+
+    // keep on for a bit
+    delay(delay_base * 10);
+
+    // turn off slowly
+     for (int i=255; i > 0; i--) {
+      strip.setPixelColor(randomIndex, i, i, i);
+      strip.show();
+      delay(delay_base/5);
+    }
+  // keep off for a bit
+  delay(delay_base * 50);
 }
 
 void clear() {
@@ -216,17 +238,22 @@ uint32_t Wheel(byte WheelPos) {
 void candle() {
    uint8_t green; // brightness of the green 
    uint8_t red;  // add a bit for red
+
+   // initialize all to yellot
+   for (int i=0; i<strip.numPixels(); i++)
+      strip.setPixelColor(i, 200, 150, 0);
+      
    for(uint8_t i=0; i<100; i++) {
      green = 50 + random(155);
      red = green + random(50);
-     strip.setPixelColor(random(strip.numPixels() - 1), red, green, 0);
+     strip.setPixelColor(random(strip.numPixels()), red, green, 0);
      strip.show();
-     delay(5);
+     delay(50);
   }
 }
 
 void theaterChase(int red, int blue, int green) {
-int index = mainLoopCount % strip.numPixels();
+int index = strip.numPixels() - (mainLoopCount % strip.numPixels());
 for(int i=0; i < strip.numPixels(); i++) {
       if ((i + index) % 3 == 0)
       {
@@ -236,6 +263,8 @@ for(int i=0; i < strip.numPixels(); i++) {
       {
           strip.setPixelColor(i, 0, 0, 0);
       }
+      delay(delay_base / 5);
   }
   strip.show();
+ 
 }

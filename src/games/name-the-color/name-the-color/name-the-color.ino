@@ -28,9 +28,15 @@ unsigned long debounceDelay = 50;    // the debounce time; increase if the outpu
 
 String colors1[] = {"Red", "Green", "Blue"};
 String colors2[] = {"Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
-
+int color_val1[3][3] = {
+  {100,0,0},
+  {0,100,0},
+  {0,0,100},
+  };
+  
+int color_index; // which color to show
 void setup() {
-  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(buttonPin, INPUT_PULLUP);  // the other end of the button goes to GND
   Serial.begin(9600);
   Serial.println("Welcome to name the color.");
 
@@ -42,8 +48,26 @@ void setup() {
   // display a name on the LCD
   lcd.begin(16,2);
   lcd.setCursor(0,0);
-  lcd.print("Name the color");
-  delay(2000);
+  lcd.print("Turn knob 2 clr");
+  lcd.setCursor(0,1);
+  lcd.print("Press the knob");
+  delay(1000);
+  color_index = random(0,3);
+  Serial.print("color=");
+  Serial.println(color_index);
+  
+  for (int i=0; i < NUMBER_PIXELS; i++)
+    strip.setPixelColor(i, color_val1[color_index][0],color_val1[color_index][1], color_val1[color_index][2]);
+  
+  for (int i=0; i < 3; i++) {
+    Serial.print(i);
+    Serial.print("=");
+    Serial.print(color_val1[color_index][i]);
+    Serial.print(" ");
+                                                         
+  }
+  Serial.println("");
+
 }
 
 void loop() {
