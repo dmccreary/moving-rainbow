@@ -12,9 +12,12 @@ SoftwareSerial mySerial(10, 11);
 
 # define ACTIVATED LOW
 
+// pin definitions
 int buttonNext = 2;
 int buttonPause = 3;
 int buttonPrevious = 4;
+int volumePotPin = A0;
+int volumeValue = 255; // ranges from 0 to 1023
 boolean isPlaying = false;
 
 void setup () {
@@ -25,7 +28,8 @@ void setup () {
   pinMode(buttonPrevious, INPUT);
   digitalWrite(buttonPrevious,HIGH);
   
-  mySerial.begin (9600);
+  mySerial.begin(9600);
+  Serial.begin(9600);  // opens serial port, sets data rate to 9600 bps
   delay(1000);
   // play the first track on the memory card
   playFirst();
@@ -56,7 +60,11 @@ void loop () {
         if (isPlaying) playPrevious(); 
    }
 
-   // TODO - check the volume value
+   // TODO - set the volume value
+   volumeValue = analogRead(volumePotPin);
+   Serial.print("Vol=");
+   Serial.println(volumeValue);
+   delay(1000);
 }
 
 void playFirst()

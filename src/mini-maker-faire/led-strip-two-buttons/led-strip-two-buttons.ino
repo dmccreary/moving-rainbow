@@ -8,7 +8,9 @@ You MUST use pins 2 and 3 because they are the only Interrupt pins on the Arduin
 Remember to connect the other ends of the momentary push buttons to GND.  We use the internal
 Arduino 20K resistors to pull up the signals to 5 volts when the buttons are open.
 Connect the LED Strip to to power, ground and pin 12 in the lower left corner of the Nano.
+
 */
+
 #include <Adafruit_NeoPixel.h>
 
 int mode = 0; // This is the "mode" of the device.  It starts at 0 and gets incremented or decremented
@@ -18,7 +20,7 @@ long lastDebounceTime = 0;  // the last time the output pin was toggled
 long debounceDelay = 150;   // the debounce time; increase if the output flickers
 
 const int LED_STRIP_PIN = 12; // Connect the Data pin of the LED strip here
-const int NUMBER_PIXELS = 48;
+const int NUMBER_PIXELS = 30;
 
 
 ; // Number of pixels in the LED strip
@@ -95,7 +97,7 @@ void loop() {
         case 15: randomColor();break;
         case 16: sparkle();break;
      }
-  delay(150); // keep this pattern for 1/10th of a second
+  delay(100); // keep this pattern for 1/10th of a second
   mainLoopCount++;
 }  
 
