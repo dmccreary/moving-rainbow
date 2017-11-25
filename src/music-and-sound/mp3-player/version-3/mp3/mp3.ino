@@ -64,6 +64,7 @@ void loop () {
    volumeValue = analogRead(volumePotPin);
    Serial.print("Vol=");
    Serial.println(volumeValue);
+   
    delay(1000);
 }
 
