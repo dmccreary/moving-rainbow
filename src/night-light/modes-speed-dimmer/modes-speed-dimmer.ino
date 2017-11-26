@@ -22,7 +22,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_PIN, NEO_GRB + NE
 
 // hook up two momentary push buttons to pin and keep them in memory
 volatile int newMode = 0; // the interrupts set this to 1 to indicate that we have a new mode on the way
-volatile int mode = 0; // The starting mode.  This gets incremented each button press
+volatile int mode = 0; // The display mode.  This gets incremented each button press.  Set inital mode in setup().
 const int modeCount = 28;// The number of display modes
 
 // used for debouncing the mode button
@@ -36,16 +36,15 @@ int loop_delay =  512; // The inverse of speed
 int index = 0; // the index of where we are drawing to the LED strip
 long counter = 0; // number of times through the loop
 int random_pos = strip.numPixels() / 2; // random index position for random walker
+int debug = 0;
 
 void setup() {
   strip.begin(); // sets up the memory for the LED strip
   pinMode(LED_PIN, OUTPUT);     // Pin 13 is output to which an LED is connected
   pinMode(BRIGHTNESS_POT_PIN, INPUT);
   pinMode(SPEED_POT_PIN, INPUT);
-
   pinMode(MODE_PIN, INPUT_PULLUP);	// Pin 2 is input to which a button to GND is connected normally HIGH
   digitalWrite(MODE_PIN, HIGH);
-  mode = 26;
   attachInterrupt(0, change_mode, RISING); // connect the mode to pin 2
   Serial.begin(9600);
   Serial.print("LED on pin ");
@@ -57,6 +56,9 @@ void setup() {
   Serial.print("Brightness pot on pin ");
   Serial.println(MODE_PIN);
   Serial.println("Start Function Finished");
+  delay(1000);
+  newMode = 0;
+  mode = 0;
 }
 
 // Interrupt service routine - get in and out quickly, no printing to serial ports allowed here
@@ -115,7 +117,7 @@ void loop() {
     speed_value = analogRead(SPEED_POT_PIN);
     loop_delay = map(speed_value, 0, 1023, 1000, 1);  // map from 1 second to 5 milliseconds
 
-    /*
+    if (debug == 1) {
     Serial.print("Mode=");
     Serial.print(mode);
     Serial.print(" Brightness=");
@@ -124,7 +126,7 @@ void loop() {
     Serial.print(speed_value);
     Serial.print(" Index=");
     Serial.println(index);
-    */
+    }
     index = (index + 1) % NUMBER_PIXELS; // modulu the number of pixels in the LED strip
     counter++;
     delay(loop_delay);
@@ -342,11 +344,11 @@ void display_random_colors(int brightness, int erase) {
 void display_random_walk(int brightness, int red, int green, int blue) {
   reset_LED_memory();
   int move_dir = random(3) - 1; // 0, 1 or 2
-  Serial.print("move_dir=");
-  Serial.print(move_dir);
+  // Serial.print("move_dir=");
+  // Serial.print(move_dir);
   random_pos = ( random_pos + move_dir ) % strip.numPixels();
-  Serial.print(" random_pos=");
-  Serial.println(random_pos);
+  // Serial.print(" random_pos=");
+  // Serial.println(random_pos);
   red = map(red, 0, 255, 5, brightness);
   green = map(green, 0, 255, 5, brightness);
   blue = map(blue, 0, 255, 5, brightness);   
