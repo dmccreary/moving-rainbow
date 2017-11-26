@@ -23,7 +23,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_PIN, NEO_GRB + NE
 // hook up two momentary push buttons to pin and keep them in memory
 volatile int newMode = 0; // the interrupts set this to 1 to indicate that we have a new mode on the way
 volatile int mode = 0; // The starting mode.  This gets incremented each button press
-const int modeCount = 27; // The number of display modes
+const int modeCount = 28;// The number of display modes
 
 // used for debouncing the mode button
 long lastDebounceTime = 0;  // the last time the output pin was toggled
@@ -45,6 +45,7 @@ void setup() {
 
   pinMode(MODE_PIN, INPUT_PULLUP);	// Pin 2 is input to which a button to GND is connected normally HIGH
   digitalWrite(MODE_PIN, HIGH);
+  mode = 26;
   attachInterrupt(0, change_mode, RISING); // connect the mode to pin 2
   Serial.begin(9600);
   Serial.print("LED on pin ");
@@ -106,6 +107,7 @@ void loop() {
         case 24: display_random_walk(brightness, 255, 0, 0);break;
         case 25: display_random_walk(brightness, 0, 255, 0);break;
         case 26: display_random_walk(brightness, 0, 0, 255);break;
+        case 27: display_rainbow_cycle();break;
      }
     // update the values from the pot
     brightness = analogRead(BRIGHTNESS_POT_PIN);
@@ -288,16 +290,13 @@ void display_cylon(int brightness, int red, int green, int blue) {
 }
 
 // Slightly different, this makes the rainbow equally distributed throughout
-void rainbowCycle(uint8_t wait) {
-  uint16_t i, j;
- 
-  for(j=0; j<256*5; j++) { // 5 cycles of all colors on wheel
+// todo - add a brightness
+void display_rainbow_cycle() {
+  uint16_t i;
     for(i=0; i< strip.numPixels(); i++) {
-      strip.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + j) & 255));
+      strip.setPixelColor( (i + index) % strip.numPixels(), Wheel(((i * 256 / strip.numPixels()) ) & 255));
     }
     strip.show();
-    delay(wait);
-  }
 }
  
 // Input a value 0 to 255 to get a color value.
@@ -369,14 +368,6 @@ void display_theater_chase(int brightness, int red, int green, int blue) {
 
     }
   strip.show();
-}
-
-void display_rainbowSlide(int brightness) {
-    for(int i=0; i< strip.numPixels(); i++)
-    {
-        strip.setPixelColor((i + index) % strip.numPixels(), Wheel(((i * 256 / strip.numPixels()) + index) & 255));
-    }
-    strip.show();
 }
 
 void display_sparkle(int brightness) {
