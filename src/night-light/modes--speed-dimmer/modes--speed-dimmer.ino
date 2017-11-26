@@ -1,3 +1,9 @@
+/*
+ * Arduino Moving Rainbow Kit Mode Demo
+ * For use with an Arduino with an WS2812 LED strip, a mode button and two potentiometers
+ * Dan McCreary
+ * Nov. 2017
+ */
 #include <Adafruit_NeoPixel.h>
 #include <Encoder.h>
 
@@ -16,8 +22,8 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_PIN, NEO_GRB + NE
 
 // hook up two momentary push buttons to pin and keep them in memory
 volatile int newMode = 0; // the interrupts set this to 1 to indicate that we have a new mode on the way
-volatile int mode = 21; // The starting mode.  This gets incremented each button press
-const int modeCount = 24; // The number of display modes
+volatile int mode = 0; // The starting mode.  This gets incremented each button press
+const int modeCount = 27; // The number of display modes
 
 // used for debouncing the mode button
 long lastDebounceTime = 0;  // the last time the output pin was toggled
@@ -29,7 +35,7 @@ int speed_value =  512; // The inverse of speed
 int loop_delay =  512; // The inverse of speed
 int index = 0; // the index of where we are drawing to the LED strip
 long counter = 0; // number of times through the loop
-int random_pos = 0; // random index position for random walker
+int random_pos = strip.numPixels() / 2; // random index position for random walker
 
 void setup() {
   strip.begin(); // sets up the memory for the LED strip
@@ -97,12 +103,17 @@ void loop() {
         case 21: display_cylon(brightness, 255, 0, 0);break;
         case 22: display_cylon(brightness, 0, 255, 0);break;
         case 23: display_cylon(brightness, 0, 0, 255);break;
+        case 24: display_random_walk(brightness, 255, 0, 0);break;
+        case 25: display_random_walk(brightness, 0, 255, 0);break;
+        case 26: display_random_walk(brightness, 0, 0, 255);break;
      }
     // update the values from the pot
     brightness = analogRead(BRIGHTNESS_POT_PIN);
     brightness = map(brightness, 0, 1023, 0, 255);
     speed_value = analogRead(SPEED_POT_PIN);
-    loop_delay = map(speed_value, 0, 1023, 1000, 5);  // map from 1 second to 5 milliseconds
+    loop_delay = map(speed_value, 0, 1023, 1000, 1);  // map from 1 second to 5 milliseconds
+
+    /*
     Serial.print("Mode=");
     Serial.print(mode);
     Serial.print(" Brightness=");
@@ -111,6 +122,7 @@ void loop() {
     Serial.print(speed_value);
     Serial.print(" Index=");
     Serial.println(index);
+    */
     index = (index + 1) % NUMBER_PIXELS; // modulu the number of pixels in the LED strip
     counter++;
     delay(loop_delay);
@@ -226,7 +238,6 @@ void display_color_wipe(int brightness, int red, int blue, int green) {
   strip.show();
 }
 
-
 // wipe right and then go back - we need a counter
 void display_over_and_back(int brightness, int red, int blue, int green) {
   int double_index = counter % (strip.numPixels() * 2);
@@ -249,10 +260,10 @@ void display_over_and_back(int brightness, int red, int blue, int green) {
   strip.show();
 }
 
-// wipe right and then go back - we need a counter
+// Larson Scanner - aka Cylon pattern
 void display_cylon(int brightness, int red, int green, int blue) {
   int np = strip.numPixels();
-  int steps = np - 4;
+  int steps = np - 5; // how many steps to the right we move
   int upcounter = (counter % (steps * 2)); // counts double the steps
   int offset;
   // needs to go up to 8 and down
@@ -328,14 +339,19 @@ void display_random_colors(int brightness, int erase) {
 }
 
 // display a randome color at a random index
-void display_random_motion(int brightness, int erase) {
-  int index, red, green, blue;
-  index = random(strip.numPixels());
-  if (erase==1) reset_LED_memory();
-  red = map(random(255), 0, 255, 5, brightness);
-  green = map(random(255), 0, 255, 5, brightness);
-  blue = map(random(255), 0, 255, 5, brightness);   
-  strip.setPixelColor(index, red, green, blue);
+// random_pos is a global variable
+void display_random_walk(int brightness, int red, int green, int blue) {
+  reset_LED_memory();
+  int move_dir = random(3) - 1; // 0, 1 or 2
+  Serial.print("move_dir=");
+  Serial.print(move_dir);
+  random_pos = ( random_pos + move_dir ) % strip.numPixels();
+  Serial.print(" random_pos=");
+  Serial.println(random_pos);
+  red = map(red, 0, 255, 5, brightness);
+  green = map(green, 0, 255, 5, brightness);
+  blue = map(blue, 0, 255, 5, brightness);   
+  strip.setPixelColor(random_pos, red, green, blue);
   strip.show();
 }
 
