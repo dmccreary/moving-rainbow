@@ -10,7 +10,8 @@
 #include <avr/interrupt.h>
 
 // Input pins
-#define MODE_PIN 2 // pull down to groud to get a new mode
+#define MODE_NEXT_PIN 2 // pull down to groud to get a new mode
+#define MODE_PREV_PIN 3 // pull down to groud to get a new mode
 #define BRIGHTNESS_POT_PIN A0 // connect center pin of a potentiometer, sides go to +5 and GND
 #define SPEED_POT_PIN A1 // connect center pin of a potentiometer, sides go to +5 and GND
 
@@ -43,23 +44,14 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);     // Pin 13 is output to which an LED is connected
   pinMode(BRIGHTNESS_POT_PIN, INPUT);
   pinMode(SPEED_POT_PIN, INPUT);
-  pinMode(MODE_PIN, INPUT_PULLUP);	// Pin 2 is input to which a button to GND is connected normally HIGH
-  digitalWrite(MODE_PIN, HIGH);
-  attachInterrupt(0, change_mode, RISING); // connect the mode to pin 2
+  pinMode(MODE_NEXT_PIN, INPUT_PULLUP);	// Pin 2 is an input button tied to GND
+  pinMode(MODE_PREV_PIN, INPUT_PULLUP); // Pin 3 is an input button tied to GND
+  digitalWrite(MODE_NEXT_PIN, HIGH);
+  digitalWrite(MODE_PREV_PIN, HIGH);
+  attachInterrupt(0, mode_next, RISING); // connect the mode to pin 2
+  attachInterrupt(1, mode_prev, RISING); // connect the mode to pin 3
   Serial.begin(9600);
-  
-  Serial.print("LED on pin ");
-  Serial.println(LED_PIN);
-  
-  Serial.print("Mode button on pin ");
-  Serial.println(MODE_PIN);
-  
-  Serial.print("Brightness on pin ");
-  Serial.println(BRIGHTNESS_POT_PIN);
-  
-  Serial.print("Speed on pin ");
-  Serial.println(SPEED_POT_PIN);
-  
+
   Serial.println("Start Function Finished");
 
   newMode = 0;
@@ -67,18 +59,23 @@ void setup() {
 }
 
 // Interrupt service routine - get in and out quickly, no printing to serial ports allowed here
-void change_mode(){        
+void mode_next(){        
   newMode = 1;
+  lastDebounceTime = millis(); // record when we got the interrupt for debouncin
+}
+
+void mode_prev(){        
+  newMode = -1;
   lastDebounceTime = millis(); // record when we got the interrupt for debouncin
 }
 
 void loop() {
   // check to see if we should change the mode
-  if (newMode == 1) {
+  if (newMode == 1 || newMode == -1) {
     if ((millis() - lastDebounceTime) > debounceDelay) {
       // delay(100); // wait for the switch to settle down used to de-bounce
       // increment the mode and 
-      mode = (mode + 1) % modeCount;
+      mode = (mode + newMode) % modeCount;
       Serial.print("New Mode mode=");
       Serial.println(mode, DEC);      
       newMode = 0;
