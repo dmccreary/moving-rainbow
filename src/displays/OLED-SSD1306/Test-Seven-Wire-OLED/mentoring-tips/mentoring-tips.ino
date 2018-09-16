@@ -23,7 +23,8 @@ U8GLIB_SSD1309_128X64 u8g(CLOCK_PIN, DATA_PIN, CS_PIN, DC_PIN, RESET_PIN);
 
 void setup() 
 {
-  /* nothing to do here */
+  u8g.setFont(u8g_font_unifont);
+  u8g.setColorIndex(1); // Instructs the display to draw with a pixel on. 
 }
 
 void loop() 
@@ -43,13 +44,17 @@ void loop()
        y+=dy;     
     };
     delay(1000);
-    draw();
+  draw();
+  delay(1000);
       
   } while(u8g.nextPage());
-  delay(1000);
+  
 }
 
-void draw(){
-  u8g.drawStr( 0, 20, "Hello World");
-    
+void draw1(){
+  u8g.drawStr( 0, 20, "Tips to stay in STEM");
+}
+
+void draw2(){
+  u8g.drawStr( 0, 20, "2 hours of mentoring every 2 weeks");
 }

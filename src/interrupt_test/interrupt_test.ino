@@ -39,8 +39,8 @@ void setup() {
 }
 
 void modeChange() {
-  Serial.print("In mode change");
-  Serial.println(mode);
+  //Serial.print("In mode change");
+  //Serial.println(mode);
   delay(50);
   mode = (mode + 1) % number_modes;
   switch (mode) {

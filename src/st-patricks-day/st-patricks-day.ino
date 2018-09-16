@@ -1,6 +1,7 @@
 #include <Adafruit_NeoPixel.h>
 #define LEDPIN 12 // connect the Data from the strip to this pin on the Arduino
-#define NUMBER_PIXELS 58 // the number of pixels in your LED strip
+#define NUMBER_PIXELS 35
+// the number of pixels in your LED strip
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 
