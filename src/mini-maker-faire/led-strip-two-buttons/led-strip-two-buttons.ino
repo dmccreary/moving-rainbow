@@ -1,4 +1,8 @@
 
+
+
+
+
 /* LED Strip with Two Buttons 
 
 This lab allows you to change display "modes" of a WS-2811B addressible LED Strip (NeoPixels)
@@ -97,7 +101,8 @@ void loop() {
         case 15: randomColor();break;
         case 16: sparkle();break;
      }
-  delay(100); // keep this pattern for 1/10th of a second
+  delay(50
+  ); // keep this pattern for 1/10th of a second
   mainLoopCount++;
 }  
 
