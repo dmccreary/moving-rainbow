@@ -1,8 +1,11 @@
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> baacbdd493fa333a718dab0615435f4907b31747
 /* LED Strip with Two Buttons 
 
 This lab allows you to change display "modes" of a WS-2811B addressible LED Strip (NeoPixels)
@@ -21,10 +24,10 @@ int mode = 0; // This is the "mode" of the device.  It starts at 0 and gets incr
 int newModeInc = 0; // Set to 1 by the ISR when the Green Increment Mode button is pressed.
 int newModeDec = 0; // Set to 1 by the ISR when the Red Decrment Mode button is pressed.
 long lastDebounceTime = 0;  // the last time the output pin was toggled
-long debounceDelay = 150;   // the debounce time; increase if the output flickers
+long debounceDelay = 125;   // the debounce time; increase if the output flickers
 
 const int LED_STRIP_PIN = 12; // Connect the Data pin of the LED strip here
-const int NUMBER_PIXELS = 30;
+const int NUMBER_PIXELS = 5;
 
 
 ; // Number of pixels in the LED strip
