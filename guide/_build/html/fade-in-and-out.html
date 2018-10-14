@@ -1,0 +1,159 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>}; &#8212; moving-raninbow 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p># Fade In and Out</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
+fadeInAndOut(uint32_t color, uint8_t wait) {</p>
+<div class="section" id="id3">
+<h1>};<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<p>This says that the colorWipe function has two inputs:
+1. The first parameter (color), is an unsigned 32-bit integer
+2. The second input is wait, which is an unsigned 8 bit integer.</p>
+<p>It is somewhat complicate to write hex numbers.  So to make this easy we will use a function that takes
+three integers (red, green and blue) and converts them to a single hex number.  This is called the strip.Color() function.</p>
+<p>Here is the full program that will turn our LED strip, red, then green, then blue.
+<a href="#id4"><span class="problematic" id="id5">``</span></a>`
+// fade in and out</p>
+<p>#include &lt;Adafruit_NeoPixel.h&gt;
+#define LEDPIN 12 // connect the Data from the strip to this pin on the Arduino
+#define NUMBER_PIEXELS 12 // the number of pixels in your LED strip
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);</p>
+<p>int waitTime = 10;</p>
+<dl class="docutils">
+<dt>void setup() {</dt>
+<dd>strip.begin();</dd>
+</dl>
+<p>}</p>
+<dl class="docutils">
+<dt>void loop() {</dt>
+<dd>fadeInAndOut(255, 0, 0, waitTime); // Red
+fadeInAndOut(0, 255, 0, waitTime); // Green
+fadeInAndOut(0, 0, 255, waitTime); // Blue</dd>
+</dl>
+<p>}</p>
+<p>void fadeInAndOut(uint8_t red, uint8_t green, uint8_t blue, uint8_t wait) {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>for(uint8_t b=0; b &lt;255; b++) {</dt>
+<dd><dl class="first docutils">
+<dt>for(uint8_t i=0; i &lt; strip.numPixels(); i++) {</dt>
+<dd>strip.setPixelColor(i, red*b/255, green*b/255, blue*b/255);</dd>
+</dl>
+<p class="last">}
+strip.show();
+delay(wait);</p>
+</dd>
+</dl>
+<p>};</p>
+<dl class="docutils">
+<dt>for(uint8_t b=255; b &gt; 0; b–) {</dt>
+<dd><dl class="first docutils">
+<dt>for(uint8_t i=0; i &lt; strip.numPixels(); i++) {</dt>
+<dd>strip.setPixelColor(i, red*b/255, green*b/255, blue*b/255);</dd>
+</dl>
+<p class="last">}
+strip.show();
+delay(wait);</p>
+</dd>
+</dl>
+<p>};</p>
+</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h1>};<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
+<p>## More to explore
+What happens if you change the second parameter from 150 milliseconds to 50 milliseconds?  What about 5 milliseconds?  Can you still see the motion when the delay is very small?</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="home.html">moving-raninbow</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="home.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dan McCreary.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/fade-in-and-out.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

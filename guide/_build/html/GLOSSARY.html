@@ -1,0 +1,147 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>&lt;no title&gt; &#8212; moving-raninbow 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p># Glossary</p>
+<p>## Arduino
+A  popular and set of hardware and software used for teaching physical computing.  Also the name of a company that popularized the devices and supports the standards.  Note that many of the low-cost devices we use in these kits are technically not true Arduino devices.  They are classified as Arduino clones.  Many of the clones are 1/10 the cost of the original devices.
+* [Wikipedia Definition](<a class="reference external" href="http://en.wikipedia.org/wiki/Arduino">http://en.wikipedia.org/wiki/Arduino</a>)</p>
+<p>## Arduino Integrated Development Environment (IDE)
+A software program to edit, compile, debug and download Arduino programs.  It runs on both Windows and Mac.
+* [Download Page](<a class="reference external" href="http://arduino.cc/en/Main/Software">http://arduino.cc/en/Main/Software</a>)</p>
+<p>## Arduino Nano
+The original Arduino devices have a defect in that they are not compatible with standardized solderless breadboards.  We use a lower-cost version that can plug in directly to a solderless breadboard.
+* [Hardware Web Page](<a class="reference external" href="http://arduino.cc/en/Main/ArduinoBoardNano">http://arduino.cc/en/Main/ArduinoBoardNano</a>)
+* [Guide to the Arduino Nano](<a class="reference external" href="http://arduino.cc/en/Guide/ArduinoNano">http://arduino.cc/en/Guide/ArduinoNano</a>)</p>
+<p>## CH340
+The name of the low-cost USB interface chip that is use instead of the more expensive FTDI USB interface chip.
+Although the chip is low cost, the driver is not usually included with the Arduino IDE and
+the driver is not digitally
+sigined for the Mac.
+See the [CH340 drivers here](<a class="reference external" href="http://www.wch.cn/download/CH341SER_ZIP.html">http://www.wch.cn/download/CH341SER_ZIP.html</a>)
+See [Arduino Nano CH340 Instructable](<a class="reference external" href="http://www.instructables.com/id/Arduino-Nano-CH340/">http://www.instructables.com/id/Arduino-Nano-CH340/</a>) for a good description of how to make the CH340 work on the Mac.</p>
+<p>## Light Emitting Diode (LED)
+A solid-state device that emits light when a voltage is applied.  LEDs come in various colors such as red, green and blue.
+* [Wikipedia Definition](<a class="reference external" href="http://en.wikipedia.org/wiki/Light-emitting_diode">http://en.wikipedia.org/wiki/Light-emitting_diode</a>)</p>
+<p>## Moving Rainbow Kits
+These are kits that combine three important aspects of learning: Color, Motion and Social Constructionism.
+Students are interested in sensing and changing the world around them.
+The use of low-cost LEDs and DC-motors can make these kits not only fun,
+but inexpensive enough that students can purchase them and take them home to share with friends.  A typical
+cost is around $15USD.</p>
+<p>## Light Emitting Diode (LED)
+A device that converts DC current into light.  In our project each Pixel element has a red, green and blue LED in it.</p>
+<p>## Red-Green-Blue LED (RGB LED)
+A single device that has three colors of LEDs.  One for red, one for blue and one for green.  By combining various intensities of each of these three colors we can create many additional colors.</p>
+<p>## NeoPixel
+This is the name coined by Adafruit for an individually addressable LED.
+Adafruit also provides a high-quality open source library on github to drive these LEDs.
+* [NeoPixel on Adafruit Web Site](<a class="reference external" href="http://www.adafruit.com/category/168">http://www.adafruit.com/category/168</a>)</p>
+<p>## NeoPixel Library
+The Arduino library used in these guides.
+We picked this library because of its popularity and the many on-line
+tutorials about how to use them.
+* [NeoPixel Library Guide on the Adafruit Web Site]https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library
+* [NeoPixel Library on GitHub](<a class="reference external" href="https://github.com/adafruit/Adafruit_NeoPixel">https://github.com/adafruit/Adafruit_NeoPixel</a>)</p>
+<p>## Physical Computing
+Hardware and software that can sense and respond to changes in the world around us.
+* [Wikipedia Definition](<a class="reference external" href="http://en.wikipedia.org/wiki/Physical_computing">http://en.wikipedia.org/wiki/Physical_computing</a>)</p>
+<p>## Social Constructionism
+Getting students to build things together in teams.  This style of teaching has many benefits over the standard lecture-style learning.
+* [Wikipedia Definition](<a class="reference external" href="http://en.wikipedia.org/wiki/Social_constructionism">http://en.wikipedia.org/wiki/Social_constructionism</a>)
+* [Berkeley Web Site on Social Constructionism in Education](<a class="reference external" href="http://gsi.berkeley.edu/gsi-guide-contents/learning-theory-research/social-constructivism/">http://gsi.berkeley.edu/gsi-guide-contents/learning-theory-research/social-constructivism/</a>)</p>
+<p>## WS2812B
+A standard for addressable RGB LEDs
+* [Data sheet from Adafruit](<a class="reference external" href="http://www.adafruit.com/datasheets/WS2812B.pdf">http://www.adafruit.com/datasheets/WS2812B.pdf</a>)</p>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="home.html">moving-raninbow</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="home.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dan McCreary.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/GLOSSARY.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
