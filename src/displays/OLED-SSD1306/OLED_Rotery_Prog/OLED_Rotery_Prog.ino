@@ -2,12 +2,14 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <Encoder.h>
 
 #include <Adafruit_NeoPixel.h>
 #define LED_STRIP_PIN 13 // connect the Data from the strip to this pin on the Arduino
 #define NUMBER_PIXELS 12 // the number of pixels in your LED strip
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
 
+Encoder knobLeft(A0, A1);
 
 //Define Pins
 #define OLED_CLK   12 //D0
@@ -32,7 +34,10 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_STRIP_PIN, NEO_GR
 //Define Variables
 Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 
-byte mode; // mode 0 is display patterh, mode 1 is program
+byte prog_mode; // 0 is display patten, mode 1 is program
+byte select_mode; // 0 is display patten, mode 1 is program
+byte display_mode; // on mode per function - typically about 10 functions
+
 byte delayTime = 50; // 1/20 of a second - used to program the speed
 byte red = 10;
 byte green = 10;
@@ -42,6 +47,9 @@ byte mainLoopCount = 0;
 
 byte pressedProgButton = 0;
 byte pressedSelectButton = 0;
+byte positionLeft  = -128;
+byte positionRight = -128;
+
 long lastDebounceTime;
 //Setup 
 void setup() 
@@ -64,39 +72,59 @@ void setup()
   display.clearDisplay();
 
   Serial.begin(9600);
-  Serial.println("Start");
-  Serial.print("Mode=");
-  Serial.println(mode, DEC);
 }
 
-//Splash Screen
-//void splash()
-//{
-//  display.clearDisplay(); 
-//  display.setTextColor(WHITE);
-//  centerPrint("Moving Rainbow",5,1);
-//  centerPrint("By Dan McCreary",24,1);
-//  centerPrint("Version 0.01",33,1);
-//  centerPrint("Sept. 2018",42,1);
-//  display.display();
-//  delay(3000);
-//}
+Splash Screen
+void splash()
+{
+  display.clearDisplay(); 
+  display.setTextColor(WHITE);
+  centerPrint("Moving Rainbow",5,1);
+  centerPrint("By Dan McCreary",24,1);
+  centerPrint("Version 0.01",33,1);
+  centerPrint("Sept. 2018",42,1);
+  display.display();
+  delay(3000);
+}
 
 //Loop
 void loop() {
   if (pressedProgButton == 1) {
-     mode = 1;
+     prog_mode = 1;
      pressedProgButton = 0; // move it back to 0
-    
+     Serial.print("Program pressed");
    }
 
-  if (mode == 1)
+   if (pressedSelectButton == 1) {
+     select_mode = 1;
+     pressedSelectButton = 0; // move it back to 0
+     Serial.print("Select pressed");
+   }
+
+   long newLeft, newRight;
+  newLeft = knobLeft.read();
+  if (newLeft != positionLeft) {
+    Serial.print("Left = ");
+    Serial.print(newLeft);
+    
+    Serial.println();
+    positionLeft = newLeft;
+  }
+  // if a character is sent from the serial monitor,
+  // reset both back to zero.
+  if (Serial.available()) {
+    Serial.read();
+    Serial.println("Reset both knobs to zero");
+    knobLeft.write(0);
+  }
+
+  if (prog_mode == 1)
      display_prog_menu();
 
-  switch (mode) {
+  switch (display_mode) {
         case 0:rainbow7();break; // 7 pixel rainbow
         case 1: dot(red, blue, green);break; // red
-//        case 2: dot(0, 255, 0);break; // green
+        case 2: colorWipe(red ,blue, green);break;
 //        case 3: dot(0, 0, 255);break; // blue
 //        case 4: colorWipe(255 ,0, 0);break;
 //        case 5: colorWipe(0, 255, 0);break;
@@ -112,13 +140,14 @@ void loop() {
 //        case 15: randomColor();break;
 //        case 16: sparkle();break;
      }
-  for (int i=0; i<strip.numPixels(); i++) {
-    rainbow7(i, delayTime); // starting at i, draw the 7 color rainbow
-  }
+     
   mainLoopCount++;
+  delay(delayTime);
   
-  Serial.print("Mode=");
-  Serial.println(mode, DEC);
+//  Serial.print("Prog Mode=");
+//  Serial.println(prog_mode, DEC);
+//  Serial.print("Display Mode=");
+//  Serial.println(display_mode, DEC);
 }
 
 void display_pattern() {
@@ -152,15 +181,19 @@ void display_pattern() {
 void display_prog_menu() {
    display.clearDisplay(); 
    display.setTextSize(1);
+
    display.setCursor(0,10);
-   display.print("set delay");
+   display.print("set speed:");
    
    display.setCursor(0,20);
+   display.print("set brightness:");
+   
+   display.setCursor(0,30);
    display.print("set color:");
 
-   display.setCursor(0,30);
+   display.setCursor(0,40);
    display.print("set pattern:");
-   
+
    display.display();
 }
 
@@ -196,14 +229,6 @@ void centerPrint(char *text, int y, int size)
   display.print(text);
 }
 
-// a seven segment rainbow with red on the highest pixel
-void rainbow7(int  i, int  wait) {
-    int np = strip.numPixels();  // we use the modulo function with this
-    strip.setPixelColor(i %np, 255, 255, 0);
-    strip.show();
-    delay(wait);
-}
-
 void dot(int red, int blue, int green) {
   int index = mainLoopCount % strip.numPixels();
   clear();
@@ -230,6 +255,18 @@ void rainbow7() {
     strip.show();
 }
 
+
+void colorWipe(int red, int blue, int green) {
+  int index = mainLoopCount % strip.numPixels();
+  if (index == 0) {
+    clear();
+  }
+ else
+    for(uint16_t i=0; i<=index; i++) {
+      strip.setPixelColor(i, red, blue, green);
+    }
+  strip.show();
+}
 
 void clear() {
   for(uint16_t i=0; i<strip.numPixels(); i++) {

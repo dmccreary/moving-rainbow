@@ -1,5 +1,3 @@
-
-
 /* LED Strip with Two Buttons 
 
 This lab allows you to change display "modes" of a WS-2811B addressible LED Strip (NeoPixels)
@@ -18,7 +16,7 @@ int mode = 0; // This is the "mode" of the device.  It starts at 0 and gets incr
 int newModeInc = 0; // Set to 1 by the ISR when the Green Increment Mode button is pressed.
 int newModeDec = 0; // Set to 1 by the ISR when the Red Decrment Mode button is pressed.
 long lastDebounceTime = 0;  // the last time the output pin was toggled
-long debounceDelay = 125;   // the debounce time in ms; increase if the output flickers
+long debounceDelay = 150;   // the debounce time in ms; increase if the output flickers
 
 const int LED_STRIP_PIN = 12; // Connect the Data pin of the LED strip here
 const int NUMBER_PIXELS = 60;
@@ -27,8 +25,9 @@ const int NUMBER_PIXELS = 60;
 ; // Number of pixels in the LED strip
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
 
-int modeCount = 17; // The number of display modes, we mode the mode to get the actual mode
+int modeCount = 18; // The number of display modes, we mode the mode to get the actual mode
 int mainLoopCount = 0;  // The number of times we go through the main loop
+int mainLoopDelay = 30; // The delay at the end of the main loop - make it a little faster for longer strips
 
 void setup()
 {
@@ -50,37 +49,27 @@ void setup()
 }
 
 void loop() {
+  
+// catch the interrupts
   if (newModeInc == 1) {
     if ((millis() - lastDebounceTime) > debounceDelay) {
       mode++;
       mode = mode % modeCount;
-      Serial.print("Inc Mode=");
-      Serial.println(mode, DEC);
-      digitalWrite(13, LOW);
       newModeInc = 0;
-    }
-    else {
     }
   };
   
   if (newModeDec == 1) {
     if ((millis() - lastDebounceTime) > debounceDelay) {
-      if (mode == 0) {
-        mode = modeCount - 1;
-      } else {
-        mode--;
-      }
-      Serial.print("Dec Mode=");
-      Serial.println(mode, DEC);
-      digitalWrite(13, LOW);
+      mode--;
+      if (mode < 0) mode = modeCount - 1;
       newModeDec = 0;
     }
-    
   };
   
   // select the mode
   switch (mode) {
-        case 0:rainbow7();break; // 7 pixel rainbow
+        case 0: rainbow7();break; // 7 pixel rainbow
         case 1: dot(255, 0, 0);break; // red
         case 2: dot(0, 255, 0);break; // green
         case 3: dot(0, 0, 255);break; // blue
@@ -97,30 +86,30 @@ void loop() {
         case 14: candle();break;
         case 15: randomColor();break;
         case 16: sparkle();break;
+        case 17: all_one_color();break;
      }
-  delay(30); // keep this pattern for 1/10th of a second
+     
+  delay(mainLoopDelay); // keep this pattern on for this time
   mainLoopCount++;
-}  
+}
 
 // Interrupt service routine - keep this fast
-void changeModeInc(){        
-  digitalWrite(13, HIGH); // show we have a new mode
+void changeModeInc() {        
   newModeInc = 1; // indicate we have a new increment mode
   lastDebounceTime = millis(); // record when we got the interrupt for debouncing
 }
 
 // Interrupt service routine
-void changeModeDec(){        
-  digitalWrite(13, HIGH); //  show we have a new mode
-  newModeDec = 1; // indicate we have a new increment mode
+void changeModeDec( ){        
+  newModeDec = 1; // indicate we have a new decrement mode
   lastDebounceTime = millis(); // record when we got the interrupt for debouncing
 }
 
 // move a dot
 void dot(int red, int blue, int green) {
   int index = mainLoopCount % strip.numPixels();
-  clear();
-  strip.setPixelColor(index, red, blue, green);
+  strip.setPixelColor(index, 0, 0, 0);
+  strip.setPixelColor(index+1, red, blue, green);
   strip.show();
 }
 
@@ -140,13 +129,14 @@ void colorWipe(int red, int blue, int green) {
 void swoosh(int red, int blue, int green) {
   int n = strip.numPixels();
   int index = mainLoopCount % n;
-  clear();
-  strip.setPixelColor((index + 5) % n, red, blue, green);
-  strip.setPixelColor((index + 4) % n, red / 1.5, blue / 1.5, green / 1.5);
-  strip.setPixelColor((index + 3) % n, red / 2, blue/ 2, green/ 2);
-  strip.setPixelColor((index + 2) % n, red / 4, blue/ 4, green/ 4);
-  strip.setPixelColor((index + 1) % n, red / 8, blue/ 8, green/ 8);
-  strip.setPixelColor((index) % n, red / 16, blue/ 16, green/ 16);
+
+  strip.setPixelColor(index + 6, red, blue, green);
+  strip.setPixelColor(index + 5, red / 1.5, blue / 1.5, green / 1.5);
+  strip.setPixelColor(index + 4, red / 2, blue/ 2, green/ 2);
+  strip.setPixelColor(index + 3, red / 4, blue/ 4, green/ 4);
+  strip.setPixelColor(index + 2, red / 8, blue/ 8, green/ 8);
+  strip.setPixelColor(index + 1, red / 16, blue/ 16, green/ 16);
+  strip.setPixelColor(index, 0, 0, 0);
   
   strip.show();
 }
@@ -174,8 +164,7 @@ void rainbow7() {
 }
 
 void rainbowSlide() {
-    for(int i=0; i< strip.numPixels(); i++)
-    {
+    for(int i=0; i< strip.numPixels(); i++) {
         strip.setPixelColor((i + mainLoopCount) % strip.numPixels(), Wheel(((i * 256 / strip.numPixels()) + mainLoopCount) & 255));
     }
     strip.show();
@@ -216,22 +205,31 @@ uint32_t Wheel(byte WheelPos) {
   }
 }
 
+void all_one_color() {
+int color = Wheel(mainLoopCount % 256);
+  for (int i=0; i<strip.numPixels(); i++) {
+    strip.setPixelColor(i, color);
+  }
+  strip.show();
+}
+
 void candle() {
    uint8_t green; // brightness of the green 
    uint8_t red;  // add a bit for red
-   for(uint8_t i=0; i<100; i++) {
+   // make 20 random pixels flicker
+   for (char i=0; i<10; i++) {
      green = 50 + random(155);
      red = green + random(50);
-     strip.setPixelColor(random(strip.numPixels() - 1), red, green, 0);
-     strip.show();
-     delay(5);
-  }
+     strip.setPixelColor(random(strip.numPixels()), red, green, 0);
+   }
+   strip.show();
 }
 
+// turn every 4th pixel on and move the offset
 void theaterChase(int red, int blue, int green) {
 int index = mainLoopCount % strip.numPixels();
 for(int i=0; i < strip.numPixels(); i++) {
-      if ((i + index) % 3 == 0)
+      if ((i + index) % 4 == 0)
       {
           strip.setPixelColor(i, red, green, blue);
       }
@@ -240,5 +238,6 @@ for(int i=0; i < strip.numPixels(); i++) {
           strip.setPixelColor(i, 0, 0, 0);
       }
   }
+  delay(mainLoopDelay * 3);
   strip.show();
 }
