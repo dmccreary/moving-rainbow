@@ -1,0 +1,156 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting Started &#8212; moving-raninbow 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>In this section you will learn:</p>
+<ul class="simple">
+<li>How to install the Arduino IDE</li>
+<li>How to download the Ardunio libraries</li>
+<li>How to install the LED Ardunio libraries to work with your Arduino software</li>
+<li>How to hook up your LED strip to your Arduino</li>
+<li>How configure your programs to match your LED strip</li>
+<li>How to test and debug your connections</li>
+</ul>
+<p>### Download the Arduino Developer Tools
+If you have not already done so, now is a good time to download the main Arudino software from the following location:.</p>
+<p>[<a class="reference external" href="http://arduino.cc/en/Main/Software](http://arduino.cc/en/Main/Software">http://arduino.cc/en/Main/Software](http://arduino.cc/en/Main/Software</a>)</p>
+<p>follow the installation directions and then connect your Arduino to your computer using the USB cable.
+After the two are connected you should be able to go to the Files -&gt; Examples -&gt; Basic -&gt; Blink and open the
+blink program.  You should then be able to see the LED on the Arudion flash on and off.</p>
+<p>### Download the Adafruit NeoPixel Libaries</p>
+<p>Click the link below or copy the following URL in your browser:</p>
+<p>[<a class="reference external" href="http://github.com/adafruit/Adafruit_NeoPixel](http://github.com/adafruit/Adafruit_NeoPixel">http://github.com/adafruit/Adafruit_NeoPixel](http://github.com/adafruit/Adafruit_NeoPixel</a>)</p>
+<p>and “download” the NeoPixel Library zip file.  Look for the “Download Zip” button in the lower right corner.</p>
+<p>### Unzip and Rename
+The software and you downloaded will be in a single zip file with the name:</p>
+<p>Adafruit_NeoPixel-master.zip</p>
+<p>You must first unzip this file onto your local hard drive.  One way to do this is to right click over
+the file and look for an “unzip” option.</p>
+<p>After you have unziped the file you will see a folder like “Adafruit_NeoPixel-master”.</p>
+<p>Next, you must rename folder to ‘Adafruit_NeoPixel’ (remove the -master suffix) and copy it into the correct location.
+Typically this is in Arduino/Libraries folder in your home directory.</p>
+<p>### Restart the Arduino IDE</p>
+<p>After you have the library in the right location you must Restart Arduino IDE.  Then open</p>
+<blockquote>
+<div>File-&gt;Sketchbook-&gt;Library-&gt;Adafruit_NeoPixel-&gt;strandtest sketch.</div></blockquote>
+<p>### Change the line that initializes the strip to use pin 12</p>
+<blockquote>
+<div>Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, 12, NEO_GRB + NEO_KHZ800);</div></blockquote>
+<dl class="docutils">
+<dt>### Make the following connections of the LED strip</dt>
+<dd>connect the red wire to the +5
+connect the black wire to GND
+connect the yellow wire to pin 12</dd>
+</dl>
+<p>### Connect your Arduino to the USB and press the “upload” button.</p>
+<p>If you have any errors, check to make sure your Tools -&gt; Port is set to the right USB port and make sure your board is set to be “Uno”.</p>
+<p>### Loading the CH340 Drivers</p>
+<p>It is possible your version of the Arduino IDE does not have the correct drivers for the Arduino Nano CH340 USB interface chip.
+If you do not see the serial port for the Arduino when you go to the Tools -&gt; Port menu you need to check your driver.</p>
+<p>The first step is to manually install the driver.  This can be done at the following URL:</p>
+<p>[CH340 Driver Downloads](<a class="reference external" href="http://www.wch.cn/download/CH341SER_MAC_ZIP.html">http://www.wch.cn/download/CH341SER_MAC_ZIP.html</a>)</p>
+<p>Make sure you have admin rights on your computer before you install this driver.</p>
+<p>Note that as of August of 2015, the driver for the Mac is still “unsigned” and will not work on modern Mac OSs (Yousemite) .
+The workaround this is to temporarly disable checking for a signed driver on the Mac.  To do this run the following
+program in the Mac UNIX Console /Applications- &gt; Utilities -&gt; Terminal</p>
+<blockquote>
+<div>sudo nvram boot-args=”kext-dev-mode=1”</div></blockquote>
+<p>The most current version of Mac (El Capitan) has some problems recognizing the NEO board.  Per [this Stack Exchange](<a class="reference external" href="http://arduino.stackexchange.com/questions/14018/arduino-not-detected-on-el-capitan-public-beta-6">http://arduino.stackexchange.com/questions/14018/arduino-not-detected-on-el-capitan-public-beta-6</a>) thread, downloading a paid driver has helped one student in this demo.</p>
+<p>After you run this command you must reboot the Mac for it to take effect.  This will allow the drivers to be loaded even though they are unsigned drivers.</p>
+<p>See this helpful post on [Installing the CH340 Driver on Yosemite on the Mac](<a class="reference external" href="http://kiguino.moos.io/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html">http://kiguino.moos.io/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html</a>)</p>
+<p>After the driver is installed you should see a non-Bluetooth port appear.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="home.html">moving-raninbow</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="home.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dan McCreary.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/getting-started.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

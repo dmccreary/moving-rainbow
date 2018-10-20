@@ -3,7 +3,11 @@
 #define NUMBER_PIEXELS 12 // the number of pixels in your LED strip
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 
+<<<<<<< HEAD
+int delayTime = 1000; // 1/10 of a second
+=======
 int delayTime = 100; // 100 milliseconds or 1/10 of a second is a good speed for a 12 pixel strip
+>>>>>>> baacbdd493fa333a718dab0615435f4907b31747
 
 void setup() {
   strip.begin(); // initialize the strip

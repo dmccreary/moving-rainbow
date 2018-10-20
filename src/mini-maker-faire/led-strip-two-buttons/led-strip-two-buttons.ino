@@ -1,5 +1,11 @@
 
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> baacbdd493fa333a718dab0615435f4907b31747
 /* LED Strip with Two Buttons 
 
 This lab allows you to change display "modes" of a WS-2811B addressible LED Strip (NeoPixels)

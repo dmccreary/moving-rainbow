@@ -3,7 +3,7 @@
 #define NUMBER_PIXELS 12 // the number of pixels in your LED strip
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 
-int delayTime = 500; // 1/2 of a second
+int delayTime = 200; // 1/2 of a second
 
 void setup() {
   strip.begin(); // initialize the strip
@@ -15,10 +15,10 @@ void loop() {
   }
 }
 
-// a seven segment rainbow with red on the highest pixel
+// a seven segment rainbow with blue on the highest pixel
 void rainbow7(int  i,int  wait) {
     int np = strip.numPixels();  // we use the modulo function with this
-    strip.setPixelColor(i %np, 255, 255, 0);
+    strip.setPixelColor(i %np,212,37,242);
     strip.show();
     delay(wait);
 }

@@ -1,0 +1,148 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>} &#8212; moving-raninbow 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p># The Larson Scanner</p>
+<p>The Larson Scanner is one of the most famous patterns in special effects.  It was named after Glen A. Larson
+who used the pattern in the intelligent car in Knight Rider and as the eyes in Cylons in Battlestar Galactica.</p>
+<p>Here is out it works.
+1. We start the loop by drawing five intensities of light.  Dim at the ends and bright in the center.
+2. We offset each of these by a position.
+3. Each time we go through the loop we move the position up until we reach the end.  When we reach the end
+of the strip we flip the direction (dir = -dir)</p>
+<p>Here is some sample code to do the Larson Scanner.
+<a href="#id1"><span class="problematic" id="id2">``</span></a>`
+#include &lt;Adafruit_NeoPixel.h&gt;</p>
+<p>#define NUMBER_PIEXEL 12
+#define LEDPIN    12</p>
+<p>Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXEL, LEDPIN, NEO_GRB + NEO_KHZ800);</p>
+<dl class="docutils">
+<dt>void setup() {</dt>
+<dd>strip.begin();</dd>
+</dl>
+<p>}</p>
+<p>int pos = 0, dir = 1; // Position, direction of “eye”</p>
+<dl class="docutils">
+<dt>void loop() {</dt>
+<dd><p class="first">int j;</p>
+<p>// Draw 5 pixels centered on pos.  setPixelColor() will clip any
+// pixels off the ends of the strip, we don’t need to watch for that.
+strip.setPixelColor(pos - 2, 0x100000); // Dark red
+strip.setPixelColor(pos - 1, 0x800000); // Medium red
+strip.setPixelColor(pos    , 0xFF3000); // Center pixel is brightest
+strip.setPixelColor(pos + 1, 0x800000); // Medium red
+strip.setPixelColor(pos + 2, 0x100000); // Dark red</p>
+<p>strip.show();
+delay(50);</p>
+<p>// Rather than being sneaky and erasing just the tail pixel,
+// it’s easier to erase it all and draw a new one next time.
+for(j=-2; j&lt;= 2; j++) strip.setPixelColor(pos+j, 0);</p>
+<p>// Bounce off ends of strip
+pos += dir;
+if(pos &lt; 0) {</p>
+<blockquote>
+<div>pos = 1;
+dir = -dir;</div></blockquote>
+<dl class="docutils">
+<dt>} else if(pos &gt;= strip.numPixels()) {</dt>
+<dd>pos = strip.numPixels() - 2;
+dir = -dir;</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<div class="section" id="id3">
+<h1>}<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="home.html">moving-raninbow</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="home.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Dan McCreary.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/larson-scanner.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
