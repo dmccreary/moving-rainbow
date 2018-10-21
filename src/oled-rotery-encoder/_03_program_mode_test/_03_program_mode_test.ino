@@ -11,15 +11,6 @@
 #define SET_PIN 4 // momentary push button set the current encoder value to be the new variable
 #define PROG_PIN 5 // momentary push button change the programming mode
 
-// Change these two numbers to the pins connected to your encoder.
-//   Best Performance: both pins have interrupt capability
-//   Good Performance: only the first pin has interrupt capability
-//   Low Performance:  neither pin has interrupt capability
-Encoder myEnc(ENC_A_PIN, ENC_B_PIN);
-Bounce debouncer_set = Bounce();
-Bounce debouncer_prog = Bounce(); 
-
-
 
 /* from https://store.arduino.cc/usa/arduino-nano
 SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK). These pins support SPI communication, which, although provided by the underlying hardware, is not currently included in the Arduino language.
@@ -30,8 +21,12 @@ SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK). These pins support SPI communicati
 #define SDA_PIN 12 // also called Data or MISO
 #define SCL_PIN 13 // also called Clock SCK
 
-// this works
+
+// Software 4-wire SPI
 U8G2_SSD1306_128X64_NONAME_1_4W_SW_SPI u8g2(U8G2_R0, SCL_PIN, SDA_PIN, CS_PIN, DC_PIN, RS_PIN);
+Encoder myEnc(ENC_A_PIN, ENC_B_PIN);
+Bounce debouncer_set = Bounce();
+Bounce debouncer_prog = Bounce(); 
 
 // set_value is 0 if we are setting the current program mode
 int set_value = 1;
@@ -48,8 +43,10 @@ void setup(void) {
   // normal value is HIGH - press button to make LOW
   pinMode(SET_PIN, INPUT_PULLUP);
   pinMode(PROG_PIN, INPUT_PULLUP);
+  
   debouncer_set.attach(SET_PIN);
   debouncer_set.interval(25); // interval in ms
+  
   debouncer_prog.attach(PROG_PIN);
   debouncer_prog.interval(25); // interval in ms
   
@@ -58,7 +55,8 @@ void setup(void) {
   // For other options see https://github.com/olikraus/u8g2/wiki/fntlistall#8-pixel-height
   u8g2.setFont(u8g2_font_helvR08_tf);
   Serial.begin(9600);
-  Serial.println("Basic Encoder Test:");
+  // Serial.println("Basic Encoder Test:");
+
 }
 
 void loop(void) {
@@ -77,10 +75,11 @@ void loop(void) {
   
   debouncer_prog.update();
   if (debouncer_prog.fell()) {
-    prog_mode_value != prog_mode_value;
-    mode = (mode++);
+    prog_mode_value = debouncer_prog.read();
+    mode++;
+    mode = mode % num_modes;
     update_display = 1;
-  }
+  } else prog_mode_value = 1;
   
   if (update_display == 1) {
       u8g2.firstPage();
@@ -116,6 +115,6 @@ void loop(void) {
    Serial.print(prog_mode_value);
    Serial.print(" Mode:");
    Serial.println(mode);
-   delay(50);
+   delay(10);
 }
 
