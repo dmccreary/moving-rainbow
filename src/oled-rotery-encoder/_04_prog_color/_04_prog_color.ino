@@ -32,15 +32,9 @@ Encoder myEnc(ENC_A_PIN, ENC_B_PIN);
 Bounce debouncer_set = Bounce();
 Bounce debouncer_prog = Bounce(); 
 
-// set_value is 0 if we are setting the current program mode
-int set_value = 1;
-// if prog_mode_value goes low we increment the mode
-int prog_mode_value = 1;
-
 int mode = 0;
 int num_modes = 6;
-int newPosition = 0;
-int oldPosition  = -999;
+int oldPosition  = 1; // change from -999
 int update_display = 0;
 
 int red = 10;
@@ -56,75 +50,93 @@ int old_delay_value  = 0;
 int brightness = 100;
 int old_brightness  = 0;
 
+int delta;
+int tmp_display;
+
 void setup(void) {
   // normal value is HIGH - press button to make LOW
   pinMode(SET_PIN, INPUT_PULLUP);
   pinMode(PROG_PIN, INPUT_PULLUP);
   
   debouncer_set.attach(SET_PIN);
-  debouncer_set.interval(25); // interval in ms
+  debouncer_set.interval(10); // interval in ms
   
   debouncer_prog.attach(PROG_PIN);
-  debouncer_prog.interval(25); // interval in ms
+  debouncer_prog.interval(10); // interval in ms
   
   u8g2.begin();
   // Set font to Helvetica regurlar 8 pixel font
   // For other options see https://github.com/olikraus/u8g2/wiki/fntlistall#8-pixel-height
   u8g2.setFont(u8g2_font_helvR08_tf);
+  strip.begin();
   Serial.begin(9600);
   // Serial.println("Basic Encoder Test:");
-
+  tmp_display = red; // set to the initial mode=0 display value
 }
 
 void loop(void) {
+
   // look for the new encoder number
-  newPosition = myEnc.read();
+  int newPosition = myEnc.read();
+  
   if (newPosition != oldPosition) {
+    delta = newPosition - oldPosition;
+    tmp_display += delta;
+    
+     Serial.print("NewPos:");
+     Serial.print(newPosition);
+  
+     Serial.print(" Old:");
+     Serial.print(oldPosition);
+  
+     Serial.print(" Delta:");
+     Serial.print(delta);
     oldPosition = newPosition;
-    switch (mode) {
-      case 0:
-        red = newPosition;
-        break;
-      case 1:
-        green = newPosition;
-        break;
-      case 2:
-        blue = newPosition;
-        break;
-      case 3:
-        pattern = newPosition;
-        break;
-      case 4:
-        delay_value = newPosition;
-        break;
-      case 5:
-        brightness = newPosition;
-        break;
-    }
     update_display = 1;
   }
   
   debouncer_set.update();
   if ( debouncer_set.fell() ) {
-    set_value  = !set_value;
     switch (mode) {
       case 0:
-        red = newPosition;
+        red = tmp_display;
         break;
       case 1:
-        green = newPosition;
+        green = tmp_display;
         break;
       case 2:
-        blue = newPosition;
+        blue = tmp_display;
         break;
       case 3:
-        pattern = newPosition;
+        pattern = tmp_display;
         break;
       case 4:
-        delay_value = newPosition;
+        delay_value = tmp_display;
         break;
       case 5:
-        brightness = newPosition;
+        brightness = tmp_display;
+        break;
+    }
+    mode++; // move to the next field
+    mode = mode % num_modes;
+    switch (mode) {
+      case 0:
+        tmp_display = red;
+        break;
+      case 1:
+        tmp_display = green;
+        break;
+      case 2:
+        tmp_display = blue;
+        break;
+      case 3:
+        tmp_display = pattern;
+        break;
+      case 4:
+        tmp_display = delay_value;
+        break;
+      case 5:
+        tmp_display = brightness;
         break;
     }
     update_display = 1;
@@ -132,59 +144,86 @@ void loop(void) {
   
   debouncer_prog.update();
   if (debouncer_prog.fell()) {
-    prog_mode_value = debouncer_prog.read();
     mode++;
     mode = mode % num_modes;
+    switch (mode) {
+      case 0:
+        tmp_display = red;
+        break;
+      case 1:
+        tmp_display = green;
+        break;
+      case 2:
+        tmp_display = blue;
+        break;
+      case 3:
+        tmp_display = pattern;
+        break;
+      case 4:
+        tmp_display = delay_value;
+        break;
+      case 5:
+        tmp_display = brightness;
+        break;
+    }
     update_display = 1;
-  } else prog_mode_value = 1;
+  };
   
   if (update_display == 1) {
       u8g2.firstPage();
       do {    
             u8g2.drawStr(0,15,"Red:");
             u8g2.setCursor(23,15);
-            u8g2.print(u8x8_u8toa(red, 3));
-            if (mode==0) u8g2.drawLine(0,17, 40, 17);
+            if (mode==0) {
+              u8g2.print(u8x8_u8toa(tmp_display, 3));
+              u8g2.drawLine(0,17, 40, 17);
+            } else u8g2.print(u8x8_u8toa(red, 3));
             
             u8g2.drawStr(45,15,"Grn:");
             u8g2.setCursor(68,15);
-            u8g2.print(u8x8_u8toa(green, 3));
-            if (mode==1) u8g2.drawLine(45,17, 85, 17);
+            if (mode==1) {
+              u8g2.print(u8x8_u8toa(tmp_display, 3));
+              u8g2.drawLine(45,17, 85, 17);
+            } else u8g2.print(u8x8_u8toa(green, 3));
             
             u8g2.drawStr(92,15,"Blu:");
             u8g2.setCursor(110,15);
-            u8g2.print(u8x8_u8toa(blue, 3));
-            if (mode==2) u8g2.drawLine(92,17, 130,17);
+            
+            if (mode==2) {
+              u8g2.drawLine(92,17, 130,17);
+              u8g2.print(u8x8_u8toa(tmp_display, 3));
+            } else u8g2.print(u8x8_u8toa(blue, 3));
   
             u8g2.drawStr(0,30,"Pattern:");
             u8g2.setCursor(70,30);
             // right justify but only works up to 3 digits
-            u8g2.print(u8x8_u8toa(pattern, 3));
-            if (mode==3) u8g2.drawLine(0,32, 87,32);
+            
+            if (mode==3) {
+              u8g2.drawLine(0,32, 87,32);
+              u8g2.print(u8x8_u8toa(tmp_display, 3));
+            } else u8g2.print(u8x8_u8toa(pattern, 3));
   
             u8g2.drawStr(0,46,"Delay:");
             u8g2.setCursor(70,46);
             // right justify but only works up to 3 digits
-            u8g2.print(u8x8_u8toa(delay_value, 3));
-            if (mode==4) u8g2.drawLine(0,48, 87,48);
+            
+            if (mode==4) {
+              u8g2.drawLine(0,48, 87,48);
+              u8g2.print(u8x8_u8toa(tmp_display, 3));
+            } else u8g2.print(u8x8_u8toa(delay_value, 3));
 
             u8g2.drawStr(0,61,"Brightness:");
             u8g2.setCursor(70,61);
             // right justify but only works up to 3 digits
-            u8g2.print(u8x8_u8toa(brightness, 3));
-            if (mode==5) u8g2.drawLine(0,63, 87,63);
             
-            } while ( u8g2.nextPage() );
+            if (mode==5) {
+              u8g2.print(u8x8_u8toa(tmp_display, 3));
+              u8g2.drawLine(0,63, 87,63);
+            } else u8g2.print(u8x8_u8toa(brightness, 3));
+            
+         } while ( u8g2.nextPage() );
       update_display = 0;   
-   }
-   Serial.print("Encoder:");
-   Serial.print(newPosition);
    
-   Serial.print(" Set:");
-   Serial.print(set_value);
-   Serial.print(" Prog:");
-   
-   Serial.print(prog_mode_value);
    Serial.print(" Mode:");
    Serial.print(mode);
 
@@ -194,11 +233,17 @@ void loop(void) {
    Serial.print(" Delay:");
    Serial.print(delay_value);
 
-   Serial.print("Brightness:");
+   Serial.print(" Brightness:");
    Serial.print(brightness);
+
+   Serial.print(" Temp Display:");
+   Serial.println(tmp_display);
    
-   Serial.println(mode);
-   delay(delay_value);
+  
+   drawColor(red,green,blue);
+
+    }
+   // delay(delay_value);
 }
 
 void drawColor(int red, int green, int blue) {
