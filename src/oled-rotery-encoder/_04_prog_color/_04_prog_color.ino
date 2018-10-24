@@ -177,6 +177,7 @@ void loop(void) {
             if (mode==0) {
               u8g2.print(u8x8_u8toa(tmp_display, 3));
               u8g2.drawLine(0,17, 40, 17);
+              drawColor(tmp_display, green, blue);
             } else u8g2.print(u8x8_u8toa(red, 3));
             
             u8g2.drawStr(45,15,"Grn:");
@@ -184,6 +185,7 @@ void loop(void) {
             if (mode==1) {
               u8g2.print(u8x8_u8toa(tmp_display, 3));
               u8g2.drawLine(45,17, 85, 17);
+              drawColor(red, tmp_display, blue);
             } else u8g2.print(u8x8_u8toa(green, 3));
             
             u8g2.drawStr(92,15,"Blu:");
@@ -192,6 +194,7 @@ void loop(void) {
             if (mode==2) {
               u8g2.drawLine(92,17, 130,17);
               u8g2.print(u8x8_u8toa(tmp_display, 3));
+              drawColor(red, green, tmp_display);
             } else u8g2.print(u8x8_u8toa(blue, 3));
   
             u8g2.drawStr(0,30,"Pattern:");
@@ -222,7 +225,7 @@ void loop(void) {
             } else u8g2.print(u8x8_u8toa(brightness, 3));
             
          } while ( u8g2.nextPage() );
-      update_display = 0;   
+   
    
    Serial.print(" Mode:");
    Serial.print(mode);
@@ -239,10 +242,8 @@ void loop(void) {
    Serial.print(" Temp Display:");
    Serial.println(tmp_display);
    
-  
-   drawColor(red,green,blue);
-
-    }
+   update_display = 0; // we have updated the display
+  } // end update display
    // delay(delay_value);
 }
 
