@@ -16,15 +16,20 @@ Being able to control the world around us creates a wonderful feeling of empower
 
 ## Book Versions
 In addition to reading the manual directly on [GitHub](https://github.com/dmccreary/moving-rainbow) there are two versions of this book that are rendered in on-line book forms:
+1. [Github Pages]{http://dmccreary.github.io/moving-rainbow/)
 1. [Read the Docs Book](http://moving-rainbow.readthedocs.org/en/latest/README/)
 2. [GitBook](http://dmccreary.gitbooks.io/moving-rainbow)
 
 Moving Rainbow Addressable LED Kits
 ----------
 
-Although this guide is designed to work with a simple kit of parts you can purchase on-line for about $13, it can be used by anyone that has an Arduino and a addressable LED strip.  You can find sample links to the parts ![here].
+Although this guide is designed to work with a simple kit of parts you can purchase on-line for about $13, it
+can be used by anyone that has an Arduino and a addressable LED strip.  You can find sample links to 
+the parts on the [Bill of Materials](guide/bill-of-materials.md) page.
 
-Once you have become familiar with the Arduino and the LED kit you can then try your hand at using the CoderDojo Robot Kits.
+Once you have become familiar with the Arduino and the LED kit you can then try your hand at using the
+ [CoderDojo Robot Kits](https://github.com/dmccreary/coderdojo-robots).  These labs use two simple DC motors
+ to create a $30 collision avoidance robot.
 
 For questions please contact: Dan McCreary (dan.mccreary (at) gmail.com)
 

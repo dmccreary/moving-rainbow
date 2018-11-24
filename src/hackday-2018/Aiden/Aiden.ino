@@ -80,7 +80,7 @@ void loop() {
   // select the mode
   switch (mode) {
         case 0:colorWipe2(255, 0, 0);break; // 7 pixel rainbow
-        case 1: KITT(255, 0, 0);break; // red
+        case 1: rainbowSlide();break; // red
         case 2: colorWipe(255, 0, 0);break; // green
 /*        case 3: dot(0, 0, 255);break; // blue
         case 4: colorWipe(255 ,0, 0);break;
@@ -96,8 +96,8 @@ void loop() {
         case 14: candle();break;
         case 15: randomColor();break;
         case 16: sparkle();break;
-  */   }
-  delay(50
+*/    }
+  delay(12
   ); // keep this pattern for 1/10th of a second
   mainLoopCount++;
 }  
