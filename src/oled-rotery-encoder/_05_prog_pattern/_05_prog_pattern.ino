@@ -43,8 +43,9 @@ int green = 20;
 int blue = 30;
 int pattern = 0;
 int counter = 0; // main loop counter
+int last_random_index = 0;
 
-int delay_value = 10;
+int delay_value = 100; // make it 1/10 of a sec by default
 int brightness = 100;
 
 int pattern_count = 11;
@@ -267,8 +268,31 @@ void loop(void) {
       case 3:
         comet(red, green, blue);
         break;
+      case 4:
+        chase(red, green, blue);
+        break;
+      case 5:
+        wipe(red, green, blue);
+        break;
+      case 6:
+        pong(red, green, blue);
+        break;
+      case 7:
+        candle();
+        break;
+      case 8:
+        randomRGB();
+        break;
+      case 9:
+        sparkle(red, green, blue);
+        break;
+      case 10:
+        rainbowCycle();
+        break;
   }
+  // increment and mod
   counter++;
+  counter = counter % strip.numPixels(); 
   delay(delay_value);
 }
 
@@ -280,16 +304,29 @@ void drawColor(int red, int green, int blue) {
 }
 
 void dot(int red, int green, int blue) {
-     strip.setPixelColor(counter + 1, red, green, blue);
-     strip.setPixelColor(counter, 0, 0, 0);
-     strip.show();
+   strip.setPixelColor(counter + 1, red, green, blue);
+   strip.setPixelColor(counter, 0, 0, 0);
+   strip.show();
 }
 
 // Fill the dots one after the other with a color up to the nth pixel
-void colorWipe(int n) {
-  for(uint16_t i=0; i<n; i++) {
-      strip.setPixelColor(i, red, green, blue);
-  }
+void wipe(int red, int green, int blue) {
+  if (counter==0) {
+    // erase if counter is 0
+    for(int i=0; i<strip.numPixels(); i++)
+       strip.setPixelColor(i, 0, 0, 0);
+    strip.setPixelColor(0, red, green, blue);
+  } 
+  else strip.setPixelColor(counter, red, green, blue);
+  strip.show();
+}
+
+void pong(int red, int green, int blue) {
+   strip.setPixelColor(counter, red, green, blue);
+   if (counter > 0) strip.setPixelColor(counter - 1, 0, 0, 0);
+   strip.setPixelColor(strip.numPixels() - counter, red, green, blue);
+   strip.setPixelColor(strip.numPixels() - counter + 1, 0, 0, 0);
+   strip.show();
 }
 
 void rainbow7(uint16_t i) {
@@ -320,14 +357,12 @@ void comet(int red, int blue, int green) {
 
 // Slightly different, this makes the rainbow equally distributed throughout
 void rainbowCycle() {
-  uint16_t i, j;
- 
-  for(j=0; j<256*5; j++) { // 5 cycles of all colors on wheel
+  int i, j;
     for(i=0; i< strip.numPixels(); i++) {
-      strip.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + j) & 255));
+      strip.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + counter) & 255));
     }
     strip.show();
-  }
+
 }
 
 uint32_t Wheel(byte WheelPos) {
@@ -346,35 +381,35 @@ void candle() {
    uint8_t green; // brightness of the green 
    uint8_t red;  // add a bit for red
    
-   for(uint8_t i=0; i<100; i++) {
+   for(uint8_t i=0; i<20; i++) { // pick 20 random pixels
      green = (50 + random(155)) ;
      red = green + random(50);
-     strip.setPixelColor(random(strip.numPixels() - 1), red, green, 0);
+     strip.setPixelColor(random(strip.numPixels()), red, green, 0);
      strip.show();
   }
 }
 
+// walk down the strip and set each pixel to a randome color but not too bright
 void randomRGB() {
-  for(uint16_t i=0; i<strip.numPixels(); i++) {
-     strip.setPixelColor(i, random(255), random(255), random(255));
+  for(int i=0; i<strip.numPixels(); i++) {
+     strip.setPixelColor(i, random(128), random(128), random(128));
      strip.show();
   }
 }
 
 //Theatre-style crawling lights with rainbow effect
-void theaterChaseRainbow(uint8_t wait) {
-  for (int j=0; j < 256; j=j+32) {     // cycle all 256 colors in the wheel
-    for (int q=0; q < 3; q++) {
-        for (int i=0; i < strip.numPixels(); i=i+3) {
-          strip.setPixelColor(i+q, Wheel( (i+j) % 255));    //turn every third pixel on
-        }
-        strip.show();
-       
-        delay(20);
-       
-        for (int i=0; i < strip.numPixels(); i=i+3) {
-          strip.setPixelColor(i+q, 0);        //turn every third pixel off
-        }
-    }
-  }
+void chase(int red, int green, int blue) {
+   for (int i=0; i < strip.numPixels(); i++) {
+      if ((i + counter) % 3 == 0) strip.setPixelColor(i, red, green, blue);
+      else strip.setPixelColor(i, 0,0,0);
+   }
+   strip.show();
+}
+
+void sparkle(int red, int blue, int green) {
+  int random_index = random(strip.numPixels()); // random number from 0 (inclusive) to number pixels exclusive
+  strip.setPixelColor(last_random_index, 0, 0, 0); // turn off the old value
+  strip.setPixelColor(random_index, red, blue, green); // make a random one turn on
+  strip.show();
+  last_random_index = random_index; // update the last index with the current one
 }

@@ -1,47 +1,59 @@
-// This example toggles the debug LED (pin 13) on or off
-// when a button on pin 2 is pressed.
 
-// Include the Bounce2 library found here :
-// https://github.com/thomasfredericks/Bounce2
-#include <Bounce2.h>
+#include <Arduino.h>
+#include <U8g2lib.h>
 
-#define SET_PIN 4 // momentary push button set the current encoder value to be the new variable
-#define PROG_PIN 5 // momentary push button change the programming mode
-#define LED_PIN 13
+#include <Encoder.h>
 
-int ledState = LOW;
+// we will hog both the interrupt pins for best performance
+#define ENC_A_PIN 2
+#define ENC_B_PIN 4
 
-Bounce debouncer_set = Bounce();
-Bounce debouncer_prog = Bounce();
+#define SET_PIN 4 // set the current encoder value to be the new variable
+#define PROG_PIN 5 // change the programming mode
 
-void setup() {
+// Change these two numbers to the pins connected to your encoder.
+//   Best Performance: both pins have interrupt capability
+//   Good Performance: only the first pin has interrupt capability
+//   Low Performance:  neither pin has interrupt capability
+Encoder myEnc(ENC_A_PIN, ENC_B_PIN);
+long oldPosition  = -999;
 
-  pinMode(SET_PIN, INPUT_PULLUP);
-  pinMode(PROG_PIN, INPUT_PULLUP);
-  debouncer_set.attach(SET_PIN, INPUT_PULLUP); // Attach the debouncer to a pin with INPUT_PULLUP mode
-  debouncer_set.interval(25); // Use a debounce interval of 25 milliseconds
-  
-  debouncer_prog.attach(PROG_PIN, INPUT_PULLUP); // Attach the debouncer to a pin with INPUT_PULLUP mode
-  debouncer_prog.interval(25); // Use a debounce interval of 25 milliseconds 
-  
-  pinMode(LED_PIN, OUTPUT); // Setup the LED
-  digitalWrite(LED_PIN, ledState);
- 
+#include <SPI.h>
+
+/* from https://store.arduino.cc/usa/arduino-nano
+SPI: 10 (SS), 11 (MOSI), 12 (MISO), 13 (SCK). These pins support SPI communication, which, although provided by the underlying hardware, is not currently included in the Arduino language.
+*/
+#define CS_PIN 9
+#define DC_PIN 10
+#define RS_PIN 11
+#define SDA_PIN 12 // also called Data or MISO
+#define SCL_PIN 13 // also called Clock SCK
+
+// this works
+U8G2_SSD1306_128X64_NONAME_1_4W_SW_SPI u8g2(U8G2_R0, SCL_PIN, SDA_PIN, CS_PIN, DC_PIN, RS_PIN);
+
+void setup(void) {
+  u8g2.begin();
+  // Set font to Helvetica regurlar 8 pixel font
+  // For other options see https://github.com/olikraus/u8g2/wiki/fntlistall#8-pixel-height
+  u8g2.setFont(u8g2_font_helvR08_tf);
+  Serial.begin(9600);
+  Serial.println("Basic Encoder Test:");
 }
 
-void loop() {
-
-   debouncer_set.update(); // Update the Bounce instance
-   
-   if ( debouncer_set.fell() ) {  // Call code if button transitions from HIGH to LOW
-     ledState = !ledState; // Toggle LED state
-     digitalWrite(LED_PIN,ledState); // Apply new LED state
+void loop(void) {
+  // look for the new encoder number
+  long newPosition = myEnc.read();
+  if (newPosition != oldPosition) {
+    oldPosition = newPosition;
+    u8g2.firstPage();
+      do {    
+          u8g2.drawStr(0,20,"Encoder Value:");
+          u8g2.setCursor(80,20);
+          // right justify but only works up to 3 digits
+          u8g2.print(u8x8_u8toa(newPosition, 3));
+          } while ( u8g2.nextPage() );
    }
-
-   debouncer_prog.update();
-   if ( debouncer_prog.fell() ) {  // Call code if button transitions from HIGH to LOW
-     ledState = !ledState; // Toggle LED state
-     digitalWrite(LED_PIN,ledState); // Apply new LED state
-   }
+  delay(10);
 }
 

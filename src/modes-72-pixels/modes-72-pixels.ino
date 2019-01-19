@@ -3,7 +3,7 @@
 
 #define LEDPIN 12 // connect the Data In pin
 #define MODEPIN 2 // pull down to groud to get a new mode
-#define NUMBER_PIEXELS 12// connect the Data In pin
+#define NUMBER_PIEXELS 60// connect the Data In pin
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
 
 // hook up two momentary push buttons to pins 
@@ -187,4 +187,3 @@ void theaterChaseRainbow(uint8_t wait) {
     }
   }
 }
-
