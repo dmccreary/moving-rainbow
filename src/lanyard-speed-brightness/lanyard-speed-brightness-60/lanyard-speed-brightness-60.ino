@@ -17,7 +17,7 @@
 // Output pin
 #define LED_PIN 12 // connect the Data In pin
 
-#define NUMBER_PIXELS 144 // connect the Data In pin
+#define NUMBER_PIXELS 60 // connect the Data In pin
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 // hook up two momentary push buttons to pin and keep them in memory
@@ -33,7 +33,8 @@ long debounceDelay = 60;   // the debounce time; increase if the output flickers
 int brightness = 512; // The brightness value from 0 to 1023
 int speed_value =  512; // The inverse of speed
 int loop_delay =  512; // The inverse of speed
-int index = 0; // the index of where we are drawing to the LED strip
+int index = 0; // the index of where we are drawing to the LED strip - cycles from 0 to NUMBER_PIXELS
+int ri; // the reverse index NUMBER_PIXELS - index
 long counter = 0; // number of times through the loop
 int random_pos = strip.numPixels() / 2; // random index position for random walker
 int debug = 0;
@@ -114,15 +115,16 @@ void loop() {
      }
     // update the values from the pot
     brightness = analogRead(BRIGHTNESS_POT_PIN);
-    brightness = map(brightness, 0, 1023, 0, 255);
+    brightness = map(brightness, 0, 1023, 1, 254); // make the min brightness be 1
     speed_value = analogRead(SPEED_POT_PIN);
     loop_delay = map(speed_value, 10, 1000, 1000, 0);  // map from 1 second to 0 milliseconds
     loop_delay = constrain(loop_delay, 0, 1000);
 
     if (debug == 1) print_debug();
     
-    index = (index + 1) % NUMBER_PIXELS; // modulu the number of pixels in the LED strip
-    counter++;
+    index++; // increment the index
+    if (index > NUMBER_PIXELS) index = 0; // index reset
+    ri = NUMBER_PIXELS - index;
     Serial.print("brightness: ");
     Serial.print(brightness);
     Serial.print("speed: ");
@@ -138,22 +140,32 @@ void loop() {
 
 // a seven segment rainbow with red on the highest pixel
 void display_rainbow7(int brightness) {
-    int low=10, med=70, med_high=110, high=150, very_high=255;
+  
+    int low,med,med_high,high_val,very_high;
     // scale the numbers to the appropriate brightness levels
-    low        = map(low,       0, low,       0, brightness);
-    med        = map(med,       0, med,       0, brightness);
-    med_high   = map(med_high,  0, med_high,  0, brightness);
-    high       = map(high,      0, high,      0, brightness);
-    very_high =  map(very_high, 0, very_high, 0, brightness);
-    reset_LED_memory();
+    low      = map(brightness, 1, 254, 1, 10);
+    med      = map(brightness, 1, 254, 1, 50);
+    med_high  = map(brightness, 1, 254, 1, 70);
+    // high_val  = map(brightness, 1  254, 1, 150);
+    very_high = map(brightness, 1, 254, 1, 254);
+    
+    reset_LED_memory(); // make everything 0
     int np = strip.numPixels();  // we use the modulo function with this shorthand
-    strip.setPixelColor( index    % np, low, 0, low); // violet
-    strip.setPixelColor((index+1) % np, very_high, 0, very_high); // indigo
-    strip.setPixelColor((index+2) % np, 0, 0, very_high); // blue
-    strip.setPixelColor((index+3) % np, 0, very_high, 0); // green
-    strip.setPixelColor((index+4) % np, very_high, very_high, 0); // yellow
-    strip.setPixelColor((index+5) % np, very_high, high, 0); // orange is 255, 165, 0 but looks yellow
-    strip.setPixelColor((index+6) % np, very_high, 0, 0); // red 
+    strip.setPixelColor(index  , med, 0, med); // violet
+    strip.setPixelColor(index+1, very_high, 0, very_high); // indigo
+    strip.setPixelColor(index+2, 0, 0, very_high); // blue
+    strip.setPixelColor(index+3, 0, very_high, 0); // green
+    strip.setPixelColor(index+4, very_high, very_high, 0); // yellow
+    strip.setPixelColor(index+5, very_high, med_high, 0); // orange is 255, 165, 0 but looks yellow
+    strip.setPixelColor(index+6, very_high, 0, 0); // red
+    
+    strip.setPixelColor(ri - 1, med, 0, med); // violet
+    strip.setPixelColor(ri - 2  , very_high, 0, very_high); // indigo
+    strip.setPixelColor(ri - 3, 0, 0, very_high); // blue
+    strip.setPixelColor(ri - 4, 0, very_high, 0); // green
+    strip.setPixelColor(ri - 5, very_high, very_high, 0); // yellow
+    strip.setPixelColor(ri - 6, very_high, med_high, 0); // orange is 255, 165, 0 but looks yellow
+    strip.setPixelColor(ri - 7, very_high, 0, 0); // red 
     strip.show();
 }
 
@@ -361,14 +373,13 @@ void display_theater_chase(int brightness, int red, int green, int blue) {
   green = map(green, 0, 255, 1, brightness);
   blue = map(blue, 0, 255, 1, brightness); 
   // draw on, off, off three times
-
-        for (int i=0; i < strip.numPixels(); i=i+3) {
+        for (int i=0; i < strip.numPixels(); i=i+6) {
           strip.setPixelColor((index+i)%strip.numPixels(), red, green, blue);    //turn every third pixel on
           strip.setPixelColor((index+i+1)%strip.numPixels(), 0);
           strip.setPixelColor((index+i+2)%strip.numPixels(), 0);
-
     }
   strip.show();
+  delay(10);
 }
 
 void display_sparkle(int brightness) {
