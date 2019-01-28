@@ -16,13 +16,15 @@
 
 // Output pin
 #define LED_PIN 12 // connect the Data In pin
-
 #define NUMBER_PIXELS 60 // connect the Data In pin
+#define MODE_COUNT 28
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 // hook up two momentary push buttons to pin and keep them in memory
 volatile int newMode = 0; // the interrupts set this to 1 to indicate that we have a new mode on the way
 volatile int mode = 0; // The display mode.  This gets incremented each button press.  Set inital mode in setup().
+volatile int demo_mode = 0; // The display mode.  This gets incremented each button press.  Set inital mode in setup().
+volatile int display_mode = 1; // the demo display mode
 const int modeCount = 28;// The number of display modes
 
 // used for debouncing the mode button
@@ -30,14 +32,15 @@ long lastDebounceTime = 0;  // the last time the output pin was toggled
 long debounceDelay = 60;   // the debounce time; increase if the output flickers
 
 // these variables updated with each loop
-int brightness = 512; // The brightness value from 0 to 1023
+int brightness = 50; // The brightness from the pot is from 0 to 1023 but to the LEDs are 1 to 254
 int speed_value =  512; // The inverse of speed
 int loop_delay =  512; // The inverse of speed
 int index = 0; // the index of where we are drawing to the LED strip - cycles from 0 to NUMBER_PIXELS
 int ri; // the reverse index NUMBER_PIXELS - index
-long counter = 0; // number of times through the loop
 int random_pos = strip.numPixels() / 2; // random index position for random walker
-int debug = 0;
+int print_debug_indicator = 1; // set to be 1 if you want to display values on the console
+int candle_initilize = 1; // setup the initial candle to yellow
+int demo_brightness = 15; // very dim in demo mode
 
 void setup() {
   strip.begin(); // sets up the memory for the LED strip
@@ -75,7 +78,8 @@ void loop() {
     if ((millis() - lastDebounceTime) > debounceDelay) {
       // delay(100); // wait for the switch to settle down used to de-bounce
       // increment the mode and 
-      mode = (mode + newMode) % modeCount;
+      mode = (mode + newMode) % MODE_COUNT;
+      if (mode < 0) mode = MODE_COUNT; // start at the top
       Serial.print("New Mode mode=");
       Serial.println(mode, DEC);      
       newMode = 0;
@@ -84,55 +88,103 @@ void loop() {
 
    // select the mode
       switch (mode) {
-        case 0:  display_rainbow7(brightness);break;
-        case 1:  display_moving_pixel(brightness, 255, 0, 0);break; // Red dot
-        case 2:  display_moving_pixel(brightness, 0, 255, 0);break; // Green
-        case 3:  display_moving_pixel(brightness, 0, 0, 255);break; // Blue
-        case 4:  display_comet_wrap(brightness, 255, 0, 0);break; // Red coment
-        case 5:  display_comet_wrap(brightness, 0, 255, 0);break; // Blue comet
-        case 6:  display_comet_wrap(brightness, 0, 0, 255);break; // Green comet
-        case 7:  display_comet_wrap(brightness, 255, 255, 0);break; // Green comet
-        case 8:  display_candle(brightness);break; // Candle flicker
-        case 9:  display_random_colors(brightness, 0);break; // no erase
-        case 10: display_random_colors(brightness, 1);break; // with erase
-        case 11: display_rainbow_12(brightness);break;
-        case 12: display_theater_chase(brightness, 255, 0, 0);break;
-        case 13: display_theater_chase(brightness, 0, 255, 0);break;
-        case 14: display_theater_chase(brightness, 0, 0, 255);break;
-        case 15: display_color_wipe(brightness, 255, 0, 0);break;
-        case 16: display_color_wipe(brightness, 0, 255, 0);break;
-        case 17: display_color_wipe(brightness, 0, 0, 255);break;
-        case 18: display_over_and_back(brightness, 255, 0, 0);break;
-        case 19: display_over_and_back(brightness, 0, 255, 0);break;
-        case 20: display_over_and_back(brightness, 0, 0, 255);break;
-        case 21: display_cylon(brightness, 255, 0, 0);break;
-        case 22: display_cylon(brightness, 0, 255, 0);break;
-        case 23: display_cylon(brightness, 0, 0, 255);break;
-        case 24: display_random_walk(brightness, 255, 0, 0);break;
-        case 25: display_random_walk(brightness, 0, 255, 0);break;
-        case 26: display_random_walk(brightness, 0, 0, 255);break;
-        case 27: display_rainbow_cycle();break;
+        case 0:  demo();break; // this auto-incements the display_mode
+        case 1:  display_rainbow7(brightness);break;
+        case 2:  display_comet(brightness, 255, 0, 0);break; // Red coment
+        case 3:  display_comet(brightness, 0, 255, 0);break; // Green
+        case 4:  display_comet(brightness, 0, 0, 255);break; // Blue
+        case 5:  display_comet(brightness, 255, 255, 0);break; // yellow
+        case 6:  display_comet(brightness, 200, 150, 0);break; // orange
+        case 7:  display_comet(brightness, 0, 255, 255);break; // cyan comet
+        case 8:  display_comet(brightness, 255, 0, 255);break; // purple comet
+        case 9:  display_comet(brightness, 255, 255, 255);break; // white comet
+        case 10: display_theater_chase(brightness, 255, 0, 0);break;
+        case 11: display_theater_chase(brightness, 0, 255, 0);break;
+        case 12: display_theater_chase(brightness, 0, 0, 255);break;
+        case 13:  candle_initilize == 0;
+                 init_candle(brightness);
+                 display_candle(brightness);
+                 break; // Candle flicker
+        case 14:  candle_initilize == 0;
+                 display_random_colors(brightness, 0); // don't erase between flash
+                 break;
+        case 15: display_random_colors(brightness, 1);break; // with erase between flashs
+        case 16: display_rainbow_12(brightness);break;
+
+        case 17: display_color_wipe(brightness, 255, 0, 0);break;
+        case 18: display_color_wipe(brightness, 0, 255, 0);break;
+        case 19: display_color_wipe(brightness, 0, 0, 255);break;
+        case 20: display_over_and_back(brightness, 255, 0, 0);break;
+        case 21: display_over_and_back(brightness, 0, 255, 0);break;
+        case 22: display_over_and_back(brightness, 0, 0, 255);break;
+        case 23: display_cylon(brightness, 255, 0, 0);break;
+        case 24: display_cylon(brightness, 0, 255, 0);break;
+        case 25: display_cylon(brightness, 0, 0, 255);break;
+        case 26: display_random_walk(brightness, 255, 0, 0);break;
+        case 27: display_random_walk(brightness, 0, 255, 0);break;
+        case 29: display_random_walk(brightness, 0, 0, 255);break;
+        case 30: display_rainbow_cycle();break;
      }
     // update the values from the pot
     brightness = analogRead(BRIGHTNESS_POT_PIN);
-    brightness = map(brightness, 0, 1023, 1, 254); // make the min brightness be 1
+    brightness = map(brightness, 0, 1023, 1, 255); // make the min brightness be at 1east 1
     speed_value = analogRead(SPEED_POT_PIN);
-    loop_delay = map(speed_value, 10, 1000, 1000, 0);  // map from 1 second to 0 milliseconds
+    loop_delay = map(speed_value, 0, 1023, 1000, 0);  // map from 1 second to 0 milliseconds
     loop_delay = constrain(loop_delay, 0, 1000);
 
-    if (debug == 1) print_debug();
+    if (print_debug_indicator == 1) print_debug();
     
     index++; // increment the index
-    if (index > NUMBER_PIXELS) index = 0; // index reset
+    if (index > NUMBER_PIXELS) {
+      index = 0; // index reset
+      if (mode == 0) display_mode++;
+      if (display_mode > MODE_COUNT) display_mode = 1;
+    }
     ri = NUMBER_PIXELS - index;
-    Serial.print("brightness: ");
-    Serial.print(brightness);
-    Serial.print("speed: ");
-    Serial.println(speed_value);
+    if (print_debug_indicator == 1)
+      print_debug();
     
     delay(loop_delay);
 }
 
+void demo() {
+  switch (display_mode) {
+        case 1:  display_rainbow7(demo_brightness);break;
+        case 2:  display_comet(demo_brightness, 255, 0, 0);break; // Red coment
+        case 3:  display_comet(demo_brightness, 0, 255, 0);break; // Green
+        case 4:  display_comet(demo_brightness, 0, 0, 255);break; // Blue
+        case 5:  display_comet(demo_brightness, 255, 255, 0);break; // yellow
+        case 6:  display_comet(demo_brightness, 200, 150, 0);break; // orange
+        case 7:  display_comet(demo_brightness, 0, 255, 255);break; // cyan comet
+        case 8:  display_comet(demo_brightness, 255, 0, 255);break; // purple comet
+        case 9:  display_comet(demo_brightness, 255, 255, 255);break; // white comet
+        case 10: display_theater_chase(demo_brightness, 255, 0, 0);break;
+        case 11: display_theater_chase(demo_brightness, 0, 255, 0);break;
+        case 12: display_theater_chase(demo_brightness, 0, 0, 255);break;
+        case 13:  candle_initilize == 0;
+                 init_candle(demo_brightness);
+                 display_candle(brightness);
+                 break; // Candle flicker
+        case 14:  candle_initilize == 0;
+                 display_random_colors(demo_brightness, 0); // don't erase between flash
+                 break;
+        case 15: display_random_colors(demo_brightness, 1);break; // with erase between flashs
+        case 16: display_rainbow_12(demo_brightness);break;
+
+        case 17: display_color_wipe(demo_brightness, 255, 0, 0);break;
+        case 18: display_color_wipe(demo_brightness, 0, 255, 0);break;
+        case 19: display_color_wipe(demo_brightness, 0, 0, 255);break;
+        case 20: display_over_and_back(demo_brightness, 255, 0, 0);break;
+        case 21: display_over_and_back(demo_brightness, 0, 255, 0);break;
+        case 22: display_over_and_back(demo_brightness, 0, 0, 255);break;
+        case 23: display_cylon(demo_brightness, 255, 0, 0);break;
+        case 24: display_cylon(demo_brightness, 0, 255, 0);break;
+        case 25: display_cylon(demo_brightness, 0, 0, 255);break;
+        case 26: display_random_walk(demo_brightness, 255, 0, 0);break;
+        case 27: display_random_walk(demo_brightness, 0, 255, 0);break;
+        case 29: display_random_walk(demo_brightness, 0, 0, 255);break;
+     }
+}
 // all display functions start with the string "display_"
 // each display function must only draw a single pattern at the index using the brightness parameter
 // index is a global variable
@@ -149,23 +201,25 @@ void display_rainbow7(int brightness) {
     // high_val  = map(brightness, 1  254, 1, 150);
     very_high = map(brightness, 1, 254, 1, 254);
     
-    reset_LED_memory(); // make everything 0
+    // reset_LED_memory(); // make everything 0
     int np = strip.numPixels();  // we use the modulo function with this shorthand
-    strip.setPixelColor(index  , med, 0, med); // violet
-    strip.setPixelColor(index+1, very_high, 0, very_high); // indigo
-    strip.setPixelColor(index+2, 0, 0, very_high); // blue
-    strip.setPixelColor(index+3, 0, very_high, 0); // green
-    strip.setPixelColor(index+4, very_high, very_high, 0); // yellow
-    strip.setPixelColor(index+5, very_high, med_high, 0); // orange is 255, 165, 0 but looks yellow
-    strip.setPixelColor(index+6, very_high, 0, 0); // red
+    strip.setPixelColor(index  , 0, 0, 0); // off
+    strip.setPixelColor(index+1  , med, 0, med); // violet
+    strip.setPixelColor(index+2, very_high, 0, very_high); // indigo
+    strip.setPixelColor(index+3, 0, 0, very_high); // blue
+    strip.setPixelColor(index+4, 0, very_high, 0); // green
+    strip.setPixelColor(index+5, very_high, very_high, 0); // yellow
+    strip.setPixelColor(index+6, very_high, med_high, 0); // orange is 255, 165, 0 but looks yellow
+    strip.setPixelColor(index+7, very_high, 0, 0); // red
     
-    strip.setPixelColor(ri - 1, med, 0, med); // violet
-    strip.setPixelColor(ri - 2  , very_high, 0, very_high); // indigo
-    strip.setPixelColor(ri - 3, 0, 0, very_high); // blue
-    strip.setPixelColor(ri - 4, 0, very_high, 0); // green
-    strip.setPixelColor(ri - 5, very_high, very_high, 0); // yellow
-    strip.setPixelColor(ri - 6, very_high, med_high, 0); // orange is 255, 165, 0 but looks yellow
-    strip.setPixelColor(ri - 7, very_high, 0, 0); // red 
+    strip.setPixelColor(ri - 1, 0, 0, 0); // violet
+    strip.setPixelColor(ri - 2, med, 0, med); // violet
+    strip.setPixelColor(ri - 3  , very_high, 0, very_high); // indigo
+    strip.setPixelColor(ri - 4, 0, 0, very_high); // blue
+    strip.setPixelColor(ri - 5, 0, very_high, 0); // green
+    strip.setPixelColor(ri - 6, very_high, very_high, 0); // yellow
+    strip.setPixelColor(ri - 7, very_high, med_high, 0); // orange is 255, 165, 0 but looks yellow
+    strip.setPixelColor(ri - 8, very_high, 0, 0); // red 
     strip.show();
 }
 
@@ -194,6 +248,14 @@ void display_comet(int brightness, int red, int blue, int green) {
   strip.setPixelColor(index + 2, red/8, blue/8, green/8);
   strip.setPixelColor(index + 1, red/16, blue/16, green/16);
   strip.setPixelColor(index, red/32, blue/32, green/32);
+
+  strip.setPixelColor(ri - 6, red, blue, green);
+  strip.setPixelColor(ri - 5, red/1.5, blue/1.5, green/1.5);
+  strip.setPixelColor(ri - 4, red/2, blue/2, green/2);
+  strip.setPixelColor(ri - 3, red/4, blue/4, green/4);
+  strip.setPixelColor(ri - 2, red/8, blue/8, green/8);
+  strip.setPixelColor(ri - 1, red/16, blue/16, green/16);
+  strip.setPixelColor(ri    , red/32, blue/32, green/32);
   strip.show();
 }
 
@@ -217,28 +279,30 @@ void display_comet_wrap(int brightness, int red, int blue, int green) {
 
 // See https://en.wikipedia.org/wiki/Web_colors
 void display_rainbow_12(int brightness) {
-   int low=10, low_med=40, med=70, med_high=110, high=150, very_high=200, maximum=255;
+   int low=5, low_med=20, med=70, med_high=110, high=150, very_high=200, maximum=255;
     // scale the numbers to the appropriate brightness levels
-    low        = map(low,       0, low,       0, brightness);
-    med        = map(med,       0, med,       0, brightness);
-    med_high   = map(med_high,  0, med_high,  0, brightness);
-    high       = map(high,      0, high,      0, brightness);
-    very_high  = map(very_high, 0, very_high, 0, brightness);
-    maximum    = map(maximum,   0, maximum,   0, brightness);
+    low        = map(low,       0, low,       1, brightness);
+    low_med    = map(low_med,   0, low_med,   1, brightness);
+    med        = map(med,       0, med,       1, brightness);
+    med_high   = map(med_high,  0, med_high,  1, brightness);
+    high       = map(high,      0, high,      1, brightness);
+    very_high  = map(very_high, 0, very_high, 1, brightness);
+    maximum    = map(maximum,   0, maximum,   1, brightness);
    reset_LED_memory();
    int np = strip.numPixels();
-   strip.setPixelColor(index % np, maximum, 0, 0);     // make the 1st pixel red
-   strip.setPixelColor((1 + index) % np, 0, maximum, 0);     // make the 2nd pixel green
-   strip.setPixelColor((2+ index) % np, 0, 0, maximum);     // make the 3rd pixel blue
-   strip.setPixelColor((3+ index) % np, maximum, maximum, maximum); // make the 4th pixel white
-   strip.setPixelColor((4+ index) % np, maximum, maximum, 0);   // make the 5th pixel yellow
-   strip.setPixelColor((5+ index) % np, 0, maximum, maximum);   // make the 6th pixel aqua
-   strip.setPixelColor((6+ index) % np, maximum, 0, maximum);   // make the 7th pixel fuchsia
-   strip.setPixelColor((7+ index) % np, very_high, high, 0);   // make the 8th pixel orange (changed from 255, 165, 0)
-   strip.setPixelColor((8+ index) % np, med, 0, med);     // make the 9th pixel purple
-   strip.setPixelColor((9+ index) % np, low, med, low); // make the 10th pixel DarkSeaGreen
-   strip.setPixelColor((10+ index) % np, high, med, low_med);  // make the 11th pixel Goldenrod
-   strip.setPixelColor((11+ index) % np, low, high, high);  // make the 11th pixel Aquamarine
+   strip.setPixelColor(index,     maximum, 0,       0);      // make the 1st pixel red
+   strip.setPixelColor(index + 1, maximum, maximum, 0);     // make the 2nd pixel yellow
+   strip.setPixelColor(index + 2, 0, maximum, 0);     // make the 3rd pixel green
+   strip.setPixelColor(index + 3, 0, maximum, maximum); // make the 4th pixel white
+   strip.setPixelColor(index + 4, maximum, maximum, 0);   // make the 5th pixel yellow
+   strip.setPixelColor(index + 5, 0, maximum, maximum);   // make the 6th pixel aqua
+   strip.setPixelColor(index + 6, maximum, 0, maximum);   // make the 7th pixel fuchsia
+   strip.setPixelColor(index + 7, very_high, high, 0);   // make the 8th pixel orange (changed from 255, 165, 0)
+   strip.setPixelColor(index + 8, med, 0, med);     // make the 9th pixel purple
+   // these are all white?
+   strip.setPixelColor(index + 9,  low, med, low); // make the 10th pixel DarkSeaGreen
+   strip.setPixelColor(index + 10, high, med, low_med);  // make the 11th pixel Goldenrod
+   strip.setPixelColor(index + 11, low, high, high);  // make the 11th pixel Aquamarine
    strip.show(); // must use to refresh the strip
 }
 
@@ -255,7 +319,7 @@ void display_color_wipe(int brightness, int red, int blue, int green) {
 
 // wipe right and then go back - we need a counter
 void display_over_and_back(int brightness, int red, int blue, int green) {
-  int double_index = counter % (strip.numPixels() * 2);
+  int double_index = index % (strip.numPixels() * 2);
   reset_LED_memory();
   red = map(red, 0, 255, 1, brightness);
   green = map(green, 0, 255, 1, brightness);
@@ -279,7 +343,7 @@ void display_over_and_back(int brightness, int red, int blue, int green) {
 void display_cylon(int brightness, int red, int green, int blue) {
   int np = strip.numPixels();
   int steps = np - 5; // how many steps to the right we move
-  int upcounter = (counter % (steps * 2)); // counts double the steps
+  int upcounter = (index % (steps * 2)); // counts double the steps
   int offset;
   // needs to go up to 8 and down
   if (upcounter <= steps)
@@ -326,16 +390,35 @@ uint32_t Wheel(byte WheelPos) {
   }
 }
 
-// display a glowing candel
+// display a glowing candel by updating 10 pixels
+void init_candle(int brightness) {
+  if (candle_initilize == 1)
+    {
+     uint8_t red = brightness; // base brightness of the yellow 
+     uint8_t green = brightness * .5; // brightness of the green 
+     for (int i=0; i<strip.numPixels(); i++) {
+        strip.setPixelColor(i, red, green, 0);
+     }
+     strip.show();
+    }
+}
+
+// display a glowing candel by updating 10 pixels
 void display_candle(int brightness) {
+   set_random_flame(brightness, 10);
+   strip.show();
+}
+
+void set_random_flame(int brightness, int count) {
+  for (int i=0; i<count; i++) {
    uint8_t base; // base brightness of the yellow 
    uint8_t green; // brightness of the green 
    uint8_t red;  // add a bit for red
-   base = 10 + random(245); // the base brightness of the current update
+   base = 50 + random(2); // the base brightness of the current update
    green = map(base, 0, 255, 1, brightness * .8); // update green to 80% of the base brightness
    red = map(base, 0, 255, 1, brightness);  // make the read be 100% of the base
    strip.setPixelColor(random(strip.numPixels()), red, green, 0);
-   strip.show();
+  }
 }
 
 // display a random color at a random index pixel and conditionally erase the prior art
@@ -369,17 +452,17 @@ void display_random_walk(int brightness, int red, int green, int blue) {
 
 // Theatre-style crawling lights with rainbow effect
 void display_theater_chase(int brightness, int red, int green, int blue) {
+  int offset = index % 6; // where we start
   red = map(red, 0, 255, 1, brightness);
   green = map(green, 0, 255, 1, brightness);
-  blue = map(blue, 0, 255, 1, brightness); 
-  // draw on, off, off three times
-        for (int i=0; i < strip.numPixels(); i=i+6) {
-          strip.setPixelColor((index+i)%strip.numPixels(), red, green, blue);    //turn every third pixel on
-          strip.setPixelColor((index+i+1)%strip.numPixels(), 0);
-          strip.setPixelColor((index+i+2)%strip.numPixels(), 0);
+  blue = map(blue, 0, 255, 1, brightness);
+  reset_LED_memory(); // make everything 0
+  // draw every 6th pixel on
+   for (int i=0; i < strip.numPixels(); i=i+6) {
+      strip.setPixelColor(i + offset, red, green, blue);    //turn every third pixel on
     }
   strip.show();
-  delay(10);
+  delay(3);  // for slowing down the top speed
 }
 
 void display_sparkle(int brightness) {
@@ -398,14 +481,16 @@ void reset_LED_memory() {
 void print_debug() {
   Serial.print("Mode=");
     Serial.print(mode);
-    Serial.print(" Brightness=");
+    
+    Serial.print(" Brigh=");
     Serial.print(brightness);
+    
     Serial.print(" Speed=");
     Serial.print(speed_value);
 
-    Serial.print(" Loop Delay=");
+    Serial.print(" Delay=");
     Serial.print(loop_delay);
     
-    Serial.print(" Index=");
+    Serial.print(" Ind=");
     Serial.println(index);
 };
