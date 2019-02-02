@@ -62,14 +62,13 @@ void display_theater_chase_rainbow(int brightness) {
   int np = strip.numPixels();
   int num_pix_draws = np / 6;
   for (int i=0; i < num_pix_draws; i++) {
-      int color = i % 10;
+      int color = i % 10; // the offset into the array of color values
       red = map(colors[color], 0, 255, 0, brightness);
       green = map(colors[color+1], 0, 255, 0, brightness);
       blue = map(colors[color+2], 0, 255, 0, brightness);
-      offset = i * 6;
-      strip.setPixelColor((offset + myIndex) % np, 0, 0, 0);
-      strip.setPixelColor((offset + myIndex + 1) % np, red, green, blue);
+      offset = (i * 6) + myIndex;
+      strip.setPixelColor(offset  % np, 0, 0, 0); // erase the prior
+      strip.setPixelColor((offset + 1) % np, red, green, blue); // draw the next
     }
   strip.show();
-  delay(3); 
 }
