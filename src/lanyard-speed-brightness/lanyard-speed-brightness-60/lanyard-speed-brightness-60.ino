@@ -450,8 +450,23 @@ void display_random_walk(int brightness, int red, int green, int blue) {
   strip.show();
 }
 
-// Theatre-style crawling lights with rainbow effect
+// Theatre-style crawling lights 
 void display_theater_chase(int brightness, int red, int green, int blue) {
+  int offset = index % 6; // where we start
+  red = map(red, 0, 255, 1, brightness);
+  green = map(green, 0, 255, 1, brightness);
+  blue = map(blue, 0, 255, 1, brightness);
+  reset_LED_memory(); // make everything 0
+  // draw every 6th pixel on
+   for (int i=0; i < strip.numPixels(); i=i+6) {
+      strip.setPixelColor(i + offset, red, green, blue);    //turn every third pixel on
+    }
+  strip.show();
+  delay(3);  // for slowing down the top speed
+}
+
+// Theatre-style crawling lights 
+void display_theater_chase_rainbow(int brightness, int red, int green, int blue) {
   int offset = index % 6; // where we start
   red = map(red, 0, 255, 1, brightness);
   green = map(green, 0, 255, 1, brightness);

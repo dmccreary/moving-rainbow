@@ -20,7 +20,7 @@ long lastDebounceTime = 0;  // the last time the output pin was toggled
 long debounceDelay = 125;   // the debounce time; increase if the output flickers
 
 const int LED_STRIP_PIN = 12; // Connect the Data pin of the LED strip here
-const int NUMBER_PIXELS = 60;
+const int NUMBER_PIXELS = 30;
 
 
 ; // Number of pixels in the LED strip
