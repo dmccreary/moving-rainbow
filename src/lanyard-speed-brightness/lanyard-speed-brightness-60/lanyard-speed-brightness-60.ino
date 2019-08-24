@@ -16,8 +16,8 @@
 
 // Output pin
 #define LED_PIN 12 // connect the Data In pin
-#define NUMBER_PIXELS 60 // connect the Data In pin
-#define MODE_COUNT 28
+#define NUMBER_PIXELS 160 // connect the Data In pin
+#define MODE_COUNT 21
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 // hook up two momentary push buttons to pin and keep them in memory
@@ -25,7 +25,6 @@ volatile int newMode = 0; // the interrupts set this to 1 to indicate that we ha
 volatile int mode = 0; // The display mode.  This gets incremented each button press.  Set inital mode in setup().
 volatile int demo_mode = 0; // The display mode.  This gets incremented each button press.  Set inital mode in setup().
 volatile int display_mode = 1; // the demo display mode
-const int modeCount = 28;// The number of display modes
 
 // used for debouncing the mode button
 long lastDebounceTime = 0;  // the last time the output pin was toggled
@@ -34,14 +33,28 @@ long debounceDelay = 60;   // the debounce time; increase if the output flickers
 // these variables updated with each loop
 int brightness = 50; // The brightness from the pot is from 0 to 1023 but to the LEDs are 1 to 254
 int speed_value =  512; // The inverse of speed
-int loop_delay =  512; // The inverse of speed
+int loop_delay =  10; // The inverse of speed
 int index = 0; // the index of where we are drawing to the LED strip - cycles from 0 to NUMBER_PIXELS
 int ri; // the reverse index NUMBER_PIXELS - index
 int random_pos = strip.numPixels() / 2; // random index position for random walker
 int print_debug_indicator = 1; // set to be 1 if you want to display values on the console
 int candle_initilize = 1; // setup the initial candle to yellow
-int demo_brightness = 15; // very dim in demo mode
+int demo_brightness = 5; // very dim in demo mode
 
+// 10 color array
+int colors[30] =
+   {255,  64,  64,
+    255,   0,   0,
+    255, 128,   0,
+    255, 255,   0,
+    0,   255,   0,
+    0,   255, 255,
+    0,     0, 255,
+    128,   0, 255,
+    255,   0, 255,
+    128,  50, 128
+   };
+   
 void setup() {
   strip.begin(); // sets up the memory for the LED strip
   pinMode(LED_PIN, OUTPUT);     // Pin 13 is output to which an LED is connected
@@ -90,40 +103,30 @@ void loop() {
       switch (mode) {
         case 0:  demo();break; // this auto-incements the display_mode
         case 1:  display_rainbow7(brightness);break;
-        case 2:  display_comet(brightness, 255, 0, 0);break; // Red coment
-        case 3:  display_comet(brightness, 0, 255, 0);break; // Green
-        case 4:  display_comet(brightness, 0, 0, 255);break; // Blue
-        case 5:  display_comet(brightness, 255, 255, 0);break; // yellow
-        case 6:  display_comet(brightness, 200, 150, 0);break; // orange
-        case 7:  display_comet(brightness, 0, 255, 255);break; // cyan comet
-        case 8:  display_comet(brightness, 255, 0, 255);break; // purple comet
-        case 9:  display_comet(brightness, 255, 255, 255);break; // white comet
-        case 10: display_theater_chase(brightness, 255, 0, 0);break;
-        case 11: display_theater_chase(brightness, 0, 255, 0);break;
-        case 12: display_theater_chase(brightness, 0, 0, 255);break;
-        case 13:  candle_initilize == 0;
+        case 2:  display_theater_chase_rainbow(brightness);break;
+        case 3:  display_ice_and_snow(brightness);break;
+        case 4:  display_comet(brightness, 255, 0, 0);break; // Red coment
+        case 5:  display_comet(brightness, 0, 255, 0);break; // Green
+        case 6:  display_comet(brightness, 0, 0, 255);break; // Blue
+        case 7:  display_comet(brightness, 255, 255, 0);break; // yellow
+        case 8:  display_comet(brightness, 200, 150, 0);break; // orange
+        case 9:  display_comet(brightness, 0, 255, 255);break; // cyan comet
+        case 10:  display_comet(brightness, 255, 0, 255);break; // purple comet
+        case 11:  display_comet(brightness, 255, 255, 255);break; // white comet
+        case 12: display_theater_chase(brightness, 255, 0, 0);break;
+        case 13: display_theater_chase(brightness, 0, 255, 0);break;
+        case 14: display_theater_chase(brightness, 0, 0, 255);break;
+        case 15:  candle_initilize == 0;
                  init_candle(brightness);
                  display_candle(brightness);
                  break; // Candle flicker
-        case 14:  candle_initilize == 0;
+        case 16: candle_initilize == 0;
                  display_random_colors(brightness, 0); // don't erase between flash
                  break;
-        case 15: display_random_colors(brightness, 1);break; // with erase between flashs
-        case 16: display_rainbow_12(brightness);break;
-
-        case 17: display_color_wipe(brightness, 255, 0, 0);break;
-        case 18: display_color_wipe(brightness, 0, 255, 0);break;
-        case 19: display_color_wipe(brightness, 0, 0, 255);break;
-        case 20: display_over_and_back(brightness, 255, 0, 0);break;
-        case 21: display_over_and_back(brightness, 0, 255, 0);break;
-        case 22: display_over_and_back(brightness, 0, 0, 255);break;
-        case 23: display_cylon(brightness, 255, 0, 0);break;
-        case 24: display_cylon(brightness, 0, 255, 0);break;
-        case 25: display_cylon(brightness, 0, 0, 255);break;
-        case 26: display_random_walk(brightness, 255, 0, 0);break;
-        case 27: display_random_walk(brightness, 0, 255, 0);break;
-        case 29: display_random_walk(brightness, 0, 0, 255);break;
-        case 30: display_rainbow_cycle();break;
+        case 17: display_random_colors(brightness, 1);break; // with erase between flashs
+        case 18: display_rainbow_12(brightness);break;
+        case 19: display_over_and_back(brightness, 255, 0, 0);break;
+        case 20: display_cylon(brightness, 255, 0, 0);break;
      }
     // update the values from the pot
     brightness = analogRead(BRIGHTNESS_POT_PIN);
@@ -150,39 +153,31 @@ void loop() {
 void demo() {
   switch (display_mode) {
         case 1:  display_rainbow7(demo_brightness);break;
-        case 2:  display_comet(demo_brightness, 255, 0, 0);break; // Red coment
-        case 3:  display_comet(demo_brightness, 0, 255, 0);break; // Green
-        case 4:  display_comet(demo_brightness, 0, 0, 255);break; // Blue
-        case 5:  display_comet(demo_brightness, 255, 255, 0);break; // yellow
-        case 6:  display_comet(demo_brightness, 200, 150, 0);break; // orange
-        case 7:  display_comet(demo_brightness, 0, 255, 255);break; // cyan comet
-        case 8:  display_comet(demo_brightness, 255, 0, 255);break; // purple comet
-        case 9:  display_comet(demo_brightness, 255, 255, 255);break; // white comet
-        case 10: display_theater_chase(demo_brightness, 255, 0, 0);break;
-        case 11: display_theater_chase(demo_brightness, 0, 255, 0);break;
-        case 12: display_theater_chase(demo_brightness, 0, 0, 255);break;
-        case 13:  candle_initilize == 0;
+        case 2:  display_theater_chase_rainbow(demo_brightness);break;
+        case 3:  display_ice_and_snow(demo_brightness);break;
+        case 4:  display_comet(demo_brightness, 255, 0, 0);break; // Red coment
+        case 5:  display_comet(demo_brightness, 0, 255, 0);break; // Green
+        case 6:  display_comet(demo_brightness, 0, 0, 255);break; // Blue
+        case 7:  display_comet(demo_brightness, 255, 255, 0);break; // yellow
+        case 8:  display_comet(demo_brightness, 200, 150, 0);break; // orange
+        case 9:  display_comet(demo_brightness, 0, 255, 255);break; // cyan comet
+        case 10:  display_comet(demo_brightness, 255, 0, 255);break; // purple comet
+        case 11:  display_comet(demo_brightness, 255, 255, 255);break; // white comet
+        case 12: display_theater_chase(demo_brightness, 255, 0, 0);break;
+        case 13: display_theater_chase(demo_brightness, 0, 255, 0);break;
+        case 14: display_theater_chase(demo_brightness, 0, 0, 255);break;
+        case 15:  candle_initilize == 0;
                  init_candle(demo_brightness);
                  display_candle(brightness);
                  break; // Candle flicker
-        case 14:  candle_initilize == 0;
+        case 16:  candle_initilize == 0;
                  display_random_colors(demo_brightness, 0); // don't erase between flash
                  break;
-        case 15: display_random_colors(demo_brightness, 1);break; // with erase between flashs
-        case 16: display_rainbow_12(demo_brightness);break;
-
-        case 17: display_color_wipe(demo_brightness, 255, 0, 0);break;
-        case 18: display_color_wipe(demo_brightness, 0, 255, 0);break;
-        case 19: display_color_wipe(demo_brightness, 0, 0, 255);break;
-        case 20: display_over_and_back(demo_brightness, 255, 0, 0);break;
-        case 21: display_over_and_back(demo_brightness, 0, 255, 0);break;
-        case 22: display_over_and_back(demo_brightness, 0, 0, 255);break;
-        case 23: display_cylon(demo_brightness, 255, 0, 0);break;
-        case 24: display_cylon(demo_brightness, 0, 255, 0);break;
-        case 25: display_cylon(demo_brightness, 0, 0, 255);break;
-        case 26: display_random_walk(demo_brightness, 255, 0, 0);break;
-        case 27: display_random_walk(demo_brightness, 0, 255, 0);break;
-        case 29: display_random_walk(demo_brightness, 0, 0, 255);break;
+        case 17: display_random_colors(demo_brightness, 1);break; // with erase between flashs
+        case 18: display_rainbow_12(demo_brightness);break;
+        case 19: display_cylon(demo_brightness, 255, 0, 0);break;
+        case 20: display_cylon(demo_brightness, 0, 255, 0);break;
+        case 21: display_cylon(demo_brightness, 0, 0, 255);break;
      }
 }
 // all display functions start with the string "display_"
@@ -485,6 +480,44 @@ void display_sparkle(int brightness) {
     reset_LED_memory();
     strip.setPixelColor(randomIndex, brightness, brightness, brightness);
     strip.show();
+}
+
+// Theatre-style crawling lights - 10 colors 6 pixels apart
+void display_theater_chase_rainbow(int brightness) {
+  int step, red, green, blue, offset;
+  int np = strip.numPixels();
+  int num_pix_draws = np / 6;
+  for (int i=0; i < num_pix_draws; i++) {
+      int color = i % 10; // the offset into the array of color values
+      red = map(colors[color], 0, 255, 0, brightness);
+      green = map(colors[color+1], 0, 255, 0, brightness);
+      blue = map(colors[color+2], 0, 255, 0, brightness);
+      offset = (i * 6) + index;
+      strip.setPixelColor(offset  % np, 0, 0, 0); // erase the prior
+      strip.setPixelColor((offset + 1) % np, red, green, blue); // draw the next
+    }
+  strip.show();
+}
+
+void display_ice_and_snow(int brightness) {
+  int step_distance = 15;
+  int offset, offset_top, base;
+  int np = strip.numPixels();
+  int num_pix_draws = np / step_distance;
+  for (int i=0; i < num_pix_draws + 2; i++) {
+      offset = i * step_distance;
+      offset_top = offset - (index % step_distance) -1;
+      // blue goes up from 0 to step_distance
+      base = offset + index;
+      strip.setPixelColor(base % np, 0, 0, 0);
+      strip.setPixelColor((base + 1) % np, 0, 0, brightness);
+
+      // white goes down
+      strip.setPixelColor(offset_top % np, 0, 0, 0);
+      strip.setPixelColor((offset_top - 1)  % np, brightness, brightness, brightness);
+      
+    }
+  strip.show();
 }
 
 void reset_LED_memory() {
