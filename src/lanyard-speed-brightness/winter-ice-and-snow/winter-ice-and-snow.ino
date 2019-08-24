@@ -30,16 +30,15 @@ void setup() {
 void loop() {
     brightness = analogRead(BRIGHTNESS_POT_PIN);
     speed_level = analogRead(SPEED_POT_PIN);
-
-    display_winter_ice_and_snow(brightness);
+    display_ice_and_snow(brightness);
     myIndex++;
     if (myIndex > strip.numPixels()) 
       myIndex = 0;
     delay(speed_level);
 }
 
-// Theatre-style crawling lights - 10 colors 6 pixels apart
-void display_winter_ice_and_snow(int brightness) {
+// ice moves up and snow comes down
+void display_ice_and_snow(int brightness) {
   int step_distance = 15;
   int offset, offset_top, base;
   int np = strip.numPixels();
@@ -58,5 +57,4 @@ void display_winter_ice_and_snow(int brightness) {
       
     }
   strip.show();
-  delay(3); 
 }
