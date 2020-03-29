@@ -2,7 +2,7 @@
 
 #define LED_PIN 12
 
-#define NUM_PIXELS 24
+#define NUM_PIXELS 60
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUM_PIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
@@ -14,7 +14,7 @@ void loop() {
   for(int i=0;i<NUM_PIXELS;i++){
     pixels.setPixelColor(i, 255, 0, 255);  // R,G,B for purple
     pixels.show();
-    delay(100); // 1/10 sec
+    delay(50); // 1/20 sec
     pixels.setPixelColor(i, 0, 0, 0);  // erase
   }
 }
