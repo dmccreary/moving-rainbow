@@ -9,7 +9,7 @@ The Moving Rainbow Project is a collection of Arduino-based projects used to tea
 - [Hardware Guide](guide/hardware.md) - Description of the many of hardware components of the Moving Rainbow projects
 - [Programming Guide](guide/programming.md) - How to program the Arduino to control the LED strip
 - [Instructor's Guide](guide/instructors.md) - A guide for instructors on how to use the kits to teach the concepts of Computer Science
-- [List of Projects](guide/projject-list.md) - A list of sample projects with descriptions of the learning objectives
+- [List of Projects](guide/project-list.md) - A list of sample projects with descriptions of the learning objectives
 - [Bill of Materials](guide/bill-of-materials.md) - Parts you can order on-line to build your own kits
 - [Glossary of Terms](guide/GLOSSARY.md) - Some terms we use in this guide
 
