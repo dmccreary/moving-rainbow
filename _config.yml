@@ -1,3 +1,14 @@
 theme: jekyll-theme-minimal
 title: Moving Rainbow
 description: Learn computer science using fun Arduino projects
+
+docs:
+
+- title: Introduction
+  url: readme.html
+
+- title: Getting Started
+  url: getting-started.html
+
+- title: Project List
+  url: guides/project-list.html
