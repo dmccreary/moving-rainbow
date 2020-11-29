@@ -20,7 +20,13 @@ void setup() {
 }
 
 void loop() {
-  stripeChase(waitTime);
+  backAndForth(10, waitTime);
+  /*
+  stripeChase(5, waitTime);
+  stripeChase(10, waitTime);
+  stripeChase(20, waitTime);
+  stripeChase(30, waitTime);
+  stripeChase(40, waitTime);
   theaterChase(strip.Color(255, 0, 0), waitTime);
   theaterChase(strip.Color(0, 255, 0), waitTime);
   randomRedGreen(waitTime);
@@ -28,6 +34,7 @@ void loop() {
   twinkle(waitTime);
   colorWipe(strip.Color(255, 0, 0), waitTime);
   colorWipe(strip.Color(0, 255, 0), waitTime);
+  */
 }
 
 // Fill the dots one after the other with a color
@@ -149,39 +156,44 @@ void theaterChase(uint32_t color, uint8_t wait) {
     }
 }
 
-
-//Theatre-style crawling lights with rainbow effect
-void stripeChase(uint8_t wait) {
-int bandWidth = 10;
-
-    for (int j=0; j < 10; j++) {
-      for (int q=0; q < 10; q++) {
-          for (int i=0; i < bandWidth; i++) {
-            strip.setPixelColor(i+q, 255,0,0);
-          }
-          for (int i=bandWidth; i < bandWidth*2; i++) {
-            strip.setPixelColor(i+q, 0,255,0);
-          }
-          for (int i=i=bandWidth*2; i < bandWidth*3; i++) {
-            strip.setPixelColor(i+q, 255,0,0);
-          }
-          for (int i=bandWidth*3; i < bandWidth*4; i++) {
-            strip.setPixelColor(i+q, 0,255,0);
-          }
-          for (int i=bandWidth*4; i < bandWidth*5; i++) {
-            strip.setPixelColor(i+q, 255,0,0);
-          }
-          for (int i=bandWidth*5; i < bandWidth*6; i++) {
-            strip.setPixelColor(i+q, 0,255,0);
-          }
-          for (int i=bandWidth*6; i < bandWidth*6 + 4; i++) {
-            strip.setPixelColor(i+q, 255,0,0);
-          }
-          strip.show();
-          delay(wait * 3);
-      }
-    }
+// alternating bands of color that move down the strip
+void stripeChase(int bandWidth, uint8_t wait) {
+   for (int j=0; j <= strip.numPixels(); j++) {
+       for (int i=0; i < strip.numPixels(); i++) {
+          if ((i / bandWidth) % 2)
+             strip.setPixelColor((i+j) % strip.numPixels(), 255,0,0);
+          else strip.setPixelColor((i+j) % strip.numPixels(), 0,255,0);
+       }
+        strip.show();
+        delay(wait * 2);
+   }
 }
+
+
+// alternating bands of color that move down the strip
+void backAndForth(int bandWidth, uint8_t wait) {
+   // forward
+   Serial.println("Forward");
+   for (int j=0; j <= strip.numPixels() - bandWidth; j++) {
+       for (int i=0; i < strip.numPixels(); i++) {
+          if (i < bandWidth) strip.setPixelColor((i+j) % strip.numPixels(), 255,0,0);
+          else strip.setPixelColor((i+j) % strip.numPixels(), 0,255,0);
+       }
+        strip.show();
+        delay(wait);
+   }
+   //reverse
+   Serial.println("Reverse");
+   for (int j=strip.numPixels(); j > 0; j--) {
+       for (int i=strip.numPixels(); i > 0; i--) {
+          if (i > strip.numPixels() - bandWidth) strip.setPixelColor( (i+j) % strip.numPixels(), 255,0,0);
+          else strip.setPixelColor((i+j) % strip.numPixels(), 0,255,0);
+       }
+        strip.show();
+        delay(wait);
+   }
+}
+
 
 void twinkle(uint8_t wait) {
   int random_index;
