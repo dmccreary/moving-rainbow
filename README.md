@@ -1,5 +1,6 @@
-Welcome to the Moving Rainbow
-==============
+# Welcome to the Moving Rainbow
+
+The microsite is [http://dmccreary.github.io/moving-rainbow/](http://dmccreary.github.io/moving-rainbow/)
 
 Learn Computer Science the fun way!
 
@@ -28,8 +29,8 @@ In addition to reading the manual directly on [GitHub](https://github.com/dmccre
 1. [Read the Docs Book](http://moving-rainbow.readthedocs.org/en/latest/README/)
 2. [GitBook](http://dmccreary.gitbooks.io/moving-rainbow)
 
+##
 Moving Rainbow Addressable LED Kits
-----------
 
 Although this guide is designed to work with a simple kit of parts you can purchase on-line for about $13, it
 can be used by anyone that has an Arduino and a addressable LED strip.  You can find sample links to 

@@ -1,7 +1,7 @@
 # Glossary
 
 ## Arduino
-A  popular and set of hardware and software used for teaching physical computing.  Also the name of a company that popularized the devices and supports the standards.  Note that many of the low-cost devices we use in these kits are technically not true Arduino devices.  They are classified as Arduino clones.  Many of the clones are 1/10 the cost of the original devices.
+A popular and set of hardware and software used for teaching physical computing.  Also the name of a company that popularized the devices and supports the standards.  Note that many of the low-cost devices we use in these kits are technically not true Arduino devices.  They are classified as Arduino clones.  Many of the clones are 1/10 the cost of the original devices.
 * [Wikipedia Definition](http://en.wikipedia.org/wiki/Arduino)
 
 ## Arduino Integrated Development Environment (IDE)
