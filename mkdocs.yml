@@ -1,0 +1,33 @@
+site_name: 'Arduino Moving Rainbow'
+nav:
+  - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
+  - Moving Home: index.md
+  - Purchasing Parts: bill-of-materials.md
+  - Contact: contact.md
+
+site_description: 'Resources for teaching MicroPython to CoderDojo Twin Cities students.  All content licensed Creative Commons ShareAlike Attribution Noncommercial'
+site_author: 'Dan McCreary'
+repo_name: 'GitHub Repo'
+repo_url: 'https://github.com/CoderDojoTC/micropython'
+
+# CoderDojo Standards from here down
+edit_uri: 'blob/master/docs'
+theme:
+  # should be name: material
+  name: material
+  logo: img/coderdojo-logo.png
+  palette:
+    primary: '#642580'
+    accent: '#41BAC1'
+  custom_dir: 'theme'
+  include_sidebar: true
+plugins:
+  - search
+  # - mermaid2 - takes too long to build - use a screen image for now
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.details
+  - pymdownx.superfences
