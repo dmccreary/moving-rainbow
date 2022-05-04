@@ -1,5 +1,5 @@
-Moving Rainbow Bill of Materials
-==============
+## Moving Rainbow Bill of Materials
+
 
 We encourage everyone to purchase one device from (or make a donation to) the fine people at [Arduino.org](http://arduino.org) and [Arudino.cc](Arduino.cc).  It is their efforts that have produced the popular tools that we use to program our chips.
 

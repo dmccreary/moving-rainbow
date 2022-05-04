@@ -1,11 +1,11 @@
-Blink
+# Arduino Blink
 =====
 Here is one of simplest programs.  It is our version of "Hello World!.  This program will
 initialize the LED strip and then turn the first pixel on and off.
 Note that the first pixel must be addressed with the index number "0".  So this is the first
 parameter of the setPixelColor method.
 
-```
+```c
 #include <Adafruit_NeoPixel.h>
 #define NUMBER_PIEXEL 12
 #define LEDPIN    12
