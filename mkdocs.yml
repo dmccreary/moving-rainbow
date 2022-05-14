@@ -7,10 +7,11 @@ nav:
     - Purchasing Your Own Parts: getting-started/parts.md
     - Desktop Setup: getting-started/desktop-setup.md
   - Lessons:
-    - Blink: lessons/blink.md
-    - Fade In and Out: lessons/fade-in-and-out.md
-    - Heartbeat: lessons/heartbeat.md
-    - Red, Green and Blue: lessons/red-green-blue.md
+    - Blink: lessons/01-blink.md
+    - Fade In and Out: lessons/02-fade-in-and-out.md
+    - Heartbeat: lessons/03-heartbeat.md
+    - Red, Green and Blue: lessons/04-red-green-blue.md
+    - Color Wheel: lessons/05-color-wheel.md
   # - Arduino:
   #   - Getting Started: guide/getting-started.md
   #   - Hardware: guide/hardware.md
