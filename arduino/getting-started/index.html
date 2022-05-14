@@ -1,0 +1,617 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+    
+    
+      
+        <title>Getting started - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#642580" data-md-color-accent="#41bac1">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header-nav__button md-logo" aria-label="Moving Rainbow">
+      
+  <img src="../../img/coderdojo-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Getting started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/dmccreary/moving-rainbow/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow">
+      
+  <img src="../../img/coderdojo-logo.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/dmccreary/moving-rainbow/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://coderdojotc.github.io/CoderDojoTC/" class="md-nav__link">
+        CoderDojo Mentor Resources
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Moving Rainbow Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/kits/" class="md-nav__link">
+        Standard Kits
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/parts/" class="md-nav__link">
+        Purchasing Your Own Parts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/desktop-setup.md" class="md-nav__link">
+        Desktop Setup
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
+        Lessons
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Lessons" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Lessons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lessons/blink.md" class="md-nav__link">
+        Blink
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lessons/fade-in-and-out.md" class="md-nav__link">
+        Fade In and Out
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connect-the-led-strip-to-the-arduino" class="md-nav__link">
+    Connect the LED Strip to the Arduino
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-arduino-ide" class="md-nav__link">
+    Install the Arduino IDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-library-to-use-the-led-strip" class="md-nav__link">
+    Install the Library to use the LED Strip
+  </a>
+  
+    <nav class="md-nav" aria-label="Install the Library to use the LED Strip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#library-installation-method-1-download-unzip-rename-and-move-folder" class="md-nav__link">
+    Library Installation Method 1: Download, Unzip, Rename, and Move Folder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#library-installation-method-2-install-via-arduino-ide-library-manager" class="md-nav__link">
+    Library Installation Method 2: Install via Arduino IDE Library Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-the-arduino-ide" class="md-nav__link">
+    Restart the Arduino IDE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-deploy-and-run-a-first-program-using-the-led-strip" class="md-nav__link">
+    Configure, deploy, and run a first program using the LED Strip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-install-device-driver-for-off-brand-arduino-nano" class="md-nav__link">
+    Optional: Install Device Driver for off-brand Arduino Nano
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional: Install Device Driver for off-brand Arduino Nano">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-windows-10" class="md-nav__link">
+    For Windows 10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-mac" class="md-nav__link">
+    For Mac
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/arduino/getting-started.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="getting-started">Getting Started</h1>
+<p>In this section you will learn How To:</p>
+<ul>
+<li>Connect the LED Strip to the Arduino</li>
+<li>Install the Arduino IDE</li>
+<li>Install the Library to use the LED Strip</li>
+<li>Configure, deploy, and run a first program using the LED Strip</li>
+<li>Optional: Install Device Driver for off-brand Arduino Nano</li>
+</ul>
+<h3 id="connect-the-led-strip-to-the-arduino">Connect the LED Strip to the Arduino</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Connect the red wire to the +5 
+Connect the black wire to GND
+Connect the yellow wire to pin 12 -- Note: pin number used later in code.
+</code></pre></div>
+</td></tr></table>
+<h3 id="install-the-arduino-ide">Install the Arduino IDE</h3>
+<p>If you have not already done so, now is a good time to download the main Arduino Integrated Development Environment (IDE) software from <a target="_blank" href="http://arduino.cc/en/Main/Software">http://arduino.cc/en/Main/Software</a></p>
+<p>Follow the IDE installation directions.  Then, connect the Arduino device to your computer via USB.  Note: It may be necessary to install additional Device Driver for the computer to successfully connect and talk to the Arduino device.  See the "Install Device Driver for off-brand Arduino Nano" section below.</p>
+<p>After the two are connected, you should be able to go to the Files -&gt; Examples -&gt; Basic -&gt; Blink and open the
+blink Sketch.  A Program for Arduino is called a Sketch.  Select to Upload the Sketch.  If it works, you should then see a built-in LED on the Arduino flash on and off.  Note: It may be necessary to select different values for Board, Processor, and Port through the Tools menu.  This is briefly covered in the "Install Device Driver for off-brand Arduino Nano" section below.</p>
+<h3 id="install-the-library-to-use-the-led-strip">Install the Library to use the LED Strip</h3>
+<p>To use the LED Strip from an Arduino Sketch (programming code), it is necessary to <a target="_blank" href="https://www.arduino.cc/en/guide/libraries">Install an Additional Arduino Library</a>.  We will use the Adafruit NeoPixel Libary.  There are different ways to install a Library.  Two installation methods are described next.  (You only need to complete one installation method.)</p>
+<h4 id="library-installation-method-1-download-unzip-rename-and-move-folder">Library Installation Method 1: Download, Unzip, Rename, and Move Folder</h4>
+<p>Download the newest version of the NeoPixel Library as a Zip file, from the NeoPixel project repository.</p>
+<p>Download: <a href="https://github.com/adafruit/Adafruit_NeoPixel/archive/master.zip">https://github.com/adafruit/Adafruit_NeoPixel/archive/master.zip</a></p>
+<p>(If that direct link to download the zip file stops working, an alternative may be available from the NeoPixel repository at <a target="_blank" href="http://github.com/adafruit/Adafruit_NeoPixel">http://github.com/adafruit/Adafruit_NeoPixel</a> .)</p>
+<p>Unzip, Rename, and Move Folder</p>
+<p>The downloaded NeoPixel Library is in a single zip file, likely named Adafruit_NeoPixel-master.zip.  The contents of this file must be unzipped, renamed, and moved to a specific location.</p>
+<p>One way to unzip this file onto your local computer is to right-click the file and look for an "unzip" option.  Once unzipped, you will see a folder likely named "Adafruit_NeoPixel-master".</p>
+<p>Rename the folder to 'Adafruit_NeoPixel' (remove the '-master' suffix), and move it to one of these three locations:
+1. For Linux and Mac computers, the <code>Arduino/Libraries/</code> folder in your <code>~</code> home directory
+1. For Windows computers, the <code>Documents\Arduino\libraries\</code> folder in your home directory -- Often <code>C:\Users\USERNAME\</code>
+1. For Windows computers, to install the Library for all users, place it in the <code>libraries</code> folder of the Arduino IDE installation -- Often <code>C:\Program Files (x86)\Arduino\libraries\</code>.  Note that this installation option is "fragile", where updates to the Arduino IDE installation might remove items added to its <code>libraries</code> folder.</p>
+<h4 id="library-installation-method-2-install-via-arduino-ide-library-manager">Library Installation Method 2: Install via Arduino IDE Library Manager</h4>
+<p>Using the Arduino IDE, select Sketch -&gt; Include Library -&gt; Manage Libraries...</p>
+<p>Search for Adafruit NeoPixel</p>
+<p>Select "Install" button for the newest version (1.1.8 as of 2019-03-11).</p>
+<p>This method automatically downloads a zip file to <code>C:\Users\USERNAME\AppData\Local\Arduino15\staging\libraries</code> and installs the Library to <code>C:\Users\USERNAME\Documents\Arduino\libraries\Adafruit_NeoPixel</code>.</p>
+<h4 id="restart-the-arduino-ide">Restart the Arduino IDE</h4>
+<p>After installing the library in the right location, it may be necessary to close and restart the Arduino IDE.</p>
+<h3 id="configure-deploy-and-run-a-first-program-using-the-led-strip">Configure, deploy, and run a first program using the LED Strip</h3>
+<p>Using the Arduino IDE, open the strandtest Sketch.  It is available via</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>File -&gt; Sketchbook -&gt; Library -&gt; Adafruit_NeoPixel -&gt; strandtest
+OR
+File -&gt; Examples -&gt; Adafruit NeoPixel -&gt; strandtest
+</code></pre></div>
+</td></tr></table>
+<p>Change the code that initializes the LED Strip so that it uses pin 12, as connected to during the "Connect the LED Strip to the Arduino" step above.  Either:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, 12, NEO_GRB + NEO_KHZ800);
+</code></pre></div>
+</td></tr></table>
+<p>or change <code>#define PIN 6</code> to <code>#define PIN 12</code></p>
+<p>Connect Arduino to the computer via USB.  Then, in the Tools menu, it may be necessary to change the values for Board, Processor, and Port.  Depending on the Arduino device and connection, working values might be "Arduino Nano", "ATmega328P (Old Bootloader)", and "COM3" or "COM4".</p>
+<p>Select "Upload" in the Arduino IDE.</p>
+<p>If successful, the output console dislays the message "Done uploading." and the LED Strip should rotate through differing LED flashing and color patterns.</p>
+<p>If the output console dislays a message other than "Done uploading." followed by details of Sketch size and variables memory size, then things are likely not working, and it's time for troubleshooting.  Maybe the board type you have is "Uno" and not "Nano".  Maybe the Arduino device is connected on a different port.  Maybe the necessary device driver is not yet installed.</p>
+<h3 id="optional-install-device-driver-for-off-brand-arduino-nano">Optional: Install Device Driver for off-brand Arduino Nano</h3>
+<p>If you do not see the serial port for the connected Arduino device when you go to the Tools -&gt; Port menu in the Arduino IDE, it may be that your computer does not yet have the CH340 device driver needed to connect to the off-brand Arduino Nano used with this project.  Follow these steps to install the CH340 driver.</p>
+<p>Note: Local admin rights on your computer are needed when installing the driver.</p>
+<h4 id="for-windows-10">For Windows 10</h4>
+<p>There are two options for installing the CH340 Driver that are confirmed to be working as of 2019-03-11.  After completing either of these installation options, restart the computer.</p>
+<p>Installation Option 1: Use Device Manager</p>
+<p>With the Arduino device connected to the computer via USB, run the Windows Device Manager program with Administrator permissions.  If Device Manager lists a problem device, such as "Other devices -&gt; USB2.0-Serial" with "Device status" of "The drivers for this device are not installed.", select to "Update Driver" and select to allow Windows to search all locations, i.e., the internet, for a driver.  If successful, the driver for device "USB-SERIAL CH340" will be installed.  In Device Manager, the device will then be listed in the "Ports (COM &amp; LPT)" section, and the "Device status" will have changed to "This device is working properly."</p>
+<p>Driver Details as of 2019-03-11:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Driver:
+Provider: wch.cn
+Date: 2014-08-08
+Version: 3.4.2014.8
+Signer: Microsoft Windows Hardware Compatibility Publisher
+</code></pre></div>
+</td></tr></table>
+<p>Restart the computer.</p>
+<p>Installation Option 2: Download and Run</p>
+<p>Download the "setup executable" version of the FTDI Driver from <a target="_blank" href="https://www.ftdichip.com/Drivers/VCP.htm">https://www.ftdichip.com/Drivers/VCP.htm</a></p>
+<p>As of 2019-03-11, the latest version 2.12.28 released 2017-08-30 was available directly at <a target="_blank" href="https://www.ftdichip.com/Drivers/CDM/CDM21228_Setup.zip">https://www.ftdichip.com/Drivers/CDM/CDM21228_Setup.zip</a></p>
+<p>Unzip the downloaded file, and run the Setup.exe installation program.</p>
+<p>Restart the computer.</p>
+<h4 id="for-mac">For Mac</h4>
+<p>Download the CH340 Driver from <a target="_blank" href="http://www.wch.cn/download/CH341SER_MAC_ZIP.html">http://www.wch.cn/download/CH341SER_MAC_ZIP.html</a></p>
+<p>Note that as of August of 2015, the driver for the Mac is still "unsigned" and will not work on modern Mac OSs (Yousemite).</p>
+<p>The workaround this is to temporarly disable checking for a signed driver on the Mac.  To do this run the following program in the Mac UNIX Console /Applications -&gt; Utilities -&gt; Terminal</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code> sudo nvram boot-args=&quot;kext-dev-mode=1&quot;
+</code></pre></div>
+</td></tr></table>
+<p>The most current version of Mac (El Capitan) has some problems recognizing the NEO board.  Per <a href="http://arduino.stackexchange.com/questions/14018/arduino-not-detected-on-el-capitan-public-beta-6">this Stack Exchange</a> thread, downloading a paid driver has helped one student in this demo.</p>
+<p>After you run this command you must reboot the Mac for it to take effect.  This will allow the driver to be loaded, though it is unsigned.</p>
+<p>See this helpful post on <a href="http://kiguino.moos.io/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html">Installing the CH340 Driver on Yosemite on the Mac</a></p>
+<p>After the driver is installed you should see a non-Bluetooth port appear.  </p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

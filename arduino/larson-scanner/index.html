@@ -13,19 +13,19 @@
         <meta name="author" content="Dan McCreary">
       
       
-      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
     
     
       
-        <title>RGB Project Box - Moving Rainbow</title>
+        <title>The Larson Scanner - Moving Rainbow</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rgb-project-box" class="md-skip">
+        <a href="#the-larson-scanner" class="md-skip">
           Skip to content
         </a>
       
@@ -79,9 +79,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../../../.." title="Moving Rainbow" class="md-header-nav__button md-logo" aria-label="Moving Rainbow">
+    <a href="../.." title="Moving Rainbow" class="md-header-nav__button md-logo" aria-label="Moving Rainbow">
       
-  <img src="../../../../img/coderdojo-logo.png" alt="logo">
+  <img src="../../img/coderdojo-logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              RGB Project Box
+              The Larson Scanner
             
           </span>
         </div>
@@ -171,9 +171,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow">
       
-  <img src="../../../../img/coderdojo-logo.png" alt="logo">
+  <img src="../../img/coderdojo-logo.png" alt="logo">
 
     </a>
     Moving Rainbow
@@ -219,7 +219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Moving Rainbow Home
       </a>
     </li>
@@ -257,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/kits/" class="md-nav__link">
+      <a href="../../getting-started/kits/" class="md-nav__link">
         Standard Kits
       </a>
     </li>
@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/parts/" class="md-nav__link">
+      <a href="../../getting-started/parts/" class="md-nav__link">
         Purchasing Your Own Parts
       </a>
     </li>
@@ -281,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/desktop-setup.md" class="md-nav__link">
+      <a href="../../getting-started/desktop-setup.md" class="md-nav__link">
         Desktop Setup
       </a>
     </li>
@@ -325,7 +325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../lessons/blink.md" class="md-nav__link">
+      <a href="../../lessons/blink.md" class="md-nav__link">
         Blink
       </a>
     </li>
@@ -337,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../lessons/fade-in-and-out.md" class="md-nav__link">
+      <a href="../../lessons/fade-in-and-out.md" class="md-nav__link">
         Fade In and Out
       </a>
     </li>
@@ -378,22 +378,103 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/guide/project-boxes/rgb/rgb.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/arduino/larson-scanner.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="rgb-project-box">RGB Project Box</h1>
-<p>This box has three potentiometers on it that control the intensity of the red, green and blue LEDs in a LED strip.</p>
-<h1 id="wriring-diagram">Wriring Diagram</h1>
-<p>The top and bottom connectors of each potentiometer are connected to the +5v and ground rails of the breadboard.
-The center tap of the first potentiomer goes to first analog input called pin A0.
-The center tap of the second potentiometer goes to the second analog input called the A1 pin.
-The center tap of the third potentiometer goes to the third analog input called the A2 pin.</p>
-<h1 id="code">Code</h1>
-<p>We use the Adafruit Neopixel libraries.</p>
-<p>The main loop does an analog read on each potentiomter and then converts the analog value from a scale of 0 to 1023 to a LED intensity of 0 to 255.  We use the map() function to do this.</p>
-<p>We can also adjust the top and bottom maximum values so that we check that the values are within a range.  This takes into account that the potentiometer may not go exactly from zero resistence to maximum resistence.</p>
+                <h1 id="the-larson-scanner">The Larson Scanner</h1>
+<p>The Larson Scanner is one of the most famous patterns in special effects.  It was named after Glen A. Larson
+who used the pattern in the intelligent car in Knight Rider and as the eyes in Cylons in Battlestar Galactica.</p>
+<p>Here is out it works.
+1. We start the loop by drawing five intensities of light.  Dim at the ends and bright in the center.
+2. We offset each of these by a position.
+3. Each time we go through the loop we move the position up until we reach the end.  When we reach the end
+of the strip we flip the direction (dir = -dir)</p>
+<p>Here is some sample code to do the Larson Scanner.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>#include &lt;Adafruit_NeoPixel.h&gt;
+
+#define NUMBER_PIEXEL 12
+#define LEDPIN    12
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXEL, LEDPIN, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  strip.begin();
+}
+
+int pos = 0, dir = 1; // Position, direction of &quot;eye&quot;
+
+void loop() {
+  int j;
+
+  // Draw 5 pixels centered on pos.  setPixelColor() will clip any
+  // pixels off the ends of the strip, we don&#39;t need to watch for that.
+  strip.setPixelColor(pos - 2, 0x100000); // Dark red
+  strip.setPixelColor(pos - 1, 0x800000); // Medium red
+  strip.setPixelColor(pos    , 0xFF3000); // Center pixel is brightest
+  strip.setPixelColor(pos + 1, 0x800000); // Medium red
+  strip.setPixelColor(pos + 2, 0x100000); // Dark red
+
+  strip.show();
+  delay(50);
+
+  // Rather than being sneaky and erasing just the tail pixel,
+  // it&#39;s easier to erase it all and draw a new one next time.
+  for(j=-2; j&lt;= 2; j++) strip.setPixelColor(pos+j, 0);
+
+  // Bounce off ends of strip
+  pos += dir;
+  if(pos &lt; 0) {
+    pos = 1;
+    dir = -dir;
+  } else if(pos &gt;= strip.numPixels()) {
+    pos = strip.numPixels() - 2;
+    dir = -dir;
+  }
+}
+</code></pre></div>
+</td></tr></table></p>
                 
               
               
@@ -424,15 +505,15 @@ The center tap of the third potentiometer goes to the third analog input called 
       
     </div>
     
-      <script src="../../../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
-          base: "../../../..",
+          base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

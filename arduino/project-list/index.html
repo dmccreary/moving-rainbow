@@ -13,19 +13,19 @@
         <meta name="author" content="Dan McCreary">
       
       
-      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
     
     
       
-        <title>RGB Project Box - Moving Rainbow</title>
+        <title>List of Moving Rainbow Projects - Moving Rainbow</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rgb-project-box" class="md-skip">
+        <a href="#list-of-moving-rainbow-projects" class="md-skip">
           Skip to content
         </a>
       
@@ -79,9 +79,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../../../.." title="Moving Rainbow" class="md-header-nav__button md-logo" aria-label="Moving Rainbow">
+    <a href="../.." title="Moving Rainbow" class="md-header-nav__button md-logo" aria-label="Moving Rainbow">
       
-  <img src="../../../../img/coderdojo-logo.png" alt="logo">
+  <img src="../../img/coderdojo-logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              RGB Project Box
+              List of Moving Rainbow Projects
             
           </span>
         </div>
@@ -171,9 +171,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow">
       
-  <img src="../../../../img/coderdojo-logo.png" alt="logo">
+  <img src="../../img/coderdojo-logo.png" alt="logo">
 
     </a>
     Moving Rainbow
@@ -219,7 +219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Moving Rainbow Home
       </a>
     </li>
@@ -257,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/kits/" class="md-nav__link">
+      <a href="../../getting-started/kits/" class="md-nav__link">
         Standard Kits
       </a>
     </li>
@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/parts/" class="md-nav__link">
+      <a href="../../getting-started/parts/" class="md-nav__link">
         Purchasing Your Own Parts
       </a>
     </li>
@@ -281,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../getting-started/desktop-setup.md" class="md-nav__link">
+      <a href="../../getting-started/desktop-setup.md" class="md-nav__link">
         Desktop Setup
       </a>
     </li>
@@ -325,7 +325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../lessons/blink.md" class="md-nav__link">
+      <a href="../../lessons/blink.md" class="md-nav__link">
         Blink
       </a>
     </li>
@@ -337,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../lessons/fade-in-and-out.md" class="md-nav__link">
+      <a href="../../lessons/fade-in-and-out.md" class="md-nav__link">
         Fade In and Out
       </a>
     </li>
@@ -368,6 +368,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-labs" class="md-nav__link">
+    Getting Started Labs
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -378,22 +393,37 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/guide/project-boxes/rgb/rgb.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/arduino/project-list.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="rgb-project-box">RGB Project Box</h1>
-<p>This box has three potentiometers on it that control the intensity of the red, green and blue LEDs in a LED strip.</p>
-<h1 id="wriring-diagram">Wriring Diagram</h1>
-<p>The top and bottom connectors of each potentiometer are connected to the +5v and ground rails of the breadboard.
-The center tap of the first potentiomer goes to first analog input called pin A0.
-The center tap of the second potentiometer goes to the second analog input called the A1 pin.
-The center tap of the third potentiometer goes to the third analog input called the A2 pin.</p>
-<h1 id="code">Code</h1>
-<p>We use the Adafruit Neopixel libraries.</p>
-<p>The main loop does an analog read on each potentiomter and then converts the analog value from a scale of 0 to 1023 to a LED intensity of 0 to 255.  We use the map() function to do this.</p>
-<p>We can also adjust the top and bottom maximum values so that we check that the values are within a range.  This takes into account that the potentiometer may not go exactly from zero resistence to maximum resistence.</p>
+                <h1 id="list-of-moving-rainbow-projects">List of Moving Rainbow Projects</h1>
+<h2 id="getting-started-labs">Getting Started Labs</h2>
+<p>The purpose of these labs is to use the minimal hardware to get students started programming LED strips.  Once they have mastered the basic of loops and conditionals we next introduce input sensors.</p>
+<p><strong>LED Blink</strong> - this is always the first project we start our students with.  It is the simplist project that will demonstrate the round-trip process of writing, uploading and running a small Arduino project.  You can do this with the built-in LED on most Arduinos.  You will need a laptop, a USB cable and a low-cost Arduino Nano.</p>
+<p><strong>LED Blink with Breadboard</strong>  - this is the second lab.  It requires an additional breadboard, a single LED a resistor and some wires.  There are other variations of this lab that use multiple LEDs that move in a pattern.</p>
+<p><strong>RGB LED</strong>  - this third lab requires students to control a red, green and blue LED.  By mixing the colors they can make any color in the rainbow. </p>
+<p><strong>LED Strip</strong>  - this is the forth lab and the one that opens many doors.  It will require you to purchase learn the parts in the lab above and an LED strip.  We will also learn how to download the Adafruit Neopixel library.  You can use an LED strip of anywhere from 10 to 60 pixels.  We will make a single red LED move down the LED strip using a for loop.</p>
+<p><strong>LED Strip Multiple Colors</strong>  - this lab uses the same LED strip but teaching students how to vary the color of each LED.</p>
+<p><strong>LED Strip Patterns</strong> - in this lab we will use conditional statements (if/then) to make specific patterns such as alternating colors</p>
+<h1 id="sensor-input-labs">Sensor Input Labs</h1>
+<p>These labs use one or more input sensors to allow studnets to change what is displayed on the LED strip.</p>
+<h2 id="button-mode-labs">Button Mode Labs</h2>
+<p>These labs introduce two input buttons that will allow the user to change the display mode of an LED strip.</p>
+<p><strong>LED Strip Modes</strong> Here we add two buttons to our breadboard.  By using the built-in pull-up features we don't even need resistors.  We introduce the concept of an interrupt.</p>
+<p><strong>LED Strip Modes with Debounce</strong> Now we introduce the concept of a debounce process so that we get a clean mode change when a button is pressed.</p>
+<h2 id="led-strip-potentiometers">LED Strip Potentiometers</h2>
+<p>These project requrie one to three potentiometers. We often mount them in a clear box so students can see the circuits and LED strip while they change the potentiomenter.</p>
+<p><strong>LED Strip Brightness</strong>* This project changes the brightness of all the pixels on an LED strip</p>
+<p><strong>RGB Potentionter Lab</strong>* This project uses three potentiometers to change the red, green and blue values of an LED strip.  All the LEDs respond together.  We use this box to help younger students learn about color mixing.</p>
+<h2 id="named-projects">Named Projects</h2>
+<p><strong>Simon</strong> This is the classic "Simon" game that displays a pattern of Red, green, blue yellow flashes and the student must repeat them back using four corrisponding buttons.  The patterns get harder each time.</p>
+<p><strong>Joystick</strong> This project uses a Joystick to change the color or pattern of an LED array</p>
+<p><strong>Roterery Encoder</strong> This project uses a rotery encoder "dial" to change what LED is displayed.  It can be combined with buttons to build a selector menu system.</p>
+<h1 id="advanced-labs">Advanced Labs</h1>
+<p>These labs also use a $18 OLED to display the state of the Arduino.  They are useful for teaching the concept of modes, internal state management and menu systems.  They should not be used by beginners because they are more expensive and reuqire more wiring.</p>
+<p><strong>OLED Display</strong> We add an OLED display to show the internal state of our project.  We use mode buttons and a rotery encoder to change the state value.</p>
                 
               
               
@@ -424,15 +454,15 @@ The center tap of the third potentiometer goes to the third analog input called 
       
     </div>
     
-      <script src="../../../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
-          base: "../../../..",
+          base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
