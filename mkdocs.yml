@@ -9,6 +9,8 @@ nav:
   - Lessons:
     - Blink: lessons/blink.md
     - Fade In and Out: lessons/fade-in-and-out.md
+    - Heartbeat: lessons/heartbeat.md
+    - 
   # - Arduino:
   #   - Getting Started: guide/getting-started.md
   #   - Hardware: guide/hardware.md
