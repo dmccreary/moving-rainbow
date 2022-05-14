@@ -1,8 +1,12 @@
-site_name: 'Arduino Moving Rainbow'
+site_name: 'Moving Rainbow'
 nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
-  - Moving Home: index.md
-  - Purchasing Parts: bill-of-materials.md
+  - Moving Rainbow Home: index.md
+  - Getting Started:
+    - Standard Kits: getting-started/kits.md
+    - Purchasing Your Own Parts: getting-started/parts.md
+    - Desktop Setup: getting-started/desktop-setup.md
+
   - MicroPython:
     - Getting Started: python/getting-started.py
   - Arduino:
