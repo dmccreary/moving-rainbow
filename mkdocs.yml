@@ -6,18 +6,18 @@ nav:
     - Standard Kits: getting-started/kits.md
     - Purchasing Your Own Parts: getting-started/parts.md
     - Desktop Setup: getting-started/desktop-setup.md
-
-  - MicroPython:
-    - Getting Started: python/getting-started.py
-  - Arduino:
-    - Getting Started: guide/getting-started.md
-    - Hardware: guide/hardware.md
-    - Programming Guide: guide/programming.md
-    - List of Sample Programs: guide/list-of-sample-programs.md
-    - Blink: guide/blink.md
-    - Instructors Guide: guide/instructors.md
-    - Bill of Materials: guide/bill-of-materials.md
-    - Glossary: guide/glossary.md
+  - Lessons:
+    - Blink: lessons/blink.md
+    - Fade In and Out: lessons/fade-in-and-out.md
+  # - Arduino:
+  #   - Getting Started: guide/getting-started.md
+  #   - Hardware: guide/hardware.md
+  #   - Programming Guide: guide/programming.md
+  #   - List of Sample Programs: guide/list-of-sample-programs.md
+  #   - Blink: guide/blink.md
+  #   - Instructors Guide: guide/instructors.md
+  #   - Bill of Materials: guide/bill-of-materials.md
+  #   - Glossary: guide/glossary.md
 
 site_description: 'Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial'
 site_author: 'Dan McCreary'
