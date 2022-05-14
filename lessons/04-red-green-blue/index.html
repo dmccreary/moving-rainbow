@@ -18,7 +18,7 @@
     
     
       
-        <title>Color Wheel - Moving Rainbow</title>
+        <title>04 red green blue - Moving Rainbow</title>
       
     
     
@@ -65,11 +65,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#color-wheel" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -97,7 +92,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Color Wheel
+              04 red green blue
             
           </span>
         </div>
@@ -325,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lessons/blink.md" class="md-nav__link">
+      <a href="../blink.md" class="md-nav__link">
         Blink
       </a>
     </li>
@@ -337,8 +332,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lessons/fade-in-and-out.md" class="md-nav__link">
+      <a href="../fade-in-and-out.md" class="md-nav__link">
         Fade In and Out
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../heartbeat.md" class="md-nav__link">
+        Heartbeat
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../red-green-blue.md" class="md-nav__link">
+        Red, Green and Blue
       </a>
     </li>
   
@@ -357,133 +376,19 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#more-to-explore" class="md-nav__link">
-    More to Explore
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/arduino/color-wheel.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/lessons/04-red-green-blue.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="color-wheel">Color Wheel</h1>
-<p>Wouldn't it be nice if we could have each of our pixels change their color as though they were walking around
-a color wheel?</p>
-<p>Here is a program that does this.</p>
-<p>The key is a function called Wheel, that is provided with our NeoPixel library.  The Wheel function is quite clever.
-It uses a set of if/then else functions that splits the colors up into three ranges.  It does slightly different things if the input is:</p>
-<ol>
-<li>less then 88</li>
-<li>less then 170</li>
-<li>over 170</li>
-</ol>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>#include &lt;Adafruit_NeoPixel.h&gt;
-#define LEDPIN 12 // connect the Data from the strip to this pin on the Arduino
-#define NUMBER_PIEXELS 12 // the number of pixels in your LED strip
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIEXELS, LEDPIN, NEO_GRB + NEO_KHZ800);
-
-int wait = 10; // how long we wait on each color (milliseconds)
-
-void setup() {
-  strip.begin();
-}
-
-void loop() {
-
-    for (int color=0; color&lt;255; color++) {
-      for (int i=0; i&lt;strip.numPixels(); i++) {
-        strip.setPixelColor(i, Wheel(color));
-       }
-    strip.show();
-    delay(wait);
-  }
-}
-
-// Input a value 0 to 255 to get a color value.
-// The colours are a transition r - g - b - back to r.
-uint32_t Wheel(byte WheelPos) {
-  WheelPos = 255 - WheelPos;
-  if(WheelPos &lt; 85) {
-   return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
-  } else if(WheelPos &lt; 170) {
-    WheelPos -= 85;
-   return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
-  } else {
-   WheelPos -= 170;
-   return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
-  }
-}
-</code></pre></div>
-</td></tr></table>
-<h2 id="more-to-explore">More to Explore</h2>
-<p>Look at the intensity of the colors.  You will find that although there are some darker colors, most of them tend to skew toward the white colors.  This is because on the average, there are at least two colors that are over half on.  We usually only get a deep color if two colors are almost off and the third one is on.  How can you change the program so that we get a more full spectrum of colors?</p>
+                  <h1>04 red green blue</h1>
+                
+                
                 
               
               
