@@ -13,7 +13,7 @@ nav:
     - Red, Green and Blue: lessons/04-red-green-blue.md
     - Color Wheel: lessons/05-color-wheel.md
     - A Better Dimmer: lessons/06-linear-dimmer.md
-  # - Arduino:
+  # - Arduino no longer supported:
   #   - Getting Started: guide/getting-started.md
   #   - Hardware: guide/hardware.md
   #   - Programming Guide: guide/programming.md
@@ -39,6 +39,9 @@ theme:
     accent: '#41BAC1'
   custom_dir: 'theme'
   include_sidebar: true
+  features:
+    - navigation.instant
+    - navigation.tracking
 plugins:
   - search
   # - mermaid2 - takes too long to build - use a screen image for now

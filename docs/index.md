@@ -1,6 +1,5 @@
 
-
-# Welcome to the Arduino Moving Rainbow documentation!
+# Welcome to the MicroPython Moving Rainbow documentation!
 
 ![](img/moving-rainbow-logo.png)
 
@@ -16,7 +15,6 @@ Moving Rainbow is a way to learn the basics of programming using LED strips.  We
 
 ## Getting Started
 
-
 ## Addressable LED Strips
 Addressable LED strips are easy to connect to your project since they only need three wires (Ground, +5V and data).
 LED strip can be purchased on sites like ebay.com for under $5/meter of 60 RGB LEDs.
@@ -30,11 +28,6 @@ LED strip can be purchased on sites like ebay.com for under $5/meter of 60 RGB L
 
 The Raspberry Pi Pico cost only $4 and runs Python.  All our labs use this processor.
 
-## Arduino Nanos
-
-Arduino Nanos were the lowest cost member of the Arduino family.  They are small and can be purchased for under $3.
-
-![](img/arduino-nano.png)
 
 ## Breadboards
 
@@ -59,21 +52,6 @@ Each of our example programs will have at least three sections:
 
 Sample Blink Program
 
-```c++
-    #include <Adafruit_NeoPixel.h>
-    const int LED_STRIP_PIN = 12; // Connect the Data pin of the LED strip here
-    const int NUMBER_PIXELS = 60;
-    Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMBER_PIXELS, LED_STRIP_PIN, NEO_GRB + NEO_KHZ800);
+```python
 
-    void setup() {
-        strip.begin();
-    }
-
-    void loop() {
-        strip.setPixelColor(0, 255, 0, 0);
-        strip.show();
-        delay(1000);
-        strip.setPixelColor(0, 0, 0, 0);
-        delay(1000);
-    }
 ```
