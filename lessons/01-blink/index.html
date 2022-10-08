@@ -335,9 +335,93 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Blink
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Blink
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-color-lab" class="md-nav__link">
+    Change the Color Lab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-position-lab" class="md-nav__link">
+    Change the Position Lab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-sleep-time" class="md-nav__link">
+    Change the Sleep Time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rgb-lab" class="md-nav__link">
+    RGB Lab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-do-we-need-stripwrite" class="md-nav__link">
+    Why Do We Need Strip.Write?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#led-strip-state" class="md-nav__link">
+    LED Strip State
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-your-own" class="md-nav__link">
+    On Your Own
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -427,6 +511,76 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-color-lab" class="md-nav__link">
+    Change the Color Lab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-position-lab" class="md-nav__link">
+    Change the Position Lab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-the-sleep-time" class="md-nav__link">
+    Change the Sleep Time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rgb-lab" class="md-nav__link">
+    RGB Lab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-do-we-need-stripwrite" class="md-nav__link">
+    Why Do We Need Strip.Write?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#led-strip-state" class="md-nav__link">
+    LED Strip State
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-your-own" class="md-nav__link">
+    On Your Own
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -462,30 +616,78 @@
 15
 16
 17
-18
-19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># red is 10 of 255</span>
-    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-
-    <span class="c1"># turn on for 1/2 second</span>
+    <span class="c1"># turn first red pixel on for 1/2 second</span>
+    <span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
 
     <span class="c1"># turn off for 1/2 second</span>
-    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<h2 id="exercises">Exercises</h2>
+<h3 id="change-the-color-lab">Change the Color Lab</h3>
+<ol>
+<li>Change the line:<br/>
+<code>strip[0] = (255,0,0)</code>
+to be:<br/>
+<code>strip[0] = (0,255,0)</code></li>
+</ol>
+<p>What happens?</p>
+<h3 id="change-the-position-lab">Change the Position Lab</h3>
+<ol>
+<li>Change the line:<br/>
+<code>strip[0] = (255,0,0)</code>
+to be:<br/>
+strip[1] = (255,0,0)</li>
+</ol>
+<p>What happens?</p>
+<h3 id="change-the-sleep-time">Change the Sleep Time</h3>
+<p>What happens if you change the sleep time?</p>
+<p>from:<br/>
+<code>sleep(.5)</code>
+to:<br/>
+<code>sleep(.1)</code></p>
+<p>What is the smallest time you can use and still see flashing?</p>
+<h3 id="rgb-lab">RGB Lab</h3>
+<ol>
+<li>Change the line:<br/>
+<code>strip[0] = (255,0,0)</code>
+to be:
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">strip</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">strip</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+and change the
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table></li>
+</ol>
+<p>What happened?</p>
+<h3 id="why-do-we-need-stripwrite">Why Do We Need Strip.Write?</h3>
+<p>Try to remove one of the line that does strip.write().  What happens?  Why do you think we need this line?</p>
+<h3 id="led-strip-state">LED Strip State</h3>
+<p>What happens if you stop the program when the LED strip LEDs are on? </p>
+<h3 id="on-your-own">On Your Own</h3>
+<p>What if you extended the lab to more positions and colors?</p>
                 
               
               
