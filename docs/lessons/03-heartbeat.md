@@ -40,4 +40,4 @@ while True:
     strip[0] = (0,0,0)
     strip.write()
     sleep(beat_delay)
-    ```
+```
