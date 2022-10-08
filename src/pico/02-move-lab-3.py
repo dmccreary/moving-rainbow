@@ -3,7 +3,6 @@ from utime import sleep
 
 NEOPIXEL_PIN = 0
 NUMBER_PIXELS = 60
-
 strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 # Create a varuabke to store the delay 

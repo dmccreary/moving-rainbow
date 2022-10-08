@@ -13,6 +13,7 @@ nav:
     - Red, Green and Blue: lessons/04-red-green-blue.md
     - Color Wheel: lessons/05-color-wheel.md
     - A Better Dimmer: lessons/06-linear-dimmer.md
+    - Motion: lessons/07-motion.md
   # - Arduino no longer supported:
   #   - Getting Started: guide/getting-started.md
   #   - Hardware: guide/hardware.md
