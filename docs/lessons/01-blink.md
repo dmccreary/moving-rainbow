@@ -38,7 +38,7 @@ What happens?
 ### Change the Position Lab
 
 1. Change the line:<br/>
-```strip[0] = (255,0,0)```
+```strip[0] = (255,0,0)```<br/>
 to be:<br/>
 strip[1] = (255,0,0)
 
@@ -49,16 +49,16 @@ What happens?
 What happens if you change the sleep time?
 
 from:<br/>
-```sleep(.5)```
+```sleep(.5)```<br/>
 to:<br/>
 ```sleep(.1)```
 
-What is the smallest time you can use and still see flashing?
+What is the smallest time you can use and still see flashing?  Hint: Try values like ```.05```, or ```.005```
 
 ### RGB Lab
 
 1. Change the line:<br/>
-```strip[0] = (255,0,0)```
+```strip[0] = (255,0,0)```<br/>
 to be:
 ```python
 strip[0] = (255,0,0)
