@@ -12,6 +12,7 @@ nav:
     - Heartbeat: lessons/03-heartbeat.md
     - Red, Green and Blue: lessons/04-red-green-blue.md
     - Color Wheel: lessons/05-color-wheel.md
+    - A Better Dimmer: lessons/06-linear-dimmer.md
   # - Arduino:
   #   - Getting Started: guide/getting-started.md
   #   - Hardware: guide/hardware.md
