@@ -416,6 +416,62 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#move-a-red-pixel" class="md-nav__link">
+    Move a Red Pixel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiments" class="md-nav__link">
+    Experiments
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-delay" class="md-nav__link">
+    Change the Delay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#down-and-back" class="md-nav__link">
+    Down and Back
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-lab-timeing-the-write" class="md-nav__link">
+    Advanced Lab: Timeing the Write
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#have-some-fun" class="md-nav__link">
+    Have Some Fun!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -432,7 +488,146 @@
                 
                 
                 <h1 id="motion">Motion</h1>
-<p>Turning individual pixels on and off is pretty easy.  But the results can be pretty boring after a while.  But don't worry, we can</p>
+<p>Turning individual pixels on and off is pretty easy.  But the results can be pretty boring after a while.  But don't worry, we can now create a program that is a lot more fun!</p>
+<p>This program uses the Python <code>for</code> loop.  It uses a counter, called an index, to turn on successive pixels in the strip.  For each pixel it turn it on, delays for a short period of time, and then turns it off.  It then moves on to the next pixel until each pixel is the strip has been turned on for short period.</p>
+<h2 id="move-a-red-pixel">Move a Red Pixel</h2>
+<p>The following program illustrates this process.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="c1"># Create a variable to store the delay </span>
+<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">03</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># turn index red pixel on for a short delay</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+        <span class="c1"># turn off</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>You will note that this program is similar to the blink lab with a few key differences:</p>
+<ol>
+<li>The code that turns the pixel on and off is inside the for loop.</li>
+<li>There is no delay or write after we turn it off.  You could add these back in, but they are not really needed.</li>
+</ol>
+<p>Note that the delary time in this program is stored in the <code>delay</code> variable and it is a pretty short delay.  The shorter the delay, the faster the pixel will appear to move.</p>
+<h2 id="experiments">Experiments</h2>
+<h3 id="change-the-delay">Change the Delay</h3>
+<p>Try to change the <code>delay</code> variable to different values.  Note how slow the pixel moves if you make the delay a full second.  This is pretty boring.</p>
+<ol>
+<li>Change the delay to be .01.  This is 1/100th of a second.</li>
+<li>What is the fastest you can make the pixel move?</li>
+<li>What happens if you make the delay less than <code>.001</code>.  Can you still notice the change in the speed?  Many people can't tell the difference because the time to do the <code>strip.write()</code> function is much longer than the delay.</li>
+</ol>
+<h3 id="down-and-back">Down and Back</h3>
+<p>Next, lets try to make the pixel appear to move down the LED strip and then back up.  We call this the "Down and Back" pattern.  To do this we just need to duplicate the for loop, but change the range of the index.  Instead of going from 0 to NUMBER_PIXELS - 1, we will start at NUMBER_PIXELS - 1 and then go backwards each step:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="c1"># Create a varuabke to store the delay </span>
+<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">01</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># move down</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># move back</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># turn index red pixel on for and delay</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="advanced-lab-timeing-the-write">Advanced Lab: Timeing the Write</h3>
+<p>You can measure the time it takes do perform the <code>strip.write()</code> by recording the number of "ticks" before and after the write.  See the function <code>time.ticks_us()</code> for details.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_us</span>
+
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">ticks_us</span><span class="p">()</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ticks_us</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>On a 60=pixel strip using the 125MHz Pico I get a value of about 1,960 microseconds or about 2 milliseconds.  The shorter the LED strip, the shorter the delay.  Longer LED strips will have a correspondingly longer delay.</p>
+<h3 id="have-some-fun">Have Some Fun!</h3>
+<ol>
+<li>Try to change the color of the pixel.</li>
+<li>Try to change the direction of motion from the last to the beginning pixel.</li>
+<li>Try making the </li>
+</ol>
                 
               
               
