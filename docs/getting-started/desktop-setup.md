@@ -36,6 +36,24 @@ Here are the links to the Pico Firmware (called RP2-pico):
 
 ## Step 3: Configure Interpreter
 
-Thonny is designed to automatically detect the correct device and configure the right interpreter.  You can verify this by using the Thonny **Options** menu.
+Thonny is designed to automatically detect the correct device and configure the right interpreter.  You can verify this by using the Thonny **Options** menu and move to the **Interperter** tab.
 
 ![](../img/thonny-interpreter.png)
+
+Note that the *MicroPython (Raspberry Pi Pico)* is selected.
+
+### Thonny Firmware List
+
+![](../img/thonny-firmware-list.png)
+
+After you select a rutime version, Thonny will give you the details about this version.
+
+![](../img/thonny-configuure-runtime-version.png)
+
+![](../img/thonny-firmware-copy-status.png)
+
+After Thonny installs the new firmware on the Pico it instructs the Pico to "restart" using the new firmware.  This makes the USB drive appear to be removed without a disconnect and results in an error.  This is normal so don't worry.
+
+![](../img/disk-not-ejected-properly.png)
+
+![](../img/thonny-prompt-after-firmware-install.png)
