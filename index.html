@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-the-arduino-moving-rainbow-documentation" class="md-skip">
+        <a href="#welcome-to-the-micropython-moving-rainbow-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -280,13 +280,6 @@
         <li class="md-nav__item">
   <a href="#raspberry-pi-pico" class="md-nav__link">
     Raspberry Pi Pico
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#arduino-nanos" class="md-nav__link">
-    Arduino Nanos
   </a>
   
 </li>
@@ -552,13 +545,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#arduino-nanos" class="md-nav__link">
-    Arduino Nanos
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#breadboards" class="md-nav__link">
     Breadboards
   </a>
@@ -596,7 +582,7 @@
                   </a>
                 
                 
-                <h1 id="welcome-to-the-arduino-moving-rainbow-documentation">Welcome to the Arduino Moving Rainbow documentation!</h1>
+                <h1 id="welcome-to-the-micropython-moving-rainbow-documentation">Welcome to the MicroPython Moving Rainbow documentation!</h1>
 <p><img alt="" src="img/moving-rainbow-logo.png" /></p>
 <p>Learning to program using LED strips version 2</p>
 <p>''' Note!
@@ -614,9 +600,6 @@ LED strip can be purchased on sites like ebay.com for under $5/meter of 60 RGB L
 <a href="http://codesavvy.org">CodeSavvy</a></p>
 <h2 id="raspberry-pi-pico">Raspberry Pi Pico</h2>
 <p>The Raspberry Pi Pico cost only $4 and runs Python.  All our labs use this processor.</p>
-<h2 id="arduino-nanos">Arduino Nanos</h2>
-<p>Arduino Nanos were the lowest cost member of the Arduino family.  They are small and can be purchased for under $3.</p>
-<p><img alt="" src="img/arduino-nano.png" /></p>
 <h2 id="breadboards">Breadboards</h2>
 <p>In our projects we use 1/2 sized breadboard with 400 tie points.</p>
 <p><img alt="" src="img/breadboard.jpg" /></p>
@@ -632,37 +615,7 @@ starting with 0 and continuing to the number of patterns we have in our program.
 <li>The loop function - this function runs continually as long at the Arduino has power</li>
 </ol>
 <p>Sample Blink Program</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="cp">#include</span> <span class="cpf">&lt;Adafruit_NeoPixel.h&gt;</span><span class="cp"></span>
-    <span class="k">const</span> <span class="kt">int</span> <span class="n">LED_STRIP_PIN</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// Connect the Data pin of the LED strip here</span>
-    <span class="k">const</span> <span class="kt">int</span> <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
-    <span class="n">Adafruit_NeoPixel</span> <span class="n">strip</span> <span class="o">=</span> <span class="n">Adafruit_NeoPixel</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">,</span> <span class="n">LED_STRIP_PIN</span><span class="p">,</span> <span class="n">NEO_GRB</span> <span class="o">+</span> <span class="n">NEO_KHZ800</span><span class="p">);</span>
-
-    <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">strip</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-    <span class="p">}</span>
-
-    <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">strip</span><span class="p">.</span><span class="n">setPixelColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-        <span class="n">strip</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-        <span class="n">strip</span><span class="p">.</span><span class="n">setPixelColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-    <span class="p">}</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
 </code></pre></div>
 </td></tr></table>
                 
@@ -722,7 +675,7 @@ starting with 0 and continuing to the number of patterns we have in our program.
       <script>
         app = initialize({
           base: ".",
-          features: [],
+          features: ['navigation.instant', 'navigation.tracking'],
           search: Object.assign({
             worker: "assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
