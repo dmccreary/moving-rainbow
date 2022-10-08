@@ -1,5 +1,7 @@
 # Purchasing Your Own Parts
 
+In many school based programs and coding clubs, the parts used in these lessons will be purchased for you.  Very often they will be pre-assembled and all the software preloaded before the classes begin.  This guild is for parents and students that would like to build your own systems at home.
+
 You can easily create your own projects based on the Moving Rainbow kits and software.  You can do this by purchasing parts on on-line sites such as e-Bay or Amazon.  If you are a good planner you can purchase parts from China that take longer to arrive, but they can cost significantly less than parts that ship overnight on Amazon.  This guide provides sample links to both e-Bay and Amazon, but we aware that these site change frequently.
 
 ## Soldering
