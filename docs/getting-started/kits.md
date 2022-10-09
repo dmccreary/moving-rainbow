@@ -18,6 +18,6 @@ Classroom will also have the right USB cables for these boards.  If you have a P
 
 If you are using these kits to make a costume, you can also purchase a battery pack that holds 3 AA batteries or a USB power pack used to recharge phones.  We find that even the small 2,500 milliamp hour packs will power a costume of 60 LEDs for many hours (depending on the brightness of the pattern)
 
-## LED Strip
+## LED Strip and Rings
 
-![](../img/led-strip.png)
+![](../img/neopixel-types.jp)
