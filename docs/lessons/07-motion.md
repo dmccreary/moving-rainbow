@@ -1,5 +1,7 @@
 # Motion
 
+![red led move](../img/red-led-move.gif)
+
 Turning individual pixels on and off is pretty easy.  But the results can be pretty boring after a while.  But don't worry, we can now create a program that is a lot more fun!
 
 This program uses the Python ```for``` loop.  It uses a counter, called an index, to turn on successive pixels in the strip.  For each pixel it turn it on, delays for a short period of time, and then turns it off.  It then moves on to the next pixel until each pixel is the strip has been turned on for short period.
