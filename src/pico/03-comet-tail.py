@@ -1,8 +1,6 @@
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
-from urandom import randint
-# https://docs.micropython.org/en/latest/library/random.html
 
 NEOPIXEL_PIN = 0
 NUMBER_PIXELS = 60
@@ -12,12 +10,13 @@ red = (255, 0, 0)
 orange = (140, 60, 0)
 yellow = (255, 255, 0)
 green = (0, 255, 0)
+light_green = (30, 255, 30)
 blue = (0, 0, 255)
-# cyan = (0, 255, 255)
+cyan = (0, 255, 255)
 indigo = (75, 0, 130)
 violet = (138, 43, 226)
 white = (128, 128, 128)
-colors = (red, orange, yellow, green, blue, indigo, violet)
+colors = (red, orange, yellow, green, light_green, blue, cyan, indigo, violet, white)
 color_count = len(colors)
 levels = [255, 128, 64, 32, 16, 8, 4, 2, 1]
 level_count = len(levels)
@@ -36,11 +35,19 @@ def wheel(pos):
     return (pos * 3, 0, 255 - pos * 3)
 
 # offset should be incremented by one for motion
-def draw_random_color():
-    random_offset = randint(0, NUMBER_PIXELS-1)
-    random_color = randint(0, 255)
-    strip[random_offset] = wheel(random_color)
-    strip.write()
+def draw_comet_tail(offset, color, delay):
+    offset = offset % NUMBER_PIXELS
+    for i in range(0, color_count-1):
+        target = ((level_count - i - 1) + offset) % NUMBER_PIXELS
+        # number to scale by
+        scale = (levels[i] / 255)
+        strip[target] = (int(color[0]*scale), int(color[1]*scale), int(color[2]*scale))      
+        if offset > 0:
+            strip[offset-1] = (0,0,0)
+        if offset == NUMBER_PIXELS-1:
+            strip[offset] = (0,0,0)
+        strip.write()
+        sleep(delay)
 
 def clear():
     for i in range(0, NUMBER_PIXELS):
@@ -53,5 +60,8 @@ clear()
 
 # main loop
 while True:
-    draw_random_color()
-    sleep(.1)
+    for color_index in range(0, color_count):
+        for i in range(0, NUMBER_PIXELS):
+            draw_comet_tail(counter, colors[color_index], .005)
+            counter += 1
+            print(counter)
