@@ -160,6 +160,12 @@ Note that we had to add a few extra lines of code to make the final draw get rem
 
 ## Improving on the Moving Rainbow
 
-This program is simple to read, but there are several ways we could improve it.  What if we wanted our rainbow to be a different number of pixels?  It would be ideal of we could just write a function that would draw the right pixels at the right place.  Perhaps we could just add a parameter to that function for the number of pixels in our rainbow?
+This program is simple to read, but there are several ways we could improve it.
+
+One of the awkward characteristics of the program is that he rainbow pattern just suddenly "appears" at the front of the strip and then "dissapers" at the end of the strip.  This is OK for a strip in a line, but if you wrap the strip in a circle it looks odd.
+
+For a circular loop we would like the pattern to appear one pixel at a time and then appear to slide from the end to the beginning of the strip.  We can achieve this by using the modulo function.  It will take a counter and find the "remainder" after we divide it by the number of pixels in the strip.
+
+What if we wanted our rainbow to be a different number of pixels?  It would be ideal of we could just write a function that would draw the right pixels at the right place.  Perhaps we could just add a parameter to that function for the number of pixels in our rainbow?
 
 
