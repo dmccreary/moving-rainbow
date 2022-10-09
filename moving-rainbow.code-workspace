@@ -7,7 +7,8 @@
 	"settings": {
 		"cSpell.words": [
 			"microcontroller",
-			"NEOPIXEL"
+			"NEOPIXEL",
+			"randint"
 		]
 	}
 }

@@ -62,6 +62,6 @@ clear()
 while True:
     for color_index in range(0, color_count):
         for i in range(0, NUMBER_PIXELS):
-            draw_comet_tail(counter, colors[color_index], .001)
+            draw_comet_tail(counter, colors[color_index], .005)
             counter += 1
             print(counter)
