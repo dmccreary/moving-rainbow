@@ -18,7 +18,7 @@
     
     
       
-        <title>Color Wheel - Moving Rainbow</title>
+        <title>Commit Tail - Moving Rainbow</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#color-wheel-lab" class="md-skip">
+        <a href="#comet-tail" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Color Wheel
+              Commit Tail
             
           </span>
         </div>
@@ -385,49 +385,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Color Wheel
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../05-color-wheel/" class="md-nav__link">
         Color Wheel
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#full-program" class="md-nav__link">
-    Full Program
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -459,11 +421,56 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../09-comet-tail/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Commit Tail
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Commit Tail
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-draw-comet-tail-function" class="md-nav__link">
+    The Draw Comet Tail Function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-program" class="md-nav__link">
+    Full Program
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -547,6 +554,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-draw-comet-tail-function" class="md-nav__link">
+    The Draw Comet Tail Function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#full-program" class="md-nav__link">
     Full Program
   </a>
@@ -565,14 +579,28 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/lessons/05-color-wheel.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/lessons/09-comet-tail.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="color-wheel-lab">Color Wheel Lab</h1>
-<p><img alt="" src="../../img/color-wheel.png" /></p>
-<p>What if we wanted to slowly vary the color of one of our pixels through all the colors of the rainbow?  What we would like is a function that would take in an number from 0 to 255 and walk around the color wheel as you change the input value.  This is known as the <code>`wheel</code> function:</p>
+                <h1 id="comet-tail">Comet Tail</h1>
+<p>In this lesson we will make a pattern of light like a comet tail.  The comet will consist of about 5 to 10 pixels in a row and move across the strip by shifting the offset by a single pixel and then redrawing the comet.</p>
+<h2 id="the-draw-comet-tail-function">The Draw Comet Tail Function</h2>
+<p>Our first task is to draw a single comet tail that will make the head of the comet bright (225) and slowly decrease the brightness behind the head of the comet.  In general, each pixel will be half as bright and the prior pixel.</p>
+<p>The "levels" of brightness can be stored in a list or calculated.  Our list will look like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># brightness levels starting with max and going to 1</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+<p>Our function will have three parameters:</p>
+<ol>
+<li>The offset from pixel 0</li>
+<li>The color to draw the pixel as a tuple of three integers</li>
+<li>The delay between the draws which will control the speed that the comet appears to move down the strip</li>
+</ol>
+<p>Here is an example of this function:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -584,32 +612,34 @@
  9
 10
 11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
-    <span class="c1"># Input a value 0 to 255 to get a color value.</span>
-    <span class="c1"># The colors are a transition r - g - b - back to r.</span>
-    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">170</span><span class="p">:</span>
-        <span class="n">pos</span> <span class="o">-=</span> <span class="mi">85</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="n">pos</span> <span class="o">-=</span> <span class="mi">170</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># offset should be incremented by one for motion</span>
+<span class="k">def</span> <span class="nf">draw_comet_tail</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="o">%</span> <span class="n">make</span> <span class="n">sure</span> <span class="n">we</span> <span class="n">are</span> <span class="n">within</span> <span class="n">the</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">the</span> <span class="n">LED</span> <span class="n">strip</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">offset</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color_count</span><span class="p">):</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="p">((</span><span class="n">level_count</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
+        <span class="c1"># number to scale by</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="c1"># set the target and scale and round to the interger value</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">))</span>      
+        <span class="k">if</span> <span class="n">offset</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">offset</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">offset</span> <span class="o">==</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>If you follow the code, you will see that the colors range from red through green and to blue and back to red:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">wheel</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># red</span>
-<span class="n">wheel</span><span class="p">(</span><span class="mi">85</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># green</span>
-<span class="n">wheel</span><span class="p">(</span><span class="mi">170</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="c1"># blue</span>
-<span class="n">wheel</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># red</span>
+<p>The most complex line is this one:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">strip</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">))</span>
 </code></pre></div>
 </td></tr></table>
+<p>This line sets the RGB values of the target.  It must take the color values that are passed in as parameters and scale them for the current brightness of the tail of the comet.  After it does the multiplication, it must use the <code>int()</code> function to round the value to the nearest integer.</p>
 <h2 id="full-program">Full Program</h2>
-<p>This program will continu</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -640,14 +670,63 @@
 28
 29
 30
-31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
 <span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
 <span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">1</span>
-
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">orange</span> <span class="o">=</span> <span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">yellow</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">cyan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">indigo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
+<span class="n">violet</span> <span class="o">=</span> <span class="p">(</span><span class="mi">138</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">226</span><span class="p">)</span>
+<span class="n">white</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">indigo</span><span class="p">,</span> <span class="n">violet</span><span class="p">,</span> <span class="n">cyan</span><span class="p">,</span> <span class="n">white</span><span class="p">)</span>
+<span class="n">color_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">level_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="c1"># Input a value 0 to 255 to get a color value.</span>
@@ -662,15 +741,38 @@
     <span class="n">pos</span> <span class="o">-=</span> <span class="mi">170</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
 
-<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+<span class="c1"># offset should be incremented by one for motion</span>
+<span class="k">def</span> <span class="nf">draw_comet_tail</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">offset</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color_count</span><span class="p">):</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="p">((</span><span class="n">level_count</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
+        <span class="c1"># number to scale by</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">))</span>      
+        <span class="k">if</span> <span class="n">offset</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">offset</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">offset</span> <span class="o">==</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">offset</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">01</span><span class="p">)</span>
-    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="c1"># reset the counter</span>
-    <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="mi">255</span><span class="p">:</span>
-        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># setup</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">clear</span><span class="p">()</span>
+
+<span class="c1"># main loop</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">color_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color_count</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+            <span class="n">draw_comet_tail</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="n">color_index</span><span class="p">],</span> <span class="o">.</span><span class="mi">005</span><span class="p">)</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
                 
@@ -691,7 +793,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../04-red-green-blue/" title="Red, Green and Blue" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../07-motion/" title="Basic Motion" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -700,19 +802,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Red, Green and Blue
+                  Basic Motion
                 </span>
               </div>
             </a>
           
           
-            <a href="../06-linear-dimmer/" title="A Better Dimmer" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../10-moving-rainbow/" title="Moving Rainbow" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  A Better Dimmer
+                  Moving Rainbow
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
