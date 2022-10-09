@@ -409,6 +409,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../08-color-wipe/" class="md-nav__link">
+        Color Wipe
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -533,7 +545,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/lessons/08-moving-rainbow.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/lessons/10-moving-rainbow.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -803,7 +815,10 @@
 </td></tr></table>
 <p>Note that we had to add a few extra lines of code to make the final draw get removed after the last draw in the outer loop.</p>
 <h2 id="improving-on-the-moving-rainbow">Improving on the Moving Rainbow</h2>
-<p>This program is simple to read, but there are several ways we could improve it.  What if we wanted our rainbow to be a different number of pixels?  It would be ideal of we could just write a function that would draw the right pixels at the right place.  Perhaps we could just add a parameter to that function for the number of pixels in our rainbow?</p>
+<p>This program is simple to read, but there are several ways we could improve it.</p>
+<p>One of the awkward characteristics of the program is that he rainbow pattern just suddenly "appears" at the front of the strip and then "dissapers" at the end of the strip.  This is OK for a strip in a line, but if you wrap the strip in a circle it looks odd.</p>
+<p>For a circular loop we would like the pattern to appear one pixel at a time and then appear to slide from the end to the beginning of the strip.  We can achieve this by using the modulo function.  It will take a counter and find the "remainder" after we divide it by the number of pixels in the strip.</p>
+<p>What if we wanted our rainbow to be a different number of pixels?  It would be ideal of we could just write a function that would draw the right pixels at the right place.  Perhaps we could just add a parameter to that function for the number of pixels in our rainbow?</p>
                 
               
               
@@ -822,7 +837,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../07-motion/" title="Basic Motion" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../08-color-wipe/" title="Color Wipe" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -831,7 +846,7 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Basic Motion
+                  Color Wipe
                 </span>
               </div>
             </a>
