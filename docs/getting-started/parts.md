@@ -1,12 +1,18 @@
 # Purchasing Your Own Parts
+In many school-based programs and coding clubs, the parts used in these lessons will be purchased for you.  Very often they will be pre-assembled and all the software preloaded before the classes begin.  This guide is for mentors, parents and students that would like to build their own systems at home.
 
-In many school based programs and coding clubs, the parts used in these lessons will be purchased for you.  Very often they will be pre-assembled and all the software preloaded before the classes begin.  This guild is for parents and students that would like to build your own systems at home.
-
-You can easily create your own projects based on the Moving Rainbow kits and software.  You can do this by purchasing parts on on-line sites such as e-Bay or Amazon.  If you are a good planner you can purchase parts from China that take longer to arrive, but they can cost significantly less than parts that ship overnight on Amazon.  This guide provides sample links to both e-Bay and Amazon, but we aware that these site change frequently.
+You can easily create your own projects based on the Moving Rainbow kits and software.  You can do this by purchasing parts on online sites such as e-Bay or Amazon.  If you are a good planner you can purchase parts from China that take longer to arrive, but they can cost significantly less than parts that ship overnight on Amazon.  This guide provides sample links to both e-Bay and Amazon, but we aware that these sites change frequently.
 
 ## Soldering
 
 Many of the parts you purchase online might require some soldering to make them easy to use.  We recommend that you get a soldering iron and solder and watch a YouTube video on how to solder.  Kids should always have adult supervision and you should check with your school or classroom policy before you bring a soldering iron to school.
+
+## Headers
+![](../img/headers.png)
+
+Many of the Pico's don't come with headers.  You can purchase 100 40-pin breakaway headers for about $10 dollars on e-Bay.
+
+Part Description: 40-Pin Male Header 0.1" 2.54mm Connectors
 
 ## MicroControllers
 
