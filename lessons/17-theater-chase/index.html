@@ -515,9 +515,52 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Theater Chase
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Theater Chase
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sample-theater-chase-function" class="md-nav__link">
+    Sample Theater Chase Function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-program" class="md-nav__link">
+    Full Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -563,6 +606,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sample-theater-chase-function" class="md-nav__link">
+    Sample Theater Chase Function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-program" class="md-nav__link">
+    Full Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    Exercises
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -581,6 +653,119 @@
                 <h1 id="theater-chase">Theater Chase</h1>
 <p><img alt="Chase Animation" src="../../img/chase-animation.gif" /><img alt="Chase Animation" src="../../img/chase-animation.gif" /></p>
 <p>Theater <a href="https://en.wikipedia.org/wiki/Chase_(lighting)">Chase</a> is a classic pattern that was popularized in <a href="https://en.wikipedia.org/wiki/Marquee_(structure)">marquee</a> signs above movie theaters.  It consists of a row of lights that were usually switched on and off so it would appear that the lights were moving or being chased around the edge of the signs.</p>
+<h2 id="sample-theater-chase-function">Sample Theater Chase Function</h2>
+<p>To create the illusion of pixels moving along a strip, we need to have three nested loops:</p>
+<ol>
+<li>The inner "i" loop just moves from 0 to the number of pixels in steps of 3 (or a similarly small number).  It turns every 3rd pixel on, waits and then turns it off</li>
+<li>The middle "q" loop just offsets the starting point of the inner loop moving from values of 0, 1 and 2.  The index in the inner loop is <code>i+q</code>.</li>
+<li>The outer-most "j" loop just indicates how many times the pattern should be repeated</li>
+</ol>
+<p>Here is a sample of the <code>theater_chase</code> function that has four parameters:</p>
+<ol>
+<li>the LED strip</li>
+<li>the color</li>
+<li>the delay (about 50 milliseconds)</li>
+<li>the number of times the pattern should be repeated (iterations)</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">theater_chase</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">wait_ms</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="c1"># turn every third pixel on</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">strip</span><span class="o">.</span><span class="n">numPixels</span><span class="p">(),</span> <span class="mi">3</span><span class="p">):</span>
+                <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+            <span class="c1"># keep the pixels on for a bit like 1/20th of a second</span>
+            <span class="n">sleep_ms</span><span class="p">(</span><span class="n">wait_ms</span><span class="p">)</span>
+            <span class="c1"># turn every third pixel off</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">strip</span><span class="o">.</span><span class="n">numPixels</span><span class="p">(),</span> <span class="mi">3</span><span class="p">):</span>
+                <span class="n">strip</span><span class="o">.</span><span class="n">setPixelColor</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">q</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>If you want to lower the power of the LED strip, you can change the skip number in the inner loop from 3 to 4, 5 or 6 etc.</p>
+<h2 id="full-program">Full Program</h2>
+<p>This program will run a theater chase for the seven colors of the rainbow and then repeat.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">sleep_ms</span>
+
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<span class="c1"># Color RGB values</span>
+<span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">orange</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">yellow</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">indigo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
+<span class="n">violet</span> <span class="o">=</span> <span class="p">(</span><span class="mi">138</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">226</span><span class="p">)</span>
+<span class="n">color_names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;indigo&#39;</span><span class="p">,</span> <span class="s1">&#39;violet&#39;</span><span class="p">)</span>
+<span class="n">num_colors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_names</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">indigo</span><span class="p">,</span> <span class="n">violet</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">theater_chase</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">wait_ms</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">strip</span><span class="o">.</span><span class="n">numPixels</span><span class="p">(),</span> <span class="mi">3</span><span class="p">):</span>
+                <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+            <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+            <span class="n">sleep_ms</span><span class="p">(</span><span class="n">wait_ms</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">strip</span><span class="o">.</span><span class="n">numPixels</span><span class="p">(),</span> <span class="mi">3</span><span class="p">):</span>
+                <span class="n">strip</span><span class="o">.</span><span class="n">setPixelColor</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">q</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># iterate through all the colors</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_colors</span><span class="p">):</span>
+        <span class="n">theater_chase</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">wait_ms</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Add the skip number as an additional parameter to the function</li>
+<li>Add another parameter that reversed the direction of the movement</li>
+<li>Create a function that randomly changes the direction every few seconds</li>
+</ol>
                 
               
               
