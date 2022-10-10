@@ -6,7 +6,9 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"Hackday",
 			"microcontroller",
+			"milliamp",
 			"NEOPIXEL",
 			"randint"
 		]
