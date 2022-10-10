@@ -1,28 +1,24 @@
 
-# Welcome to the MicroPython Moving Rainbow documentation!
+# Welcome to the MicroPython Moving Rainbow Website!
 
 ![](img/moving-rainbow-logo.png)
 
-Learning to program using LED strips version 2
+## About the Moving Rainbow Project
 
-''' Note!
-    We are no longer accepting pull request for Arduino C code.  Due to the fact that we can get Raspberry Pi Pico processors for $4 that run Python we have moved
+Moving Rainbow is a way to learn the basics of programming using LED strips.  We use low-cost components so you can build entire projects and costumes with 100s of LEDs for under $20.  Since 2014 we have been building low-cost kits that teach all the concepts of [Computational Thinking](https://www.coderdojotc.org/CoderDojoTC/computational-thinking/)](https://www.coderdojotc.org/CoderDojoTC/computational-thinking/).
+
+!!! Note
+    We are no longer accepting pull requests for Arduino C code.  Because we can get Raspberry Pi Pico processors for $4 that run Python we have moved
     all our Moving Rainbow code over to Python.
-
-## About Moving Rainbow
-
-Moving Rainbow is a way to learn the basics of programming using LED strips.  We use low-cost components so you can build an entire costume with 100s of LEDs for under $20
 
 ## Getting Started
 
-## Addressable LED Strips
-Addressable LED strips are easy to connect to your project since they only need three wires (Ground, +5V and data).
-LED strip can be purchased on sites like ebay.com for under $5/meter of 60 RGB LEDs.
+Our getting started guide has three parts:
 
-## References
-[CoderDoj](<http://coderdojo.org)
-[CoderDojo Twin Cities](http://coderdojotc.org)
-[CodeSavvy](http://codesavvy.org)
+1. About Moving Rainbow
+1. Code Savvy Kits
+2. Build Your Own from Parts
+3. Desktop Setup
 
 ## Raspberry Pi Pico
 

@@ -3,6 +3,7 @@ nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - Moving Rainbow Home: index.md
   - Getting Started:
+    - About: getting-started/about.md
     - Standard Kits: getting-started/kits.md
     - Purchasing Your Own Parts: getting-started/parts.md
     - Desktop Setup: getting-started/desktop-setup.md

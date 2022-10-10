@@ -32,11 +32,15 @@ If you are using these kits to make a costume, you can also purchase a battery p
 
 ## LED Strip and Rings
 
-![](../img/neopixel-types.jp)
+![WS-2812b types](../img/ws-2812b-types.png)
+
+![](../img/neopixel-type)
 
 There are hundreds of variations of WS2812B LED strips and fairy lights.  We usually purchase them in 1-meter strips with 60 pixels per meter.  Since 2020 there are now very lightweight fairy lights that are ideal for lighting up costumes.
 
 [EBay Search for SW2812B](https://www.ebay.com/sch/i.html?_nkw=WS2812B)
+
+If you are creating costumes that might get wet in the rain, we suggest getting the versions that are encased in a waterproof silicon tube or in a waterproof silicon coating.
 
 ## LED Fairy Lights
 
