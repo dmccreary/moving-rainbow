@@ -30,6 +30,8 @@ It also mounts directly on the breadboard after we add the header pins.
 
 ## NeoPixels
 
+![](../img/neopixel-types.jpg)
+
 NeoPixels are parts that contain three LEDs and logic to process an incoming data stream.  Each NeoPixel will look at the incoming data and extract the 8-bit values for its own red, green and blue LED brightness.  It then sends the data signal on to the next NeoPixel.
 
 ![](../img/WS2811B-black.png)
@@ -40,19 +42,32 @@ If your Microcontrollers do not come with header pins, you can purchase about 10
 
 [100pcs Pitch 1x40 Pins 2.54mm Male Single Row Male Pin Header Strip](https://www.ebay.com/itm/171936190989?hash=item280832120d%3Ag%3AQdMAAOSwEetV-YW%7E&LH_BIN=1)
 
-## NeoPixel Rings
-
-## Raspberry Pi Pico
-
 ## Breadboards
 
 ![](../img/breadboard.jpg)
 
+We use 400-tie 1/2 size breadboards.  You can purchase them on [E-Bay](https://www.ebay.com/sch/185138/i.html?_nkw=solderless+Breadboard) for around $1.50 each in quantity 10.
+
+![](../img/solderless-breadboards.png)
+
 ## Momentary Push Buttons
+
+Tactile Switchs
 
 ![](../img/momentary-switch-button.png)
 
+We use these buttons 
+
+Part Description: 100PCS B3F-4055 12*12*7.3 Tactile Switch 12x12x7.3mm
+
+![](../img/momentary-switch-buttons-ebay.png)
+
+The caps are 140PCS Round Tactile Button Cap Kits 9.58*5.1mm for 12*12*7.3mm Tact Switch on [eBay](https://www.ebay.com/itm/401225666722)
+
+![](../img/button-caps.png)
+
 ## Boxes
+![Project Box](../img/project-box.png)
 
 Our students love to put their projects into clear boxes so they can simply throw them in their backpacks and show their friends.  We use clear boxes that you can purchase at [The Container Store](https://www.containerstore.com/)
 
@@ -63,7 +78,7 @@ These boxes have a clear detachable lid that shows off the interior wiring of th
 
 ## MicroPython Site
 
-For more parts, see the MicroPython site here:
+For more parts, see the [CoderDojoTC MicroPython website](https://www.coderdojotc.org/micropython/).
 
 
 
