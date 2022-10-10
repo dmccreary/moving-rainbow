@@ -30,7 +30,9 @@ It also mounts directly on the breadboard after we add the header pins.
 
 ## NeoPixels
 
-![](img/WS2811B-black.png)
+NeoPixels are parts that contain three LEDs and logic to process an incoming data stream.  Each NeoPixel will look at the incoming data and extract the 8-bit values for its own red, green and blue LED brightness.  It then sends the data signal on to the next NeoPixel.
+
+![](../img/WS2811B-black.png)
 
 ## Header Pins
 
