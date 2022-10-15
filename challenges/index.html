@@ -505,8 +505,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../lessons/18-ripple/" class="md-nav__link">
+        Ripple
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../lessons/17-theater-chase/" class="md-nav__link">
         Theater Chase
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lessons/19-larson-scanner/" class="md-nav__link">
+        Larson Scanner
       </a>
     </li>
   
@@ -712,6 +736,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#random-ripples" class="md-nav__link">
+    Random Ripples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#use-random-to-simulate-candle-flicker" class="md-nav__link">
     Use Random to Simulate Candle Flicker
   </a>
@@ -755,6 +786,13 @@
           <li class="md-nav__item">
   <a href="#use-a-button-to-change-a-pattern-mode" class="md-nav__link">
     Use a Button to Change a Pattern Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#night-light" class="md-nav__link">
+    Night Light
   </a>
   
 </li>
@@ -822,6 +860,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#random-zone" class="md-nav__link">
+    Random Zone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clock" class="md-nav__link">
+    Clock
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -852,6 +904,13 @@
           <li class="md-nav__item">
   <a href="#pattern-brightness-and-speed" class="md-nav__link">
     Pattern, Brightness and Speed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-the-weather-forecast" class="md-nav__link">
+    Display the Weather Forecast
   </a>
   
 </li>
@@ -1064,6 +1123,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#random-ripples" class="md-nav__link">
+    Random Ripples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#use-random-to-simulate-candle-flicker" class="md-nav__link">
     Use Random to Simulate Candle Flicker
   </a>
@@ -1107,6 +1173,13 @@
           <li class="md-nav__item">
   <a href="#use-a-button-to-change-a-pattern-mode" class="md-nav__link">
     Use a Button to Change a Pattern Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#night-light" class="md-nav__link">
+    Night Light
   </a>
   
 </li>
@@ -1174,6 +1247,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#random-zone" class="md-nav__link">
+    Random Zone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clock" class="md-nav__link">
+    Clock
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1204,6 +1291,13 @@
           <li class="md-nav__item">
   <a href="#pattern-brightness-and-speed" class="md-nav__link">
     Pattern, Brightness and Speed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-the-weather-forecast" class="md-nav__link">
+    Display the Weather Forecast
   </a>
   
 </li>
@@ -1271,6 +1365,8 @@
 <h3 id="draw-multiple-color-comets">Draw Multiple Color Comets</h3>
 <h3 id="draw-different-patterns-in-a-loop">Draw Different Patterns in a Loop</h3>
 <h3 id="use-random-numbers-for-color-selection">Use Random Numbers for Color Selection</h3>
+<h3 id="random-ripples">Random Ripples</h3>
+<p>Draw random ripple patterns on the LED strips were the pixels move out from a single point.</p>
 <h3 id="use-random-to-simulate-candle-flicker">Use Random to Simulate Candle Flicker</h3>
 <h3 id="use-random-to-for-changing-move-direction">Use Random to For Changing Move Direction</h3>
 <h2 id="advanced-labs">Advanced Labs</h2>
@@ -1281,12 +1377,15 @@
 <li>Speaker</li>
 <li>Interrupt Service Routines</li>
 <li>A USB Current Meter</li>
+<li>A Light Sensor (photoresistor)</li>
 <li>An OLED display</li>
 <li>A Wireless Controller</li>
 </ol>
 <h3 id="create-functions-for-five-patterns">Create Functions for Five Patterns</h3>
 <h3 id="create-a-mode-variable-for-switching-the-patterns">Create a Mode Variable for Switching the Patterns</h3>
 <h3 id="use-a-button-to-change-a-pattern-mode">Use a Button to Change a Pattern Mode</h3>
+<h3 id="night-light">Night Light</h3>
+<p>Add a <a href="https://www.coderdojotc.org/micropython/sensors/02-photosensor/">photoresistor</a> that will turn the LED strip on when it is dark in the room.</p>
 <h3 id="use-potentiometers-to-change-speed">Use Potentiometers to Change Speed</h3>
 <p>Add a potentiometer and change the speed of a display pattern</p>
 <h3 id="use-potentiometers-to-change-brightness">Use Potentiometers to Change Brightness</h3>
@@ -1302,6 +1401,10 @@
 <p>Display a pattern on four pixels of the LED strip and have the user repeat the pattern using four buttons.  Play different tones for each pixel.</p>
 <h3 id="zone-game">Zone Game</h3>
 <p>Draw a zone of a different color in the center of the strip.  Move a pixel down and strip and give a player a point if they press the button in the strip.  Use sound and pixel colors to show the points score.  Make the zone smaller and the speed faster as the game progresses.</p>
+<h3 id="random-zone">Random Zone</h3>
+<p>Add randomization to your Zone game to make the zone move in random directions.</p>
+<h3 id="clock">Clock</h3>
+<p>Turn your LED strip into a clock.  You can display each digit using a binary structure.</p>
 <h2 id="wireless-labs">Wireless Labs</h2>
 <h3 id="web-page-color-control">Web Page Color Control</h3>
 <p>Create a web page that changes the color of the LED strip.</p>
@@ -1309,6 +1412,15 @@
 <p>Create a web page that changes the pattern</p>
 <h3 id="pattern-brightness-and-speed">Pattern, Brightness and Speed</h3>
 <p>Create a web page that changes the pattern, brightness and speed of a pattern.</p>
+<h3 id="display-the-weather-forecast">Display the Weather Forecast</h3>
+<p>Use a web service to get the weather forecast for the current day. Change the color of the display:</p>
+<ol>
+<li>Yellow for Sunny</li>
+<li>Gray for Cloudy</li>
+<li>Red for Rain</li>
+<li>White for Snow</li>
+</ol>
+<p>You can use <a href="https://www.coderdojotc.org/micropython/wireless/08-get-weather/">this example</a> to get started.</p>
                 
               
               
@@ -1327,7 +1439,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../lessons/17-theater-chase/" title="Theater Chase" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../lessons/19-larson-scanner/" title="Larson Scanner" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -1336,7 +1448,7 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Theater Chase
+                  Larson Scanner
                 </span>
               </div>
             </a>
