@@ -62,6 +62,10 @@ These challenges involve more advanced programming such as using:
 
 ### Use Random Numbers for Color Selection
 
+### Random Ripples
+
+Draw random ripple patterns on the LED strips were the pixels move out from a single point.
+
 ### Use Random to Simulate Candle Flicker
 
 ### Use Random to For Changing Move Direction
@@ -75,14 +79,19 @@ These labs may require some additional connections such as:
 3. Speaker
 4. Interrupt Service Routines
 5. A USB Current Meter
-6. An OLED display
-7. A Wireless Controller
+6. A Light Sensor (photoresistor)
+7. An OLED display
+8. A Wireless Controller
 
 ### Create Functions for Five Patterns
 
 ### Create a Mode Variable for Switching the Patterns
 
 ### Use a Button to Change a Pattern Mode
+
+### Night Light
+
+Add a [photoresistor](https://www.coderdojotc.org/micropython/sensors/02-photosensor/) that will turn the LED strip on when it is dark in the room.
 
 ### Use Potentiometers to Change Speed
 
@@ -114,6 +123,14 @@ Display a pattern on four pixels of the LED strip and have the user repeat the p
 
 Draw a zone of a different color in the center of the strip.  Move a pixel down and strip and give a player a point if they press the button in the strip.  Use sound and pixel colors to show the points score.  Make the zone smaller and the speed faster as the game progresses.
 
+### Random Zone
+
+Add randomization to your Zone game to make the zone move in random directions.
+
+### Clock
+
+Turn your LED strip into a clock.  You can display each digit using a binary structure.
+
 ## Wireless Labs
 
 ### Web Page Color Control
@@ -128,3 +145,13 @@ Create a web page that changes the pattern
 
 Create a web page that changes the pattern, brightness and speed of a pattern.
 
+### Display the Weather Forecast
+
+Use a web service to get the weather forecast for the current day. Change the color of the display:
+
+1. Yellow for Sunny
+2. Gray for Cloudy
+3. Red for Rain
+4. White for Snow
+
+You can use [this example](https://www.coderdojotc.org/micropython/wireless/08-get-weather/) to get started.
