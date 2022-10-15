@@ -5,6 +5,7 @@
         "milliamp",
         "NEOPIXEL",
         "OLED",
+        "photoresistor",
         "solderless"
     ]
 }
