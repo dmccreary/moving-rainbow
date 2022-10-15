@@ -64,7 +64,7 @@ These challenges involve more advanced programming such as using:
 
 ### Random Ripples
 
-Draw random ripple patterns on the LED strips were the pixels move out from a single point.
+Draw random ripple patterns on the LED strips where the pixels move out from a single point.
 
 ### Use Random to Simulate Candle Flicker
 
@@ -72,18 +72,18 @@ Draw random ripple patterns on the LED strips were the pixels move out from a si
 
 ## Advanced Labs
 
-These labs may require some additional connections such as:
+These labs may require some additional components such as:
 
-1. Buttons
+1. Buttons (momentary press)
 2. Potentiometers
-3. Speaker
+3. Speaker/Buzzer
 4. Interrupt Service Routines
 5. A USB Current Meter
 6. A Light Sensor (photoresistor)
 7. An OLED display
 8. A Wireless Controller
 
-### Create Functions for Five Patterns
+### Create Separate Python Functions for Five Patterns
 
 ### Create a Mode Variable for Switching the Patterns
 

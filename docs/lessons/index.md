@@ -16,10 +16,12 @@
 12. **Rainbow Cycle** - cycle every pixel through all the colors of the rainbow
 13. **Larson Scanner** - famous Cylon eye and KITT car scanning pattern
 14. **Random Colors** - draw random colors at each pixel
-15. **Ripple** - simulated drops in a pond in 1-D
-16. **Random Bounce** - random points bounce around
-17. **Candle** - simulated candle flickers with randomness
-18. **Theater Chase** - classic running light patterns popular in signs
+15. **Twinkle** - random pixels twinkle on for a brief second
+16. **Ripple** - simulated drops in a pond in 1-D
+17. **Random Bounce** - random points bounce around
+18. **Candle** - simulated candle flickers with randomness
+19. **Theater Chase** - classic running light patterns popular in signs
+20. **Moving Bands** - moving bands of color
 
 ## Rotating Patterns
 
