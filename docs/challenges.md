@@ -62,21 +62,35 @@ These challenges involve more advanced programming such as using:
 
 ### Use Random Numbers for Color Selection
 
+### Use Random to Simulate Candle Flicker
+
+### Use Random to For Changing Move Direction
+
 ## Advanced Labs
 
 These labs may require some additional connections such as:
 
-1. Buttons, Potentiometers
-2. Interrupt Service Routines
-3. A USB Current Meter
-4. An OLED display
-5. A Wireless Controller
+1. Buttons
+2. Potentiometers
+3. Speaker
+4. Interrupt Service Routines
+5. A USB Current Meter
+6. An OLED display
+7. A Wireless Controller
 
 ### Create Functions for Five Patterns
 
 ### Create a Mode Variable for Switching the Patterns
 
 ### Use a Button to Change a Pattern Mode
+
+### Use Potentiometers to Change Speed
+
+Add a potentiometer and change the speed of a display pattern
+
+### Use Potentiometers to Change Brightness
+
+Add a potentiometer and change the brightness of a display pattern
 
 ### Create a Demo Auto-Cycle Pattern a Button to Advance the Mode
 
@@ -86,7 +100,19 @@ Get a USB power meter from the instructor.  Measure the current draw for each of
 
 ### Connect an OLED display that shows the pattern, color and brightness of the LED strip.
 
-### Add buttons to change the parameters with the OLED
+### Add Buttons to Change the Parameters with the OLED
+
+### Add a Sound
+
+Add a speaker or buzzer to play a sound when a button is pressed.
+
+### Simon Game
+
+Display a pattern on four pixels of the LED strip and have the user repeat the pattern using four buttons.  Play different tones for each pixel.
+
+### Zone Game
+
+Draw a zone of a different color in the center of the strip.  Move a pixel down and strip and give a player a point if they press the button in the strip.  Use sound and pixel colors to show the points score.  Make the zone smaller and the speed faster as the game progresses.
 
 ## Wireless Labs
 
@@ -100,5 +126,5 @@ Create a web page that changes the pattern
 
 ### Pattern, Brightness and Speed
 
-Create a web page that changes the pattern, brightness and speed of a pattern
+Create a web page that changes the pattern, brightness and speed of a pattern.
 
