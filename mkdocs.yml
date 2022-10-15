@@ -23,7 +23,7 @@ nav:
     - Random: lessons/15-random.md
     - Candle Flicker: lessons/16-candle.md
     - Theater Chase: lessons/17-theater-chase.md
-
+  - Challenges: challenges.md
   - Resources: resources.md
   # - Arduino no longer supported:
   #   - Getting Started: guide/getting-started.md
