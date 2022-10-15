@@ -4,6 +4,7 @@
         "Hackday",
         "milliamp",
         "NEOPIXEL",
+        "OLED",
         "solderless"
     ]
 }
