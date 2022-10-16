@@ -24,9 +24,11 @@ These challenges can all be done once you know the following commands:
 
 ### Make a Pixel Move Down the Strip
 
-### Change Colors for the Entire LED Strip
+### Change Colors for the Entire LED Strip (wipe)
 
 ### Move a Pixel Down and Back
+
+### Create a Larson Scanner Pattern
 
 ### Draw Different Levels of Brightness
 

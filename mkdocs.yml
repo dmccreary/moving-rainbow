@@ -15,16 +15,18 @@ nav:
     - Red, Green and Blue: lessons/04-red-green-blue.md
     - Color Wheel: lessons/05-color-wheel.md
     - A Better Dimmer: lessons/06-linear-dimmer.md
-    - Basic Motion: lessons/07-motion.md
+    - Moving Pixel: lessons/07-motion.md
+    - Color Wipe: lessons/08-color-wipe.md
+    - Moving Bands: lessons/08-moving-bands.md
     - Comet Tail: lessons/09-comet-tail.md
     - Moving Rainbow: lessons/10-moving-rainbow.md
+    - Larson Scanner: lessons/19-larson-scanner.md
     - Rainbow Cycle: lessons/11-rainbow-cycle.md 
-    - Color Wipe: lessons/08-color-wipe.md
     - Random: lessons/15-random.md
     - Candle Flicker: lessons/16-candle.md
     - Ripple: lessons/18-ripple.md
     - Theater Chase: lessons/17-theater-chase.md
-    - Larson Scanner: lessons/19-larson-scanner.md
+
   - Challenges: challenges.md
   - Resources: resources.md
   # - Arduino no longer supported:
