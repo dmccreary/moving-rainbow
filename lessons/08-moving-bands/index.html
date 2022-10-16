@@ -18,7 +18,7 @@
     
     
       
-        <title>Larson Scanner - Moving Rainbow</title>
+        <title>Moving Bands - Moving Rainbow</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#larson-scanner" class="md-skip">
+        <a href="#moving-bands-of-color" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Larson Scanner
+              Moving Bands
             
           </span>
         </div>
@@ -445,11 +445,20 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../08-moving-bands/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Moving Bands
       </a>
+      
     </li>
   
 
@@ -481,70 +490,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Larson Scanner
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../19-larson-scanner/" class="md-nav__link">
         Larson Scanner
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#color-rgb-values" class="md-nav__link">
-    Color RGB values
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-source-code" class="md-nav__link">
-    Full Source Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercises" class="md-nav__link">
-    Exercises
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -665,42 +615,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
-    Description
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#color-rgb-values" class="md-nav__link">
-    Color RGB values
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-source-code" class="md-nav__link">
-    Full Source Code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercises" class="md-nav__link">
-    Exercises
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -711,115 +625,70 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/lessons/19-larson-scanner.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dmccreary/moving-rainbow/blob/master/docs/lessons/08-moving-bands.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="larson-scanner">Larson Scanner</h1>
-<p>The Larson Scanner is a light pattern special effect named after <a href="https://en.wikipedia.org/wiki/Glen_A._Larson">Glen A. Larson</a>.  Larson used this pattern to give his <a href="https://en.wikipedia.org/wiki/Cylon_(Battlestar_Galactica)">Battlestar Galactica Cylon</a> and <a href="https://en.wikipedia.org/wiki/KITT">KITT</a> robot eyes a sense of sentience.  See <a href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)">Knight Rider</a> for the backstory.</p>
-<h2 id="description">Description</h2>
-<p>A set of usually red pixels moves back and forth over the LED strip.  The pixels are brighter in the center and are dimmer at the edges of the set.  You can see an example of this in the <a href="https://www.coderdojotc.org/micropython/kits/larson-scanner/01-intro/">Larson Scanner Pumpkin Kit</a></p>
-<h2 id="color-rgb-values">Color RGB values</h2>
-<p>We will need a set of predefined colors for various brightness of red:</p>
+                <h1 id="moving-bands-of-color">Moving Bands of Color</h1>
+<p>In this lesson, we will create a program that will move a set of bands of color down the LED strip.  To do this we will create a function called <code>draw_band(start, end, color)</code> that will fill a range of pixels with a given color.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">red_med</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">red_light</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">off</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">draw_band</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="c1"># draw the band from start to end</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
 </code></pre></div>
 </td></tr></table>
-<p>Note that the color levels are not linear.  You can adjust these and add more intermediate levels for wider patterns.</p>
-<h2 id="full-source-code">Full Source Code</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># Larson Scanner - five pixels</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-
-<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
-<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
-
-<span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">red_med</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">red_light</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">off</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="n">delay</span> <span class="o">=</span> <span class="o">.</span><span class="mi">05</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># forward loop</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_light</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_med</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">red</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_med</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_light</span>
-        <span class="c1"># erase the trailing pixel</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">off</span>
-        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
-    <span class="c1"># backward loop</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="c1"># erase the trailing pixel</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span>
-            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">off</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_light</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_med</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">red</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_med</span>
-        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_light</span>
-        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+<p>This works, but we also have the problem that the last pixel does not get erased</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">draw_band</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">erase_tail</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="c1"># draw the band from start to end</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="c1"># erase the last pixel on the erase tail band</span>
+    <span class="k">if</span> <span class="n">erase_tail</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">strip</span><span class="p">[(</span><span class="n">start</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="exercises">Exercises</h2>
-<ol>
-<li>Turn the code into a function with delay as a patter</li>
-<li>Add a color parameter</li>
-<li>Add a parameter for the width of the pattern</li>
-</ol>
+<p>We can then draw three "bands" of color like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">draw_band</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">draw_band</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">draw_band</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>We can make this group of bands appear to move by adding a offset to the start like this:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+    <span class="n">draw_band</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="n">draw_band</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">19</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+    <span class="n">draw_band</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">29</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>This will work fine until the value of i plus the offset exceeds the length of the LED strip.  To get around this, we should never write to location i by itself.  We should always divide i by the strip lenght and write to the remainder, what is call the modulo.  We just have to change one line in the draw_band function:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">draw_band</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="n">NUMBER_PIXELS</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
                 
               
               
@@ -838,7 +707,7 @@
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../10-moving-rainbow/" title="Moving Rainbow" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../08-color-wipe/" title="Color Wipe" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -847,19 +716,19 @@
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Moving Rainbow
+                  Color Wipe
                 </span>
               </div>
             </a>
           
           
-            <a href="../11-rainbow-cycle/" title="Rainbow Cycle" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../09-comet-tail/" title="Comet Tail" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Rainbow Cycle
+                  Comet Tail
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
