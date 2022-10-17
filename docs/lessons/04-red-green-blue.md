@@ -64,3 +64,5 @@ strip.write()
 ```
 
 Note here that the range function has a third parameter that tells us how many to skip in each iteration of the loop.  Since we have three colors, we can skip every three values of i.  I will get values of 0, 3, 6, 9, 12... etc.
+
+## Excercises
