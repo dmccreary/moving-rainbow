@@ -9,12 +9,13 @@ These lesson plans are designed to be used with a Raspberry Pi Pico and an addre
 
 Our standard kit contains the following parts:
 
-1. A Raspberry Pi Pico ($4) or "W" ($6) with header pins soldered in place
-2. A 1/2-size solderless breadboard (400 ties) ($2)
-3. A 30-pixel addressable RGB LED strip (WS2812B) ($2)
-4. 3 terminal screw header (optional)
-5. Two momentary push buttons
-6. 22 gauge wires
+1. **Microcontroller** - A Raspberry Pi Pico ($4) or "W" ($6).  We often solder our own headers in, but if you are not familiar with soldering you can purchase them with header pins soldered in place.
+2. **Breadboard** - A 1/2-size solderless breadboard (400 ties) ($2)
+3. **LED Strip** - A 60-LED/meter addressable RGB LED strip (WS2812B) ($4).  We purchase 1-meter
+strips and cut them in half and solder connectors on the ends.  You can also purchase NeoPixel rings, arrays and fairy lights.  Fairy lights are ideal for costumes but the thin wires are easily damaged.
+4. **Headers** - 3 terminal screw headers (optional) - This makes it easier to connect and disconnect the LED strip connections without soldering.
+5. **Buttons** - Two momentary push buttons.  We purchase these in packages of 100 to keep the per-button cost down.
+6. **Wire** - 22 gauge insulated wires.  We get red, black wire for power and ground and other colors for data.  We use yellow wire for the data connections.
 
 ## Optional Parts
 
