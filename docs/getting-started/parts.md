@@ -3,6 +3,21 @@ In many school-based programs and coding clubs, the parts used in these lessons 
 
 You can easily create your own projects based on the Moving Rainbow kits and software.  You can do this by purchasing parts on online sites such as e-Bay or Amazon.  If you are a good planner you can purchase parts from China that take longer to arrive, but they can cost significantly less than parts that ship overnight on Amazon.  This guide provides sample links to both e-Bay and Amazon, but we aware that these sites change frequently.
 
+## WS-2812B LED Strip
+
+![](../img/3-dollars-per-meter.png)
+
+You can purchase the LED strips for around $3.00 per meter if you shop around on e-Bay.  The above was from seller [btflightingcom](https://www.ebay.com/usr/btflightingcom?_trksid=p2047675.m3561.l2559).  We use the 60 pixels/meter type without waterproofing for our indoor classes.  People that create costumes use the waterproof varieties.
+
+Some of these parts are also called "NeoPixels".
+
+![](../img/neopixel-types.jpg)
+
+NeoPixels are parts that contain three LEDs and logic to process an incoming data stream.  Each NeoPixel will look at the incoming data and extract the 8-bit values for its own red, green and blue LED brightness.  It then sends the data signal on to the next NeoPixel.
+
+![](../img/WS2811B-black.png)
+
+
 ## Soldering
 
 Many of the parts you purchase online might require some soldering to make them easy to use.  We recommend that you get a soldering iron and solder and watch a YouTube video on how to solder.  Kids should always have adult supervision and you should check with your school or classroom policy before you bring a soldering iron to school.
@@ -30,11 +45,6 @@ It also mounts directly on the breadboard after we add the header pins.
 
 ## NeoPixels
 
-![](../img/neopixel-types.jpg)
-
-NeoPixels are parts that contain three LEDs and logic to process an incoming data stream.  Each NeoPixel will look at the incoming data and extract the 8-bit values for its own red, green and blue LED brightness.  It then sends the data signal on to the next NeoPixel.
-
-![](../img/WS2811B-black.png)
 
 ## Header Pins
 
