@@ -1,7 +1,7 @@
 # Purchasing Your Own Parts
-In many school-based programs and coding clubs, the parts used in these lessons will be purchased for you.  Very often they will be pre-assembled and all the software preloaded before the classes begin.  This guide is for mentors, parents and students that would like to build their own systems at home.
+In many school-based programs and coding clubs, the parts used in these lessons will be purchased for you.  Very often they will be pre-assembled and all the software preloaded before the classes begin.  This guide is for mentors, parents and students who would like to build their own systems at home.
 
-You can easily create your own projects based on the Moving Rainbow kits and software.  You can do this by purchasing parts on online sites such as e-Bay or Amazon.  If you are a good planner you can purchase parts from China that take longer to arrive, but they can cost significantly less than parts that ship overnight on Amazon.  This guide provides sample links to both e-Bay and Amazon, but we aware that these sites change frequently.
+You can easily create your own projects based on the Moving Rainbow kits and software.  You can do this by purchasing parts on online sites such as e-Bay or Amazon.  If you are a good planner you can purchase parts from China that take longer to arrive, but they can cost significantly less than parts that ship overnight on Amazon.  This guide provides sample links to both e-Bay and Amazon, but be aware that these sites change frequently.
 
 ## WS-2812B LED Strip
 
