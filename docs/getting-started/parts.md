@@ -23,6 +23,7 @@ NeoPixels are parts that contain three LEDs and logic to process an incoming dat
 Many of the parts you purchase online might require some soldering to make them easy to use.  We recommend that you get a soldering iron and solder and watch a YouTube video on how to solder.  Kids should always have adult supervision and you should check with your school or classroom policy before you bring a soldering iron to school.
 
 ## Headers
+
 ![](../img/headers.png)
 
 Many of the Pico's don't come with headers.  You can purchase 100 40-pin breakaway headers for about $10 dollars on e-Bay.
@@ -70,7 +71,7 @@ We use these buttons
 
 Part Description: 100PCS B3F-4055 12*12*7.3 Tactile Switch 12x12x7.3mm
 
-![](../img/momentary-switch-buttons-ebay.png)
+![](../img/momentary-push-buttons-ebay.png)
 
 The caps are 140PCS Round Tactile Button Cap Kits 9.58*5.1mm for 12*12*7.3mm Tact Switch on [eBay](https://www.ebay.com/itm/401225666722)
 
