@@ -7,6 +7,7 @@ nav:
     - Standard Kits: getting-started/kits.md
     - Purchasing Your Own Parts: getting-started/parts.md
     - Desktop Setup: getting-started/desktop-setup.md
+    - Electrical Connections: getting-started/connections.md
   - Lessons:
     - List of Lessons: lessons/index.md
     - Blink: lessons/01-blink.md
