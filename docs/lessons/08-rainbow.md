@@ -1,3 +1,9 @@
+# Rainbow
+
+```py
+wheel(current_color)
+```
+
 # 09-rainbow.py
 from machine import Pin
 from neopixel import NeoPixel
