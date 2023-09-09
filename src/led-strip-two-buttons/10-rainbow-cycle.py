@@ -25,10 +25,13 @@ def wheel(pos):
     return (pos * 3, 0, 255 - pos * 3)
 
 current_color = 0
+offset = 0
 print('Drawing rainbow in', np, 'steps with step size of: ', color_wheel_step)
-for i in range(0,np):
-    strip[i] = wheel(current_color)
-    current_color = current_color + color_wheel_step
-    print(i, current_color, wheel(current_color))
-    strip.write()
-    sleep(.03)
+while True:
+    for i in range(0,np):
+        strip[(i+offset) % np] = wheel(current_color)
+        current_color = current_color + color_wheel_step
+        strip.write()
+        sleep(.001)
+    current_color = 0
+    offset += 1
