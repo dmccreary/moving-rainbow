@@ -21,8 +21,8 @@ last_time = 0 # the last time we pressed the button
 builtin_led = machine.Pin(25, Pin.OUT)
 # The lower left corner of the Pico has a wire that goes through the buttons upper left and the lower right goes to the 3.3 rail
 
-button1 = machine.Pin(BUTTON_PIN_1, machine.Pin.IN, machine.Pin.PULL_DOWN)
-button2 = machine.Pin(BUTTON_PIN_2, machine.Pin.IN, machine.Pin.PULL_DOWN)
+button1 = machine.Pin(BUTTON_PIN_1, machine.Pin.IN, machine.Pin.PULL_UP)
+button2 = machine.Pin(BUTTON_PIN_2, machine.Pin.IN, machine.Pin.PULL_UP)
 
 red = (255, 0, 0)
 red_med = (32, 0, 0)
