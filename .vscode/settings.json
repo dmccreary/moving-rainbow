@@ -2,10 +2,12 @@
     "cSpell.words": [
         "Adafruit",
         "Hackday",
+        "localtime",
         "milliamp",
         "NEOPIXEL",
         "OLED",
         "photoresistor",
-        "solderless"
+        "solderless",
+        "utime"
     ]
 }
