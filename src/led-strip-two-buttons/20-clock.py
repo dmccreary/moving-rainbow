@@ -1,10 +1,3 @@
-# Clock
-
-Can you turn your LED strip into a clock?
-
-You can use binary encoding to display the numbers in a clock.  To do this we will need a function to display a digit as a binary pattern.
-
-```py
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, localtime
@@ -99,4 +92,3 @@ while True:
             if hour == 24:
                 hour = 0
     sleep(1)
-```

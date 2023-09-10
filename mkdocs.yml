@@ -28,6 +28,7 @@ nav:
     - Candle Flicker: lessons/16-candle.md
     - Ripple: lessons/18-ripple.md
     - Theater Chase: lessons/17-theater-chase.md
+    - Clock: lessons/20-clock.md
 
   - Challenges: challenges.md
   - Resources: resources.md
