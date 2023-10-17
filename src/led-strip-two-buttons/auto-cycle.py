@@ -5,7 +5,7 @@ from utime import sleep, ticks_ms
 from urandom import randint
 
 NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 60
+NUMBER_PIXELS = 30
 # time between a patten step
 BASE_DELAY = 0.005
 REPEAT_COUNT = 3
