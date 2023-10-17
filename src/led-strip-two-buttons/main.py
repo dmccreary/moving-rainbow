@@ -3,9 +3,10 @@ from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 from urandom import randint
+import config
 
-NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 30
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
 RAINBOW_LENGTH = 7
 PERCENT_SMALL_COLOR_WHEEL = round(255/RAINBOW_LENGTH)
 PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
