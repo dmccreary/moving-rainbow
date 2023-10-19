@@ -63,6 +63,15 @@ theme:
   features:
     - navigation.instant
     - navigation.tracking
+    - content.code.copy
+    - navigation.expand
+    - navigation.path
+    - navigation.prune
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
+    # this adds the prev and next icons in the footer
+    - navigation.footer
 plugins:
   - search
   # - mermaid2 - takes too long to build - use a screen image for now
