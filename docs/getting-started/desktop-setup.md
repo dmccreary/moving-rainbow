@@ -12,11 +12,11 @@ The installation of Thonny will vary depending on the type of computer you are u
 
 ![](../img/thonny-download.png)
 
-For all the versions of Linux, you can open the command shell an type in the correct installation command.  For people using the Raspberry Pi operating system, Thonny may already be included in your software.
+For all the versions of Linux, you can open the command shell and type in the correct installation command.  For people using the Raspberry Pi operating system, Thonny may already be included in your software.
 
 ## Thonny Versions
 
-These labs have all been tested on [Thonny Version 4.0.4](https://github.com/thonny/thonny/releases/tag/v4.0.1).
+These screen images were done with [Thonny Version 4.0.4](https://github.com/thonny/thonny/releases/tag/v4.0.1).  We also tested the steps on Thonny version 4.1.2 and the seem to work fine.
 
 ## Step 2: Configure the MicroPython Firmware
 
@@ -26,7 +26,7 @@ Since version 4.0.0 Thonny can detect the microcontroller you are using and down
 
 ### Manually Downloading the Firmware
 
-There are occasions that the automatic firmware download in Thonny may not work.  In this case you will need to manually download the firmware from the MicroPython web site.
+There are occasions when the automatic firmware download in Thonny may not work.  In this case, you will need to manually download the firmware from the MicroPython website.
 
 Here are the links to the Pico Firmware (called RP2-pico):
 
@@ -36,7 +36,7 @@ Here are the links to the Pico Firmware (called RP2-pico):
 
 ## Step 3: Configure Interpreter
 
-Thonny is designed to automatically detect the correct device and configure the right interpreter.  You can verify this by using the Thonny **Options** menu and move to the **Interperter** tab.
+Thonny is designed to automatically detect the correct device and configure the right interpreter.  You can verify this by using the Thonny **Tools** -> **Options** menu and move to the **Interperter** tab.
 
 ![](../img/thonny-interpreter.png)
 
@@ -44,9 +44,11 @@ Note that the *MicroPython (Raspberry Pi Pico)* is selected.
 
 ### Thonny Firmware List
 
+You can also get a list of all the different versions of firmware by going directly to the MicroPython site.  Here is what that list will look like:
+
 ![](../img/thonny-firmware-list.png)
 
-After you select a rutime version, Thonny will give you the details about this version.
+After you select a runtime version, Thonny will give you the details about this version.
 
 ![](../img/thonny-configuure-runtime-version.png)
 
@@ -57,3 +59,77 @@ After Thonny installs the new firmware on the Pico it instructs the Pico to "res
 ![](../img/disk-not-ejected-properly.png)
 
 ![](../img/thonny-prompt-after-firmware-install.png)
+
+## Debugging Tips
+
+When debugging your Thonny installation, it is important to understand the steps that happen when you plug your Raspberry Pi Pico into the computer.
+
+**Step 1: Plugging the USB Device** The Pico appears as a USB device on your computer when you plug it in.  The operating system should send a request to the USB device asking it for its ID.
+
+**Step 2: Probing for the USB ID** The Pico will respond with a device ID number.  This number reflects two items: the company that made the device (Vendor ID) and the device product type (Product ID).  If you are using a power-only USB cable this number will **never** get to the operating system.  This means that the data wires are not present in your USB cable or one of the wires is broken or not connecting.
+
+**Step 3: Looking Up the USB Driver** The operating system will take this USB ID and then look-up the right software and then run that software.  In UNIX and Mac systems this will amount to making the USB device appear in the ```/dev/cu*``` area.  On Windows it will be a COM port.
+
+```sh
+ls -l /dev/cu.usb*
+
+crw-rw-rw-  1 root  wheel  0x9000001 Dec 25 08:41 /dev/cu.usbmodem101
+```
+
+Note that the exact port name might change.  The example above is ```cu.usbmodem101```.
+
+If this device does not immediately appear, then you should double-check your cable and make sure the operating system registers the USB device.
+
+If you know your cable works fine by testing it on other devices then you may have to reboot your computer.
+
+### Automatic Power Draw Shutoff
+
+If your USB port is drawing too much power, then many computers will disable the port.  This can happen if you are trying to display too many LEDs or a motor.  You will see a message such as "USB Port Disabled". 
+
+Your computer manufacturer will tell you what the maximum current each USB port allows.  This is typically about 1 amp, but it varies based on your computer and what other devices are connected to your computer.
+
+The best way to debug this is to purchase a low-cost USB current monitor and monitor how much current your project is using.  If you are using an LED-strip
+then make sure you test the current with all the pixels fully on (255,255,255).
+
+[USB Current Monitor Search on eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=USB+current+monitor&_sacat=0&_sop=15)
+
+In general, each NeoPixel at full brightness will draw up to 20 milliamps and the Pico will also draw about 20  milliamps.
+
+For projects that require more than about 500 milliamps, it is strongly recommended that you use an externally powered USB hub.
+
+### Debugging the USB Port
+
+#### Mac System Profiler
+
+On MacOS we can use the ```system_profiler``` command:
+
+
+```sh
+system_profiler SPUSBDataType
+
+USB:
+
+    USB 3.1 Bus:
+
+      Host Controller Driver: AppleT8112USBXHCI
+
+    USB 3.1 Bus:
+
+      Host Controller Driver: AppleT8112USBXHCI
+
+        Board in FS mode:
+
+          Product ID: 0x0005
+          Vendor ID: 0x2e8a
+          Version: 1.00
+          Serial Number: e66141040396962a
+          Speed: Up to 12 Mb/s
+          Manufacturer: MicroPython
+          Location ID: 0x00100000 / 1
+          Current Available (mA): 500
+          Current Required (mA): 250
+          Extra Operating Current (mA): 0
+
+```
+
+Note that you can see both the Product ID, Vendor ID Manufacturer (MicroPython) and the mode (File System mode) that the device was connected.  The current available and current required are also listed, although these numbers might be somewhat conservative.  They are used for the estimation of current only.
