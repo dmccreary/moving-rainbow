@@ -1,7 +1,6 @@
 # Moving Rainbow GitHub Summary
 
-We like to keep things simple, or at least as simple as possible.  In
-order to allow our participants to get our source code and then
+We like to keep things simple, or at least as simple as possible.  To allow our participants to get our source code and then
 make changes that are added, there are only six git commands that
 we need:
 
@@ -26,7 +25,7 @@ detailed installation instructions at the [Git Book Chapter on Getting Started I
 ## Git Clone
 
 This command copies the latest version of our GitHub repository to your local
-file system.  Let's pul all our GitHub repositories together in a folder
+file system.  Let's pull all our GitHub repositories together in a folder
 called "projects" off of our home directory.  This is called the tilde or "~" directory.
 
 Here is a sample shell script you can run
