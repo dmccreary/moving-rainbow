@@ -133,3 +133,34 @@ USB:
 ```
 
 Note that you can see both the Product ID, Vendor ID Manufacturer (MicroPython) and the mode (File System mode) that the device was connected.  The current available and current required are also listed, although these numbers might be somewhat conservative.  They are used for the estimation of current only.
+
+## Checking out the Moving Rainbow Code from GitHub
+
+You don't need to copy and paste the code samples one-by-one into
+your local file system.  GitHub allows you to download all the
+code on the Moving Rainbow site by running the following command:
+
+```sh
+# create a projects area to checkout your code
+mkdir ~/projects
+cd projects
+# make a copy of the repo on your local hard drive
+git clone https://github.com/dmccreary/moving-rainbow
+cd moving-rainbow
+# open the files in your file manager
+open .
+```
+
+You can now go directly to the source for the LED strip labs that have two buttons:
+
+```sh
+cd src/led-strip-two-buttons
+```
+
+Once you have done this step you can make the top Files region of Thonny point
+to the source area and then click the upper right corner that has the "Upload to /"
+menu.  Make sure the bottom area is set to the root, not the /lib area.
+
+The following video shows these steps:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LMx8JeWZrt0?si=1ZUSq9ffbmXu_PaU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
