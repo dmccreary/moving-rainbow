@@ -742,12 +742,12 @@ order to allow our participants to get our source code and then
 make changes that are added, there are only six git commands that
 we need:</p>
 <ol>
-<li>clone</li>
-<li>pull</li>
-<li>add</li>
-<li>commit</li>
-<li>push</li>
-<li>status</li>
+<li><strong>clone</strong> - used to pull down the repo to your local computer</li>
+<li><strong>pull</strong> - used to get updates from the GitHub repository</li>
+<li><strong>add</strong> - add individual files to a local update package</li>
+<li><strong>commit</strong> - wrap adds into a transaction package with a comment</li>
+<li><strong>push</strong> - push your package up to the server</li>
+<li><strong>status</strong> - get status on your local repository status</li>
 </ol>
 <h2 id="installing-git">Installing Git</h2>
 <p>Before you begin, you will need to make sure that the git
@@ -818,6 +818,17 @@ Git has great tools to tell you what lines changed, but it does not know why a c
 <p>The final step is to push your package up to the central GitHub server.  This is done with a simple command:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>push
 </code></pre></div></td></tr></table></div>
+<p>This should generate a dialog such as the following:</p>
+<div class="highlight"><pre><span></span><code>Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 404 bytes | 404.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/dmccreary/moving-rainbow.git
+   efad633..68fdeae  master -&gt; master
+</code></pre></div>
 <p>If you have hundreds of large files or documentation with large images this step can take a few minutes.  It depends on how busy the servers are, what your ISP upload speed is and other factors such as network congestion.</p>
 <h2 id="checking-your-status">Checking Your Status</h2>
 <p>After you are done, you can check your git status:</p>
