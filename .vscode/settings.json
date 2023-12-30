@@ -3,11 +3,14 @@
         "Adafruit",
         "Hackday",
         "localtime",
+        "microcontroller",
         "milliamp",
+        "milliamps",
         "NEOPIXEL",
         "OLED",
         "photoresistor",
         "solderless",
+        "Thonny",
         "utime"
     ]
 }
