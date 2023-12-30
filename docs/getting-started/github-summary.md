@@ -5,12 +5,12 @@ order to allow our participants to get our source code and then
 make changes that are added, there are only six git commands that
 we need:
 
-1. clone
-2. pull
-3. add
-4. commit
-5. push
-6. status
+1. **clone** - used to pull down the repo to your local computer
+2. **pull** - used to get updates from the GitHub repository
+3. **add** - add individual files to a local update package
+4. **commit** - wrap adds into a transaction package with a comment
+5. **push** - push your package up to the server
+6. **status** - get status on your local repository status
 
 ## Installing Git
 
@@ -94,6 +94,20 @@ The final step is to push your package up to the central GitHub server.  This is
 
 ```sh
 git push
+```
+
+This should generate a dialog such as the following:
+
+```linenums="0"
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 404 bytes | 404.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/dmccreary/moving-rainbow.git
+   efad633..68fdeae  master -> master
 ```
 
 If you have hundreds of large files or documentation with large images this step can take a few minutes.  It depends on how busy the servers are, what your ISP upload speed is and other factors such as network congestion.
