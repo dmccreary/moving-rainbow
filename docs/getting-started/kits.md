@@ -16,6 +16,7 @@ strips and cut them in half and solder connectors on the ends.  You can also pur
 4. **Headers** - 3 terminal screw headers (optional) - This makes it easier to connect and disconnect the LED strip connections without soldering.
 5. **Buttons** - Two momentary push buttons.  We purchase these in packages of 100 to keep the per-button cost down.
 6. **Wire** - 22 gauge insulated wires.  We get red, black wire for power and ground and other colors for data.  We use yellow wire for the data connections.
+7. **LED Strip Connectors** - Many of the LED strips come with a somewhat standardized 3-pin connector.  This is often called a 3-pin SM JST connector.  It is designed so the users can't plug in the LED strip incorrectly.  Only about 1/2 of our current kits use these connectors.
 
 ## Optional Parts
 
