@@ -2,15 +2,50 @@
 
 In many school-based programs and coding clubs, the parts used in these lessons will be purchased for you.  Very often they will be pre-assembled and all the software preloaded before the classes begin.  This guide is for mentors, parents and students who would like to build their own systems at home.
 
-You can easily create your own projects based on the Moving Rainbow kits and software.  You can do this by purchasing parts on online sites such as e-Bay or Amazon.  If you are a good planner you can purchase parts from China that take longer to arrive, but they can cost significantly less than parts that ship overnight on Amazon.  This guide provides sample links to both e-Bay and Amazon, but be aware that these sites change frequently.
+You can easily create personal projects based on the Moving Rainbow kits and software.  You can do this by purchasing parts on online sites such as eBay or Amazon.  Here is an eBay search for "WS2812b led strip":
+
+[Search eBay for WS2812b LED strip](https://www.ebay.com/sch/i.html?_nkw=WS2812b+led+strip)
+
+If you are a good planner you can purchase parts from China that take longer to arrive, but they can cost significantly less than parts that ship overnight on Amazon.  This guide provides sample links to both eBay and Amazon, but be aware that these sites change frequently.
 
 ## WS-2812B LED Strip
 
 ![](../img/3-dollars-per-meter.png)
 
-You can purchase the LED strips for around $3.00 per meter if you shop around on e-Bay.  The above was from seller [btflightingcom](https://www.ebay.com/usr/btflightingcom?_trksid=p2047675.m3561.l2559).  We use the 60 pixels/meter type without waterproofing for our indoor classes.  People that create costumes use the waterproof varieties.
+You can purchase the LED strips for around $3.00 per meter if you shop around on eBay.  The above was from seller [btflightingcom](https://www.ebay.com/usr/btflightingcom?_trksid=p2047675.m3561.l2559).  We use the 60 pixels/meter type without waterproofing for our indoor classes.  People who create costumes use waterproof varieties.
 
-Some of these parts are also called "NeoPixels".
+## IP Ratings
+
+IP stands for Ingress Protection.
+
+There are three varieties of waterproofing.
+
+1. IP20 - Not Waterproof
+2. IP65 - Waterproof (Epoxy Resin)
+3. IP67 - Waterproof (PVC Tube)
+
+The IP ratings you mentioned for WS2812B LED strips refer to their level of waterproofing and dust resistance. Each rating is defined as follows:
+
+### IP20:
+
+The first digit (2) indicates the level of protection against solid objects, including body parts like fingers and objects such as tools and wires. A rating of 2 means that the object is protected against solid objects larger than 12.5mm (such as fingers).
+The second digit (0) indicates the level of protection against liquids. A rating of 0 means there is no protection against liquids.
+
+Summary: IP20 means that the LED strip is not waterproof and has minimal protection against solid objects. It's suitable for indoor use where it won't be exposed to water.
+
+#### IP65:
+
+The first digit (6) indicates a high level of protection against solid objects, including dust. This means it's completely dust-tight.
+The second digit (5) refers to protection against water jets. This means the LED strip is protected against low-pressure water jets from any direction.
+Summary: IP65 means the LED strip is dust-tight and can withstand low-pressure water jets, making it suitable for outdoor use or in environments where it might get wet, like kitchens or bathrooms.
+IP67:
+
+The first digit (6) is the same as in IP65, indicating complete protection against dust.
+The second digit (7) indicates a higher level of water protection. It means the LED strip can be submerged in water up to 1 meter in depth for up to 30 minutes.
+
+**Summary:** IP67 means the LED strip is both dust-tight and can handle temporary immersion in water. This makes it ideal for outdoor applications and environments where the strip might be submerged briefly, such as around pools or in certain landscape lighting scenarios.
+
+Note, some of these parts are also called "NeoPixels".
 
 ![](../img/neopixel-types.jpg)
 
