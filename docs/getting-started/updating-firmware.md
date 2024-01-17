@@ -70,17 +70,61 @@ as a folder on your desktop.
 
 I usually hold the BOOTSEL with one hand and then plug the Pico USB
 cable into a PC or laptop with the other hand.  This can be a bit
-tricky if the laptop is on a slippery surface.
+tricky if the laptop is on a slippery surface.  After you
+do this a folder called RPI-RP2 should automatically appear
+on your desktop.
+
 
 ### Step 3: Drag the Firmware to the Folder
 
+![](../img/firmware-drag-and-drop.png)
+
 You are now all set to copy the new firmware to the Raspberry Pi folder.
+One way to do this is by dragging the new .uf2 file over the 
 Since the fill is small, this should take under 10 seconds.
+
+You can also select the .uf2 file and select the "copy" menu.  Then
+select the new RPI-RP2 folder and do a "paste".
+
+After the file is copied you will get a "Disk Not Ejected Properly" warning
+like this:
+![](../img/disk-eject-error.png)
+This is normal.  You can just close the warning panel.
+
+#### Verifying the Upgrade Worked
 
 After this step is done, you can open your Thonny IDE and verify that
 the firmware matches the version you just uploaded to the Pico.
 
+You can do this by pressing the STOP/Restart Backend button and look
+at the prompt in the Shell window.
+
+Example before firmware upgrade:
 ![](../img/thonny-firmware-prompt.png)
+Note that the version is now **v1.20.0**
+
+Example after firmware upgrade:
+![](../img/thonny-firmware-prompt-v2.png)
+Note that the version is now **v1.22.1**
+
+#### Side Note on Boot Select Files
+
+After you hold the BOOTSEL down and power up you will see the RPI-RP2 folder. If you open the Folder RPI-RP2 you you will see the following.
+
+![](../img/bootsel-files.png)
+
+This has two very small files.  If you click on the index.htm file your
+browser will go to the Raspberry Pi documentation website.
+
+The other info.text
+
+```
+UF2 Bootloader v1.0
+Model: Raspberry Pi RP2
+Board-ID: RPI-RP2
+```
+
+This shows you that the Raspberry Pi
 
 ## Alternative Methods
 
@@ -114,5 +158,14 @@ We don't suggest using the library because it is one more
 complicated step and makes our examples less portable.  If
 we use the built-in NeoPixel library our code will
 be consistent with the other examples on the internet.
+
+## Framebuffer Drawing Update
+
+One other change that happened was when the MicroPython firmware library extended
+the framebuffer drawing library to include both ellipse and polygon drawing functions.
+Before this update, each display driver needed to include their own individual functions
+for drawing shapes beyond the basic rectangular drawing functions.  After this update, all our drawing libraries that used framebuffers could call
+functions directly in firmware.  This made the functions uniform across all
+our libraries.
 
 
