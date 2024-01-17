@@ -479,6 +479,26 @@
     Step 3: Drag the Firmware to the Folder
   </a>
   
+    <nav class="md-nav" aria-label="Step 3: Drag the Firmware to the Folder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verifying-the-upgrade-worked" class="md-nav__link">
+    Verifying the Upgrade Worked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#side-note-on-boot-select-files" class="md-nav__link">
+    Side Note on Boot Select Files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -496,6 +516,13 @@
         <li class="md-nav__item">
   <a href="#neopixel-update" class="md-nav__link">
     NeoPixel Update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framebuffer-drawing-update" class="md-nav__link">
+    Framebuffer Drawing Update
   </a>
   
 </li>
@@ -764,6 +791,26 @@
     Step 3: Drag the Firmware to the Folder
   </a>
   
+    <nav class="md-nav" aria-label="Step 3: Drag the Firmware to the Folder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verifying-the-upgrade-worked" class="md-nav__link">
+    Verifying the Upgrade Worked
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#side-note-on-boot-select-files" class="md-nav__link">
+    Side Note on Boot Select Files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -781,6 +828,13 @@
         <li class="md-nav__item">
   <a href="#neopixel-update" class="md-nav__link">
     NeoPixel Update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framebuffer-drawing-update" class="md-nav__link">
+    Framebuffer Drawing Update
   </a>
   
 </li>
@@ -854,13 +908,44 @@ a USB hard drive.  Your PC or MAC will then open it up
 as a folder on your desktop.</p>
 <p>I usually hold the BOOTSEL with one hand and then plug the Pico USB
 cable into a PC or laptop with the other hand.  This can be a bit
-tricky if the laptop is on a slippery surface.</p>
+tricky if the laptop is on a slippery surface.  After you
+do this a folder called RPI-RP2 should automatically appear
+on your desktop.</p>
 <h3 id="step-3-drag-the-firmware-to-the-folder">Step 3: Drag the Firmware to the Folder</h3>
+<p><img alt="" src="../../img/firmware-drag-and-drop.png" /></p>
 <p>You are now all set to copy the new firmware to the Raspberry Pi folder.
+One way to do this is by dragging the new .uf2 file over the 
 Since the fill is small, this should take under 10 seconds.</p>
+<p>You can also select the .uf2 file and select the "copy" menu.  Then
+select the new RPI-RP2 folder and do a "paste".</p>
+<p>After the file is copied you will get a "Disk Not Ejected Properly" warning
+like this:
+<img alt="" src="../../img/disk-eject-error.png" />
+This is normal.  You can just close the warning panel.</p>
+<h4 id="verifying-the-upgrade-worked">Verifying the Upgrade Worked</h4>
 <p>After this step is done, you can open your Thonny IDE and verify that
 the firmware matches the version you just uploaded to the Pico.</p>
-<p><img alt="" src="../../img/thonny-firmware-prompt.png" /></p>
+<p>You can do this by pressing the STOP/Restart Backend button and look
+at the prompt in the Shell window.</p>
+<p>Example before firmware upgrade:
+<img alt="" src="../../img/thonny-firmware-prompt.png" />
+Note that the version is now <strong>v1.20.0</strong></p>
+<p>Example after firmware upgrade:
+<img alt="" src="../../img/thonny-firmware-prompt-v2.png" />
+Note that the version is now <strong>v1.22.1</strong></p>
+<h4 id="side-note-on-boot-select-files">Side Note on Boot Select Files</h4>
+<p>After you hold the BOOTSEL down and power up you will see the RPI-RP2 folder. If you open the Folder RPI-RP2 you you will see the following.</p>
+<p><img alt="" src="../../img/bootsel-files.png" /></p>
+<p>This has two very small files.  If you click on the index.htm file your
+browser will go to the Raspberry Pi documentation website.</p>
+<p>The other info.text</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>UF2 Bootloader v1.0
+Model: Raspberry Pi RP2
+Board-ID: RPI-RP2
+</code></pre></div></td></tr></table></div>
+<p>This shows you that the Raspberry Pi</p>
 <h2 id="alternative-methods">Alternative Methods</h2>
 <p>If you have problems finding the BOOTSEL button or holding it down
 when you plug in the USB cable, you can also use a command line
@@ -885,6 +970,13 @@ or load the old neopixel library and use it.</p>
 complicated step and makes our examples less portable.  If
 we use the built-in NeoPixel library our code will
 be consistent with the other examples on the internet.</p>
+<h2 id="framebuffer-drawing-update">Framebuffer Drawing Update</h2>
+<p>One other change that happened was when the MicroPython firmware library extended
+the framebuffer drawing library to include both ellipse and polygon drawing functions.
+Before this update, each display driver needed to include their own individual functions
+for drawing shapes beyond the basic rectangular drawing functions.  After this update, all our drawing libraries that used framebuffers could call
+functions directly in firmware.  This made the functions uniform across all
+our libraries.</p>
 
 
 
