@@ -164,3 +164,16 @@ menu.  Make sure the bottom area is set to the root, not the /lib area.
 The following video shows these steps:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LMx8JeWZrt0?si=1ZUSq9ffbmXu_PaU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Understanding Thonny and File Systems
+
+![](../img/thonny-drives.png)
+
+To understand how Thonny works, we want to have a clear visual picture of the two parallel file systems that Thonny uses.
+
+1. Thonny is launched from your desktop or laptop computer.  The Files window at the top will always be open to that file system.
+2. Thonny also displays the file system on the **microcontroller** on the bottom window.  It displays this
+window after you successfully connect through the correct
+port.
+
+You can run a program in Thonny from either file system.  But there is one strict rule.  If you
