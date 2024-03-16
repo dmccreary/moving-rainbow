@@ -26,6 +26,7 @@ just "fork" this repository to put their own school logo and colors
 on the site.
 9. We wanted to leverage existing GitHub tools for reporting bugs, organizing projects and tasks and automating the build process.
 10. We wanted to make sure we would support consistent build and release management so we could add new features without disrupting existing sites. (branches, tagging and release).
+11. We wanted to paste a link on a social media site or a chat like Zoom or Slack and have a nice "Social Media" card to display information about that lesson.
 
 
 ## Why Python Mkdocs
@@ -169,6 +170,14 @@ mkdoc gh-deploy
 
 This pushes everything up to the GitHub Pages site.
 Note that it does not commit your code to GitHub.
+
+## GitHub Action to Deploy After Edit
+
+We want to allow non-technical staff to click the "Edit" button on
+the pages and just click the "Save".  This should trigger the
+Markdown to HTML conversion and rebuild the site.
+
+[GitHub Action for Mkdocs Deply](https://github.com/marketplace/actions/deploy-mkdocs)
 
 ## Mkdocs Material Social Tags
 
