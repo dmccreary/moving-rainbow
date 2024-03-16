@@ -65,6 +65,7 @@ theme:
     - navigation.top
     # this adds the prev and next icons in the footer
     - navigation.footer
+    - content.action.edit
 plugins:
   - search
   # - mermaid2 - takes too long to build - use a screen image for now

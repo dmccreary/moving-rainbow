@@ -171,6 +171,19 @@ mkdoc gh-deploy
 This pushes everything up to the GitHub Pages site.
 Note that it does not commit your code to GitHub.
 
+## Enable Edit Icon
+
+To enable the Edit icon on all pages, you must add
+the content.action.edit under the theme features area.
+
+```
+    theme:
+        features:
+            - content.action.edit
+```
+
+See the [Mkdocs Material](https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/?h=edit#code-actions) documentation.
+
 ## GitHub Action to Deploy After Edit
 
 We want to allow non-technical staff to click the "Edit" button on
