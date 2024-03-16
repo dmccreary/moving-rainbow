@@ -1,4 +1,10 @@
 site_name: 'Moving Rainbow'
+repo_url: https://github.com/dmccreary/moving-rainbow
+site_description: 'Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial'
+site_author: 'Dan McCreary'
+repo_name: 'GitHub Repo'
+edit_uri: edit/master/docs/
+
 nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - Moving Rainbow Home: index.md
@@ -47,13 +53,7 @@ nav:
   #   - Bill of Materials: guide/bill-of-materials.md
   #   - Glossary: guide/glossary.md
 
-site_description: 'Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial'
-site_author: 'Dan McCreary'
-repo_name: 'GitHub Repo'
-repo_url: 'https://github.com/dmccreary/moving-rainbow'
 
-# CoderDojo Standards from here down
-edit_uri: 'blob/master/docs'
 theme:
   # should be name: material
   name: material
