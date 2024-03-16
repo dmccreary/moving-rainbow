@@ -3,12 +3,49 @@
 This page describes how we built this website and some of 
 the rationale behind why we made various design choices.
 
-## Python
+## Basic Requirements
 
-MicroSims are about how we use generative AI to create
-animations and simulations.  The language of AI
-is Python.  So we wanted to create a site that could
-be easily understood by Python developers.
+1. Hosting the site must be free using [GitHub Pages](glossary.md/#github-pages)
+2. We need to document the Python sample code
+3. We want professional-quality code highlighting
+4. We wanted the site to have a strong search function
+5. We wanted to make it easy to generate the HTML from easy-to-edit [Markdown](./glossary.md#markdown) files
+6. We wanted to make it easy for an instructor to copy the link from any section of any lesson plan directly into a Zoom/Chat window so students can just click on the link to get the right lesson.  This is called [Deep Linking](./glossary.md#deep-linking)
+7. We wanted to make it easy to build user interfaces that are consistent with our other projects including:
+    1. [Beginning Python](https://www.coderdojotc.org/python/trinket/00-introduction/)
+    2. [Beginning Electronics](https://dmccreary.github.io/beginning-electronics/)
+    2. [MicroPython for Kids](https://www.coderdojotc.org/micropython/)
+    3. [Robot Faces](https://dmccreary.github.io/robot-faces/)
+    4. [Clocks and Watches](https://dmccreary.github.io/micropython-clocks-and-watches/)
+    5. [Robot Day](https://dmccreary.github.io/robot-day/)
+    6. [STEM Robots](https://dmccreary.github.io/stem-robots/)
+    7. [MicroSims for Education](https://dmccreary.github.io/microsims/)
+    10. [Digital Electronics](https://dmccreary.github.io/digital-electronics/)
+8. We wanted to make it easy for other schools and organizations to
+just "fork" this repository to put their own school logo and colors
+on the site.
+9. We wanted to leverage existing GitHub tools for reporting bugs, organizing projects and tasks and automating the build process.
+10. We wanted to make sure we would support consistent build and release management so we could add new features without disrupting existing sites. (branches, tagging and release).
+
+
+## Why Python Mkdocs
+
+The goal of this site is to teach computational thinking 
+in the coolest hands-on way we can think of.
+We also do this by using AI to help us find the lowest-cost parts.
+
+We also leverage open-source MicroPython, and it is natural
+to want to use a website builder that also uses Python.  
+Python is language of data science and AI.  So we wanted to create a site that could be familiar to Python developers.
+
+But we also wanted to make it easy for non-programmers to update
+the site.  Let's review some of these design decisions and
+explain how you can "fork" this site (duplicate it) and put your school or organization's brand and logo on the pages
+
+We will also touch a little bit on how we are using Google
+Analytics to track site usage and how this can be added
+with just a few new lines in the configuration file for this
+site.
 
 ## Mkdocs vs. Docusaurus
 

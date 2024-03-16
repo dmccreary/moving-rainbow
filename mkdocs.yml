@@ -43,17 +43,7 @@ nav:
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - Resources: resources.md
-  # - Arduino no longer supported:
-  #   - Getting Started: guide/getting-started.md
-  #   - Hardware: guide/hardware.md
-  #   - Programming Guide: guide/programming.md
-  #   - List of Sample Programs: guide/list-of-sample-programs.md
-  #   - Blink: guide/blink.md
-  #   - Instructors Guide: guide/instructors.md
-  #   - Bill of Materials: guide/bill-of-materials.md
-  #   - Glossary: guide/glossary.md
-
-
+  - How we built this site: how-we-built-this-site.md
 theme:
   # should be name: material
   name: material
