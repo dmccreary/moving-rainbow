@@ -164,7 +164,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub Repo
+    GitHub
   </div>
 </a>
       </div>
@@ -209,7 +209,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub Repo
+    GitHub
   </div>
 </a>
     </div>
@@ -588,6 +588,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#github-action-to-deploy-after-edit" class="md-nav__link">
+    GitHub Action to Deploy After Edit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mkdocs-material-social-tags" class="md-nav__link">
     Mkdocs Material Social Tags
   </a>
@@ -718,6 +725,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#github-action-to-deploy-after-edit" class="md-nav__link">
+    GitHub Action to Deploy After Edit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mkdocs-material-social-tags" class="md-nav__link">
     Mkdocs Material Social Tags
   </a>
@@ -770,6 +784,7 @@ just "fork" this repository to put their own school logo and colors
 on the site.</li>
 <li>We wanted to leverage existing GitHub tools for reporting bugs, organizing projects and tasks and automating the build process.</li>
 <li>We wanted to make sure we would support consistent build and release management so we could add new features without disrupting existing sites. (branches, tagging and release).</li>
+<li>We wanted to paste a link on a social media site or a chat like Zoom or Slack and have a nice "Social Media" card to display information about that lesson.</li>
 </ol>
 <h2 id="why-python-mkdocs">Why Python Mkdocs</h2>
 <p>The goal of this site is to teach computational thinking 
@@ -882,6 +897,11 @@ before you push your code up to the GitHub repo.</p>
 </code></pre></div></td></tr></table></div>
 <p>This pushes everything up to the GitHub Pages site.
 Note that it does not commit your code to GitHub.</p>
+<h2 id="github-action-to-deploy-after-edit">GitHub Action to Deploy After Edit</h2>
+<p>We want to allow non-technical staff to click the "Edit" button on
+the pages and just click the "Save".  This should trigger the
+Markdown to HTML conversion and rebuild the site.</p>
+<p><a href="https://github.com/marketplace/actions/deploy-mkdocs">GitHub Action for Mkdocs Deply</a></p>
 <h2 id="mkdocs-material-social-tags">Mkdocs Material Social Tags</h2>
 <p>We are using the <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/">Material Social</a> tags.  This
 is a work in progress!</p>
