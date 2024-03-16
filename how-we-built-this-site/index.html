@@ -13,6 +13,8 @@
       
       
       
+        <link rel="prev" href="../resources/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>How We Built This Site - Moving Rainbow</title>
+        <title>How we built this site - Moving Rainbow</title>
       
     
     
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How We Built This Site
+              How we built this site
             
           </span>
         </div>
@@ -445,6 +447,161 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-requirements" class="md-nav__link">
+    Basic Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-python-mkdocs" class="md-nav__link">
+    Why Python Mkdocs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkdocs-vs-docusaurus" class="md-nav__link">
+    Mkdocs vs. Docusaurus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-and-github-pages" class="md-nav__link">
+    GitHub and GitHub Pages
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub and GitHub Pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-clone" class="md-nav__link">
+    GitHub Clone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-changes" class="md-nav__link">
+    After Changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material-theme" class="md-nav__link">
+    Material Theme
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conda-vs-venv" class="md-nav__link">
+    Conda vs VENV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkdocs-commands" class="md-nav__link">
+    Mkdocs Commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Mkdocs Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-build" class="md-nav__link">
+    Local Build
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-local-server" class="md-nav__link">
+    Run a Local Server
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkdocs-material-social-tags" class="md-nav__link">
+    Mkdocs Material Social Tags
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -472,8 +629,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python
+  <a href="#basic-requirements" class="md-nav__link">
+    Basic Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-python-mkdocs" class="md-nav__link">
+    Why Python Mkdocs
   </a>
   
 </li>
@@ -581,11 +745,46 @@
 <h1 id="how-we-built-this-site">How We Built This Site</h1>
 <p>This page describes how we built this website and some of 
 the rationale behind why we made various design choices.</p>
-<h2 id="python">Python</h2>
-<p>MicroSims are about how we use generative AI to create
-animations and simulations.  The language of AI
-is Python.  So we wanted to create a site that could
-be easily understood by Python developers.</p>
+<h2 id="basic-requirements">Basic Requirements</h2>
+<ol>
+<li>Hosting the site must be free using <a href="../glossary/#github-pages">GitHub Pages</a></li>
+<li>We need to document the Python sample code</li>
+<li>We want professional-quality code highlighting</li>
+<li>We wanted the site to have a strong search function</li>
+<li>We wanted to make it easy to generate the HTML from easy-to-edit <a href="../glossary/#markdown">Markdown</a> files</li>
+<li>We wanted to make it easy for an instructor to copy the link from any section of any lesson plan directly into a Zoom/Chat window so students can just click on the link to get the right lesson.  This is called <a href="../glossary/#deep-linking">Deep Linking</a></li>
+<li>We wanted to make it easy to build user interfaces that are consistent with our other projects including:<ol>
+<li><a href="https://www.coderdojotc.org/python/trinket/00-introduction/">Beginning Python</a></li>
+<li><a href="https://dmccreary.github.io/beginning-electronics/">Beginning Electronics</a></li>
+<li><a href="https://www.coderdojotc.org/micropython/">MicroPython for Kids</a></li>
+<li><a href="https://dmccreary.github.io/robot-faces/">Robot Faces</a></li>
+<li><a href="https://dmccreary.github.io/micropython-clocks-and-watches/">Clocks and Watches</a></li>
+<li><a href="https://dmccreary.github.io/robot-day/">Robot Day</a></li>
+<li><a href="https://dmccreary.github.io/stem-robots/">STEM Robots</a></li>
+<li><a href="https://dmccreary.github.io/microsims/">MicroSims for Education</a></li>
+<li><a href="https://dmccreary.github.io/digital-electronics/">Digital Electronics</a></li>
+</ol>
+</li>
+<li>We wanted to make it easy for other schools and organizations to
+just "fork" this repository to put their own school logo and colors
+on the site.</li>
+<li>We wanted to leverage existing GitHub tools for reporting bugs, organizing projects and tasks and automating the build process.</li>
+<li>We wanted to make sure we would support consistent build and release management so we could add new features without disrupting existing sites. (branches, tagging and release).</li>
+</ol>
+<h2 id="why-python-mkdocs">Why Python Mkdocs</h2>
+<p>The goal of this site is to teach computational thinking 
+in the coolest hands-on way we can think of.
+We also do this by using AI to help us find the lowest-cost parts.</p>
+<p>We also leverage open-source MicroPython, and it is natural
+to want to use a website builder that also uses Python.<br />
+Python is language of data science and AI.  So we wanted to create a site that could be familiar to Python developers.</p>
+<p>But we also wanted to make it easy for non-programmers to update
+the site.  Let's review some of these design decisions and
+explain how you can "fork" this site (duplicate it) and put your school or organization's brand and logo on the pages</p>
+<p>We will also touch a little bit on how we are using Google
+Analytics to track site usage and how this can be added
+with just a few new lines in the configuration file for this
+site.</p>
 <h2 id="mkdocs-vs-docusaurus">Mkdocs vs. Docusaurus</h2>
 <p>There are two main tools used by Python developers
 to write documentation: <a href="http://mkdocs.org">Mkdocs</a>
@@ -726,6 +925,27 @@ instruction set.</p>
       
         
   <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../resources/" title="Resources" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Resources
+                </span>
+              </div>
+            </a>
+          
+          
+        </nav>
+      </div>
     
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
