@@ -174,9 +174,13 @@ Note that it does not commit your code to GitHub.
 ## Enable Edit Icon
 
 To enable the Edit icon on all pages, you must add
-the content.action.edit under the theme features area.
+the edit_uri and the content.action.edit under the theme features area.
 
+```yaml
+edit_uri: edit/master/docs/
 ```
+
+```yaml
     theme:
         features:
             - content.action.edit
