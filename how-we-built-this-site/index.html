@@ -918,12 +918,14 @@ before you push your code up to the GitHub repo.</p>
 Note that it does not commit your code to GitHub.</p>
 <h2 id="enable-edit-icon">Enable Edit Icon</h2>
 <p>To enable the Edit icon on all pages, you must add
-the content.action.edit under the theme features area.</p>
+the edit_uri and the content.action.edit under the theme features area.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">edit_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edit/master/docs/</span>
+</code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>    theme:
-        features:
-            - content.action.edit
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="nt">theme</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">features</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content.action.edit</span>
 </code></pre></div></td></tr></table></div>
 <p>See the <a href="https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/?h=edit#code-actions">Mkdocs Material</a> documentation.</p>
 <h2 id="github-action-to-deploy-after-edit">GitHub Action to Deploy After Edit</h2>
