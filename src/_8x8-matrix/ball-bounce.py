@@ -5,7 +5,7 @@ from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 from urandom import randint
 
-NEOPIXEL_PIN = 0
+NEOPIXEL_PIN = 1
 NUMBER_PIXELS = 64
 RAINBOW_LENGTH = 7
 PERCENT_SMALL_COLOR_WHEEL = round(255/RAINBOW_LENGTH)
@@ -35,7 +35,7 @@ def write_pixel(x, y, value):
         else: # even count rows, 0, 2, 4 the wire goes from the top down up
             strip[x*ROWS + y] = value
 
-brightness=3
+brightness=100
 x = randint(0,7)
 y = randint(0,7)
 dx = 1
