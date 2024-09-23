@@ -79,10 +79,14 @@ get a more even change, you can change the
 
 ## Sequential Fade In and Out
 
+![Sequential Circuit](./sequential.jpg)
+
 Now, let's connect five different LED noodles of different colors up
 and have them turn on in a sequence, one after another.
 
 We can just create five copies of the lines that define the LEDs and repeat this pattern over and over.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4kdwe0nw4iE?si=AfremuKhGbRESPhv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ```py
 from machine import Pin, PWM
@@ -147,6 +151,8 @@ while True:
         pwm_5.duty_u16(duty)
         sleep_ms(DELAY_MS)
 ```
+
+
 
 ## Heartbeat
 
