@@ -1,5 +1,7 @@
 # LED Noodle Labs
 
+![](led-noodle-01.jpg)
+
 ## Parts
 
 1. Breadboard
@@ -11,7 +13,12 @@
 
 ## Circuit
 
-![](./driver-circuit.png)
+LED noodles can use over 100 milliamps.
+Most digital outputs are rated at only 20 milliamps.
+So to get enough current, we need to use a transistor
+as a switch to turn the LED noodle on and off.
+
+![Driver circuit](./driver-circuit.png)
 
 1. Connect the output of GPIO 15 to the 10k base resistor
 2. Connect the other end of the base resistor to the middle pin of the 2N2222 transistor
