@@ -643,6 +643,7 @@
 
 
 <h1 id="led-noodle-labs">LED Noodle Labs</h1>
+<p><img alt="" src="led-noodle-01.jpg" /></p>
 <h2 id="parts">Parts</h2>
 <ol>
 <li>Breadboard</li>
@@ -653,7 +654,11 @@
 <li>2N2222 NPN resistor</li>
 </ol>
 <h2 id="circuit">Circuit</h2>
-<p><img alt="" src="driver-circuit.png" /></p>
+<p>LED noodles can use over 100 milliamps.
+Most digital outputs are rated at only 20 milliamps.
+So to get enough current, we need to use a transistor
+as a switch to turn the LED noodle on and off.</p>
+<p><img alt="Driver circuit" src="driver-circuit.png" /></p>
 <ol>
 <li>Connect the output of GPIO 15 to the 10k base resistor</li>
 <li>Connect the other end of the base resistor to the middle pin of the 2N2222 transistor</li>
