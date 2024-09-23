@@ -40,6 +40,8 @@ nav:
     - Theater Chase: lessons/17-theater-chase.md
     - Clock: lessons/20-clock.md
     - How NeoPixels Work: lessons/40-how-neopixels-work.md
+  - LED Noodles:
+    - led-noodles/index.md
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - Resources: resources.md
