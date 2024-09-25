@@ -8,6 +8,20 @@ by adding a photo-sensor to our LED circuit.
 
 ![Night Light Circuit](./night-light-circuit.png)
 
+In this circuit, there is a 22K ohm resistor that connects the base of the
+2N2222 transistor to the +5 volt power rail.
+
+Note that because there is a voltage drop across the 2N2222 transistor, we can
+omit the 15 ohm current limiting resistor we need for a 5 volt power supply.
+
+!!! Warning
+    Be carful when connected the LED noodle.  
+    We never want to directly connect the LED
+    noodle directly to +5 volts and GND.  
+    We suggest ALWAYS having a 15 ohm resistor
+    in series with the LED noodle when testing so you don't accidentally
+    burn out the LED noodle using a 5-volt power supply.
+
 ## Light Dependant Resistors
 
 ![](./ldr.png)
@@ -24,6 +38,33 @@ LDR sensors are inexpensive.  You can typically get 30 of them on eBay
 for under $2.
 ![](./ldr-on-ebay.png)
 You can also combine them in parallel to create very sensitive sensors.
+
+## Measuring On and Off Resistance
+
+To create the right sensitivity of the nightlight, we need to
+carefully measure the resistance of your LDR under different lighting conditions.
+This is easy to do with a standard digital multimeter set to measure the resistance
+of a circuit.
+
+![](./LDR-resistance.png)
+
+In the circuit above, I wrapped the bottom part of the LED in black electrical tape
+and then measured the resistance in two conditions:
+
+1. When the LDR was uncovered - which gave a resistance across the LDR of about 20K ohms.
+2. When the LDR was covered by my finger (which still transmitted some light) - which gave a resistance of about 2K ohms.
+
+I tried various different values of resistors using a 50K potentiometer.
+
+The value that gave me the best value for testing in my classroom was a 22K ohm resistor.
+The value of resistor that you use for the bias resistor might vary depending
+on how sensitive your LDR is and how bright your room lights are.
+
+You can also test the extreme values of the LDR by completely covering the LDR
+with black electrical tape which should give you a resistance of close to one megohm.
+
+You can also shine a bright flashlight directly on the LDR to get a resistance of
+around 100 ohms. 
 
 ## Dividing the Voltage
 
