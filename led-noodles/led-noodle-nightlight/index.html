@@ -560,6 +560,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#light-dependant-resistors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light Dependant Resistors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dividing-the-voltage" class="md-nav__link">
     <span class="md-ellipsis">
       Dividing the Voltage
@@ -730,6 +739,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#light-dependant-resistors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light Dependant Resistors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dividing-the-voltage" class="md-nav__link">
     <span class="md-ellipsis">
       Dividing the Voltage
@@ -780,23 +798,30 @@
 
 
 <h1 id="led-noodle-nightlight">LED Noodle Nightlight</h1>
+<p><img alt="" src="../led-nightlight.png" /></p>
 <p>We can create a nightlight that only goes on at night
-by adding a photo-resistor to our LED circuit.</p>
+by adding a photo-sensor to our LED circuit.
+<a href="https://youtube.com/shorts/LriJtNihyxY?si=2bpKlWYxMg4UexWk">https://youtube.com/shorts/LriJtNihyxY?si=2bpKlWYxMg4UexWk</a></p>
 <p><img alt="Night Light Circuit" src="../night-light-circuit.png" /></p>
-<p>The photo-resistor has high resistance when it is dark,
-but when there is light shining on the sensor the
-resistance is low.  The light on the light-dependant-resistor (LDR) pulls the voltage of the base
+<h2 id="light-dependant-resistors">Light Dependant Resistors</h2>
+<p><img alt="" src="../ldr.png" /></p>
+<p>The photo-sensor we use is called a light-dependant-resistor or (LDR).  The LDR high resistance when it is dark, but when there is light shining on the sensor the resistance is low.<br />
+In our circuit, light on the LDR pulls the voltage of the base
 down to ground and shuts off the flow of current between the collector and the emitter.</p>
 <p>When it is dark, the resistance of the LDR is high, which causes
 the 10K bias resistor to pull the base up to 5V.  This lets
 the current flow between the collector and the emitter.</p>
+<p>LDR sensors are inexpensive.  You can typically get 30 of them on eBay
+for under $2.
+<img alt="" src="../ldr-on-ebay.png" />
+You can also combine them in parallel to create very sensitive sensors.</p>
 <h2 id="dividing-the-voltage">Dividing the Voltage</h2>
 <p>This circuit illustrates the concept of a "voltage divider".  A voltage divider uses two resistor in series between the rails of a power supply.
 When you measure the voltage of the center between the resistors, the voltage is somewhere between the positive voltage and ground.  The exact value is a ratio of the resistors.</p>
 <p>For example, if you have a 10K on the top and a 20K on the bottom, the value will be 1/3 of the way between the top and the bottom.</p>
 <p>In the case of the LDR, we can measure the resistance with light and without light and select a pull-up resistor that is about 1/2 the value of the on and off resistances.</p>
 <h2 id="project-ideas">Project Ideas</h2>
-<p>You can cover the LED Noodle with a cutout of a pumpkin for Halloween or make a star or Christmas tree glow at night.</p>
+<p>You can cover the LED Noodle with a cutout of a pumpkin for Halloween or make a star or Christmas tree glow at night, but stay off during the day.</p>
 <h2 id="references">References</h2>
 <p><a href="https://www.build-electronic-circuits.com/night-light-circuit/">Build Electronics Circuits</a> - This version uses a similar circuit, but it uses a 9-volt battery, a 100K resistor and a BC947 transistor.  However, the principal is the same.</p>
 
