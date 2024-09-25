@@ -15,6 +15,22 @@ clothing.
 
 [Static Circuits](./static-circuits.md)
 
+## LED Noodle Dimmer
+
+These LED Noodles can get very bright in a dark room.
+Many of our users want to control how bright they are
+on a costume.  To do this we created a simple LED
+dimmer circuit using a potentiometer.
+
+[LED Noodle Dimmer Circuit](./led-noodle-dimmer.md)
+
+## LED Noodle Nightlight
+
+This fun project makes our LED Noodle only turn on
+when it is dark.  This is perfect for a nightlight.
+
+[LED Noodle Nightlight](./led-noodle-nightlight.md)
+
 ## Dynamic Circuits
 
 Once you are familiar with how LED Noodles are
@@ -27,6 +43,6 @@ light up in waves.
 
 [Dynamic Projects](./dynamic-projects.md)
 
-## Project Ideas
+## Other Project Ideas
 
 [Project Ideas](./project-ideas.md)

@@ -44,6 +44,7 @@ nav:
     - Introduction: led-noodles/index.md
     - Static Circuits: led-noodles/static-circuits.md
     - Dynamic Projects: led-noodles/dynamic-projects.md
+    - LED Noodle Dimmer: led-noodles/led-noodle-dimmer.md
     - LED Noodle Nightlight: led-noodles/led-noodle-nightlight.md
     - Project Ideas: led-noodles/project-ideas.md
   - Challenges: challenges.md
