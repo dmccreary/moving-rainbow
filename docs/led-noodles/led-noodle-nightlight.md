@@ -1,18 +1,29 @@
 # LED Noodle Nightlight
 
+![](./led-nightlight.png)
+
 We can create a nightlight that only goes on at night
-by adding a photo-resistor to our LED circuit.
+by adding a photo-sensor to our LED circuit.
+[https://youtube.com/shorts/LriJtNihyxY?si=2bpKlWYxMg4UexWk](https://youtube.com/shorts/LriJtNihyxY?si=2bpKlWYxMg4UexWk)
 
 ![Night Light Circuit](./night-light-circuit.png)
 
-The photo-resistor has high resistance when it is dark,
-but when there is light shining on the sensor the
-resistance is low.  The light on the light-dependant-resistor (LDR) pulls the voltage of the base
+## Light Dependant Resistors
+
+![](./ldr.png)
+
+The photo-sensor we use is called a light-dependant-resistor or (LDR).  The LDR high resistance when it is dark, but when there is light shining on the sensor the resistance is low.  
+In our circuit, light on the LDR pulls the voltage of the base
 down to ground and shuts off the flow of current between the collector and the emitter.
 
 When it is dark, the resistance of the LDR is high, which causes
 the 10K bias resistor to pull the base up to 5V.  This lets
 the current flow between the collector and the emitter.
+
+LDR sensors are inexpensive.  You can typically get 30 of them on eBay
+for under $2.
+![](./ldr-on-ebay.png)
+You can also combine them in parallel to create very sensitive sensors.
 
 ## Dividing the Voltage
 
@@ -25,7 +36,7 @@ In the case of the LDR, we can measure the resistance with light and without lig
 
 ## Project Ideas
 
-You can cover the LED Noodle with a cutout of a pumpkin for Halloween or make a star or Christmas tree glow at night.
+You can cover the LED Noodle with a cutout of a pumpkin for Halloween or make a star or Christmas tree glow at night, but stay off during the day.
 
 ## References
 
