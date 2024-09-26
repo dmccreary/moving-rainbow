@@ -1019,6 +1019,8 @@
 
 
 <h1 id="led-noodle-dimmer">LED Noodle Dimmer</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/crtmArR-5nQ?si=OpGVJ7D90MnP3fNo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <p>LED noodles can be very bright.  When used in a costume at
 a party in a dark room, the brightness can been overwhelming!
 To be attractive, the brightness of the LEDs need to be turned
@@ -1045,7 +1047,7 @@ burn it out using a 5 volt power supply.</p>
 <li><strong>LED Noodle:</strong> Requires 2.39 V (no current) to 2.75 V (max 140 mA)</li>
 <li><strong>Potentiometer:</strong> 10 kΩ linear taper</li>
 <li><strong>Transistor:</strong> NPN transistor (e.g., 2N2222)</li>
-<li><strong>Resistor​:</strong> 2.7 kΩ resistor to limit base current to the transistor</li>
+<li><strong>Resistor​:</strong> 10 kΩ resistor to limit base current to the transistor</li>
 </ul>
 <p><img alt="LED Noodle Dimmer Circuit" src="../led-noodle-dimmer-circuit.png" /></p>
 <h2 id="circuit-connections">Circuit Connections</h2>
@@ -1055,12 +1057,12 @@ burn it out using a 5 volt power supply.</p>
 <ul>
 <li>Connect the <strong>two outer terminals</strong> of the 10 kΩ potentiometer to <strong>+5 V</strong> and <strong>GND</strong>.</li>
 <li>The <strong>wiper (middle terminal)</strong> provides a variable voltage from 0 V to 5 V as you turn the potentiometer.</li>
+</ul>
+</li>
 <li>
 <p><strong>Base Connection:</strong></p>
-</li>
-<li>
-<p>Connect the <strong>wiper</strong> through a <strong>2.7 kΩ resistor RbR_bRb​</strong> to the <strong>base</strong> of the NPN transistor Q1Q1Q1.</p>
-</li>
+<ul>
+<li>Connect the <strong>wiper</strong> through a <strong>10 kΩ resistor ​</strong> to the <strong>base</strong> of the NPN transistor.  This is the middle pin of the 2N2222 transistor.</li>
 <li>This resistor limits the base current to protect the transistor.</li>
 <li>
 <p><strong>Emitter Connection:</strong></p>
