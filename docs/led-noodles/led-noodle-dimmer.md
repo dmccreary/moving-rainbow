@@ -1,5 +1,7 @@
 # LED Noodle Dimmer
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/crtmArR-5nQ?si=OpGVJ7D90MnP3fNo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 LED noodles can be very bright.  When used in a costume at
 a party in a dark room, the brightness can been overwhelming!
 To be attractive, the brightness of the LEDs need to be turned
@@ -29,7 +31,7 @@ To design a dimmer circuit for your LED noodle using a 10 kΩ potentiometer an
 -   **LED Noodle:** Requires 2.39 V (no current) to 2.75 V (max 140 mA)
 -   **Potentiometer:** 10 kΩ linear taper
 -   **Transistor:** NPN transistor (e.g., 2N2222)
--   **Resistor​:** 2.7 kΩ resistor to limit base current to the transistor
+-   **Resistor​:** 10 kΩ resistor to limit base current to the transistor
 
 ![LED Noodle Dimmer Circuit](./led-noodle-dimmer-circuit.png)
 
@@ -39,9 +41,10 @@ To design a dimmer circuit for your LED noodle using a 10 kΩ potentiometer an
 
     -   Connect the **two outer terminals** of the 10 kΩ potentiometer to **+5 V** and **GND**.
     -   The **wiper (middle terminal)** provides a variable voltage from 0 V to 5 V as you turn the potentiometer.
+
 2.  **Base Connection:**
 
-    -   Connect the **wiper** through a **2.7 kΩ resistor RbR\_bRb​** to the **base** of the NPN transistor Q1Q1Q1.
+    -   Connect the **wiper** through a **10 kΩ resistor ​** to the **base** of the NPN transistor.  This is the middle pin of the 2N2222 transistor.
     -   This resistor limits the base current to protect the transistor.
 3.  **Emitter Connection:**
 
