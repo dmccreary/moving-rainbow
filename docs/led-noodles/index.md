@@ -60,6 +60,15 @@ light up in waves.
 
 [Dynamic Projects](./dynamic-projects.md)
 
+## Voltage Current Curve
+
+For a given voltage across the LED, how can we
+calculate the amount of current that will be sent
+through the LED Noodle?  The answer is not
+as simple as you might expect.
+
+[Voltage Current Curve](./voltage-current-curve.md)
+
 ## Other Project Ideas
 
 [Project Ideas](./project-ideas.md)

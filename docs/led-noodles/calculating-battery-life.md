@@ -1,8 +1,10 @@
 # Calculating LED Noodle Battery Life
 
+![](./necklace-at-party.png)
+
 So your LED costume is the hit of your Halloween party.
 But will your costume work all night?  This lab
-and MicroSim will help you find out!
+and the attach MicroSim will help you find out!
 
 ## Introduction
 
@@ -200,4 +202,25 @@ learn to calculate the battery life of our costumes based on milliamp hours.
 Return the lesson plan in Markdown format with each section
 using a level 2 header.
 Assume at the end of the lesson there is a link to a JavaScript powered battery lifetime calculator.
+```
+
+Sample MicroSim Prompt
+
+```linenums="0"
+Create a p5.js sketch that simulates a LED noodle battery life calculator.
+The title of the sketch is LED Noodle battery Life Calculator
+The sketch as a series of input controls using a selection list and sliders.
+The purpose of the calculator is to estimate how long an LED costume will last.
+The  inputs to the calculator are the following:
+
+1. Battery Type - (Selection List Values of: AA, AAA, 9-volt, USB Battery Pack (small, medium and large) - default AA
+2. Number of batteries (Slider 1, 2, 3 or 4 batteries) - default 2
+3. Number of LED noodle (Slider with values of 1, 2, 3, 4, or 5) - default 2
+4. Current draw for each noodle (Slider with labeled values of (very dim, dim, medium, bright, very bright) with values of 2 milliamps, 5 milliamps, 10 milliamps, 50 milliamps, 100 milliamps)
+
+As the user change the sliders, continually update the following:
+Output Line 1: the total milliamp hours of the battery
+Output Line 2:  the total current draw for the costume
+Output Line 3:
+The estimated time for the costume to reach 50% brightness due to battery drain
 ```
