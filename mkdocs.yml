@@ -44,11 +44,13 @@ nav:
     - Introduction: led-noodles/index.md
     - Static Circuits: led-noodles/static-circuits.md
     - Calculating Battery Life: led-noodles/calculating-battery-life.md
-    - Dynamic Projects: led-noodles/dynamic-projects.md
     - LED Noodle Dimmer: led-noodles/led-noodle-dimmer.md
     - LED Noodle Nightlight: led-noodles/led-noodle-nightlight.md
     - Voltage Current Curve: led-noodles/voltage-current-curve.md
     - Project Ideas: led-noodles/project-ideas.md
+    - Gamma Correction: led-noodles/gamma-correction.md
+    - Dynamic Projects: led-noodles/dynamic-projects.md
+
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - Resources: resources.md
