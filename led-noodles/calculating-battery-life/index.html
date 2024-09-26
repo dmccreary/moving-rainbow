@@ -554,9 +554,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#objectives" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
-      Objectives
+      Learning Objectives
     </span>
   </a>
   
@@ -677,9 +677,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-chatgpt-prompt" class="md-nav__link">
+  <a href="#sample-chatgpt-prompt-for-generating-a-lesson-plan" class="md-nav__link">
     <span class="md-ellipsis">
-      Sample ChatGPT Prompt
+      Sample ChatGPT Prompt for Generating a Lesson Plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-microsim-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample MicroSim Prompt
     </span>
   </a>
   
@@ -922,9 +931,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#objectives" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
-      Objectives
+      Learning Objectives
     </span>
   </a>
   
@@ -1045,9 +1054,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-chatgpt-prompt" class="md-nav__link">
+  <a href="#sample-chatgpt-prompt-for-generating-a-lesson-plan" class="md-nav__link">
     <span class="md-ellipsis">
-      Sample ChatGPT Prompt
+      Sample ChatGPT Prompt for Generating a Lesson Plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-microsim-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample MicroSim Prompt
     </span>
   </a>
   
@@ -1083,14 +1101,17 @@ But will your costume work all night?  This lab
 and the attach MicroSim will help you find out!</p>
 <h2 id="introduction">Introduction</h2>
 <p>In this lesson, students will learn how to calculate the battery life of their Halloween costumes that use LED Noodles. Understanding battery capacity and power consumption is essential for ensuring that costumes stay illuminated throughout Halloween festivities.</p>
-<h2 id="objectives">Objectives</h2>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>At the end of this lesson we will be able to </p>
 <p>By the end of this lesson, students will be able to:</p>
 <ul>
 <li>Understand the concept of milliamp hours (mAh) and how it relates to battery capacity.</li>
 <li>Calculate the total current draw of their LED Noodle costumes.</li>
 <li>Determine the estimated battery life based on different battery types and configurations.</li>
 <li>Make informed decisions about battery choices for their costumes.</li>
+<li>Use and understand a simple webpage to calculate battery life.</li>
 </ul>
+<p><img alt="" src="../battery-life-calculator.png" /></p>
 <h2 id="materials-needed">Materials Needed</h2>
 <ul>
 <li>LED Noodles (1 to 5 per student)</li>
@@ -1099,184 +1120,97 @@ and the attach MicroSim will help you find out!</p>
 <li>Calculators</li>
 <li>Worksheets for practice problems</li>
 <li>Whiteboard and markers</li>
+<li>(optional) Current meter</li>
 </ul>
 <h2 id="background-knowledge">Background Knowledge</h2>
 <p>Students should have a basic understanding of:</p>
 <ul>
 <li>Electrical current (measured in amperes or milliamperes)</li>
-<li>Basic arithmetic operations</li>
+<li>Basic arithmetic operations to calculate the total
+capacity of a set of batteries</li>
 </ul>
 <h2 id="lesson-steps">Lesson Steps</h2>
 <h3 id="step-1-introduction-to-milliamp-hours-mah">Step 1: Introduction to Milliamp Hours (mAh)</h3>
 <ul>
 <li><strong>Explain</strong>: Milliamp hours (mAh) measure a battery's energy capacity. It indicates how much current a battery can supply over one hour.</li>
-<li><strong>Example</strong>: A battery rated at 2000 mAh can deliver 2000 milliamps for one hour or 1000 milliamps for two hours.</li>
+<li><strong>Example</strong>: A battery rated at 2000 mAh can deliver 200 milliamps for ten hours or 1000 milliamps for two hours.</li>
 </ul>
 <h3 id="step-2-understanding-battery-capacities">Step 2: Understanding Battery Capacities</h3>
 <ul>
 <li>
 <p><strong>Discuss</strong> the typical capacities of different batteries:</p>
-<ul>
-<li><strong>AA Batteries</strong>: Approximately 2000--3000 mAh each</li>
+</li>
+<li>
+<p><strong>AA Batteries</strong>: Approximately 2000--3000 mAh each</p>
+</li>
 <li><strong>9-Volt Batteries</strong>: Around 500--600 mAh</li>
 <li><strong>USB Power Packs</strong>: Varies widely (e.g., 5000 mAh, 10000 mAh)</li>
 <li><strong>Note</strong>: Using multiple AA batteries in series increases voltage but not capacity. Parallel configurations increase capacity but are not typical for AA batteries in standard holders.</li>
 </ul>
-</li>
-</ul>
 <h3 id="step-3-calculating-total-current-draw">Step 3: Calculating Total Current Draw</h3>
 <ul>
-<li>
-<p><strong>Explain</strong> how to determine the total current draw:</p>
-<ul>
+<li><strong>Explain</strong> how to determine the total current draw:</li>
 <li><strong>Per LED Noodle</strong>: Up to 100 milliamps (mA) at full brightness</li>
 <li><strong>Dimmer Setting</strong>: Adjusts brightness and reduces current draw proportionally</li>
-<li><strong>Formula</strong>:</li>
+<li><strong>Sample Formula</strong>:</li>
 </ul>
-</li>
-</ul>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>**Total Current Draw (mA)** = Number of LED Noodles × Current per Noodle (mA) × Brightness Factor
-</code></pre></div></td></tr></table></div>
-<strong>Brightness Factor</strong>: Percentage of maximum brightness (e.g., 50% brightness = 0.5)</p>
+<p><strong>Total Current Draw (mA)</strong> = Number of LED Noodles × Current per Noodle (mA) × Brightness Factor</p>
+<p><strong>Brightness Factor</strong>: Percentage of maximum brightness (e.g., 50% brightness = 0.5)</p>
 <p><strong>Example</strong>:</p>
 <ul>
-<li>3 LED Noodles at 75% brightness:<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>```
-
-`Total Current Draw = 3 × 100 mA × 0.75 = 225 mA
-`
-
-```
-</code></pre></div></td></tr></table></div>
-</li>
+<li>3 LED Noodles at 75% brightness:</li>
 </ul>
+<p>Total Current Draw = 3 × 100 mA × 0.75 = 225 mA</p>
 <h3 id="step-4-calculating-battery-life">Step 4: Calculating Battery Life</h3>
 <ul>
-<li>
-<p><strong>Introduce</strong> the formula for battery life:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>java
-Copy code
-
-`Battery Life (hours) = Battery Capacity (mAh) ÷ Total Current Draw (mA)
-`
-</code></pre></div></td></tr></table></div>
-</li>
-<li>
-<p><strong>Considerations</strong>:</p>
+<li><strong>Introduce</strong> the formula for battery life:</li>
+</ul>
+<p>Battery Life (hours) = Battery Capacity (mAh) ÷ Total Current Draw (mA)</p>
 <ul>
+<li><strong>Considerations</strong>:</li>
 <li>Real-world battery life may be less due to factors like battery age and efficiency.</li>
-<li>Battery capacity remains the same in series configurations but voltage increases.</li>
+<li>
+<p>Battery capacity remains the same in series configurations but voltage increases.</p>
+</li>
 <li>
 <p><strong>Example</strong>:</p>
 </li>
 <li>
-<p>Using a USB power pack of 5000 mAh with a total current draw of 225 mA:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>java
-Copy code
-
-`Battery Life = 5000 mAh ÷ 225 mA ≈ 22.22 hours
-`
-</code></pre></div></td></tr></table></div>
+<p>Using a USB power pack of 5,000 mAh with a total current draw of 225 mA:</p>
 </li>
 </ul>
-</li>
-</ul>
+<p>Battery Life = 5000 mAh ÷ 225 mA ≈ 22.22 hours</p>
 <h3 id="step-5-practice-problems">Step 5: Practice Problems</h3>
 <ul>
 <li>
 <p><strong>Provide</strong> scenarios for students to calculate:</p>
-<ol>
+</li>
 <li>
 <p><strong>Scenario</strong>: A costume uses 5 LED Noodles at full brightness with a 9-volt battery (600 mAh).</p>
-<ul>
-<li>
-<p><strong>Calculate Total Current Draw</strong>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>java
-Copy code
-
-`Total Current Draw = 5 × 100 mA × 1.0 = 500 mA
-`
-</code></pre></div></td></tr></table></div>
-</li>
-<li>
-<p><strong>Calculate Battery Life</strong>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>java
-Copy code
-
-`Battery Life = 600 mAh ÷ 500 mA = 1.2 hours
-`
-</code></pre></div></td></tr></table></div>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Scenario</strong>: A student uses 2 AA batteries (total capacity of one AA battery is 2500 mAh) with 2 LED Noodles at 50% brightness.</p>
-<ul>
-<li>
-<p><strong>Note</strong>: Capacity remains 2500 mAh; voltage increases with batteries in series.</p>
 </li>
 <li>
 <p><strong>Calculate Total Current Draw</strong>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>java
-Copy code
-
-`Total Current Draw = 2 × 100 mA × 0.5 = 100 mA
-`
-</code></pre></div></td></tr></table></div>
-</li>
-<li>
-<p><strong>Calculate Battery Life</strong>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>java
-Copy code
-
-`Battery Life = 2500 mAh ÷ 100 mA = 25 hours
-`
-</code></pre></div></td></tr></table></div>
 </li>
 </ul>
-</li>
-</ol>
-</li>
-</ul>
+<p>Total Current Draw = 5 × 100 mA × 1.0 = 500 mA
+            `
+<strong>Calculate Battery Life</strong>:</p>
+<p>Battery Life = 600 mAh ÷ 500 mA = 1.2 hours
+            `
+2.  <strong>Scenario</strong>: A student uses 2 AA batteries (total capacity of one AA battery is 2500 mAh) with 2 LED Noodles at 50% brightness.
+- <strong>Note</strong>: Capacity remains 2500 mAh; voltage increases with batteries in series.
+- <strong>Calculate Total Current Draw</strong>:</p>
+<p>Total Current Draw = 2 × 100 mA × 0.5 = 100 mA
+            `
+- <strong>Calculate Battery Life</strong>:</p>
+<p>Battery Life = 2500 mAh ÷ 100 mA = 25 hours</p>
 <h3 id="step-6-discuss-real-world-factors">Step 6: Discuss Real-World Factors</h3>
 <ul>
-<li>
-<p><strong>Explain</strong> that actual battery life may vary due to:</p>
-<ul>
+<li><strong>Explain</strong> that actual battery life may vary due to:</li>
 <li>Battery quality and age</li>
 <li>Ambient temperature</li>
 <li>Variations in LED efficiency</li>
 <li><strong>Encourage</strong> students to consider these factors in their planning.</li>
-</ul>
-</li>
 </ul>
 <h2 id="conclusion">Conclusion</h2>
 <ul>
@@ -1290,11 +1224,10 @@ Copy code
 </ul>
 <h2 id="additional-resources">Additional Resources</h2>
 <ul>
-<li><a href="#">Battery Life Calculator</a> <em>(Link to JavaScript-powered battery lifetime calculator)</em></li>
+<li><a href="https://editor.p5js.org/dmccreary/sketches/63ysLduDT">Battery Life Calculator</a></li>
 </ul>
-<p>requestAnimationFrame((function(){window.__oai_logTTI?window.__oai_logTTI():window.__oai_SSR_TTI=window.__oai_SSR_TTI??Date.now()}))</p>
-<h2 id="sample-chatgpt-prompt">Sample ChatGPT Prompt</h2>
-<div class="highlight"><pre><span></span><code>I am working with a class of 9th grade students that are
+<h2 id="sample-chatgpt-prompt-for-generating-a-lesson-plan">Sample ChatGPT Prompt for Generating a Lesson Plan</h2>
+<div class="highlight"><pre><span></span><code>I am working with a class of [9th] grade students that are
 using LED Noodles that consume up to 100 milliamps when fully bright.
 They are used in Halloween costumes.
 
@@ -1307,9 +1240,10 @@ learn to calculate the battery life of our costumes based on milliamp hours.
 
 Return the lesson plan in Markdown format with each section
 using a level 2 header.
+
 Assume at the end of the lesson there is a link to a JavaScript powered battery lifetime calculator.
 </code></pre></div>
-<p>Sample MicroSim Prompt</p>
+<h2 id="sample-microsim-prompt">Sample MicroSim Prompt</h2>
 <div class="highlight"><pre><span></span><code>Create a p5.js sketch that simulates a LED noodle battery life calculator.
 The title of the sketch is LED Noodle battery Life Calculator
 The sketch as a series of input controls using a selection list and sliders.
@@ -1324,8 +1258,7 @@ The  inputs to the calculator are the following:
 As the user change the sliders, continually update the following:
 Output Line 1: the total milliamp hours of the battery
 Output Line 2:  the total current draw for the costume
-Output Line 3:
-The estimated time for the costume to reach 50% brightness due to battery drain
+Output Line 3: The estimated time for the costume to reach 50% brightness due to battery drain
 </code></pre></div>
 
 
