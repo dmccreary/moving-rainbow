@@ -891,9 +891,16 @@
 
 <h1 id="voltage-current-curve">Voltage Current Curve</h1>
 <h2 id="collecting-data">Collecting Data</h2>
-<p>Using a DC power supply, we can measure the exact voltage across the LED filament as well
-as the current.  Here is a sample table of the current drawn for each voltage
-from 2.39 to 2.8 volts.</p>
+<p><img alt="Bench Power Supply" src="../bench-power-supply.png" /></p>
+<p>Using a variable voltage bench DC power supply,
+we can measure the exact voltage across the LED filament as well
+as the current.</p>
+<p>To gather the current for a given voltage I configured
+the settings of the bench power supply to be in Constant Voltage
+mode (C.V.) rather than Constant Current (C.C. mode).  This
+is done by pressing the Output button to toggle the modes.</p>
+<p>Here is a sample table of the current drawn for about a
+dozen voltages from 2.39 to 2.8 volts.</p>
 <table>
 <thead>
 <tr>
@@ -968,11 +975,13 @@ from 2.39 to 2.8 volts.</p>
 </tr>
 </tbody>
 </table>
+<p>More advanced bench power supplies can automatically step the voltage
+and log the current for analysis.</p>
 <h2 id="plotting-these-values">Plotting These Values</h2>
 <p>Here is a plot of these values:</p>
 <p><img alt="" src="../voltage-vs-current-plot.png" /></p>
 <h2 id="creating-an-interactive-microsimulation">Creating an Interactive MicroSimulation</h2>
-<p><a href="https://editor.p5js.org/dmccreary/sketches/Jl2wvEIJc">Link to Interactive Simulation</a></p>
+<p><a class="md-button md-button--primary" href="https://editor.p5js.org/dmccreary/sketches/Jl2wvEIJc">Run Interactive Simulation of LED Noodle Current</a></p>
 <p>Note that this simulation was mostly created by ChatGPT o1-preview.  I
 had to adjust a few lines to make the plot a little more presentable.</p>
 <p>Here are the key aspects of this MicroSimulation:</p>
