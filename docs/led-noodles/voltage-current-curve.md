@@ -2,9 +2,19 @@
 
 ## Collecting Data
 
-Using a DC power supply, we can measure the exact voltage across the LED filament as well
-as the current.  Here is a sample table of the current drawn for each voltage
-from 2.39 to 2.8 volts.
+![Bench Power Supply](./bench-power-supply.png)
+
+Using a variable voltage bench DC power supply,
+we can measure the exact voltage across the LED filament as well
+as the current.
+
+To gather the current for a given voltage I configured
+the settings of the bench power supply to be in Constant Voltage
+mode (C.V.) rather than Constant Current (C.C. mode).  This
+is done by pressing the Output button to toggle the modes.
+
+Here is a sample table of the current drawn for about a
+dozen voltages from 2.39 to 2.8 volts.
 
 |Voltage(v)|Current(mA)|
 |------:|------:|
@@ -25,6 +35,9 @@ from 2.39 to 2.8 volts.
 |2.6|124|
 |2.8|140|
 
+More advanced bench power supplies can automatically step the voltage
+and log the current for analysis.
+
 ## Plotting These Values
 Here is a plot of these values:
 
@@ -32,7 +45,7 @@ Here is a plot of these values:
 
 ## Creating an Interactive MicroSimulation
 
-[Link to Interactive Simulation](https://editor.p5js.org/dmccreary/sketches/Jl2wvEIJc)
+[Run Interactive Simulation of LED Noodle Current](https://editor.p5js.org/dmccreary/sketches/Jl2wvEIJc){ .md-button .md-button--primary }
 
 Note that this simulation was mostly created by ChatGPT o1-preview.  I
 had to adjust a few lines to make the plot a little more presentable.
