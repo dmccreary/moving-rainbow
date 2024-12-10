@@ -1,5 +1,7 @@
 # LED Noodle Project Ideas
 
+![](./led-noodle-ideas.jpg)
+
 Here are some fun, creative project ideas for kids using LED Noodles.
 LED Noodles only cost a few dollars each, so projects can include many
 LED Noodles each with their own switches.
