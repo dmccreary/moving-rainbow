@@ -126,3 +126,8 @@ function calculateCurrent(v) {
 
 You can explore more about this "curve fitting process" by
 looking at my chat with [ChatGPT o1.preview](https://chatgpt.com/share/66f5b27f-4628-8001-b80d-2cf8d9fa420d).
+
+
+
+![NICE-Power Bench Power Supply](./bench-power-supply-ebay.png)
+[eBay Listing NICE-Power DC Variable Power Supply $38](https://www.ebay.com/itm/375658684075?_trksid=p4375194.c101770.m146925)

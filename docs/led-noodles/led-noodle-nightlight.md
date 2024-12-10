@@ -82,3 +82,12 @@ You can cover the LED Noodle with a cutout of a pumpkin for Halloween or make a 
 ## References
 
 [Build Electronics Circuits](https://www.build-electronic-circuits.com/night-light-circuit/) - This version uses a similar circuit, but it uses a 9-volt battery, a 100K resistor and a BC947 transistor.  However, the principal is the same.
+
+
+This one uses a 1K resistor for the top of the voltage divider.
+![](./ldr-2222.png)
+
+
+[LDR and 2N2222A (beginner) on electronics.stackexchainge.com](https://electronics.stackexchange.com/questions/698467/ldr-and-2n2222a-beginner)
+
+[Circuit on CircuitDiagram.com](http://www.circuitdiagram.org/dark-detector-led-ldr.html) note the pot in series with a 1K to tune the sensitivity.  The 50K variable resistor (VR) is used to adjust the desired light condition on which the LED will light up and 1K resistor is used to protect the LDR from direct connecting to the supply when the 50K variable resistor is on zero.
