@@ -1,5 +1,7 @@
 # LED Noodles
 
+![](./12-inch-led-noodles.jpg)
+
 LED Noodles or "filament" LEDs are 3-volt flexible LEDs that are perfect
 for costumes and other wearable items.  They come in multiple colors
 and typically draw about 100 milliamps.  Our STEM students love
