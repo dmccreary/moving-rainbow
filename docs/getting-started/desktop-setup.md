@@ -56,7 +56,7 @@ After you select a runtime version, Thonny will give you the details about this 
 
 After Thonny installs the new firmware on the Pico it instructs the Pico to "restart" using the new firmware.  This makes the USB drive appear to be removed without a disconnect and results in an error.  This is normal so don't worry.
 
-![](../img/disk-not-ejected-properly.png)
+![](../img/thonny-disk-not-ejected-properly.png)
 
 ![](../img/thonny-prompt-after-firmware-install.png)
 
@@ -176,4 +176,5 @@ To understand how Thonny works, we want to have a clear visual picture of the tw
 window after you successfully connect through the correct
 port.
 
-You can run a program in Thonny from either file system.  But there is one strict rule.  If you
+You can run a program in Thonny from either file system.  But there is one strict rule.  If you don't save your code on your personal GitHub
+site and verify that the code is there you may not have saved your code.
