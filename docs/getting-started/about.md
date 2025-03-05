@@ -1,8 +1,16 @@
 # About Moving Rainbow
 
-What is the lowest-cost and most fun kit that teaches computational thinking?  This is the question that has been the driving force behind the Moving Rainbow project.
+What is the lowest-cost and most fun way to learn coding and computational thinking?  This is the question that has been the driving force behind the Moving Rainbow project.
 
-We think the answer is the $10 Moving Rainbow kit.  Let us tell you why.
+We think the answer is our Moving Rainbow system.
+
+1. It is a bright colorful display of LEDs and motion that kids love
+2. It easy to hook up to any computer with a USB connector
+3. It is easy to program with the popular Python language
+4. It teaches the power of computational thinking
+5. The Moving Rainbow kits can cost under $10!
+
+Let us tell you why we think you will also love the Moving Rainbow system.
 
 ## Background of the Moving Rainbow
 
