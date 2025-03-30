@@ -2,6 +2,16 @@
 
 ## Raspberry Pi Pico
 
+[Raspberry Pi Pico webpage](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html)
+
+<!--
+![](../img/raspberry-pi-pico-pinout.png)
+-->
+
+![](../img/pico-2-r4-pinout.svg)
+
+[Raspberry Pi Pico Pinout](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-2-r4-pinout.svg)
+
 ## RP2040-Zero
 
 [Waveshare.com Web Page](https://www.waveshare.com/wiki/RP2040-Zero)
