@@ -81,6 +81,8 @@ theme:
     - content.action.edit
 plugins:
   - search
+  - social
+  - social_override
   # - mermaid2 - takes too long to build - use a screen image for now
 markdown_extensions:
   - admonition
