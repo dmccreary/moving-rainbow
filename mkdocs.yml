@@ -1,4 +1,5 @@
 site_name: 'Moving Rainbow'
+site_url: https://dmccreary.github.io/moving-rainbow/
 repo_url: https://github.com/dmccreary/moving-rainbow
 site_description: 'Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial'
 site_author: 'Dan McCreary'
