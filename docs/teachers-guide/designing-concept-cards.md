@@ -1,17 +1,16 @@
 # Concept Cards
 
-![](../img/concept-cards.jpg)
+![](img/coderdojo-concept-cards.jpg)
 
 Dan McCreary
 Version 1.1 – last updated September, 2021
 
 ## What are Concept Cards?
-
 Concept Cards are teaching tools that are popular in informal hands-on settings such as CoderDojo classrooms.  Concept cards follow the "one concept per card" rule.  Each card attempts to illustrate *one-and-only-one* concept using a simple example.  Within the CoderDojo mentoring system, Concept Cards also called "Sushi Cards" in the CoderDojo mentoring system, representing a single bite of knowledge.  Concepts are communicated in easy-to-digest, bite-sized chunks (hence Sushi).
 
 Concept Cards are a way of taking complex topics and decomposing the topics into simple examples that can be used to illustrate the principals needed to master the topic.
 
-Concept Cards can be used in multiple teaching styles including goal-directed learning, fixed hierarchy learning and ad-hoc [rhizomatic](./rhizomatic-learning-theory.md) network learning.
+Concept Cards can be used in multiple teaching styles includeing goal-directed learning, fixed hierarchy learning and ad-hoc [rhizomatic](../site/rhizomatic-learning-theory) network learning.
 
 ## When Should Concept Cards be Used?
 
@@ -45,7 +44,7 @@ Concept cards are often divided into multiple difficulty levels like the followi
 
 Like many communication tools, designing concept cards reflect that [the medium is the message](https://en.wikipedia.org/wiki/The_medium_is_the_message).  How we print and display Concept Cards makes a big difference in their effectiveness.
 
-Imagine a new coding student walking into a classroom.  Computer are often spread around the edges and back of the classroom.  But near the entrance to the classroom is a table covered with small 5X10 inch laminated cards. The cards each have a colorful border indicating their difficulty, and every card has an image that can quickly be recognized by returning students.
+Imagine a new CoderDojo student walking into a classroom.  Computer are often spread around the edges and back of the classroom.  But near the entrance to the classroom is a table covered with small 5X10 inch laminated cards. The cards each have a colorful border indicating their difficulty, and every card has an image that can quickly be recognized by returning students.
 
 We often use two-sided laminated cards that are easy to hold in one hand and easy to view by the side of a computer.   The structure of the cards is important because they don't look intimidating.  They are not [walls of text](https://en.wikipedia.org/wiki/Wikipedia:Wall_of_text) and they don't look like a college textbook.
 
@@ -58,11 +57,9 @@ We want Concept Cards to look a bit like a stack of colorful playing cards, not 
 For instance, if they’re learning UNIX, they’ll probably have three or four windows open – so having another open to show the class notes is contributing to serious window management problems.
 
 ### Lamination
-
 Plastic lamination will save you time and money. Laminators cost around $50. The individual laminating pouches are less than 10 cents each. Once you’ve produced your laminated sheet it will last for many weeks of CoderDojo sessions, in contrast to paper handouts which are usually discarded after one or two CoderDojo sessions.
 
 ### Test, test, test
-
 (practice-led, not theory-led)
 Because every audience is different, you can't really predict if cards will work for any audience.  The approach is practice-led rather than theory-led so that learners see results as fast as possible. We think this mirrors the way most programmers learn anyway. (First, take some existing code and hack it, read up the theory only if you can’t figure out what’s going on …)
 

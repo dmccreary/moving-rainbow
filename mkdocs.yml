@@ -67,6 +67,10 @@ nav:
       - kits/solar-powered-led-nightlight/how-it-works.md
       - kits/solar-powered-led-nightlight/microsim.md
       - kits/solar-powered-led-nightlight/prompt.md
+  - Teachers Guide:
+    - Introduction: teachers-guide/index.md
+    - Computational Thinking: teachers-guide/computational-thinking.md
+    - Concept Cards: teachers-guide/concept-cards.md
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - Glossary: glossary.md
