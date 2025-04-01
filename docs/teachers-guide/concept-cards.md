@@ -49,7 +49,7 @@ Imagine a new coding student walking into a classroom.  Computer are often sprea
 
 We often use two-sided laminated cards that are easy to hold in one hand and easy to view by the side of a computer.   The structure of the cards is important because they don't look intimidating.  They are not [walls of text](https://en.wikipedia.org/wiki/Wikipedia:Wall_of_text) and they don't look like a college textbook.
 
-![Learning Python](img/learning-python-book-cover.png)
+![Learning Python](../img/learning-python-book-cover.png)
 
 In contrast, the book *Learning Python* by Mark Lutz is a 1,600-page book that had detailed discussions areas of Python that many programmers may never need.  The chapter on the "if" statement does not even start until page 383!
 
@@ -96,6 +96,7 @@ The outer border of the card should show the difficulty level using a bright col
 
 #### Concept Name
 Try to use a short kid-friendly name and avoid technical jargon if possible
+
 #### Concept Picture
 A small image or icon that students will remember if they have seen it before.  Imagine students all arriving in a room and quickly discarding cards they have already done but putting their focus on new concept cards.
 
@@ -114,7 +115,7 @@ Use colors and paragraphs to prevent a "wall of text" that will turn students aw
 
 Large blocks of text can be intimidating to readers and tough to read for all. Look at the examples for reference for a good sushi card in terms of text readability.
 
-Visit http://dojo.soy/style for guidelines to aim for.
+Visit [http://dojo.soy/style](http://dojo.soy/style) for guidelines to aim for.
 
 * You can remind them to ask for a mentor if installing something is too hard
 * Add important Terms in colored boxes

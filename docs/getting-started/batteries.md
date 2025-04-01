@@ -31,7 +31,7 @@ that we use in our projects.  They
 have different power ratings.
 They both cost around $1 on eBay.
 
-![](../lipo-battery-monitors.png)
+![](../img/lipo-battery-monitors.png)
 
 ## TC4056 1 Amp LiPo Battery Charger
 
