@@ -2,3 +2,4 @@ site
 .DS_Store
 ~$*
 .vscode/settings.json
+.cache
