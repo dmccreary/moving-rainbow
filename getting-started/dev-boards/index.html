@@ -12,13 +12,13 @@
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/getting-started/github-summary/">
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/getting-started/dev-boards/">
       
       
-        <link rel="prev" href="../updating-firmware/">
+        <link rel="prev" href="../parts/">
       
       
-        <link rel="next" href="../connections/">
+        <link rel="next" href="../batteries/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>GitHub Summary - Moving Rainbow</title>
+        <title>Development Boards - Moving Rainbow</title>
       
     
     
@@ -61,11 +61,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="GitHub Summary - Moving Rainbow" >
+        <meta  property="og:title"  content="Development Boards - Moving Rainbow" >
       
         <meta  property="og:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
       
-        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/getting-started/github-summary.png" >
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/getting-started/dev-boards.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -73,15 +73,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/getting-started/github-summary/" >
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/getting-started/dev-boards/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="GitHub Summary - Moving Rainbow" >
+        <meta  name="twitter:title"  content="Development Boards - Moving Rainbow" >
       
         <meta  name="twitter:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
       
-        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/getting-started/github-summary.png" >
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/getting-started/dev-boards.png" >
       
     
     
@@ -102,7 +102,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#moving-rainbow-github-summary" class="md-skip">
+        <a href="#moving-rainbow-development-boards" class="md-skip">
           Skip to content
         </a>
       
@@ -137,7 +137,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GitHub Summary
+              Development Boards
             
           </span>
         </div>
@@ -418,10 +418,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../dev-boards/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Development Boards
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -431,6 +452,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raspberry Pi Pico
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rp2040-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      RP2040-Zero
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -506,31 +565,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    GitHub Summary
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../github-summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,89 +578,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installing-git" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing Git
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-clone" class="md-nav__link">
-    <span class="md-ellipsis">
-      Git Clone
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-pull" class="md-nav__link">
-    <span class="md-ellipsis">
-      Git Pull
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-add" class="md-nav__link">
-    <span class="md-ellipsis">
-      Git Add
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Git Commit
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-push" class="md-nav__link">
-    <span class="md-ellipsis">
-      Git Push
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-your-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      Checking Your Status
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -920,63 +875,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installing-git" class="md-nav__link">
+  <a href="#raspberry-pi-pico" class="md-nav__link">
     <span class="md-ellipsis">
-      Installing Git
+      Raspberry Pi Pico
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-clone" class="md-nav__link">
+  <a href="#rp2040-zero" class="md-nav__link">
     <span class="md-ellipsis">
-      Git Clone
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-pull" class="md-nav__link">
-    <span class="md-ellipsis">
-      Git Pull
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-add" class="md-nav__link">
-    <span class="md-ellipsis">
-      Git Add
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Git Commit
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-push" class="md-nav__link">
-    <span class="md-ellipsis">
-      Git Push
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-your-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      Checking Your Status
+      RP2040-Zero
     </span>
   </a>
   
@@ -998,7 +908,7 @@
 
 
   
-    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/getting-started/github-summary.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/getting-started/dev-boards.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1006,108 +916,34 @@
   
 
 
-<h1 id="moving-rainbow-github-summary">Moving Rainbow GitHub Summary</h1>
-<p>We like to keep things simple, or at least as simple as possible.  To allow our participants to get our source code and then
-make changes that are added, there are only six git commands that
-we need:</p>
-<ol>
-<li><strong>clone</strong> - used to pull down the repo to your local computer</li>
-<li><strong>pull</strong> - used to get updates from the GitHub repository</li>
-<li><strong>add</strong> - add individual files to a local update package</li>
-<li><strong>commit</strong> - wrap adds into a transaction package with a comment</li>
-<li><strong>push</strong> - push your package up to the server</li>
-<li><strong>status</strong> - get status on your local repository status</li>
-</ol>
-<h2 id="installing-git">Installing Git</h2>
-<p>Before you begin, you will need to make sure that the git
-command line tools are working on your computer. You can find
-detailed installation instructions at the <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git Book Chapter on Getting Started Installing Git</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>On a Mac you will get the following message the first time you try to run git for the first time.  This is normal.</p>
-</div>
-<p>~<a href="../../img/git-mac-setup.png"></a></p>
-<h2 id="git-clone">Git Clone</h2>
-<p>This command copies the latest version of our GitHub repository to your local
-file system.  Let's pull all our GitHub repositories together in a folder
-called "projects" off of our home directory.  This is called the tilde or "~" directory.</p>
-<p>Here is a sample shell script you can run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># create a projects area to checkout your code</span>
-mkdir<span class="w"> </span>~/projects
-<span class="nb">cd</span><span class="w"> </span>projects
-<span class="c1"># make a copy of the repo on your local hard drive</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccreary/moving-rainbow
-<span class="nb">cd</span><span class="w"> </span>moving-rainbow
-<span class="c1"># open the files in your file manager</span>
-open<span class="w"> </span>.
-</code></pre></div></td></tr></table></div>
-<h2 id="git-pull">Git Pull</h2>
-<p>If you have been away from the project for a while, you will want to refresh your
-local code.  You can also do this if a co-worker has just made a change you wnat
-to include.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/moving-rainbow
-git<span class="w"> </span>pull
-</code></pre></div></td></tr></table></div>
-<h2 id="git-add">Git Add</h2>
-<p>After you have made local changes to the Moving Rainbow source code or documentation, you might
-want to set up a "change set" and share it with others.  You
-can create your own directory under the moving-rainbow/src
-area and add your new programs there.  Once you have done
-that you can run the following example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/moving-rainbow
-mkdir<span class="w"> </span>src/mycode
-<span class="c1"># copy your new code to the src/mycode directory</span>
-git<span class="w"> </span>add<span class="w"> </span>src/mycode/*
-</code></pre></div></td></tr></table></div>
-<p>You can keep doing this until your code is all tested.  Now
-you are read to commit the changes as a transaction.</p>
-<h2 id="git-commit">Git Commit</h2>
-<p>In the last git add command we were just adding code
-without any comments.  Now we want to wrap all these
-changes up in a package and tell others why we are
-adding the code or making changes.  Here is that command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Adding my new sample patters&quot;</span>
-</code></pre></div></td></tr></table></div>
-<p>This command creates a package with a commit message.
-Your message should indicate <strong>why</strong> you are making the change.
-Git has great tools to tell you what lines changed, but it does not know why a change was made.  This is your job.</p>
-<p>Note that these changes are all collected locally.  The GitHub server has not yet been changed.</p>
-<h2 id="git-push">Git Push</h2>
-<p>The final step is to push your package up to the central GitHub server.  This is done with a simple command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>push
-</code></pre></div></td></tr></table></div>
-<p>This should generate a dialog such as the following:</p>
-<div class="highlight"><pre><span></span><code>Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (4/4), 404 bytes | 404.00 KiB/s, done.
-Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To https://github.com/dmccreary/moving-rainbow.git
-   efad633..68fdeae  master -&gt; master
-</code></pre></div>
-<p>If you have hundreds of large files or documentation with large images this step can take a few minutes.  It depends on how busy the servers are, what your ISP upload speed is and other factors such as network congestion.</p>
-<h2 id="checking-your-status">Checking Your Status</h2>
-<p>After you are done, you can check your git status:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>status
-</code></pre></div></td></tr></table></div>
-<p>This will return a text message such as:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>On branch master
-Your branch is up to date with &#39;origin/master&#39;.
-</code></pre></div></td></tr></table></div>
+<h1 id="moving-rainbow-development-boards">Moving Rainbow Development Boards</h1>
+<h2 id="raspberry-pi-pico">Raspberry Pi Pico</h2>
+<p><a href="https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html">Raspberry Pi Pico webpage</a></p>
+<!--
+![](../img/raspberry-pi-pico-pinout.png)
+-->
+
+<p><img alt="" src="../../img/pico-2-r4-pinout.svg" /></p>
+<p><a href="https://www.raspberrypi.com/documentation/microcontrollers/images/pico-2-r4-pinout.svg">Raspberry Pi Pico Pinout</a></p>
+<h2 id="rp2040-zero">RP2040-Zero</h2>
+<p><a href="https://www.waveshare.com/wiki/RP2040-Zero">Waveshare.com Web Page</a></p>
+<ul>
+<li>RP2040 microcontroller chip designed by Raspberry Pi in the United Kingdom.</li>
+<li>Dual-core Arm Cortex M0+ processor, flexible clock running up to 133 MHz.</li>
+<li>264KB of SRAM, and 2MB of on-board Flash memory.</li>
+<li>USB-C connector, keeps it up to date, easier to use.</li>
+<li>The castellated module allows soldering direct to carrier boards.</li>
+<li>USB 1.1 with device and host support.</li>
+<li>Low-power sleep and dormant modes.</li>
+<li>Drag-and-drop programming using mass storage over USB.</li>
+<li>29 × multi-function GPIO pins (20× via edge pinout, others via solder points).</li>
+<li>2 × SPI, 2 × I2C, 2 × UART, 4 × 12-bit ADC, 16 × controllable PWM channels.</li>
+<li>Accurate clock and timer on-chip.</li>
+<li>Temperature sensor.</li>
+<li>Accelerated floating-point libraries on-chip.</li>
+<li>8 × Programmable I/O (PIO) state machines for custom peripheral support.</li>
+</ul>
+<p><img alt="" src="../../img/rp2040-zero-pinout.jpg" /></p>
 
 
 
@@ -1145,7 +981,7 @@ Your branch is up to date with &#39;origin/master&#39;.
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../updating-firmware/" title="Updating Firmware" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../parts/" title="Purchasing Your Own Parts" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -1154,19 +990,19 @@ Your branch is up to date with &#39;origin/master&#39;.
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  Updating Firmware
+                  Purchasing Your Own Parts
                 </span>
               </div>
             </a>
           
           
-            <a href="../connections/" title="Electrical Connections" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../batteries/" title="Batteries" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  Electrical Connections
+                  Batteries
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
