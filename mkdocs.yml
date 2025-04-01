@@ -56,7 +56,9 @@ nav:
   - MicroSims:
     - Introduction: sims/index.md
     - Battery Charger: sims/battery-charger/index.md
-    - Solar Powered LED Nightlight: sims/solar-powered-led-nightlight/index.md
+    - Solar Powered LED Nightlight: sims/solar-powered-nightlight/index.md
+    - Color Wheel: sims/color-wheel/index.md
+    - Learning Graph: sims/learning-graph/index.md
   - Kits:
     - kits/index.md
     - kits/8x8-neopixel-matrix/index.md
