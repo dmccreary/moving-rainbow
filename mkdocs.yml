@@ -71,6 +71,13 @@ nav:
     - Introduction: teachers-guide/index.md
     - Computational Thinking: teachers-guide/computational-thinking.md
     - Concept Cards: teachers-guide/concept-cards.md
+    - teachers-guide/code-group-status.md
+    - teachers-guide/code-of-conduct.md
+    - teachers-guide/content-authoring-guide.md
+    - teachers-guide/designing-concept-cards.md
+    - teachers-guide/journey-maps.md
+    - teachers-guide/mentoring-best-practices.md
+    - teachers-guide/rhizomatic-learning-theory.md
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - Glossary: glossary.md

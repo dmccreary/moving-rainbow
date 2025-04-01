@@ -1,9 +1,9 @@
 #  Rhizomatic Learning Theory
 
-![Three Modes of Learning](img/three-mode-of-learning.png)
-In pre-COVID CoderDojo classrooms we use a formal fixed curriculum based on static preprinted [Concept Cards](designing-concept-cards.md).  Concept Cards were colorful 4X5 laminated cards that students would view as they entered a classroom.  Unfortunately, with limited face-to-face interactions during the COVID pandemic, we are trying other more flexible ways of teaching and mentoring.
+![Three Modes of Learning](../img/three-mode-of-learning.png)
+In pre-COVID CoderDojo classrooms we use a formal fixed curriculum based on static preprinted [Concept Cards](../img/designing-concept-cards.md).  Concept Cards were colorful 4X5 laminated cards that students would view as they entered a classroom.  Unfortunately, with limited face-to-face interactions during the COVID pandemic, we are trying other more flexible ways of teaching and mentoring.
 
-One approach is to use a more network approach called [Rhizomatic Learning](Rhizomatic_learning) that abandons fixed hierarchial structure with a more networked model that allows students to move from topic to topic as their interests takes them.
+One approach is to use a more network approach called [Rhizomatic Learning](https://www.advance-he.ac.uk/knowledge-hub/rhizomatic-learning-0) that abandons fixed hierarchial structure with a more networked model that allows students to move from topic to topic as their interests takes them.
 
 Like any new pedagogical practice, the Rhizomatic Learning takes time to learn and support these structures in our content.
 
