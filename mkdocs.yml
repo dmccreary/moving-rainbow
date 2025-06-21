@@ -67,6 +67,10 @@ nav:
       - kits/solar-powered-led-nightlight/how-it-works.md
       - kits/solar-powered-led-nightlight/microsim.md
       - kits/solar-powered-led-nightlight/prompt.md
+    - Holiday Hats:
+      - Intro: holidays/index.md
+      - 4th of July: holidays/4th-of-july.md
+      - St. Patrick's Day: holidays/st-patricks-day.md
   - Teachers Guide:
     - Introduction: teachers-guide/index.md
     - Computational Thinking: teachers-guide/computational-thinking.md
