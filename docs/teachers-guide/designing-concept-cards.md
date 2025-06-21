@@ -1,6 +1,6 @@
 # Concept Cards
 
-![](img/coderdojo-concept-cards.jpg)
+![](../img/concept-cards.jpg)
 
 Dan McCreary
 Version 1.1 – last updated September, 2021
@@ -10,7 +10,7 @@ Concept Cards are teaching tools that are popular in informal hands-on settings 
 
 Concept Cards are a way of taking complex topics and decomposing the topics into simple examples that can be used to illustrate the principals needed to master the topic.
 
-Concept Cards can be used in multiple teaching styles includeing goal-directed learning, fixed hierarchy learning and ad-hoc [rhizomatic](../site/rhizomatic-learning-theory) network learning.
+Concept Cards can be used in multiple teaching styles including goal-directed learning, fixed hierarchy learning and ad-hoc [rhizomatic](rhizomatic-learning-theory.md) network learning.
 
 ## When Should Concept Cards be Used?
 
@@ -48,7 +48,7 @@ Imagine a new CoderDojo student walking into a classroom.  Computer are often sp
 
 We often use two-sided laminated cards that are easy to hold in one hand and easy to view by the side of a computer.   The structure of the cards is important because they don't look intimidating.  They are not [walls of text](https://en.wikipedia.org/wiki/Wikipedia:Wall_of_text) and they don't look like a college textbook.
 
-![Learning Python](img/learning-python-book-cover.png)
+![Learning Python](../img/learning-python-book-cover.png)
 
 In contrast, the book *Learning Python* by Mark Lutz is a 1,600-page book that had detailed discussions areas of Python that many programmers may never need.  The chapter on the "if" statement does not even start until page 383!
 
