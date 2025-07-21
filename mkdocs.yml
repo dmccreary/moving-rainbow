@@ -81,7 +81,16 @@ nav:
     - teachers-guide/designing-concept-cards.md
     - teachers-guide/journey-maps.md
     - teachers-guide/mentoring-best-practices.md
-    - teachers-guide/rhizomatic-learning-theory.md
+    - teachers-guide/rhizomatic-learning-theory.md  - Kits:
+    - kits/index.md
+    - kits/8x8-neopixel-matrix/index.md
+    - kits/solar-powered-led-nightlight/index.md
+    - kits/solar-powered-led-nightlight/how-it-works.md
+    - kits/solar-powered-led-nightlight/microsim.md
+    - kits/solar-powered-led-nightlight/prompt.md
+  - MicroSims:
+    - Intro: sims/index.md
+    - Color Wheel: sims/color-wheel/index.md
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - Glossary: glossary.md
@@ -124,12 +133,3 @@ markdown_extensions:
       linenums: true
   - pymdownx.details
   - pymdownx.superfences
-extra_css:
-  - css/extra.css
-extra_javascript:
-  - js/extra.js
-extra:
-  analytics:
-    provider: google
-    # https://analytics.google.com/analytics
-    property: G-KK3YTGXHLJ
