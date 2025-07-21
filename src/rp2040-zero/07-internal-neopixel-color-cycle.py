@@ -7,6 +7,7 @@ r=0
 g=0
 b=0
 
+# Assembly language function to write a bitstream to a NeoPixel - WS2812
 @rp2.asm_pio(sideset_init=rp2.PIO.OUT_LOW, out_shiftdir=rp2.PIO.SHIFT_LEFT, autopull=True, pull_thresh=24)
 def ws2812():
     T1 = 2
