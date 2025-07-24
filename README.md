@@ -1,45 +1,100 @@
-# Welcome to the Moving Rainbow
+# Moving Rainbow 🌈
 
-The microsite is [http://dmccreary.github.io/moving-rainbow/](http://dmccreary.github.io/moving-rainbow/)
+[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://dmccreary.github.io/moving-rainbow/)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![GitHub stars](https://img.shields.io/github/stars/dmccreary/moving-rainbow.svg)](https://github.com/dmccreary/moving-rainbow/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/dmccreary/moving-rainbow.svg)](https://github.com/dmccreary/moving-rainbow/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/dmccreary/moving-rainbow.svg)](https://github.com/dmccreary/moving-rainbow/commits/master)
+[![MkDocs](https://img.shields.io/badge/docs-MkDocs-blue.svg)](https://www.mkdocs.org/)
 
-Learn Computer Science the fun way!
+**Learn Computer Science the fun way with hands-on LED programming!**
 
-The Moving Rainbow Project is a collection of Arduino-based projects used to teach students the basic concepts of Computer Science. Projects are carefully designed to be hands-on, low-cost, fast-feedback projects that will inspire students to build their own projects.  We are inspired by the availability of low-cost parts that allow students to take their projects home and show their firends.  Although our beginning projects focus on the use of Arduinos, breadboards and addressable LED strips to create fun projects, you will find many other projects that integrate low-cost sensors.
+> 📚 **Documentation:** [https://dmccreary.github.io/moving-rainbow/](https://dmccreary.github.io/moving-rainbow/)
 
-- [Getting Started With Arduino and LED Strips](guide/getting-started.md) - How to download and use Arduino IDE
-- [Hardware Guide](guide/hardware.md) - Description of the many of hardware components of the Moving Rainbow projects
-- [Programming Guide](guide/programming.md) - How to program the Arduino to control the LED strip
-- [Instructor's Guide](guide/instructors.md) - A guide for instructors on how to use the kits to teach the concepts of Computer Science
-- [List of Projects](guide/project-list.md) - A list of sample projects with descriptions of the learning objectives
-- [Bill of Materials](guide/bill-of-materials.md) - Parts you can order on-line to build your own kits
-- [Glossary of Terms](guide/GLOSSARY.md) - Some terms we use in this guide
+## 🚀 Overview
 
-## Background
-This project began with the observation that low-cost Arduino Nano processors (about $3 each) and low-cost LED strips ($5 each for a 60-pixel strip) were a fantastic way to allow students to learn the basic principals of computer science.  Although the Arduino Blink Lab is a good starting point, the number of wires needed to hook up 5 RGB LEDs on a breadboard tested the patience of many of our students.  The addressible LED strips, with just three wires, made the process of creating colorful patterns easy and fun.  The focus quickly turns from small-motor skills that test the patience of students to a focus on for loops and conditional statements.  Skills that can be reused across many other projects.
+The Moving Rainbow Project is a collection of MicroPython and Arduino projects designed to teach students the fundamental concepts of Computer Science through hands-on, interactive LED programming. Our carefully crafted projects provide immediate visual feedback, making learning both engaging and accessible.
 
-## Our Testing Labs
-There are many Arduino books that are written by inspired individuals but lack a strong testing environment.  We were fortunate to expose these projects to hundreds of students through the CoderDojo projects around the world.  Students would come into these sessions with little background and experienced mentors would give us high-quality feedback on what worked and what didn't work.  We are grateful to everyone who has help use with this testing and feedback.
+### ✨ Key Features
 
-## Why Arduino
-Being able to control the world around us creates a wonderful feeling of empowerment.  We are no longer limited to what our cellphone or laptop can do.  We can program lights and motors around to obey our every command.  The Moving Rainbow kits will be your guide.  You will start out with a simple blink lab but quickly move to exotic colors, patterns and motion.  We can even hook up sensors to change the LEDs based on what is happening in the world around us.
+- 💡 **Low-cost hardware**: $4 Raspberry Pi Pico + $5 LED strips
+- 🎓 **Progressive learning**: From basic blink to complex animations  
+- 🌍 **Battle-tested**: Used with hundreds of students worldwide
+- 🛠️ **Multiple platforms**: MicroPython and Arduino C++ support
+- 📖 **Comprehensive docs**: Step-by-step tutorials and guides
 
-## Book Versions
-In addition to reading the manual directly on [GitHub](https://github.com/dmccreary/moving-rainbow) there are two versions of this book that are rendered in on-line book forms:
-1. [Github Pages](http://dmccreary.github.io/moving-rainbow/)
-1. [Read the Docs Book](http://moving-rainbow.readthedocs.org/en/latest/README/)
-2. [GitBook](http://dmccreary.gitbooks.io/moving-rainbow)
+## 📚 Quick Start
 
-##
-Moving Rainbow Addressable LED Kits
+| Resource | Description |
+|----------|-------------|
+| [🚀 Getting Started](docs/getting-started/about.md) | Set up your development environment |
+| [🔧 Hardware Guide](docs/getting-started/parts.md) | Understanding the hardware components |
+| [💻 Programming Guide](docs/lessons/index.md) | Learn to program LED animations |
+| [👨‍🏫 Instructor's Guide](docs/teachers-guide/index.md) | Teaching resources and methodology |
+| [🛒 Bill of Materials](docs/getting-started/parts.md) | Parts to build your own kits |
+| [📖 Glossary](docs/glossary.md) | Technical terms explained |
 
-Although this guide is designed to work with a simple kit of parts you can purchase on-line for about $13, it
-can be used by anyone that has an Arduino and a addressable LED strip.  You can find sample links to 
-the parts on the [Bill of Materials](guide/bill-of-materials.md) page.
+## 🎯 Project Philosophy  
 
-Once you have become familiar with the Arduino and the LED kit you can then try your hand at using the
- [CoderDojo Robot Kits](https://github.com/dmccreary/coderdojo-robots).  These labs use two simple DC motors
- to create a $30 collision avoidance robot.
+### Why LED Strips?
 
-For questions please contact: Dan McCreary (dan.mccreary (at) gmail.com)
+This project emerged from a simple observation: traditional breadboard circuits with multiple RGB LEDs often frustrate beginners with complex wiring. Addressable LED strips solve this with just **three wires** while delivering spectacular visual results that keep students engaged.
 
-Good Luck!
+### Educational Approach
+
+- **🔄 Immediate feedback**: See your code changes instantly in colorful light
+- **📈 Progressive complexity**: Start with blink, advance to complex animations
+- **🎨 Creative expression**: Students build projects they're excited to show friends
+- **🔧 Transferable skills**: Loops and conditionals apply beyond LEDs
+
+### Real-World Testing
+
+Our curriculum has been refined through hundreds of hours of classroom testing across multiple CoderDojo sessions worldwide. This isn't just theory—it's proven pedagogy that works with real students and real constraints.
+
+## 🛠️ Hardware Requirements
+
+| Component | Cost | Purpose |
+|-----------|------|---------|
+| Raspberry Pi Pico | ~$4 | Microcontroller brain |
+| WS2812B LED Strip (60 pixels) | ~$5 | Addressable RGB display |
+| Breadboard + Jumper Wires | ~$3 | Connections |
+| Push Buttons (optional) | ~$1 | User interaction |
+| **Total** | **~$13** | **Complete kit** |
+
+> 💡 **Compatibility**: Works with any Raspberry Pi Pico and WS2812B-compatible LED strip
+
+## 🔗 Related Projects
+
+- 🤖 [STEM Robot Kits](https://github.com/dmccreary/stem-robots) - $19 collision avoidance robots
+- 📱 More IoT projects using similar educational principles
+
+## 🙏 Acknowledgements
+
+This project builds upon the incredible work of the open source community:
+
+### Core Libraries
+- **[MicroPython](https://micropython.org/)** - Python 3 implementation for microcontrollers
+- **[Adafruit NeoPixel Library](https://github.com/adafruit/Adafruit_NeoPixel)** - Arduino library for WS2812 LEDs
+- **[Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk)** - Official Pico development tools
+
+### Documentation Tools
+- **[MkDocs](https://www.mkdocs.org/)** - Static site generator for project documentation
+- **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)** - Beautiful documentation theme
+
+## 📄 License
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License**.
+
+📋 **[Full License Details](docs/license.md)** | 🔗 **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)**
+
+## 📞 Contact & Contributing
+
+- 👤 **Author**: [Dan McCreary](https://www.linkedin.com/in/danmccreary/)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/dmccreary/moving-rainbow/issues)
+- 💡 **Discussions**: [GitHub Discussions](https://github.com/dmccreary/moving-rainbow/discussions)
+
+We welcome contributions! Please see our documentation for ways to get involved.
+
+---
+
+**Happy coding! 🌈✨**
