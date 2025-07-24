@@ -27,12 +27,12 @@ The Moving Rainbow Project is a collection of MicroPython and Arduino projects d
 
 | Resource | Description |
 |----------|-------------|
-| [🚀 Getting Started](docs/getting-started/about.md) | Set up your development environment |
-| [🔧 Hardware Guide](docs/getting-started/parts.md) | Understanding the hardware components |
-| [💻 Programming Guide](docs/lessons/index.md) | Learn to program LED animations |
-| [👨‍🏫 Instructor's Guide](docs/teachers-guide/index.md) | Teaching resources and methodology |
-| [🛒 Bill of Materials](docs/getting-started/parts.md) | Parts to build your own kits |
-| [📖 Glossary](docs/glossary.md) | Technical terms explained |
+| [🚀 Getting Started](https://dmccreary.github.io/moving-rainbow/getting-started/about/) | Set up your development environment |
+| [🔧 Hardware Guide](https://dmccreary.github.io/moving-rainbow/getting-started/parts/) | Understanding the hardware components |
+| [💻 Programming Guide](https://dmccreary.github.io/moving-rainbow/lessons/) | Learn to program LED animations |
+| [👨‍🏫 Instructor's Guide](https://dmccreary.github.io/moving-rainbow/teachers-guide/) | Teaching resources and methodology |
+| [🛒 Bill of Materials](https://dmccreary.github.io/moving-rainbow/getting-started/parts/) | Parts to build your own kits |
+| [📖 Glossary](https://dmccreary.github.io/moving-rainbow/glossary/) | Technical terms explained |
 
 ## 🎯 Project Philosophy  
 
@@ -85,7 +85,7 @@ This project builds upon the incredible work of the open source community:
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License**.
 
-📋 **[Full License Details](docs/license.md)** | 🔗 **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)**
+📋 **[Full License Details](https://dmccreary.github.io/moving-rainbow/license/)** | 🔗 **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)**
 
 ## 📞 Contact & Contributing
 
