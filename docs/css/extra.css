@@ -3,7 +3,6 @@
     padding: 0;
 }
 .md-header__button.md-logo img, .md-header__button.md-logo svg {
-<<<<<<< HEAD
     height: 48px;
     width: 70px;
 }
@@ -49,7 +48,6 @@
     font-family: "Font Awesome 5 Free";
     margin-right: 0.3rem;
     font-weight: 900;
-=======
     height: 50px;
     width: 50px;
 }
@@ -93,5 +91,4 @@
 
 .admonition.prompt .copy-button:hover {
   background-color: #0041a4; /* Darker blue on hover */
->>>>>>> a3b2196 (updates)
 }
