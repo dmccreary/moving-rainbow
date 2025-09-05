@@ -52,21 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../css/extra.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-KK3YTGXHLJ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-KK3YTGXHLJ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-KK3YTGXHLJ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -646,6 +634,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Rainbow
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -657,6 +658,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-big-wheel-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Big Wheel Function
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1242,6 +1271,116 @@
   
   
   
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Kits
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../challenges/" class="md-nav__link">
         
@@ -1366,6 +1505,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-big-wheel-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Big Wheel Function
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1389,39 +1545,179 @@
 
 
 <h1 id="rainbow">Rainbow</h1>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">wheel</span><span class="p">(</span><span class="n">current_color</span><span class="p">)</span>
+<p>Now let bring some real color to this class!</p>
+<h2 id="the-big-wheel-function">The Big Wheel Function</h2>
+<iframe src="../../sims/color-wheel/main.html" height="450" scrolling="no"></iframe>
+
+<p>Let me introduce you to one of the most colorful functions
+in the MicroPython world.  It is the famous <code>wheel</code> function.
+When you think of the color wheel, think of the <code>wheel</code> function.
+Wouldn't it be nice to just take a stroll around the color wheel
+and walk through all the colors of the rainbow!  Well, <code>wheel</code> is here to help you do just that!</p>
+<p>The <code>wheel</code> functions looks like this:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">wheel</span><span class="p">(</span><span class="n">color_number_0_to_255</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h1 id="09-rainbowpy">09-rainbow.py</h1>
-<p>from machine import Pin
-from neopixel import NeoPixel
-from utime import sleep
-from urandom import randint</p>
-<h1 id="get-the-configuration-information">get the configuration information</h1>
-<p>import config</p>
-<p>np = config.NUMBER_PIXELS
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), np)</p>
-<h1 id="we-have-each-pixel-step-through-the-color-wheel">we have each pixel step through the color wheel</h1>
-<p>color_wheel_step = int(256 / np)</p>
-<p>def wheel(pos):
-    # Input a value 0 to 255 to get a color value.
-    # The colors are a transition r - g - b - back to r.
-    if pos &lt; 0 or pos &gt; 255:
-        return (0, 0, 0)
-    if pos &lt; 85:
-        return (255 - pos * 3, pos * 3, 0)
-    if pos &lt; 170:
-        pos -= 85
-        return (0, 255 - pos * 3, pos * 3)
-    pos -= 170
-    return (pos * 3, 0, 255 - pos * 3)</p>
-<p>current_color = 0
-print('Drawing rainbow in', np, 'steps with step size of: ', color_wheel_step)
-for i in range(0,np):
-    strip[i] = wheel(current_color)
-    current_color = current_color + color_wheel_step
-    print(i, current_color, wheel(current_color))
-    strip.write()
-    sleep(.03)</p>
+You just give it a number from 0 to 255 and it will return
+a red, green and blue number that will span the spectrum from
+red, orange, yellow, green, blue, indigo and violet and then
+back to red again.</p>
+<p>Here is the entire elegant wheel function in all its glory:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+    <span class="c1"># Input a value 0 to 255 to get a color value.</span>
+    <span class="c1"># The colors are a transition r - g - b - back to r.</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">170</span><span class="p">:</span>
+        <span class="n">pos</span> <span class="o">-=</span> <span class="mi">85</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">-=</span> <span class="mi">170</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Here is a markdown table with the values for 10 common colors from the wheel function. The wheel function creates a smooth transition from red to green to blue and back to red as the input value goes from 0 to 255.</p>
+<h1 id="common-colors-in-the-wheel-function">Common Colors in the Wheel Function</h1>
+<table>
+<thead>
+<tr>
+<th>Color Name</th>
+<th>Wheel Position</th>
+<th>RGB Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red</td>
+<td>0</td>
+<td>(255, 0, 0)</td>
+</tr>
+<tr>
+<td>Orange</td>
+<td>32</td>
+<td>(159, 96, 0)</td>
+</tr>
+<tr>
+<td>Yellow</td>
+<td>64</td>
+<td>(63, 192, 0)</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>85</td>
+<td>(0, 255, 0)</td>
+</tr>
+<tr>
+<td>Teal</td>
+<td>127</td>
+<td>(0, 129, 126)</td>
+</tr>
+<tr>
+<td>Cyan</td>
+<td>128</td>
+<td>(0, 128, 127)</td>
+</tr>
+<tr>
+<td>Blue</td>
+<td>170</td>
+<td>(0, 0, 255)</td>
+</tr>
+<tr>
+<td>Purple</td>
+<td>191</td>
+<td>(63, 0, 192)</td>
+</tr>
+<tr>
+<td>Magenta</td>
+<td>213</td>
+<td>(126, 0, 129)</td>
+</tr>
+<tr>
+<td>Pink</td>
+<td>234</td>
+<td>(189, 0, 66)</td>
+</tr>
+</tbody>
+</table>
+<p>This table shows how the wheel function generates a spectrum of colors by adjusting the RGB values based on the input position (0-255). Each position produces a unique combination of red, green, and blue values, creating the full color wheel.</p>
+<p>I suggest you bookmark this page because for fun projects
+we will come back to this function frequently.</p>
+<h2 id="testing-the-wheel-program">Testing the Wheel Program</h2>
+<p>Here is a full test program that will demonstrate how the <code>wheel</code> function is used in practice.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="c1"># get the configuration information</span>
+
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="p">)</span>
+<span class="c1"># we have each pixel step through the color wheel</span>
+<span class="n">color_wheel_step</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">256</span> <span class="o">/</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+    <span class="c1"># Input a value 0 to 255 to get a color value.</span>
+    <span class="c1"># The colors are a transition r - g - b - back to r.</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">170</span><span class="p">:</span>
+        <span class="n">pos</span> <span class="o">-=</span> <span class="mi">85</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">-=</span> <span class="mi">170</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">current_color</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Drawing rainbow in&#39;</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="s1">&#39;steps with step size of: &#39;</span><span class="p">,</span> <span class="n">color_wheel_step</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">current_color</span><span class="p">)</span>
+    <span class="n">current_color</span> <span class="o">=</span> <span class="n">current_color</span> <span class="o">+</span> <span class="n">color_wheel_step</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">current_color</span><span class="p">,</span> <span class="n">wheel</span><span class="p">(</span><span class="n">current_color</span><span class="p">))</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">.03</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 
 
 
@@ -1433,8 +1729,6 @@ for i in range(0,np):
   
 
 
-
-  
 
 
 
@@ -1520,8 +1814,6 @@ for i in range(0,np):
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
-      
-        <script src="../../js/extra.js"></script>
       
     
   </body>
