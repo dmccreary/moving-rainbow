@@ -81,7 +81,8 @@ nav:
     - teachers-guide/designing-concept-cards.md
     - teachers-guide/journey-maps.md
     - teachers-guide/mentoring-best-practices.md
-    - teachers-guide/rhizomatic-learning-theory.md  - Kits:
+    - teachers-guide/rhizomatous-learning-theory.md
+  - Kits:
     - kits/index.md
     - kits/8x8-neopixel-matrix/index.md
     - kits/solar-powered-led-nightlight/index.md
