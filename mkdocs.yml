@@ -9,6 +9,7 @@ edit_uri: edit/master/docs/
 nav:
   - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
   - Moving Rainbow Home: index.md
+  
   - Getting Started:
     - About: getting-started/about.md
     - Standard Kits: getting-started/kits.md
@@ -19,6 +20,7 @@ nav:
     - Updating Firmware: getting-started/updating-firmware.md
     - GitHub Summary: getting-started/github-summary.md
     - Electrical Connections: getting-started/connections.md
+  
   - Lessons:
     - List of Lessons: lessons/index.md
     - Blink: lessons/01-blink.md
@@ -43,6 +45,7 @@ nav:
     - Theater Chase: lessons/17-theater-chase.md
     - Clock: lessons/20-clock.md
     - How NeoPixels Work: lessons/40-how-neopixels-work.md
+  
   - LED Noodles:
     - Introduction: led-noodles/index.md
     - Static Circuits: led-noodles/static-circuits.md
@@ -53,12 +56,14 @@ nav:
     - Project Ideas: led-noodles/project-ideas.md
     - Gamma Correction: led-noodles/gamma-correction.md
     - Dynamic Projects: led-noodles/dynamic-projects.md
+  
   - MicroSims:
     - Introduction: sims/index.md
     - Battery Charger: sims/battery-charger/index.md
     - Solar Powered LED Nightlight: sims/solar-powered-nightlight/index.md
     - Color Wheel: sims/color-wheel/index.md
     - Learning Graph: sims/learning-graph/index.md
+  
   - Kits:
     - kits/index.md
     - kits/8x8-neopixel-matrix/index.md
@@ -71,6 +76,7 @@ nav:
       - Intro: holidays/index.md
       - 4th of July: holidays/4th-of-july.md
       - St. Patrick's Day: holidays/st-patricks-day.md
+  
   - Teachers Guide:
     - Introduction: teachers-guide/index.md
     - Computational Thinking: teachers-guide/computational-thinking.md
