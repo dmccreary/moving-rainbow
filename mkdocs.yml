@@ -63,6 +63,7 @@ nav:
     - Solar Powered LED Nightlight: sims/solar-powered-nightlight/index.md
     - Color Wheel: sims/color-wheel/index.md
     - Learning Graph: sims/learning-graph/index.md
+    - LED Current Predictor: sims/current-predictor/index.md
   
   - Kits:
     - kits/index.md
