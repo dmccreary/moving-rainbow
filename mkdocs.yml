@@ -89,6 +89,7 @@ nav:
     - teachers-guide/journey-maps.md
     - teachers-guide/mentoring-best-practices.md
     - teachers-guide/rhizomatous-learning-theory.md
+  
   - Kits:
     - kits/index.md
     - kits/8x8-neopixel-matrix/index.md
@@ -96,9 +97,7 @@ nav:
     - kits/solar-powered-led-nightlight/how-it-works.md
     - kits/solar-powered-led-nightlight/microsim.md
     - kits/solar-powered-led-nightlight/prompt.md
-  - MicroSims:
-    - Intro: sims/index.md
-    - Color Wheel: sims/color-wheel/index.md
+
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - Glossary: glossary.md
@@ -135,12 +134,23 @@ plugins:
   - social_override
   # - mermaid2 - takes too long to build - use a screen image for now
 markdown_extensions:
+  - meta
   - admonition
   - attr_list
-  - pymdownx.highlight:
-      linenums: true
+  - md_in_html
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.mark
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.snippets
+  - pymdownx.emoji
+  - pymdownx.tilde
+  - pymdownx.tasklist
+  - pymdownx.tabbed
+# enable LaTeX equation rendering
+  - pymdownx.arithmatex:
+      generic: true
 extra_css:
    - css/extra.css
 extra_javascript:
