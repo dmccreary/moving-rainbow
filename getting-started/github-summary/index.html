@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../css/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1078,57 +1080,6 @@
   
   
   
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../sims/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    MicroSims
-    
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../challenges/" class="md-nav__link">
         
@@ -1372,14 +1323,7 @@ detailed installation instructions at the <a href="https://git-scm.com/book/en/v
 file system.  Let's pull all our GitHub repositories together in a folder
 called "projects" off of our home directory.  This is called the tilde or "~" directory.</p>
 <p>Here is a sample shell script you can run</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># create a projects area to checkout your code</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># create a projects area to checkout your code</span>
 mkdir<span class="w"> </span>~/projects
 <span class="nb">cd</span><span class="w"> </span>projects
 <span class="c1"># make a copy of the repo on your local hard drive</span>
@@ -1387,29 +1331,25 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccr
 <span class="nb">cd</span><span class="w"> </span>moving-rainbow
 <span class="c1"># open the files in your file manager</span>
 open<span class="w"> </span>.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="git-pull">Git Pull</h2>
 <p>If you have been away from the project for a while, you will want to refresh your
 local code.  You can also do this if a co-worker has just made a change you wnat
 to include.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/moving-rainbow
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/moving-rainbow
 git<span class="w"> </span>pull
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="git-add">Git Add</h2>
 <p>After you have made local changes to the Moving Rainbow source code or documentation, you might
 want to set up a "change set" and share it with others.  You
 can create your own directory under the moving-rainbow/src
 area and add your new programs there.  Once you have done
 that you can run the following example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/moving-rainbow
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/projects/moving-rainbow
 mkdir<span class="w"> </span>src/mycode
 <span class="c1"># copy your new code to the src/mycode directory</span>
 git<span class="w"> </span>add<span class="w"> </span>src/mycode/*
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can keep doing this until your code is all tested.  Now
 you are read to commit the changes as a transaction.</p>
 <h2 id="git-commit">Git Commit</h2>
@@ -1417,16 +1357,16 @@ you are read to commit the changes as a transaction.</p>
 without any comments.  Now we want to wrap all these
 changes up in a package and tell others why we are
 adding the code or making changes.  Here is that command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Adding my new sample patters&quot;</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Adding my new sample patters&quot;</span>
+</code></pre></div>
 <p>This command creates a package with a commit message.
 Your message should indicate <strong>why</strong> you are making the change.
 Git has great tools to tell you what lines changed, but it does not know why a change was made.  This is your job.</p>
 <p>Note that these changes are all collected locally.  The GitHub server has not yet been changed.</p>
 <h2 id="git-push">Git Push</h2>
 <p>The final step is to push your package up to the central GitHub server.  This is done with a simple command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>push
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push
+</code></pre></div>
 <p>This should generate a dialog such as the following:</p>
 <div class="highlight"><pre><span></span><code>Enumerating objects: 7, done.
 Counting objects: 100% (7/7), done.
@@ -1441,13 +1381,12 @@ To https://github.com/dmccreary/moving-rainbow.git
 <p>If you have hundreds of large files or documentation with large images this step can take a few minutes.  It depends on how busy the servers are, what your ISP upload speed is and other factors such as network congestion.</p>
 <h2 id="checking-your-status">Checking Your Status</h2>
 <p>After you are done, you can check your git status:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>status
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status
+</code></pre></div>
 <p>This will return a text message such as:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>On branch master
+<div class="highlight"><pre><span></span><code>On branch master
 Your branch is up to date with &#39;origin/master&#39;.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 
 
@@ -1544,6 +1483,8 @@ Your branch is up to date with &#39;origin/master&#39;.
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
       
     
   </body>

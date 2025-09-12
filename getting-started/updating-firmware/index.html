@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../css/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1123,57 +1125,6 @@
   
   
   
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../sims/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    MicroSims
-    
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../challenges/" class="md-nav__link">
         
@@ -1449,7 +1400,7 @@ for subsequent devices.</p>
 <h2 id="steps">Steps</h2>
 <p>Here are the key steps:</p>
 <ol>
-<li>Download the new firmware from here: https://micropython.org/download/RPI_PICO/</li>
+<li>Download the new firmware from here: <a href="https://micropython.org/download/RPI_PICO/">https://micropython.org/download/RPI_PICO/</a></li>
 <li>Hold down the BOOTSEL button while you turn on the Pico (that is the key step)</li>
 <li>Drag the new file into the folder that pops up.  It should take under 10 seconds to download.</li>
 </ol>
@@ -1518,12 +1469,10 @@ Note that the version is now <strong>v1.22.1</strong></p>
 <p>This has two very small files.  If you click on the index.htm file your
 browser will go to the Raspberry Pi documentation website.</p>
 <p>The other info.text</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>UF2 Bootloader v1.0
+<div class="highlight"><pre><span></span><code>UF2 Bootloader v1.0
 Model: Raspberry Pi RP2
 Board-ID: RPI-RP2
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>This shows you that the Raspberry Pi</p>
 <h2 id="alternative-methods">Alternative Methods</h2>
 <p>If you have problems finding the BOOTSEL button or holding it down
@@ -1538,10 +1487,9 @@ the MicroPython firmware.  The key change is that
 the syntax of how we set pixel values changes
 from a function call in an external library to directly writing to
 the NeoPixel array.  The new syntax is:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
 <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you have old code that used the strip.set(i, red, green, blue)
 format you can either change the syntax (strongly recommended)
 or load the old neopixel library and use it.</p>
@@ -1652,6 +1600,8 @@ our libraries.</p>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
       
     
   </body>

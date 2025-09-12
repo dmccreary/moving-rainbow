@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../css/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1156,57 +1158,6 @@
   
   
   
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../sims/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    MicroSims
-    
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../challenges/" class="md-nav__link">
         
@@ -1538,12 +1489,10 @@
 <p><strong>Step 1: Plugging the USB Device</strong> The Pico appears as a USB device on your computer when you plug it in.  The operating system should send a request to the USB device asking it for its ID.</p>
 <p><strong>Step 2: Probing for the USB ID</strong> The Pico will respond with a device ID number.  This number reflects two items: the company that made the device (Vendor ID) and the device product type (Product ID).  If you are using a power-only USB cable this number will <strong>never</strong> get to the operating system.  This means that the data wires are not present in your USB cable or one of the wires is broken or not connecting.</p>
 <p><strong>Step 3: Looking Up the USB Driver</strong> The operating system will take this USB ID and then look-up the right software and then run that software.  In UNIX and Mac systems this will amount to making the USB device appear in the <code>/dev/cu*</code> area.  On Windows it will be a COM port.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/dev/cu.usb*
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/dev/cu.usb*
 
 crw-rw-rw-<span class="w">  </span><span class="m">1</span><span class="w"> </span>root<span class="w">  </span>wheel<span class="w">  </span>0x9000001<span class="w"> </span>Dec<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">08</span>:41<span class="w"> </span>/dev/cu.usbmodem101
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that the exact port name might change.  The example above is <code>cu.usbmodem101</code>.</p>
 <p>If this device does not immediately appear, then you should double-check your cable and make sure the operating system registers the USB device.</p>
 <p>If you know your cable works fine by testing it on other devices then you may have to reboot your computer.</p>
@@ -1558,30 +1507,7 @@ then make sure you test the current with all the pixels fully on (255,255,255).<
 <h3 id="debugging-the-usb-port">Debugging the USB Port</h3>
 <h4 id="mac-system-profiler">Mac System Profiler</h4>
 <p>On MacOS we can use the <code>system_profiler</code> command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>system_profiler<span class="w"> </span>SPUSBDataType
+<div class="highlight"><pre><span></span><code>system_profiler<span class="w"> </span>SPUSBDataType
 
 USB:
 
@@ -1605,20 +1531,13 @@ USB:
 <span class="w">          </span>Current<span class="w"> </span>Available<span class="w"> </span><span class="o">(</span>mA<span class="o">)</span>:<span class="w"> </span><span class="m">500</span>
 <span class="w">          </span>Current<span class="w"> </span>Required<span class="w"> </span><span class="o">(</span>mA<span class="o">)</span>:<span class="w"> </span><span class="m">250</span>
 <span class="w">          </span>Extra<span class="w"> </span>Operating<span class="w"> </span>Current<span class="w"> </span><span class="o">(</span>mA<span class="o">)</span>:<span class="w"> </span><span class="m">0</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>Note that you can see both the Product ID, Vendor ID Manufacturer (MicroPython) and the mode (File System mode) that the device was connected.  The current available and current required are also listed, although these numbers might be somewhat conservative.  They are used for the estimation of current only.</p>
 <h2 id="checking-out-the-moving-rainbow-code-from-github">Checking out the Moving Rainbow Code from GitHub</h2>
 <p>You don't need to copy and paste the code samples one-by-one into
 your local file system.  GitHub allows you to download all the
 code on the Moving Rainbow site by running the following command:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># create a projects area to checkout your code</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># create a projects area to checkout your code</span>
 mkdir<span class="w"> </span>~/projects
 <span class="nb">cd</span><span class="w"> </span>projects
 <span class="c1"># make a copy of the repo on your local hard drive</span>
@@ -1626,10 +1545,10 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccr
 <span class="nb">cd</span><span class="w"> </span>moving-rainbow
 <span class="c1"># open the files in your file manager</span>
 open<span class="w"> </span>.
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>You can now go directly to the source for the LED strip labs that have two buttons:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>src/led-strip-two-buttons
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>src/led-strip-two-buttons
+</code></pre></div>
 <p>Once you have done this step you can make the top Files region of Thonny point
 to the source area and then click the upper right corner that has the "Upload to /"
 menu.  Make sure the bottom area is set to the root, not the /lib area.</p>
@@ -1743,6 +1662,8 @@ site and verify that the code is there you may not have saved your code.</p>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
       
     
   </body>

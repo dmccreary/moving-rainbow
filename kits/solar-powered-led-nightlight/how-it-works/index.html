@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1058,57 +1060,6 @@
   
   
   
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../../sims/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    MicroSims
-    
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../../challenges/" class="md-nav__link">
         
@@ -1397,14 +1348,11 @@
 <p>Below is a conceptual "walk‐through" of the circuit, describing how each part contributes to turning the lamp <strong>off</strong> when there is sunlight (so the battery can charge) and <strong>on</strong> at night (when it is dark, and the solar panel is no longer generating voltage).</p>
 <h2 id="overall-function">Overall Function</h2>
 <h3 id="during-the-day"><strong>During the day</strong>:</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>-   The **solar panel** produces a voltage higher than the battery voltage.
+<pre><code>-   The **solar panel** produces a voltage higher than the battery voltage.
 -   Current flows from the panel, through the diode, into the battery to **charge** it.
 -   At the same time, the transistor is held in the *off* state (details below), which prevents current from flowing through the lamp.
 -   The lamp remains **off**, saving battery power.
-</code></pre></div></td></tr></table></div>
+</code></pre>
 <ol>
 <li>
 <p><strong>At night</strong>:</p>
@@ -1418,33 +1366,18 @@
 <hr />
 <h2 id="role-of-each-component">Role of Each Component</h2>
 <h4 id="1-solar-panel">1.  <strong>Solar Panel</strong></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>-   Generates a DC voltage when exposed to light (daytime).
+<pre><code>-   Generates a DC voltage when exposed to light (daytime).
 -   Feeds current into the battery through the diode, thus recharging it.
--   Its voltage also provides a reference that helps turn the transistor *off* during daylight. When panel voltage is high, it effectively prevents the transistor from conducting (or sets the transistor&#39;s bias so that the lamp remains off).
-</code></pre></div></td></tr></table></div>
+-   Its voltage also provides a reference that helps turn the transistor *off* during daylight. When panel voltage is high, it effectively prevents the transistor from conducting (or sets the transistor's bias so that the lamp remains off).
+</code></pre>
 <h4 id="2-diode-1n4007">2.  <strong>Diode (1N4007)</strong></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>-   Placed in series from the solar‐panel positive to the battery positive.
+<pre><code>-   Placed in series from the solar‐panel positive to the battery positive.
 -   **Allows current flow** from the panel to the battery to charge it.
 -   **Prevents reverse flow** at night (keeps the battery from discharging backward through the solar panel).
 -   Typical forward drop of ~0.7 V, so the solar panel voltage must exceed battery voltage + 0.7 V for current to flow.
-</code></pre></div></td></tr></table></div>
+</code></pre>
 <h4 id="3-transistor-bc547">3.  <strong>Transistor (BC547)</strong></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>-   **NPN transistor** acting as a switch that controls whether the lamp is powered.
+<pre><code>-   **NPN transistor** acting as a switch that controls whether the lamp is powered.
 
 -   **Collector**: connected to the lamp, which in turn goes to battery +.
 
@@ -1452,44 +1385,35 @@
 
 -   **Base**: receives a bias signal (through the 1 k Ω resistor, and influenced by panel voltage) that determines on/off state.
 
--   **On (saturation) at night**: With the panel voltage near zero, nothing holds the transistor&#39;s base low, so a small current from the battery into the base can turn the transistor on. Once on, it completes the path for current to flow from the battery → lamp → transistor → battery negative. The lamp lights.
+-   **On (saturation) at night**: With the panel voltage near zero, nothing holds the transistor's base low, so a small current from the battery into the base can turn the transistor on. Once on, it completes the path for current to flow from the battery → lamp → transistor → battery negative. The lamp lights.
 
--   **Off during the day**: The presence of the solar‐panel voltage biases or pulls the transistor&#39;s base in a way that it does not conduct (or conducts negligibly). Current through the lamp is essentially cut off.
-</code></pre></div></td></tr></table></div>
+-   **Off during the day**: The presence of the solar‐panel voltage biases or pulls the transistor's base in a way that it does not conduct (or conducts negligibly). Current through the lamp is essentially cut off.
+</code></pre>
 <h4 id="4-resistor-1-k">4.  <strong>Resistor (1 k Ω)</strong></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>-   This resistor often serves two purposes:
+<pre><code>-   This resistor often serves two purposes:
     1.  **Limits base current** into the transistor, protecting the transistor from excessive drive current and setting the turn‐on point.
-    2.  Along with the solar panel voltage (and possibly a small internal reference from the battery), it sets the bias condition on the transistor so that in daylight there is insufficient voltage/current at the transistor&#39;s base to turn it on.
-</code></pre></div></td></tr></table></div>
+    2.  Along with the solar panel voltage (and possibly a small internal reference from the battery), it sets the bias condition on the transistor so that in daylight there is insufficient voltage/current at the transistor's base to turn it on.
+</code></pre>
 <h4 id="5-battery-37-v">5.  <strong>Battery (3.7 V)</strong></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>-   A rechargeable cell (often a Li‐Ion or LiPo type) which gets charged from the solar panel through the diode.
+<pre><code>-   A rechargeable cell (often a Li‐Ion or LiPo type) which gets charged from the solar panel through the diode.
 -   Powers the lamp at night once the transistor switch turns on.
--   Nominal 3.7 V battery is close enough to drive the &quot;4 V&quot; lamp with an acceptable brightness.
-</code></pre></div></td></tr></table></div>
+-   Nominal 3.7 V battery is close enough to drive the "4 V" lamp with an acceptable brightness.
+</code></pre>
 <h4 id="6-lamp-4-v-rating">6.  <strong>Lamp (4 V rating)</strong></h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>-   The load that produces visible light at night.
--   Connected from battery positive to the transistor&#39;s collector, so that when the transistor is on, current flows and the lamp lights up.
-</code></pre></div></td></tr></table></div>
+<pre><code>-   The load that produces visible light at night.
+-   Connected from battery positive to the transistor's collector, so that when the transistor is on, current flows and the lamp lights up.
+</code></pre>
 <h3 id="putting-it-all-together">Putting It All Together</h3>
 <h4 id="1-daytime">1.  <strong>Daytime</strong>:</h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>-   Sunlight on the solar panel → panel voltage &gt; battery voltage.
+<pre><code>-   Sunlight on the solar panel → panel voltage &gt; battery voltage.
 -   Current flows through the **1N4007 diode** to **charge** the battery.
--   The panel&#39;s voltage, through the **1 k Ω resistor**, biases the transistor **off**, so **no current** goes through the lamp.
-</code></pre></div></td></tr></table></div>
+-   The panel's voltage, through the **1 k Ω resistor**, biases the transistor **off**, so **no current** goes through the lamp.
+</code></pre>
 <h4 id="2-nighttime">2.  <strong>Nighttime</strong>:</h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>-   Solar panel voltage collapses to nearly zero (darkness).
--   No longer enough voltage to hold the transistor off, so the transistor **switches on** under the battery&#39;s bias current.
+<pre><code>-   Solar panel voltage collapses to nearly zero (darkness).
+-   No longer enough voltage to hold the transistor off, so the transistor **switches on** under the battery's bias current.
 -   Current flows battery → lamp → transistor → battery negative, causing the lamp to **glow**.
-</code></pre></div></td></tr></table></div>
+</code></pre>
 <p>Hence, with just a handful of components, the circuit provides a self‐regulating solar‐powered nightlight:</p>
 <ul>
 <li><strong>Charges by day</strong>,</li>
@@ -1591,6 +1515,8 @@
     
     
       <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../../js/extra.js"></script>
       
     
   </body>

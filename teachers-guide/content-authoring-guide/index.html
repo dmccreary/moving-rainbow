@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../css/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1198,57 +1200,6 @@
   
   
   
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../sims/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    MicroSims
-    
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../challenges/" class="md-nav__link">
         
@@ -1600,24 +1551,19 @@ all know they are on a kid-safe site.</p>
 <p>This section is for programmers that are setting up "build" systems on their desktops to automate the mkdocs publishing process.  If you are new to Python and Conda virtual environments, please ask for help!  This is not as easy is it looks, especially on Windows systems.</p>
 <p>First, follow the installation instruction on the Conda web site:</p>
 <p><a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html">Conda Virtual Environment Shell Installation</a></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>$ conda create --name  mkdocs python=3.6
+<div class="highlight"><pre><span></span><code>$ conda create --name  mkdocs python=3.6
 $ conda activate mkdocs
 $ pip install mkdocs
 $ pip install mkdocs-material
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>If you are also installing quizzes on your microsite you will need additional steps not included here.</p>
 <h2 id="add-the-site-dir-to-your-gitignore">Add the site dir to your .gitignore</h2>
 <p>The mkdocs process takes Markdown files and converts them to HTML.  These files are put into a folder called <code>site</code>.  However, to publish we push this folder to the <code>gh-deploy</code> branch.  To keep the site directory from being pushed to the main branch we need to add the directory to the .gitignore file:</p>
 <p>Contents of .gitignore
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>site
+<div class="highlight"><pre><span></span><code>site
 .DS_Store
 ~$*
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></p>
 <p>Try to avoid links to resources that are not kid-safe.</p>
 <p>By using these standards it will enable us to reuse this content for search, recommendation and building tools that allow students to use chatbots to help them code.</p>
 <h2 id="images">Images</h2>
@@ -1633,18 +1579,13 @@ does not return any errors.</p>
 <h4 id="mkdocs-gh-deploy"><strong>mkdocs gh-deploy</strong></h4>
 <p>Deploy your documentation to GitHub Pages.  Run this when you want to take your local changes and push them to the web site.</p>
 <p>Here is an example of this run:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>mkdocs<span class="w"> </span>gh-deploy
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdocs<span class="w"> </span>gh-deploy
 INFO<span class="w">    </span>-<span class="w">  </span>Cleaning<span class="w"> </span>site<span class="w"> </span>directory<span class="w"> </span>
 INFO<span class="w">    </span>-<span class="w">  </span>Building<span class="w"> </span>documentation<span class="w"> </span>to<span class="w"> </span>directory:<span class="w"> </span>/Users/dmccrea1/Documents/ws/CoderDojoTC/site<span class="w"> </span>
 INFO<span class="w">    </span>-<span class="w">  </span>Documentation<span class="w"> </span>built<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.90<span class="w"> </span>seconds<span class="w"> </span>
 INFO<span class="w">    </span>-<span class="w">  </span>Copying<span class="w"> </span><span class="s1">&#39;/Users/dmccrea1/Documents/ws/CoderDojoTC/site&#39;</span><span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;gh-pages&#39;</span><span class="w"> </span>branch<span class="w"> </span>and<span class="w"> </span>pushing<span class="w"> </span>to<span class="w"> </span>GitHub.<span class="w"> </span>
 INFO<span class="w">    </span>-<span class="w">  </span>Your<span class="w"> </span>documentation<span class="w"> </span>should<span class="w"> </span>shortly<span class="w"> </span>be<span class="w"> </span>available<span class="w"> </span>at:<span class="w"> </span><span class="o">[</span>https://CoderDojoTC.github.io/CoderDojoTC<span class="o">](</span>https://CoderDojoTC.github.io/CoderDojoTC<span class="o">)</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h4 id="mkdocs-new"><strong>mkdocs new</strong></h4>
 <p>Create a new MkDocs project.  Most of our mentors will not need to do this.  We will supply you with a template zip file with all the right content if you need to create a new CoderDojo microsite of your own.</p>
 <h4 id="mkdocs-serve"><strong>mkdocs serve</strong></h4>
@@ -1758,6 +1699,8 @@ INFO<span class="w">    </span>-<span class="w">  </span>Your<span class="w"> </
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
       
     
   </body>

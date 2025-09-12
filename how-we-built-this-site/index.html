@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../css/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -758,57 +760,6 @@
   
   
   
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../sims/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    MicroSims
-    
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../challenges/" class="md-nav__link">
         
@@ -1352,26 +1303,19 @@ Mkdocs has a command (<code>mkdocs gh-deploy</code>) that does
 deployment directly to GitHub Pages.  This was an easy choice to make.</p>
 <h3 id="github-clone">GitHub Clone</h3>
 <p>If you would like to clone this repository, here are the commands:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdir<span class="w"> </span>projects
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>projects
 <span class="nb">cd</span><span class="w"> </span>projects
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccreary/microsims
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h3 id="after-changes">After Changes</h3>
 <p>After you make local changes you must do the following:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># add the new files to a a local commit transaction</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># add the new files to a a local commit transaction</span>
 git<span class="w"> </span>add<span class="w"> </span>FILES
 <span class="c1"># Execute the a local commit with a message about what and why you are doing the commit</span>
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;comment&quot;</span>
 <span class="c1"># Update the central GitHub repository</span>
 git<span class="w"> </span>push
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="material-theme">Material Theme</h2>
 <p>We had several options when picking a mkdocs theme:</p>
 <ol>
@@ -1396,43 +1340,38 @@ on this microsite that prevents you from using one or
 the other.  See the <a href="https://chat.openai.com/share/f2a6a7e2-5b8d-4ec0-8755-4a06b4b574f6">ChatGPT Analysis Here</a>.</p>
 <p>Here is the conda script that we ran to create a new mkdocs environment that also
 supports the material social imaging libraries.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>conda<span class="w"> </span>deactivate
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>deactivate
 conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>mkdocs<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>
 conda<span class="w"> </span>activate<span class="w"> </span>mkdocs
 pip<span class="w"> </span>install<span class="w"> </span>mkdocs<span class="w"> </span><span class="s2">&quot;mkdocs-material[imaging]&quot;</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <h2 id="mkdocs-commands">Mkdocs Commands</h2>
 <p>There are three simple mkdoc commands we use.</p>
 <h3 id="local-build">Local Build</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>build
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>build
+</code></pre></div>
 <p>This builds your website in a folder called <code>site</code>.  Use
 this to test that the mkdocs.yml site is working and does not
 have any errors.</p>
 <h3 id="run-a-local-server">Run a Local Server</h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdocs<span class="w"> </span>serve
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve
+</code></pre></div>
 <p>This runs a server on <code>http://localhost:8000</code>.
 Use this to test the display formatting locally
 before you push your code up to the GitHub repo.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>mkdoc<span class="w"> </span>gh-deploy
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>mkdoc<span class="w"> </span>gh-deploy
+</code></pre></div>
 <p>This pushes everything up to the GitHub Pages site.
 Note that it does not commit your code to GitHub.</p>
 <h2 id="enable-edit-icon">Enable Edit Icon</h2>
 <p>To enable the Edit icon on all pages, you must add
 the edit_uri and the content.action.edit under the theme features area.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">edit_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edit/master/docs/</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="nt">theme</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">edit_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edit/master/docs/</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">theme</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">features</span><span class="p">:</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content.action.edit</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 <p>See the <a href="https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/?h=edit#code-actions">Mkdocs Material</a> documentation.</p>
 <h2 id="github-action-to-deploy-after-edit">GitHub Action to Deploy After Edit</h2>
 <p>We want to allow non-technical staff to click the "Edit" button on
@@ -1448,11 +1387,11 @@ is a work in progress!</p>
 <li>Even after <code>brew</code> installs the libraries, you have to get your environment to find the libraries.  The only way I could get that to work was to set up a local UNIX environment variable.</li>
 </ol>
 <p>Here is the brew command that I ran:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>cairo<span class="w"> </span>freetype<span class="w"> </span>libffi<span class="w"> </span>libjpeg<span class="w"> </span>libpng<span class="w"> </span>zlib
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>cairo<span class="w"> </span>freetype<span class="w"> </span>libffi<span class="w"> </span>libjpeg<span class="w"> </span>libpng<span class="w"> </span>zlib
+</code></pre></div>
 <p>I then had to add the following to my ~/.zshrc file:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DYLD_FALLBACK_LIBRARY_PATH</span><span class="o">=</span>/opt/homebrew/lib
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DYLD_FALLBACK_LIBRARY_PATH</span><span class="o">=</span>/opt/homebrew/lib
+</code></pre></div>
 <p>Note that I am running on a Mac with Apple silicon.  This means that the
 image libraries that brew downloads must be specific to the Mac Arm
 instruction set.</p>
@@ -1542,6 +1481,8 @@ instruction set.</p>
     
     
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../js/extra.js"></script>
       
     
   </body>

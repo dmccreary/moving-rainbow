@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../css/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1332,57 +1334,6 @@
   
   
   
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../sims/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    MicroSims
-    
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../challenges/" class="md-nav__link">
         
@@ -1550,25 +1501,9 @@
 <p>We can dim a single LED by using PWM or we can dim a NeoPixel by sending it a value from 0 to 255 for the brightness.</p>
 <p><img alt="Bad Dimmer" src="../../img/bad-dimmer.png" /></p>
 <p><img alt="Good Dimmer" src="../../img/good-dimmer.png" /></p>
-<p>https://docs.micropython.org/en/latest/pyboard/tutorial/fading_led.html</p>
+<p><a href="https://docs.micropython.org/en/latest/pyboard/tutorial/fading_led.html">https://docs.micropython.org/en/latest/pyboard/tutorial/fading_led.html</a></p>
 <h2 id="gamma-correction-table">Gamma Correction Table</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">gamma8</span><span class="o">=</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="n">gamma8</span><span class="o">=</span> <span class="p">[</span>
     <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>
     <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>
     <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>
@@ -1585,15 +1520,12 @@
   <span class="mi">144</span><span class="p">,</span><span class="mi">146</span><span class="p">,</span><span class="mi">148</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">152</span><span class="p">,</span><span class="mi">154</span><span class="p">,</span><span class="mi">156</span><span class="p">,</span><span class="mi">158</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">162</span><span class="p">,</span><span class="mi">164</span><span class="p">,</span><span class="mi">167</span><span class="p">,</span><span class="mi">169</span><span class="p">,</span><span class="mi">171</span><span class="p">,</span><span class="mi">173</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span>
   <span class="mi">177</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mi">182</span><span class="p">,</span><span class="mi">184</span><span class="p">,</span><span class="mi">186</span><span class="p">,</span><span class="mi">189</span><span class="p">,</span><span class="mi">191</span><span class="p">,</span><span class="mi">193</span><span class="p">,</span><span class="mi">196</span><span class="p">,</span><span class="mi">198</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">203</span><span class="p">,</span><span class="mi">205</span><span class="p">,</span><span class="mi">208</span><span class="p">,</span><span class="mi">210</span><span class="p">,</span><span class="mi">213</span><span class="p">,</span>
   <span class="mi">215</span><span class="p">,</span><span class="mi">218</span><span class="p">,</span><span class="mi">220</span><span class="p">,</span><span class="mi">223</span><span class="p">,</span><span class="mi">225</span><span class="p">,</span><span class="mi">228</span><span class="p">,</span><span class="mi">231</span><span class="p">,</span><span class="mi">233</span><span class="p">,</span><span class="mi">236</span><span class="p">,</span><span class="mi">239</span><span class="p">,</span><span class="mi">241</span><span class="p">,</span><span class="mi">244</span><span class="p">,</span><span class="mi">247</span><span class="p">,</span><span class="mi">249</span><span class="p">,</span><span class="mi">252</span><span class="p">,</span><span class="mi">255</span><span class="p">]</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">## Gamma Correction Function</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">## Gamma Correction Function</span>
 <span class="c1"># input is an integer from 0 to 255</span>
 <span class="k">def</span> <span class="nf">gamma8</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">gamma8</span><span class="p">[</span><span class="nb">input</span><span class="p">]</span>
-</code></pre></div></td></tr></table></div>
+</code></pre></div>
 
 
 
@@ -1690,6 +1622,8 @@
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
       
     
   </body>
