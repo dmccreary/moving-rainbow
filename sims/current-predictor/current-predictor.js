@@ -103,8 +103,31 @@ function draw() {
 }
 
 // Calculate current using inverse relationship: I = a/R + b
-function calculateCurrent(resistance) {
+function calculateCurrentv1(resistance) {
   return a / resistance + b;
+}
+
+// Power Law coefficients for resistance ≤ 30KΩ
+let a_low = 517.7487;    // amplitude coefficient
+let b_low = 0.713491;    // power exponent (note: used as positive in Math.pow with negative sign)
+let c_low = -24.3330;    // offset constant
+
+// Inverse formula coefficients for resistance > 30KΩ
+let a_high = 700  // coefficient of 1/R
+let b_high = -3;    // constant term
+
+// Threshold resistance value in KΩ
+let threshold_resistance = 30.0;
+function calculateCurrent(resistance) {
+  if (resistance <= threshold_resistance) {
+    // Low resistance region: Power Law formula
+    // I = a_low * R^(-b_low) + c_low
+    return a_low * Math.pow(resistance, -b_low) + c_low;
+  } else {
+    // High resistance region: Inverse formula
+    // I = a_high / R + b_high
+    return a_high / resistance + b_high;
+  }
 }
 
 function drawChart() {
