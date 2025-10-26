@@ -45,6 +45,7 @@ nav:
     - Theater Chase: lessons/17-theater-chase.md
     - Clock: lessons/20-clock.md
     - How NeoPixels Work: lessons/40-how-neopixels-work.md
+    - Photo Resistor: lessons/21-photo-resistor.md
   
   - LED Noodles:
     - Introduction: led-noodles/index.md
@@ -73,6 +74,7 @@ nav:
       - kits/solar-powered-led-nightlight/how-it-works.md
       - kits/solar-powered-led-nightlight/microsim.md
       - kits/solar-powered-led-nightlight/prompt.md
+    
     - Holiday Hats:
       - Intro: holidays/index.md
       - 4th of July: holidays/4th-of-july.md
@@ -110,6 +112,7 @@ nav:
     - Generate Skill: prompts/generate-skill.md
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
+  - License: license.md
   - Glossary: glossary.md
   - Resources: resources.md
   - How we built this site: how-we-built-this-site.md
