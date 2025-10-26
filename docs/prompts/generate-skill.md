@@ -9,8 +9,11 @@
     Use the default Raspberry Pi Pico hardware with a 30 pixel NeoPixel LED strip with two buttons.  
     
     Use the following for the content of the 
-    config.py file: 
+    `config.py` file:
+
+    ```python
     NEOPIXEL_PIN = 0
     NUMBER_PIXELS = 30
     BUTTON_PIN_1 = 14
     BUTTON_PIN_2 = 15
+    ```
