@@ -5,10 +5,13 @@
 // Canvas dimensions
 let canvasWidth = 800;
 let containerWidth = 800;
-let containerHeight = 602;
+
 const drawHeight = 400;
-const controlHeight = 200;
+const controlHeight = 130;
 const canvasHeight = drawHeight + controlHeight;
+let sliderLeftMargin = 250;
+let containerHeight = canvasHeight;
+let margin = 30;
 
 // Battery specifications (mAh)
 const batteryTypes = [
@@ -22,7 +25,7 @@ const batteryTypes = [
 ];
 
 // LED noodle parameters
-const CURRENT_PER_NOODLE_MAX = 100; // mA at full brightness
+const CURRENT_PER_NOODLE_MAX = 100; // 100 mA at full brightness, 50 mA at 50% brightness
 
 // UI controls
 let noodleSlider;
@@ -33,19 +36,6 @@ let batterySelect;
 let noodleLabel, brightnessLabel, batteryLabel;
 let noodleValue, brightnessValue;
 
-// Slider positioning
-let sliderLeftMargin = 220;
-
-function updateCanvasSize() {
-  const main = document.querySelector('main');
-  if (main) {
-    containerWidth = main.offsetWidth || 800;
-  } else {
-    containerWidth = 800;
-  }
-  containerHeight = drawHeight + controlHeight + 2;
-  canvasWidth = containerWidth;
-}
 
 function setup() {
   // Create a canvas to match the parent container's size
@@ -86,7 +76,7 @@ function setup() {
 
   noodleSlider = createSlider(1, 20, 5, 1);
   noodleSlider.position(sliderLeftMargin, controlY);
-  noodleSlider.style('width', (canvasWidth - sliderLeftMargin - 20) + 'px');
+  noodleSlider.size(canvasWidth - sliderLeftMargin - 20);
 
   controlY += 40;
 
@@ -103,10 +93,11 @@ function setup() {
 
   brightnessSlider = createSlider(10, 100, 50, 5);
   brightnessSlider.position(sliderLeftMargin, controlY);
-  brightnessSlider.style('width', (canvasWidth - sliderLeftMargin - 20) + 'px');
+  brightnessSlider.size(canvasWidth - sliderLeftMargin - 20);
 }
 
 function draw() {
+  updateCanvasSize();
   // Update slider values
   noodleValue.html(noodleSlider.value());
   brightnessValue.html(brightnessSlider.value());
@@ -120,42 +111,52 @@ function draw() {
   let batteryLife = selectedBattery.capacity / totalCurrent;
 
   // Draw background regions
+
+  // Drawing region lis a light blue
   fill('aliceblue');
-  noStroke();
+  stroke('silver');
   rect(0, 0, canvasWidth, drawHeight);
 
   fill('white');
   rect(0, drawHeight, canvasWidth, controlHeight);
 
-  stroke('silver');
-  strokeWeight(2);
-  line(0, drawHeight, canvasWidth, drawHeight);
-
-  // Draw battery visualization
-  drawBattery(selectedBattery, batteryLife, 50, 30);
-
-  // Draw LED noodles
-  drawNoodles(numNoodles, brightnessFactor, canvasWidth - 300, 50);
-
-  // Display calculations
+  // Draw title centered at top
   fill('black');
   noStroke();
-  textAlign(LEFT);
-  textSize(18);
-  text('Battery Calculations:', 50, drawHeight - 140);
-
-  textSize(16);
-  text(`Battery Capacity: ${selectedBattery.capacity.toLocaleString()} mAh`, 50, drawHeight - 110);
-  text(`Current per Noodle: ${CURRENT_PER_NOODLE_MAX} mA (max)`, 50, drawHeight - 85);
-  text(`Brightness Factor: ${brightnessFactor.toFixed(2)}`, 50, drawHeight - 60);
-  text(`Total Current Draw: ${totalCurrent.toFixed(1)} mA`, 50, drawHeight - 35);
-
-  // Display result prominently
-  fill('darkgreen');
-  textSize(20);
-  textStyle(BOLD);
-  text(`Estimated Battery Life: ${batteryLife.toFixed(2)} hours`, 50, drawHeight - 5);
+  textAlign(CENTER, TOP);
+  textSize(28);
+  text('LED Noodle Costume Battery Life Calculator', canvasWidth / 2, margin);
   textStyle(NORMAL);
+
+  // Draw battery visualization. at (x,y)
+  drawBattery(selectedBattery, batteryLife, 50, 80);
+
+  // Draw LED noodles
+  drawNoodles(numNoodles, brightnessFactor, canvasWidth - 300, 80);
+
+  // Display calculations
+  push();
+    // adjust the positioning of the text block here
+    translate(-20, -40);
+    fill('black');
+    noStroke();
+    textAlign(LEFT);
+    textSize(18);
+    text('Battery Calculations:', 50, drawHeight - 140);
+
+    textSize(16);
+    text(`Battery Capacity: ${selectedBattery.capacity.toLocaleString()} mAh`, 50, drawHeight - 110);
+    text(`Current per Noodle: ${CURRENT_PER_NOODLE_MAX*brightnessFactor} mA (max=100ma)`, 50, drawHeight - 85);
+    text(`Brightness Factor: ${brightnessFactor.toFixed(2)}`, 50, drawHeight - 60);
+    text(`Total Current Draw: ${totalCurrent.toFixed(1)} mA`, 50, drawHeight - 35);
+
+    // Display result prominently
+    fill('darkgreen');
+    textSize(20);
+    textStyle(BOLD);
+    text(`Estimated Battery Life: ${batteryLife.toFixed(2)} hours`, 50, drawHeight - 5);
+    textStyle(NORMAL);
+  pop();
 }
 
 function drawBattery(battery, hoursRemaining, x, y) {
@@ -214,6 +215,8 @@ function drawNoodles(count, brightness, x, y) {
   let spacing = 20;
 
   // Calculate grid layout
+  // Move grid down a bit
+
   let cols = min(count, 5);
   let rows = ceil(count / cols);
 
@@ -222,7 +225,8 @@ function drawNoodles(count, brightness, x, y) {
     let row = floor(i / cols);
 
     let nx = x + col * spacing;
-    let ny = y + row * (noodleHeight / rows + 10);
+    // 20 is the y for the LEDs
+    let ny = y + 20 + row * (noodleHeight / rows + 10);
     let nh = noodleHeight / rows - 5;
 
     // Draw noodle glow
@@ -254,4 +258,16 @@ function windowResized() {
   // Resize sliders
   noodleSlider.style('width', (canvasWidth - sliderLeftMargin - 20) + 'px');
   brightnessSlider.style('width', (canvasWidth - sliderLeftMargin - 20) + 'px');
+}
+
+
+function updateCanvasSize() {
+  const main = document.querySelector('main');
+  if (main) {
+    containerWidth = main.offsetWidth || 800;
+  } else {
+    containerWidth = 800;
+  }
+  containerHeight = drawHeight + controlHeight + 2;
+  canvasWidth = containerWidth;
 }
