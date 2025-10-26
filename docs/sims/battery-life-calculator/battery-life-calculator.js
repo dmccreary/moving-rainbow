@@ -165,7 +165,7 @@ function drawBattery(battery, hoursRemaining, x, y) {
   let batteryHeight = 60;
 
     push();
-     translate(10,0);
+     translate(100,0);
       // Battery body
       stroke('black');
       strokeWeight(3);
