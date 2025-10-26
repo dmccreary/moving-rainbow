@@ -11,7 +11,7 @@
 .admonition.prompt {
     background-color: #f4f8ff; /* Light blue background */
     border-left: 5px solid #0056d6; /* Blue border */
-    font-family: Arial, Helvetica, sans-serif/* Monospace font for prompts */
+    font-family: Arial, Helvetica, sans-serif; /* Monospace font for prompts */
     padding: 1rem;
 }
 

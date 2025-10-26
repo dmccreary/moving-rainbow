@@ -1,6 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
+// Function to add copy buttons to prompt admonitions
+function addCopyButtonsToPrompts() {
     // Find all admonitions with the "prompt" class
     document.querySelectorAll(".admonition.prompt").forEach((admonition) => {
+        // Skip if button already added
+        if (admonition.querySelector(".copy-button")) {
+            return;
+        }
+
         // Create a "Copy" button
         const copyButton = document.createElement("button");
         copyButton.textContent = "Copy";
@@ -33,4 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-});
+}
+
+// Run on DOMContentLoaded
+document.addEventListener("DOMContentLoaded", addCopyButtonsToPrompts);
+
+// Also run after navigation for Material theme's instant loading
+if (typeof document$ !== "undefined") {
+    document$.subscribe(addCopyButtonsToPrompts);
+}
