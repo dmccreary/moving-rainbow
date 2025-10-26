@@ -1,0 +1,218 @@
+{
+  "title": "Battery Life Calculator for LED Noodle Costumes",
+  "creator": "Moving Rainbow Project",
+  "subject": "Electronics, Mathematics, Physics",
+  "description": "Interactive simulation for calculating battery life of LED noodle costumes based on number of LEDs, brightness level, and battery type. Students learn to apply mathematical formulas to real-world engineering problems.",
+  "date": "2025-10-26",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "Creative Commons Attribution 4.0 International",
+
+  "educational": {
+    "gradeLevel": ["6", "7", "8", "9", "10", "11", "12"],
+    "subject": "STEM",
+    "topic": "Battery Life Calculation, Power Consumption, LED Electronics",
+    "learningObjectives": [
+      "Apply the battery life formula to calculate runtime",
+      "Analyze the relationship between current draw and battery capacity",
+      "Evaluate trade-offs between brightness, LED count, and battery life",
+      "Compare different battery options for specific design requirements"
+    ],
+    "bloomLevels": ["Apply", "Analyze", "Evaluate"],
+    "duration": "10-20 minutes",
+    "prerequisites": [
+      "Basic multiplication and division",
+      "Understanding of ratios and proportions",
+      "Familiarity with LED basics"
+    ]
+  },
+
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.10",
+    "canvasWidth": 800,
+    "drawHeight": 400,
+    "controlHeight": 200,
+    "responsive": true,
+    "dependencies": ["p5.js"],
+    "accessibility": {
+      "description": "Interactive battery life calculator with descriptive labels and high contrast visualization",
+      "keyboardNavigable": true,
+      "screenReaderCompatible": true
+    }
+  },
+
+  "ui": {
+    "controls": [
+      {
+        "type": "select",
+        "name": "batteryType",
+        "label": "Battery Type",
+        "options": [
+          "AA Battery (single)",
+          "AA Battery (2x)",
+          "AA Battery (4x)",
+          "9V Battery",
+          "USB Power Pack (small)",
+          "USB Power Pack (medium)",
+          "USB Power Pack (large)"
+        ],
+        "default": "USB Power Pack (small)"
+      },
+      {
+        "type": "slider",
+        "name": "numberOfNoodles",
+        "label": "Number of Noodles",
+        "min": 1,
+        "max": 20,
+        "default": 5,
+        "step": 1
+      },
+      {
+        "type": "slider",
+        "name": "brightness",
+        "label": "Brightness (%)",
+        "min": 10,
+        "max": 100,
+        "default": 50,
+        "step": 5
+      }
+    ],
+    "outputs": [
+      {
+        "name": "batteryCapacity",
+        "label": "Battery Capacity (mAh)",
+        "description": "Total capacity of selected battery"
+      },
+      {
+        "name": "currentDraw",
+        "label": "Total Current Draw (mA)",
+        "description": "Calculated current consumption"
+      },
+      {
+        "name": "batteryLife",
+        "label": "Estimated Battery Life (hours)",
+        "description": "Calculated runtime based on formula"
+      }
+    ]
+  },
+
+  "model": {
+    "type": "Mathematical Formula",
+    "name": "Battery Life Calculation",
+    "variables": [
+      {
+        "name": "batteryCapacity",
+        "symbol": "C",
+        "unit": "mAh",
+        "description": "Battery capacity in milliamp-hours"
+      },
+      {
+        "name": "currentPerNoodle",
+        "symbol": "I_n",
+        "unit": "mA",
+        "value": 100,
+        "description": "Maximum current draw per LED noodle"
+      },
+      {
+        "name": "numberOfNoodles",
+        "symbol": "N",
+        "unit": "count",
+        "description": "Number of LED noodles in the costume"
+      },
+      {
+        "name": "brightnessFactor",
+        "symbol": "B",
+        "unit": "fraction",
+        "range": [0.1, 1.0],
+        "description": "Brightness level as a fraction of maximum"
+      },
+      {
+        "name": "totalCurrent",
+        "symbol": "I_total",
+        "unit": "mA",
+        "description": "Total current draw of all noodles"
+      },
+      {
+        "name": "batteryLife",
+        "symbol": "T",
+        "unit": "hours",
+        "description": "Estimated battery runtime"
+      }
+    ],
+    "equations": [
+      {
+        "name": "Total Current Draw",
+        "formula": "I_total = N × I_n × B",
+        "description": "Calculate total current consumption based on number of noodles and brightness"
+      },
+      {
+        "name": "Battery Life",
+        "formula": "T = C ÷ I_total",
+        "description": "Calculate estimated battery runtime in hours"
+      }
+    ],
+    "assumptions": [
+      "Linear relationship between brightness and current draw",
+      "Constant current draw during operation",
+      "Ideal battery performance (no degradation)",
+      "Room temperature operation",
+      "All noodles operate at same brightness level"
+    ],
+    "limitations": [
+      "Does not account for battery discharge curves",
+      "Does not include conversion efficiency losses",
+      "Real-world variation ±20% expected",
+      "Temperature effects not modeled",
+      "Battery age and quality variations not considered"
+    ]
+  },
+
+  "pedagogy": {
+    "approach": "Guided Discovery",
+    "interactionPattern": "Parameter Exploration",
+    "feedbackType": "Immediate Visual and Numerical",
+    "scaffolding": [
+      "Start with default values to show basic calculation",
+      "Adjust one parameter at a time to see individual effects",
+      "Compare multiple scenarios to understand trade-offs",
+      "Apply to real-world design challenges"
+    ],
+    "assessmentOpportunities": [
+      "Predict outcomes before adjusting parameters",
+      "Solve for required parameters given constraints",
+      "Optimize designs for specific requirements",
+      "Explain relationships between variables"
+    ]
+  },
+
+  "relatedResources": [
+    {
+      "title": "LED Noodle Basics",
+      "type": "Documentation",
+      "url": "../led-noodles/"
+    },
+    {
+      "title": "Battery Types and Specifications",
+      "type": "Reference Material"
+    },
+    {
+      "title": "Power Consumption in LED Systems",
+      "type": "Technical Guide"
+    }
+  ],
+
+  "tags": [
+    "battery",
+    "LED",
+    "power",
+    "calculation",
+    "electronics",
+    "STEM",
+    "mathematics",
+    "engineering",
+    "costume",
+    "wearables"
+  ]
+}
