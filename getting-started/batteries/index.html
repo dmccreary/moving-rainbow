@@ -484,6 +484,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#types-of-batteries" class="md-nav__link">
     <span class="md-ellipsis">
       Types of Batteries
@@ -492,6 +501,24 @@
   
     <nav class="md-nav" aria-label="Types of Batteries">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coin-cell-batteries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coin Cell Batteries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flat-lipo-batteries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flat LiPo Batteries
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#aa-and-aaa-batteries" class="md-nav__link">
@@ -524,6 +551,39 @@
   <a href="#9-volt-batteries" class="md-nav__link">
     <span class="md-ellipsis">
       9-Volt Batteries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18650-cells" class="md-nav__link">
+    <span class="md-ellipsis">
+      18650 Cells
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison Table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-selection-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Selection Guide
     </span>
   </a>
   
@@ -1419,6 +1479,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#types-of-batteries" class="md-nav__link">
     <span class="md-ellipsis">
       Types of Batteries
@@ -1427,6 +1496,24 @@
   
     <nav class="md-nav" aria-label="Types of Batteries">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coin-cell-batteries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coin Cell Batteries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flat-lipo-batteries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flat LiPo Batteries
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#aa-and-aaa-batteries" class="md-nav__link">
@@ -1459,6 +1546,39 @@
   <a href="#9-volt-batteries" class="md-nav__link">
     <span class="md-ellipsis">
       9-Volt Batteries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18650-cells" class="md-nav__link">
+    <span class="md-ellipsis">
+      18650 Cells
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison Table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-selection-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Selection Guide
     </span>
   </a>
   
@@ -1664,11 +1784,289 @@
 
 
 <h1 id="batteries-for-potable-led-costumes">Batteries for Potable LED Costumes</h1>
+<p>Although we start teaching how to program LED strips using a USB power source,
+after you master a few patterns it is time to go portable!  This
+guide will help you understand the tradeoffs of using different types
+of batteries on your projects.</p>
+<h2 id="terminology">Terminology</h2>
+<p>When we compare batteries, one of the first concepts to understand is how much energy a battery can hold.
+In this section we will use the concept of <a href="../../glossary/#milliamp-hours">milliamp hours</a> or mAh.  Although you don't
+need to know the details now, you should know that the bigger the number, the longer the battery will
+last.  A battery that stores 250 mAh is a small battery and will run out of power quickly.<br />
+A battery pack that stores 10,000 mAh will power a large set of LED lights for many hours.</p>
 <h2 id="types-of-batteries">Types of Batteries</h2>
+<p><img alt="" src="../../img/battery-collection.jpg" /></p>
+<p>In this section we will learn about the seven major types of batteries we use to power our LED creations.</p>
+<p>Here are the types:</p>
+<ol>
+<li>Coin cell batteries (CR2052)</li>
+<li>Flat LiPo batteries</li>
+<li>AA AAA alkaline batters</li>
+<li>9-volt batteries</li>
+<li>Large LiPo Batteries in 18650 cells</li>
+<li>USB Battery Packs (various sizes)</li>
+</ol>
+<h3 id="coin-cell-batteries">Coin Cell Batteries</h3>
+<p>Coin cell batteries (like the CR2032) are small, round, flat batteries about the size of a nickel or quarter. They look like silver coins, which is how they got their name. These batteries are commonly found in watches, calculators, and small LED decorations.</p>
+<p><strong>Key Features:</strong>
+- <strong>Capacity:</strong> Very small, typically 200-250 mAh
+- <strong>Voltage:</strong> 3 volts
+- <strong>Size:</strong> About 20mm diameter, very thin
+- <strong>Cost:</strong> $1-2 each</p>
+<p><strong>When to Use Them:</strong>
+Coin cell batteries work well for very small LED projects with just 1-3 LED noodles or a single NeoPixel that you want to run for a few hours. They're great for simple blinking badges or small decorations where you need something tiny and lightweight.</p>
+<p><strong>Limitations:</strong>
+- Not rechargeable - you throw them away when they're dead
+- Very limited power - can only light a few small LEDs
+- Only last 2-4 hours with LEDs running
+- Can't handle high-power LED strips</p>
+<p><strong>Safety:</strong> These batteries are relatively safe, but keep them away from small children who might swallow them.</p>
+<h3 id="flat-lipo-batteries">Flat LiPo Batteries</h3>
+<p><img alt="" src="../../img/lipo-battery-flat-1500-mah.png" />
+This image shows a rechargeable LiPo battery that holds about 1,500 milliamp hours.</p>
 <h3 id="aa-and-aaa-batteries">AA and AAA Batteries</h3>
+<p><img alt="" src="../../img/3-aa-battery-pack.png" /></p>
+<p>AA and AAA batteries are the most common batteries you'll find at any store. They're the cylindrical batteries used in TV remotes, flashlights, and toys. AA batteries are larger than AAA batteries, so they hold more energy.</p>
+<p><strong>Key Features:</strong>
+- <strong>Capacity:</strong>
+  - AA: 2000-3000 mAh
+  - AAA: 800-1200 mAh
+- <strong>Voltage:</strong> 1.5 volts each (use 3 together for 4.5V to power 5V projects)
+- <strong>Cost:</strong> $0.50-2 per battery depending on type</p>
+<p><strong>When to Use Them:</strong>
+AA and AAA batteries are excellent for LED costumes because:
+- Easy to find at any store
+- Safe for kids to handle
+- Battery packs are inexpensive (3-AA holders cost about $1)
+- Can power medium-sized LED strips for several hours
+- Available in rechargeable versions (NiMH)</p>
+<p><strong>Battery Pack Configuration:</strong>
+To power a 5-volt LED strip, use <strong>three AA batteries in a holder</strong>. Three batteries × 1.5V = 4.5V, which is close enough to 5V to work perfectly with NeoPixel strips.</p>
+<p><strong>Limitations:</strong>
+- Bulkier and heavier than flat LiPo batteries
+- Battery holders can be awkward to attach to costumes
+- Non-rechargeable alkaline batteries create waste
+- Voltage drops as they drain (projects may get dimmer over time)</p>
+<p><strong>Safety:</strong> Very safe - the most beginner-friendly battery option.</p>
 <h3 id="usb-power-packs">USB Power Packs</h3>
+<p><img alt="USB Power Pack" src="../img/usb-power-pack.jpg" width="300" /></p>
+<p>USB power packs (also called portable chargers or power banks) are the rechargeable battery packs used to charge phones on the go. They have USB ports that output 5 volts - perfect for LED projects!</p>
+<p><strong>Key Features:</strong>
+- <strong>Capacity:</strong> Varies widely from 2,000 mAh (small) to 20,000+ mAh (large)
+- <strong>Voltage:</strong> 5 volts (exactly what NeoPixels need!)
+- <strong>Weight:</strong> Ranges from 2 oz (small) to 12 oz (large)
+- <strong>Cost:</strong> $10-30 depending on capacity</p>
+<p><strong>When to Use Them:</strong>
+USB power packs are ideal for larger LED projects:
+- Perfect for 30-144 pixel LED strips
+- Can power your project for many hours (even all night)
+- Rechargeable via any USB charger
+- Easy to connect with a USB cable
+- Built-in safety circuits prevent overcharging and short circuits</p>
+<p><strong>Choosing the Right Size:</strong>
+- <strong>Small (5,000 mAh):</strong> Powers 30 LEDs for 4-6 hours
+- <strong>Medium (10,000 mAh):</strong> Powers 60 LEDs for 6-8 hours
+- <strong>Large (20,000 mAh):</strong> Powers 144 LEDs all night long</p>
+<p><strong>Limitations:</strong>
+- Heavier than other options (can feel heavy in pockets)
+- More expensive initially (but saves money over time)
+- Size can be bulky for small costumes
+- Some auto-shutoff if current draw is too low</p>
+<p><strong>Safety:</strong> Very safe - includes multiple protection circuits. Great for beginners and advanced users.</p>
 <h3 id="lipo-batteries">LiPo Batteries</h3>
+<p><img alt="" src="../../img/lipo-battery.jpg" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>LiPo batteries are much more dangerous than traditional alkaline batteries. If not
+handled properly they may catch on fire. Although LiPo batteries
+can hold far more power, they should not be used with small children without adult supervision.</p>
+</div>
+<p>LiPo (Lithium Polymer) batteries are rechargeable flat batteries commonly used in drones, RC cars, and professional electronics. They pack a lot of energy into a thin, lightweight package.</p>
+<p><strong>Key Features:</strong>
+- <strong>Capacity:</strong> Typically 500-2000 mAh for costume use
+- <strong>Voltage:</strong> 3.7 volts (one cell)
+- <strong>Weight:</strong> Very light - much lighter than AA batteries for the same capacity
+- <strong>Cost:</strong> $5-15 depending on capacity
+- <strong>Shape:</strong> Flat rectangular pouches that fit nicely in costumes</p>
+<p><strong>When to Use Them:</strong>
+LiPo batteries are excellent when you need:
+- Lightweight power for wearable projects
+- Thin profile to hide in costume seams
+- Good capacity without bulk
+- Professional-looking installations</p>
+<p><strong>Important Safety Rules:</strong></p>
+<ol>
+<li><strong>Never puncture or cut</strong> a LiPo battery - it can catch fire</li>
+<li><strong>Don't overcharge</strong> - use proper LiPo chargers only (see charging section below)</li>
+<li><strong>Don't over-discharge</strong> - never drain below 3.0V per cell</li>
+<li><strong>Watch for puffing</strong> - if battery swells up, stop using immediately</li>
+<li><strong>Store safely</strong> - keep at room temperature, away from metal objects</li>
+<li><strong>Use protection circuits</strong> - always use a charging/protection board</li>
+</ol>
+<p><strong>Limitations:</strong>
+- Requires special handling and charging circuits
+- Can be dangerous if mishandled
+- Need protection circuits to prevent damage
+- More expensive than alkaline batteries
+- Require adult supervision for young students</p>
+<p><strong>Safety:</strong> Medium to high risk - requires knowledge and care. Only use with adult supervision and proper charging equipment.</p>
 <h3 id="9-volt-batteries">9-Volt Batteries</h3>
+<p>9-volt batteries are rectangular batteries with two snap connectors on top. You'll recognize them from smoke detectors and guitar effects pedals.</p>
+<p><strong>Key Features:</strong>
+- <strong>Capacity:</strong> 400-600 mAh (relatively small)
+- <strong>Voltage:</strong> 9 volts (too high for NeoPixels without a voltage regulator)
+- <strong>Size:</strong> Small rectangular shape
+- <strong>Cost:</strong> $3-5 per battery</p>
+<p><strong>When to Use Them:</strong>
+9-volt batteries are not ideal for LED strips because:
+- The 9V output is too high - you need a voltage regulator to step down to 5V
+- Relatively low capacity means short run time
+- More expensive per mAh than other options
+- Not commonly used in modern LED projects</p>
+<p><strong>Better Alternatives:</strong>
+Instead of 9V batteries, consider:
+- Three AA batteries (4.5V, much higher capacity)
+- USB power packs (5V, rechargeable)
+- LiPo batteries with proper circuits (3.7V, lightweight)</p>
+<p><strong>Limitations:</strong>
+- Requires voltage regulator (adds cost and complexity)
+- Poor capacity compared to alternatives
+- Inefficient for LED applications
+- Battery snaps can come loose easily</p>
+<p><strong>When They Make Sense:</strong>
+The only time to use a 9V battery is if you already have one and need a quick temporary test. For any real project, choose a different battery type.</p>
+<p><strong>Safety:</strong> Safe to handle like AA batteries.</p>
+<h3 id="18650-cells">18650 Cells</h3>
+<p>18650 cells are cylindrical rechargeable lithium batteries that look like oversized AA batteries. The name "18650" comes from their size: 18mm diameter and 65mm long. These are the same batteries used in laptop battery packs and electric cars.</p>
+<p><strong>Key Features:</strong>
+- <strong>Capacity:</strong> 2000-3500 mAh per cell
+- <strong>Voltage:</strong> 3.7 volts per cell
+- <strong>Size:</strong> About the size of two AA batteries
+- <strong>Cost:</strong> $5-10 per cell
+- <strong>Lifespan:</strong> Can be recharged 500-1000 times</p>
+<p><strong>When to Use Them:</strong>
+18650 cells are great for advanced projects:
+- Very high capacity in a small size
+- Excellent for projects needing long runtime
+- Used in multi-cell packs (2S = 7.4V, 3S = 11.1V)
+- Professional-grade power solution
+- Can handle high current draw</p>
+<p><strong>Important Notes:</strong>
+- Must be purchased with <strong>protection circuits</strong> built in
+- Need a special charger or charging module
+- Multiple cells should be matched (same capacity and age)
+- Require battery holders or spot-welding to connect</p>
+<p><strong>Safety Considerations:</strong>
+- Similar safety concerns to LiPo batteries
+- Must use cells with protection circuits
+- Never use damaged cells
+- Requires proper charging equipment
+- Adult supervision recommended</p>
+<p><strong>Limitations:</strong>
+- More advanced option requiring electronics knowledge
+- Need special chargers or charging circuits
+- Cylindrical shape harder to hide in costumes
+- Requires proper battery holders
+- Can be dangerous if not handled properly</p>
+<p><strong>When They Make Sense:</strong>
+Use 18650 cells for:
+- High-power LED installations
+- Long-runtime projects (all-night events)
+- Projects where you're already using them (existing battery packs)
+- When you need maximum capacity in a small space</p>
+<p><strong>Safety:</strong> Medium to high risk - similar to LiPo batteries. Requires knowledge and adult supervision.</p>
+<h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Battery Type</th>
+<th>Capacity (mAh)</th>
+<th>Voltage</th>
+<th>Rechargeable</th>
+<th>Danger Level</th>
+<th>Best For</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Coin Cell (CR2032)</strong></td>
+<td>200-250</td>
+<td>3V</td>
+<td>No</td>
+<td>Low</td>
+<td>Tiny 1-3 LED projects, badges</td>
+<td>$1-2 each</td>
+</tr>
+<tr>
+<td><strong>AA Batteries (3×)</strong></td>
+<td>2000-3000</td>
+<td>4.5V</td>
+<td>Optional*</td>
+<td>Low</td>
+<td>Beginner costumes, medium LED strips</td>
+<td>$1.50-6 for 3</td>
+</tr>
+<tr>
+<td><strong>AAA Batteries (3×)</strong></td>
+<td>800-1200</td>
+<td>4.5V</td>
+<td>Optional*</td>
+<td>Low</td>
+<td>Small lightweight projects</td>
+<td>$1-4 for 3</td>
+</tr>
+<tr>
+<td><strong>USB Power Pack</strong></td>
+<td>2000-20000+</td>
+<td>5V</td>
+<td>Yes</td>
+<td>Low</td>
+<td>Large LED strips, all-night events</td>
+<td>$10-30</td>
+</tr>
+<tr>
+<td><strong>Flat LiPo</strong></td>
+<td>500-2000</td>
+<td>3.7V</td>
+<td>Yes</td>
+<td>Medium-High</td>
+<td>Professional wearables, thin profile</td>
+<td>$5-15</td>
+</tr>
+<tr>
+<td><strong>9-Volt</strong></td>
+<td>400-600</td>
+<td>9V**</td>
+<td>Optional*</td>
+<td>Low</td>
+<td>Not recommended for LEDs</td>
+<td>$3-5</td>
+</tr>
+<tr>
+<td><strong>18650 Cells</strong></td>
+<td>2000-3500</td>
+<td>3.7V</td>
+<td>Yes</td>
+<td>Medium-High</td>
+<td>High-power, long-runtime projects</td>
+<td>$5-10 each</td>
+</tr>
+</tbody>
+</table>
+<p>* Rechargeable NiMH versions available
+** Requires voltage regulator for LED use</p>
+<h3 id="quick-selection-guide">Quick Selection Guide</h3>
+<p><strong>For Beginners (Ages 8-12):</strong>
+- Start with <strong>3 AA batteries</strong> - safest and easiest option
+- Upgrade to <strong>USB power pack</strong> when comfortable</p>
+<p><strong>For Intermediate Students (Ages 13+):</strong>
+- Use <strong>USB power packs</strong> for most projects
+- Try <strong>flat LiPo batteries</strong> with adult supervision for wearables</p>
+<p><strong>For Advanced Projects:</strong>
+- <strong>Flat LiPo</strong> with protection circuits for professional wearables
+- <strong>18650 cells</strong> for maximum capacity in compact size
+- Always use proper charging circuits and adult supervision</p>
 <h2 id="battery-life-calculator">Battery Life Calculator</h2>
 <p><a href="../../led-noodles/calculating-battery-life/">Battery Life Calculator</a></p>
 <h2 id="lipo-battery-charging-modules">LiPo Battery Charging Modules</h2>
