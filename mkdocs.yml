@@ -61,6 +61,7 @@ nav:
   - MicroSims:
     - Introduction: sims/index.md
     - Battery Charger: sims/battery-charger/index.md
+    - Battery Life Calculator: sims/battery-life-calculator/index.md
     - Solar Powered LED Nightlight: sims/solar-powered-nightlight/index.md
     - Color Wheel: sims/color-wheel/index.md
     - Learning Graph: sims/learning-graph/index.md
@@ -81,6 +82,7 @@ nav:
       - St. Patrick's Day: holidays/st-patricks-day.md
     - Halloween Patterns:
       - Intro: kits/halloween/index.md
+  
   - Teachers Guide:
     - Introduction: teachers-guide/index.md
     - Computational Thinking: teachers-guide/computational-thinking.md
