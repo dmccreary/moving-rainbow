@@ -1,4 +1,4 @@
-# Glossary of Terms
+# Moving Glossary of Terms
 
 #### Abstraction
 The practice of focusing on essential details while hiding unnecessary complexity.
