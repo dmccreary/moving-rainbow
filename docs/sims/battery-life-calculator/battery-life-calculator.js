@@ -164,45 +164,44 @@ function drawBattery(battery, hoursRemaining, x, y) {
   let batteryWidth = 120;
   let batteryHeight = 60;
 
-  // Battery body
-  stroke('black');
-  strokeWeight(3);
-  fill('white');
-  rect(x, y, batteryWidth, batteryHeight, 5);
+    push();
+     translate(10,0);
+      // Battery body
+      stroke('black');
+      strokeWeight(3);
+      fill('white');
+      rect(x, y, batteryWidth, batteryHeight, 5);
 
-  // Battery terminal
-  fill('gray');
-  rect(x + batteryWidth, y + 15, 10, 30, 0, 5, 5, 0);
+      // Battery terminal
+      fill('gray');
+      rect(x + batteryWidth, y + 15, 10, 30, 0, 5, 5, 0);
 
-  // Battery fill level (based on typical runtime expectations)
-  let maxExpectedHours = 40; // Maximum we expect for visualization
-  let fillLevel = constrain(hoursRemaining / maxExpectedHours, 0, 1);
+      // Battery fill level (based on typical runtime expectations)
+      let maxExpectedHours = 40; // Maximum we expect for visualization
+      let fillLevel = constrain(hoursRemaining / maxExpectedHours, 0, 1);
 
-  // Color code the fill
-  let fillColor;
-  if (fillLevel > 0.5) {
-    fillColor = color(0, 200, 0); // Green
-  } else if (fillLevel > 0.25) {
-    fillColor = color(255, 200, 0); // Yellow
-  } else {
-    fillColor = color(255, 0, 0); // Red
-  }
+      // Color code the fill
+      let fillColor;
+      if (fillLevel > 0.5) {
+        fillColor = color(0, 200, 0); // Green
+      } else if (fillLevel > 0.25) {
+        fillColor = color(255, 200, 0); // Yellow
+      } else {
+        fillColor = color(255, 0, 0); // Red
+      }
+      noStroke();
+      fill(fillColor);
+      let fillWidth = (batteryWidth - 10) * fillLevel;
+      rect(x + 5, y + 5, fillWidth, batteryHeight - 10, 3);
 
-  push();
-    translate(10,0)
-    noStroke();
-    fill(fillColor);
-    let fillWidth = (batteryWidth - 10) * fillLevel;
-    rect(x + 5, y + 5, fillWidth, batteryHeight - 10, 3);
-
-    // Label
-    fill('black');
-    noStroke();
-    textAlign(CENTER);
-    textSize(14);
-    text('Type: ' + battery.name, x + batteryWidth / 2, y + batteryHeight + 10);
-    text(`${battery.capacity} mAh`, x + batteryWidth / 2, y + batteryHeight + 30);
-    text('Percent drain 6 hours: ' + round(fillLevel) , x + batteryWidth / 2, y + batteryHeight + 50);
+      // Label
+      fill('black');
+      noStroke();
+      textAlign(CENTER);
+      textSize(14);
+      text('Type: ' + battery.name, x + batteryWidth / 2, y + batteryHeight + 10);
+      text(`${battery.capacity} mAh`, x + batteryWidth / 2, y + batteryHeight + 30);
+      text('Percent drain 6 hours: ' + round((1-fillLevel)*100,1) +"%" , x + batteryWidth / 2, y + batteryHeight + 50);
   pop();
 }
 
