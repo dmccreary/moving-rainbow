@@ -77,7 +77,8 @@ nav:
       - Intro: holidays/index.md
       - 4th of July: holidays/4th-of-july.md
       - St. Patrick's Day: holidays/st-patricks-day.md
-  
+    - Halloween Patterns:
+      - Intro: kits/halloween/index.md
   - Teachers Guide:
     - Introduction: teachers-guide/index.md
     - Computational Thinking: teachers-guide/computational-thinking.md
