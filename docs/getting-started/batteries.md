@@ -56,6 +56,8 @@ This image shows a rechargeable LiPo battery that holds about 1,500 milliamp hou
 
 ### AA and AAA Batteries
 
+![](../img/AA-three-battery-pack.png)
+
 ![](../img/3-aa-battery-pack.png)
 
 AA and AAA batteries are the most common batteries you'll find at any store. They're the cylindrical batteries used in TV remotes, flashlights, and toys. AA batteries are larger than AAA batteries, so they hold more energy.
@@ -74,6 +76,14 @@ AA and AAA batteries are excellent for LED costumes because:
 - Battery packs are inexpensive (3-AA holders cost about $1)
 - Can power medium-sized LED strips for several hours
 - Available in rechargeable versions (NiMH)
+
+**Testing**
+
+![](../img/AA-battery-tester.png)
+
+Testing AA battery packs is simple.  You can purchase a small battery tester on eBay for a few dollars.
+You can also use a volt-meter to check in the voltage is close to 1.5 volts.  A voltage of under 1.2 volts
+means the battery is low on power.
 
 **Battery Pack Configuration:**
 To power a 5-volt LED strip, use **three AA batteries in a holder**. Three batteries × 1.5V = 4.5V, which is close enough to 5V to work perfectly with NeoPixel strips.
