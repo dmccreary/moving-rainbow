@@ -1,4 +1,4 @@
-# Create Moving Rainbos Skill Prompt
+# Create Moving Rainbow Skill Prompt
 
 !!! prompt
     Using the Anthropic Skill Creator, please create a skill for creating Moving Rainbow
@@ -17,3 +17,7 @@
     BUTTON_PIN_1 = 14
     BUTTON_PIN_2 = 15
     ```
+
+    ## Result
+
+    The skill is in the [/skill/moving-rainbow](https://github.com/dmccreary/moving-rainbow/tree/master/skills/moving-rainbow) area of this GitHub repo.
