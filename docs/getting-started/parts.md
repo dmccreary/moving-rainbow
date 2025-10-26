@@ -1,4 +1,4 @@
-# Purchasing LED Strip Parts
+# Purchasing Moving Rainbow Strip Parts
 
 In many school-based programs and coding clubs, the parts used in these lessons will be purchased for you.  Very often they will be pre-assembled and all the software preloaded before the classes begin.  This guide is for mentors, parents and students who would like to build personal systems at home.
 
@@ -8,13 +8,17 @@ You can easily create personal projects based on the Moving Rainbow kits and sof
 
 Note that the term "WS2812b" is technically the name of the integrated 
 
-If you are a good planner you can purchase parts from China that take longer to arrive, but they can cost significantly less than parts that ship overnight on Amazon.  This guide provides sample links to both eBay and Amazon, but be aware that these sites change frequently.
+If you are a good planner you can purchase parts from China that take longer to arrive, 
+but they can cost significantly less than parts that ship overnight on Amazon.  
+This guide provides sample links to both eBay and Amazon, but be aware that these sites change frequently.
 
 ## WS-2812B LED Strip
 
 ![](../img/3-dollars-per-meter.png)
 
-You can purchase the LED strips for around $3.00 per meter if you shop around on eBay.  The above was from seller [btflightingcom](https://www.ebay.com/usr/btflightingcom?_trksid=p2047675.m3561.l2559).  We use the 60 pixels/meter type without waterproofing for our indoor classes.  People who create costumes use waterproof varieties.
+You can purchase the LED strips for around $3.00 per meter if you shop around on eBay.  
+The above was from seller [btflightingcom](https://www.ebay.com/usr/btflightingcom?_trksid=p2047675.m3561.l2559).  
+We use the 60 pixels/meter type without waterproofing for our indoor classes.  People who create costumes use waterproof varieties.
 
 ## IP Waterproofing Ratings
 
