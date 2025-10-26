@@ -7,7 +7,7 @@ let canvasWidth = 800;
 let containerWidth = 800;
 
 const drawHeight = 400;
-const controlHeight = 130;
+const controlHeight = 140;
 const canvasHeight = drawHeight + controlHeight;
 let sliderLeftMargin = 250;
 let containerHeight = canvasHeight;
@@ -17,6 +17,7 @@ let margin = 30;
 const batteryTypes = [
   { name: "AA Battery (single)", capacity: 2500 },
   { name: "AA Battery (2x)", capacity: 5000 },
+  { name: "AA Battery (3x)", capacity: 7500 },
   { name: "AA Battery (4x)", capacity: 10000 },
   { name: "9V Battery", capacity: 550 },
   { name: "USB Power Pack (small)", capacity: 5000 },
@@ -36,14 +37,13 @@ let batterySelect;
 let noodleLabel, brightnessLabel, batteryLabel;
 let noodleValue, brightnessValue;
 
-
 function setup() {
   // Create a canvas to match the parent container's size
   updateCanvasSize();
   const canvas = createCanvas(containerWidth, containerHeight);
   canvas.parent(document.querySelector('main'));
 
-  describe('Interactive battery life calculator for LED noodle costumes showing battery capacity, current draw, and estimated runtime based on number of noodles, brightness, and battery type');
+  describe('Interactive battery life calculator for LED noodle costumes showing battery capacity, current draw, and estimated runtime based on number of noodles, brightness, and battery type.  Indicator if the batter will last for a six hour party.');
 
   // Create controls in the control region
   let controlY = drawHeight + 20;
@@ -188,18 +188,22 @@ function drawBattery(battery, hoursRemaining, x, y) {
     fillColor = color(255, 0, 0); // Red
   }
 
-  noStroke();
-  fill(fillColor);
-  let fillWidth = (batteryWidth - 10) * fillLevel;
-  rect(x + 5, y + 5, fillWidth, batteryHeight - 10, 3);
+  push();
+    translate(10,0)
+    noStroke();
+    fill(fillColor);
+    let fillWidth = (batteryWidth - 10) * fillLevel;
+    rect(x + 5, y + 5, fillWidth, batteryHeight - 10, 3);
 
-  // Label
-  fill('black');
-  noStroke();
-  textAlign(CENTER);
-  textSize(14);
-  text(battery.name, x + batteryWidth / 2, y + batteryHeight + 20);
-  text(`${battery.capacity} mAh`, x + batteryWidth / 2, y + batteryHeight + 38);
+    // Label
+    fill('black');
+    noStroke();
+    textAlign(CENTER);
+    textSize(14);
+    text('Type: ' + battery.name, x + batteryWidth / 2, y + batteryHeight + 10);
+    text(`${battery.capacity} mAh`, x + batteryWidth / 2, y + batteryHeight + 30);
+    text('Percent drain 6 hours: ' + round(fillLevel) , x + batteryWidth / 2, y + batteryHeight + 50);
+  pop();
 }
 
 function drawNoodles(count, brightness, x, y) {
