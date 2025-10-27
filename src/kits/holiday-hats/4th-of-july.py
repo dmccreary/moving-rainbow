@@ -42,7 +42,7 @@ levels = [255, 128, 64, 32, 16, 8, 4, 2, 1]
 level_count = len(levels)
 
 mode_list = ['moving rainbow', 'moving red dot', 'moving blue dot', 'moving green dot',
-             'red commet', 'blue commet', 'green commet', 'candle flicker', 'random dots', 'bounce',
+             'red comet', 'blue comet', 'green comet', 'candle flicker', 'random dots', 'bounce',
              'running lights', 'rainbow cycle', 'cylon scanner']
 mode_count = 16 # len(mode_list)
 
