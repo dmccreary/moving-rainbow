@@ -7,9 +7,8 @@ site_author: 'Dan McCreary'
 edit_uri: edit/master/docs/
 
 nav:
-  - CoderDojo Mentor Resources: https://coderdojotc.github.io/CoderDojoTC/
-  - Moving Rainbow Home: index.md
-  
+  - Course Description: course-description.md
+  - Concept Sequence: concept-sequence.md  
   - Getting Started:
     - Overview: getting-started/index.md
     - About: getting-started/about.md
