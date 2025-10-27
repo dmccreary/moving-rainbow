@@ -113,6 +113,7 @@ nav:
     - Introduction: prompts/index.md
     - Moving Rainbow: prompts/moving-rainbow.md
     - Generate Skill: prompts/generate-skill.md
+    - Generating a Glossary: prompts/glossary.md
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - License: license.md

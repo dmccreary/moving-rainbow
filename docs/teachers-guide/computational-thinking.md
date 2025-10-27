@@ -2,6 +2,8 @@
 
 Computational thinking is a name we give to describing the underlying patterns that guide the development of computer science curriculum.
 
+![](../img/computational-thinking.png)
+
 There are four key patterns that are frequently discussed when we talk about computational thinking.
 
 1. **Abstraction** – focusing on the important information only, ignoring irrelevant detail.
