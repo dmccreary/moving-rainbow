@@ -1,6 +1,6 @@
 # Color Wheel MicroSim
 
-<iframe src="main.html" height="400" scrolling="no"></iframe>
+<iframe src="main.html" height="450" scrolling="no"></iframe>
 
 <!--
 ![Image Name](./image.png){ width="400" }

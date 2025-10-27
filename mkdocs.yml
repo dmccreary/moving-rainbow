@@ -61,7 +61,6 @@ nav:
   
   - MicroSims:
     - Introduction: sims/index.md
-    - Battery Charger: sims/battery-charger/index.md
     - Battery Life Calculator: sims/battery-life-calculator/index.md
     - Solar Powered LED Nightlight: sims/solar-powered-nightlight/index.md
     - Color Wheel: sims/color-wheel/index.md
@@ -77,10 +76,14 @@ nav:
       - kits/solar-powered-led-nightlight/microsim.md
       - kits/solar-powered-led-nightlight/prompt.md
     
-    - Holiday Hats:
-      - Intro: holidays/index.md
-      - 4th of July: holidays/4th-of-july.md
-      - St. Patrick's Day: holidays/st-patricks-day.md
+      - Holiday Hats:
+        - Intro: kits/holiday-hats/index.md
+        - Valentine's Day: kits/holiday-hats/valentines-day.md
+        - 4th of July: kits/holiday-hats/4th-of-july.md
+        - St. Patrick's Day: kits/holiday-hats/st-patricks-day.md
+        - Halloween: kits/holiday-hats/halloween.md
+        - Christmas: kits/holiday-hats/christmas.md
+        - Valentine's Day: kits/holiday-hats/valentines-day.md
     - Halloween Patterns:
       - Intro: kits/halloween/index.md
   
