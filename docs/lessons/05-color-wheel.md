@@ -1,6 +1,6 @@
 # Color Wheel Lab
 
-![](../img/color-wheel.png)
+<iframe src="../../sims/color-wheel/main.html" height="450px" scrolling="no"></iframe>
 
 What if we wanted to slowly vary the color of one of our pixels through all the colors of the rainbow?  What we would like is a function that would take in an number from 0 to 255 and walk around the color wheel as you change the input value.  This is known as the ```wheel`` function:
 
@@ -30,7 +30,7 @@ wheel(255) = (255, 0, 0) # red
 
 ## Full Program
 
-This program will continu
+This program will continue rotating the first pixel through all the colors.
 
 ```py
 import machine
