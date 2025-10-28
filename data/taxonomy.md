@@ -11,16 +11,12 @@ This document defines the 12 primary categories used to classify the 400 concept
 
 **Examples:** Computer Operation, Opening and Closing Apps, Creating and Saving Files, Files and Folders, Copying and Pasting, Installing Software, USB Ports, IDEs, Thonny IDE, Serial Console, File System, Drag-and-Drop
 
----
-
 ### 2. Mathematics (ID: MATH)
 **Definition:** Mathematical concepts and operations essential for programming including arithmetic, coordinate systems, and numerical data types.
 
 **Concept Count:** 14 concepts
 
 **Examples:** Integers and Numbers, Addition and Subtraction, Multiplication and Division, Percentages and Fractions, Coordinate Systems, Math Operators, Increment, Decrement, Modulo Operator, Remainder, Random Generation
-
----
 
 ### 3. Electronics & Circuits (ID: ELEC)
 **Definition:** Fundamental electronics principles including voltage, current, polarity, circuit safety, and electrical connections.
@@ -29,7 +25,6 @@ This document defines the 12 primary categories used to classify the 400 concept
 
 **Examples:** Power Supply Polarity, Voltage, Current, Safe Electronics, Power Safety, Complete Circuit, Ground Reference, Power Supply, Data Signal, Wire Colors, Device Polarity, Short Circuits, Current Limiting, Power Consumption, Breadboarding, Breadboard Connections, Circuit Diagrams, Wiring Diagrams, Connection Testing, Continuity Checking, Power Distribution, Ground Connections, Signal Integrity, Cable Management, Voltage Divider
 
----
 
 ### 4. Microcontrollers (ID: MCU)
 **Definition:** Microcontroller hardware, firmware, GPIO pins, and interfacing concepts specific to programmable embedded systems.
@@ -38,7 +33,6 @@ This document defines the 12 primary categories used to classify the 400 concept
 
 **Examples:** Microcontrollers, Raspberry Pi Pico, GPIO Pins, Firmware, MicroPython, BOOTSEL, ADC Converter, IRQ
 
----
 
 ### 5. Programming Fundamentals (ID: PROG)
 **Definition:** Core programming concepts including syntax, variables, data types, operators, control flow, functions, and code organization.
@@ -47,7 +41,6 @@ This document defines the 12 primary categories used to classify the 400 concept
 
 **Examples:** Program Definition, Code Execution, Comments, Print Statement, Import Statement, Libraries, Indentation, Syntax, Case Sensitivity, Variables, Assignment Operator, Integers, Floating Point, Strings, Boolean, Variable Naming, Constants, Type Conversion, Loops, While Loop, For Loop, Range, If Statement, Conditions, Comparison Operators, Logical Operators, Function Definition, Function Parameters, Return Value, Local Variables, Global Variables, Variable Scope, Array Concept, Creating Lists, List Indexing, Tuples
 
----
 
 ### 6. LEDs & Color (ID: LED)
 **Definition:** LED technology, color theory, RGB color models, and LED control techniques including addressable LED strips.
@@ -56,7 +49,6 @@ This document defines the 12 primary categories used to classify the 400 concept
 
 **Examples:** Primary Colors, Additive Color Mixing, RGB Color Model, Light vs Pigment Mixing, Color Intensity, LEDs, Addressable LEDs, NeoPixels, Three-Wire LEDs, Pixels, Pixel Indexing, RGB Tuples, Color Values, 8-Bit Colors, Setting Color, Strip Write, Setting LED Values, Custom Colors, Turning LEDs Off, Color Wheel, Hue, Saturation, Value Brightness, Complementary Colors, Analogous Colors, Color Harmony, Warm vs Cool Colors, Color Transitions, Gradient Effects, Brightness Array, Scaling Colors
 
----
 
 ### 7. Animation & Patterns (ID: ANIM)
 **Definition:** Animation principles, timing control, motion effects, and visual pattern implementations for LED displays.
