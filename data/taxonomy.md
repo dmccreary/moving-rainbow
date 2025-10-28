@@ -11,7 +11,6 @@ This document defines the 12 primary categories used to classify the 400 concept
 
 **Examples:** Computer Operation, Opening and Closing Apps, Creating and Saving Files, Files and Folders, Copying and Pasting, Installing Software, USB Ports, IDEs, Thonny IDE, Serial Console, File System, Drag-and-Drop
 
----
 
 ### 2. Mathematics (ID: MATH)
 **Definition:** Mathematical concepts and operations essential for programming including arithmetic, coordinate systems, and numerical data types.
@@ -19,8 +18,6 @@ This document defines the 12 primary categories used to classify the 400 concept
 **Concept Count:** 14 concepts
 
 **Examples:** Integers and Numbers, Addition and Subtraction, Multiplication and Division, Percentages and Fractions, Coordinate Systems, Math Operators, Increment, Decrement, Modulo Operator, Remainder, Random Generation
-
----
 
 ### 3. Electronics & Circuits (ID: ELEC)
 **Definition:** Fundamental electronics principles including voltage, current, polarity, circuit safety, and electrical connections.
