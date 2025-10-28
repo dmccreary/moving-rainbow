@@ -60,7 +60,7 @@ function drawGraph() {
           size: 20,
           color: 'black'
         },
-        borderWidth: 2,
+        borderWidth: .5,
         borderWidthSelected: 4
       },
       groups: {
@@ -110,6 +110,10 @@ function drawGraph() {
         },
         "PROF": {
            color:{background:'gray'},
+           font: {color: "black"},
+        },
+        "POWR": {
+           color:{background:'darkviolet'},
            font: {color: "black"},
         }
     }

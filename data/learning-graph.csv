@@ -347,7 +347,7 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 346,Branching,342|346,PROF
 347,Reverting Changes,343|347,PROF
 348,Tracking Changes,345,PROF
-349,Collaboration Workflow,343|346,PROF
+349,Collaboration,343|346,PROF
 350,Version Control Backup,342|350,PROF
 351,Explaining Concepts,284|351,PROF
 352,Audience Awareness,351,PROF
@@ -360,7 +360,7 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 359,Answering Questions,352|359,PROF
 360,Accepting Feedback,375|360,PROF
 361,Problem Statement,261|284,DESIGN
-362,Solution Overview,362,DESIGN
+362,Solution Overview,349,DESIGN
 363,Design Decisions,278|363,DESIGN
 364,Challenges Encountered,311|364,DESIGN
 365,Overcoming Challenges,312|365,DESIGN
@@ -368,10 +368,10 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 367,Code Highlights,281|367,PROF
 368,Future Enhancements,290,DESIGN
 369,Lessons Learned,378|369,PROF
-370,Acknowledgments,370,PROF
+370,Acknowledgments,349,PROF
 371,Time Management,266|267,PROF
 372,Meeting Deadlines,267|371,PROF
-373,Asking for Help,373,PROF
+373,Asking for Help,349,PROF
 374,Giving Help,373,PROF
 375,Peer Review,340|375,PROF
 376,Constructive Criticism,360|375,PROF

@@ -14,11 +14,11 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 13,RGB Color Model,11|12,LED
 14,Light vs Pigment Mixing,12,LED
 15,Color Intensity,11|12,LED
-16,Power Supply Polarity,,ELEC
+16,Power Supply Polarity,,POWR
 17,Voltage,16,ELEC
 18,Current,16,ELEC
 19,Safe Electronics,16|17|18,ELEC
-20,Power Safety,17|19,ELEC
+20,Power Safety,17|19,POWR
 21,Microcontrollers,2,MCU
 22,Raspberry Pi Pico,21,MCU
 23,GPIO Pins,22,MCU
@@ -28,17 +28,17 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 27,Breadboarding,19,ELEC
 28,Breadboard Connections,27,ELEC
 29,USB Cable,20,CF
-30,Power vs Data,16|17,ELEC
+30,Power vs Data,16|17,POWR
 31,Complete Circuit,16|17|18,ELEC
 32,Ground Reference,16|31,ELEC
-33,Power Supply,17|31,ELEC
+33,Power Supply,17|31,POWR
 34,Data Signal,30|31,ELEC
 35,Three-Wire LEDs,31|32|33|34,LED
 36,Wire Colors,32|33,ELEC
 37,Device Polarity,16,ELEC
 38,Short Circuits,31|37,ELEC
 39,Current Limiting,18|38,ELEC
-40,Power Consumption,17|18,ELEC
+40,Power Consumption,17|18,POWR
 41,IDEs,2|3,CF
 42,Thonny IDE,41,CF
 43,Installing Software,2|3,CF
@@ -233,9 +233,9 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 232,Minimizing Delays,82|231,ARCH
 233,Reducing Calculations,70|231,ARCH
 234,Memory Usage,61|122|234,ARCH
-235,Battery Life,40|382,PROF
-236,Power Optimization,40|235,ARCH
-237,Brightness Power Tradeoff,154|236,ARCH
+235,Battery Life,40|382,POWR
+236,Power Optimization,40|235,POWR
+237,Brightness Power Tradeoff,154|236,POWR
 238,Efficient Looping,91|231,ARCH
 239,Avoiding Writes,77|231,ARCH
 240,Performance Tuning,231|238,ARCH
@@ -295,7 +295,7 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 294,Wire Routing,292|293,ELEC
 295,Connection Testing,31|295,ELEC
 296,Continuity Checking,295,ELEC
-297,Power Distribution,33|297,ELEC
+297,Power Distribution,33|297,POWR
 298,Ground Connections,32|297,ELEC
 299,Signal Integrity,34|299,ELEC
 300,Cable Management,292|294,ELEC
@@ -360,7 +360,7 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 359,Answering Questions,352|359,PROF
 360,Accepting Feedback,375|360,PROF
 361,Problem Statement,261|284,DESIGN
-362,Solution Overview,362,DESIGN
+362,Solution Overview,349,DESIGN
 363,Design Decisions,278|363,DESIGN
 364,Challenges Encountered,311|364,DESIGN
 365,Overcoming Challenges,312|365,DESIGN
@@ -368,10 +368,10 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 367,Code Highlights,281|367,PROF
 368,Future Enhancements,290,DESIGN
 369,Lessons Learned,378|369,PROF
-370,Acknowledgments,370,PROF
+370,Acknowledgments,349,PROF
 371,Time Management,266|267,PROF
 372,Meeting Deadlines,267|371,PROF
-373,Asking for Help,373,PROF
+373,Asking for Help,349,PROF
 374,Giving Help,373,PROF
 375,Peer Review,340|375,PROF
 376,Constructive Criticism,360|375,PROF
@@ -379,15 +379,15 @@ ConceptID,ConceptName,DependsOn,TaxonomyID
 378,Learning from Failure,311|378,PROF
 379,Growth Mindset,378|379,PROF
 380,Persistence,372|379,PROF
-381,Battery Selection,235|381,PROF
-382,Battery Capacity,40|381,PROF
-383,Battery Life Calculation,8|235|382,PROF
-384,Rechargeable Batteries,381|384,PROF
-385,LiPo Safety,19|385,PROF
-386,Charging Circuits,33|386,ELEC
+381,Battery Selection,235|381,POWR
+382,Battery Capacity,40|381,POWR
+383,Battery Life Calculation,8|235|382,POWR
+384,Rechargeable Batteries,381|384,POWR
+385,LiPo Safety,19|385,POWR
+386,Charging Circuits,33|386,POWR
 387,Voltage Regulators,17|33|387,ELEC
-388,Power Switches,181|388,ELEC
-389,Portable Power,381|384,PROF
+388,Power Switches,181|388,POWR
+389,Portable Power,381|384,POWR
 390,Wearable Electronics,26|390,PROF
 391,Libraries and Modules,56|391,PROG
 392,Code Reusability,135|147,ARCH
