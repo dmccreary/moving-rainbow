@@ -1,5 +1,17 @@
+# Cover Image
+
+This prompt was created by Claude code.  Claude code
+can analyze the semantics of the entire GitHub repo
+to understand the book.
+
 !!! prompt
-    Image Generation Prompt for Moving Rainbow Course Cover
+  Please create a detailed description of this course for use to use as a 
+  prompt to  generate a cover image.  The image must have a 16:9 width:height 
+  ratio.  Make it a fun kid-friendly image of kids having fun with LEDs, LED 
+  hats and other LED projects.
+
+!!! prompt
+  Image Generation Prompt for Moving Rainbow Course Cover
 
   Aspect Ratio: 16:9 (landscape)
 
@@ -34,4 +46,18 @@
   photograph with an optimistic, educational technology aesthetic. The image
    should feel welcoming, inspiring, and show that coding and electronics
   can be playful and accessible to everyone.
+
+## Result
+![](../img/cover.png)
+
+That is perfect! 
+
+Great! I'm glad the prompt captures the essence of your Moving Rainbow
+course. The detailed description should help generate a vibrant, engaging
+cover image that showcases the fun, educational, and hands-on nature of
+teaching computational thinking through LED projects.
+
+The 16:9 aspect ratio will work well across different platforms - whether
+you're using it for your website header, presentations, or social media.
+Good luck with the image generation!
 
