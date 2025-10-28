@@ -9,6 +9,7 @@
         "Kilohm",
         "Laminators",
         "localtime",
+        "makerspace",
         "microcontroller",
         "microcontrollers",
         "microsim",
@@ -29,6 +30,7 @@
         "rhizomatic",
         "solderless",
         "Thonny",
+        "usbmodem",
         "utime"
     ]
 }
