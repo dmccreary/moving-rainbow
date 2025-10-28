@@ -1,0 +1,151 @@
+ConceptID,ConceptLabel
+1,Intelligent Textbook
+2,Microsite
+3,Build Process
+4,Docs Directory
+5,Mkdocs Setup
+6,Markdown Basics
+7,Markdown Images
+8,Image Directory
+9,Markdown Links
+10,Deep Linking
+11,GitHub Pages
+12,Mkdocs Material
+13,Mkdocs Yaml
+14,Theme Features
+15,Navigation Config
+16,Top Navigation
+17,Footer Navigation
+18,Navigation Options
+19,Previous and Next Page
+20,Image Standards
+21,Logo Setup
+22,Favicon Setup
+23,Color Palette
+24,Primary Color
+25,Accent Color
+26,Code Copy
+27,Edit Links
+28,Screen Layout
+29,Site Search
+30,Advanced Linking
+31,Yaml Config
+32,Admonitions
+33,Equation Format
+34,LaTeX
+35,MathJax
+36,Code Highlighting
+37,Interactive Content
+38,Simulations
+39,Animations
+40,MicroSims
+41,Iframes
+42,Glossary
+43,Glossary Linking
+44,Table Of Contents
+45,Quizzes
+46,Multiple Choice
+47,Mk_In_Html Extension
+48,Generative AI Images 
+49,Generative AI Diagrams
+50,Custom CSS
+51,Generative AI Templates
+52,Social Previews
+53,Open Graph
+54,Preview Testing
+55,Image Standards
+56,Page Metadata
+57,Social Testing
+58,Feedback Forms
+59,Google Analytics
+60,VS Code Plugins
+61,Markdown Plugins
+62,GitHub Integration
+63,Git Commands
+64,Conda Setup
+65,Conda Commands
+66,Semantic Search
+67,Embeddings
+68,Vector Stores
+69,Concept Graph
+70,Custom Lessons
+71,Chatbots
+72,Graph Database
+73,Concept Expansion
+74,Content Graph
+75,Personalization
+76,Cookies
+77,Data Privacy
+78,Recommendations
+79,Cloud APIs
+80,Future Outlook
+81,Repo Structure
+82,Content Folders
+83,Naming Conventions
+84,Link Management
+85,Broken Links
+86,GitHub Actions
+87,Mkdocs Plugins
+88,Theme Extensions
+89,Homepage Layout
+90,Landing Page
+91,Hero Images
+92,Navigation Sections
+93,External JS
+94,Env Variables
+95,Local Builds
+96,Large Media
+97,Doc Versioning
+98,Multiple Languages
+99,Print To PDF
+100,Mobile Responsive
+101,Keyboard Shortcuts
+102,Mermaid Diagrams
+103,Data Charts
+104,Index Pages
+105,YAML Frontmatter
+106,Search Plugins
+107,Audio Embeds
+108,Video Embeds
+109,Collapsible Sections
+110,Hints Tooltips
+111,Code Diffs
+112,Comments
+113,User Behavior
+114,Heatmaps
+115,A/B Testing
+116,User Logins
+117,Preference Storage
+118,Auto Recommendations
+119,Content Scheduling
+120,Feature Flags
+121,Offline Access
+122,Full-Text Search
+123,NLP
+124,AI Summaries
+125,Flashcards
+126,Spaced Repetition
+127,Related Reading
+128,Adaptive Quizzes
+129,LMS Integration
+130,Data Exports
+131,Webhooks
+132,Vector Databases
+133,Chatbot Tuning
+134,LLM Usage
+135,Auto Glossaries
+136,Quiz Mastery
+137,Concept Visualization
+138,Adaptive Difficulty
+139,Progress Tracking
+140,Instant Feedback
+141,Voice Assistants
+142,Custom Domains
+143,Content Distribution Network 
+144,Dark Mode
+145,Web Content Accessibility
+146,Assistive Tech
+147,Localization
+148,Machine Translation
+149,Future-Proofing
+150,Refinement Cycle
