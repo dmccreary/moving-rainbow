@@ -23,7 +23,10 @@ for different versions of the game.
 
 ## Design
 
+![](./fire-side.jpg)
+
 I used two NeoPixel rings.  The outer one had 24 pixels and the inner ring had 12 pixels.
+I covered them with a thin translucent sheet of diffusion material.
 
 ## Sample Code
 
