@@ -112,8 +112,9 @@ nav:
     - Learning Graph:
       - Intro:  prompts/learning-graph/index.md
       - Course Description: prompts/course-description.md
-      - Concept Depependency: prompts/concept-dependency-graph.md
+      - Concept Dependency: prompts/concept-dependency-graph.md
       - Concept Taxonomy: prompts/concept-taxonomy.md
+    - Cover: prompts/cover.md
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - License: license.md
