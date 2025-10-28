@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Graph for Building Intelligent Textbooks</title>
-    
-    <meta property="og:description" content="A network graph diagram of the 150 top concepts to learn how to build intelligent textbooks and their dependencies." />
-    <meta property="og:image" content="https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/sims/learning-graph/intelligent-textbooks.png" />
-    <meta property="og:url" content="https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/sims/learning-graph/graph-viewer.html" />
+    <title>Moving Rainbow Learning Graph</title>
+
+    <meta property="og:description" content="A network graph diagram of the 400+ concepts for learning LED programming with microcontrollers and their dependencies." />
+    <meta property="og:image" content="https://dmccreary.github.io/moving-rainbow/sims/learning-graph/moving-rainbow.png" />
+    <meta property="og:url" content="https://dmccreary.github.io/moving-rainbow/sims/learning-graph/graph-viewer.html" />
     <meta property="og:type" content="article" />
     <meta property="article:author" content="https://dmccreary.github.io/dmccreary/" />
-    <meta property="article:published_time" content="2024-11-19T10:47:00Z" />
+    <meta property="article:published_time" content="2025-10-27T00:00:00Z" />
  
     
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
@@ -48,47 +48,59 @@
         <button id="toggle-button" onclick="toggleSidebar()">&#9776;</button>
 
         <div id="sidebar">
-            <h3>Legend Sidebar</h3>
+            <h3>Legend</h3>
             <table>
                 <tr>
-                    <td>Foundational Concepts</td>
-                    <td style="background-color: red; color: white;">Red</td>
+                    <td>Computer Fundamentals</td>
+                    <td style="background-color: lightblue; color: black;">CF</td>
                 </tr>
                 <tr>
-                    <td>Terms and Definitions</td>
-                    <td style="background-color: orange; color: black;">Orange</td>
+                    <td>Mathematics</td>
+                    <td style="background-color: lightgreen; color: black;">MATH</td>
                 </tr>
                 <tr>
-                    <td>Mkdocs</td>
-                    <td style="background-color: yellow; color: black;">Yellow</td>
+                    <td>LED Concepts</td>
+                    <td style="background-color: red; color: white;">LED</td>
                 </tr>
                 <tr>
-                    <td>Material</td>
-                    <td style="background-color: green; color: white;">Green</td>
+                    <td>Electronics</td>
+                    <td style="background-color: yellow; color: black;">ELEC</td>
                 </tr>
                 <tr>
-                    <td>Markdown</td>
-                    <td style="background-color: blue; color: white;">Blue</td>
+                    <td>Microcontroller</td>
+                    <td style="background-color: purple; color: white;">MCU</td>
                 </tr>
                 <tr>
-                    <td>Interactivity and Media</td>
-                    <td style="background-color: indigo; color: white;">Indigo</td>
+                    <td>Programming</td>
+                    <td style="background-color: blue; color: white;">PROG</td>
                 </tr>
                 <tr>
-                    <td>Advanced Features and Integration</td>
-                    <td style="background-color: violet; color: white;">Violet</td>
+                    <td>Animation</td>
+                    <td style="background-color: orange; color: black;">ANIM</td>
                 </tr>
                 <tr>
-                    <td>Deployment and Publishing</td>
-                    <td style="background-color: brown; color: white;">Brown</td>
+                    <td>Input/Buttons</td>
+                    <td style="background-color: cyan; color: black;">INPUT</td>
                 </tr>
                 <tr>
-                    <td>Analytics, Personalization and UX</td>
-                    <td style="background-color: gray; color: white;">Gray</td>
+                    <td>Architecture</td>
+                    <td style="background-color: brown; color: white;">ARCH</td>
                 </tr>
                 <tr>
-                    <td>Accessibility, Localization & Future</td>
-                    <td style="background-color: black; color: white;">Black</td>
+                    <td>Debugging</td>
+                    <td style="background-color: pink; color: black;">DEBUG</td>
+                </tr>
+                <tr>
+                    <td>Project Design</td>
+                    <td style="background-color: green; color: white;">DESIGN</td>
+                </tr>
+                <tr>
+                    <td>Professional Skills</td>
+                    <td style="background-color: gray; color: white;">PROF</td>
+                </tr>
+                <tr>
+                    <td>Power and Batteries</td>
+                    <td style="background-color: darkviolet; color: white;">POWR</td>
                 </tr>
             </table>
             <!--
@@ -103,7 +115,7 @@
         
     </div>
     <div id="main">
-        <h4>Learning Graph for Intelligent Textbooks v1</h4>
+        <h4>Moving Rainbow Learning Graph - 400+ Concepts</h4>
 
         <div id="mynetwork"></div>
 

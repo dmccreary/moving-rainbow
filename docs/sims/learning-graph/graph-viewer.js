@@ -1,6 +1,6 @@
 function drawGraph() {
     // Fetch the graph data from the JSON file
-    fetch('intelligent-textbooks.json')
+    fetch('moving-rainbow.json')
       .then(response => response.json())
       .then(data => {
         // Extract nodes from the JSON data
@@ -8,12 +8,12 @@ function drawGraph() {
   
         // Function to fix the x positions for foundation and goal groups after JSON load
         nodes.forEach(function (node) {
-            if (node.group === "found") {
+            if (node.group === "CF") {
                 // placement can't be done in a group
                 node.x = -1400;
                 node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
                 
-            } else if (node.group === "goal") {
+            } else if (node.group === "PROF") {
                 node.x = 1400;
                 node.fixed = { x: true, y: false }; // Fix x, but let y be adjusted by physics
             }
@@ -60,46 +60,61 @@ function drawGraph() {
           size: 20,
           color: 'black'
         },
-        borderWidth: 2,
+        borderWidth: .5,
         borderWidthSelected: 4
       },
       groups: {
-        "found": {
-           shape: "box", 
+        "CF": {
+           color:{background:'lightblue'},
+           font: {color: "black"},
+        },
+        "MATH": {
+           color:{background:'lightgreen'},
+           font: {color: "black"},
+        },
+        "LED": {
            color:{background:'red'},
-           font: {color: "white"},
+           font: {color: "black"},
         },
-        "term": {
-           color:{background:'orange'},
+        "ELEC": {
+           color:{background:'yellow'},
+           font: {color: "black"},
         },
-        "stand": {
-           color:{background:'gold'},
-        },
-        "ui": {
+        "MCU": {
            color:{background:'purple'},
+           font: {color: "black"},
         },
-        "algorithms": {
-           color:{background:'green'},
+        "PROG": {
+           color:{background:'blue'},
+           font: {color: "black"},
         },
-        "similarity": {
+        "ANIM": {
+           color:{background:'orange'},
+           font: {color: "black"},
+        },
+        "INPUT": {
+           color:{background:'cyan'},
+           font: {color: "black"},
+        },
+        "ARCH": {
            color:{background:'brown'},
+           font: {color: "black"},
         },
-        "learning-theory": {
-           color:{background:'green'},
-        },
-        "ai": {
+        "DEBUG": {
            color:{background:'pink'},
+           font: {color: "black"},
         },
-        "feed": {
+        "DESIGN": {
+           color:{background:'green'},
+           font: {color: "black"},
+        },
+        "PROF": {
            color:{background:'gray'},
+           font: {color: "black"},
         },
-        "agents": {
-           color:{background:'navy'},
-        },
-        goal: {
-           shape: "star", 
-           color:{background:'gold'}, 
-           font: { size: 16 }
+        "POWR": {
+           color:{background:'darkviolet'},
+           font: {color: "black"},
         }
     }
   };
