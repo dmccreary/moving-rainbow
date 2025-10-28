@@ -74,7 +74,7 @@ function drawGraph() {
         },
         "LED": {
            color:{background:'red'},
-           font: {color: "white"},
+           font: {color: "black"},
         },
         "ELEC": {
            color:{background:'yellow'},
