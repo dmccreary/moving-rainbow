@@ -9,10 +9,6 @@ Moving Rainbow is a way to learn the basics of programming using fun LED strips.
 We use low-cost components so you can build entire projects and costumes with 100s of LEDs for under $10.
 Since 2014 we have been building low-cost kits that teach all the concepts of [Computational Thinking](./teachers-guide/computational-thinking.md).
 
-!!! Note
-    We are no longer accepting pull requests for Arduino C code.  Because we can get Raspberry Pi Pico processors for $4 that run Python we have moved
-    all our Moving Rainbow code over to Python.
-
 ## Getting Started
 
 Our getting [started guide](./getting-started/index.md) has three parts:
@@ -39,6 +35,9 @@ starting with 0 and continuing to the number of patterns we have in our program.
 
 In this section we will add two mode buttons.  One button will make the pattern mode go to the next mode.  The other button will go to the previous mode.
 
+!!! Note
+    We are no longer accepting pull requests for Arduino C code.  Because we can get Raspberry Pi Pico processors for $4 that run Python we have moved
+    all our Moving Rainbow code over to Python.
 
 ## Other Resources
 

@@ -945,6 +945,15 @@ The analysis and manipulation of electrical signals carrying information.
 
 **Example:** The WS2812B chip performs signal processing to decode color data from the timing of voltage pulses.
 
+#### Skill
+
+A package of rules used by generative AI to help us generate content.
+
+**Example:** We have a sample skill for you to generate LED strip patterns based on
+a high-level description such as "Generate patters for my Halloween party".
+
+See [Sample Skills](skills/index.md)
+
 #### Sleep
 A function that pauses program execution for a specified duration.
 
