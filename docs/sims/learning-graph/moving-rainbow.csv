@@ -1,0 +1,401 @@
+ConceptID,ConceptName,DependsOn,TaxonomyID
+1,Computer Operation,,CF
+2,Opening and Closing Apps,1,CF
+3,Creating and Saving Files,1|2,CF
+4,Files and Folders,3,CF
+5,Copying and Pasting,1,CF
+6,Integers and Numbers,,MATH
+7,Addition and Subtraction,6,MATH
+8,Multiplication and Division,7,MATH
+9,Percentages and Fractions,7|8,MATH
+10,Coordinate Systems,6|7,MATH
+11,Primary Colors,,LED
+12,Additive Color Mixing,11,LED
+13,RGB Color Model,11|12,LED
+14,Light vs Pigment Mixing,12,LED
+15,Color Intensity,11|12,LED
+16,Power Supply Polarity,,ELEC
+17,Voltage,16,ELEC
+18,Current,16,ELEC
+19,Safe Electronics,16|17|18,ELEC
+20,Power Safety,17|19,ELEC
+21,Microcontrollers,2,MCU
+22,Raspberry Pi Pico,21,MCU
+23,GPIO Pins,22,MCU
+24,LEDs,16|17|18,LED
+25,Addressable LEDs,24,LED
+26,NeoPixels,24|25,LED
+27,Breadboarding,19,ELEC
+28,Breadboard Connections,27,ELEC
+29,USB Cable,20,CF
+30,Power vs Data,16|17,ELEC
+31,Complete Circuit,16|17|18,ELEC
+32,Ground Reference,16|31,ELEC
+33,Power Supply,17|31,ELEC
+34,Data Signal,30|31,ELEC
+35,Three-Wire LEDs,31|32|33|34,LED
+36,Wire Colors,32|33,ELEC
+37,Device Polarity,16,ELEC
+38,Short Circuits,31|37,ELEC
+39,Current Limiting,18|38,ELEC
+40,Power Consumption,17|18,ELEC
+41,IDEs,2|3,CF
+42,Thonny IDE,41,CF
+43,Installing Software,2|3,CF
+44,USB Ports,20|29,CF
+45,Firmware,21,MCU
+46,MicroPython,21|45,MCU
+47,BOOTSEL,22|45,MCU
+48,Drag-and-Drop,3|4|47,CF
+49,Serial Console,42|44,CF
+50,File System,4|46,CF
+51,Program Definition,41,PROG
+52,Code Execution,42|51,PROG
+53,Comments,51,PROG
+54,Print Statement,49|51,PROG
+55,Import Statement,51,PROG
+56,Libraries,50|55,PROG
+57,Indentation,51,PROG
+58,Syntax,51,PROG
+59,Syntax Errors,58,DEBUG
+60,Case Sensitivity,51,PROG
+61,Variables,51|63,PROG
+62,Assignment Operator,61,PROG
+63,Integers,6|51,PROG
+64,Floating Point,9|63,PROG
+65,Strings,51,PROG
+66,Boolean,51,PROG
+67,Variable Naming,60|61,PROG
+68,Constants,61|62,PROG
+69,Type Conversion,63|64|65,PROG
+70,Math Operators,7|8|62,PROG
+71,Pixels,25|26,LED
+72,Pixel Indexing,6|71,LED
+73,RGB Tuples,13|65,LED
+74,Color Values,6|73,LED
+75,8-Bit Colors,6|74,LED
+76,Setting Color,71|72|73|74,LED
+77,Strip Write,56|76,LED
+78,Setting LED Values,76|77,LED
+79,Custom Colors,73|74,LED
+80,Turning LEDs Off,74|78,LED
+81,Sleep,55|56,ANIM
+82,Delay,81,ANIM
+83,Time Units,82,ANIM
+84,Milliseconds,83,ANIM
+85,Frame Rate,82|84,ANIM
+86,Timing Animations,81|85,ANIM
+87,Program Speed,52|82,ANIM
+88,Pause vs Stop,81|82,ANIM
+89,Real vs Programmed Time,83|84,ANIM
+90,Time as Control,81|82,ANIM
+91,Loops,51,PROG
+92,While Loop,57|91,PROG
+93,While True,66|92,PROG
+94,For Loop,57|91,PROG
+95,Range,6|94,PROG
+96,Loop Counter,61|91,PROG
+97,Iteration,91|96,PROG
+98,Loop Body,57|91,PROG
+99,Break,92|93,PROG
+100,Continue,92|94,PROG
+101,Animation Concept,78|85,ANIM
+102,Frame-by-Frame,101,ANIM
+103,Position Variable,61|72,ANIM
+104,Increment,7|96,MATH
+105,Decrement,7|96,MATH
+106,Moving Pixels,76|103|104,ANIM
+107,Direction of Motion,103|104|105,ANIM
+108,Speed Control,81|106,ANIM
+109,Smooth Motion,101|108,ANIM
+110,Visual Persistence,101|102,ANIM
+111,Strip Length,68|71,LED
+112,First Pixel Index,72,LED
+113,Last Pixel Index,7|111,LED
+114,Index Out of Bounds,72|113,DEBUG
+115,Boundary Checking,114,PROG
+116,Wrapping Around,91|115,ANIM
+117,Modulo Operator,8|70,MATH
+118,Remainder,8|117,MATH
+119,Circular Motion,116|117,ANIM
+120,Bounce Effects,107|115,ANIM
+121,Array Concept,61|65,PROG
+122,Creating Lists,57|121,PROG
+123,List Indexing,72|122,PROG
+124,List Length,56|122,PROG
+125,Adding to Lists,122,PROG
+126,Removing from Lists,122,PROG
+127,Iterating Lists,94|122,PROG
+128,Tuples,121|122,PROG
+129,Color Lists,73|122,LED
+130,Storing Frames,102|122,ANIM
+131,Repeating Patterns,91|131,ANIM
+132,Animation Patterns,101|131,ANIM
+133,Common Code Blocks,53|131,ARCH
+134,DRY Principle,133,ARCH
+135,Code Reuse,134,ARCH
+136,Abstracting Operations,135,ARCH
+137,Generalizing Solutions,136,ARCH
+138,Finding Similarities,133,ARCH
+139,Template Solutions,137,ARCH
+140,Algorithm Patterns,138|139,ARCH
+141,Function Definition,51|57,PROG
+142,Function Name,60|141,PROG
+143,Function Parameters,61|141,PROG
+144,Function Body,57|141,PROG
+145,Return Value,141,PROG
+146,Calling Functions,141|142,PROG
+147,Function Reusability,135|141,ARCH
+148,Local Variables,61|144|150,PROG
+149,Global Variables,61|150,PROG
+150,Variable Scope,61|148,PROG
+151,Color Wheel,13|73,LED
+152,Hue,15|151,LED
+153,Saturation,15|152,LED
+154,Value Brightness,15|153,LED
+155,Complementary Colors,151|152,LED
+156,Analogous Colors,151|152,LED
+157,Color Harmony,155|156,LED
+158,Warm vs Cool Colors,152,LED
+159,Color Transitions,79|151,LED
+160,Gradient Effects,159,LED
+161,Color Wipe,76|94|141,ANIM
+162,Rainbow Effect,73|151|161,ANIM
+163,Color Wheel Function,141|151,ANIM
+164,Fade In Out,76|78|104|105,ANIM
+165,Pulse Effect,164,ANIM
+166,Chase Pattern,106|108,ANIM
+167,Fill and Empty,78|94,ANIM
+168,Random Colors,73|221,ANIM
+169,Sparkle Effect,168,ANIM
+170,Wave Patterns,106|109,ANIM
+171,If Statement,51|57,PROG
+172,Conditions,66|171,PROG
+173,Comparison Operators,70|172,PROG
+174,Logical Operators,66|172,PROG
+175,Else Clause,171,PROG
+176,Elif Clause,171|175,PROG
+177,Nested Conditionals,171|176,PROG
+178,Boolean Expressions,66|172,PROG
+179,Truthiness,66|178,PROG
+180,Conditional Flow,171|177,PROG
+181,Push Buttons,19|23,INPUT
+182,Button Detection,181,INPUT
+183,Digital Input,23|182,INPUT
+184,Pull-Down Resistor,18|39|181,INPUT
+185,Button State,66|182,INPUT
+186,Polling vs Interrupts,92|182,INPUT
+187,Interrupt Handler,141|186,INPUT
+188,IRQ,23|187,MCU
+189,Event-Driven Programming,187|188,ARCH
+190,Callback Functions,141|189,PROG
+191,Switch Bounce,181,INPUT
+192,Debouncing,191,INPUT
+193,Time-Based Debouncing,84|192,INPUT
+194,Ticks Milliseconds,84|193,INPUT
+195,Time Difference,7|194,MATH
+196,Min Time Between Events,193|195,INPUT
+197,False Trigger Prevention,192|196,INPUT
+198,State Change Detection,185|198,INPUT
+199,Rising Falling Edge,185|198,INPUT
+200,Software Hardware Debounce,192,INPUT
+201,Mode Concept,61|171,ARCH
+202,Mode Variable,61|201,ARCH
+203,Mode Counter,96|202,ARCH
+204,Mode Selection,182|202,ARCH
+205,Mode Wrapping,117|203,ARCH
+206,Mode Switching,171|204,ARCH
+207,Mode Names,122|202,ARCH
+208,Mode Display,54|202,ARCH
+209,Mode Change Detection,198|202,ARCH
+210,State Machine,201|209,ARCH
+211,Comet Tail,106|212,ANIM
+212,Brightness Array,122|154,LED
+213,Scaling Colors,8|74|212,LED
+214,Larson Scanner,120|211,ANIM
+215,Theater Chase,166|205,ANIM
+216,Twinkle Random,169|221,ANIM
+217,Ripple Effect,170|213,ANIM
+218,Heartbeat Pattern,165|193,ANIM
+219,Candle Flicker,168|221,ANIM
+220,Fire Effect,213|219,ANIM
+221,Random Generation,8|56,MATH
+222,Urandom Module,55|221,PROG
+223,Randint Function,221|222,PROG
+224,Random Range,95|223,PROG
+225,Seed Concept,221,MATH
+226,Pseudo vs True Random,225,MATH
+227,Random Color,73|223,ANIM
+228,Random Position,72|223,ANIM
+229,Random Timing,84|223,ANIM
+230,Controlled Randomness,223|224,MATH
+231,Code Efficiency,52|87,ARCH
+232,Minimizing Delays,82|231,ARCH
+233,Reducing Calculations,70|231,ARCH
+234,Memory Usage,61|122|234,ARCH
+235,Battery Life,40|382,PROF
+236,Power Optimization,40|235,ARCH
+237,Brightness Power Tradeoff,154|236,ARCH
+238,Efficient Looping,91|231,ARCH
+239,Avoiding Writes,77|231,ARCH
+240,Performance Tuning,231|238,ARCH
+241,Analog vs Digital,17|183,INPUT
+242,ADC Converter,23|241,MCU
+243,Voltage Reading,17|242,INPUT
+244,Potentiometer,39|243,INPUT
+245,Reading Potentiometer,242|244,INPUT
+246,Value Scaling,8|69|245,INPUT
+247,Smoothing Readings,245|246,INPUT
+248,Threshold Detection,173|246,INPUT
+249,Continuous Ranges,64|241,INPUT
+250,Analog to Control,246|250,INPUT
+251,Photoresistor,39|244,INPUT
+252,Light Resistance,18|251,INPUT
+253,Voltage Divider,17|33|252,ELEC
+254,Ambient Light,245|251,INPUT
+255,Day Night Detection,248|254,INPUT
+256,Auto Brightness,213|255,INPUT
+257,Nightlight Logic,171|255,INPUT
+258,Light Threshold,68|248,INPUT
+259,Hysteresis,171|258,INPUT
+260,Environmental Sensing,254|260,INPUT
+261,Requirements Gathering,284,DESIGN
+262,Feature List,261,DESIGN
+263,Prioritizing Features,262,DESIGN
+264,Must-Have Features,263,DESIGN
+265,Project Phases,261|265,DESIGN
+266,Milestone Planning,265|267,DESIGN
+267,Timeline Estimation,266,DESIGN
+268,Resource Requirements,261|268,DESIGN
+269,Parts List,268,DESIGN
+270,Budget Planning,9|269,DESIGN
+271,Brainstorming,261,DESIGN
+272,Sketching Ideas,271,DESIGN
+273,Wireframing,272,DESIGN
+274,Prototype Concept,273|275,DESIGN
+275,Proof of Concept,274,DESIGN
+276,Iterative Design,274|276,DESIGN
+277,User Requirements,261|277,DESIGN
+278,Design Constraints,268|278,DESIGN
+279,Technical Feasibility,278|279,DESIGN
+280,Creative Problem Solving,271|280,DESIGN
+281,Comment Best Practices,53|281,PROF
+282,Function Documentation,141|281,PROF
+283,Inline Comments,53|283,PROF
+284,Project Description,65|284,PROF
+285,README File,3|284,PROF
+286,Setup Instructions,285,PROF
+287,Usage Guide,285,PROF
+288,Troubleshooting Guide,285|311,PROF
+289,Known Issues,285|311,PROF
+290,Future Improvements,285|368,PROF
+291,Circuit Diagrams,31|291,ELEC
+292,Wiring Diagrams,291,ELEC
+293,Component Placement,27|292,ELEC
+294,Wire Routing,292|293,ELEC
+295,Connection Testing,31|295,ELEC
+296,Continuity Checking,295,ELEC
+297,Power Distribution,33|297,ELEC
+298,Ground Connections,32|297,ELEC
+299,Signal Integrity,34|299,ELEC
+300,Cable Management,292|294,ELEC
+301,Pseudocode,51|303,ARCH
+302,Flowcharts,301,ARCH
+303,Step-by-Step Planning,302,ARCH
+304,Input Process Output,143|145|303,ARCH
+305,Edge Cases,114|305,ARCH
+306,Error Handling,59|306,DEBUG
+307,Testing Scenarios,307|325,DEBUG
+308,Expected Behaviors,304|307,DEBUG
+309,Failure Modes,306|309,DEBUG
+310,Recovery Procedures,306|309,DEBUG
+311,Bug Definition,59|311,DEBUG
+312,Debugging Process,311,DEBUG
+313,Print Debugging,54|312,DEBUG
+314,Variable Inspection,61|313,DEBUG
+315,Logic vs Syntax Errors,59|315,DEBUG
+316,Systematic Troubleshooting,312|316,DEBUG
+317,Isolating Problems,316,DEBUG
+318,Testing Hypotheses,317,DEBUG
+319,Error Messages,59|319,DEBUG
+320,Stack Traces,319,DEBUG
+321,Unit Testing,307|321,DEBUG
+322,Integration Testing,321,DEBUG
+323,System Testing,322,DEBUG
+324,Test Planning,307|324,DEBUG
+325,Test Cases,324,DEBUG
+326,Expected vs Actual,308|326,DEBUG
+327,Regression Testing,325|327,DEBUG
+328,User Acceptance Testing,277|323,DEBUG
+329,Stress Testing,323,DEBUG
+330,Edge Case Testing,305|325,DEBUG
+331,Code Structure,57|331,ARCH
+332,Logical Grouping,331,ARCH
+333,Helper Functions,141|332,ARCH
+334,Main Program Flow,52|331,ARCH
+335,Initialization,50|334,ARCH
+336,Configuration Section,68|335,ARCH
+337,Constants at Top,68|336,ARCH
+338,Functions Before Use,141|337,ARCH
+339,Main Loop at Bottom,93|334,ARCH
+340,Clean Code,134|281|331,ARCH
+341,Git Basics,3|4,PROF
+342,Repository,4|341,PROF
+343,Commit Changes,3|342,PROF
+344,Commit Message,65|343,PROF
+345,Version History,343|345,PROF
+346,Branching,342|346,PROF
+347,Reverting Changes,343|347,PROF
+348,Tracking Changes,345,PROF
+349,Collaboration Workflow,343|346,PROF
+350,Version Control Backup,342|350,PROF
+351,Explaining Concepts,284|351,PROF
+352,Audience Awareness,351,PROF
+353,Demonstration Techniques,354,PROF
+354,Live Demo Prep,353,PROF
+355,Demo Backup Plans,354,PROF
+356,Visual Aids,272|356,PROF
+357,Slide Design,356,PROF
+358,Speaking Confidently,358,PROF
+359,Answering Questions,352|359,PROF
+360,Accepting Feedback,375|360,PROF
+361,Problem Statement,261|284,DESIGN
+362,Solution Overview,362,DESIGN
+363,Design Decisions,278|363,DESIGN
+364,Challenges Encountered,311|364,DESIGN
+365,Overcoming Challenges,312|365,DESIGN
+366,Feature Demonstration,354|366,PROF
+367,Code Highlights,281|367,PROF
+368,Future Enhancements,290,DESIGN
+369,Lessons Learned,378|369,PROF
+370,Acknowledgments,370,PROF
+371,Time Management,266|267,PROF
+372,Meeting Deadlines,267|371,PROF
+373,Asking for Help,373,PROF
+374,Giving Help,373,PROF
+375,Peer Review,340|375,PROF
+376,Constructive Criticism,360|375,PROF
+377,Iterative Improvement,276|377,DESIGN
+378,Learning from Failure,311|378,PROF
+379,Growth Mindset,378|379,PROF
+380,Persistence,372|379,PROF
+381,Battery Selection,235|381,PROF
+382,Battery Capacity,40|381,PROF
+383,Battery Life Calculation,8|235|382,PROF
+384,Rechargeable Batteries,381|384,PROF
+385,LiPo Safety,19|385,PROF
+386,Charging Circuits,33|386,ELEC
+387,Voltage Regulators,17|33|387,ELEC
+388,Power Switches,181|388,ELEC
+389,Portable Power,381|384,PROF
+390,Wearable Electronics,26|390,PROF
+391,Libraries and Modules,56|391,PROG
+392,Code Reusability,135|147,ARCH
+393,Open Source,393,PROF
+394,Software Licensing,393|394,PROF
+395,Code Sharing Etiquette,349|395,PROF
+396,Reading Code,53|392,PROF
+397,Adapting Code,396,PROF
+398,Contributing Projects,343|349|398,PROF
+399,Community Resources,399,PROF
+400,Continuous Learning,379|399,PROF
