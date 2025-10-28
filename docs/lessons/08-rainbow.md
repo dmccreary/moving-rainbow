@@ -1,8 +1,8 @@
 # Rainbow
 
-Now let bring some real color to this class!
+Now let's bring some real color to this class!
 
-## The Big Wheel Function
+Recall our color wheel MicroSim:
 
 <iframe src="../../sims/color-wheel/main.html" height="450" scrolling="no"></iframe>
 
