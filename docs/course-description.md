@@ -197,11 +197,11 @@ Skills learned in this course apply to careers in:
 
 ## Student Testimonials
 
-*"I never thought I could program, but making my own light-up jacket made coding fun and easy to understand!"* - Maya S., Class of 2024
+*"I never thought I could program, but making my own light-up jacket made coding fun and easy to understand!"*
 
-*"The best part was taking my projects home and showing my family. I made a nightlight for my little brother and he loves it!"* - Jordan T., Class of 2024
+*"The best part was taking my projects home and showing my family. I made a nightlight for my little brother and he loves it!"*
 
-*"This class taught me how to think through problems step by step. I use computational thinking in all my other classes now."* - Alex P., Class of 2024
+*"This class taught me how to think through problems step by step. I use computational thinking in all my other classes now."*
 
 ## Contact Information
 
