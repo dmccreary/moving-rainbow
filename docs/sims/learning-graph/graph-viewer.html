@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Graph for Building Intelligent Textbooks</title>
+    
+    <meta property="og:description" content="A network graph diagram of the 150 top concepts to learn how to build intelligent textbooks and their dependencies." />
+    <meta property="og:image" content="https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/sims/learning-graph/intelligent-textbooks.png" />
+    <meta property="og:url" content="https://dmccreary.github.io/mkdocs-for-intelligent-textbooks/sims/learning-graph/graph-viewer.html" />
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="https://dmccreary.github.io/dmccreary/" />
+    <meta property="article:published_time" content="2024-11-19T10:47:00Z" />
+ 
+    
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="graph-viewer.js" delay></script>
+    <style>
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        }
+
+        #sidebar {
+            width: auto; /* Automatically adjust width based on content in the table */
+            max-width: 300px; /* Set a maximum width to avoid excessive size */
+            padding: 5px; /* around the sidebar */
+            margin-right: 10px; /* Space between sidebar and main content */
+            box-sizing: border-box;
+        }
+
+        #main {
+            flex: 1; /* Takes up remaining space to the right */
+            padding: 10px;
+        }
+
+        #mynetwork {
+            width: 100%;
+            height: 700px;
+            background-color: aliceblue;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="sidebar-container">
+        <button id="toggle-button" onclick="toggleSidebar()">&#9776;</button>
+
+        <div id="sidebar">
+            <h3>Legend Sidebar</h3>
+            <table>
+                <tr>
+                    <td>Foundational Concepts</td>
+                    <td style="background-color: red; color: white;">Red</td>
+                </tr>
+                <tr>
+                    <td>Terms and Definitions</td>
+                    <td style="background-color: orange; color: black;">Orange</td>
+                </tr>
+                <tr>
+                    <td>Mkdocs</td>
+                    <td style="background-color: yellow; color: black;">Yellow</td>
+                </tr>
+                <tr>
+                    <td>Material</td>
+                    <td style="background-color: green; color: white;">Green</td>
+                </tr>
+                <tr>
+                    <td>Markdown</td>
+                    <td style="background-color: blue; color: white;">Blue</td>
+                </tr>
+                <tr>
+                    <td>Interactivity and Media</td>
+                    <td style="background-color: indigo; color: white;">Indigo</td>
+                </tr>
+                <tr>
+                    <td>Advanced Features and Integration</td>
+                    <td style="background-color: violet; color: white;">Violet</td>
+                </tr>
+                <tr>
+                    <td>Deployment and Publishing</td>
+                    <td style="background-color: brown; color: white;">Brown</td>
+                </tr>
+                <tr>
+                    <td>Analytics, Personalization and UX</td>
+                    <td style="background-color: gray; color: white;">Gray</td>
+                </tr>
+                <tr>
+                    <td>Accessibility, Localization & Future</td>
+                    <td style="background-color: black; color: white;">Black</td>
+                </tr>
+            </table>
+            <!--
+            <h3>Graph Statistics</h3>
+            <ul>
+                <li><b>Nodes:</b> 100</li>
+                <li><b>Edges:</b> 200</li>
+                <li><b>Orphans:</b> 3</li>
+            </ul>
+            -->
+        </div>
+        
+    </div>
+    <div id="main">
+        <h4>Learning Graph for Intelligent Textbooks v1</h4>
+
+        <div id="mynetwork"></div>
+
+        <a href=".">Return to lesson plan</a>
+
+    </div>
+    <!-- Load the graph data and visualize it -->
+    <script>
+        window.onload = function() {
+            drawGraph();
+        };
+    </script>
+</body>
+</html>

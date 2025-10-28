@@ -1,0 +1,150 @@
+1,Intelligent Textbook,,1
+2,Microsite,1,2
+3,Build Process,2,3
+4,Docs Directory,3,3
+5,Mkdocs,4,3
+6,Markdown Basics,5,5
+7,Markdown Images,6,5
+8,Image Directory,7,5
+9,Markdown Links,6,5
+10,Deep Linking,9,5
+11,GitHub Pages,3|5,8
+12,Mkdocs Material,5,4
+13,Mkdocs Yaml,5,3
+14,Theme Features,12,4
+15,Navigation Config,13,4
+16,Top Navigation,13|15,4
+17,Footer Navigation,13|15,4
+18,Navigation Options,13|15,4
+19,Previous Page,15|18,4
+20,Next Page,15|18,4
+21,Logo Setup,13|14,4
+22,Favicon Setup,13|14,4
+23,Color Palette,13|14,4
+24,Primary Color,13|14|23,4
+25,Accent Color,13|14|23,4
+26,Code Copy,13|14,4
+27,Edit Links,14|14,4
+28,Screen Layout,14,4
+29,Site Search,13,4
+30,Advanced Linking,10,5
+31,Yaml Config,13,3
+32,Admonitions,12|13,5
+33,Equations,12|13,5
+34,LaTeX,33,5
+35,MathJax,34|34,5
+36,Code Highlighting,6|13,5
+37,Interactive Content,6,6
+38,Simulations,37,6
+39,Animations,37,6
+40,MicroSims,37|38|39,6
+41,Iframes,40,6
+42,Glossary,9,2
+43,Glossary Linking,10|42,5
+44,Table Of Contents,9,5
+45,Quizzes,37,6
+46,Multiple Choice,45,6
+47,Mk_In_Html,5|46,5
+48,Logo CSS,21|50,4
+49,Favicon Generation,22,4
+50,Custom CSS,14,4
+51,HTML Templates,14|40,4
+52,Social Previews,13|51,8
+53,Open Graph,52,8
+54,Preview Testing,52|53,8
+55,Image Standards,7|53,5
+56,Page Metadata,13,3
+57,Social Testing,52|54,8
+58,Feedback Forms,17,9
+59,Google Analytics,13|14,9
+60,Visual Studio Code,5|11,1
+61,Markdown Plugins,6,5
+62,GitHub Integration,11,8
+63,Git Commands,62,8
+64,Conda Setup,5,3
+65,Conda Commands,64,3
+66,Semantic Search,29,7
+67,Embeddings,66,7
+68,Vector Stores,67,7
+69,Concept Graph,1,7
+70,Custom Lessons,69,9
+71,Chatbots,66,7
+72,Graph Database,69,7
+73,Concept Expansion,69,7
+74,Content Graph,69,7
+75,Personalization,74,9
+76,Cookies,75,9
+77,Data Privacy,76,9
+78,Recommendations,74,9
+79,Cloud APIs,5,7
+80,Future Outlook,1,10
+81,Repo Structure,3,3
+82,Content Folders,81,3
+83,Naming Conventions,82,3
+84,Link Management,9,5
+85,Broken Links,84,5
+86,GitHub Actions,11,8
+87,Mkdocs Plugins,5,3
+88,Theme Extensions,14,4
+89,Homepage Layout,28,4
+90,Landing Page,89,4
+91,Hero Images,7,4
+92,Navigation Sections,15,4
+93,External JS,51,7
+94,Env Variables,5,3
+95,Local Builds,3,3
+96,Large Media,55,8
+97,Doc Versioning,3,8
+98,Multiple Languages,13,10
+99,Print To PDF,6,8
+100,Mobile Responsive,14,4
+101,Keyboard Shortcuts,50,4
+102,Mermaid Diagrams,37,5
+103,Data Charts,102,6
+104,Index Pages,44,5
+105,YAML Frontmatter,31,3
+106,Search Plugins,29,7
+107,Audio Embeds,41,6
+108,Video Embeds,41,6
+109,Collapsible Sections,32,5
+110,Hints Tooltips,32,4
+111,Code Diffs,36,5
+112,Comments,37,9
+113,User Behavior,59,9
+114,Heatmaps,113,9
+115,A/B Testing,114,9
+116,User Logins,75,9
+117,Preference Storage,76,9
+118,Auto Recommendations,78,9
+119,Content Scheduling,3,8
+120,Feature Flags,5,8
+121,Offline Access,29,9
+122,Full-Text Search,29,7
+123,NLP,66,7
+124,AI Summaries,123,7
+125,Flashcards,69,6
+126,Spaced Repetition,125,9
+127,Related Reading,74,9
+128,Adaptive Quizzes,46,9
+129,LMS Integration,11,7
+130,Data Exports,59,8
+131,Webhooks,79,7
+132,Vector Databases,68,7
+133,Chatbot Tuning,71,7
+134,LLM Usage,71,7
+135,Auto Glossaries,42,7
+136,Quiz Mastery,45,9
+137,Concept Visualization,69,7
+138,Adaptive Difficulty,128,9
+139,Progress Tracking,113,9
+140,Instant Feedback,58,9
+141,Voice Assistants,71,7
+142,Custom Domains,11,8
+143,CDN,11,8
+144,Dark Mode,14,4
+145,WCAG,1,10
+146,Assistive Tech,145,10
+147,Localization,98,10
+148,Machine Translation,147,10
+149,Future-Proofing,80,10
+150,Refinement Cycle,149,10
