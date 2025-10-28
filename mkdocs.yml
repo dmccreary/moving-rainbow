@@ -67,8 +67,9 @@ nav:
     - LED Current Predictor: sims/current-predictor/index.md
   
   - Kits:
-    - kits/index.md
-    - kits/8x8-neopixel-matrix/index.md
+    - Intro: kits/index.md
+    - Base Moving Rainbow Kit: kits/moving-rainbow-base/index.md
+    - 8x8 NeoPixel: kits/8x8-neopixel-matrix/index.md
     - Solar Powered Nightlight:
       - Intro: kits/solar-powered-led-nightlight/index.md
       - kits/solar-powered-led-nightlight/how-it-works.md
