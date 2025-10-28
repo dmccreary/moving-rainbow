@@ -1,0 +1,151 @@
+TopicID,Description
+1,Understanding what an intelligent textbook is  
+2,Defining a microsite  
+3,Overview of the build process in mkdocs  
+4,Understanding the docs/ directory structure  
+5,Installing and setting up mkdocs  
+6,Basic Markdown syntax  
+7,Adding Markdown images  
+8,Organizing images in docs/img directory  
+9,Creating Markdown links  
+10,Introduction to deep linking  
+11,Publishing with GitHub Pages  
+12,Applying the mkdocs-material theme  
+13,Editing and understanding mkdocs.yml  
+14,Exploring material theme features  
+15,Configuring navigation menus  
+16,Setting a top navigation bar  
+17,Customizing the footer navigation  
+18,Working with different navigation options  
+19,Adding a "previous page" link  
+20,Adding a "next page" link  
+21,Incorporating a custom logo  
+22,Adding a favicon  
+23,Adjusting the theme’s color palette  
+24,Selecting a primary color for branding  
+25,Choosing an accent color for highlights  
+26,Using the content-code-copy feature  
+27,Enabling content-action-edit links  
+28,Understanding screen regions in the layout  
+29,Enabling built-in search functionality  
+30,Refining deep linking strategies  
+31,Working with YAML configuration files  
+32,Using admonitions for notes and warnings  
+33,Formatting equations in Markdown  
+34,Integrating LaTeX  
+35,Using MathJax for math rendering  
+36,Setting up code highlighting  
+37,Embedding interactive content  
+38,Integrating simulations into your pages  
+39,Adding animations for visual engagement  
+40,Introducing MicroSims for practice  
+41,Embedding external content with iframes  
+42,Creating and using a glossary  
+43,Glossary linking for key terms  
+44,Generating a dynamic table of contents  
+45,Creating quizzes for engagement  
+46,Writing multiple-choice questions  
+47,Inserting mk_in_html for custom HTML blocks  
+48,Refining the site logo design  
+49,Selecting an optimized favicon format  
+50,Applying basic custom CSS  
+51,Editing HTML templates  
+52,Configuring social previews  
+53,Adding open graph metadata  
+54,Testing social graph previews  
+55,Defining image standards and formats  
+56,Adding page-level metadata  
+57,Validating your social graph setup  
+58,Implementing feedback forms for students  
+59,Integrating Google Analytics tracking  
+60,Using Visual Studio Code for editing  
+61,Installing VS Code Markdown plugins  
+62,Using VS Code’s GitHub integration  
+63,Basic Git commands for version control  
+64,Setting up a Conda environment  
+65,Useful Conda commands for development  
+66,Understanding semantic search basics  
+67,Generating embeddings for content  
+68,Storing embeddings in vector stores  
+69,Building a concept graph of your material  
+70,Creating customized lesson plans  
+71,Integrating a chatbot for Q&A  
+72,Introducing graph databases for content  
+73,Expanding the concept graph  
+74,Building a robust content graph  
+75,Personalizing the learning experience  
+76,Using cookies for personalization  
+77,Addressing data privacy concerns  
+78,Providing automated recommendations  
+79,Connecting to cloud-based APIs  
+80,Discussing the future of intelligent textbooks  
+81,Structuring your project repositories  
+82,Organizing content folders by subject  
+83,Applying consistent naming conventions  
+84,Using relative links vs,absolute links  
+85,Handling broken links gracefully  
+86,Automating builds with GitHub Actions  
+87,Using mkdocs plugins for extended functionality  
+88,Configuring mkdocs-material extensions  
+89,Customizing the homepage layout  
+90,Setting up a landing page with call-to-action  
+91,Incorporating hero images in the layout  
+92,Creating custom navigation sections  
+93,Integrating external JavaScript libraries  
+94,Using environment variables in mkdocs  
+95,Pre-building site locally before deployment  
+96,Handling large media files efficiently  
+97,Versioning documentation for updates  
+98,Managing multiple language versions  
+99,Creating print-friendly PDFs from content  
+100,Ensuring mobile responsiveness  
+101,Adding keyboard shortcuts for navigation  
+102,Configuring mermaid diagrams for flowcharts  
+103,Embedding charts and graphs in Markdown  
+104,Creating index pages for major sections  
+105,Utilizing YAML front matter in pages  
+106,Managing site indexing with search plugins  
+107,Incorporating audio clips into lessons  
+108,Embedding video content responsibly  
+109,Using collapsible sections for readability  
+110,Providing inline hints and tooltips  
+111,Highlighting code differences  
+112,Integrating a comment system  
+113,Tracking user behavior for insights  
+114,Using heatmaps for engagement analysis  
+115,Conducting A/B testing for improvements  
+116,Implementing user login for personalization  
+117,Storing user preferences  
+118,Automating content recommendations  
+119,Scheduling content updates  
+120,Using feature flags for experimental features  
+121,Handling offline access or caching  
+122,Integrating full-text search libraries  
+123,Using natural language processing (NLP)  
+124,Summarizing content with AI tools  
+125,Generating flashcards from key concepts  
+126,Incorporating spaced repetition systems  
+127,Suggesting related readings dynamically  
+128,Tailoring quizzes based on performance  
+129,Integrating with LMS systems  
+130,Exporting data for reporting  
+131,Using webhooks for continuous updates  
+132,Evaluating different vector database solutions  
+133,Fine-tuning chatbot responses  
+134,Leveraging large language models (LLMs)  
+135,Automating glossary generation  
+136,Linking quizzes to concept mastery  
+137,Visualizing concept graphs interactively  
+138,Creating adaptive difficulty levels  
+139,Tracking student progress longitudinally  
+140,Providing instant feedback on answers  
+141,Integrating voice assistants  
+142,Deploying on custom domains  
+143,Using CDN for faster content delivery  
+144,Implementing site-wide dark mode  
+145,Ensuring WCAG accessibility standards  
+146,Designing for assistive technologies  
+147,Handling localization and translation  
+148,Applying machine translation (MT)  
+149,Future-proofing your documentation stack  
+150,Constantly iterating and refining the textbook  
