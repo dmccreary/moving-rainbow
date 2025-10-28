@@ -37,7 +37,7 @@ Although we have a nice icon for the Start and Finish locations, the rest of the
 
 Here is a sample of a simple of another Journey Map
 
-![Beginning Python Journey Map](https://coderdojotc.github.io/python/img/intermediat-python-journey-map.png)
+![Beginning Python Journey Map](./beginning-python-journey-map.png)
 
 Let's take a look at a few more of the design aspects of this map.  First you will note that we are attempting to use different colors and shapes for each lesson.  This lets the students know that these lessons are all different and exciting!  We also are bringing in various icons form the lessons to help students remember where they might have left off.
 
