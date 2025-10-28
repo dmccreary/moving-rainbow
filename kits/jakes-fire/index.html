@@ -1274,6 +1274,84 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#code-walk-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Walk Through
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Walk Through">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-imports-and-hardware-setup-lines-33-48" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Imports and Hardware Setup (Lines 33-48)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-color-wheel-function-lines-50-61" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. The Color Wheel Function (Lines 50-61)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-standard-fire-effect-lines-63-74" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Standard Fire Effect (Lines 63-74)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-simulate-fire-pattern-function-lines-76-91" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Simulate Fire Pattern Function (Lines 76-91)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-clear-function-lines-94-100" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Clear Function (Lines 94-100)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-main-program-loop-lines-103-112" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Main Program Loop (Lines 103-112)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-computational-thinking-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Computational Thinking Concepts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1404,6 +1482,139 @@ for different versions of the game.</p>
     <span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>You can find the full source code and some unit tests here:</p>
+<h2 id="code-walk-through">Code Walk Through</h2>
+<p>Let's break down this fire simulation code step-by-step to understand how it creates realistic flickering fire effects on two NeoPixel rings.</p>
+<h3 id="1-imports-and-hardware-setup-lines-33-48">1. Imports and Hardware Setup (Lines 33-48)</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">ADC</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+</code></pre></div>
+<p>These imports give us access to:
+- <strong>Pin &amp; ADC</strong>: For controlling hardware pins and reading analog values from the potentiometer
+- <strong>NeoPixel</strong>: The library to control addressable LED strips
+- <strong>sleep</strong>: For timing delays between animation frames
+- <strong>randint</strong>: For generating random numbers to create flickering effects</p>
+<div class="highlight"><pre><span></span><code><span class="n">pot</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">dual_ring_config</span><span class="o">.</span><span class="n">POT_PIN</span><span class="p">)</span>
+</code></pre></div>
+<p>This creates an ADC (Analog-to-Digital Converter) object to read the potentiometer value. The potentiometer lets users select different fire patterns by turning a knob.</p>
+<div class="highlight"><pre><span></span><code><span class="n">strip0</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">dual_ring_config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN0</span><span class="p">),</span> <span class="n">NUMBER_PIXELS0</span><span class="p">)</span>  <span class="c1"># 24 pixels</span>
+<span class="n">strip1</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">dual_ring_config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN1</span><span class="p">),</span> <span class="n">NUMBER_PIXELS1</span><span class="p">)</span>  <span class="c1"># 12 pixels</span>
+</code></pre></div>
+<p>Two separate LED rings are initialized:
+- <strong>strip0</strong>: The outer ring with 24 LEDs
+- <strong>strip1</strong>: The inner ring with 12 LEDs</p>
+<h3 id="2-the-color-wheel-function-lines-50-61">2. The Color Wheel Function (Lines 50-61)</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">170</span><span class="p">:</span>
+        <span class="n">pos</span> <span class="o">-=</span> <span class="mi">85</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">-=</span> <span class="mi">170</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>wheel()</code> function converts a position (0-255) into an RGB color:
+- <strong>0-84</strong>: Transitions from red to green (red decreases, green increases)
+- <strong>85-169</strong>: Transitions from green to blue (green decreases, blue increases)
+- <strong>170-255</strong>: Transitions from blue to red (blue decreases, red increases)</p>
+<p>This creates a smooth color wheel effect useful for rainbow and color-cycling patterns.</p>
+<h3 id="3-standard-fire-effect-lines-63-74">3. Standard Fire Effect (Lines 63-74)</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">standard_fire</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS0</span><span class="p">):</span>
+         <span class="n">green</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">155</span><span class="p">)</span>
+         <span class="n">red</span> <span class="o">=</span> <span class="n">green</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+         <span class="n">strip0</span><span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">NUMBER_PIXELS0</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip0</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<p>This function creates a realistic fire effect:</p>
+<ol>
+<li><strong>For each LED in the outer ring</strong> (24 pixels):</li>
+<li>Generate a random green value between 50 and 205</li>
+<li>Set red to be 25-50 units higher than green (fires are redder than green)</li>
+<li>Pick a <strong>random LED position</strong> to update (creates flickering)</li>
+<li>
+<p>Set that LED to the calculated red-green color (no blue)</p>
+</li>
+<li>
+<p><strong>Write to outer ring</strong>: <code>strip0.write()</code> sends all color data to the LEDs</p>
+</li>
+<li>
+<p><strong>Repeat for inner ring</strong> with the same logic for 12 pixels</p>
+</li>
+<li>
+<p><strong>Sleep</strong>: Wait for the specified delay before the next frame</p>
+</li>
+</ol>
+<p><strong>Key insight</strong>: By randomly selecting which pixels to update and using random intensity variations, this creates the chaotic, flickering appearance of real fire!</p>
+<h3 id="4-simulate-fire-pattern-function-lines-76-91">4. Simulate Fire Pattern Function (Lines 76-91)</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">simulate_fire_pattern</span><span class="p">(</span><span class="n">pattern_number</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pattern_number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">standard_fire</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">color_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">wheel</span><span class="p">(</span><span class="n">pattern_number</span> <span class="o">*</span> <span class="mi">16</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span> <span class="o">%</span> <span class="mi">255</span><span class="p">))</span>
+        <span class="n">color_2</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">((</span><span class="n">pattern_number</span> <span class="o">*</span> <span class="mi">16</span> <span class="o">+</span> <span class="mi">128</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">))</span>
+</code></pre></div>
+<p>This function provides 8 different visual patterns based on the pattern number (0-7):</p>
+<ul>
+<li><strong>Pattern 0</strong>: Uses the standard orange/red fire effect</li>
+<li><strong>Patterns 1-7</strong>: Create color-themed effects:</li>
+<li><code>color_1</code>: Base color calculated from pattern number × 16</li>
+<li><code>color_2</code>: Complementary color (opposite side of color wheel, 128 positions away)</li>
+<li>Random variations (0-16) add subtle flickering</li>
+</ul>
+<div class="highlight"><pre><span></span><code>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS0</span><span class="p">):</span>
+            <span class="n">strip0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">color_1</span><span class="p">)</span>
+        <span class="n">strip0</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS1</span><span class="p">):</span>
+            <span class="n">strip1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">color_2</span><span class="p">)</span>
+        <span class="n">strip1</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<p>All LEDs in the outer ring get <code>color_1</code>, while all LEDs in the inner ring get <code>color_2</code>, creating a two-tone effect.</p>
+<h3 id="5-clear-function-lines-94-100">5. Clear Function (Lines 94-100)</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS0</span><span class="p">):</span>
+        <span class="n">strip0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip0</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<p>Sets all LEDs in both rings to (0, 0, 0) which is black (off). This is called when the program stops.</p>
+<h3 id="6-main-program-loop-lines-103-112">6. Main Program Loop (Lines 103-112)</h3>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fire effect running - Press Ctrl+C to stop&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="n">pot</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">simulate_fire_pattern</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+</code></pre></div>
+<p>The main loop:</p>
+<ol>
+<li><strong>Read potentiometer</strong>: <code>pot.read_u16()</code> returns a 16-bit value (0-65535)</li>
+<li><strong>Convert to pattern number</strong>: Shift right by 13 bits (<code>&gt;&gt; 13</code>) to get values 0-7</li>
+<li>65536 ÷ 8192 = 8 possible values</li>
+<li><strong>Print pattern number</strong>: Shows which pattern is active</li>
+<li><strong>Call simulation</strong>: Updates LEDs with 0.1 second delay (10 frames per second)</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Stopping fire effect&quot;</span><span class="p">)</span>
+    <span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<p>When you press Ctrl+C:
+- Catch the interrupt gracefully
+- Turn off all LEDs
+- Exit the program cleanly</p>
+<h3 id="key-computational-thinking-concepts">Key Computational Thinking Concepts</h3>
+<p>This project demonstrates several important programming concepts:</p>
+<ol>
+<li><strong>Randomization</strong>: Using <code>randint()</code> to create unpredictable, natural-looking fire</li>
+<li><strong>Color Theory</strong>: Understanding RGB color mixing and complementary colors</li>
+<li><strong>Hardware Control</strong>: Reading analog sensors and controlling digital LEDs</li>
+<li><strong>Modularity</strong>: Breaking code into reusable functions (<code>standard_fire</code>, <code>simulate_fire_pattern</code>, <code>clear</code>)</li>
+<li><strong>User Input</strong>: Converting potentiometer readings into discrete pattern selections</li>
+<li><strong>Error Handling</strong>: Using try/except to handle program interruption</li>
+<li><strong>Bit Operations</strong>: Using bit shifts (<code>&gt;&gt; 13</code>) for efficient division</li>
+</ol>
 
 
 
