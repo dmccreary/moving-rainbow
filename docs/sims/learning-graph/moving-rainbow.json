@@ -78,7 +78,7 @@
         {
             "id": 16,
             "label": "Power Supply Polarity",
-            "group": "ELEC"
+            "group": "POWR"
         },
         {
             "id": 17,
@@ -98,7 +98,7 @@
         {
             "id": 20,
             "label": "Power Safety",
-            "group": "ELEC"
+            "group": "POWR"
         },
         {
             "id": 21,
@@ -148,7 +148,7 @@
         {
             "id": 30,
             "label": "Power vs Data",
-            "group": "ELEC"
+            "group": "POWR"
         },
         {
             "id": 31,
@@ -163,7 +163,7 @@
         {
             "id": 33,
             "label": "Power Supply",
-            "group": "ELEC"
+            "group": "POWR"
         },
         {
             "id": 34,
@@ -198,7 +198,7 @@
         {
             "id": 40,
             "label": "Power Consumption",
-            "group": "ELEC"
+            "group": "POWR"
         },
         {
             "id": 41,
@@ -1173,17 +1173,17 @@
         {
             "id": 235,
             "label": "Battery Life",
-            "group": "PROF"
+            "group": "POWR"
         },
         {
             "id": 236,
             "label": "Power Optimization",
-            "group": "ARCH"
+            "group": "POWR"
         },
         {
             "id": 237,
             "label": "Brightness Power Tradeoff",
-            "group": "ARCH"
+            "group": "POWR"
         },
         {
             "id": 238,
@@ -1483,7 +1483,7 @@
         {
             "id": 297,
             "label": "Power Distribution",
-            "group": "ELEC"
+            "group": "POWR"
         },
         {
             "id": 298,
@@ -1903,32 +1903,32 @@
         {
             "id": 381,
             "label": "Battery Selection",
-            "group": "PROF"
+            "group": "POWR"
         },
         {
             "id": 382,
             "label": "Battery Capacity",
-            "group": "PROF"
+            "group": "POWR"
         },
         {
             "id": 383,
             "label": "Battery Life Calculation",
-            "group": "PROF"
+            "group": "POWR"
         },
         {
             "id": 384,
             "label": "Rechargeable Batteries",
-            "group": "PROF"
+            "group": "POWR"
         },
         {
             "id": 385,
             "label": "LiPo Safety",
-            "group": "PROF"
+            "group": "POWR"
         },
         {
             "id": 386,
             "label": "Charging Circuits",
-            "group": "ELEC"
+            "group": "POWR"
         },
         {
             "id": 387,
@@ -1938,12 +1938,12 @@
         {
             "id": 388,
             "label": "Power Switches",
-            "group": "ELEC"
+            "group": "POWR"
         },
         {
             "id": 389,
             "label": "Portable Power",
-            "group": "PROF"
+            "group": "POWR"
         },
         {
             "id": 390,
@@ -4603,7 +4603,7 @@
             "to": 361
         },
         {
-            "from": 362,
+            "from": 349,
             "to": 362
         },
         {
@@ -4659,7 +4659,7 @@
             "to": 369
         },
         {
-            "from": 370,
+            "from": 349,
             "to": 370
         },
         {
@@ -4679,7 +4679,7 @@
             "to": 372
         },
         {
-            "from": 373,
+            "from": 349,
             "to": 373
         },
         {
