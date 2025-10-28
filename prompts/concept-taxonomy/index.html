@@ -22,7 +22,7 @@
     
     
       
-        <title>Concept taxonomy - Moving Rainbow</title>
+        <title>Moving Rainbow Taxonomy - Moving Rainbow</title>
       
     
     
@@ -59,7 +59,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Concept taxonomy - Moving Rainbow" >
+        <meta  property="og:title"  content="Moving Rainbow Taxonomy - Moving Rainbow" >
       
         <meta  property="og:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
       
@@ -75,7 +75,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Concept taxonomy - Moving Rainbow" >
+        <meta  name="twitter:title"  content="Moving Rainbow Taxonomy - Moving Rainbow" >
       
         <meta  name="twitter:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
       
@@ -98,6 +98,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#moving-rainbow-taxonomy" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -130,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Concept taxonomy
+              Moving Rainbow Taxonomy
             
           </span>
         </div>
@@ -942,6 +947,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -964,17 +971,19 @@
   
 
 
-  <h1>Concept taxonomy</h1>
+<h1 id="moving-rainbow-taxonomy">Moving Rainbow Taxonomy</h1>
+<pre><code>Now lets focus again on the 400 concepts we have generated in /data/learning-graph.csv.
+Your next task is to organize these concepts into a small taxonomy of approximately 12 classifiers.  
+You will add a new column to the csv file called taxonomyID.  
+Each concept will be assigned the taxonomyID.
 
-<p>Now lets focus again on the 400 concepts we have generated in /data/learning-graph.csv.
-Your next task is to organize these concepts into a small taxonomy of approximately 12 classifiers.<br />
-You will add a new column to the csv file called taxonomyID.<br />
-Each concept will be assigned the taxonomyID.</p>
-<p>Your fist task is to find about 12 logical groupings of similar concepts
+Your fist task is to find about 12 logical groupings of similar concepts
 such as "Programming Concepts".  For each concept you will assign a
-taxonomyID.</p>
-<p>Here are some suggestions.  Here are some suggestions:</p>
-<p>"Computer Fundamentals"
+taxonomyID.
+
+Here are some suggestions.  Here are some suggestions:
+
+"Computer Fundamentals"
 "Electronic Circuits"
 "Physical Computing"
 "Microcontrollers"
@@ -984,11 +993,66 @@ taxonomyID.</p>
 "Sensors"
 "Debugging"
 "Design"
-"Projects"</p>
-<p>Your task is to create the rest of the classifiers and give each classifier 
+"Projects"
+
+
+Your task is to create the rest of the classifiers and give each classifier 
 a label and definition.
 Each category should include concepts that share similar characteristics, functions, or applications.
-Attempt to evenly divide the 400 concepts into a balanced taxonomy.</p>
+Attempt to evenly divide the 400 concepts into a balanced taxonomy.
+</code></pre>
+<ol>
+<li>/data/taxonomy.md - Complete taxonomy documentation with:<ul>
+<li>12 classifier categories with IDs, definitions, and examples</li>
+<li>Actual concept counts for each category</li>
+<li>Distribution summary table</li>
+</ul>
+</li>
+<li>/data/learning-graph.csv - Updated with new TaxonomyID column:<ul>
+<li>All 400 concepts now have a taxonomy classification</li>
+<li>Format: ConceptID,ConceptName,DependsOn,TaxonomyID</li>
+</ul>
+</li>
+</ol>
+<p>## The 12 Taxonomy Categories:</p>
+<p>| ID     | Category                  | Count | Description
+                                      |
+  |--------|---------------------------|-------|--------------------------------------
+  ------------------------------------|
+  | PROG   | Programming Fundamentals | 62    | Core programming: syntax, variables,
+  data types, control flow, functions |
+  | PROF   | Professional Skills      | 59    | Documentation, version control,
+  communication, collaboration             |
+  | ANIM   | Animation &amp; Patterns     | 45    | Animation principles, timing, motion
+  effects, visual patterns            |
+  | ARCH   | Program Architecture     | 45    | Software design patterns, code
+  organization, algorithms                  |
+  | LED    | LEDs &amp; Color             | 35    | LED technology, color theory, RGB
+  models, addressable strips             |
+  | INPUT  | User Input &amp; Sensors     | 34    | Buttons, sensors, event handling,
+  environmental sensing                  |
+  | ELEC   | Electronics &amp; Circuits   | 31    | Voltage, current, circuits, safety,
+  connections                          |
+  | DEBUG  | Debugging &amp; Testing      | 27    | Error detection, troubleshooting,
+  testing methodologies                  |
+  | DESIGN | Project Design &amp; Planning| 27    | Requirements, prototyping, project
+  planning                              |
+  | MATH   | Mathematics              | 14    | Arithmetic, coordinate systems,
+  numerical operations                     |
+  | CF     | Computer Fundamentals     | 13    | Basic computer skills, file
+  management, software installation            |
+  | MCU    | Microcontrollers          | 8     | Microcontroller hardware, firmware,
+  GPIO, interfacing                    |</p>
+<p>Key Features:</p>
+<p>✅ Each concept assigned to exactly one primary category
+  ✅ Balanced distribution reflecting curriculum focus areas
+  ✅ Clear, educational definitions for each category
+  ✅ Examples provided for each taxonomy
+  ✅ Ready for network graph visualization with color-coded categories</p>
+<p>The taxonomy emphasizes the educational priorities: programming skills (PROG),
+  professional development (PROF), and hands-on animation work (ANIM + LED), while
+  also covering essential supporting concepts in electronics, debugging, design, and
+  mathematics.</p>
 
 
 
