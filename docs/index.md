@@ -1,7 +1,6 @@
-
 # Welcome to the Moving Rainbow Website!
 
-![](img/moving-rainbow-logo.png)
+![](img/cover.png)
 
 ## About the Moving Rainbow Project
 
