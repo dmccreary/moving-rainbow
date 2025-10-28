@@ -99,23 +99,30 @@ nav:
     - teachers-guide/rhizomatous-learning-theory.md
   
   - Kits:
-    - kits/index.md
-    - kits/8x8-neopixel-matrix/index.md
-    - kits/solar-powered-led-nightlight/index.md
-    - kits/solar-powered-led-nightlight/how-it-works.md
-    - kits/solar-powered-led-nightlight/microsim.md
-    - kits/solar-powered-led-nightlight/prompt.md
-    - kits/analog-nightlight/index.md
-    - kits/digital-nightlight/index.md
-    - kits/led-fire/index.md
+    - Introduction: kits/index.md
+    - Base Moving Rainbow Kit: kits/base-moving-rainbow-kit/index.md
+    - NeoPixel Matrix: kits/8x8-neopixel-matrix/index.md
+    - Solar Powered Nightlight:
+      - Intro: kits/solar-powered-led-nightlight/index.md
+      - How it works: kits/solar-powered-led-nightlight/how-it-works.md
+      - MicroSim: kits/solar-powered-led-nightlight/microsim.md
+      - Prompt: kits/solar-powered-led-nightlight/prompt.md
+    - LED Noodle Nightlight:
+      - Intro: kits/analog-nightlight/index.md
+      - Digital Nightlight: kits/digital-nightlight/index.md
+      - kits/led-noodle-nightlight/index.md
+    - LED Fire: kits/led-fire/index.md
     - kits/led-nightlight/index.md
-    - kits/led-noodle-nightlight/index.md
   
   - GenAI Prompts:
     - Introduction: prompts/index.md
     - Moving Rainbow: prompts/moving-rainbow.md
-    - Generate Skill: prompts/generate-skill.md
+    - Course Description: prompts/course-description.md
+    - Concept Dependency: prompts/concept-dependency-graph.md
+    - Concept Taxonomy: prompts/concept-taxonomy.md
+    - Generate Claude Skill: prompts/generate-skill.md
     - Generating a Glossary: prompts/glossary.md
+
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - License: license.md

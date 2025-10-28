@@ -1,5 +1,7 @@
 # LED Nightlight
 
+![](./nightlight-circuit-diagram.png)
+
 ## Calculating The Base-Limiting Resistor
 
 |Resistor (K Ohms)|Current (milliamps)|
@@ -26,7 +28,7 @@
     |27.7|25|
     |31|20|
 
-    For the input slider, the resistence value must range from 3 to 50. 
+    For the input slider, the resistance value must range from 3 to 50. 
 
     The microsim will display the points in the table above with small red dots but then have a blue line go through the points using a least-square-fit calculated slope and intercept.
     The chart should display the value of the resistor and the current.
