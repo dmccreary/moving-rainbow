@@ -20,6 +20,7 @@ nav:
     - Updating Firmware: getting-started/updating-firmware.md
     - GitHub Summary: getting-started/github-summary.md
     - Electrical Connections: getting-started/connections.md
+    - Troubleshooting Resets: getting-started/troubleshooting-resets.md
   
   - NeoPixel Lessons:
     - List of Lessons: lessons/index.md
