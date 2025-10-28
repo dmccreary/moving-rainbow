@@ -2,6 +2,13 @@
 
 Our base kit is simple.
 
-1. A Rasbperry Pi Pico on a breadboard
-2. A 30 pixel NeoPixel strip (WS2812B) - 60 pixels per meter
-3. Two mom
+- Raspberry Pi Pico microcontroller ($4-6)
+- 1/2-size breadboard with 400 tie points
+- 30-LED addressable RGB strip (WS2812B)
+- Two momentary push buttons
+- Screw terminal headers (optional)
+- Jumper wires
+
+When purchased for a classroom, teachers tell us
+that they can usually get the per-kit costs
+under $10.
