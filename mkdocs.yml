@@ -91,6 +91,13 @@ nav:
     - Jake's Fire:
       - Intro: kits/jakes-fire/index.md
       - Advanced Version: kits/jakes-fire/advanced-version.md
+    
+    - kits/analog-nightlight/index.md
+    - kits/digital-nightlight/index.md
+    
+    - kits/led-fire/index.md
+    - kits/led-nightlight/index.md
+    - kits/led-noodle-nightlight/index.md
   
   - Teachers Guide:
     - Introduction: teachers-guide/index.md
@@ -110,11 +117,11 @@ nav:
     - Generate Skill: prompts/generate-skill.md
     - Generating a Glossary: prompts/glossary.md
     - Learning Graph:
-      - Intro:  prompts/learning-graph/index.md
+      - Intro: prompts/learning-graph-intro.md
       - Course Description: prompts/course-description.md
       - Concept Dependency: prompts/concept-dependency-graph.md
       - Concept Taxonomy: prompts/concept-taxonomy.md
-    - Cover: prompts/cover.md
+    - Cover: prompts/cover-image.md
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - License: license.md
