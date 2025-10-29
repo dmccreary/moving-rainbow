@@ -20,6 +20,7 @@ nav:
     - Updating Firmware: getting-started/updating-firmware.md
     - GitHub Summary: getting-started/github-summary.md
     - Electrical Connections: getting-started/connections.md
+    - Troubleshooting Resets: getting-started/troubleshooting-resets.md
   
   - NeoPixel Lessons:
     - List of Lessons: lessons/index.md
@@ -67,24 +68,36 @@ nav:
     - LED Current Predictor: sims/current-predictor/index.md
   
   - Kits:
-    - kits/index.md
-    - kits/8x8-neopixel-matrix/index.md
+    - Intro: kits/index.md
+    - Base Moving Rainbow Kit: kits/moving-rainbow-base/index.md
+    - 8x8 NeoPixel: kits/8x8-neopixel-matrix/index.md
     - Solar Powered Nightlight:
       - Intro: kits/solar-powered-led-nightlight/index.md
       - kits/solar-powered-led-nightlight/how-it-works.md
       - kits/solar-powered-led-nightlight/microsim.md
       - kits/solar-powered-led-nightlight/prompt.md
     
-      - Holiday Hats:
-        - Intro: kits/holiday-hats/index.md
-        - Valentine's Day: kits/holiday-hats/valentines-day.md
-        - 4th of July: kits/holiday-hats/4th-of-july.md
-        - St. Patrick's Day: kits/holiday-hats/st-patricks-day.md
-        - Halloween: kits/holiday-hats/halloween.md
-        - Christmas: kits/holiday-hats/christmas.md
-        - Valentine's Day: kits/holiday-hats/valentines-day.md
+    - Holiday Hats:
+      - Intro: kits/holiday-hats/index.md
+      - Valentine's Day: kits/holiday-hats/valentines-day.md
+      - 4th of July: kits/holiday-hats/4th-of-july.md
+      - St. Patrick's Day: kits/holiday-hats/st-patricks-day.md
+      - Halloween: kits/holiday-hats/halloween.md
+      - Christmas: kits/holiday-hats/christmas.md
+      - Valentine's Day: kits/holiday-hats/valentines-day.md
+    
     - Halloween Patterns:
       - Intro: kits/halloween/index.md
+    - Jake's Fire:
+      - Intro: kits/jakes-fire/index.md
+      - Advanced Version: kits/jakes-fire/advanced-version.md
+    
+    - kits/analog-nightlight/index.md
+    - kits/digital-nightlight/index.md
+    
+    - kits/led-fire/index.md
+    - kits/led-nightlight/index.md
+    - kits/led-noodle-nightlight/index.md
   
   - Teachers Guide:
     - Introduction: teachers-guide/index.md
@@ -98,6 +111,7 @@ nav:
     - teachers-guide/mentoring-best-practices.md
     - teachers-guide/rhizomatous-learning-theory.md
   
+<<<<<<< HEAD
   - Kits:
     - Introduction: kits/index.md
     - Base Moving Rainbow Kit: kits/base-moving-rainbow-kit/index.md
@@ -114,6 +128,8 @@ nav:
     - LED Fire: kits/led-fire/index.md
     - kits/led-nightlight/index.md
   
+=======
+>>>>>>> c815edeceb2f503eaa77d95393b3af2a3f49f96e
   - GenAI Prompts:
     - Introduction: prompts/index.md
     - Moving Rainbow: prompts/moving-rainbow.md
@@ -122,7 +138,16 @@ nav:
     - Concept Taxonomy: prompts/concept-taxonomy.md
     - Generate Claude Skill: prompts/generate-skill.md
     - Generating a Glossary: prompts/glossary.md
+<<<<<<< HEAD
 
+=======
+    - Learning Graph:
+      - Intro: prompts/learning-graph-intro.md
+      - Course Description: prompts/course-description.md
+      - Concept Dependency: prompts/concept-dependency-graph.md
+      - Concept Taxonomy: prompts/concept-taxonomy.md
+    - Cover: prompts/cover-image.md
+>>>>>>> c815edeceb2f503eaa77d95393b3af2a3f49f96e
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - License: license.md
