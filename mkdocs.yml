@@ -66,11 +66,13 @@ nav:
     - Color Wheel: sims/color-wheel/index.md
     - Learning Graph: sims/learning-graph/index.md
     - LED Current Predictor: sims/current-predictor/index.md
+    - Animated Wire: sims/animated-wire/index.md
+    - LED Dimmer: sims/led-dimmer/index.md
   
   - Kits:
     - Intro: kits/index.md
     - Base Moving Rainbow Kit: kits/moving-rainbow-base/index.md
-    - 8x8 NeoPixel: kits/8x8-neopixel-matrix/index.md
+    - 8x8 NeoPixel Matrix: kits/8x8-neopixel-matrix/index.md
     - Solar Powered Nightlight:
       - Intro: kits/solar-powered-led-nightlight/index.md
       - kits/solar-powered-led-nightlight/how-it-works.md
@@ -85,20 +87,20 @@ nav:
       - Halloween: kits/holiday-hats/halloween.md
       - Christmas: kits/holiday-hats/christmas.md
       - Valentine's Day: kits/holiday-hats/valentines-day.md
-    
     - Halloween Patterns:
       - Intro: kits/halloween/index.md
     - Jake's Fire:
       - Intro: kits/jakes-fire/index.md
       - Advanced Version: kits/jakes-fire/advanced-version.md
-    
-    - kits/analog-nightlight/index.md
-    - kits/digital-nightlight/index.md
-    
-    - kits/led-fire/index.md
-    - kits/led-nightlight/index.md
-    - kits/led-noodle-nightlight/index.md
-  
+    - LED Dimmer: kits/led-dimmer/index.md
+    - LED Noodle Nightlight:
+      - Analog Nightlight: kits/analog-nightlight/index.md
+      - Digital Nightlight: kits/digital-nightlight/index.md
+      - Digital Nightlight Code: kits/digital-nightlight/code-walkthrough.md
+      - kits/led-nightlight/index.md
+      - kits/led-noodle-nightlight/index.md
+    - LED Fire: kits/led-fire/index.md
+
   - Teachers Guide:
     - Introduction: teachers-guide/index.md
     - Computational Thinking: teachers-guide/computational-thinking.md
@@ -111,25 +113,6 @@ nav:
     - teachers-guide/mentoring-best-practices.md
     - teachers-guide/rhizomatous-learning-theory.md
   
-<<<<<<< HEAD
-  - Kits:
-    - Introduction: kits/index.md
-    - Base Moving Rainbow Kit: kits/base-moving-rainbow-kit/index.md
-    - NeoPixel Matrix: kits/8x8-neopixel-matrix/index.md
-    - Solar Powered Nightlight:
-      - Intro: kits/solar-powered-led-nightlight/index.md
-      - How it works: kits/solar-powered-led-nightlight/how-it-works.md
-      - MicroSim: kits/solar-powered-led-nightlight/microsim.md
-      - Prompt: kits/solar-powered-led-nightlight/prompt.md
-    - LED Noodle Nightlight:
-      - Intro: kits/analog-nightlight/index.md
-      - Digital Nightlight: kits/digital-nightlight/index.md
-      - kits/led-noodle-nightlight/index.md
-    - LED Fire: kits/led-fire/index.md
-    - kits/led-nightlight/index.md
-  
-=======
->>>>>>> c815edeceb2f503eaa77d95393b3af2a3f49f96e
   - GenAI Prompts:
     - Introduction: prompts/index.md
     - Moving Rainbow: prompts/moving-rainbow.md
@@ -138,18 +121,15 @@ nav:
     - Concept Taxonomy: prompts/concept-taxonomy.md
     - Generate Claude Skill: prompts/generate-skill.md
     - Generating a Glossary: prompts/glossary.md
-<<<<<<< HEAD
-
-=======
     - Learning Graph:
       - Intro: prompts/learning-graph-intro.md
       - Course Description: prompts/course-description.md
       - Concept Dependency: prompts/concept-dependency-graph.md
       - Concept Taxonomy: prompts/concept-taxonomy.md
     - Cover: prompts/cover-image.md
->>>>>>> c815edeceb2f503eaa77d95393b3af2a3f49f96e
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
+  - Moving Rainbow Skill: skills/index.md
   - License: license.md
   - Glossary: glossary.md
   - Resources: resources.md
