@@ -30,4 +30,27 @@ The sensitivity of the nightlight is determined by the resistance of the upper "
 The resistor that is in series with the LED determines the brightness of the 5 volt LED noodle.  We picked a value of 10 ohms because an almost zero resistance wire just makes the LED noodle too bright for our room.  If you wanted a very dim nightlight 
 
 ## Sample Circuit Diagrams
+![](./analog-nightlight.jpg)
+<br/>
+![](./back.png)
+
+This nightlight project uses a simple transistor circuit
+to turn a LED noodle on when the room is dark.
+
+Here are the parts list
+
+Here's the information formatted as a Markdown table:
+
+| Part Name | Estimated Cost | Notes |
+|-----------|---------------|-------|
+| 5-Volt LED Noodle | $1-$3 | Available in five colors |
+| Photoresistor | $0.20 | |
+| 2N2222 NPN Transistor | $0.20 | |
+| 10K resistor | $0.10 | |
+| Perforated breadboard | $0.10 | |
+| USB wall adapter | $2.00 | |
+
+You can also add a 100K potentiometer to adjust the brightness level that the nightlight turns on.
+
+
 
