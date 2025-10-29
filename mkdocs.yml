@@ -68,6 +68,7 @@ nav:
     - LED Current Predictor: sims/current-predictor/index.md
     - Animated Wire: sims/animated-wire/index.md
     - LED Dimmer: sims/led-dimmer/index.md
+    - LED Nightlight: sims/nightlight/index.md
   
   - Kits:
     - Intro: kits/index.md

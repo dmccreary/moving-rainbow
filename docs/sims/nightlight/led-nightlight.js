@@ -1,9 +1,10 @@
-// LED Dimmer Circuit Simulation
-// This simulation demonstrates how an LED dimmer circuit works using a potentiometer,
-// transistor (2N2222), resistors, and an LED. The potentiometer controls the base voltage
-// of the transistor, which in turn controls the current flow through the LED.
+// LED Nightlight Circuit Simulation
+// This simulation demonstrates how an LED nightlight circuit works using a photoresistor,
+// transistor (2N2222), resistors, and an LED. The photoresistor detects ambient light level
+// and controls the base voltage of the transistor, which in turn controls the LED brightness.
+// The LED gets brighter as the ambient light gets darker.
 // Components: 5V power supply, Standard LED, 220Ω resistor, 2N2222 NPN transistor,
-// 10kΩ base resistor, 20kΩ potentiometer
+// 10kΩ base resistor, 100kΩ resistor, photoresistor
 
 // Canvas dimensions following standard MicroSim layout
 let canvasWidth = 600;
@@ -21,12 +22,12 @@ let containerHeight = canvasHeight;
 // Simulation variables
 let isRunning = false;
 let animationTime = 0;
-let potSlider;
+let lightSlider;
 let startButton;
 let resetButton;
 
 // Circuit parameters
-let potValue = 0.5; // 0 to 1
+let lightLevel = 0.5; // 0 (dark) to 1 (bright)
 let baseVoltage = 0;
 let collectorCurrent = 0;
 let ledBrightness = 0;
@@ -42,8 +43,10 @@ let powerRailY = margin + 40;
 let groundRailY = 400;
 
 // Column 1 components
-let potX = circuitColumWidth;
-let potY = (containerHeight / 2) + 25;
+let resistor100kX = circuitColumWidth;
+let resistor100kY = 150;
+let photoresistorX = circuitColumWidth;
+let photoresistorY = 320;
 
 // Column 2 components
 let resistor10kX = circuitColumWidth * 2;
@@ -64,17 +67,17 @@ function setup() {
   const canvas = createCanvas(containerWidth, containerHeight);
   canvas.parent(document.querySelector('main'));
 
-  // Create potentiometer control slider
-  potSlider = createSlider(0, 100, 50, 1);
-  potSlider.position(sliderLeftMargin, drawHeight + 35);
-  potSlider.size(containerWidth - sliderLeftMargin - 25);
+  // Create light level control slider
+  lightSlider = createSlider(0, 100, 50, 1);
+  lightSlider.position(sliderLeftMargin, drawHeight + 35);
+  lightSlider.size(containerWidth - sliderLeftMargin - 25);
 
   // Create start/pause button
   startButton = createButton('Start');
   startButton.position(10, drawHeight + 10);
   startButton.mousePressed(toggleSimulation);
 
-  describe('LED dimmer circuit simulation showing how a potentiometer controls LED brightness through a transistor.', LABEL);
+  describe('LED nightlight circuit simulation showing how a photoresistor controls LED brightness through a transistor.', LABEL);
 }
 
 function draw() {
@@ -96,18 +99,19 @@ function draw() {
   noStroke();
   textSize(20);
   textAlign(CENTER, TOP);
-  text("LED Dimmer Circuit", containerWidth/2, 10);
+  text("LED Nightlight Circuit", containerWidth/2, 10);
 
   // Reset text properties
   textSize(defaultTextSize);
   textAlign(LEFT, CENTER);
 
-  // Get current potentiometer value
-  potValue = potSlider.value() / 100;
+  // Get current light level (0 = dark, 1 = bright)
+  lightLevel = lightSlider.value() / 100;
 
   // Calculate circuit values
-  // Base voltage varies from 0 to 5V based on potentiometer
-  baseVoltage = potValue * 5.0;
+  // As light decreases (photoresistor resistance increases), base voltage increases
+  // Inverted relationship: dark = high voltage, bright = low voltage
+  baseVoltage = (1 - lightLevel) * 5.0;
 
   // Transistor starts conducting around 0.7V, full on around 2V
   if (baseVoltage < 0.7) {
@@ -128,7 +132,8 @@ function draw() {
   drawPowerRails();
 
   // Draw circuit components
-  drawPotentiometer(potX, potY, potValue);
+  drawResistor(resistor100kX, resistor100kY, '100kΩ', 'vertical');
+  drawPhotoresistor(photoresistorX, photoresistorY, lightLevel);
   drawResistor(resistor10kX, resistor10kY, '10kΩ', 'horizontal');
   drawTransistor(transistorX, transistorY);
   drawLED(ledX, ledY, ledBrightness);
@@ -168,39 +173,58 @@ function drawPowerRails() {
   text('GND', containerWidth/2, groundRailY + 20);
 }
 
-function drawPotentiometer(x, y, value) {
-  // Potentiometer body
-  fill('lightgray');
+function drawPhotoresistor(x, y, lightLevel) {
+  // Photoresistor body
+  fill('tan');
   stroke('black');
   strokeWeight(2);
-  rect(x - 25, y - 40, 50, 80, 5);
+  rect(x - 20, y - 30, 40, 60, 4);
 
-  // Top terminal
-  fill('silver');
-  circle(x, y - 40, 8);
+  // Zigzag pattern representing resistive element
+  stroke('darkred');
+  strokeWeight(2);
+  noFill();
+  beginShape();
+  for (let i = 0; i < 5; i++) {
+    let yPos = y - 20 + i * 10;
+    let xOffset = (i % 2 === 0) ? -10 : 10;
+    vertex(x + xOffset, yPos);
+  }
+  endShape();
 
-  // Bottom terminal
-  circle(x, y + 40, 8);
+  // Light-sensitive window (brightness varies with light level)
+  let windowBrightness = map(lightLevel, 0, 1, 100, 255);
+  fill(windowBrightness, windowBrightness, 150);
+  noStroke();
+  circle(x, y, 25);
 
-  // Center tap terminal
-  circle(x + 25, y, 8);
+  // Arrows representing light hitting the sensor
+  if (lightLevel > 0.3) {
+    stroke(255, 255, 0, lightLevel * 200);
+    strokeWeight(2);
+    for (let i = 0; i < 3; i++) {
+      let arrowX = x - 35 + i * 5;
+      let arrowY1 = y - 40;
+      let arrowY2 = y - 20;
+      line(arrowX, arrowY1, arrowX, arrowY2);
+      // Arrow head
+      line(arrowX, arrowY2, arrowX - 2, arrowY2 - 3);
+      line(arrowX, arrowY2, arrowX + 2, arrowY2 - 3);
+    }
+  }
 
-  // Knob
-  fill(60);
-  circle(x, y, 40);
-
-  // Knob indicator
-  stroke('white');
+  // Terminals
+  stroke('black');
   strokeWeight(3);
-  // 50% is vertical
-  // The Pot line only goes a limited way around 360
-  let angle = map(value, 0, 1, -135, 135) - 90;
-  let knobLIneLength = 16;
-  let indicatorX = x + knobLIneLength * cos(radians(angle));
-  let indicatorY = y + knobLIneLength * sin(radians(angle));
-  line(x, y, indicatorX, indicatorY);
+  line(x, y - 30, x, y - 40);  // Top terminal
+  line(x, y + 30, x, y + 40);  // Bottom terminal
 
-  text('20kΩ\nPOT', potX-60, potY);
+  // Label
+  fill('black');
+  noStroke();
+  textSize(12);
+  textAlign(CENTER);
+  text('Photo-\nresistor', x + 45, y);
 }
 
 function drawResistor(x, y, label, orientation) {
@@ -338,14 +362,19 @@ function drawCircuitWiring() {
   let speed = isRunning ? 0.15 : 0;
   let spacing = 0.8;
 
-  // Wire from +5V to potentiometer top
-  drawAnimatedWire(potX, powerRailY, potX, potY - 40, speed, spacing, collectorCurrent);
+  // Wire from +5V to 100k resistor top
+  drawAnimatedWire(resistor100kX, powerRailY, resistor100kX, resistor100kY - 30, speed, spacing, collectorCurrent);
 
-  // Wire from potentiometer bottom to ground
-  drawAnimatedWire(potX, potY + 40, potX, groundRailY, speed, spacing, collectorCurrent);
+  // Wire from 100k resistor bottom to photoresistor top (voltage divider midpoint)
+  let midpointY = (resistor100kY + photoresistorY) / 2;
+  drawAnimatedWire(resistor100kX, resistor100kY + 30, resistor100kX, photoresistorY - 40, speed, spacing, collectorCurrent);
 
-  // Wire from potentiometer center tap to 10k resistor
-  drawAnimatedWire(potX + 25, potY, resistor10kX - 30, resistor10kY, speed, spacing, collectorCurrent);
+  // Wire from photoresistor bottom to ground
+  drawAnimatedWire(photoresistorX, photoresistorY + 40, photoresistorX, groundRailY, speed, spacing, collectorCurrent);
+
+  // Wire from voltage divider midpoint to 10k resistor
+  let tapY = (resistor100kY + 30 + photoresistorY - 40) / 2;
+  drawAnimatedWire(photoresistorX, tapY, resistor10kX - 30, resistor10kY, speed, spacing, collectorCurrent);
 
   // Wire from 10k resistor to transistor base
   drawAnimatedWire(resistor10kX + 30, resistor10kY, transistorX - 25, transistorY, speed, spacing, collectorCurrent);
@@ -412,7 +441,7 @@ function drawControlLabels() {
   textSize(defaultTextSize);
   textAlign(LEFT, CENTER);
 
-  text('Potentiometer: ' + (potValue * 100).toFixed(0) + '%', 10, drawHeight + 15);
+  text('Ambient Light: ' + (lightLevel * 100).toFixed(0) + '%', 10, drawHeight + 15);
   pop();
 }
 
@@ -427,12 +456,13 @@ function windowResized() {
   redraw();
   // put all component x positions here...
   circuitColumWidth = canvasWidth / 5
-  potX = circuitColumWidth;
+  resistor100kX = circuitColumWidth;
+  photoresistorX = circuitColumWidth;
   transistorX = circuitColumWidth * 3;
   ledX = circuitColumWidth * 4;;
   resistor10kX = circuitColumWidth * 2;
   resistor220X = ledX;
-  potSlider.size(containerWidth - sliderLeftMargin - 25);
+  lightSlider.size(containerWidth - sliderLeftMargin - 25);
 }
 
 function updateCanvasSize() {
