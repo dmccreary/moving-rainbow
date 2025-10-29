@@ -1,5 +1,8 @@
 # 4th of July Hat
 
+This hat features a set of red, white and blue colors in
+alternating patterns.
+
 ```py
 # moving rainbow
 from machine import Pin

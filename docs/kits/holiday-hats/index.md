@@ -6,7 +6,7 @@ board and our standard Moving Rainbow kit.  You can
 use the same hat for all the seasons.  You just change
 the color pattern.
 
-## St. Patrck's Day
+## St. Patrick's Day
 
 [St. Patrick's Day](./st-patricks-day.md)
 
