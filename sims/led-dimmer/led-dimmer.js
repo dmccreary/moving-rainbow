@@ -6,11 +6,11 @@
 // 10kΩ base resistor, 20kΩ potentiometer
 
 // Canvas dimensions following standard MicroSim layout
-let canvasWidth = 400;
-let drawHeight = 500;
+let canvasWidth = 600;
+let drawHeight = 440;
 let controlHeight = 70;
 let canvasHeight = drawHeight + controlHeight;
-let margin = 25;
+let margin = 20;
 let sliderLeftMargin = 160;
 let defaultTextSize = 16;
 
@@ -31,19 +31,33 @@ let baseVoltage = 0;
 let collectorCurrent = 0;
 let ledBrightness = 0;
 
-// Component positions
-let powerRailY = 80;
-let groundRailY = 450;
-let potX = 100;
-let potY = 265;
-let transistorX = 320;
-let transistorY = 350;
-let ledX = 420;
-let ledY = 180;
-let resistor10kX = 210;
-let resistor10kY = 300;
-let resistor220X = 420;
-let resistor220Y = 265;
+// Component positions - use relative positioning when possible
+
+let numberComponentColums = 5;
+let circuitColumWidth = canvasWidth / numberComponentColums;
+
+// For a width-responsive design, scale relative to the canvasWidth
+// margin + title height + 5v label height
+let powerRailY = margin + 40;
+let groundRailY = 400;
+
+// Column 1 components
+let potX = circuitColumWidth;
+let potY = (containerHeight / 2) + 25;
+
+// Column 2 components
+let resistor10kX = circuitColumWidth * 2;
+let resistor10kY = 280;
+
+// Column 3 component
+let transistorX = circuitColumWidth * 3;
+let transistorY = resistor10kY;
+let ledX = circuitColumWidth * 4;;
+let ledY = powerRailY + 40;
+
+// Column 4 component
+let resistor220X = ledX;
+let resistor220Y = ledY + 80;
 
 function setup() {
   updateCanvasSize();
@@ -60,15 +74,11 @@ function setup() {
   startButton.position(10, drawHeight + 10);
   startButton.mousePressed(toggleSimulation);
 
-  // Create reset button
-  resetButton = createButton('Reset');
-  resetButton.position(70, drawHeight + 10);
-  resetButton.mousePressed(resetSimulation);
-
   describe('LED dimmer circuit simulation showing how a potentiometer controls LED brightness through a transistor.', LABEL);
 }
 
 function draw() {
+  updateCanvasSize();
   // Draw simulation area background
   fill('aliceblue');
   stroke('silver');
@@ -127,8 +137,7 @@ function draw() {
   // Draw wiring with animated current flow
   drawCircuitWiring();
 
-  // Draw labels
-  drawComponentLabels();
+
 
   // Draw voltage/current readings
   drawReadings();
@@ -138,12 +147,12 @@ function draw() {
 }
 
 function drawPowerRails() {
-  // +5V rail (red)
+  // horisontal +5V rail (red) at the top
   stroke('red');
   strokeWeight(8);
   line(20, powerRailY, containerWidth - 20, powerRailY);
 
-  // Ground rail (black)
+  // horizontal Ground rail (black) at the bottom
   stroke('black');
   strokeWeight(8);
   line(20, groundRailY, containerWidth - 20, groundRailY);
@@ -161,7 +170,7 @@ function drawPowerRails() {
 
 function drawPotentiometer(x, y, value) {
   // Potentiometer body
-  fill(80);
+  fill('lightgray');
   stroke('black');
   strokeWeight(2);
   rect(x - 25, y - 40, 50, 80, 5);
@@ -178,25 +187,20 @@ function drawPotentiometer(x, y, value) {
 
   // Knob
   fill(60);
-  circle(x, y, 30);
+  circle(x, y, 40);
 
   // Knob indicator
   stroke('white');
-  strokeWeight(2);
-  let angle = map(value, 0, 1, -135, 135);
-  let indicatorX = x + 12 * cos(radians(angle));
-  let indicatorY = y + 12 * sin(radians(angle));
+  strokeWeight(3);
+  // 50% is vertical
+  // The Pot line only goes a limited way around 360
+  let angle = map(value, 0, 1, -135, 135) - 90;
+  let knobLIneLength = 16;
+  let indicatorX = x + knobLIneLength * cos(radians(angle));
+  let indicatorY = y + knobLIneLength * sin(radians(angle));
   line(x, y, indicatorX, indicatorY);
 
-  // Resistance symbol inside
-  noFill();
-  stroke('white');
-  strokeWeight(1);
-  for (let i = 0; i < 3; i++) {
-    let zigX = x - 8 + i * 8;
-    line(zigX, y - 5, zigX + 4, y + 5);
-    line(zigX + 4, y + 5, zigX + 8, y - 5);
-  }
+  text('20kΩ\nPOT', potX-60, potY);
 }
 
 function drawResistor(x, y, label, orientation) {
@@ -210,7 +214,7 @@ function drawResistor(x, y, label, orientation) {
   fill('tan');
   stroke('black');
   strokeWeight(1);
-  rect(-20, -6, 40, 12);
+  rect(-20, -6, 40, 12, 4);
 
   // Color bands (simplified)
   fill('brown');
@@ -220,8 +224,8 @@ function drawResistor(x, y, label, orientation) {
   rect(4, -6, 3, 12);
 
   // Leads
-  stroke('gray');
-  strokeWeight(2);
+  stroke('black');
+  strokeWeight(3);
   line(-30, 0, -20, 0);
   line(20, 0, 30, 0);
 
@@ -237,15 +241,18 @@ function drawResistor(x, y, label, orientation) {
 
 function drawTransistor(x, y) {
   // Transistor circle
-  fill(50);
+  fill('lightgray');
   stroke('black');
   strokeWeight(2);
   circle(x, y, 50);
 
   // Base line
-  stroke('gray');
+  stroke('black');
   strokeWeight(3);
   line(x - 10, y - 15, x - 10, y + 15);
+  
+  // Base line
+  line(x - 30, y, x - 10, y);
 
   // Collector line
   line(x - 10, y - 10, x + 15, y - 25);
@@ -255,22 +262,27 @@ function drawTransistor(x, y) {
 
   // Arrow on emitter
   fill('gray');
-  noStroke();
+  stroke('black');
   push();
-  translate(x + 15, y + 25);
-  let arrowAngle = atan2(15, 25);
-  rotate(arrowAngle);
-  triangle(0, 0, -6, -3, -6, 3);
+    translate(x + 15, y + 25);
+    let arrowAngle = atan2(15, 25);
+    rotate(arrowAngle);
+    triangle(0, 0, -6, -3, -6, 3);
   pop();
 
   // Terminal labels
-  fill('white');
+  fill('black');
   noStroke();
-  textSize(10);
+  textSize(12);
   textAlign(CENTER);
-  text('C', x + 20, y - 30);
-  text('B', x - 25, y);
-  text('E', x + 20, y + 35);
+  // left just above base wire
+  text('B', x - 30, y - 10);
+  // Upper right
+  text('C', x + 15, y - 35);
+  // Lower Left
+  text('E', x + 25, y + 35);
+  // label to right
+  text('2N2222 NPN', transistorX + 70, transistorY);
 }
 
 function drawLED(x, y, brightness) {
@@ -312,10 +324,14 @@ function drawLED(x, y, brightness) {
   }
 
   // Leads
-  stroke('gray');
-  strokeWeight(2);
+  stroke('black');
+  strokeWeight(3);
   line(x, y - 15, x, y - 30);  // Anode lead
   line(x, y + 15, x, y + 30);  // Cathode lead
+  
+  noStroke();
+  fill('black')
+  text('LED', ledX - 50, ledY);
 }
 
 function drawCircuitWiring() {
@@ -375,26 +391,17 @@ function drawAnimatedWire(x1, y1, x2, y2, speed, spacing, currentLevel) {
   }
 }
 
-function drawComponentLabels() {
-  fill('black');
-  noStroke();
-  textSize(11);
-  textAlign(CENTER);
-
-  text('20kΩ POT', potX, potY + 60);
-  text('2N2222', transistorX, transistorY + 55);
-  text('LED', ledX + 30, ledY);
-}
-
 function drawReadings() {
   fill('navy');
   noStroke();
   textSize(13);
   textAlign(LEFT);
-
-  text('Base V: ' + baseVoltage.toFixed(2) + 'V', 10, 40);
-  text('Current: ' + (collectorCurrent * 100).toFixed(0) + '%', 10, 60);
-  text('LED: ' + (ledBrightness * 100).toFixed(0) + '%', 10, 80);
+  push();
+    translate(circuitColumWidth*1.5, 100);
+    text('Base V: ' + baseVoltage.toFixed(2) + 'V', 0, 40);
+    text('Current in LED: ' + (collectorCurrent * 20).toFixed(0) + ' milliamps', 0, 60);
+    text('LED Brightness: ' + (ledBrightness * 100).toFixed(0) + '%', 0, 80);
+  pop()
 }
 
 function drawControlLabels() {
@@ -414,19 +421,17 @@ function toggleSimulation() {
   startButton.html(isRunning ? 'Pause' : 'Start');
 }
 
-function resetSimulation() {
-  potSlider.value(50);
-  animationTime = 0;
-  isRunning = false;
-  startButton.html('Start');
-  redraw();
-}
-
 function windowResized() {
   updateCanvasSize();
   resizeCanvas(containerWidth, containerHeight);
   redraw();
-
+  // put all component x positions here...
+  circuitColumWidth = canvasWidth / 5
+  potX = circuitColumWidth;
+  transistorX = circuitColumWidth * 3;
+  ledX = circuitColumWidth * 4;;
+  resistor10kX = circuitColumWidth * 2;
+  resistor220X = ledX;
   potSlider.size(containerWidth - sliderLeftMargin - 25);
 }
 
