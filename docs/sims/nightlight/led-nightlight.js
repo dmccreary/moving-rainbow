@@ -9,10 +9,10 @@
 // Canvas dimensions following standard MicroSim layout
 let canvasWidth = 600;
 let drawHeight = 440;
-let controlHeight = 70;
+let controlHeight = 40;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 20;
-let sliderLeftMargin = 160;
+let sliderLeftMargin = 230;
 let defaultTextSize = 16;
 
 // Global variables for responsive design
@@ -22,6 +22,7 @@ let containerHeight = canvasHeight;
 // Simulation variables
 let isRunning = false;
 let animationTime = 0;
+let ambientLight = .5;
 let lightSlider;
 let startButton;
 let resetButton;
@@ -69,7 +70,7 @@ function setup() {
 
   // Create light level control slider
   lightSlider = createSlider(0, 100, 50, 1);
-  lightSlider.position(sliderLeftMargin, drawHeight + 35);
+  lightSlider.position(sliderLeftMargin, drawHeight + 10);
   lightSlider.size(containerWidth - sliderLeftMargin - 25);
 
   // Create start/pause button
@@ -82,6 +83,7 @@ function setup() {
 
 function draw() {
   updateCanvasSize();
+  ambientLight = lightSlider.value();
   // Draw simulation area background
   fill('aliceblue');
   stroke('silver');
@@ -133,7 +135,7 @@ function draw() {
 
   // Draw circuit components
   drawResistor(resistor100kX, resistor100kY, '100kΩ', 'vertical');
-  drawPhotoresistor(photoresistorX, photoresistorY, lightLevel);
+  drawPhotoresistor(photoresistorX, photoresistorY, 50, ambientLight);
   drawResistor(resistor10kX, resistor10kY, '10kΩ', 'horizontal');
   drawTransistor(transistorX, transistorY);
   drawLED(ledX, ledY, ledBrightness);
@@ -142,12 +144,10 @@ function draw() {
   // Draw wiring with animated current flow
   drawCircuitWiring();
 
-
-
   // Draw voltage/current readings
   drawReadings();
 
-  // Draw control labels
+  // Draw slider label in control region
   drawControlLabels();
 }
 
@@ -173,58 +173,96 @@ function drawPowerRails() {
   text('GND', containerWidth/2, groundRailY + 20);
 }
 
-function drawPhotoresistor(x, y, lightLevel) {
-  // Photoresistor body
-  fill('tan');
-  stroke('black');
-  strokeWeight(2);
-  rect(x - 20, y - 30, 40, 60, 4);
+function drawPhotoresistor(x, y, size, ambientLight) {
+  let radius = size / 2;
 
-  // Zigzag pattern representing resistive element
-  stroke('darkred');
+  // Draw outer circle (component body)
+  fill(240);
+  stroke(0);
+  strokeWeight(3);
+  circle(x, y, size);
+
+  // Draw inner light-sensitive area (slightly smaller circle)
+  fill('white');
+  strokeWeight(2);
+  circle(x, y, size * 0.85);
+
+  // Draw serpentine pattern (horizontal zigzag lines)
+  drawSerpentinePattern(x, y, size * 0.4);
+
+  // Draw two terminal connection points
+  fill('lightgray');
+  stroke(0);
+  strokeWeight(1);
+  let terminalSize = size * 0.10;
+  circle(x - radius * 0.6, y, terminalSize);
+  circle(x + radius * 0.6, y, terminalSize);
+  
+  // draw a yellow circle to show the amount of amblient light
+  fill('yellow');
+  stroke('silver');
+  circle(x-60,y-50,ambientLight);
+  
+  // place label to the right of the photoresistor
+  fill('black');
+  noStroke();
+  textAlign(CENTER, CENTER);
+  text("Ambient\nLight", x-60, y+ambientLight*.5 - 20);
+  textAlign(LEFT, CENTER);
+  text("Photoresistor", x+35, y);
+}
+
+function drawSerpentinePattern(x, y, patternWidth) {
+  // Draw horizontal serpentine lines with curved corners
+  let numLines = 7; // number of horizontal segments
+  let lineSpacing = patternWidth * 0.25; // vertical spacing between lines
+  let amplitude = patternWidth * 0.45; // how wide the zigzag goes
+  let startY = y - (numLines - 1) * lineSpacing / 2;
+  let cornerRadius = lineSpacing * 0.5; // radius for curved corners
+
+  stroke(0);
   strokeWeight(2);
   noFill();
+
+  // Draw the serpentine path as a continuous curved line
   beginShape();
-  for (let i = 0; i < 5; i++) {
-    let yPos = y - 20 + i * 10;
-    let xOffset = (i % 2 === 0) ? -10 : 10;
-    vertex(x + xOffset, yPos);
-  }
-  endShape();
 
-  // Light-sensitive window (brightness varies with light level)
-  let windowBrightness = map(lightLevel, 0, 1, 100, 255);
-  fill(windowBrightness, windowBrightness, 150);
-  noStroke();
-  circle(x, y, 25);
+  // Start at top left
+  vertex(x - amplitude, startY);
 
-  // Arrows representing light hitting the sensor
-  if (lightLevel > 0.3) {
-    stroke(255, 255, 0, lightLevel * 200);
-    strokeWeight(2);
-    for (let i = 0; i < 3; i++) {
-      let arrowX = x - 35 + i * 5;
-      let arrowY1 = y - 40;
-      let arrowY2 = y - 20;
-      line(arrowX, arrowY1, arrowX, arrowY2);
-      // Arrow head
-      line(arrowX, arrowY2, arrowX - 2, arrowY2 - 3);
-      line(arrowX, arrowY2, arrowX + 2, arrowY2 - 3);
+  for (let i = 0; i < numLines - 1; i++) {
+    let currentY = startY + i * lineSpacing;
+    let nextY = startY + (i + 1) * lineSpacing;
+    let midY = (currentY + nextY) / 2;
+
+    if (i % 2 === 0) {
+      // Moving right, then curve down on right side
+      // Horizontal line to corner start
+      vertex(x + amplitude - cornerRadius, currentY);
+      // First curve: horizontal to vertical (top-right quarter circle)
+      quadraticVertex(x + amplitude, currentY, x + amplitude, midY);
+      // Second curve: vertical to horizontal (bottom-right quarter circle)
+      quadraticVertex(x + amplitude, nextY, x + amplitude - cornerRadius, nextY);
+    } else {
+      // Moving left, then curve down on left side
+      // Horizontal line to corner start
+      vertex(x - amplitude + cornerRadius, currentY);
+      // First curve: horizontal to vertical (top-left quarter circle)
+      quadraticVertex(x - amplitude, currentY, x - amplitude, midY);
+      // Second curve: vertical to horizontal (bottom-left quarter circle)
+      quadraticVertex(x - amplitude, nextY, x - amplitude + cornerRadius, nextY);
     }
   }
 
-  // Terminals
-  stroke('black');
-  strokeWeight(3);
-  line(x, y - 30, x, y - 40);  // Top terminal
-  line(x, y + 30, x, y + 40);  // Bottom terminal
+  // Final horizontal line
+  let lastY = startY + (numLines - 1) * lineSpacing;
+  if ((numLines - 1) % 2 === 0) {
+    vertex(x + amplitude, lastY);
+  } else {
+    vertex(x - amplitude, lastY);
+  }
 
-  // Label
-  fill('black');
-  noStroke();
-  textSize(12);
-  textAlign(CENTER);
-  text('Photo-\nresistor', x + 45, y);
+  endShape();
 }
 
 function drawResistor(x, y, label, orientation) {
@@ -367,10 +405,10 @@ function drawCircuitWiring() {
 
   // Wire from 100k resistor bottom to photoresistor top (voltage divider midpoint)
   let midpointY = (resistor100kY + photoresistorY) / 2;
-  drawAnimatedWire(resistor100kX, resistor100kY + 30, resistor100kX, photoresistorY - 40, speed, spacing, collectorCurrent);
+  drawAnimatedWire(resistor100kX, resistor100kY + 30, resistor100kX, photoresistorY - 25, speed, spacing, collectorCurrent);
 
   // Wire from photoresistor bottom to ground
-  drawAnimatedWire(photoresistorX, photoresistorY + 40, photoresistorX, groundRailY, speed, spacing, collectorCurrent);
+  drawAnimatedWire(photoresistorX, photoresistorY + 25, photoresistorX, groundRailY, speed, spacing, collectorCurrent);
 
   // Wire from voltage divider midpoint to 10k resistor
   let tapY = (resistor100kY + 30 + photoresistorY - 40) / 2;
@@ -434,15 +472,11 @@ function drawReadings() {
 }
 
 function drawControlLabels() {
-  push();
-  translate(0, 30);
   fill('black');
   noStroke();
   textSize(defaultTextSize);
   textAlign(LEFT, CENTER);
-
-  text('Ambient Light: ' + (lightLevel * 100).toFixed(0) + '%', 10, drawHeight + 15);
-  pop();
+  text('Ambient Light: ' + (lightLevel * 100).toFixed(0) + '%', 70, drawHeight + 20);
 }
 
 function toggleSimulation() {
