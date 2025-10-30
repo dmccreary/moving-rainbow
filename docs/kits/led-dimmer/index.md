@@ -1,5 +1,7 @@
 # LED Dimmer
 
+<iframe src="../../sims/led-dimmer/main.html" height="505px" scrolling="no"></iframe>
+
 ## List of components
 
 1. 5 volt power supply

@@ -1,9 +1,9 @@
 # LED Nightlight Circuit
 
-<iframe src="main.html" height="600"></iframe>
+<iframe src="main.html" height="485" scrolling="no"></iframe>
 
 ```html
-<iframe src="main.html" height="600px" scrolling="no"></iframe>
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/nightlight/main.html" height="485px" scrolling="no"></iframe>
 ```
 
 [Run the Nightlight MicroSim](main.html){ .md-button .md-button--primary }
