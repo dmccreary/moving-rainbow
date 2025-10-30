@@ -68,6 +68,7 @@ nav:
     - LED Current Predictor: sims/current-predictor/index.md
     - Animated Wire: sims/animated-wire/index.md
     - LED Dimmer: sims/led-dimmer/index.md
+    - Photoresistor: sims/photoresistor-component/index.md
     - LED Nightlight: sims/nightlight/index.md
   
   - Kits:
@@ -93,13 +94,11 @@ nav:
     - Jake's Fire:
       - Intro: kits/jakes-fire/index.md
       - Advanced Version: kits/jakes-fire/advanced-version.md
+    
     - LED Dimmer: kits/led-dimmer/index.md
-    - LED Noodle Nightlight:
-      - Analog Nightlight: kits/analog-nightlight/index.md
-      - Digital Nightlight: kits/digital-nightlight/index.md
-      - Digital Nightlight Code: kits/digital-nightlight/code-walkthrough.md
-      - kits/led-nightlight/index.md
-      - kits/led-noodle-nightlight/index.md
+    - Analog Nightlight: kits/analog-nightlight/index.md
+    - LED Noodle Nightlight: kits/led-noodle-nightlight/index.md
+    - Digital Nightlight: kits/digital-nightlight/index.md
     - LED Fire: kits/led-fire/index.md
 
   - Teachers Guide:
@@ -128,6 +127,7 @@ nav:
       - Concept Dependency: prompts/concept-dependency-graph.md
       - Concept Taxonomy: prompts/concept-taxonomy.md
     - Cover: prompts/cover-image.md
+    - LED Dimmer MicroSim: prompts/led-dimmer-microsim.md
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - Moving Rainbow Skill: skills/index.md

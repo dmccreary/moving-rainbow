@@ -6,6 +6,8 @@
 
 ## How it Works
 
+<iframe src="../../sims/nightlight/main.html" height="485px" scrolling="no">
+
 ### Nightlight Parameters
 
 First, let's define two terms:

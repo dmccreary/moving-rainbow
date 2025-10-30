@@ -2,8 +2,9 @@
 
 <iframe src="main.html" height="600"></iframe>
 
+
 ```html
-<iframe src="main.html" height="600px" scrolling="no"></iframe>
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/led-dimmer/main.html" height="400px" scrolling="no"></iframe>
 ```
 
 [Run the MicroSim](main.html){ .md-button .md-button--primary }
