@@ -1,3 +1,13 @@
+---
+title: Moving Rainbow
+description: Learn programming basics using fun LED strips with low-cost components. Build projects and costumes with 100s of LEDs for under $10.
+image: /img/cover.png
+og:image: /img/cover.png
+twitter:image: /img/cover.png
+hide:
+  - toc
+---
+
 # Welcome to the Moving Rainbow Website!
 
 ![](img/cover.png)

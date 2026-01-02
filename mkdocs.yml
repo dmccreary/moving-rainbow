@@ -22,6 +22,12 @@ nav:
     - Electrical Connections: getting-started/connections.md
     - Troubleshooting Resets: getting-started/troubleshooting-resets.md
   
+  - Chapters:
+    - Introduction: chapters/index.md
+    - Chapter 1: chapters/01-introduction/index.md
+    - Chapter 2: chapters/02-pi-500-keyboard.md
+
+
   - NeoPixel Lessons:
     - List of Lessons: lessons/index.md
     - Blink: lessons/01-blink.md
