@@ -8,7 +8,7 @@ edit_uri: edit/master/docs/
 
 nav:
   - Course Description: course-description.md
-  - Concept Sequence: concept-sequence.md  
+  - Concept Sequence: concept-sequence.md
   - Getting Started:
     - Overview: getting-started/index.md
     - About: getting-started/about.md
@@ -24,9 +24,8 @@ nav:
   
   - Chapters:
     - Introduction: chapters/index.md
-    - Chapter 1: chapters/01-introduction/index.md
-    - Chapter 2: chapters/02-pi-500-keyboard.md
-
+    - 1. Introduction: chapters/01-introduction/index.md
+    - 2. Pi 500 Keyboard: chapters/02-pi-500-keyboard/index.md
 
   - NeoPixel Lessons:
     - List of Lessons: lessons/index.md
