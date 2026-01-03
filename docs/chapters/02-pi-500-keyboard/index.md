@@ -69,6 +69,19 @@ sudo rpi-keyboard-fw-update
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CY3thrGdL6I?si=Z0JaC9OIb8RPBsbD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+| Preset | Name                  | Description                                                                                                          |
+|--------|-----------------------|----------------------------------------------------------------------------------------------------------------------|
+| 0      | Off                   | The default preset that only lights the power key, the startup animation, and the Caps Lock indicator.               |
+| 1      | Solid Color White    | Solid white backlight.                                                                                               |
+| 2      | Solid Color          | Solid color backlight, which you can change using Fn + F3.                                                          |
+| 3      | Gradient Left Right   | Fixed rainbow backlight.                                                                                             |
+| 4      | Cycle Pinwheel        | Animated rainbow backlight, where the keys cycle through different colors in a rainbow pattern across the keyboard. |
+| 5      | Typing Heatmap        | The more you press a key, the closer to red it gets and the more the keys around it light up.                        |
+| 6      | Solid Reactive Simple | Reactive keyboard, where the keys light up when you press them. You can choose which color using Fn + F3.           |
+
+
+https://www.raspberrypi.com/documentation/computers/keyboard-computers.html#backlighting
+
 ## Controlling RGB With Terminal Commands
 
 We are going to start with some basic terminal commands, and keep building up the complexity. It is worthwhile starting basic as most of the commands here will be important in the more advanced sections.
