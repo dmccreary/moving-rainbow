@@ -108,53 +108,53 @@ rpi-keyboard-config list-effects
 
 ## Built-in Keyboard Effects
 
-| ID | Effect Name | Description |
-|----|-------------|-------------|
-| 0 | OFF | All keys turned off. |
-| 1 | Direct | Direct LED control mode for custom programming via Python scripts. |
-| 2 | Solid Color | All keys the same color. Use the hue parameter to set the color. |
-| 3 | Alphas Mods | Letter keys and modifier keys display different colors. |
-| 4 | Gradient Up Down | Keys on the same row have the same color, creating a vertical gradient. |
-| 5 | Gradient Left Right | Keys on the same column have the same color, creating a horizontal gradient. |
-| 6 | Breathing | The brightness of the entire keyboard pulses up and down over a five second interval. |
-| 7 | Band Sat | A single saturation band moves left to right on a contrasting background color. |
-| 8 | Band Val | A band of varying brightness moves horizontally across the keyboard. |
-| 9 | Band Pinwheel Sat | A rotating pinwheel pattern with saturation-based band effect. |
-| 10 | Band Pinwheel Val | A rotating pinwheel pattern with brightness-based band effect. |
-| 11 | Band Spiral Sat | A spiral pattern with saturation-based band effect emanating from center. |
-| 12 | Band Spiral Val | A spiral pattern with brightness-based band effect emanating from center. |
-| 13 | Cycle All | All keys simultaneously cycle through all hue values together. |
-| 14 | Cycle Left Right | Rainbow colors cycle horizontally across the keyboard from left to right. |
-| 15 | Cycle Up Down | Rainbow colors cycle vertically across the keyboard from top to bottom. |
-| 16 | Rainbow Moving Chevron | Animated multicolor chevron pattern moves across the keyboard. |
-| 17 | Cycle Out In | Colors cycle from the outer edges toward the center of the keyboard. |
-| 18 | Cycle Out In Dual | Dual-sided colors cycling from both left and right edges toward center. |
-| 19 | Cycle Pinwheel | Rainbow pinwheel effect rotating from the center of the keyboard. |
-| 20 | Cycle Spiral | A spiral rainbow pattern emanates and rotates from the center outward. |
-| 21 | Dual Beacon | A two-color lighthouse beacon pattern rotates over the keys. |
-| 22 | Rainbow Beacon | A rainbow lighthouse beacon pattern rotates over the keys. |
-| 23 | Rainbow Pinwheels | Multiple colored pinwheel patterns move from the center outward. |
-| 24 | Raindrops | Random keys light up and fade like raindrops falling on the keyboard. |
-| 25 | Jellybean Raindrops | Colorful random keys light up like multicolored jellybeans falling. |
-| 26 | Hue Breathing | The entire keyboard's hue slowly shifts while pulsing in brightness. |
-| 27 | Hue Pendulum | The hue swings back and forth across the color spectrum like a pendulum. |
-| 28 | Hue Wave | A wave of changing hues moves horizontally across the keyboard. |
-| 29 | Typing Heatmap | Keys change color based on how frequently they are pressed; more presses means redder. |
-| 30 | Digital Rain | Matrix-style falling green characters cascade down the keyboard. |
-| 31 | Solid Reactive Simple | Keys light up briefly when pressed, then fade out. |
-| 32 | Solid Reactive | Keys light up when pressed with a smooth fade effect. |
-| 33 | Solid Reactive Wide | Pressed keys and nearby keys light up with a wider area glow effect. |
-| 34 | Solid Reactive Multiwide | Multiple wide glows appear simultaneously from multiple key presses. |
-| 35 | Solid Reactive Cross | A cross/plus pattern lights up centered on each pressed key. |
-| 36 | Solid Reactive Multicross | Multiple cross patterns appear from simultaneous key presses. |
-| 37 | Solid Reactive Nexus | A nexus/star pattern radiates outward from each pressed key. |
-| 38 | Solid Reactive Multinexus | Multiple nexus patterns radiate from simultaneous key presses. |
-| 39 | Splash | A colorful splash of rainbow colors radiates outward from pressed keys. |
-| 40 | Multisplash | Multiple rainbow splashes radiate from simultaneous key presses. |
-| 41 | Solid Splash | A solid single-color splash radiates outward from pressed keys. |
-| 42 | Solid Multisplash | Multiple solid-color splashes from simultaneous key presses. |
-| 43 | Pixel Rain | Individual lit pixels fall down the keyboard like digital rain. |
-| 44 | Pixel Fractal | Fractal-like pixel patterns spread and grow across the keyboard. |
+| ID | Effect Name | Keystroke Trigger | Description |
+|----|-------------|-------------------|-------------|
+| 0 | OFF | No | All keys turned off. |
+| 1 | Direct | No | Direct LED control mode for custom programming via Python scripts. |
+| 2 | Solid Color | No | All keys the same color. Use the hue parameter to set the color. |
+| 3 | Alphas Mods | No | Letter keys and modifier keys display different colors. |
+| 4 | Gradient Up Down | No | Keys on the same row have the same color, creating a vertical gradient. |
+| 5 | Gradient Left Right | No | Keys on the same column have the same color, creating a horizontal gradient. |
+| 6 | Breathing | No | The brightness of the entire keyboard pulses up and down over a five second interval. |
+| 7 | Band Sat | No | A single saturation band moves left to right on a contrasting background color. |
+| 8 | Band Val | No | A band of varying brightness moves horizontally across the keyboard. |
+| 9 | Band Pinwheel Sat | No | A rotating pinwheel pattern with saturation-based band effect. |
+| 10 | Band Pinwheel Val | No | A rotating pinwheel pattern with brightness-based band effect. |
+| 11 | Band Spiral Sat | No | A spiral pattern with saturation-based band effect emanating from center. |
+| 12 | Band Spiral Val | No | A spiral pattern with brightness-based band effect emanating from center. |
+| 13 | Cycle All | No | All keys simultaneously cycle through all hue values together. |
+| 14 | Cycle Left Right | No | Rainbow colors cycle horizontally across the keyboard from left to right. |
+| 15 | Cycle Up Down | No | Rainbow colors cycle vertically across the keyboard from top to bottom. |
+| 16 | Rainbow Moving Chevron | No | Animated multicolor chevron pattern moves across the keyboard. |
+| 17 | Cycle Out In | No | Colors cycle from the outer edges toward the center of the keyboard. |
+| 18 | Cycle Out In Dual | No | Dual-sided colors cycling from both left and right edges toward center. |
+| 19 | Cycle Pinwheel | No | Rainbow pinwheel effect rotating from the center of the keyboard. |
+| 20 | Cycle Spiral | No | A spiral rainbow pattern emanates and rotates from the center outward. |
+| 21 | Dual Beacon | No | A two-color lighthouse beacon pattern rotates over the keys. |
+| 22 | Rainbow Beacon | No | A rainbow lighthouse beacon pattern rotates over the keys. |
+| 23 | Rainbow Pinwheels | No | Multiple colored pinwheel patterns move from the center outward. |
+| 24 | Raindrops | No | Random keys light up and fade like raindrops falling on the keyboard. |
+| 25 | Jellybean Raindrops | No | Colorful random keys light up like multicolored jellybeans falling. |
+| 26 | Hue Breathing | No | The entire keyboard's hue slowly shifts while pulsing in brightness. |
+| 27 | Hue Pendulum | No | The hue swings back and forth across the color spectrum like a pendulum. |
+| 28 | Hue Wave | No | A wave of changing hues moves horizontally across the keyboard. |
+| 29 | Typing Heatmap | Yes | Keys change color based on how frequently they are pressed; more presses means redder. |
+| 30 | Digital Rain | No | Matrix-style falling green characters cascade down the keyboard. |
+| 31 | Solid Reactive Simple | Yes | Keys light up briefly when pressed, then fade out. |
+| 32 | Solid Reactive | Yes | Keys light up when pressed with a smooth fade effect. |
+| 33 | Solid Reactive Wide | Yes | Pressed keys and nearby keys light up with a wider area glow effect. |
+| 34 | Solid Reactive Multiwide | Yes | Multiple wide glows appear simultaneously from multiple key presses. |
+| 35 | Solid Reactive Cross | Yes | A cross/plus pattern lights up centered on each pressed key. |
+| 36 | Solid Reactive Multicross | Yes | Multiple cross patterns appear from simultaneous key presses. |
+| 37 | Solid Reactive Nexus | Yes | A nexus/star pattern radiates outward from each pressed key. |
+| 38 | Solid Reactive Multinexus | Yes | Multiple nexus patterns radiate from simultaneous key presses. |
+| 39 | Splash | Yes | A colorful splash of rainbow colors radiates outward from pressed keys. |
+| 40 | Multisplash | Yes | Multiple rainbow splashes radiate from simultaneous key presses. |
+| 41 | Solid Splash | Yes | A solid single-color splash radiates outward from pressed keys. |
+| 42 | Solid Multisplash | Yes | Multiple solid-color splashes from simultaneous key presses. |
+| 43 | Pixel Rain | No | Individual lit pixels fall down the keyboard like digital rain. |
+| 44 | Pixel Fractal | No | Fractal-like pixel patterns spread and grow across the keyboard. |
 
   [YouTube Video of Keyboard Effects](https://www.youtube.com/watch?v=7f3usatOIKM)
 
