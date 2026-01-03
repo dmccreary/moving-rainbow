@@ -20,35 +20,37 @@ mkdocs gh-deploy    # Deploy to GitHub Pages
 
 ### Source Code (`/src/`)
 
-- **`led-strip-two-buttons/`** - Main kit examples with numbered progression (01-blink.py, 02-move.py, etc.)
-- **`micropython/`** - MicroPython examples for Raspberry Pi Pico
-- **`arduino/`** - Arduino C++ sketches using Adafruit NeoPixel library
+- **`led-strip-two-buttons/`** - Main kit examples with numbered progression (01-blink.py through 60-pixel-demo.py). This is the canonical reference for lesson code.
+- **`arduino/`** - Arduino C++ sketches using Adafruit NeoPixel library (~79 sketch directories)
 - **`pi-500-keyboard/`** - Raspberry Pi 500+ keyboard RGB LED control scripts
-- Kit-specific directories (e.g., `katies-busy-board/`, `tiki-bar-sign/`)
+- Kit-specific directories (e.g., `katies-busy-board/`, `tiki-bar-sign/`, `kits/holiday-hats/`)
 
 ### Documentation (`/docs/`)
 
-- **`lessons/`** - Progressive tutorials from basic to advanced
-- **`chapters/`** - Structured course chapters
+- **`lessons/`** - Progressive tutorials mapped to numbered source files
+- **`sims/`** - Interactive MicroSims (p5.js browser simulations) with `templates/` for creating new sims
 - **`kits/`** - Kit-specific assembly and usage guides
-- **`sims/`** - Interactive MicroSims (browser-based simulations)
-- **`teachers-guide/`** - Educational methodology and resources
+- **`prompts/`** - GenAI prompts for content generation
 
 ### Key Configuration Pattern
 
-Each kit uses a `config.py` for hardware abstraction:
+Each kit uses a `config.py` for hardware abstraction that is imported by all lesson files:
 ```python
+# src/led-strip-two-buttons/config.py
 NEOPIXEL_PIN = 0
 NUMBER_PIXELS = 30
 BUTTON_PIN_1 = 15
 BUTTON_PIN_2 = 14
 ```
 
+When creating new MicroPython examples, always import config and use `config.NEOPIXEL_PIN`, `config.NUMBER_PIXELS`, etc.
+
 ## Platform-Specific Notes
 
 ### MicroPython (Raspberry Pi Pico)
-- Uses `neopixel` and `machine` libraries
-- Files run directly on Pico via Thonny IDE or similar
+- Uses `neopixel` and `machine` libraries (built into MicroPython)
+- Standard pattern: `strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)`
+- Files run directly on Pico via Thonny IDE
 
 ### Arduino
 - Uses Adafruit NeoPixel library
@@ -58,12 +60,29 @@ BUTTON_PIN_2 = 14
 - Uses `rpi-keyboard-config` command-line tool and `RPiKeyboardConfig` Python library
 - 45 built-in effects (IDs 0-44), 7 preset slots (0-6)
 - Key commands: `rpi-keyboard-config effect <id>`, `rpi-keyboard-config preset set <slot> <effect>`
+- Keystroke-triggered effects: 29, 31-42 (react to key presses)
+- See `src/pi-500-keyboard/cycle-effects.sh` for effect names
+
+### MicroSims
+- Browser-based p5.js simulations in `docs/sims/`
+- Each sim has: `index.md` (documentation), `main.html` (entry point), `sketch.js` (p5.js code)
+- Use `docs/sims/templates/` as starting point for new sims
+
+## Lesson File Numbering Convention
+
+Files in `src/led-strip-two-buttons/` follow a progression:
+- 01-10: Basics (blink, colors, dimmer, movement)
+- 11-20: Patterns (bands, comets, rainbow, candle, theater chase)
+- 20-30: Advanced (clock, larson scanner, random bounce)
+- 30-40: Button integration
+- 50+: Complete demos
+
+When adding new lessons, maintain this numbering scheme.
 
 ## Educational Design Principles
 
 - **Progressive complexity**: Lessons build incrementally (blink → motion → color → complex patterns)
 - **Immediate visual feedback**: Every code change produces visible LED results
 - **Low barrier to entry**: ~$13 total hardware cost, minimal wiring (3 wires for LED strip)
-- **Transferable concepts**: Loops, conditionals, and functions taught through LED manipulation
 
 When modifying code or documentation, prioritize clarity for beginners over code elegance. Maintain the numbered lesson progression and consistent configuration patterns across kits.
