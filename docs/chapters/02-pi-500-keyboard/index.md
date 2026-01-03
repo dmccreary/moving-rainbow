@@ -52,7 +52,7 @@ lsb_release -cs
 
 This tutorial was created on the `bookworm` release which came out in 2023 and which the Pi OS is based on.
 
-You can install the library (or ensure it's updated) with:
+You can now install the library (and know you have the updated library) with:
 
 ```sh
 sudo apt install rpi-keyboard-config
@@ -65,9 +65,14 @@ sudo apt install rpi-keyboard-fw-update
 sudo rpi-keyboard-fw-update
 ```
 
+!!! Note
+    The update command is a separate command from the `rpi-keyboard-config` command.
+    You can't update the library with the config command.  You MUST use the separate `rpi-keyboard-fw-update` command.  This allows administrators to prevent
+    unauthorized updates, which could be a security concern.
+
 ## Using the Function Key to Cycle Through the Seven Presets
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CY3thrGdL6I?si=Z0JaC9OIb8RPBsbD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="415" src="https://www.youtube.com/embed/CY3thrGdL6I?si=Z0JaC9OIb8RPBsbD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 | Preset | Name                  | Description                                                                                                          |
 |--------|-----------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -79,8 +84,6 @@ sudo rpi-keyboard-fw-update
 | 5      | Typing Heatmap        | The more you press a key, the closer to red it gets and the more the keys around it light up.                        |
 | 6      | Solid Reactive Simple | Reactive keyboard, where the keys light up when you press them. You can choose which color using Fn + F3.           |
 
-
-https://www.raspberrypi.com/documentation/computers/keyboard-computers.html#backlighting
 
 ## Controlling RGB With Terminal Commands
 
@@ -107,6 +110,9 @@ rpi-keyboard-config list-effects
 ```
 
 ## Built-in Keyboard Effects
+
+Below is a table of the built-in effects for the keyboard LEDs.  There is a video
+below that will show these effects.
 
 | ID | Effect Name | Keystroke Trigger | Description |
 |----|-------------|-------------------|-------------|
@@ -156,8 +162,9 @@ rpi-keyboard-config list-effects
 | 43 | Pixel Rain | No | Individual lit pixels fall down the keyboard like digital rain. |
 | 44 | Pixel Fractal | No | Fractal-like pixel patterns spread and grow across the keyboard. |
 
-  [YouTube Video of Keyboard Effects](https://www.youtube.com/watch?v=7f3usatOIKM)
-
+Note that the third column is set to Yes if the effect is triggered by a keyboard stroke.
+When the the third column is No, the effect only changes the keyboard backlight effect and
+is not dependant on any key being pressed.
 
 And you can view an effect with:
 
@@ -165,7 +172,7 @@ And you can view an effect with:
 rpi-keyboard-config effect 25
 ```
 
-The line above views effect number 25, but you should play around and view some more, there are some pretty cool ones available! Some of our favorites are 25, 29, and 40.
+The command line above views effect number 25, but you should play around and view some more, there are some pretty cool ones available! Some of our favorites are 25, 29, and 40.
 
 Some presets also have inputs that can alter their behavior. You can set the speed, saturation and hue of the effects with the modified command:
 
@@ -178,21 +185,6 @@ The commands will take a number between 0 and 255. You can set all the options l
 ```sh
 rpi-keyboard-config effect 30 --hue 255
 rpi-keyboard-config effect 30 --speed 255 --hue 255
-```
-
-## Creating Shell Scripts to Demonstrate Each Effect
-
-The following shell script will cycle through the hues for the solid color patten.
-It will skip 9 out of the 10 colors so that the script will finish in about 25 seconds.
-
-```sh
-#!/bin/bash
-# Cycle through all hues on the Pi 500+ keyboard
-# Uses effect 2 (Solid Color) with varying hue values
-
-for hue in $(seq 0 10 255); do
-    rpi-keyboard-config effect 2 --hue $hue
-done
 ```
 
 Note that there is no delay in the loop.  This shows that the `rpi-keyboard-config` takes about one second to work.
@@ -217,7 +209,10 @@ $MOVING_RAINBOW_HOME/src/pi-500-keyboard/cycle-effects.sh -n
 
 This will cycle through all the NON-keystroke effects where the Keystroke Trigger in the above table is set to No.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hjW20oUe9d0?si=XVZZMvpBovNXsx3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="450" src="https://www.youtube.com/embed/hjW20oUe9d0?si=XVZZMvpBovNXsx3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Note that on the terminal, if the effect takes parameters, the parameter names are listed in the shell script output under the ASCII art.  So for example the `Solid Color` pattern
+shows that the `speed` is 128 and the `sat` is 255 and the effect allows you to set the hue (not fixed) using an `hue` parameter.
 
 Sample output:
 ```
@@ -234,19 +229,45 @@ ____       _           _
 
 ----------------------------------------
 
+Effect: Raindrops (ID 24)
 Press Ctrl+C to exit early at any time.
-
 ```
 
 ### Keystroke Triggered Effects
+
+The prior video only showed effect that changed the overall backlighting of the keyboard.  The
+backlighting did not change as you type on the keyboard.  The next set of effects
+are all triggered by a keystroke.
+
+To run this script, use the "-k" (keystroke) option of the `cycle-effects.sh` shell script.
 
 ```sh
 $MOVING_RAINBOW_HOME/src/pi-500-keyboard/cycle-effects.sh -k
 ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Xs5iFZHpCvs?si=oyTRflilRuLBkk2J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="415" src="https://www.youtube.com/embed/Xs5iFZHpCvs?si=oyTRflilRuLBkk2J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## Customizing the Presets
+Note that you can also change parameters of the keyboard stroke effects.
+
+## Creating Shell Scripts to Demonstrate Each Effect Parameters
+
+Many of the builtin effect also take parameters.  For example
+the solid effect will take the hue of the color you want to use as a `--hue` parameter.
+
+The following shell script will cycle through the hues for the solid color patten.
+It will skip 9 out of the 10 colors so that the script will finish in about 25 seconds.
+
+```sh
+#!/bin/bash
+# Cycle through all hues on the Pi 500+ keyboard
+# Uses effect 2 (Solid Color) with varying hue values
+
+for hue in $(seq 0 10 255); do
+    rpi-keyboard-config effect 2 --hue $hue
+done
+```
+
+## Customizing the Seven Presets
 
 Being able to view these commands through the terminal is nice and all, but if you really want to start customizing your keyboard, you can assign an effect to your keyboard's preset slot:
 
@@ -266,13 +287,17 @@ By default, preset slot 0 will be empty. This preset slot is the default that wi
 
 If you press `FN+F5` and `FN+F6` on your keyboard, you can control the global brightness of your effect. This can also be done in the terminal with:
 
+
+
+## Keyboard Configuration Shell Command Examples
+
+The `rpi-keyboard-config` command has a `brightness` parameter can be set with any number between 0 and 255 where 0 is off and 255 is the maximum brightness.
+
 ```sh
 rpi-keyboard-config brightness 255
 ```
 
-The brightness can be set with any number between 0 and 255.
-
-Now, let's start getting into the fun and custom stuff! First, run the clear command to clear all the current LED colors so we can start with a blank canvas:
+First we run the clear command to clear all the current LED colors so we can start with a blank canvas:
 
 ```sh
 rpi-keyboard-config leds clear
@@ -283,6 +308,8 @@ Let's use a basic command to set all the LEDs on our keyboard a specific color w
 ```sh
 rpi-keyboard-config leds set --colour "0,255,255"
 ```
+
+Note that `colour` is not a typo.  This is the British spelling of the command.
 
 The command above uses the HSV format to represent colors. If it is not your cup of tea, you can instead choose to use the RGB format with:
 
@@ -527,3 +554,8 @@ The first time you do this, you may need to select an editor to use. Enter in 1 
 You will likely need to alter this line. The user name of our device is "pi", so we have `/home/pi/fire.py`, but you will need to replace pi with whatever your username is. Again, our script is called `fire.py`, so you also need to change it to what you have named yours.
 
 Once you have entered this line correctly, hit `Ctrl + X`, then `Y` and then `Enter` to save it. The next time you reboot your Pi, this should automatically start!
+
+## References
+
+1. [Raspberry Pi Documentation on the Keyboard Computers](https://www.raspberrypi.com/documentation/computers/keyboard-computers.html)
+1. [Pi Docs Backlighting Section](https://www.raspberrypi.com/documentation/computers/keyboard-computers.html#backlighting)
