@@ -199,10 +199,16 @@ Note that there is no delay in the loop.  This shows that the `rpi-keyboard-conf
 
 ## Cycle Through All Effects
 
-You can cycle through all the effect by running the cycle-effects.sh script.
+You can cycle through all the effects by running the cycle-effects.sh script. This script uses `figlet` to display ASCII art names for each effect. Install it first:
 
 ```sh
-  ./cycle-effects.sh
+sudo apt install figlet
+```
+
+Then run the demo:
+
+```sh
+./cycle-effects.sh
 ```
 
 Sample output:
@@ -223,6 +229,8 @@ ____       _           _
 Press Ctrl+C to exit early at any time.
 
 ```
+
+## Customizing the Presets
 
 Being able to view these commands through the terminal is nice and all, but if you really want to start customizing your keyboard, you can assign an effect to your keyboard's preset slot:
 
