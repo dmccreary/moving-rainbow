@@ -18,7 +18,7 @@
         <link rel="prev" href="../01-introduction/">
       
       
-        <link rel="next" href="../../lessons/">
+        <link rel="next" href="../03-pi-keyboard-python/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -376,6 +376,14 @@
           
         
       
+        
+          
+        
+      
+        
+          
+        
+      
     
     
     
@@ -613,57 +621,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setting-colors-from-a-python-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Colors From a Python Script
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Setting Colors From a Python Script">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Setup
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-simple-notification-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      A Simple Notification System
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-interactive-effects" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating Interactive Effects
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatically-running-scripts-on-boot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Automatically Running Scripts on Boot
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -676,6 +633,48 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-pi-keyboard-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Pi Keyboard Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-pi-keyboard-skill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Pi Keyboard Skill
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1416,57 +1415,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setting-colors-from-a-python-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Colors From a Python Script
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Setting Colors From a Python Script">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Setup
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-simple-notification-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      A Simple Notification System
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-interactive-effects" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating Interactive Effects
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#automatically-running-scripts-on-boot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Automatically Running Scripts on Boot
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -2021,141 +1969,6 @@ It will skip 9 out of the 10 colors so that the script will finish in about 25 s
 <p>And just for fun, you can play a game of Flappy Birds with:</p>
 <div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>game
 </code></pre></div>
-<h2 id="setting-colors-from-a-python-script">Setting Colors From a Python Script</h2>
-<p>Although the built-in effects are nice, they are also limited.
-If you want to do something simple like turn a function key purple when
-you have a new email message, you will need to use Python to program
-the keys.</p>
-<h3 id="environment-setup">Environment Setup</h3>
-<p>Python has about 50,000 libraries and each library can have hundreds of versions
-and depend on specific version of other libraries.  To keep your
-projects independent, we will use our Python best practice and
-create a Python virtual environment using the conda tool.</p>
-<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>pi-keyboard<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
-conda<span class="w"> </span>deactivate
-conda<span class="w"> </span>activate<span class="w"> </span>pi-keyboard
-pip<span class="w"> </span>install<span class="w"> </span>RPiKeyboardConfig
-</code></pre></div>
-<p>Let's now move on to doing what we just looked at, but through Python scripts. Why would we want to do this though? What's wrong with the terminal commands method? Well, the biggest drawback is that it takes about a second to update a key color through the terminal - and we can only update one key color at a time with a command. With 84 keys on our board, that means to randomly assign a color to each key, it would take 84 seconds!</p>
-<p>With the Python script method, we can update all the keys at once, and we can do so many times a second! On top of that, it's Python! We can make animations, add integrations, and make interactive layouts!</p>
-<p>If you haven't done so already, go ahead and download the zip file containing all the Python scripts, and unzip it to a convenient location.</p>
-<p>Go ahead and open up <code>simple_colour.py</code>. This script is a stripped-back demo of how colors can be controlled. First, it imports the rpi-keyboard-config library, then initializes the keyboard, and sets the LED control mode (telling the keyboard we are about to start sending it RGB commands). These are the important first steps of any script controlling the RGB.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">RPiKeyboardConfig</span> <span class="kn">import</span> <span class="n">RPiKeyboardConfig</span>
-<span class="kn">import</span> <span class="nn">time</span>
-
-<span class="c1"># Initialize the keyboard</span>
-<span class="n">keyboard</span> <span class="o">=</span> <span class="n">RPiKeyboardConfig</span><span class="p">()</span>
-
-<span class="c1"># Set LED direct control mode</span>
-<span class="n">keyboard</span><span class="o">.</span><span class="n">set_led_direct_effect</span><span class="p">()</span>
-</code></pre></div>
-<p>Then in a while true loop, we start by setting the color of the W key. Here we set the W key to purple using HSV, and with the same row and column system as the terminal method.</p>
-<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># Set LED by matrix position (HSV format: hue, saturation, value)</span>
-    <span class="n">keyboard</span><span class="o">.</span><span class="n">set_led_by_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">colour</span><span class="o">=</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>  <span class="c1"># Purple</span>
-</code></pre></div>
-<p>But this does not actually set the color of the key yet, it instead queues it up. You can use this command to queue up as many key colors as you want, and could queue up a color change on every single key. To actually push these queued up key colors and update the colors on the board, we use the <code>send_leds()</code> command.</p>
-<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># Set LED by matrix position (HSV format: hue, saturation, value)</span>
-    <span class="n">keyboard</span><span class="o">.</span><span class="n">set_led_by_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">colour</span><span class="o">=</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>  <span class="c1"># Purple</span>
-    <span class="n">keyboard</span><span class="o">.</span><span class="n">send_leds</span><span class="p">()</span>
-</code></pre></div>
-<p>Then after a short delay, we repeat the same process but this time with orange. The end result of this code is that it will flash the W key orange and purple.</p>
-<div class="highlight"><pre><span></span><code>    <span class="c1"># Set individual LED by index</span>
-    <span class="n">keyboard</span><span class="o">.</span><span class="n">set_led_by_idx</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span> <span class="n">colour</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>      <span class="c1"># Orange</span>
-    <span class="c1"># Send LED updates to keyboard (required after setting colors)</span>
-    <span class="n">keyboard</span><span class="o">.</span><span class="n">send_leds</span><span class="p">()</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-</code></pre></div>
-<p>There is one slight difference in this line. Here we are setting the W key through its ID rather than with rows and columns. This ID system is just another way of representing the keys. Start on the top row of your keyboard and count the keys from left to right (but do not count the power button). Once you reach the right side of the keyboard, move down a row and continue counting from left to right. If you do this once more, you should land on W and have counted to 33 - so W has an ID of 33.</p>
-<p>There is one final helpful command being used in this script as well:</p>
-<div class="highlight"><pre><span></span><code>    <span class="nb">print</span><span class="p">(</span><span class="n">keyboard</span><span class="o">.</span><span class="n">get_leds</span><span class="p">())</span>
-</code></pre></div>
-<p>The command will return the current color of every single LED on the keyboard. This is an incredibly helpful tool if you are doing anything animation-related, as you can get the current state of the board and animate from that point.</p>
-<p>The lines in this demo script are the basic building blocks that you can use to go out and make nearly any custom effects! For example, if you open up and run <code>game_of_life.py</code>, you will have a game of life simulation run on your keyboard in a random color. This script uses the same fundamental building blocks as the simple demo; it just has extra code deciding which LEDs to light up.</p>
-<p>Another example is <code>fire.py</code>. This is a very basic fire simulation that spawns embers and simulates them rising up and changing color. Again, it uses the same building blocks, and most of the code is dedicated to calculating which keys to light up and what color.</p>
-<p>Now, creating animations like this is a lot of work and can sometimes require a fair amount of math. A great option might be to try and use an LLM like ChatGPT or Claude. If you copy and paste to them any of these demo scripts, they will likely be able to help you generate code for other custom effects.</p>
-<p>For example, we were able to take this fire demo script and get it to add something called interpolation. If you run <code>fire_interpolated.py</code>, you will see that this makes animations far smoother, and if you are going to the effort of asking an LLM to help you write code, it is probably worthwhile asking them to add interpolation as well.</p>
-<p>At this point, we were wondering how much of a toll this is having on our Pi, and how fast can we update our RGB? To test this, we wrote <code>speed_test.py</code>, which flashes every key a random color as fast as possible.</p>
-<p>Running this, we found that the keyboard was able to update at over 30 fps! This is substantially faster than the roughly 1 key a second through the terminal method.</p>
-<p>We also opened up a resource manager with the following command:</p>
-<div class="highlight"><pre><span></span><code>htop
-</code></pre></div>
-<p>While running this code, we found that it used about 5% to 10% of the Pi's CPU - not a huge amount, but not a negligible amount. This usage will of course be more or less depending on how complex your effect is and how fast you are updating it.</p>
-<h2 id="a-simple-notification-system">A Simple Notification System</h2>
-<p>Much of the things we did in the terminal can also be done through the library - including setting a preset. In the project folder you will find <code>flash_demo.py</code>. This short script creates a small "flash" effect on the Pi 500+ keyboard that triggers at random intervals — showing how you can temporarily override your normal RGB preset, display an animation, and then bring it straight back. Let's break it down step by step.</p>
-<p>We start by importing the required packages and setting up our keyboard object:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">RPiKeyboardConfig</span> <span class="kn">import</span> <span class="n">RPiKeyboardConfig</span>
-<span class="n">keyboard</span> <span class="o">=</span> <span class="n">RPiKeyboardConfig</span><span class="p">()</span>
-</code></pre></div>
-<p>Here, <code>random</code> and <code>time</code> are standard Python libraries, and <code>RPiKeyboardConfig</code> is the official library that talks directly to the keyboard's lighting system. The final line initializes that library so we can start sending it commands.</p>
-<p>Now we jump into our main loop:</p>
-<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># Generate a random number between 1 and 5</span>
-    <span class="n">random_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Random number: </span><span class="si">{</span><span class="n">random_number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>This loop keeps the script running continuously. Each pass it rolls a new random number between 1 and 5. This is how we decide when to do our "flash" effect — only when the number comes up 3.</p>
-<p>Inside that condition, the magic happens:</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">if</span> <span class="n">random_number</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="c1"># 1) Save the preset slot index</span>
-        <span class="n">current_idx</span> <span class="o">=</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">get_current_preset_index</span><span class="p">()</span>
-        <span class="c1"># 2) Switch to direct LED mode</span>
-        <span class="n">keyboard</span><span class="o">.</span><span class="n">set_led_direct_effect</span><span class="p">()</span>
-</code></pre></div>
-<p>The first line remembers which preset you're currently using so it can be restored later. Then we switch the keyboard to direct LED mode, which basically gives us raw control over every LED on the board.</p>
-<p>Next we fill the keyboard with random colors:</p>
-<div class="highlight"><pre><span></span><code>        <span class="c1"># 3) Fill with random colors</span>
-        <span class="n">all_leds</span> <span class="o">=</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">get_leds</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">led</span> <span class="ow">in</span> <span class="n">all_leds</span><span class="p">:</span>
-            <span class="n">h</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
-            <span class="n">s</span> <span class="o">=</span> <span class="mi">255</span>
-            <span class="n">v</span> <span class="o">=</span> <span class="mi">255</span>
-            <span class="n">keyboard</span><span class="o">.</span><span class="n">set_led_by_idx</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="n">led</span><span class="o">.</span><span class="n">idx</span><span class="p">,</span> <span class="n">colour</span><span class="o">=</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
-        <span class="n">keyboard</span><span class="o">.</span><span class="n">send_leds</span><span class="p">()</span>
-</code></pre></div>
-<p>We grab a list of all LEDs on the board, generate random color values for each (using full saturation and brightness), then send those colors to the keyboard. This is the "flash" moment.</p>
-<p>After holding that flash for a second, we clear everything and bring back the normal preset:</p>
-<div class="highlight"><pre><span></span><code>        <span class="c1"># 4) Hold the flash</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="c1"># 5) Clear LEDs</span>
-        <span class="n">keyboard</span><span class="o">.</span><span class="n">rgb_clear</span><span class="p">()</span>
-        <span class="n">keyboard</span><span class="o">.</span><span class="n">send_leds</span><span class="p">()</span>
-        <span class="c1"># 6) Restore preset</span>
-        <span class="k">if</span> <span class="n">current_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">keyboard</span><span class="o">.</span><span class="n">set_current_preset_index</span><span class="p">(</span><span class="n">current_idx</span><span class="p">,</span> <span class="n">save_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Restored preset index </span><span class="si">{</span><span class="n">current_idx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>This brief pause keeps the flash visible, then the script wipes the LEDs and reloads your saved preset so it looks exactly how it did before.</p>
-<p>Finally, we wait a second before running the next loop.</p>
-<div class="highlight"><pre><span></span><code>    <span class="c1"># Wait 1 second before next iteration</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
-<p>Now, this might seem like a bit of a strange thing to do, but what we've actually built here is a simple notification or heads-up system. You could have your favorite lighting preset running, and then - say the doorbell rings - a Python integration could flash your keyboard to alert you. Or maybe you connect it to Home Assistant to display information on your desk; it's almost like having a low-resolution screen built into your keyboard. You could even set up built-in timers, like a Pomodoro tracker or system reminders. There are countless creative ways to use this approach, and by reading and loading presets, you can make all sorts of interactive lighting effects that suit your setup.</p>
-<h2 id="creating-interactive-effects">Creating Interactive Effects</h2>
-<p>We can pre-program fancy LED colors and animations, but we are using Python here - we can do more complex things like reacting to keyboard inputs.</p>
-<p>The keyboard library we have been using does natively support detecting key presses, but it also includes a security feature that requires you to press enter and escape to unlock the keyboard before it can detect them - this must be done every time the Pi is restarted.</p>
-<p>This is not a major issue, but we are looking at having these Python scripts automatically start on boot up, and this extra manual step is a slight hassle. As a result, we will be using Pynput, which does the same task. You can install it with the following command:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pynput<span class="w"> </span>--break-system-packages
-</code></pre></div>
-<p>In the script <code>snake.py</code>, you will find (as the name suggests) a game of snake that uses pynput for controls. Follow the instructions in the shell of Thonny to get going with it!</p>
-<p>Let's put everything together and make something really cool - a sort of screensaver for the keyboard. Go ahead and open up the <code>screensaver.py</code> script, and you'll see exactly what's going on.</p>
-<p>There's quite a bit happening under the hood, but in simple terms, the script watches for keyboard activity, and if it doesn't register any input for five seconds, it springs into action. It saves the current preset you're using, gradually fades out the keyboard's brightness (using the same global brightness command we used earlier in the terminal), and then starts displaying a soft "firefly" animation. As soon as you press a key again, it restores your original preset and brightness — a neat little screensaver, but for your keyboard.</p>
-<h2 id="automatically-running-scripts-on-boot">Automatically Running Scripts on Boot</h2>
-<p>We have this all running out of Thonny just fine, but this is not very practical in day-to-day use. There is a way to make this Python script run automatically on launch so it just does its thing in the background. First of all, we need to have the script in a readily available place, or somewhere we know the path to. If you want to follow along with the exact locations in these commands, copy your Python script to <code>/home/pi</code> (the folder that opens by default when you open the folder browser).</p>
-<p>Once it is in there, we will need to use chmod to make it executable with:</p>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>/home/pi/fire.py
-</code></pre></div>
-<p>Our script is called <code>fire.py</code>, so you should change this to whatever your script is called. Then, open a new terminal window and edit the crontab file with:</p>
-<div class="highlight"><pre><span></span><code>crontab<span class="w"> </span>-e
-</code></pre></div>
-<p>The first time you do this, you may need to select an editor to use. Enter in 1 to use the nano editor. Once you are in the file, use the arrow keys to navigate to the bottom of the file, and in a new line, enter the following:</p>
-<div class="highlight"><pre><span></span><code>@reboot<span class="w"> </span>sleep<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>/usr/bin/python3<span class="w"> </span>/home/pi/fire.py<span class="w"> </span><span class="p">&amp;</span>
-</code></pre></div>
-<p>You will likely need to alter this line. The user name of our device is "pi", so we have <code>/home/pi/fire.py</code>, but you will need to replace pi with whatever your username is. Again, our script is called <code>fire.py</code>, so you also need to change it to what you have named yours.</p>
-<p>Once you have entered this line correctly, hit <code>Ctrl + X</code>, then <code>Y</code> and then <code>Enter</code> to save it. The next time you reboot your Pi, this should automatically start!</p>
 <h2 id="references">References</h2>
 <ol>
 <li><a href="https://www.raspberrypi.com/documentation/computers/keyboard-computers.html">Raspberry Pi Documentation on the Keyboard Computers</a></li>
@@ -2213,13 +2026,13 @@ pip<span class="w"> </span>install<span class="w"> </span>RPiKeyboardConfig
             </a>
           
           
-            <a href="../../lessons/" title="List of Lessons" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <a href="../03-pi-keyboard-python/" title="3. Pi Keyboard Python" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span class="md-footer-nav__direction">
                     Next
                   </span>
-                  List of Lessons
+                  3. Pi Keyboard Python
                 </span>
               </div>
               <div class="md-flex__cell md-flex__cell--shrink">
