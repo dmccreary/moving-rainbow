@@ -180,7 +180,7 @@ rpi-keyboard-config effect 30 --hue 255
 rpi-keyboard-config effect 30 --speed 255 --hue 255
 ```
 
-## Creating  Shell Script
+## Creating Shell Scripts to Demonstrate Each Effect
 
 The following shell script will cycle through the hues for the solid color patten.
 It will skip 9 out of the 10 colors so that the script will finish in about 25 seconds.
@@ -196,6 +196,33 @@ done
 ```
 
 Note that there is no delay in the loop.  This shows that the `rpi-keyboard-config` takes about one second to work.
+
+## Cycle Through All Effects
+
+You can cycle through all the effect by running the cycle-effects.sh script.
+
+```sh
+  ./cycle-effects.sh
+```
+
+Sample output:
+```
+========================================
+Effect 24 of 44
+========================================
+
+____       _           _
+|  _ \ __ _(_)_ __   __| |_ __ ___  _ __  ___ 
+| |_) / _` | | '_ \ / _` | '__/ _ \| '_ \/ __|
+|  _ < (_| | | | | | (_| | | | (_) | |_) \__ \
+|_| \_\__,_|_|_| |_|\__,_|_|  \___/| .__/|___/
+                                |_|        
+
+----------------------------------------
+
+Press Ctrl+C to exit early at any time.
+
+```
 
 Being able to view these commands through the terminal is nice and all, but if you really want to start customizing your keyboard, you can assign an effect to your keyboard's preset slot:
 
