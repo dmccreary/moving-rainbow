@@ -1,7 +1,5 @@
-# Skills Location Change
+# Skills for Moving Rainbow
 
-The skills previously located in this directory have been moved to:
-
-**`/Users/dan/Documents/ws/claude-skills`**
-
-Please find all Claude Code skills in the new centralized location.
+Due to the fact that Claude Code only permits up to 30 skill loaded
+at a time, all the skills related to this project have been moved
+here.
