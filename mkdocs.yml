@@ -26,6 +26,8 @@ nav:
     - Introduction: chapters/index.md
     - 1. Introduction: chapters/01-introduction/index.md
     - 2. Pi 500 Keyboard: chapters/02-pi-500-keyboard/index.md
+    - 3. Pi Keyboard Python: chapters/03-pi-keyboard-python/index.md
+    - 4. Pi Keyboard Skill: chapters/04-pi-keyboard-skill/index.md
 
   - NeoPixel Lessons:
     - List of Lessons: lessons/index.md
