@@ -122,7 +122,7 @@ else
 fi
 
 # Display duration in seconds
-DELAY=3
+DELAY=4
 
 # Build list of effect IDs to display based on filter
 effect_ids=()
@@ -171,8 +171,9 @@ for id in "${effect_ids[@]}"; do
     echo ""
 
     # Display ASCII art name
+    # Assume the screen width is 120 characters
     if [ "$USE_FIGLET" = true ]; then
-        figlet -w 80 "$name"
+        figlet -w 120 "$name"
     else
         echo ">>> $name <<<"
     fi
