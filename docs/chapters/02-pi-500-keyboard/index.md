@@ -409,7 +409,7 @@ This file has a set of `keybind` elements that bind a key to an action.  The act
 be any shell script.  Here are some examples:
 
 ```xml
-<!-- Print Screen: select area screenshot with timestamp -->
+<!-- Print Screen: select area screenshot with timestamp and store the region in the home Screenshots directory -->
 <keybind key="Print">
     <action name="Execute">
     <command>sh -c 'grim -g "$(slurp)" ~/Screenshots/ss-$(date +%Y%m%d-%H%M%S).png'</command>
