@@ -205,11 +205,19 @@ You can cycle through all the effects by running the cycle-effects.sh script. Th
 sudo apt install figlet
 ```
 
-Then run the demo:
+### Non-Keystroke Effects
+
+These effects just change the keyboard backdrop color.  They are not triggered by a keystroke.
+
+Then run script the demo with the "-n" option:
 
 ```sh
-./cycle-effects.sh
+$MOVING_RAINBOW_HOME/src/pi-500-keyboard/cycle-effects.sh -n
 ```
+
+This will cycle through all the NON-keystroke effects where the Keystroke Trigger in the above table is set to No.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hjW20oUe9d0?si=XVZZMvpBovNXsx3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Sample output:
 ```
@@ -229,6 +237,14 @@ ____       _           _
 Press Ctrl+C to exit early at any time.
 
 ```
+
+### Keystroke Triggered Effects
+
+```sh
+$MOVING_RAINBOW_HOME/src/pi-500-keyboard/cycle-effects.sh -k
+```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Xs5iFZHpCvs?si=oyTRflilRuLBkk2J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Customizing the Presets
 
