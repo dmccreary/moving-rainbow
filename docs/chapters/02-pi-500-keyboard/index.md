@@ -93,6 +93,57 @@ Enter the following command to see a list of all the available effects to choose
 rpi-keyboard-config list-effects
 ```
 
+## Supported RGB Effects
+
+  | ID | Effect Name |
+  |----|-------------|
+  | 0 | OFF |
+  | 1 | Direct |
+  | 2 | Solid Color |
+  | 3 | Alphas Mods |
+  | 4 | Gradient Up Down |
+  | 5 | Gradient Left Right |
+  | 6 | Breathing |
+  | 7 | Band Sat |
+  | 8 | Band Val |
+  | 9 | Band Pinwheel Sat |
+  | 10 | Band Pinwheel Val |
+  | 11 | Band Spiral Sat |
+  | 12 | Band Spiral Val |
+  | 13 | Cycle All |
+  | 14 | Cycle Left Right |
+  | 15 | Cycle Up Down |
+  | 16 | Rainbow Moving Chevron |
+  | 17 | Cycle Out In |
+  | 18 | Cycle Out In Dual |
+  | 19 | Cycle Pinwheel |
+  | 20 | Cycle Spiral |
+  | 21 | Dual Beacon |
+  | 22 | Rainbow Beacon |
+  | 23 | Rainbow Pinwheels |
+  | 24 | Raindrops |
+  | 25 | Jellybean Raindrops |
+  | 26 | Hue Breathing |
+  | 27 | Hue Pendulum |
+  | 28 | Hue Wave |
+  | 29 | Typing Heatmap |
+  | 30 | Digital Rain |
+  | 31 | Solid Reactive Simple |
+  | 32 | Solid Reactive |
+  | 33 | Solid Reactive Wide |
+  | 34 | Solid Reactive Multiwide |
+  | 35 | Solid Reactive Cross |
+  | 36 | Solid Reactive Multicross |
+  | 37 | Solid Reactive Nexus |
+  | 38 | Solid Reactive Multinexus |
+  | 39 | Splash |
+  | 40 | Multisplash |
+  | 41 | Solid Splash |
+  | 42 | Solid Multisplash |
+  | 43 | Pixel Rain |
+  | 44 | Pixel Fractal |
+
+
 And you can view an effect with:
 
 ```sh
@@ -113,6 +164,23 @@ The commands will take a number between 0 and 255. You can set all the options l
 rpi-keyboard-config effect 30 --hue 255
 rpi-keyboard-config effect 30 --speed 255 --hue 255
 ```
+
+## Creating  Shell Script
+
+The following shell script will cycle through the hues for the solid color patten.
+It will skip 9 out of the 10 colors so that the script will finish in about 25 seconds.
+
+```sh
+#!/bin/bash
+# Cycle through all hues on the Pi 500+ keyboard
+# Uses effect 2 (Solid Color) with varying hue values
+
+for hue in $(seq 0 10 255); do
+    rpi-keyboard-config effect 2 --hue $hue
+done
+```
+
+Note that there is no delay in the loop.  This shows that the `rpi-keyboard-config` takes about one second to work.
 
 Being able to view these commands through the terminal is nice and all, but if you really want to start customizing your keyboard, you can assign an effect to your keyboard's preset slot:
 
