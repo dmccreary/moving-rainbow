@@ -51,6 +51,10 @@ Let's now move on to doing what we just looked at, but through Python scripts. W
 
 With the Python script method, we can update all the keys at once, and we can do so many times a second! On top of that, it's Python! We can make animations, add integrations, and make interactive layouts!
 
+## Using Thonny
+
+
+
 If you haven't done so already, go ahead and download the zip file containing all the Python scripts, and unzip it to a convenient location.
 
 Go ahead and open up `simple_colour.py`. This script is a stripped-back demo of how colors can be controlled. First, it imports the rpi-keyboard-config library, then initializes the keyboard, and sets the LED control mode (telling the keyboard we are about to start sending it RGB commands). These are the important first steps of any script controlling the RGB.
