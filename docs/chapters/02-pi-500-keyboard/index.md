@@ -10,12 +10,10 @@ Then we will run a few simple shell commands that change the LEDs and preset pat
 Lastly we will move to writing small Python scripts to create your own animations, reactive lighting, and even little games or notification systems. By the end, you'll have full control over every LED on your keyboard.  Programming all the keys on your computer will be
 your new superpower!  Your friends will be impressed!
 
-Note that all the source code for our samples can be downloaded directly from the
-Moving Rainbow GitHub site [here](https://github.com/dmccreary/moving-rainbow/tree/master/src/pi-500-keyboard).
-
 ## Contents
 
 - [What You Will Need](#what-you-will-need)
+- [Installing the Shell Scripts](#installing-the-shell-scripts)
 - [Installing the RGB Library](#installing-the-rgb-library)
 - [Controlling RGB With Terminal Commands](#controlling-rgb-with-terminal-commands)
 - [Setting Colors From a Python Script](#setting-colors-from-a-python-script)
@@ -33,6 +31,23 @@ To follow along with this guide, you will need:
 - Mouse
 - Monitor
 - Micro-HDMI to HDMI cable (note, this is a non-standard cable and you may need to special order it)
+
+## Installing the Shell Scripts
+
+All the source code for our samples can be downloaded directly from the
+Moving Rainbow GitHub site [here](https://github.com/dmccreary/moving-rainbow/tree/master/src/pi-500-keyboard).
+
+In the documentation below, we often give shell script path that includes the variable `$MOVING_RAINBOW_HOME`.  This refers to where you have checked out the Moving Rainbow
+GitHub repository.  You can do this using the github `clone` command.
+
+```sh
+cd $HOME/projects
+git clone https://github.com/dmccreary/moving-rainbow
+set MOVING_RAINBOW_HOME="$HOME/projects/moving-rainbow"
+```
+
+Alternatively, you can also simply download the individual shell scripts from GitHub and put them in your local bin `~/.local/bin` if you don't want to download the entire repository.  After you install them
+you might need to run the `chmod +x ~/.local/bin/*.sh` program to give the scripts execution permission.
 
 ## Installing the RGB Library
 
@@ -349,13 +364,32 @@ Wrapping up, if you ever want to reset all your effects and presets back to the 
 rpi-keyboard-config reset-presets
 ```
 
-And just for a bit of fun, you can play a game of Flappy Birds with:
+And just for fun, you can play a game of Flappy Birds with:
 
 ```sh
 rpi-keyboard-config game
 ```
 
 ## Setting Colors From a Python Script
+
+Although the built-in effects are nice, they are also limited.
+If you want to do something simple like turn a function key purple when
+you have a new email message, you will need to use Python to program
+the keys.
+
+### Environment Setup
+
+Python has about 50,000 libraries and each library can have hundreds of versions
+and depend on specific version of other libraries.  To keep your
+projects independent, we will use our Python best practice and
+create a Python virtual environment using the conda tool.
+
+```sh
+conda create -n pi-keyboard python=3.11
+conda deactivate
+conda activate pi-keyboard
+pip install RPiKeyboardConfig
+```
 
 Let's now move on to doing what we just looked at, but through Python scripts. Why would we want to do this though? What's wrong with the terminal commands method? Well, the biggest drawback is that it takes about a second to update a key color through the terminal - and we can only update one key color at a time with a command. With 84 keys on our board, that means to randomly assign a color to each key, it would take 84 seconds!
 
