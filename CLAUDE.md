@@ -4,45 +4,39 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the Moving Rainbow project - an educational resource for teaching computational thinking and computer science concepts using LED strips and microcontrollers. The project uses both MicroPython (for Raspberry Pi Pico) and Arduino C++ for hands-on learning with addressable LEDs.
+This is the Moving Rainbow project - an educational resource for teaching computational thinking and computer science concepts using LED strips and microcontrollers. The project uses both MicroPython (for Raspberry Pi Pico) and Arduino C++ for hands-on learning with addressable LEDs (WS2812B/NeoPixels).
 
 ## Build and Documentation Commands
 
-This project uses MkDocs for documentation generation:
+This project uses MkDocs with Material theme for documentation:
 
 ```bash
-# Build and serve documentation locally
-mkdocs serve
-
-# Build documentation for production
-mkdocs build
-
-# Deploy to GitHub Pages
-mkdocs gh-deploy
+mkdocs serve        # Build and serve locally at http://127.0.0.1:8000
+mkdocs build        # Build for production (outputs to /site/)
+mkdocs gh-deploy    # Deploy to GitHub Pages
 ```
 
 ## Project Structure
 
-### Core Architecture
+### Source Code (`/src/`)
 
-- **`/src/`** - Source code organized by platform and kit type:
-  - **`micropython/`** - MicroPython examples for Raspberry Pi Pico
-  - **`arduino/`** - Arduino C++ sketches for various microcontrollers  
-  - **`led-strip-two-buttons/`** - Main kit examples with configuration
-  - **`pico/`** - Raspberry Pi Pico specific examples
-  - Platform-specific directories for different hardware configurations
+- **`led-strip-two-buttons/`** - Main kit examples with numbered progression (01-blink.py, 02-move.py, etc.)
+- **`micropython/`** - MicroPython examples for Raspberry Pi Pico
+- **`arduino/`** - Arduino C++ sketches using Adafruit NeoPixel library
+- **`pi-500-keyboard/`** - Raspberry Pi 500+ keyboard RGB LED control scripts
+- Kit-specific directories (e.g., `katies-busy-board/`, `tiki-bar-sign/`)
 
-- **`/docs/`** - MkDocs documentation source:
-  - **`lessons/`** - Step-by-step tutorials (01-blink.md through advanced topics)
-  - **`getting-started/`** - Setup guides for hardware and software
-  - **`teachers-guide/`** - Educational resources and methodology
-  - **`kits/`** - Specific kit assembly and usage guides
+### Documentation (`/docs/`)
 
-- **`/site/`** - Generated documentation output (do not edit directly)
+- **`lessons/`** - Progressive tutorials from basic to advanced
+- **`chapters/`** - Structured course chapters
+- **`kits/`** - Kit-specific assembly and usage guides
+- **`sims/`** - Interactive MicroSims (browser-based simulations)
+- **`teachers-guide/`** - Educational methodology and resources
 
 ### Key Configuration Pattern
 
-Most projects use a `config.py` file for hardware settings:
+Each kit uses a `config.py` for hardware abstraction:
 ```python
 NEOPIXEL_PIN = 0
 NUMBER_PIXELS = 30
@@ -50,27 +44,26 @@ BUTTON_PIN_1 = 15
 BUTTON_PIN_2 = 14
 ```
 
-### Code Organization
+## Platform-Specific Notes
 
-- Projects follow a progressive learning structure (01-blink.py → 02-move.py → etc.)
-- MicroPython examples use the `neopixel` and `machine` libraries
-- Arduino examples use the Adafruit NeoPixel library
-- Each platform has its own configuration approach but similar learning progression
+### MicroPython (Raspberry Pi Pico)
+- Uses `neopixel` and `machine` libraries
+- Files run directly on Pico via Thonny IDE or similar
 
-## Development Workflow
+### Arduino
+- Uses Adafruit NeoPixel library
+- Standard Arduino IDE workflow
 
-1. **MicroPython Development**: Files are designed to run on Raspberry Pi Pico with NeoPixel strips
-2. **Arduino Development**: Use Arduino IDE with appropriate board packages
-3. **Documentation**: Edit Markdown files in `/docs/` and use `mkdocs serve` to preview changes
-4. **Testing**: Hardware-dependent - requires physical LED strips and microcontrollers
+### Pi 500+ Keyboard RGB
+- Uses `rpi-keyboard-config` command-line tool and `RPiKeyboardConfig` Python library
+- 45 built-in effects (IDs 0-44), 7 preset slots (0-6)
+- Key commands: `rpi-keyboard-config effect <id>`, `rpi-keyboard-config preset set <slot> <effect>`
 
-## Educational Focus
+## Educational Design Principles
 
-This codebase is designed for teaching:
-- Sequential programming concepts through LED animations
-- Hardware interfacing with microcontrollers
-- Color theory and pixel manipulation
-- Button input handling and interactive programming
-- Progressive complexity from simple blink to complex patterns
+- **Progressive complexity**: Lessons build incrementally (blink → motion → color → complex patterns)
+- **Immediate visual feedback**: Every code change produces visible LED results
+- **Low barrier to entry**: ~$13 total hardware cost, minimal wiring (3 wires for LED strip)
+- **Transferable concepts**: Loops, conditionals, and functions taught through LED manipulation
 
-When working with this codebase, prioritize educational clarity and maintain the step-by-step learning progression that makes concepts accessible to beginners.
+When modifying code or documentation, prioritize clarity for beginners over code elegance. Maintain the numbered lesson progression and consistent configuration patterns across kits.
