@@ -384,6 +384,8 @@ and depend on specific version of other libraries.  To keep your
 projects independent, we will use our Python best practice and
 create a Python virtual environment using the conda tool.
 
+https://github.com/raspberrypi/rpi-keyboard-config
+
 ```sh
 conda create -n pi-keyboard python=3.11
 conda deactivate
