@@ -8,7 +8,7 @@ edit_uri: edit/master/docs/
 
 nav:
   - Course Description: course-description.md
-  - Concept Sequence: concept-sequence.md  
+  - Concept Sequence: concept-sequence.md
   - Getting Started:
     - Overview: getting-started/index.md
     - About: getting-started/about.md
@@ -22,6 +22,13 @@ nav:
     - Electrical Connections: getting-started/connections.md
     - Troubleshooting Resets: getting-started/troubleshooting-resets.md
   
+  - Chapters:
+    - Introduction: chapters/index.md
+    - 1. Introduction: chapters/01-introduction/index.md
+    - 2. Pi 500 Keyboard: chapters/02-pi-500-keyboard/index.md
+    - 3. Pi Keyboard Python: chapters/03-pi-keyboard-python/index.md
+    - 4. Pi Keyboard Skill: chapters/04-pi-keyboard-skill/index.md
+
   - NeoPixel Lessons:
     - List of Lessons: lessons/index.md
     - Blink: lessons/01-blink.md
@@ -189,3 +196,7 @@ extra_javascript:
     - js/extra.js
     # needed for mathjax to work
     # - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+copyright: Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+extra:
+  generator: false
