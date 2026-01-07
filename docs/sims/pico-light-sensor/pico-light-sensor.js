@@ -3,7 +3,7 @@
 // with a Raspberry Pi Pico's ADC (Analog to Digital Converter) input.
 // The photoresistor detects ambient light level and the voltage at the
 // junction point is read by ADC0, converted to a digital value 0-255.
-// When it's dark, ADC reads high (255). When bright, ADC reads low (0).
+// When it's bright, ADC reads high (255). When dark, ADC reads low (0).
 // Components: 5V power supply, 47kΩ resistor, photoresistor
 
 // Canvas dimensions following standard MicroSim layout
@@ -40,10 +40,11 @@ let powerRailY = margin + 40;
 let groundRailY = 400;
 
 // Column 1 components (voltage divider)
-let resistor100kX = circuitColumWidth;
-let resistor100kY = 150;
+// Photoresistor on top (connected to +5V), 47K resistor on bottom (connected to GND)
 let photoresistorX = circuitColumWidth;
-let photoresistorY = 320;
+let photoresistorY = 150;
+let resistor47kX = circuitColumWidth;
+let resistor47kY = 320;
 
 // Column 2 component (ADC input icon)
 let adcInputX = circuitColumWidth * 2;
@@ -102,16 +103,17 @@ function draw() {
   lightLevel = lightSlider.value() / 100;
 
   // Calculate circuit values
-  // Voltage divider: Vjunction = Vcc * R_photo / (R_100k + R_photo)
-  // As light increases, photoresistor resistance decreases, junction voltage decreases
-  // As light decreases, photoresistor resistance increases, junction voltage increases
-  // Simplified model: when bright (lightLevel=1), low resistance, low voltage
-  // when dark (lightLevel=0), high resistance, high voltage
-  junctionVoltage = (1 - lightLevel) * 5.0;
+  // Voltage divider with photoresistor on top, 47K on bottom:
+  // Vjunction = Vcc * R_47k / (R_photo + R_47k)
+  // As light increases, photoresistor resistance decreases, junction voltage INCREASES
+  // As light decreases, photoresistor resistance increases, junction voltage DECREASES
+  // Simplified model: when bright (lightLevel=1), low photoresistor R, high voltage
+  // when dark (lightLevel=0), high photoresistor R, low voltage
+  junctionVoltage = lightLevel * 5.0;
 
   // ADC value: maps junction voltage 0-5V to 0-255
-  // Dark = high voltage = high ADC value (255)
-  // Bright = low voltage = low ADC value (0)
+  // Bright = high voltage = high ADC value (255)
+  // Dark = low voltage = low ADC value (0)
   adcValue = Math.round(map(junctionVoltage, 0, 5, 0, 255));
 
   // Update animation time only when running
@@ -123,9 +125,9 @@ function draw() {
   // Draw power rails
   drawPowerRails();
 
-  // Draw circuit components
-  drawResistor(resistor100kX, resistor100kY, '47k\u03A9', 'vertical');
+  // Draw circuit components (photoresistor on top, 47K resistor on bottom)
   drawPhotoresistor(photoresistorX, photoresistorY, 50, ambientLight);
+  drawResistor(resistor47kX, resistor47kY, '47k\u03A9', 'vertical');
   drawADCInput(adcInputX, adcInputY);
 
   // Draw wiring with animated current flow
@@ -356,20 +358,20 @@ function drawADCDisplay() {
   textSize(12);
   text('(0-255)', x, y + displayHeight/2 - 25);
 
-  // Brightness interpretation
+  // Brightness interpretation (higher ADC = brighter light)
   textSize(11);
   fill('#aaaaaa');
   let brightnessText = "";
-  if (adcValue < 50) {
+  if (adcValue > 230) {
     brightnessText = "Very Bright";
     fill('#ffff00');
-  } else if (adcValue < 100) {
+  } else if (adcValue > 180) {
     brightnessText = "Bright";
     fill('#cccc00');
-  } else if (adcValue < 180) {
+  } else if (adcValue > 100) {
     brightnessText = "Medium";
     fill('#888800');
-  } else if (adcValue < 230) {
+  } else if (adcValue > 50) {
     brightnessText = "Dim";
     fill('#666600');
   } else {
@@ -388,17 +390,17 @@ function drawCircuitWiring() {
   // Current level also varies with light
   let currentLevel = 0.3 + lightLevel * 0.7;
 
-  // Wire from +5V to 100k resistor top
-  drawAnimatedWire(resistor100kX, powerRailY, resistor100kX, resistor100kY - 30, speed, spacing, currentLevel);
+  // Wire from +5V to photoresistor top
+  drawAnimatedWire(photoresistorX, powerRailY, photoresistorX, photoresistorY - 25, speed, spacing, currentLevel);
 
-  // Wire from 100k resistor bottom to photoresistor top (voltage divider midpoint)
-  drawAnimatedWire(resistor100kX, resistor100kY + 30, resistor100kX, photoresistorY - 25, speed, spacing, currentLevel);
+  // Wire from photoresistor bottom to 47K resistor top (voltage divider midpoint)
+  drawAnimatedWire(photoresistorX, photoresistorY + 25, resistor47kX, resistor47kY - 30, speed, spacing, currentLevel);
 
-  // Wire from photoresistor bottom to ground
-  drawAnimatedWire(photoresistorX, photoresistorY + 25, photoresistorX, groundRailY, speed, spacing, currentLevel);
+  // Wire from 47K resistor bottom to ground
+  drawAnimatedWire(resistor47kX, resistor47kY + 30, resistor47kX, groundRailY, speed, spacing, currentLevel);
 
   // Wire from voltage divider junction to ADC input
-  let junctionY = (resistor100kY + 30 + photoresistorY - 25) / 2;
+  let junctionY = (photoresistorY + 25 + resistor47kY - 30) / 2;
 
   // Horizontal wire to ADC input
   drawAnimatedWire(photoresistorX, junctionY, adcInputX - 50, adcInputY, speed * 0.3, spacing, currentLevel * 0.5);
@@ -449,7 +451,7 @@ function drawReadings() {
   textSize(13);
   textAlign(LEFT);
   push();
-    translate(circuitColumWidth * 1.5, 100);
+    translate(circuitColumWidth * 1.5, 260);
     text('Junction Voltage: ' + junctionVoltage.toFixed(2) + 'V', 0, 40);
     text('Light Level: ' + (lightLevel * 100).toFixed(0) + '%', 0, 60);
     text('Photoresistor R: ' + ((1 - lightLevel) * 100 + 10).toFixed(0) + 'k\u03A9', 0, 80);
@@ -475,8 +477,8 @@ function windowResized() {
   redraw();
   // Update component positions based on new width
   circuitColumWidth = canvasWidth / 4;
-  resistor100kX = circuitColumWidth;
   photoresistorX = circuitColumWidth;
+  resistor47kX = circuitColumWidth;
   adcInputX = circuitColumWidth * 2;
   adcDisplayX = circuitColumWidth * 3;
   lightSlider.size(containerWidth - sliderLeftMargin - 25);
