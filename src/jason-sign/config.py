@@ -1,5 +1,5 @@
 # Moving Rainbow Configuration file
-# Filename: 01-config.py
+# Filename: config.py
 # This file contains the hardware configuration for your kit
 # This file can be imported by each program
 
