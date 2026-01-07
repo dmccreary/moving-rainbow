@@ -8,7 +8,7 @@
 
 [Run the Pico Light Sensor MicroSim](main.html){ .md-button .md-button--primary }
 <br/>
-[Edit the MicroSim with the p5.js editor](https://editor.p5js.org/)
+[Edit the MicroSim with the p5.js editor](https://editor.p5js.org/dmccreary/sketches/k6hv8wZPc/)
 
 ## About this MicroSim
 
