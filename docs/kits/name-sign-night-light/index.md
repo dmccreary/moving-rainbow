@@ -1,5 +1,5 @@
 # Name Sign Night Light
-![](./jason-sign-02.jpg)
+![](./jason-sign.jpg)
 
 ## Project Description
 
