@@ -4,6 +4,7 @@
 #   1 - Static: Each letter a different color
 #   2 - Rainbow cycle: Entire sign rotates through rainbow colors
 #   3 - Random: Each pixel slowly changes through random colors
+# Now with gamma correction for smoother fading!
 
 from machine import Pin, ADC
 from neopixel import NeoPixel
@@ -21,7 +22,12 @@ photosensor = ADC(Pin(config.ADC_PIN_0))
 LIGHT_THRESHOLD = 30000  # Below this = dark (adjust based on your sensor)
 NIGHTLIGHT_ON_TIME = 10 * 60 * 1000    # 10 minutes in ms
 NIGHTLIGHT_FADE_TIME = 10 * 60 * 1000  # 10 minutes fade in ms
+NIGHTLIGHT_FINAL_MIN = 1 * 60 * 1000   # Final minute - just a few pixels
 DEBOUNCE_TIME = 200  # Button debounce in ms
+GAMMA = 2.5  # Gamma correction for perceptually linear fade
+
+# Pixels to keep on during final minute (one per letter, middle-ish)
+FINAL_PIXELS = [3, 14, 27, 40, 56]
 
 # State variables
 current_mode = 0
@@ -59,6 +65,10 @@ def scale_color(color, brightness):
     return (int(color[0] * brightness),
             int(color[1] * brightness),
             int(color[2] * brightness))
+
+def gamma_correct(linear_brightness):
+    """Apply gamma correction for perceptually linear fade"""
+    return linear_brightness ** GAMMA
 
 def clear_strip():
     """Turn off all pixels"""
@@ -120,29 +130,51 @@ def mode_nightlight():
                 seconds = remaining_sec % 60
                 if elapsed < NIGHTLIGHT_ON_TIME:
                     phase = "full"
-                else:
+                elif elapsed < total_time - NIGHTLIGHT_FINAL_MIN:
                     phase = "fading"
+                else:
+                    phase = "final"
                 print("Nightlight: {:02d}:{:02d} remaining ({})".format(minutes, seconds, phase))
 
         if elapsed < NIGHTLIGHT_ON_TIME:
             # Full brightness rainbow
             brightness = 1.0
-        elif elapsed < total_time:
-            # Fading phase
+            in_final_minute = False
+        elif elapsed < total_time - NIGHTLIGHT_FINAL_MIN:
+            # Main fading phase (9 minutes) - apply gamma correction
             fade_elapsed = elapsed - NIGHTLIGHT_ON_TIME
-            brightness = 1.0 - (fade_elapsed / NIGHTLIGHT_FADE_TIME)
+            fade_duration = NIGHTLIGHT_FADE_TIME - NIGHTLIGHT_FINAL_MIN
+            linear_brightness = 1.0 - (fade_elapsed / fade_duration)
+            brightness = gamma_correct(linear_brightness)
+            in_final_minute = False
+        elif elapsed < total_time:
+            # Final minute - just a few dim pixels
+            final_elapsed = elapsed - (total_time - NIGHTLIGHT_FINAL_MIN)
+            linear_brightness = 1.0 - (final_elapsed / NIGHTLIGHT_FINAL_MIN)
+            brightness = gamma_correct(linear_brightness) * 0.3  # Max 30% in final minute
+            in_final_minute = True
         else:
             # Fully faded - turn off
             brightness = 0.0
+            in_final_minute = False
             if nightlight_active:
                 print("Nightlight off - timer complete")
 
-        # Display full rainbow spectrum across all pixels, moving down the strip
+        # Display pattern
         for i in range(config.NUMBER_PIXELS):
-            # Map pixel position to full 0-255 wheel range
-            wheel_pos = (i * 255 // 64 + rainbow_offset) % 256
-            color = wheel(wheel_pos)
-            strip[i] = scale_color(color, brightness)
+            if in_final_minute:
+                # Only light the few selected pixels during final minute
+                if i in FINAL_PIXELS:
+                    wheel_pos = (i * 255 // 64 + rainbow_offset) % 256
+                    color = wheel(wheel_pos)
+                    strip[i] = scale_color(color, brightness)
+                else:
+                    strip[i] = (0, 0, 0)
+            else:
+                # Full rainbow spectrum across all pixels
+                wheel_pos = (i * 255 // 64 + rainbow_offset) % 256
+                color = wheel(wheel_pos)
+                strip[i] = scale_color(color, brightness)
         strip.write()
         rainbow_offset = (rainbow_offset + 1) % 256
 
