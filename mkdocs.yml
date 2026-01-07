@@ -77,7 +77,8 @@ nav:
     - LED Dimmer: sims/led-dimmer/index.md
     - Photoresistor: sims/photoresistor-component/index.md
     - LED Nightlight: sims/nightlight/index.md
-  
+    - Pico Light Sensor: sims/pico-light-sensor/index.md
+
   - Kits:
     - Intro: kits/index.md
     - Base Moving Rainbow Kit: kits/moving-rainbow-base/index.md
