@@ -15,20 +15,20 @@
 This MicroSim demonstrates how a photoresistor voltage divider circuit works with a Raspberry Pi Pico's ADC (Analog to Digital Converter) input. The simulation shows:
 
 - 5V power supply rails
-- 47k ohm fixed resistor (top of voltage divider)
-- Photoresistor (bottom of voltage divider)
+- Photoresistor (top of voltage divider, connected to +5V)
+- 47k ohm fixed resistor (bottom of voltage divider, connected to GND)
 - ADC0 input connection to the Pico (GP26 pin)
 - Real-time ADC value display (0-255)
 
 ## How It Works
 
-The circuit uses a **voltage divider** consisting of a 47k ohm fixed resistor and a photoresistor (light-dependent resistor or LDR):
+The circuit uses a **voltage divider** with the photoresistor on top and 47k ohm fixed resistor on bottom:
 
-1. **Voltage Divider**: The 47k ohm resistor and photoresistor form a voltage divider. The junction voltage between them varies based on light intensity.
+1. **Voltage Divider**: The photoresistor connects to +5V and the 47k resistor connects to GND. The junction voltage between them varies based on light intensity.
 
 2. **Light Response**:
-   - **Bright light**: Photoresistor has LOW resistance, junction voltage is LOW, ADC reads LOW values (closer to 0)
-   - **Dark conditions**: Photoresistor has HIGH resistance, junction voltage is HIGH, ADC reads HIGH values (closer to 255)
+   - **Bright light**: Photoresistor has LOW resistance, more current flows, junction voltage is HIGH, ADC reads HIGH values (closer to 255)
+   - **Dark conditions**: Photoresistor has HIGH resistance, less current flows, junction voltage is LOW, ADC reads LOW values (closer to 0)
 
 3. **ADC Conversion**: The Raspberry Pi Pico's ADC0 input (GP26) reads the junction voltage and converts it to a digital value from 0 to 255 (8-bit representation).
 
@@ -36,8 +36,8 @@ The circuit uses a **voltage divider** consisting of a 47k ohm fixed resistor an
 
 | Component | Connection |
 |-----------|------------|
-| 47k ohm Resistor | +5V to Junction |
-| Photoresistor | Junction to GND |
+| Photoresistor | +5V to Junction |
+| 47k ohm Resistor | Junction to GND |
 | ADC0 (GP26) | Connected to Junction |
 
 ## Features
@@ -82,7 +82,7 @@ while True:
 
 Try these activities:
 
-1. **Threshold Detection**: Find the ADC value where you would turn on a nightlight (typically around 200-230)
+1. **Threshold Detection**: Find the ADC value where you would turn on a nightlight (typically around 25-50, since dark = low ADC)
 
 2. **Response Curve**: Note how the ADC value changes as you slowly adjust the light slider from 0% to 100%
 

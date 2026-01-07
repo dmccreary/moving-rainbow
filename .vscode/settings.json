@@ -37,6 +37,7 @@
         "solderless",
         "Thonny",
         "usbmodem",
-        "utime"
+        "utime",
+        "VREF"
     ]
 }

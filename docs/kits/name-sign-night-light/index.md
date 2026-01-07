@@ -1,4 +1,5 @@
 # Name Sign Night Light
+![](./jason-sign-02.jpg)
 
 ## Project Description
 
@@ -21,6 +22,7 @@ buttons on the back allow the user to change the pattern.
 Total part cost: Under $16
 
 ## Hardware
+![](json-sign-01.jpg)
 
 We use a 60-pixels per meter LED strip that uses standards WS-1812B NeoPixels.
 We traced out a design using PowerPoint.  We use a template that had a two
@@ -39,6 +41,12 @@ took about three hours of detailed soldering.  Using a string of fairy
 lights with individual wires between them would be another option.
 
 ### Light Sensor
+
+#### MicroSim of the Pico ADC Light Sensor Circuit
+<iframe src="../../sims/pico-light-sensor/main.html" width="100%" height="485px" scrolling="no"></iframe>
+
+[Run the Pico Light Sensor MicroSim Fullscreen](../../sims/pico-light-sensor/main.html)
+[]()
 
 ![](./pico-adc-pins.png)
 
@@ -69,7 +77,9 @@ while True:
     time.sleep(.1)
 ```
 
-To make sure the voltage dividor
+To make sure the voltage divider is working, test in a bright light and also
+in a dark room.  The printed values should change from a low value (around 10) to a high values (around 240).  The exact values are not critical, since we can adjust the threshold
+in our code that goes from a bright to dark room to turn on the nightlight.
 
 ## AI Prompts
 
