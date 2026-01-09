@@ -10,7 +10,7 @@ buttons on the back allow the user to change the pattern.
 ## Parts Used
 
 1. 65 NeoPixels on a 60 pixels per meter LED strip ($6)
-2. Raspberry Pi Nano ($4)
+2. Raspberry Pi Pico ($4)
 3. Breadboard ($2)
 4. Photo resistor (under $1 each) when you buy in packs of 10
 5. 47K ohm resistor ($.10)
