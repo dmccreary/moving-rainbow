@@ -1070,6 +1070,10 @@
           
         
       
+        
+          
+        
+      
     
     
     
@@ -1973,19 +1977,10 @@
 ./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>off
 </code></pre></div>
 <h2 id="how-the-magic-works">How the Magic Works</h2>
-<p>The notification system uses a brilliantly simple file-based approach combined with Claude Code hooks:</p>
-<div class="highlight"><pre><span></span><code>graph TD
-    A[User sends prompt] --&gt; B[Claude Code processes request]
-    B --&gt; C{Tool use needed?}
-    C --&gt;|Yes| D[PreToolUse Hook fires]
-    D --&gt; E[Script writes JSON with BLUE status]
-    E --&gt; F[BetterTouchTool reads file every 1 second]
-    F --&gt; G[Touch Bar displays colorful status!]
-    C --&gt;|No| H[Claude responds directly]
-    H --&gt; I[Stop Hook fires]
-    I --&gt; J[Script writes JSON with GREEN status]
-    J --&gt; F
-</code></pre></div>
+<p>The notification system uses a brilliantly simple file-based approach combined with Claude Code hooks. Hover over each node in the diagram below to learn more!</p>
+<iframe src="../../sims/claude-code-hooks-workflow/main.html" width="100%" height="450px" style="border:none; overflow:hidden;"></iframe>
+
+<p><a class="md-button" href="../../sims/claude-code-hooks-workflow/main.html">View Fullscreen Diagram</a></p>
 <h3 id="the-delightful-flow">The Delightful Flow</h3>
 <ol>
 <li><strong>You submit a prompt</strong> to Claude Code</li>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code Hooks Workflow</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .mermaid {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aliceblue;
+        }
+        .mermaid svg {
+            max-width: 100%;
+            max-height: 100vh;
+        }
+        #tooltip {
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            max-width: 280px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        #tooltip.visible {
+            opacity: 1;
+        }
+        .node {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="mermaid">
+flowchart TD
+    A("User sends prompt"):::userNode
+    B["Claude Code processes request"]:::processNode
+    C{"Tool use needed?"}:::decisionNode
+    D["PreToolUse Hook fires"]:::hookNode
+    E["Script writes JSON with BLUE status"]:::blueNode
+    F["BetterTouchTool reads file"]:::bttNode
+    G("Touch Bar displays status!"):::displayNode
+    H["Claude responds directly"]:::processNode
+    I["Stop Hook fires"]:::hookNode
+    J["Script writes JSON with GREEN status"]:::greenNode
+
+    A --> B
+    B --> C
+    C -->|Yes| D
+    D --> E
+    E --> F
+    F --> G
+    C -->|No| H
+    H --> I
+    I --> J
+    J --> F
+
+    classDef userNode fill:#667eea,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef processNode fill:#764ba2,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef decisionNode fill:#f093fb,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef hookNode fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef blueNode fill:#1e90ff,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef greenNode fill:#228b22,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef bttNode fill:#ffa502,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef displayNode fill:#2ed573,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:16px
+    </div>
+    <div id="tooltip"></div>
+    <script>
+        const tooltips = {
+            'A': 'You type a prompt in Claude Code CLI and press Enter',
+            'B': 'Claude analyzes your request and decides how to respond',
+            'C': 'Does Claude need to use a tool like Bash, Read, Write, or Edit?',
+            'D': 'The PreToolUse hook triggers before any tool executes',
+            'E': 'The script writes JSON with blue color to /tmp/claude-code-status.txt',
+            'F': 'BetterTouchTool polls the status file every second',
+            'G': 'Your Touch Bar displays the colorful status indicator!',
+            'H': 'Claude generates a text response without using tools',
+            'I': 'The Stop hook triggers when Claude finishes responding',
+            'J': 'The script writes JSON with green color indicating ready state'
+        };
+
+        const tooltip = document.getElementById('tooltip');
+
+        function setupTooltips() {
+            const nodes = document.querySelectorAll('.node');
+            nodes.forEach(node => {
+                const nodeId = node.id.replace('flowchart-', '').split('-')[0];
+                if (tooltips[nodeId]) {
+                    node.addEventListener('mouseenter', (e) => {
+                        tooltip.textContent = tooltips[nodeId];
+                        tooltip.classList.add('visible');
+                    });
+                    node.addEventListener('mousemove', (e) => {
+                        const x = e.pageX + 15;
+                        const y = e.pageY + 15;
+                        const tooltipRect = tooltip.getBoundingClientRect();
+                        const maxX = window.innerWidth - tooltipRect.width - 20;
+                        const maxY = window.innerHeight - tooltipRect.height - 20;
+                        tooltip.style.left = Math.min(x, maxX) + 'px';
+                        tooltip.style.top = Math.min(y, maxY) + 'px';
+                    });
+                    node.addEventListener('mouseleave', () => {
+                        tooltip.classList.remove('visible');
+                    });
+                }
+            });
+        }
+
+        // Robust polling approach - waits for Mermaid to finish rendering
+        function waitForMermaid() {
+            const mermaidDiv = document.querySelector('.mermaid');
+            const svg = mermaidDiv.querySelector('svg');
+            if (svg && document.querySelectorAll('.node').length > 0) {
+                setupTooltips();
+            } else {
+                setTimeout(waitForMermaid, 100);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => setTimeout(waitForMermaid, 100));
+        } else {
+            setTimeout(waitForMermaid, 100);
+        }
+    </script>
+</body>
+</html>
