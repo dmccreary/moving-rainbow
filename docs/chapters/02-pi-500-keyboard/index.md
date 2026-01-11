@@ -16,11 +16,6 @@ your new superpower!  Your friends will be impressed!
 - [Installing the Shell Scripts](#installing-the-shell-scripts)
 - [Installing the RGB Library](#installing-the-rgb-library)
 - [Controlling RGB With Terminal Commands](#controlling-rgb-with-terminal-commands)
-- [Setting Colors From a Python Script](#setting-colors-from-a-python-script)
-- [A Simple Notification System](#a-simple-notification-system)
-- [Creating Interactive Effects](#creating-interactive-effects)
-- [Automatically Running Scripts on Boot](#automatically-running-scripts-on-boot)
-- [Where to From Here?](#where-to-from-here)
 - [Binding Function Keys to Programs](#binding-function-keys-to-programs)
 
 ## What You Will Need
