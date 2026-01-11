@@ -384,6 +384,10 @@
           
         
       
+        
+          
+        
+      
     
     
     
@@ -543,6 +547,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-thonny" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Thonny
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-simple-notification-system" class="md-nav__link">
     <span class="md-ellipsis">
       A Simple Notification System
@@ -590,6 +603,27 @@
   
   <span class="md-ellipsis">
     4. Pi Keyboard Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macbook-touchbar-status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. MacBook Touch Bar
   </span>
   
 
@@ -886,8 +920,6 @@
       
         
           
-        
-      
         
       
         
@@ -1243,6 +1275,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-thonny" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Thonny
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-simple-notification-system" class="md-nav__link">
     <span class="md-ellipsis">
       A Simple Notification System
@@ -1330,6 +1371,7 @@ Successfully installed rpi-keyboard-config-1.0
 </code></pre></div>
 <p>Let's now move on to doing what we just looked at, but through Python scripts. Why would we want to do this though? What's wrong with the terminal commands method? Well, the biggest drawback is that it takes about a second to update a key color through the terminal - and we can only update one key color at a time with a command. With 84 keys on our board, that means to randomly assign a color to each key, it would take 84 seconds!</p>
 <p>With the Python script method, we can update all the keys at once, and we can do so many times a second! On top of that, it's Python! We can make animations, add integrations, and make interactive layouts!</p>
+<h2 id="using-thonny">Using Thonny</h2>
 <p>If you haven't done so already, go ahead and download the zip file containing all the Python scripts, and unzip it to a convenient location.</p>
 <p>Go ahead and open up <code>simple_colour.py</code>. This script is a stripped-back demo of how colors can be controlled. First, it imports the rpi-keyboard-config library, then initializes the keyboard, and sets the LED control mode (telling the keyboard we are about to start sending it RGB commands). These are the important first steps of any script controlling the RGB.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">RPiKeyboardConfig</span> <span class="kn">import</span> <span class="n">RPiKeyboardConfig</span>

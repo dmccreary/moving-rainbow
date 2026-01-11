@@ -384,6 +384,10 @@
           
         
       
+        
+          
+        
+      
     
     
     
@@ -621,6 +625,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#binding-function-keys-to-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binding Function Keys to Programs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-default-behavior-of-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the Default Behavior of Keys
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -671,6 +693,27 @@
   
   <span class="md-ellipsis">
     4. Pi Keyboard Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macbook-touchbar-status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. MacBook Touch Bar
   </span>
   
 
@@ -967,8 +1010,6 @@
       
         
           
-        
-      
         
       
         
@@ -1423,6 +1464,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#binding-function-keys-to-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binding Function Keys to Programs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-default-behavior-of-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the Default Behavior of Keys
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -1471,11 +1530,7 @@ your new superpower!  Your friends will be impressed!</p>
 <li><a href="#installing-the-shell-scripts">Installing the Shell Scripts</a></li>
 <li><a href="#installing-the-rgb-library">Installing the RGB Library</a></li>
 <li><a href="#controlling-rgb-with-terminal-commands">Controlling RGB With Terminal Commands</a></li>
-<li><a href="#setting-colors-from-a-python-script">Setting Colors From a Python Script</a></li>
-<li><a href="#a-simple-notification-system">A Simple Notification System</a></li>
-<li><a href="#creating-interactive-effects">Creating Interactive Effects</a></li>
-<li><a href="#automatically-running-scripts-on-boot">Automatically Running Scripts on Boot</a></li>
-<li><a href="#where-to-from-here">Where to From Here?</a></li>
+<li><a href="#binding-function-keys-to-programs">Binding Function Keys to Programs</a></li>
 </ul>
 <h2 id="what-you-will-need">What You Will Need</h2>
 <p>To follow along with this guide, you will need:</p>
@@ -1976,6 +2031,53 @@ It will skip 9 out of the 10 colors so that the script will finish in about 25 s
 </code></pre></div>
 <p>And just for fun, you can play a game of Flappy Birds with:</p>
 <div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>game
+</code></pre></div>
+<h2 id="binding-function-keys-to-programs">Binding Function Keys to Programs</h2>
+<p>The Raspberry Pi Desktop use the Wayfire configuration
+file to bind a function key to a program.  In the
+example below, we have configured the F9 function key to do a screen image
+of a region and put it in the <sub>/screenshots/</sub> directory.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># User Wayfire configuration</span>
+<span class="c1"># This supplements /etc/wayfire/defaults.ini</span>
+
+<span class="k">[command]</span>
+<span class="c1"># F9: Screenshot selected area (interactive)</span>
+<span class="na">binding_screenshot_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">KEY_F9</span>
+<span class="na">command_screenshot_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">bash -c &#39;grim -g &quot;$(slurp)&quot; ~/screenshots/ss-$(date +%Y%m%d-%H%M%S).png&#39;</span>
+
+<span class="c1"># This is what the PrtScn screen should do!</span>
+<span class="c1"># F8: Screenshot entire screen</span>
+<span class="na">binding_screenshot_full</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">KEY_F8</span>
+<span class="na">command_screenshot_full</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">grim ~/screenshot-$(date +%Y%m%d-%H%M%S).png</span>
+</code></pre></div>
+<p>After you change this file you must run the following in the terminal</p>
+<div class="highlight"><pre><span></span><code>killall<span class="w"> </span>-SIGUSR1<span class="w"> </span>wayfire
+</code></pre></div>
+<h2 id="changing-the-default-behavior-of-keys">Changing the Default Behavior of Keys</h2>
+<p>When the user logs in, a program run to initialize the key bindings.
+This program reads a sequence of startup *<em>run commands</em> in <sub>/</sub>/.config/labwc/rc.xml</p>
+<p>This file has a set of <code>keybind</code> elements that bind a key to an action.  The action can
+be any shell script.  Here are some examples:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Print Screen: select area screenshot with timestamp and store the region in the home Screenshots directory --&gt;</span>
+<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Print&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Execute&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>&#39;grim<span class="w"> </span>-g<span class="w"> </span>&quot;$(slurp)&quot;<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png&#39;<span class="nt">&lt;/command&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/action&gt;</span>
+<span class="nt">&lt;/keybind&gt;</span>
+<span class="cm">&lt;!-- F8: full screenshot with timestamp --&gt;</span>
+<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;F8&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Execute&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>&#39;grim<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png&#39;<span class="nt">&lt;/command&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/action&gt;</span>
+<span class="nt">&lt;/keybind&gt;</span>
+<span class="cm">&lt;!-- F9: select area screenshot with timestamp --&gt;</span>
+<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;F9&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Execute&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>&#39;grim<span class="w"> </span>-g<span class="w"> </span>&quot;$(slurp)&quot;<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png&#39;<span class="nt">&lt;/command&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/action&gt;</span>
+<span class="nt">&lt;/keybind&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>killall<span class="w"> </span>-SIGHUP<span class="w"> </span>labwc
 </code></pre></div>
 <h2 id="references">References</h2>
 <ol>

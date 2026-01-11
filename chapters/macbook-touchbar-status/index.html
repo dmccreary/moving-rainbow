@@ -1,0 +1,2415 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/macbook-touchbar-status/">
+      
+      
+        <link rel="prev" href="../04-pi-keyboard-skill/">
+      
+      
+        <link rel="next" href="../../lessons/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>5. MacBook Touch Bar - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="5. MacBook Touch Bar - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/macbook-touchbar-status/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/macbook-touchbar-status/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="5. MacBook Touch Bar - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/macbook-touchbar-status/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-claude-code-to-update-the-macbook-touch-bar-status" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. MacBook Touch Bar
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-pi-500-keyboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Pi 500 Keyboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-pi-keyboard-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Pi Keyboard Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-pi-keyboard-skill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Pi Keyboard Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5. MacBook Touch Bar
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    5. MacBook Touch Bar
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beautiful-color-coded-status-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beautiful Color-Coded Status Indicators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-and-easy-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick and Easy Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick and Easy Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-bettertouchtool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install BetterTouchTool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-the-notification-script-executable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Make the Notification Script Executable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-the-touch-bar-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure the Touch Bar Widget
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-configure-claude-code-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Configure Claude Code Hooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-enjoy-the-colorful-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Enjoy the Colorful Experience!
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-magic-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the Magic Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How the Magic Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-delightful-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Delightful Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-claude-code-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Claude Code Hooks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Claude Code Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hook-types-used-in-this-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hook Types Used in This Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hook-configuration-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hook Configuration Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-hook-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Hook Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-matchers-for-even-more-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Matchers for Even More Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-colorful-shell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Colorful Shell Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-native-macos-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Native macOS Notifications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#touch-bar-not-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Touch Bar not updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widget-shows-x-icon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Widget shows X icon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colors-not-showing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colors not showing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touch-bar-not-visible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Touch Bar not visible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hooks-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hooks not working
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-hooks-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test hooks manually
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-pi-500-keyboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison with Pi 500+ Keyboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beautiful-color-coded-status-indicators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beautiful Color-Coded Status Indicators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-and-easy-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick and Easy Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick and Easy Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-bettertouchtool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install BetterTouchTool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-the-notification-script-executable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Make the Notification Script Executable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-the-touch-bar-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure the Touch Bar Widget
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-configure-claude-code-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Configure Claude Code Hooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-enjoy-the-colorful-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Enjoy the Colorful Experience!
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-magic-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the Magic Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How the Magic Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-delightful-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Delightful Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-claude-code-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Claude Code Hooks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Claude Code Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hook-types-used-in-this-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hook Types Used in This Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hook-configuration-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hook Configuration Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-hook-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Hook Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-matchers-for-even-more-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Matchers for Even More Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-colorful-shell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Colorful Shell Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-native-macos-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Native macOS Notifications
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#touch-bar-not-updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Touch Bar not updating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widget-shows-x-icon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Widget shows X icon
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colors-not-showing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colors not showing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touch-bar-not-visible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Touch Bar not visible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hooks-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hooks not working
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-hooks-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test hooks manually
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-pi-500-keyboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison with Pi 500+ Keyboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source Files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/macbook-touchbar-status/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="using-claude-code-to-update-the-macbook-touch-bar-status">Using Claude Code to Update the MacBook Touch Bar Status</h1>
+<p><img alt="" src="waiting-for-prompt.jpg" /><img alt="" src="running-task.jpg" /></p>
+<p>Transform your MacBook Pro Touch Bar into a beautiful, color-coded status display for Claude Code! This fantastic feature gives you instant visual feedback when Claude is working, waiting for input, or needs your attention - all with vibrant, eye-catching colors.</p>
+<h2 id="overview">Overview</h2>
+<p>The MacBook Pro Touch Bar (2016-2020 models) becomes an incredibly useful productivity tool when paired with Claude Code. Using BetterTouchTool and a clever shell script, you'll enjoy dynamic, colorful status updates that let you know exactly what Claude is doing at a glance - no need to switch windows or check the terminal!</p>
+<p><img alt="Touch Bar UI Status Example" src="better-touch-tool-ui.png" /></p>
+<h2 id="beautiful-color-coded-status-indicators">Beautiful Color-Coded Status Indicators</h2>
+<p>Each status has its own distinctive color, making it instantly recognizable:</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Icon</th>
+<th>Display Text</th>
+<th>Background Color</th>
+<th>When It Appears</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Running Task</td>
+<td>⚙</td>
+<td>Running Task...</td>
+<td><strong>Blue</strong></td>
+<td>Claude is hard at work executing a tool</td>
+</tr>
+<tr>
+<td>Waiting for Prompt</td>
+<td>💬</td>
+<td>Waiting for Prompt</td>
+<td><strong>Green</strong></td>
+<td>Claude is ready and waiting for your next brilliant idea</td>
+</tr>
+<tr>
+<td>Task Complete</td>
+<td>✓</td>
+<td>Task Complete</td>
+<td><strong>Bright Green</strong></td>
+<td>Success! Claude finished a specific task</td>
+</tr>
+<tr>
+<td>Question Waiting</td>
+<td>?</td>
+<td>Question Waiting</td>
+<td><strong>Royal Blue</strong></td>
+<td>Claude has a question for you</td>
+</tr>
+<tr>
+<td>Permission Needed</td>
+<td>⚠</td>
+<td>Permission Needed</td>
+<td><strong>Yellow</strong></td>
+<td>Claude needs your permission to proceed</td>
+</tr>
+<tr>
+<td>Waiting for Input</td>
+<td>⏳</td>
+<td>Waiting for Input</td>
+<td><strong>Red</strong></td>
+<td>Claude is blocked and needs your response</td>
+</tr>
+<tr>
+<td>Context Warning</td>
+<td>⚡</td>
+<td>Context Warning</td>
+<td><strong>Orange</strong></td>
+<td>Heads up! Context window is getting full</td>
+</tr>
+</tbody>
+</table>
+<p>The color scheme is thoughtfully designed:
+- <strong>Green</strong> = Ready/Success (go ahead!)
+- <strong>Blue</strong> = Working/Thinking (Claude is busy)
+- <strong>Yellow</strong> = Attention needed (permission request)
+- <strong>Red</strong> = Blocked (waiting for you)
+- <strong>Orange</strong> = Warning (context limit approaching)</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>MacBook Pro with Touch Bar (2016-2020 models)</li>
+<li>macOS 10.12.2 or later</li>
+<li><a href="https://folivora.ai/">BetterTouchTool</a> - The amazing Touch Bar customization app</li>
+<li>Claude Code CLI installed</li>
+</ul>
+<h2 id="quick-and-easy-installation">Quick and Easy Installation</h2>
+<h3 id="step-1-install-bettertouchtool">Step 1: Install BetterTouchTool</h3>
+<p>Getting started is a breeze with Homebrew:</p>
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>bettertouchtool
+</code></pre></div>
+<p>After installation, open BetterTouchTool and grant the required accessibility permissions when prompted. You're almost there!</p>
+<h3 id="step-2-make-the-notification-script-executable">Step 2: Make the Notification Script Executable</h3>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>/path/to/moving-rainbow/src/macbook-status-bar/claude-notify-simple.sh
+</code></pre></div>
+<h3 id="step-3-configure-the-touch-bar-widget">Step 3: Configure the Touch Bar Widget</h3>
+<p>Setting up BetterTouchTool is straightforward:</p>
+<ol>
+<li>Open <strong>BetterTouchTool</strong></li>
+<li>Select <strong>Touch Bar</strong> in the dropdown at the top</li>
+<li>Click the <strong>+</strong> button to add a new trigger</li>
+<li>Select <strong>Shell Script / Task Widget</strong></li>
+<li>Configure the widget with these settings:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Script</td>
+<td><code>/bin/cat /tmp/claude-code-status.txt</code></td>
+</tr>
+<tr>
+<td>Execute script every</td>
+<td>1 seconds</td>
+</tr>
+<tr>
+<td>Launch Path</td>
+<td>/bin/bash</td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>-c</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Click <strong>Run Script Now</strong> to test - you should see a beautiful colored status appear!</li>
+</ol>
+<p>You can also fine-tune your settings here:</p>
+<p><img alt="" src="better-touch-tool-settings.png" /></p>
+<h3 id="step-4-configure-claude-code-hooks">Step 4: Configure Claude Code Hooks</h3>
+<p>Now for the magic! Add these hooks to your <code>~/.claude/settings.json</code> file to automatically update the Touch Bar when Claude's state changes:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/claude-notify-simple.sh running&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Stop&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/claude-notify-simple.sh prompt&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Replace <code>/path/to/</code> with the actual path to your script (e.g., <code>/Users/yourname/Documents/ws/moving-rainbow/src/macbook-status-bar/</code>).</p>
+<p><strong>Important:</strong> After modifying <code>settings.json</code>, restart Claude Code for the hooks to take effect.</p>
+<h3 id="step-5-enjoy-the-colorful-experience">Step 5: Enjoy the Colorful Experience!</h3>
+<p>Test all the wonderful status colors:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Beautiful blue - &quot;Running Task...&quot;</span>
+./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>running
+
+<span class="c1"># Lovely green - &quot;Waiting for Prompt&quot;</span>
+./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>prompt
+
+<span class="c1"># Bright green success - &quot;Task Complete&quot;</span>
+./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>flash
+
+<span class="c1"># Royal blue - &quot;Question Waiting&quot;</span>
+./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>question
+
+<span class="c1"># Attention-grabbing yellow - &quot;Permission Needed&quot;</span>
+./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>permission
+
+<span class="c1"># Urgent red - &quot;Waiting for Input&quot;</span>
+./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>waiting
+
+<span class="c1"># Warning orange - &quot;Context Warning&quot;</span>
+./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>context
+
+<span class="c1"># Clear the status</span>
+./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>off
+</code></pre></div>
+<h2 id="how-the-magic-works">How the Magic Works</h2>
+<p>The notification system uses a brilliantly simple file-based approach combined with Claude Code hooks:</p>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[User sends prompt] --&gt; B[Claude Code processes request]
+    B --&gt; C{Tool use needed?}
+    C --&gt;|Yes| D[PreToolUse Hook fires]
+    D --&gt; E[Script writes JSON with BLUE status]
+    E --&gt; F[BetterTouchTool reads file every 1 second]
+    F --&gt; G[Touch Bar displays colorful status!]
+    C --&gt;|No| H[Claude responds directly]
+    H --&gt; I[Stop Hook fires]
+    I --&gt; J[Script writes JSON with GREEN status]
+    J --&gt; F
+</code></pre></div>
+<h3 id="the-delightful-flow">The Delightful Flow</h3>
+<ol>
+<li><strong>You submit a prompt</strong> to Claude Code</li>
+<li><strong>Claude decides to use a tool</strong> (like Bash, Read, Write, etc.)</li>
+<li><strong>PreToolUse hook fires</strong> → Touch Bar turns <strong>blue</strong> with "⚙ Running Task..."</li>
+<li><strong>BetterTouchTool polls</strong> the file every second and displays the colorful content</li>
+<li><strong>Claude finishes responding</strong></li>
+<li><strong>Stop hook fires</strong> → Touch Bar turns <strong>green</strong> with "💬 Waiting for Prompt"</li>
+<li><strong>You smile</strong> knowing exactly when Claude is ready for your next input!</li>
+</ol>
+<h2 id="understanding-claude-code-hooks">Understanding Claude Code Hooks</h2>
+<p>Claude Code hooks are powerful shell commands that execute automatically when specific events occur. They let you extend Claude Code's functionality in creative ways - like this gorgeous Touch Bar integration!</p>
+<h3 id="hook-types-used-in-this-project">Hook Types Used in This Project</h3>
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>When It Fires</th>
+<th>Our Usage</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PreToolUse</code></td>
+<td>Before Claude executes any tool</td>
+<td>Show "Running Task..."</td>
+<td>Blue</td>
+</tr>
+<tr>
+<td><code>Stop</code></td>
+<td>When Claude finishes responding</td>
+<td>Show "Waiting for Prompt"</td>
+<td>Green</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hook-configuration-structure">Hook Configuration Structure</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;HookName&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/script.sh argument&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>HookName</strong>: The event that triggers the hook (e.g., <code>PreToolUse</code>, <code>Stop</code>)</li>
+<li><strong>matcher</strong>: Filter to match specific tools (empty string <code>""</code> matches all)</li>
+<li><strong>type</strong>: Must be <code>"command"</code> for shell commands</li>
+<li><strong>command</strong>: The full path to the script with any arguments</li>
+</ul>
+<h3 id="available-hook-events">Available Hook Events</h3>
+<table>
+<thead>
+<tr>
+<th>Hook Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PreToolUse</code></td>
+<td>Fires before any tool is executed</td>
+</tr>
+<tr>
+<td><code>PostToolUse</code></td>
+<td>Fires after a tool completes</td>
+</tr>
+<tr>
+<td><code>Stop</code></td>
+<td>Fires when Claude finishes a response</td>
+</tr>
+<tr>
+<td><code>UserPromptSubmit</code></td>
+<td>Fires when user submits a prompt</td>
+</tr>
+<tr>
+<td><code>Notification</code></td>
+<td>Fires for various notification events</td>
+</tr>
+</tbody>
+</table>
+<h3 id="using-matchers-for-even-more-control">Using Matchers for Even More Control</h3>
+<p>The <code>matcher</code> field lets you create different colors for different tools:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/script.sh bash-running&quot;</span><span class="w"> </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Read&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/script.sh reading-file&quot;</span><span class="w"> </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/script.sh running&quot;</span><span class="w"> </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="the-colorful-shell-script">The Colorful Shell Script</h2>
+<p>The script outputs JSON that BetterTouchTool uses to create beautiful colored widgets. Here's how the color magic happens:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#</span>
+<span class="c1"># Claude Code Touch Bar Notification Script</span>
+<span class="c1"># ==========================================</span>
+<span class="c1">#</span>
+<span class="c1"># This script writes JSON status to a temp file that BetterTouchTool</span>
+<span class="c1"># reads and displays on the MacBook Pro Touch Bar with gorgeous colors!</span>
+<span class="c1">#</span>
+<span class="c1"># JSON Format for BetterTouchTool:</span>
+<span class="c1">#   {</span>
+<span class="c1">#     &quot;text&quot;: &quot;Display Text&quot;,</span>
+<span class="c1">#     &quot;background_color&quot;: &quot;R,G,B,A&quot;,   (0-255 for each)</span>
+<span class="c1">#     &quot;font_color&quot;: &quot;R,G,B,A&quot;,          (0-255 for each)</span>
+<span class="c1">#     &quot;font_size&quot;: 12</span>
+<span class="c1">#   }</span>
+
+<span class="nv">STATUS_FILE</span><span class="o">=</span><span class="s2">&quot;/tmp/claude-code-status.txt&quot;</span>
+<span class="nv">FONT_SIZE</span><span class="o">=</span><span class="m">12</span>
+
+<span class="c1"># Color Definitions (RGBA format)</span>
+<span class="nv">WHITE</span><span class="o">=</span><span class="s2">&quot;255,255,255,255&quot;</span>
+<span class="nv">BLACK</span><span class="o">=</span><span class="s2">&quot;0,0,0,255&quot;</span>
+<span class="nv">GREEN_BG</span><span class="o">=</span><span class="s2">&quot;34,139,34,255&quot;</span><span class="w">       </span><span class="c1"># Forest green - ready states</span>
+<span class="nv">BRIGHT_GREEN_BG</span><span class="o">=</span><span class="s2">&quot;0,180,0,255&quot;</span><span class="w">  </span><span class="c1"># Bright green - success</span>
+<span class="nv">BLUE_BG</span><span class="o">=</span><span class="s2">&quot;30,144,255,255&quot;</span><span class="w">       </span><span class="c1"># Dodger blue - working states</span>
+<span class="nv">ROYAL_BLUE_BG</span><span class="o">=</span><span class="s2">&quot;65,105,225,255&quot;</span><span class="w"> </span><span class="c1"># Royal blue - questions</span>
+<span class="nv">YELLOW_BG</span><span class="o">=</span><span class="s2">&quot;255,200,0,255&quot;</span><span class="w">      </span><span class="c1"># Gold - permission needed</span>
+<span class="nv">RED_BG</span><span class="o">=</span><span class="s2">&quot;220,20,60,255&quot;</span><span class="w">         </span><span class="c1"># Crimson - blocked states</span>
+<span class="nv">ORANGE_BG</span><span class="o">=</span><span class="s2">&quot;255,140,0,255&quot;</span><span class="w">      </span><span class="c1"># Dark orange - warnings</span>
+
+<span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="w">    </span>running<span class="o">)</span>
+<span class="w">        </span><span class="c1"># Blue background - Claude is working hard!</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{&quot;text&quot;:&quot;⚙ Running Task...&quot;,&quot;background_color&quot;:&quot;${BLUE_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="s">EOF</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="w">    </span>prompt<span class="o">)</span>
+<span class="w">        </span><span class="c1"># Green background - Ready for your next brilliant idea!</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{&quot;text&quot;:&quot;💬 Waiting for Prompt&quot;,&quot;background_color&quot;:&quot;${GREEN_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="s">EOF</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="w">    </span>flash<span class="o">)</span>
+<span class="w">        </span><span class="c1"># Bright green - Success!</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{&quot;text&quot;:&quot;✓ Task Complete&quot;,&quot;background_color&quot;:&quot;${BRIGHT_GREEN_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="s">EOF</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="w">    </span>question<span class="o">)</span>
+<span class="w">        </span><span class="c1"># Royal blue - Claude has a question</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{&quot;text&quot;:&quot;? Question Waiting&quot;,&quot;background_color&quot;:&quot;${ROYAL_BLUE_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="s">EOF</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="w">    </span>permission<span class="o">)</span>
+<span class="w">        </span><span class="c1"># Yellow with black text - High visibility warning</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{&quot;text&quot;:&quot;⚠ Permission Needed&quot;,&quot;background_color&quot;:&quot;${YELLOW_BG}&quot;,&quot;font_color&quot;:&quot;${BLACK}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="s">EOF</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="w">    </span>waiting<span class="o">)</span>
+<span class="w">        </span><span class="c1"># Red - Needs your attention now!</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{&quot;text&quot;:&quot;⏳ Waiting for Input&quot;,&quot;background_color&quot;:&quot;${RED_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="s">EOF</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="w">    </span>context<span class="o">)</span>
+<span class="w">        </span><span class="c1"># Orange - Warning about context</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{&quot;text&quot;:&quot;⚡ Context Warning&quot;,&quot;background_color&quot;:&quot;${ORANGE_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="s">EOF</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="k">esac</span>
+</code></pre></div>
+<h2 id="adding-native-macos-notifications">Adding Native macOS Notifications</h2>
+<p>Want even more notification goodness? The script supports native macOS notifications with delightful sound alerts. Just add the <code>--notify</code> flag:</p>
+<div class="highlight"><pre><span></span><code>./claude-notify-simple.sh<span class="w"> </span>flash<span class="w"> </span>--notify
+</code></pre></div>
+<p>This displays a macOS notification banner with sound in addition to updating the colorful Touch Bar!</p>
+<h2 id="complete-example-configuration">Complete Example Configuration</h2>
+<p>Here's a complete <code>~/.claude/settings.json</code> with Touch Bar hooks ready to go:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Users/dan/Documents/ws/moving-rainbow/src/macbook-status-bar/claude-notify-simple.sh running&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Stop&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Users/dan/Documents/ws/moving-rainbow/src/macbook-status-bar/claude-notify-simple.sh prompt&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="touch-bar-not-updating">Touch Bar not updating</h3>
+<ol>
+<li>Ensure BetterTouchTool is running</li>
+<li>Check <strong>Touch Bar Settings</strong> &gt; <strong>Enable BetterTouchTool Touch Bar</strong> is checked</li>
+<li>Verify the script works: <code>cat /tmp/claude-code-status.txt</code></li>
+<li>Click <strong>Run Script Now</strong> in BTT to test</li>
+</ol>
+<h3 id="widget-shows-x-icon">Widget shows X icon</h3>
+<p>The script returned empty or failed. Test manually:</p>
+<div class="highlight"><pre><span></span><code>/bin/cat<span class="w"> </span>/tmp/claude-code-status.txt
+</code></pre></div>
+<p>If empty, run a notification command first:</p>
+<div class="highlight"><pre><span></span><code>./claude-notify-simple.sh<span class="w"> </span>running
+</code></pre></div>
+<h3 id="colors-not-showing">Colors not showing</h3>
+<p>Make sure BetterTouchTool is configured to parse JSON output. The script outputs JSON in this format:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;💬 Waiting for Prompt&quot;</span><span class="p">,</span><span class="nt">&quot;background_color&quot;</span><span class="p">:</span><span class="s2">&quot;34,139,34,255&quot;</span><span class="p">,</span><span class="nt">&quot;font_color&quot;</span><span class="p">:</span><span class="s2">&quot;255,255,255,255&quot;</span><span class="p">,</span><span class="nt">&quot;font_size&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
+</code></pre></div></p>
+<h3 id="touch-bar-not-visible">Touch Bar not visible</h3>
+<p>Press the <strong>fn</strong> key to toggle between system Touch Bar and BetterTouchTool Touch Bar.</p>
+<h3 id="hooks-not-working">Hooks not working</h3>
+<ol>
+<li>Verify <code>~/.claude/settings.json</code> has valid JSON syntax</li>
+<li>Check the script path is absolute (starts with <code>/</code>)</li>
+<li>Ensure the script is executable: <code>chmod +x claude-notify-simple.sh</code></li>
+<li><strong>Restart Claude Code</strong> after modifying settings.json</li>
+</ol>
+<h3 id="test-hooks-manually">Test hooks manually</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Watch the blue color appear!</span>
+/path/to/claude-notify-simple.sh<span class="w"> </span>running
+sleep<span class="w"> </span><span class="m">2</span>
+
+<span class="c1"># Now see it turn green!</span>
+/path/to/claude-notify-simple.sh<span class="w"> </span>prompt
+</code></pre></div>
+<h2 id="comparison-with-pi-500-keyboard">Comparison with Pi 500+ Keyboard</h2>
+<p>This project also supports <a href="../02-pi-500-keyboard/">RGB LED notifications on the Raspberry Pi 500+ keyboard</a>. Both are fantastic options - here's how they compare:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Pi 500+ Keyboard</th>
+<th>MacBook Touch Bar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visual Indicator</td>
+<td>Function key LEDs (F1-F3)</td>
+<td>Touch Bar widget</td>
+</tr>
+<tr>
+<td>Text Display</td>
+<td>None (LED colors only)</td>
+<td>Full text + emoji</td>
+</tr>
+<tr>
+<td>Colors</td>
+<td>HSV LED colors</td>
+<td>Beautiful RGBA colors</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Raspberry Pi 500+</td>
+<td>MacBook Pro 2016-2020</td>
+</tr>
+<tr>
+<td>API</td>
+<td>RPiKeyboardConfig</td>
+<td>BetterTouchTool</td>
+</tr>
+<tr>
+<td>Hook Integration</td>
+<td>Same hooks system</td>
+<td>Same hooks system</td>
+</tr>
+<tr>
+<td>Color Customization</td>
+<td>Via Python script</td>
+<td>Via shell script JSON</td>
+</tr>
+</tbody>
+</table>
+<p>Both give you that wonderful "at a glance" awareness of what Claude is doing!</p>
+<h2 id="source-files">Source Files</h2>
+<p>The source code for this fantastic feature is located in:</p>
+<div class="highlight"><pre><span></span><code>src/macbook-status-bar/
+├── README.md                 # Detailed documentation
+├── claude-notify.py          # Python script (advanced)
+├── claude-notify-simple.sh   # Shell script with colors (recommended)
+├── btt-preset.json          # BetterTouchTool preset
+└── sample-hooks.json        # Example Claude Code hooks
+</code></pre></div>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://docs.folivora.ai/">BetterTouchTool Documentation</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Claude Code Hooks Documentation</a></li>
+<li><a href="../02-pi-500-keyboard/">Pi 500+ Keyboard Notifications</a></li>
+</ul>
+<hr />
+<p>Enjoy your beautiful, colorful Touch Bar status display! It's like having a friendly traffic light that tells you exactly when Claude is ready for your next command.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../04-pi-keyboard-skill/" title="4. Pi Keyboard Skill" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  4. Pi Keyboard Skill
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../../lessons/" title="List of Lessons" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  List of Lessons
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>
