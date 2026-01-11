@@ -1,0 +1,48 @@
+{
+  "BTTPresetName": "Claude Code Touch Bar Notifications",
+  "BTTPresetUUID": "claude-code-touchbar-preset",
+  "BTTPresetContent": [
+    {
+      "BTTTriggerType": 643,
+      "BTTTriggerClass": "BTTTriggerTypeNamedTrigger",
+      "BTTNamedTriggerName": "ClaudeCodeNotify",
+      "BTTEnabled": 1,
+      "BTTOrder": 0,
+      "BTTPredefinedActionType": 206,
+      "BTTTouchBarWidgetIdentifier": "claude-code-status-widget",
+      "BTTShellScriptWidgetGestureConfig": "claude-code-status-widget",
+      "BTTTouchBarButtonColor": "0.000000, 0.392157, 1.000000, 1.000000",
+      "BTTTouchBarButtonName": "Claude Code",
+      "BTTTouchBarItemPlacement": 0,
+      "BTTTouchBarFreeSpaceAfterButton": 5,
+      "BTTTouchBarItemIconWidth": 22
+    },
+    {
+      "BTTTriggerType": 643,
+      "BTTTriggerClass": "BTTTriggerTypeNamedTrigger",
+      "BTTNamedTriggerName": "ClaudeCodeClear",
+      "BTTEnabled": 1,
+      "BTTOrder": 1,
+      "BTTPredefinedActionType": 206,
+      "BTTTouchBarWidgetIdentifier": "claude-code-status-widget",
+      "BTTTouchBarButtonName": ""
+    },
+    {
+      "BTTTriggerType": 642,
+      "BTTTriggerClass": "BTTTriggerTypeTouchBar",
+      "BTTEnabled": 1,
+      "BTTOrder": 2,
+      "BTTTouchBarItemPlacement": 0,
+      "BTTTouchBarButtonName": "",
+      "BTTPredefinedActionType": 366,
+      "BTTShellScriptWidgetGestureConfig": "#!/bin/bash\ncat /tmp/claude-code-status.txt 2>/dev/null || echo ''",
+      "BTTTouchBarShellScriptStringRunOnUpdate": 1,
+      "BTTTouchBarWidgetIdentifier": "claude-code-shell-widget",
+      "BTTTouchBarApplyColorToBackgroundOnly": 1,
+      "BTTTouchBarScriptUpdateInterval": 1,
+      "BTTTouchBarButtonWidth": 150,
+      "BTTTouchBarItemIconWidth": 22,
+      "BTTTouchBarFreeSpaceAfterButton": 5
+    }
+  ]
+}
