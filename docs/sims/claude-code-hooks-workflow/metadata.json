@@ -1,0 +1,29 @@
+{
+  "title": "Claude Code Hooks Workflow",
+  "description": "Interactive flowchart showing how Claude Code hooks integrate with the MacBook Touch Bar notification system for visual status feedback",
+  "subject": "Developer Tools",
+  "creator": "Claude AI with Mermaid Generator Skill",
+  "date": "2026-01-11",
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "coverage": "Introductory",
+  "rights": "Educational Use",
+  "audience": "Developers",
+  "diagram_type": "flowchart",
+  "direction": "TD",
+  "node_count": "10",
+  "edge_count": "10",
+  "concepts": [
+    "Claude Code Hooks",
+    "PreToolUse Hook",
+    "Stop Hook",
+    "BetterTouchTool",
+    "Touch Bar Integration",
+    "JSON Status Files",
+    "Event-Driven Architecture",
+    "Visual Feedback Systems"
+  ],
+  "bloom_taxonomy": "Understand",
+  "version": "1.0"
+}
