@@ -98,8 +98,6 @@ To power a 5-volt LED strip, use **three AA batteries in a holder**. Three batte
 
 ### USB Power Packs
 
-![USB Power Pack](../img/usb-power-pack.jpg){ width="300" }
-
 USB power packs (also called portable chargers or power banks) are the rechargeable battery packs used to charge phones on the go. They have USB ports that output 5 volts - perfect for LED projects!
 
 **Key Features:**

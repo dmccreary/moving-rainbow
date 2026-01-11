@@ -16,11 +16,7 @@ your new superpower!  Your friends will be impressed!
 - [Installing the Shell Scripts](#installing-the-shell-scripts)
 - [Installing the RGB Library](#installing-the-rgb-library)
 - [Controlling RGB With Terminal Commands](#controlling-rgb-with-terminal-commands)
-- [Setting Colors From a Python Script](#setting-colors-from-a-python-script)
-- [A Simple Notification System](#a-simple-notification-system)
-- [Creating Interactive Effects](#creating-interactive-effects)
-- [Automatically Running Scripts on Boot](#automatically-running-scripts-on-boot)
-- [Where to From Here?](#where-to-from-here)
+- [Binding Function Keys to Programs](#binding-function-keys-to-programs)
 
 ## What You Will Need
 
@@ -369,6 +365,69 @@ And just for fun, you can play a game of Flappy Birds with:
 ```sh
 rpi-keyboard-config game
 ```
+
+## Binding Function Keys to Programs
+
+The Raspberry Pi Desktop use the Wayfire configuration
+file to bind a function key to a program.  In the
+example below, we have configured the F9 function key to do a screen image
+of a region and put it in the ~/screenshots/~ directory.
+
+```ini
+# User Wayfire configuration
+# This supplements /etc/wayfire/defaults.ini
+
+[command]
+# F9: Screenshot selected area (interactive)
+binding_screenshot_area = KEY_F9
+command_screenshot_area = bash -c 'grim -g "$(slurp)" ~/screenshots/ss-$(date +%Y%m%d-%H%M%S).png'
+
+# This is what the PrtScn screen should do!
+# F8: Screenshot entire screen
+binding_screenshot_full = KEY_F8
+command_screenshot_full = grim ~/screenshot-$(date +%Y%m%d-%H%M%S).png
+
+```
+
+After you change this file you must run the following in the terminal
+
+```sh
+killall -SIGUSR1 wayfire
+```
+
+## Changing the Default Behavior of Keys
+
+When the user logs in, a program run to initialize the key bindings.
+This program reads a sequence of startup **run commands* in ~/~/.config/labwc/rc.xml
+
+This file has a set of `keybind` elements that bind a key to an action.  The action can
+be any shell script.  Here are some examples:
+
+```xml
+<!-- Print Screen: select area screenshot with timestamp and store the region in the home Screenshots directory -->
+<keybind key="Print">
+    <action name="Execute">
+    <command>sh -c 'grim -g "$(slurp)" ~/Screenshots/ss-$(date +%Y%m%d-%H%M%S).png'</command>
+    </action>
+</keybind>
+<!-- F8: full screenshot with timestamp -->
+<keybind key="F8">
+    <action name="Execute">
+    <command>sh -c 'grim ~/Screenshots/ss-$(date +%Y%m%d-%H%M%S).png'</command>
+    </action>
+</keybind>
+<!-- F9: select area screenshot with timestamp -->
+<keybind key="F9">
+    <action name="Execute">
+    <command>sh -c 'grim -g "$(slurp)" ~/Screenshots/ss-$(date +%Y%m%d-%H%M%S).png'</command>
+    </action>
+</keybind>
+```
+
+```sh
+killall -SIGHUP labwc
+```
+
 ## References
 
 1. [Raspberry Pi Documentation on the Keyboard Computers](https://www.raspberrypi.com/documentation/computers/keyboard-computers.html)
