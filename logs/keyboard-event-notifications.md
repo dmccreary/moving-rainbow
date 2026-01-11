@@ -11,14 +11,16 @@ Set up Claude Code hooks to trigger Raspberry Pi 500+ keyboard LED notifications
 ### 1. Notification Script
 **File:** `/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py`
 
-Python script that controls the F1 key LED with different colors for different events:
+Python script that controls keyboard LEDs with different colors for different events:
 
-| Command | Action | Color |
-|---------|--------|-------|
-| `claude-notify.py flash` | Task complete | Blue flash (20x) |
-| `claude-notify.py question` | Waiting for input | Blue blink (10x) |
-| `claude-notify.py permission` | Permission needed | Yellow blink (10x) |
-| `claude-notify.py off` | Turn off | Off |
+| Command | Key | Action | Color |
+|---------|-----|--------|-------|
+| `claude-notify.py flash` | F1 | Task complete | Blue flash (20x) |
+| `claude-notify.py question` | F1 | Question asked | Blue blink (10x) |
+| `claude-notify.py permission` | F1 | Permission needed | Yellow blink (10x) |
+| `claude-notify.py waiting` | F2 | Waiting for user input | Red flash (15x) |
+| `claude-notify.py context` | F3 | Context window almost full | Orange flash (10x) |
+| `claude-notify.py off` | All | Turn off | Off |
 
 Uses `colorsys` module for RGB to HSV conversion (the `RPiKeyboardConfig` library requires HSV format).
 
@@ -46,7 +48,7 @@ Added hooks configuration:
         "hooks": [
           {
             "type": "command",
-            "command": "/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py question"
+            "command": "/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py waiting"
           }
         ]
       },
@@ -59,20 +61,31 @@ Added hooks configuration:
           }
         ]
       }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py context"
+          }
+        ]
+      }
     ]
   }
 }
 ```
 
-**Important:** The `Stop` hook must NOT have a `matcher` field - only `Notification` hooks use matchers.
+**Important:** The `Stop` and `PreCompact` hooks must NOT have a `matcher` field - only `Notification` hooks use matchers.
 
 ## Hook Events
 
-| Hook Event | Matcher | Trigger |
-|------------|---------|---------|
-| `Stop` | (any) | Claude finishes responding |
-| `Notification` | `idle_prompt` | Claude idle 60+ seconds waiting for input |
-| `Notification` | `permission_prompt` | Claude needs permission to run a tool |
+| Hook Event | Matcher | Key | Trigger |
+|------------|---------|-----|---------|
+| `Stop` | (none) | F1 | Claude finishes responding |
+| `Notification` | `idle_prompt` | F2 | Claude idle 60+ seconds waiting for input |
+| `Notification` | `permission_prompt` | F1 | Claude needs permission to run a tool |
+| `PreCompact` | (none) | F3 | Context window almost full, about to summarize |
 
 ## Other Work in This Session
 
@@ -133,6 +146,6 @@ killall -SIGHUP labwc
 - Raspberry Pi OS Bookworm uses **labwc** (not wayfire) as the Wayland compositor
 - The `scrot` screenshot tool doesn't work on Wayland; use `grim` + `slurp` instead
 - `RPiKeyboardConfig` library only accepts HSV colors, not RGB
-- F1 key matrix position is `[0, 1]` (row 0, column 1)
+- Key matrix positions: F1=`[0, 1]`, F2=`[0, 2]`, F3=`[0, 3]`
 - Hooks in `~/.claude/settings.json` require Claude Code restart to take effect
-- The `Stop` hook does NOT use a matcher field (unlike `Notification` hooks)
+- The `Stop` and `PreCompact` hooks do NOT use a matcher field (unlike `Notification` hooks)

@@ -3,9 +3,11 @@
 Claude Code notification - flash keyboard LEDs when Claude needs attention.
 
 Events:
-  flash      - Task complete (green flash)
-  question   - Question waiting (blue blink)
-  permission - Permission needed (yellow blink)
+  flash      - Task complete (blue flash on F1)
+  question   - Question waiting (blue blink on F1)
+  permission - Permission needed (yellow blink on F1)
+  waiting    - Waiting for user input (red flash on F2)
+  context    - Context window almost full (orange flash on F3)
   off        - Turn off notification
 """
 from RPiKeyboardConfig import RPiKeyboardConfig
@@ -18,13 +20,17 @@ def rgb_to_hsv(r, g, b):
     h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
     return (int(h * 255), int(s * 255), int(v * 255))
 
-# F1 key for notifications
-NOTIFY_KEY = [0, 1]
+# Key positions (row, column)
+F1_KEY = [0, 1]  # Task complete, questions, permissions
+F2_KEY = [0, 2]  # Waiting for input
+F3_KEY = [0, 3]  # Context window warning
 
 # Colors
 GREEN = rgb_to_hsv(0, 255, 0)
 BLUE = rgb_to_hsv(0, 100, 255)
 YELLOW = rgb_to_hsv(255, 255, 0)
+RED = rgb_to_hsv(255, 0, 0)
+ORANGE = rgb_to_hsv(255, 69, 0)  # Red-orange for better visibility
 OFF = (0, 0, 0)
 
 def flash_key(keyboard, key, color, times=3, delay=0.2):
@@ -49,7 +55,7 @@ def blink_key(keyboard, key, color, times=5, delay=0.3):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: claude-notify.py [flash|question|permission|off]")
+        print("Usage: claude-notify.py [flash|question|permission|waiting|context|off]")
         sys.exit(1)
 
     action = sys.argv[1].lower()
@@ -61,17 +67,24 @@ def main():
         keyboard.set_led_direct_effect()
 
         if action == 'flash':
-            # Task complete - flash blue 20 times
-            flash_key(keyboard, NOTIFY_KEY, BLUE, times=20)
+            # Task complete - flash blue on F1
+            flash_key(keyboard, F1_KEY, BLUE, times=20)
         elif action == 'question':
-            # Question waiting - blink blue
-            blink_key(keyboard, NOTIFY_KEY, BLUE, times=10, delay=0.4)
+            # Question waiting - blink blue on F1
+            blink_key(keyboard, F1_KEY, BLUE, times=10, delay=0.4)
         elif action == 'permission':
-            # Permission needed - blink yellow
-            blink_key(keyboard, NOTIFY_KEY, YELLOW, times=10, delay=0.3)
+            # Permission needed - blink yellow on F1
+            blink_key(keyboard, F1_KEY, YELLOW, times=10, delay=0.3)
+        elif action == 'waiting':
+            # Waiting for user input - flash red on F2
+            flash_key(keyboard, F2_KEY, RED, times=15, delay=0.3)
+        elif action == 'context':
+            # Context window almost full - flash orange on F3
+            flash_key(keyboard, F3_KEY, ORANGE, times=10, delay=0.3)
         elif action == 'off':
-            # Turn off
-            keyboard.set_led_by_matrix(matrix=NOTIFY_KEY, colour=OFF)
+            # Turn off all notification keys
+            for key in [F1_KEY, F2_KEY, F3_KEY]:
+                keyboard.set_led_by_matrix(matrix=key, colour=OFF)
             keyboard.send_leds()
         else:
             print(f"Unknown action: {action}")
