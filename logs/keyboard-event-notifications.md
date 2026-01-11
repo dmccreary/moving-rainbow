@@ -4,7 +4,7 @@
 
 ## Summary
 
-Set up Claude Code hooks to trigger Raspberry Pi 500+ keyboard LED notifications when Claude needs attention or completes a task.
+Set up Claude Code hooks to trigger Raspberry Pi 500+ keyboard LED notifications on F1-F3 keys when Claude needs attention, completes a task, or the context window is almost full.
 
 ## Files Created/Modified
 
@@ -133,9 +133,12 @@ BLUE = rgb_to_hsv(0, 0, 255)
 
 ```bash
 # Test notification script
-/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py flash
-/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py question
-/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py permission
+/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py flash      # F1 blue
+/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py question   # F1 blue blink
+/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py permission # F1 yellow
+/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py waiting    # F2 red
+/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py context    # F3 orange
+/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py off        # Turn off all
 
 # Reload labwc config for screenshot shortcuts
 killall -SIGHUP labwc

@@ -89,7 +89,7 @@ When modifying code or documentation, prioritize clarity for beginners over code
 
 ## Claude Code Keyboard Notifications
 
-This project includes a notification system that flashes the F1 key on the Pi 500+ keyboard when Claude Code needs attention.
+This project includes a notification system that flashes function keys (F1-F3) on the Pi 500+ keyboard when Claude Code needs attention.
 
 ### Notification Script
 **File:** `src/pi-500-keyboard/claude-notify.py`
