@@ -3,28 +3,36 @@
 # Claude Code Touch Bar Notification Script
 # ==========================================
 #
-# This script writes status text to a temp file that BetterTouchTool
-# reads and displays on the MacBook Pro Touch Bar.
+# This script writes JSON status to a temp file that BetterTouchTool
+# reads and displays on the MacBook Pro Touch Bar with color formatting.
 #
 # Architecture:
-#   Claude Code Hook → This Script → Temp File → BTT Widget → Touch Bar
+#   Claude Code Hook → This Script → Temp File (JSON) → BTT Widget → Touch Bar
 #
 # The script is triggered by Claude Code hooks defined in ~/.claude/settings.json.
 # BetterTouchTool polls the temp file every second and displays the content
-# on the Touch Bar.
+# on the Touch Bar with the specified colors.
+#
+# JSON Format for BetterTouchTool:
+#   {
+#     "text": "Display Text",
+#     "background_color": "R,G,B,A",   (0-255 for each)
+#     "font_color": "R,G,B,A",          (0-255 for each)
+#     "font_size": 12
+#   }
 #
 # Usage:
 #   ./claude-notify-simple.sh <status>
 #   ./claude-notify-simple.sh <status> --notify  (also shows macOS notification)
 #
 # Available Statuses:
-#   running    - Claude is executing a tool         → ⚙ Running Task...
-#   prompt     - Claude awaits next prompt          → 💬 Waiting for Prompt
-#   flash      - Task completed successfully        → ✓ Task Complete
-#   question   - Claude has a question              → ? Question Waiting
-#   permission - Permission needed to proceed       → ⚠ Permission Needed
-#   waiting    - Waiting for user input             → ⏳ Waiting for Input
-#   context    - Context window almost full         → ⚡ Context Warning
+#   running    - Claude is executing a tool         → ⚙ Running Task...   (blue)
+#   prompt     - Claude awaits next prompt          → 💬 Waiting for Prompt (green)
+#   flash      - Task completed successfully        → ✓ Task Complete      (green)
+#   question   - Claude has a question              → ? Question Waiting   (blue)
+#   permission - Permission needed to proceed       → ⚠ Permission Needed  (yellow)
+#   waiting    - Waiting for user input             → ⏳ Waiting for Input  (red)
+#   context    - Context window almost full         → ⚡ Context Warning    (orange)
 #   off/clear  - Clear the status display           → (empty)
 #
 # Hook Integration:
@@ -57,12 +65,34 @@
 # This file acts as the communication channel between Claude Code and BTT
 STATUS_FILE="/tmp/claude-code-status.txt"
 
+# Font size for Touch Bar display
+FONT_SIZE=12
+
+# ==============================================================================
+# Color Definitions (RGBA format: Red,Green,Blue,Alpha - values 0-255)
+# ==============================================================================
+
+# White text for most backgrounds
+WHITE="255,255,255,255"
+# Black text for light backgrounds (yellow)
+BLACK="0,0,0,255"
+
+# Background colors
+GREEN_BG="34,139,34,255"       # Forest green - for prompt/ready states
+BRIGHT_GREEN_BG="0,180,0,255"  # Bright green - for task complete
+BLUE_BG="30,144,255,255"       # Dodger blue - for running/working states
+ROYAL_BLUE_BG="65,105,225,255" # Royal blue - for questions
+YELLOW_BG="255,200,0,255"      # Gold - for permission needed
+RED_BG="220,20,60,255"         # Crimson - for waiting/blocked states
+ORANGE_BG="255,140,0,255"      # Dark orange - for warnings
+GRAY_BG="80,80,80,255"         # Dark gray - for cleared/off state
+
 # ==============================================================================
 # Status Handler
 # ==============================================================================
 
-# Map the status argument to display text with emoji icon
-# Each status writes a single line to the temp file
+# Map the status argument to JSON with text and colors
+# Each status writes a JSON object to the temp file
 case "$1" in
 
     # ---------------------------------------------------------------------------
@@ -72,13 +102,19 @@ case "$1" in
     running)
         # Triggered by PreToolUse hook
         # Shows while Claude is executing any tool (Bash, Read, Write, etc.)
-        echo "⚙ Running Task..." > "$STATUS_FILE"
+        # Blue background indicates active work
+        cat > "$STATUS_FILE" << EOF
+{"text":"⚙ Running Task...","background_color":"${BLUE_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
 
     prompt)
         # Triggered by Stop hook
         # Shows when Claude has finished responding and awaits your next prompt
-        echo "💬 Waiting for Prompt" > "$STATUS_FILE"
+        # Green background indicates ready/go state
+        cat > "$STATUS_FILE" << EOF
+{"text":"💬 Waiting for Prompt","background_color":"${GREEN_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
 
     # ---------------------------------------------------------------------------
@@ -87,32 +123,42 @@ case "$1" in
 
     flash)
         # Manual trigger for explicit task completion notification
-        # Useful for scripts or custom workflows
-        echo "✓ Task Complete" > "$STATUS_FILE"
+        # Bright green background for success
+        cat > "$STATUS_FILE" << EOF
+{"text":"✓ Task Complete","background_color":"${BRIGHT_GREEN_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
 
     question)
         # Claude is asking a clarifying question
-        # Could be triggered by a future hook when Claude uses AskUserQuestion tool
-        echo "? Question Waiting" > "$STATUS_FILE"
+        # Royal blue background to draw attention
+        cat > "$STATUS_FILE" << EOF
+{"text":"? Question Waiting","background_color":"${ROYAL_BLUE_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
 
     permission)
         # Claude needs permission to proceed with an action
-        # Could be triggered when Claude requests elevated permissions
-        echo "⚠ Permission Needed" > "$STATUS_FILE"
+        # Yellow background with black text for high visibility warning
+        cat > "$STATUS_FILE" << EOF
+{"text":"⚠ Permission Needed","background_color":"${YELLOW_BG}","font_color":"${BLACK}","font_size":${FONT_SIZE}}
+EOF
         ;;
 
     waiting)
         # Generic waiting state for user input
-        # Different from 'prompt' - indicates Claude is blocked waiting for response
-        echo "⏳ Waiting for Input" > "$STATUS_FILE"
+        # Red background indicates blocked/urgent state
+        cat > "$STATUS_FILE" << EOF
+{"text":"⏳ Waiting for Input","background_color":"${RED_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
 
     context)
         # Warning: context window is approaching its limit
-        # Could be triggered by a Notification hook with context warning matcher
-        echo "⚡ Context Warning" > "$STATUS_FILE"
+        # Orange background for warning state
+        cat > "$STATUS_FILE" << EOF
+{"text":"⚡ Context Warning","background_color":"${ORANGE_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
 
     # ---------------------------------------------------------------------------
@@ -121,8 +167,10 @@ case "$1" in
 
     off|clear)
         # Clear the Touch Bar status display
-        # Useful when closing Claude Code or resetting state
-        echo "" > "$STATUS_FILE"
+        # Gray background with minimal text
+        cat > "$STATUS_FILE" << EOF
+{"text":"","background_color":"${GRAY_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
 
     # ---------------------------------------------------------------------------
@@ -135,18 +183,20 @@ case "$1" in
         echo ""
         echo "Usage: $0 <status> [--notify]"
         echo ""
-        echo "Statuses:"
-        echo "  running    - Show 'Running Task...' (used by PreToolUse hook)"
-        echo "  prompt     - Show 'Waiting for Prompt' (used by Stop hook)"
-        echo "  flash      - Show 'Task Complete'"
-        echo "  question   - Show 'Question Waiting'"
-        echo "  permission - Show 'Permission Needed'"
-        echo "  waiting    - Show 'Waiting for Input'"
-        echo "  context    - Show 'Context Warning'"
-        echo "  off/clear  - Clear the status"
+        echo "Statuses (with colors):"
+        echo "  running    - '⚙ Running Task...'    Blue background"
+        echo "  prompt     - '💬 Waiting for Prompt' Green background"
+        echo "  flash      - '✓ Task Complete'      Bright green background"
+        echo "  question   - '? Question Waiting'   Royal blue background"
+        echo "  permission - '⚠ Permission Needed'  Yellow background"
+        echo "  waiting    - '⏳ Waiting for Input'  Red background"
+        echo "  context    - '⚡ Context Warning'    Orange background"
+        echo "  off/clear  - Clear the status       Gray background"
         echo ""
         echo "Options:"
         echo "  --notify   - Also show a native macOS notification with sound"
+        echo ""
+        echo "Output format: JSON for BetterTouchTool widget"
         exit 1
         ;;
 esac

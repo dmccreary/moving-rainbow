@@ -1,41 +1,54 @@
 # Using Claude Code to Update the MacBook Touch Bar Status
 
-This guide shows how to display Claude Code status notifications directly on your MacBook Pro Touch Bar, providing visual feedback when Claude is working, waiting for input, or needs your attention.
+![](./waiting-for-prompt.jpg)![](./running-task.jpg)
+
+Transform your MacBook Pro Touch Bar into a beautiful, color-coded status display for Claude Code! This fantastic feature gives you instant visual feedback when Claude is working, waiting for input, or needs your attention - all with vibrant, eye-catching colors.
 
 ## Overview
 
-The MacBook Pro Touch Bar (2016-2020 models) can display dynamic status updates from Claude Code using BetterTouchTool and a simple shell script. This creates a seamless workflow where you can see Claude's status at a glance without switching windows.
+The MacBook Pro Touch Bar (2016-2020 models) becomes an incredibly useful productivity tool when paired with Claude Code. Using BetterTouchTool and a clever shell script, you'll enjoy dynamic, colorful status updates that let you know exactly what Claude is doing at a glance - no need to switch windows or check the terminal!
 
 ![Touch Bar UI Status Example](./better-touch-tool-ui.png)
 
-## Status Indicators
+## Beautiful Color-Coded Status Indicators
 
-| Status | Icon | Display Text | When It Appears |
-|--------|------|--------------|-----------------|
-| Running Task | ⚙ | Running Task... | Claude is executing a tool |
-| Waiting for Prompt | 💬 | Waiting for Prompt | Claude finished and awaits your next input |
-| Task Complete | ✓ | Task Complete | Claude finished a specific task |
-| Question Waiting | ? | Question Waiting | Claude has a question for you |
-| Permission Needed | ⚠ | Permission Needed | Claude needs permission to proceed |
-| Waiting for Input | ⏳ | Waiting for Input | Claude is waiting for your response |
-| Context Warning | ⚡ | Context Warning | Context window is almost full |
+Each status has its own distinctive color, making it instantly recognizable:
+
+| Status | Icon | Display Text | Background Color | When It Appears |
+|--------|------|--------------|------------------|-----------------|
+| Running Task | ⚙ | Running Task... | **Blue** | Claude is hard at work executing a tool |
+| Waiting for Prompt | 💬 | Waiting for Prompt | **Green** | Claude is ready and waiting for your next brilliant idea |
+| Task Complete | ✓ | Task Complete | **Bright Green** | Success! Claude finished a specific task |
+| Question Waiting | ? | Question Waiting | **Royal Blue** | Claude has a question for you |
+| Permission Needed | ⚠ | Permission Needed | **Yellow** | Claude needs your permission to proceed |
+| Waiting for Input | ⏳ | Waiting for Input | **Red** | Claude is blocked and needs your response |
+| Context Warning | ⚡ | Context Warning | **Orange** | Heads up! Context window is getting full |
+
+The color scheme is thoughtfully designed:
+- **Green** = Ready/Success (go ahead!)
+- **Blue** = Working/Thinking (Claude is busy)
+- **Yellow** = Attention needed (permission request)
+- **Red** = Blocked (waiting for you)
+- **Orange** = Warning (context limit approaching)
 
 ## Requirements
 
 - MacBook Pro with Touch Bar (2016-2020 models)
 - macOS 10.12.2 or later
-- [BetterTouchTool](https://folivora.ai/) - Touch Bar customization app
+- [BetterTouchTool](https://folivora.ai/) - The amazing Touch Bar customization app
 - Claude Code CLI installed
 
-## Installation
+## Quick and Easy Installation
 
 ### Step 1: Install BetterTouchTool
+
+Getting started is a breeze with Homebrew:
 
 ```bash
 brew install --cask bettertouchtool
 ```
 
-After installation, open BetterTouchTool and grant the required accessibility permissions when prompted.
+After installation, open BetterTouchTool and grant the required accessibility permissions when prompted. You're almost there!
 
 ### Step 2: Make the Notification Script Executable
 
@@ -44,6 +57,8 @@ chmod +x /path/to/moving-rainbow/src/macbook-status-bar/claude-notify-simple.sh
 ```
 
 ### Step 3: Configure the Touch Bar Widget
+
+Setting up BetterTouchTool is straightforward:
 
 1. Open **BetterTouchTool**
 2. Select **Touch Bar** in the dropdown at the top
@@ -58,15 +73,15 @@ chmod +x /path/to/moving-rainbow/src/macbook-status-bar/claude-notify-simple.sh
 | Launch Path | /bin/bash |
 | Parameters | -c |
 
-6. Click **Run Script Now** to test - the Result field should show the current status
+6. Click **Run Script Now** to test - you should see a beautiful colored status appear!
 
-You can also change the Setting for the Better Touch Tool:
+You can also fine-tune your settings here:
 
 ![](./better-touch-tool-settings.png)
 
 ### Step 4: Configure Claude Code Hooks
 
-Add the following hooks to your `~/.claude/settings.json` file. These hooks automatically update the Touch Bar when Claude's state changes:
+Now for the magic! Add these hooks to your `~/.claude/settings.json` file to automatically update the Touch Bar when Claude's state changes:
 
 ```json
 {
@@ -101,74 +116,74 @@ Replace `/path/to/` with the actual path to your script (e.g., `/Users/yourname/
 
 **Important:** After modifying `settings.json`, restart Claude Code for the hooks to take effect.
 
-### Step 5: Test the Notifications
+### Step 5: Enjoy the Colorful Experience!
 
-Run these commands to see the status change on your Touch Bar:
+Test all the wonderful status colors:
 
 ```bash
-# Show "Running Task..."
+# Beautiful blue - "Running Task..."
 ./src/macbook-status-bar/claude-notify-simple.sh running
 
-# Show "Waiting for Prompt"
+# Lovely green - "Waiting for Prompt"
 ./src/macbook-status-bar/claude-notify-simple.sh prompt
 
-# Show "Task Complete"
+# Bright green success - "Task Complete"
 ./src/macbook-status-bar/claude-notify-simple.sh flash
 
-# Show "Question Waiting"
+# Royal blue - "Question Waiting"
 ./src/macbook-status-bar/claude-notify-simple.sh question
 
-# Show "Permission Needed"
+# Attention-grabbing yellow - "Permission Needed"
 ./src/macbook-status-bar/claude-notify-simple.sh permission
 
-# Show "Waiting for Input"
+# Urgent red - "Waiting for Input"
 ./src/macbook-status-bar/claude-notify-simple.sh waiting
 
-# Show "Context Warning"
+# Warning orange - "Context Warning"
 ./src/macbook-status-bar/claude-notify-simple.sh context
 
 # Clear the status
 ./src/macbook-status-bar/claude-notify-simple.sh off
 ```
 
-## How It Works
+## How the Magic Works
 
-The notification system uses a simple file-based approach combined with Claude Code hooks:
+The notification system uses a brilliantly simple file-based approach combined with Claude Code hooks:
 
 ```mermaid
 graph TD
     A[User sends prompt] --> B[Claude Code processes request]
     B --> C{Tool use needed?}
     C -->|Yes| D[PreToolUse Hook fires]
-    D --> E[Script writes 'Running Task...' to temp file]
+    D --> E[Script writes JSON with BLUE status]
     E --> F[BetterTouchTool reads file every 1 second]
-    F --> G[Touch Bar displays status]
+    F --> G[Touch Bar displays colorful status!]
     C -->|No| H[Claude responds directly]
     H --> I[Stop Hook fires]
-    I --> J[Script writes 'Waiting for Prompt' to temp file]
+    I --> J[Script writes JSON with GREEN status]
     J --> F
 ```
 
-### The Flow
+### The Delightful Flow
 
-1. **User submits a prompt** to Claude Code
+1. **You submit a prompt** to Claude Code
 2. **Claude decides to use a tool** (like Bash, Read, Write, etc.)
-3. **PreToolUse hook fires** → Script writes "⚙ Running Task..." to `/tmp/claude-code-status.txt`
-4. **BetterTouchTool polls** the file every second and displays the content
+3. **PreToolUse hook fires** → Touch Bar turns **blue** with "⚙ Running Task..."
+4. **BetterTouchTool polls** the file every second and displays the colorful content
 5. **Claude finishes responding**
-6. **Stop hook fires** → Script writes "💬 Waiting for Prompt" to the temp file
-7. **Touch Bar updates** to show Claude is ready for your next input
+6. **Stop hook fires** → Touch Bar turns **green** with "💬 Waiting for Prompt"
+7. **You smile** knowing exactly when Claude is ready for your next input!
 
 ## Understanding Claude Code Hooks
 
-Claude Code hooks are shell commands that execute automatically when specific events occur. They allow you to extend Claude Code's functionality without modifying its source code.
+Claude Code hooks are powerful shell commands that execute automatically when specific events occur. They let you extend Claude Code's functionality in creative ways - like this gorgeous Touch Bar integration!
 
 ### Hook Types Used in This Project
 
-| Hook | When It Fires | Our Usage |
-|------|---------------|-----------|
-| `PreToolUse` | Before Claude executes any tool | Show "Running Task..." |
-| `Stop` | When Claude finishes responding | Show "Waiting for Prompt" |
+| Hook | When It Fires | Our Usage | Color |
+|------|---------------|-----------|-------|
+| `PreToolUse` | Before Claude executes any tool | Show "Running Task..." | Blue |
+| `Stop` | When Claude finishes responding | Show "Waiting for Prompt" | Green |
 
 ### Hook Configuration Structure
 
@@ -205,9 +220,9 @@ Claude Code hooks are shell commands that execute automatically when specific ev
 | `UserPromptSubmit` | Fires when user submits a prompt |
 | `Notification` | Fires for various notification events |
 
-### Using Matchers
+### Using Matchers for Even More Control
 
-The `matcher` field filters which tools trigger the hook:
+The `matcher` field lets you create different colors for different tools:
 
 ```json
 {
@@ -228,93 +243,100 @@ The `matcher` field filters which tools trigger the hook:
 }
 ```
 
-## The Shell Script
+## The Colorful Shell Script
 
-The notification script is simple and well-commented for easy customization:
+The script outputs JSON that BetterTouchTool uses to create beautiful colored widgets. Here's how the color magic happens:
 
 ```bash
 #!/bin/bash
 #
 # Claude Code Touch Bar Notification Script
+# ==========================================
 #
-# This script writes status text to a temp file that BetterTouchTool
-# reads and displays on the MacBook Pro Touch Bar.
+# This script writes JSON status to a temp file that BetterTouchTool
+# reads and displays on the MacBook Pro Touch Bar with gorgeous colors!
 #
-# Architecture:
-#   Claude Code Hook → This Script → Temp File → BTT Widget → Touch Bar
-#
-# Usage:
-#   ./claude-notify-simple.sh <status>
-#   ./claude-notify-simple.sh <status> --notify  (also shows macOS notification)
-#
-# Statuses:
-#   running    - Claude is executing a tool (⚙ Running Task...)
-#   prompt     - Claude is waiting for input (💬 Waiting for Prompt)
-#   flash      - Task completed successfully (✓ Task Complete)
-#   question   - Claude has a question (? Question Waiting)
-#   permission - Permission needed (⚠ Permission Needed)
-#   waiting    - Waiting for user input (⏳ Waiting for Input)
-#   context    - Context window warning (⚡ Context Warning)
-#   off/clear  - Clear the status display
+# JSON Format for BetterTouchTool:
+#   {
+#     "text": "Display Text",
+#     "background_color": "R,G,B,A",   (0-255 for each)
+#     "font_color": "R,G,B,A",          (0-255 for each)
+#     "font_size": 12
+#   }
 
-# Temp file location - BTT reads this file every second
 STATUS_FILE="/tmp/claude-code-status.txt"
+FONT_SIZE=12
 
-# Map status argument to display text with emoji
+# Color Definitions (RGBA format)
+WHITE="255,255,255,255"
+BLACK="0,0,0,255"
+GREEN_BG="34,139,34,255"       # Forest green - ready states
+BRIGHT_GREEN_BG="0,180,0,255"  # Bright green - success
+BLUE_BG="30,144,255,255"       # Dodger blue - working states
+ROYAL_BLUE_BG="65,105,225,255" # Royal blue - questions
+YELLOW_BG="255,200,0,255"      # Gold - permission needed
+RED_BG="220,20,60,255"         # Crimson - blocked states
+ORANGE_BG="255,140,0,255"      # Dark orange - warnings
+
 case "$1" in
     running)
-        # Used by PreToolUse hook - shows while Claude executes tools
-        echo "⚙ Running Task..." > "$STATUS_FILE"
+        # Blue background - Claude is working hard!
+        cat > "$STATUS_FILE" << EOF
+{"text":"⚙ Running Task...","background_color":"${BLUE_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
     prompt)
-        # Used by Stop hook - shows when Claude is ready for next prompt
-        echo "💬 Waiting for Prompt" > "$STATUS_FILE"
+        # Green background - Ready for your next brilliant idea!
+        cat > "$STATUS_FILE" << EOF
+{"text":"💬 Waiting for Prompt","background_color":"${GREEN_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
     flash)
-        # Manual trigger for task completion
-        echo "✓ Task Complete" > "$STATUS_FILE"
+        # Bright green - Success!
+        cat > "$STATUS_FILE" << EOF
+{"text":"✓ Task Complete","background_color":"${BRIGHT_GREEN_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
     question)
-        # Claude is asking a question
-        echo "? Question Waiting" > "$STATUS_FILE"
+        # Royal blue - Claude has a question
+        cat > "$STATUS_FILE" << EOF
+{"text":"? Question Waiting","background_color":"${ROYAL_BLUE_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
     permission)
-        # Claude needs permission to proceed
-        echo "⚠ Permission Needed" > "$STATUS_FILE"
+        # Yellow with black text - High visibility warning
+        cat > "$STATUS_FILE" << EOF
+{"text":"⚠ Permission Needed","background_color":"${YELLOW_BG}","font_color":"${BLACK}","font_size":${FONT_SIZE}}
+EOF
         ;;
     waiting)
-        # Generic waiting state
-        echo "⏳ Waiting for Input" > "$STATUS_FILE"
+        # Red - Needs your attention now!
+        cat > "$STATUS_FILE" << EOF
+{"text":"⏳ Waiting for Input","background_color":"${RED_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
     context)
-        # Warning: context window is almost full
-        echo "⚡ Context Warning" > "$STATUS_FILE"
-        ;;
-    off|clear)
-        # Clear the Touch Bar status
-        echo "" > "$STATUS_FILE"
-        ;;
-    *)
-        # Show usage if invalid argument
-        echo "Usage: $0 [running|prompt|flash|question|permission|waiting|context|off]"
-        exit 1
+        # Orange - Warning about context
+        cat > "$STATUS_FILE" << EOF
+{"text":"⚡ Context Warning","background_color":"${ORANGE_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}
+EOF
         ;;
 esac
 ```
 
 ## Adding Native macOS Notifications
 
-The script also supports native macOS notifications with sound alerts. Add `--notify` flag:
+Want even more notification goodness? The script supports native macOS notifications with delightful sound alerts. Just add the `--notify` flag:
 
 ```bash
 ./claude-notify-simple.sh flash --notify
 ```
 
-This displays a macOS notification banner in addition to updating the Touch Bar.
+This displays a macOS notification banner with sound in addition to updating the colorful Touch Bar!
 
 ## Complete Example Configuration
 
-Here's a complete `~/.claude/settings.json` with Touch Bar hooks:
+Here's a complete `~/.claude/settings.json` with Touch Bar hooks ready to go:
 
 ```json
 {
@@ -368,6 +390,13 @@ If empty, run a notification command first:
 ./claude-notify-simple.sh running
 ```
 
+### Colors not showing
+
+Make sure BetterTouchTool is configured to parse JSON output. The script outputs JSON in this format:
+```json
+{"text":"💬 Waiting for Prompt","background_color":"34,139,34,255","font_color":"255,255,255,255","font_size":12}
+```
+
 ### Touch Bar not visible
 
 Press the **fn** key to toggle between system Touch Bar and BetterTouchTool Touch Bar.
@@ -382,36 +411,39 @@ Press the **fn** key to toggle between system Touch Bar and BetterTouchTool Touc
 ### Test hooks manually
 
 ```bash
-# Simulate PreToolUse hook
+# Watch the blue color appear!
 /path/to/claude-notify-simple.sh running
 sleep 2
 
-# Simulate Stop hook
+# Now see it turn green!
 /path/to/claude-notify-simple.sh prompt
 ```
 
 ## Comparison with Pi 500+ Keyboard
 
-This project also supports [RGB LED notifications on the Raspberry Pi 500+ keyboard](../02-pi-500-keyboard/). Here's how they compare:
+This project also supports [RGB LED notifications on the Raspberry Pi 500+ keyboard](../02-pi-500-keyboard/). Both are fantastic options - here's how they compare:
 
 | Feature | Pi 500+ Keyboard | MacBook Touch Bar |
 |---------|------------------|-------------------|
 | Visual Indicator | Function key LEDs (F1-F3) | Touch Bar widget |
 | Text Display | None (LED colors only) | Full text + emoji |
-| Colors | HSV LED colors | Text-based |
+| Colors | HSV LED colors | Beautiful RGBA colors |
 | Hardware | Raspberry Pi 500+ | MacBook Pro 2016-2020 |
 | API | RPiKeyboardConfig | BetterTouchTool |
 | Hook Integration | Same hooks system | Same hooks system |
+| Color Customization | Via Python script | Via shell script JSON |
+
+Both give you that wonderful "at a glance" awareness of what Claude is doing!
 
 ## Source Files
 
-The source code for this feature is located in:
+The source code for this fantastic feature is located in:
 
 ```
 src/macbook-status-bar/
 ├── README.md                 # Detailed documentation
 ├── claude-notify.py          # Python script (advanced)
-├── claude-notify-simple.sh   # Shell script (recommended)
+├── claude-notify-simple.sh   # Shell script with colors (recommended)
 ├── btt-preset.json          # BetterTouchTool preset
 └── sample-hooks.json        # Example Claude Code hooks
 ```
@@ -421,3 +453,7 @@ src/macbook-status-bar/
 - [BetterTouchTool Documentation](https://docs.folivora.ai/)
 - [Claude Code Hooks Documentation](https://docs.anthropic.com/en/docs/claude-code/hooks)
 - [Pi 500+ Keyboard Notifications](../02-pi-500-keyboard/)
+
+---
+
+Enjoy your beautiful, colorful Touch Bar status display! It's like having a friendly traffic light that tells you exactly when Claude is ready for your next command.
