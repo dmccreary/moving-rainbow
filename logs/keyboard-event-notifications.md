@@ -11,11 +11,11 @@ Set up Claude Code hooks to trigger Raspberry Pi 500+ keyboard LED notifications
 ### 1. Notification Script
 **File:** `/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py`
 
-Python script that controls the F12 key LED with different colors for different events:
+Python script that controls the F1 key LED with different colors for different events:
 
 | Command | Action | Color |
 |---------|--------|-------|
-| `claude-notify.py flash` | Task complete | Green flash (3x) |
+| `claude-notify.py flash` | Task complete | Blue flash (20x) |
 | `claude-notify.py question` | Waiting for input | Blue blink (10x) |
 | `claude-notify.py permission` | Permission needed | Yellow blink (10x) |
 | `claude-notify.py off` | Turn off | Off |
@@ -23,7 +23,7 @@ Python script that controls the F12 key LED with different colors for different 
 Uses `colorsys` module for RGB to HSV conversion (the `RPiKeyboardConfig` library requires HSV format).
 
 ### 2. Claude Code Hooks Configuration
-**File:** `~/.claude/settings.local.json`
+**File:** `~/.claude/settings.json` (user-level settings, requires Claude Code restart)
 
 Added hooks configuration:
 
@@ -32,7 +32,6 @@ Added hooks configuration:
   "hooks": {
     "Stop": [
       {
-        "matcher": "",
         "hooks": [
           {
             "type": "command",
@@ -64,6 +63,8 @@ Added hooks configuration:
   }
 }
 ```
+
+**Important:** The `Stop` hook must NOT have a `matcher` field - only `Notification` hooks use matchers.
 
 ## Hook Events
 
@@ -132,3 +133,6 @@ killall -SIGHUP labwc
 - Raspberry Pi OS Bookworm uses **labwc** (not wayfire) as the Wayland compositor
 - The `scrot` screenshot tool doesn't work on Wayland; use `grim` + `slurp` instead
 - `RPiKeyboardConfig` library only accepts HSV colors, not RGB
+- F1 key matrix position is `[0, 1]` (row 0, column 1)
+- Hooks in `~/.claude/settings.json` require Claude Code restart to take effect
+- The `Stop` hook does NOT use a matcher field (unlike `Notification` hooks)
