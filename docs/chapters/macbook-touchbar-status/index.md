@@ -148,21 +148,11 @@ Test all the wonderful status colors:
 
 ## How the Magic Works
 
-The notification system uses a brilliantly simple file-based approach combined with Claude Code hooks:
+The notification system uses a brilliantly simple file-based approach combined with Claude Code hooks. Hover over each node in the diagram below to learn more!
 
-```mermaid
-graph TD
-    A[User sends prompt] --> B[Claude Code processes request]
-    B --> C{Tool use needed?}
-    C -->|Yes| D[PreToolUse Hook fires]
-    D --> E[Script writes JSON with BLUE status]
-    E --> F[BetterTouchTool reads file every 1 second]
-    F --> G[Touch Bar displays colorful status!]
-    C -->|No| H[Claude responds directly]
-    H --> I[Stop Hook fires]
-    I --> J[Script writes JSON with GREEN status]
-    J --> F
-```
+<iframe src="../../sims/claude-code-hooks-workflow/main.html" width="100%" height="450px" style="border:none; overflow:hidden;"></iframe>
+
+[View Fullscreen Diagram](../../sims/claude-code-hooks-workflow/main.html){ .md-button }
 
 ### The Delightful Flow
 
