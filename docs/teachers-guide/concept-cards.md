@@ -11,7 +11,7 @@ Concept Cards are teaching tools that are popular in informal hands-on settings 
 
 Concept Cards are a way of taking complex topics and decomposing the topics into simple examples that can be used to illustrate the principals needed to master the topic.
 
-Concept Cards can be used in multiple teaching styles including goal-directed learning, fixed hierarchy learning and ad-hoc [rhizomatic](./rhizomatic-learning-theory.md) network learning.
+Concept Cards can be used in multiple teaching styles including goal-directed learning, fixed hierarchy learning and ad-hoc [rhizomatic](./rhizomatous-learning-theory.md) network learning.
 
 ## When Should Concept Cards be Used?
 

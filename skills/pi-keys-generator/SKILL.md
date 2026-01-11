@@ -39,7 +39,19 @@ All Python scripts controlling the keyboard follow this structure:
 Script description here.
 """
 from RPiKeyboardConfig import RPiKeyboardConfig
+import colorsys
 import time
+
+def rgb_to_hsv(r, g, b):
+    """Convert RGB (0-255) to HSV (0-255 scale for all components)."""
+    h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
+    return (int(h * 255), int(s * 255), int(v * 255))
+
+# Define colors in RGB format
+RED = rgb_to_hsv(255, 0, 0)
+GREEN = rgb_to_hsv(0, 255, 0)
+BLUE = rgb_to_hsv(0, 0, 255)
+OFF = (0, 0, 0)
 
 def main():
     keyboard = RPiKeyboardConfig()
@@ -110,6 +122,46 @@ Colors use HSV format with values 0-255:
 Saturation: 255 = full color, 0 = white
 Value: 255 = full brightness, 0 = off
 
+## Using RGB Colors (Recommended)
+
+While the `RPiKeyboardConfig` library requires HSV colors, you can define colors in the more familiar RGB format and convert them using Python's built-in `colorsys` module.
+
+### RGB to HSV Conversion Helper
+
+Add this helper function to your scripts:
+
+```python
+import colorsys
+
+def rgb_to_hsv(r, g, b):
+    """Convert RGB (0-255) to HSV (0-255 scale for all components)."""
+    h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
+    return (int(h * 255), int(s * 255), int(v * 255))
+```
+
+### Defining Colors in RGB
+
+```python
+# Define colors in familiar RGB format
+RED = rgb_to_hsv(255, 0, 0)
+GREEN = rgb_to_hsv(0, 255, 0)
+BLUE = rgb_to_hsv(0, 0, 255)
+YELLOW = rgb_to_hsv(255, 255, 0)
+CYAN = rgb_to_hsv(0, 255, 255)
+MAGENTA = rgb_to_hsv(255, 0, 255)
+ORANGE = rgb_to_hsv(255, 165, 0)
+WHITE = rgb_to_hsv(255, 255, 255)
+OFF = (0, 0, 0)
+
+# Use with the keyboard API
+keyboard.set_led_by_matrix(matrix=[0, 1], colour=RED)
+```
+
+This approach is preferred because:
+- RGB values are more intuitive and widely understood
+- Easy to use web color pickers to find RGB values
+- No need to memorize HSV hue values
+
 ## Key Matrix Reference
 
 Common key positions (row, column):
@@ -135,10 +187,11 @@ For the complete matrix layout, use: `rpi-keyboard-config info --ascii`
 ### Set Specific Keys to a Color
 
 ```python
-# Set function keys F1-F4 to blue
+# Set function keys F1-F4 to blue (using RGB conversion)
+BLUE = rgb_to_hsv(0, 0, 255)
 f_keys = [[0, 1], [0, 2], [0, 3], [0, 4]]
 for pos in f_keys:
-    keyboard.set_led_by_matrix(matrix=pos, colour=(170, 255, 255))
+    keyboard.set_led_by_matrix(matrix=pos, colour=BLUE)
 keyboard.send_leds()
 ```
 
