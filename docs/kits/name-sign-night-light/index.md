@@ -7,6 +7,25 @@ This is a NeoPixel sign of the letters "JASON" that has a photo sensor on the ba
 When the light goes out, the sign stays on for 10 minutes and then fades out.  Push
 buttons on the back allow the user to change the pattern.
 
+## Instructions for Use
+
+If there is light in a room when the sign is turned on, the sign will be off.
+There are two ways to see the letters:
+
+1. Press one of the buttons on the back of the sign that are on the breadboard.  This will show each letter with a different color. Press a button again for another pattern.  There are four patterns.
+2. Turn the lights off.  This will trigger the default nightlight mode.  The sign will display a rainbow color for 20 minutes, slowly getting dimmer after 10 minutes.
+
+!!! note
+    By turning the lights on and off, the 20 minute timer will reset.  You can cover the light sensor in the back of the sign to simulate the lights going off.
+
+## Repairability
+
+Don't worry if the sign gets broken.  All parts are replaceable.  Although the sign is designed to be placed on a dresser or bookshelf, we know that kids will want to play with the sign as a toy and it can easily get broken.  But don't worry.  This is an opportunity for us to work together to fix the sign.
+
+## Programmability
+
+Do you not like one of the patterns or want to add a new feature?  No problem!  The sign is easy to reprogram using a Windows PC or a Mac.  You just need to plug the USB cable into a USB port and run the Thonny editor.  There is a file called `main.py` which is the program that is run when the sign powers up.  There also also many sample programs you can run for fun.  If you are curious, you can read the source code!
+
 ## Parts Used
 
 1. 65 NeoPixels on a 60 pixels per meter LED strip ($6)
