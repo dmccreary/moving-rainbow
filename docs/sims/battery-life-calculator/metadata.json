@@ -8,9 +8,16 @@
   "format": "text/html",
   "language": "en-US",
   "rights": "Creative Commons Attribution 4.0 International",
-
   "educational": {
-    "gradeLevel": ["6", "7", "8", "9", "10", "11", "12"],
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
     "subject": "STEM",
     "topic": "Battery Life Calculation, Power Consumption, LED Electronics",
     "learningObjectives": [
@@ -19,7 +26,11 @@
       "Evaluate trade-offs between brightness, LED count, and battery life",
       "Compare different battery options for specific design requirements"
     ],
-    "bloomLevels": ["Apply", "Analyze", "Evaluate"],
+    "bloomLevels": [
+      "Apply",
+      "Analyze",
+      "Evaluate"
+    ],
     "duration": "10-20 minutes",
     "prerequisites": [
       "Basic multiplication and division",
@@ -27,7 +38,6 @@
       "Familiarity with LED basics"
     ]
   },
-
   "technical": {
     "framework": "p5.js",
     "version": "1.11.10",
@@ -35,14 +45,15 @@
     "drawHeight": 400,
     "controlHeight": 200,
     "responsive": true,
-    "dependencies": ["p5.js"],
+    "dependencies": [
+      "p5.js"
+    ],
     "accessibility": {
       "description": "Interactive battery life calculator with descriptive labels and high contrast visualization",
       "keyboardNavigable": true,
       "screenReaderCompatible": true
     }
   },
-
   "ui": {
     "controls": [
       {
@@ -97,7 +108,6 @@
       }
     ]
   },
-
   "model": {
     "type": "Mathematical Formula",
     "name": "Battery Life Calculation",
@@ -125,7 +135,10 @@
         "name": "brightnessFactor",
         "symbol": "B",
         "unit": "fraction",
-        "range": [0.1, 1.0],
+        "range": [
+          0.1,
+          1.0
+        ],
         "description": "Brightness level as a fraction of maximum"
       },
       {
@@ -144,12 +157,12 @@
     "equations": [
       {
         "name": "Total Current Draw",
-        "formula": "I_total = N × I_n × B",
+        "formula": "I_total = N \u00d7 I_n \u00d7 B",
         "description": "Calculate total current consumption based on number of noodles and brightness"
       },
       {
         "name": "Battery Life",
-        "formula": "T = C ÷ I_total",
+        "formula": "T = C \u00f7 I_total",
         "description": "Calculate estimated battery runtime in hours"
       }
     ],
@@ -163,12 +176,11 @@
     "limitations": [
       "Does not account for battery discharge curves",
       "Does not include conversion efficiency losses",
-      "Real-world variation ±20% expected",
+      "Real-world variation \u00b120% expected",
       "Temperature effects not modeled",
       "Battery age and quality variations not considered"
     ]
   },
-
   "pedagogy": {
     "approach": "Guided Discovery",
     "interactionPattern": "Parameter Exploration",
@@ -186,7 +198,6 @@
       "Explain relationships between variables"
     ]
   },
-
   "relatedResources": [
     {
       "title": "LED Noodle Basics",
@@ -202,7 +213,6 @@
       "type": "Technical Guide"
     }
   ],
-
   "tags": [
     "battery",
     "LED",
@@ -214,5 +224,24 @@
     "engineering",
     "costume",
     "wearables"
+  ],
+  "visualizationType": [
+    "3d-model",
+    "interactive-demo",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of battery life calculator for led noodle costumes",
+    "Explore battery life calculator for led noodle costumes through interactive visualization",
+    "Apply knowledge of battery life calculator for led noodle costumes to solve problems",
+    "Experiment with parameters to observe their effects on battery life calculator for led noodle costumes"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
   ]
 }

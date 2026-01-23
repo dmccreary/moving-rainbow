@@ -42,5 +42,11 @@
     "network",
     "timeline",
     "map"
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of pico light sensor circuit",
+    "Apply pico light sensor circuit to solve problems",
+    "Visualize and interpret pico light sensor circuit relationships",
+    "Experiment with parameters to observe their effects on pico light sensor circuit"
   ]
 }

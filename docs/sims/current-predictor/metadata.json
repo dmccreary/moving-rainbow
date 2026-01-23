@@ -38,5 +38,11 @@
     "interactive-demo",
     "network",
     "map"
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of led current predictor",
+    "Apply led current predictor to solve problems",
+    "Visualize and interpret led current predictor relationships",
+    "Experiment with parameters to observe their effects on led current predictor"
   ]
 }
