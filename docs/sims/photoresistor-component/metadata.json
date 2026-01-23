@@ -1,0 +1,40 @@
+{
+  "title": "Photoresistor Component Visualization",
+  "description": "This is a simple p5.js visualization showing the characteristic structure of a photoresistor (Light Dependent Resistor).",
+  "subject": "Mathematics",
+  "topic": "Photoresistor Component Visualization",
+  "gradeLevel": "6-12",
+  "bloomsTaxonomy": [
+    "Understand",
+    "Apply"
+  ],
+  "author": "Dan McCreary",
+  "dateCreated": "2026-01-23",
+  "dateModified": "2026-01-23",
+  "version": "1.0.0",
+  "license": "MIT",
+  "language": "en",
+  "format": "text/html",
+  "type": "Interactive Simulation",
+  "framework": "p5.js",
+  "url": "https://dmccreary.github.io/moving-rainbow/sims/photoresistor-component/",
+  "identifier": "https://dmccreary.github.io/moving-rainbow/sims/photoresistor-component/",
+  "_source": {
+    "repo": "moving-rainbow",
+    "sim": "photoresistor-component",
+    "github_url": "https://github.com/dmccreary/moving-rainbow/tree/main/docs/sims/photoresistor-component",
+    "auto_generated": true,
+    "generation_date": "2026-01-23"
+  },
+  "subjects": [
+    "Mathematics",
+    "Computer Science",
+    "Engineering"
+  ],
+  "visualizationType": [
+    "animation",
+    "simulation",
+    "graph",
+    "network"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Pico Light Sensor Circuit",
+  "description": "<iframe src=\"main.html\" height=\"485\" scrolling=\"no\"></iframe>",
+  "subject": "Mathematics",
+  "topic": "Pico Light Sensor Circuit",
+  "gradeLevel": "6-12",
+  "bloomsTaxonomy": [
+    "Understand",
+    "Apply"
+  ],
+  "author": "Dan McCreary",
+  "dateCreated": "2026-01-23",
+  "dateModified": "2026-01-23",
+  "version": "1.0.0",
+  "license": "MIT",
+  "language": "en",
+  "format": "text/html",
+  "type": "Interactive Simulation",
+  "framework": "p5.js",
+  "url": "https://dmccreary.github.io/moving-rainbow/sims/pico-light-sensor/",
+  "identifier": "https://dmccreary.github.io/moving-rainbow/sims/pico-light-sensor/",
+  "_source": {
+    "repo": "moving-rainbow",
+    "sim": "pico-light-sensor",
+    "github_url": "https://github.com/dmccreary/moving-rainbow/tree/main/docs/sims/pico-light-sensor",
+    "auto_generated": true,
+    "generation_date": "2026-01-23"
+  },
+  "subjects": [
+    "Mathematics",
+    "Physics",
+    "Computer Science",
+    "Statistics",
+    "Engineering",
+    "Economics"
+  ],
+  "visualizationType": [
+    "animation",
+    "simulation",
+    "graph",
+    "interactive-demo",
+    "network",
+    "timeline",
+    "map"
+  ]
+}
