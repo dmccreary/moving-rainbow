@@ -39,5 +39,11 @@
     "interactive-demo",
     "network",
     "map"
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of led dimmer circuit",
+    "Apply led dimmer circuit to solve problems",
+    "Visualize and interpret led dimmer circuit relationships",
+    "Experiment with parameters to observe their effects on led dimmer circuit"
   ]
 }

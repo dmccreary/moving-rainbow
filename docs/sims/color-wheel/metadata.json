@@ -37,5 +37,11 @@
     "interactive-demo",
     "network",
     "map"
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of color wheel",
+    "Apply color wheel to solve problems",
+    "Visualize and interpret color wheel relationships",
+    "Experiment with parameters to observe their effects on color wheel"
   ]
 }

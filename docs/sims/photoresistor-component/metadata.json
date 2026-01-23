@@ -36,5 +36,11 @@
     "simulation",
     "graph",
     "network"
+  ],
+  "learningObjectives": [
+    "Understand the mathematical concept of photoresistor component visualization",
+    "Apply photoresistor component visualization to solve problems",
+    "Visualize and interpret photoresistor component visualization relationships",
+    "Experiment with parameters to observe their effects on photoresistor component visualization"
   ]
 }
