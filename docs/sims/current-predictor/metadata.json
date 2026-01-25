@@ -44,5 +44,28 @@
     "Apply led current predictor to solve problems",
     "Visualize and interpret led current predictor relationships",
     "Experiment with parameters to observe their effects on led current predictor"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "reference",
+    "bloomAlignment": [
+      "understand",
+      "apply",
+      "analyze"
+    ],
+    "bloomVerbs": [
+      "describe",
+      "calculate",
+      "use",
+      "analyze",
+      "experiment"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": true,
+    "dataVisibility": "high",
+    "feedbackType": [
+      "immediate",
+      "corrective"
+    ],
+    "interactionStyle": "manipulate"
+  }
 }

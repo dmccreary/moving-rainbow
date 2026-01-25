@@ -43,5 +43,25 @@
     "Apply color wheel to solve problems",
     "Visualize and interpret color wheel relationships",
     "Experiment with parameters to observe their effects on color wheel"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "exploration",
+    "bloomAlignment": [
+      "understand",
+      "apply"
+    ],
+    "bloomVerbs": [
+      "describe",
+      "calculate",
+      "implement",
+      "experiment"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "high",
+    "feedbackType": [
+      "corrective"
+    ],
+    "interactionStyle": "manipulate"
+  }
 }

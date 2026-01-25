@@ -41,5 +41,25 @@
     "Apply title of this to solve problems",
     "Visualize and interpret title of this relationships",
     "Experiment with parameters to observe their effects on title of this"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "exploration",
+    "bloomAlignment": [
+      "understand",
+      "apply"
+    ],
+    "bloomVerbs": [
+      "calculate",
+      "implement",
+      "use",
+      "experiment"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "high",
+    "feedbackType": [
+      "immediate"
+    ],
+    "interactionStyle": "construct"
+  }
 }
