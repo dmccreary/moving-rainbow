@@ -42,5 +42,25 @@
     "Apply photoresistor component visualization to solve problems",
     "Visualize and interpret photoresistor component visualization relationships",
     "Experiment with parameters to observe their effects on photoresistor component visualization"
-  ]
+  ],
+  "pedagogical": {
+    "pattern": "demonstration",
+    "bloomAlignment": [
+      "understand",
+      "apply"
+    ],
+    "bloomVerbs": [
+      "describe",
+      "calculate",
+      "illustrate"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "medium",
+    "feedbackType": [
+      "immediate",
+      "corrective"
+    ],
+    "interactionStyle": "construct"
+  }
 }
