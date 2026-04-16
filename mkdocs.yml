@@ -173,8 +173,11 @@ theme:
 plugins:
   - search
   - social
-  - social_override
   # - mermaid2 - takes too long to build - use a screen image for now
+
+hooks:
+  - plugins/social_override.py
+
 markdown_extensions:
   - meta
   - admonition
