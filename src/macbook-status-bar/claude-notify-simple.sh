@@ -58,6 +58,13 @@
 #
 
 # ==============================================================================
+# Drain stdin to prevent blocking
+# ==============================================================================
+# Claude Code hooks send JSON data to stdin. If we don't read it,
+# the pipe buffer can fill up and cause the hook (and terminal) to hang.
+cat > /dev/null &
+
+# ==============================================================================
 # Configuration
 # ==============================================================================
 
