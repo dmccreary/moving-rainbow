@@ -1,0 +1,14 @@
+{
+  "PYTH": "Python Programming",
+  "UPICO": "MicroPython and Pico",
+  "NEO": "NeoPixel Hardware",
+  "COLOR": "Color Theory",
+  "ANIM": "Animation Patterns",
+  "ELEC": "Electronics and Circuits",
+  "CT": "Computational Thinking",
+  "INPUT": "Input and Interactivity",
+  "TOOLS": "Dev Tools and Workflow",
+  "PROJ": "Project Design",
+  "MATH": "Mathematics",
+  "HW": "Hardware Platforms"
+}

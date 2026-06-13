@@ -1,0 +1,10 @@
+{
+  "title": "Moving Rainbow: Computational Thinking with LED Programming",
+  "description": "A learning graph of 485 concepts for teaching computational thinking, Python programming, MicroPython, NeoPixel LEDs, electronics, and project design using Raspberry Pi Pico and addressable LED strips.",
+  "creator": "Dan McCreary",
+  "date": "2026-06-12",
+  "version": "1.0",
+  "format": "Learning Graph JSON v1.0",
+  "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "license": "CC BY-NC-SA 4.0 DEED"
+}

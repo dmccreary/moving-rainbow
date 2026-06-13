@@ -1,0 +1,5945 @@
+{
+  "metadata": {
+    "title": "Moving Rainbow: Computational Thinking with LED Programming",
+    "description": "A learning graph of 485 concepts for teaching computational thinking, Python programming, MicroPython, NeoPixel LEDs, electronics, and project design using Raspberry Pi Pico and addressable LED strips.",
+    "creator": "Dan McCreary",
+    "date": "2026-06-12",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY-NC-SA 4.0 DEED"
+  },
+  "groups": {
+    "PYTH": {
+      "classifierName": "Python Programming",
+      "color": "SteelBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "UPICO": {
+      "classifierName": "MicroPython and Pico",
+      "color": "DarkSlateBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "NEO": {
+      "classifierName": "NeoPixel Hardware",
+      "color": "DarkGreen",
+      "font": {
+        "color": "white"
+      }
+    },
+    "COLOR": {
+      "classifierName": "Color Theory",
+      "color": "Gold",
+      "font": {
+        "color": "black"
+      }
+    },
+    "ANIM": {
+      "classifierName": "Animation Patterns",
+      "color": "DodgerBlue",
+      "font": {
+        "color": "white"
+      }
+    },
+    "ELEC": {
+      "classifierName": "Electronics and Circuits",
+      "color": "Crimson",
+      "font": {
+        "color": "white"
+      }
+    },
+    "CT": {
+      "classifierName": "Computational Thinking",
+      "color": "MediumPurple",
+      "font": {
+        "color": "white"
+      }
+    },
+    "INPUT": {
+      "classifierName": "Input and Interactivity",
+      "color": "Teal",
+      "font": {
+        "color": "white"
+      }
+    },
+    "TOOLS": {
+      "classifierName": "Dev Tools and Workflow",
+      "color": "OliveDrab",
+      "font": {
+        "color": "white"
+      }
+    },
+    "PROJ": {
+      "classifierName": "Project Design",
+      "color": "DarkOrchid",
+      "font": {
+        "color": "white"
+      }
+    },
+    "MATH": {
+      "classifierName": "Mathematics",
+      "color": "DarkGoldenrod",
+      "font": {
+        "color": "white"
+      }
+    },
+    "HW": {
+      "classifierName": "Hardware Platforms",
+      "color": "DimGray",
+      "font": {
+        "color": "white"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Python Programming Language",
+      "group": "PYTH",
+      "shape": "box"
+    },
+    {
+      "id": 2,
+      "label": "Variable",
+      "group": "PYTH"
+    },
+    {
+      "id": 3,
+      "label": "Variable Assignment",
+      "group": "PYTH"
+    },
+    {
+      "id": 4,
+      "label": "Integer Data Type",
+      "group": "PYTH"
+    },
+    {
+      "id": 5,
+      "label": "Float Data Type",
+      "group": "PYTH"
+    },
+    {
+      "id": 6,
+      "label": "String Data Type",
+      "group": "PYTH"
+    },
+    {
+      "id": 7,
+      "label": "Boolean Data Type",
+      "group": "PYTH"
+    },
+    {
+      "id": 8,
+      "label": "List Data Type",
+      "group": "PYTH"
+    },
+    {
+      "id": 9,
+      "label": "Tuple Data Type",
+      "group": "PYTH"
+    },
+    {
+      "id": 10,
+      "label": "None Value",
+      "group": "PYTH"
+    },
+    {
+      "id": 11,
+      "label": "Type Conversion",
+      "group": "PYTH"
+    },
+    {
+      "id": 12,
+      "label": "Mathematical Operators",
+      "group": "PYTH"
+    },
+    {
+      "id": 13,
+      "label": "Comparison Operators",
+      "group": "PYTH"
+    },
+    {
+      "id": 14,
+      "label": "Logical Operators",
+      "group": "PYTH"
+    },
+    {
+      "id": 15,
+      "label": "Boolean Expressions",
+      "group": "PYTH"
+    },
+    {
+      "id": 16,
+      "label": "if Statement",
+      "group": "PYTH"
+    },
+    {
+      "id": 17,
+      "label": "elif Clause",
+      "group": "PYTH"
+    },
+    {
+      "id": 18,
+      "label": "else Clause",
+      "group": "PYTH"
+    },
+    {
+      "id": 19,
+      "label": "Nested Conditionals",
+      "group": "PYTH"
+    },
+    {
+      "id": 20,
+      "label": "for Loop",
+      "group": "PYTH"
+    },
+    {
+      "id": 21,
+      "label": "while Loop",
+      "group": "PYTH"
+    },
+    {
+      "id": 22,
+      "label": "Infinite Loop",
+      "group": "PYTH"
+    },
+    {
+      "id": 23,
+      "label": "break Statement",
+      "group": "PYTH"
+    },
+    {
+      "id": 24,
+      "label": "continue Statement",
+      "group": "PYTH"
+    },
+    {
+      "id": 25,
+      "label": "Loop Counter Variable",
+      "group": "PYTH"
+    },
+    {
+      "id": 26,
+      "label": "range() Function",
+      "group": "PYTH"
+    },
+    {
+      "id": 27,
+      "label": "len() Function",
+      "group": "PYTH"
+    },
+    {
+      "id": 28,
+      "label": "int() Function",
+      "group": "PYTH"
+    },
+    {
+      "id": 29,
+      "label": "float() Function",
+      "group": "PYTH"
+    },
+    {
+      "id": 30,
+      "label": "print() Function",
+      "group": "PYTH"
+    },
+    {
+      "id": 31,
+      "label": "Function Definition",
+      "group": "PYTH"
+    },
+    {
+      "id": 32,
+      "label": "Function Parameters",
+      "group": "PYTH"
+    },
+    {
+      "id": 33,
+      "label": "Function Return Value",
+      "group": "PYTH"
+    },
+    {
+      "id": 34,
+      "label": "Function Call",
+      "group": "PYTH"
+    },
+    {
+      "id": 35,
+      "label": "Variable Scope",
+      "group": "PYTH"
+    },
+    {
+      "id": 36,
+      "label": "Local Variable",
+      "group": "PYTH"
+    },
+    {
+      "id": 37,
+      "label": "Global Variable",
+      "group": "PYTH"
+    },
+    {
+      "id": 38,
+      "label": "Import Statement",
+      "group": "PYTH"
+    },
+    {
+      "id": 39,
+      "label": "Module System",
+      "group": "PYTH"
+    },
+    {
+      "id": 40,
+      "label": "Code Indentation Rules",
+      "group": "PYTH"
+    },
+    {
+      "id": 41,
+      "label": "Python Comments",
+      "group": "PYTH"
+    },
+    {
+      "id": 42,
+      "label": "String Concatenation",
+      "group": "PYTH"
+    },
+    {
+      "id": 43,
+      "label": "List Indexing",
+      "group": "PYTH"
+    },
+    {
+      "id": 44,
+      "label": "List Iteration",
+      "group": "PYTH"
+    },
+    {
+      "id": 45,
+      "label": "Tuple Immutability",
+      "group": "PYTH"
+    },
+    {
+      "id": 46,
+      "label": "Modulo Operator",
+      "group": "PYTH"
+    },
+    {
+      "id": 47,
+      "label": "Integer Division",
+      "group": "PYTH"
+    },
+    {
+      "id": 48,
+      "label": "SyntaxError",
+      "group": "PYTH"
+    },
+    {
+      "id": 49,
+      "label": "NameError",
+      "group": "PYTH"
+    },
+    {
+      "id": 50,
+      "label": "IndentationError",
+      "group": "PYTH"
+    },
+    {
+      "id": 51,
+      "label": "TypeError",
+      "group": "PYTH"
+    },
+    {
+      "id": 52,
+      "label": "IndexError",
+      "group": "PYTH"
+    },
+    {
+      "id": 53,
+      "label": "Off-by-One Error",
+      "group": "PYTH"
+    },
+    {
+      "id": 54,
+      "label": "Code Readability",
+      "group": "PYTH"
+    },
+    {
+      "id": 55,
+      "label": "DRY Principle",
+      "group": "PYTH"
+    },
+    {
+      "id": 56,
+      "label": "MicroPython",
+      "group": "UPICO"
+    },
+    {
+      "id": 57,
+      "label": "Raspberry Pi Pico",
+      "group": "UPICO",
+      "shape": "box"
+    },
+    {
+      "id": 58,
+      "label": "Raspberry Pi Pico W",
+      "group": "UPICO"
+    },
+    {
+      "id": 59,
+      "label": "RP2040 Microcontroller",
+      "group": "UPICO"
+    },
+    {
+      "id": 60,
+      "label": "ARM Cortex M0+ Processor",
+      "group": "UPICO"
+    },
+    {
+      "id": 61,
+      "label": "Dual-Core Processing",
+      "group": "UPICO"
+    },
+    {
+      "id": 62,
+      "label": "264 KB SRAM",
+      "group": "UPICO"
+    },
+    {
+      "id": 63,
+      "label": "2 MB Flash Storage",
+      "group": "UPICO"
+    },
+    {
+      "id": 64,
+      "label": "GPIO Pins",
+      "group": "UPICO"
+    },
+    {
+      "id": 65,
+      "label": "Pin Numbering System",
+      "group": "UPICO"
+    },
+    {
+      "id": 66,
+      "label": "machine.Pin Class",
+      "group": "UPICO"
+    },
+    {
+      "id": 67,
+      "label": "Digital Output Mode",
+      "group": "UPICO"
+    },
+    {
+      "id": 68,
+      "label": "Digital Input Mode",
+      "group": "UPICO"
+    },
+    {
+      "id": 69,
+      "label": "Pin.high() Method",
+      "group": "UPICO"
+    },
+    {
+      "id": 70,
+      "label": "Pin.low() Method",
+      "group": "UPICO"
+    },
+    {
+      "id": 71,
+      "label": "Pin.value() Method",
+      "group": "UPICO"
+    },
+    {
+      "id": 72,
+      "label": "Pulse Width Modulation",
+      "group": "UPICO"
+    },
+    {
+      "id": 73,
+      "label": "PWM Frequency Setting",
+      "group": "UPICO"
+    },
+    {
+      "id": 74,
+      "label": "PWM Duty Cycle",
+      "group": "UPICO"
+    },
+    {
+      "id": 75,
+      "label": "Analog to Digital Converter",
+      "group": "UPICO"
+    },
+    {
+      "id": 76,
+      "label": "16-Bit ADC Resolution",
+      "group": "UPICO"
+    },
+    {
+      "id": 77,
+      "label": "ADC.read_u16() Method",
+      "group": "UPICO"
+    },
+    {
+      "id": 78,
+      "label": "utime Module",
+      "group": "UPICO"
+    },
+    {
+      "id": 79,
+      "label": "sleep() Function",
+      "group": "UPICO"
+    },
+    {
+      "id": 80,
+      "label": "ticks_ms() Function",
+      "group": "UPICO"
+    },
+    {
+      "id": 81,
+      "label": "ticks_us() Function",
+      "group": "UPICO"
+    },
+    {
+      "id": 82,
+      "label": "localtime() Function",
+      "group": "UPICO"
+    },
+    {
+      "id": 83,
+      "label": "urandom Module",
+      "group": "UPICO"
+    },
+    {
+      "id": 84,
+      "label": "randint() Function",
+      "group": "UPICO"
+    },
+    {
+      "id": 85,
+      "label": "neopixel Module",
+      "group": "UPICO"
+    },
+    {
+      "id": 86,
+      "label": "NeoPixel Class",
+      "group": "UPICO"
+    },
+    {
+      "id": 87,
+      "label": "Firmware",
+      "group": "UPICO"
+    },
+    {
+      "id": 88,
+      "label": "UF2 File Format",
+      "group": "UPICO"
+    },
+    {
+      "id": 89,
+      "label": "BOOTSEL Button",
+      "group": "UPICO"
+    },
+    {
+      "id": 90,
+      "label": "Drag-and-Drop Flashing",
+      "group": "UPICO"
+    },
+    {
+      "id": 91,
+      "label": "REPL",
+      "group": "UPICO"
+    },
+    {
+      "id": 92,
+      "label": "main.py Auto-Run",
+      "group": "UPICO"
+    },
+    {
+      "id": 93,
+      "label": "Pico File System",
+      "group": "UPICO"
+    },
+    {
+      "id": 94,
+      "label": "Serial Console",
+      "group": "UPICO"
+    },
+    {
+      "id": 95,
+      "label": "USB Connectivity",
+      "group": "UPICO"
+    },
+    {
+      "id": 96,
+      "label": "Thonny IDE",
+      "group": "UPICO"
+    },
+    {
+      "id": 97,
+      "label": "Thonny File Manager",
+      "group": "UPICO"
+    },
+    {
+      "id": 98,
+      "label": "Uploading Files to Pico",
+      "group": "UPICO"
+    },
+    {
+      "id": 99,
+      "label": "Running Scripts on Pico",
+      "group": "UPICO"
+    },
+    {
+      "id": 100,
+      "label": "Serial Console Debugging",
+      "group": "UPICO"
+    },
+    {
+      "id": 101,
+      "label": "NeoPixel LED",
+      "group": "NEO",
+      "shape": "box"
+    },
+    {
+      "id": 102,
+      "label": "WS2812B Integrated Circuit",
+      "group": "NEO"
+    },
+    {
+      "id": 103,
+      "label": "Addressable LED",
+      "group": "NEO"
+    },
+    {
+      "id": 104,
+      "label": "Single-Wire Serial Protocol",
+      "group": "NEO"
+    },
+    {
+      "id": 105,
+      "label": "24-Bit Color Data Format",
+      "group": "NEO"
+    },
+    {
+      "id": 106,
+      "label": "LED Data Chaining",
+      "group": "NEO"
+    },
+    {
+      "id": 107,
+      "label": "Data Stripping",
+      "group": "NEO"
+    },
+    {
+      "id": 108,
+      "label": "Three-Wire LED Connection",
+      "group": "NEO"
+    },
+    {
+      "id": 109,
+      "label": "5V Power Requirement",
+      "group": "NEO"
+    },
+    {
+      "id": 110,
+      "label": "20 mA Per Pixel",
+      "group": "NEO"
+    },
+    {
+      "id": 111,
+      "label": "LED Strip Form Factor",
+      "group": "NEO"
+    },
+    {
+      "id": 112,
+      "label": "LED Ring Form Factor",
+      "group": "NEO"
+    },
+    {
+      "id": 113,
+      "label": "LED Matrix Form Factor",
+      "group": "NEO"
+    },
+    {
+      "id": 114,
+      "label": "NeoPixel Fairy Lights",
+      "group": "NEO"
+    },
+    {
+      "id": 115,
+      "label": "IP20 Weather Rating",
+      "group": "NEO"
+    },
+    {
+      "id": 116,
+      "label": "IP65 Weather Rating",
+      "group": "NEO"
+    },
+    {
+      "id": 117,
+      "label": "IP67 Weather Rating",
+      "group": "NEO"
+    },
+    {
+      "id": 118,
+      "label": "Pixel Indexing",
+      "group": "NEO"
+    },
+    {
+      "id": 119,
+      "label": "strip.write() Method",
+      "group": "NEO"
+    },
+    {
+      "id": 120,
+      "label": "RGB Tuple Format",
+      "group": "NEO"
+    },
+    {
+      "id": 121,
+      "label": "Color Value Range",
+      "group": "NEO"
+    },
+    {
+      "id": 122,
+      "label": "8-Bit Color Depth",
+      "group": "NEO"
+    },
+    {
+      "id": 123,
+      "label": "Number of Pixels Parameter",
+      "group": "NEO"
+    },
+    {
+      "id": 124,
+      "label": "Data Pin Parameter",
+      "group": "NEO"
+    },
+    {
+      "id": 125,
+      "label": "NeoPixel Class Instantiation",
+      "group": "NEO"
+    },
+    {
+      "id": 126,
+      "label": "LED Strip Polarity",
+      "group": "NEO"
+    },
+    {
+      "id": 127,
+      "label": "Setting Individual Pixels",
+      "group": "NEO"
+    },
+    {
+      "id": 128,
+      "label": "Clearing All Pixels",
+      "group": "NEO"
+    },
+    {
+      "id": 129,
+      "label": "WS2811 vs WS2812B",
+      "group": "NEO"
+    },
+    {
+      "id": 130,
+      "label": "SK6812 RGBW Variant",
+      "group": "NEO"
+    },
+    {
+      "id": 131,
+      "label": "LED Refresh Rate",
+      "group": "NEO"
+    },
+    {
+      "id": 132,
+      "label": "Maximum Strip Brightness",
+      "group": "NEO"
+    },
+    {
+      "id": 133,
+      "label": "LED Power Scaling",
+      "group": "NEO"
+    },
+    {
+      "id": 134,
+      "label": "LED Strip Density",
+      "group": "NEO"
+    },
+    {
+      "id": 135,
+      "label": "LED Chain Data Timing",
+      "group": "NEO"
+    },
+    {
+      "id": 136,
+      "label": "Data Signal Voltage Level",
+      "group": "NEO"
+    },
+    {
+      "id": 137,
+      "label": "Level Shifter for 5V Data",
+      "group": "NEO"
+    },
+    {
+      "id": 138,
+      "label": "LED Strip Segmentation",
+      "group": "NEO"
+    },
+    {
+      "id": 139,
+      "label": "Pixel Group Operations",
+      "group": "NEO"
+    },
+    {
+      "id": 140,
+      "label": "NeoPixel Library Overview",
+      "group": "NEO"
+    },
+    {
+      "id": 141,
+      "label": "RGB Color Model",
+      "group": "COLOR",
+      "shape": "box"
+    },
+    {
+      "id": 142,
+      "label": "Additive Color Mixing",
+      "group": "COLOR"
+    },
+    {
+      "id": 143,
+      "label": "Subtractive Color Mixing",
+      "group": "COLOR"
+    },
+    {
+      "id": 144,
+      "label": "Red as Primary Light Color",
+      "group": "COLOR"
+    },
+    {
+      "id": 145,
+      "label": "Green as Primary Light Color",
+      "group": "COLOR"
+    },
+    {
+      "id": 146,
+      "label": "Blue as Primary Light Color",
+      "group": "COLOR"
+    },
+    {
+      "id": 147,
+      "label": "Black Color",
+      "group": "COLOR"
+    },
+    {
+      "id": 148,
+      "label": "White Color",
+      "group": "COLOR"
+    },
+    {
+      "id": 149,
+      "label": "Color Wheel",
+      "group": "COLOR"
+    },
+    {
+      "id": 150,
+      "label": "Spectral Color Sequence",
+      "group": "COLOR"
+    },
+    {
+      "id": 151,
+      "label": "Named Color Constants",
+      "group": "COLOR"
+    },
+    {
+      "id": 152,
+      "label": "Color Mixing by Channel",
+      "group": "COLOR"
+    },
+    {
+      "id": 153,
+      "label": "Color Interpolation",
+      "group": "COLOR"
+    },
+    {
+      "id": 154,
+      "label": "Smooth Color Transition",
+      "group": "COLOR"
+    },
+    {
+      "id": 155,
+      "label": "Hue",
+      "group": "COLOR"
+    },
+    {
+      "id": 156,
+      "label": "Saturation",
+      "group": "COLOR"
+    },
+    {
+      "id": 157,
+      "label": "Value (Brightness Level)",
+      "group": "COLOR"
+    },
+    {
+      "id": 158,
+      "label": "HSV Color Model",
+      "group": "COLOR"
+    },
+    {
+      "id": 159,
+      "label": "RGB to HSV Conversion",
+      "group": "COLOR"
+    },
+    {
+      "id": 160,
+      "label": "HSV to RGB Conversion",
+      "group": "COLOR"
+    },
+    {
+      "id": 161,
+      "label": "Complementary Colors",
+      "group": "COLOR"
+    },
+    {
+      "id": 162,
+      "label": "Analogous Colors",
+      "group": "COLOR"
+    },
+    {
+      "id": 163,
+      "label": "Color Temperature",
+      "group": "COLOR"
+    },
+    {
+      "id": 164,
+      "label": "Warm Colors",
+      "group": "COLOR"
+    },
+    {
+      "id": 165,
+      "label": "Cool Colors",
+      "group": "COLOR"
+    },
+    {
+      "id": 166,
+      "label": "Color Contrast",
+      "group": "COLOR"
+    },
+    {
+      "id": 167,
+      "label": "Color Harmony",
+      "group": "COLOR"
+    },
+    {
+      "id": 168,
+      "label": "Gamma Correction",
+      "group": "COLOR"
+    },
+    {
+      "id": 169,
+      "label": "Gamma Value",
+      "group": "COLOR"
+    },
+    {
+      "id": 170,
+      "label": "Perceived Brightness",
+      "group": "COLOR"
+    },
+    {
+      "id": 171,
+      "label": "Linear Brightness",
+      "group": "COLOR"
+    },
+    {
+      "id": 172,
+      "label": "Gamma Lookup Table",
+      "group": "COLOR"
+    },
+    {
+      "id": 173,
+      "label": "Normalized Color Values",
+      "group": "COLOR"
+    },
+    {
+      "id": 174,
+      "label": "Color Psychology",
+      "group": "COLOR"
+    },
+    {
+      "id": 175,
+      "label": "Color Perception",
+      "group": "COLOR"
+    },
+    {
+      "id": 176,
+      "label": "Triadic Color Scheme",
+      "group": "COLOR"
+    },
+    {
+      "id": 177,
+      "label": "Color Palette Design",
+      "group": "COLOR"
+    },
+    {
+      "id": 178,
+      "label": "Color Fade Effect",
+      "group": "COLOR"
+    },
+    {
+      "id": 179,
+      "label": "Color Gradient",
+      "group": "COLOR"
+    },
+    {
+      "id": 180,
+      "label": "Color Sequence Array",
+      "group": "COLOR"
+    },
+    {
+      "id": 181,
+      "label": "Blink Pattern",
+      "group": "ANIM"
+    },
+    {
+      "id": 182,
+      "label": "Fade In and Out",
+      "group": "ANIM"
+    },
+    {
+      "id": 183,
+      "label": "Heartbeat Pattern",
+      "group": "ANIM"
+    },
+    {
+      "id": 184,
+      "label": "Color Wipe Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 185,
+      "label": "Moving Pixel Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 186,
+      "label": "Bounce Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 187,
+      "label": "Moving Bands Pattern",
+      "group": "ANIM"
+    },
+    {
+      "id": 188,
+      "label": "Rainbow Static Pattern",
+      "group": "ANIM"
+    },
+    {
+      "id": 189,
+      "label": "Moving Rainbow Pattern",
+      "group": "ANIM"
+    },
+    {
+      "id": 190,
+      "label": "Rainbow Cycle",
+      "group": "ANIM"
+    },
+    {
+      "id": 191,
+      "label": "Comet Tail Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 192,
+      "label": "Larson Scanner Pattern",
+      "group": "ANIM"
+    },
+    {
+      "id": 193,
+      "label": "Theater Chase Pattern",
+      "group": "ANIM"
+    },
+    {
+      "id": 194,
+      "label": "Ripple Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 195,
+      "label": "Twinkle Effect",
+      "group": "ANIM"
+    },
+    {
+      "id": 196,
+      "label": "Candle Flicker Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 197,
+      "label": "Random Colors Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 198,
+      "label": "Random Walk Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 199,
+      "label": "Clock Display Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 200,
+      "label": "Frame-Based Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 201,
+      "label": "Animation Delay",
+      "group": "ANIM"
+    },
+    {
+      "id": 202,
+      "label": "Animation Speed Control",
+      "group": "ANIM"
+    },
+    {
+      "id": 203,
+      "label": "Position Tracking Variable",
+      "group": "ANIM"
+    },
+    {
+      "id": 204,
+      "label": "Direction Variable",
+      "group": "ANIM"
+    },
+    {
+      "id": 205,
+      "label": "Bounce Logic",
+      "group": "ANIM"
+    },
+    {
+      "id": 206,
+      "label": "Modulo Wrapping",
+      "group": "ANIM"
+    },
+    {
+      "id": 207,
+      "label": "Brightness Scaling Factor",
+      "group": "ANIM"
+    },
+    {
+      "id": 208,
+      "label": "Color Trail with Fading",
+      "group": "ANIM"
+    },
+    {
+      "id": 209,
+      "label": "Pixel Offset Calculation",
+      "group": "ANIM"
+    },
+    {
+      "id": 210,
+      "label": "Sequential Pixel Lighting",
+      "group": "ANIM"
+    },
+    {
+      "id": 211,
+      "label": "Parallel Pixel Update",
+      "group": "ANIM"
+    },
+    {
+      "id": 212,
+      "label": "Animation Loop Structure",
+      "group": "ANIM"
+    },
+    {
+      "id": 213,
+      "label": "Frame Rate Concept",
+      "group": "ANIM"
+    },
+    {
+      "id": 214,
+      "label": "Timing with utime Module",
+      "group": "ANIM"
+    },
+    {
+      "id": 215,
+      "label": "Comet Trail Length",
+      "group": "ANIM"
+    },
+    {
+      "id": 216,
+      "label": "Scanner Width Parameter",
+      "group": "ANIM"
+    },
+    {
+      "id": 217,
+      "label": "Chase Group Size",
+      "group": "ANIM"
+    },
+    {
+      "id": 218,
+      "label": "Ripple Decay Rate",
+      "group": "ANIM"
+    },
+    {
+      "id": 219,
+      "label": "Flicker Randomness",
+      "group": "ANIM"
+    },
+    {
+      "id": 220,
+      "label": "Pattern Composition",
+      "group": "ANIM"
+    },
+    {
+      "id": 221,
+      "label": "Multi-Pattern Program",
+      "group": "ANIM"
+    },
+    {
+      "id": 222,
+      "label": "Pattern Switching Logic",
+      "group": "ANIM"
+    },
+    {
+      "id": 223,
+      "label": "Animation State Variable",
+      "group": "ANIM"
+    },
+    {
+      "id": 224,
+      "label": "Brightness Array",
+      "group": "ANIM"
+    },
+    {
+      "id": 225,
+      "label": "Animation Parameterization",
+      "group": "ANIM"
+    },
+    {
+      "id": 226,
+      "label": "Color Palette Selection",
+      "group": "ANIM"
+    },
+    {
+      "id": 227,
+      "label": "Speed Parameter",
+      "group": "ANIM"
+    },
+    {
+      "id": 228,
+      "label": "Delay Function Selection",
+      "group": "ANIM"
+    },
+    {
+      "id": 229,
+      "label": "Brightness Envelope",
+      "group": "ANIM"
+    },
+    {
+      "id": 230,
+      "label": "Step Size in Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 231,
+      "label": "Offset and Phase",
+      "group": "ANIM"
+    },
+    {
+      "id": 232,
+      "label": "Time-Based Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 233,
+      "label": "Clock with localtime()",
+      "group": "ANIM"
+    },
+    {
+      "id": 234,
+      "label": "Seconds and Minutes Display",
+      "group": "ANIM"
+    },
+    {
+      "id": 235,
+      "label": "Color Mapping to Time",
+      "group": "ANIM"
+    },
+    {
+      "id": 236,
+      "label": "LED as Clock Hands",
+      "group": "ANIM"
+    },
+    {
+      "id": 237,
+      "label": "Photo-Reactive Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 238,
+      "label": "Button-Triggered Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 239,
+      "label": "Sensor-Driven Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 240,
+      "label": "Mode-Based Animation",
+      "group": "ANIM"
+    },
+    {
+      "id": 241,
+      "label": "Animation Restart Logic",
+      "group": "ANIM"
+    },
+    {
+      "id": 242,
+      "label": "Single-Color Scan",
+      "group": "ANIM"
+    },
+    {
+      "id": 243,
+      "label": "Dual-Direction Scan",
+      "group": "ANIM"
+    },
+    {
+      "id": 244,
+      "label": "Alternating Pixel Groups",
+      "group": "ANIM"
+    },
+    {
+      "id": 245,
+      "label": "Expanding Ripple Rings",
+      "group": "ANIM"
+    },
+    {
+      "id": 246,
+      "label": "Voltage",
+      "group": "ELEC",
+      "shape": "box"
+    },
+    {
+      "id": 247,
+      "label": "Electrical Current",
+      "group": "ELEC",
+      "shape": "box"
+    },
+    {
+      "id": 248,
+      "label": "Resistance",
+      "group": "ELEC",
+      "shape": "box"
+    },
+    {
+      "id": 249,
+      "label": "Ohm's Law",
+      "group": "ELEC"
+    },
+    {
+      "id": 250,
+      "label": "Power Formula",
+      "group": "ELEC"
+    },
+    {
+      "id": 251,
+      "label": "Electrical Polarity",
+      "group": "ELEC"
+    },
+    {
+      "id": 252,
+      "label": "Ground (GND)",
+      "group": "ELEC"
+    },
+    {
+      "id": 253,
+      "label": "Complete Circuit Path",
+      "group": "ELEC"
+    },
+    {
+      "id": 254,
+      "label": "Short Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 255,
+      "label": "Open Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 256,
+      "label": "Breadboard",
+      "group": "ELEC",
+      "shape": "box"
+    },
+    {
+      "id": 257,
+      "label": "Jumper Wires",
+      "group": "ELEC"
+    },
+    {
+      "id": 258,
+      "label": "Current-Limiting Resistor",
+      "group": "ELEC"
+    },
+    {
+      "id": 259,
+      "label": "Pull-Up Resistor",
+      "group": "ELEC"
+    },
+    {
+      "id": 260,
+      "label": "Pull-Down Resistor",
+      "group": "ELEC"
+    },
+    {
+      "id": 261,
+      "label": "Potentiometer",
+      "group": "ELEC"
+    },
+    {
+      "id": 262,
+      "label": "Potentiometer Wiper",
+      "group": "ELEC"
+    },
+    {
+      "id": 263,
+      "label": "Light-Dependent Resistor",
+      "group": "ELEC"
+    },
+    {
+      "id": 264,
+      "label": "Photoresistor Curve",
+      "group": "ELEC"
+    },
+    {
+      "id": 265,
+      "label": "NPN Transistor",
+      "group": "ELEC"
+    },
+    {
+      "id": 266,
+      "label": "2N2222 Transistor",
+      "group": "ELEC"
+    },
+    {
+      "id": 267,
+      "label": "Transistor Base Terminal",
+      "group": "ELEC"
+    },
+    {
+      "id": 268,
+      "label": "Transistor Collector Terminal",
+      "group": "ELEC"
+    },
+    {
+      "id": 269,
+      "label": "Transistor Emitter Terminal",
+      "group": "ELEC"
+    },
+    {
+      "id": 270,
+      "label": "Transistor Current Gain",
+      "group": "ELEC"
+    },
+    {
+      "id": 271,
+      "label": "Transistor as Switch",
+      "group": "ELEC"
+    },
+    {
+      "id": 272,
+      "label": "Voltage Divider Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 273,
+      "label": "Voltage Divider Formula",
+      "group": "ELEC"
+    },
+    {
+      "id": 274,
+      "label": "Static LED Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 275,
+      "label": "Dynamic LED Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 276,
+      "label": "LED Dimmer Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 277,
+      "label": "Transistor Driver Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 278,
+      "label": "Analog Nightlight Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 279,
+      "label": "Multimeter Overview",
+      "group": "ELEC"
+    },
+    {
+      "id": 280,
+      "label": "Resistance Measurement",
+      "group": "ELEC"
+    },
+    {
+      "id": 281,
+      "label": "Voltage Measurement",
+      "group": "ELEC"
+    },
+    {
+      "id": 282,
+      "label": "Series Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 283,
+      "label": "Parallel Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 284,
+      "label": "Milliamps (mA)",
+      "group": "ELEC"
+    },
+    {
+      "id": 285,
+      "label": "Milliamp-Hours (mAh)",
+      "group": "ELEC"
+    },
+    {
+      "id": 286,
+      "label": "Battery Capacity",
+      "group": "ELEC"
+    },
+    {
+      "id": 287,
+      "label": "Battery Life Formula",
+      "group": "ELEC"
+    },
+    {
+      "id": 288,
+      "label": "Coin Cell Battery",
+      "group": "ELEC"
+    },
+    {
+      "id": 289,
+      "label": "AA Alkaline Battery",
+      "group": "ELEC"
+    },
+    {
+      "id": 290,
+      "label": "AAA Alkaline Battery",
+      "group": "ELEC"
+    },
+    {
+      "id": 291,
+      "label": "9-Volt Battery",
+      "group": "ELEC"
+    },
+    {
+      "id": 292,
+      "label": "USB Power Bank",
+      "group": "ELEC"
+    },
+    {
+      "id": 293,
+      "label": "LiPo Battery",
+      "group": "ELEC"
+    },
+    {
+      "id": 294,
+      "label": "18650 Lithium Cell",
+      "group": "ELEC"
+    },
+    {
+      "id": 295,
+      "label": "Series Battery Configuration",
+      "group": "ELEC"
+    },
+    {
+      "id": 296,
+      "label": "Parallel Battery Configuration",
+      "group": "ELEC"
+    },
+    {
+      "id": 297,
+      "label": "Battery Charging Circuit",
+      "group": "ELEC"
+    },
+    {
+      "id": 298,
+      "label": "TC4056 Charger IC",
+      "group": "ELEC"
+    },
+    {
+      "id": 299,
+      "label": "Overcharge Protection",
+      "group": "ELEC"
+    },
+    {
+      "id": 300,
+      "label": "Over-Discharge Protection",
+      "group": "ELEC"
+    },
+    {
+      "id": 301,
+      "label": "Charging Current Setting",
+      "group": "ELEC"
+    },
+    {
+      "id": 302,
+      "label": "LED Current Draw",
+      "group": "ELEC"
+    },
+    {
+      "id": 303,
+      "label": "Total System Current Draw",
+      "group": "ELEC"
+    },
+    {
+      "id": 304,
+      "label": "Power Consumption Calculation",
+      "group": "ELEC"
+    },
+    {
+      "id": 305,
+      "label": "Heat Dissipation",
+      "group": "ELEC"
+    },
+    {
+      "id": 306,
+      "label": "Component Power Rating",
+      "group": "ELEC"
+    },
+    {
+      "id": 307,
+      "label": "Voltage Regulator",
+      "group": "ELEC"
+    },
+    {
+      "id": 308,
+      "label": "Buck Converter",
+      "group": "ELEC"
+    },
+    {
+      "id": 309,
+      "label": "Capacitor for Power Smoothing",
+      "group": "ELEC"
+    },
+    {
+      "id": 310,
+      "label": "Diode for Polarity Protection",
+      "group": "ELEC"
+    },
+    {
+      "id": 311,
+      "label": "Solderless Circuit Assembly",
+      "group": "ELEC"
+    },
+    {
+      "id": 312,
+      "label": "Circuit Diagram Reading",
+      "group": "ELEC"
+    },
+    {
+      "id": 313,
+      "label": "Wire Color Conventions",
+      "group": "ELEC"
+    },
+    {
+      "id": 314,
+      "label": "LED Forward Voltage",
+      "group": "ELEC"
+    },
+    {
+      "id": 315,
+      "label": "LED Series Resistor Calculation",
+      "group": "ELEC"
+    },
+    {
+      "id": 316,
+      "label": "Decomposition",
+      "group": "CT",
+      "shape": "box"
+    },
+    {
+      "id": 317,
+      "label": "Pattern Recognition",
+      "group": "CT",
+      "shape": "box"
+    },
+    {
+      "id": 318,
+      "label": "Abstraction",
+      "group": "CT",
+      "shape": "box"
+    },
+    {
+      "id": 319,
+      "label": "Algorithm Design",
+      "group": "CT",
+      "shape": "box"
+    },
+    {
+      "id": 320,
+      "label": "Pseudocode Writing",
+      "group": "CT"
+    },
+    {
+      "id": 321,
+      "label": "Flowchart Creation",
+      "group": "CT"
+    },
+    {
+      "id": 322,
+      "label": "Problem-Solving Steps",
+      "group": "CT"
+    },
+    {
+      "id": 323,
+      "label": "Breaking Down Problems",
+      "group": "CT"
+    },
+    {
+      "id": 324,
+      "label": "Identifying Repeated Code",
+      "group": "CT"
+    },
+    {
+      "id": 325,
+      "label": "Hiding Implementation Details",
+      "group": "CT"
+    },
+    {
+      "id": 326,
+      "label": "Generalizing a Solution",
+      "group": "CT"
+    },
+    {
+      "id": 327,
+      "label": "Template-Based Solving",
+      "group": "CT"
+    },
+    {
+      "id": 328,
+      "label": "Code Reuse via Functions",
+      "group": "CT"
+    },
+    {
+      "id": 329,
+      "label": "Event-Based Thinking",
+      "group": "CT"
+    },
+    {
+      "id": 330,
+      "label": "State-Based Thinking",
+      "group": "CT"
+    },
+    {
+      "id": 331,
+      "label": "Iterative Development",
+      "group": "CT"
+    },
+    {
+      "id": 332,
+      "label": "Test Cases",
+      "group": "CT"
+    },
+    {
+      "id": 333,
+      "label": "Edge Case Identification",
+      "group": "CT"
+    },
+    {
+      "id": 334,
+      "label": "Boundary Conditions",
+      "group": "CT"
+    },
+    {
+      "id": 335,
+      "label": "Debugging Methodology",
+      "group": "CT"
+    },
+    {
+      "id": 336,
+      "label": "Systematic Troubleshooting",
+      "group": "CT"
+    },
+    {
+      "id": 337,
+      "label": "Divide and Conquer",
+      "group": "CT"
+    },
+    {
+      "id": 338,
+      "label": "Bottom-Up Problem Solving",
+      "group": "CT"
+    },
+    {
+      "id": 339,
+      "label": "Top-Down Problem Solving",
+      "group": "CT"
+    },
+    {
+      "id": 340,
+      "label": "Documentation as Communication",
+      "group": "CT"
+    },
+    {
+      "id": 341,
+      "label": "Code Commenting Strategy",
+      "group": "CT"
+    },
+    {
+      "id": 342,
+      "label": "Readable Variable Names",
+      "group": "CT"
+    },
+    {
+      "id": 343,
+      "label": "Meaningful Function Names",
+      "group": "CT"
+    },
+    {
+      "id": 344,
+      "label": "Separation of Concerns",
+      "group": "CT"
+    },
+    {
+      "id": 345,
+      "label": "Modular Program Design",
+      "group": "CT"
+    },
+    {
+      "id": 346,
+      "label": "Momentary Push Button",
+      "group": "INPUT"
+    },
+    {
+      "id": 347,
+      "label": "Button Wiring to GPIO",
+      "group": "INPUT"
+    },
+    {
+      "id": 348,
+      "label": "GPIO Input Mode Setup",
+      "group": "INPUT"
+    },
+    {
+      "id": 349,
+      "label": "Pin.PULL_UP Configuration",
+      "group": "INPUT"
+    },
+    {
+      "id": 350,
+      "label": "Pin.PULL_DOWN Configuration",
+      "group": "INPUT"
+    },
+    {
+      "id": 351,
+      "label": "Polling a Button State",
+      "group": "INPUT"
+    },
+    {
+      "id": 352,
+      "label": "Button Debouncing",
+      "group": "INPUT"
+    },
+    {
+      "id": 353,
+      "label": "Debounce Delay Value",
+      "group": "INPUT"
+    },
+    {
+      "id": 354,
+      "label": "Software Debounce Pattern",
+      "group": "INPUT"
+    },
+    {
+      "id": 355,
+      "label": "Multiple Button Handling",
+      "group": "INPUT"
+    },
+    {
+      "id": 356,
+      "label": "Mode Variable",
+      "group": "INPUT"
+    },
+    {
+      "id": 357,
+      "label": "Mode Cycling Logic",
+      "group": "INPUT"
+    },
+    {
+      "id": 358,
+      "label": "Mode Switching on Button",
+      "group": "INPUT"
+    },
+    {
+      "id": 359,
+      "label": "State Machine Pattern",
+      "group": "INPUT"
+    },
+    {
+      "id": 360,
+      "label": "Current Mode Tracking",
+      "group": "INPUT"
+    },
+    {
+      "id": 361,
+      "label": "State Transition Logic",
+      "group": "INPUT"
+    },
+    {
+      "id": 362,
+      "label": "Event-Driven Programming",
+      "group": "INPUT"
+    },
+    {
+      "id": 363,
+      "label": "Photoresistor Sensor",
+      "group": "INPUT"
+    },
+    {
+      "id": 364,
+      "label": "ADC Voltage Reading",
+      "group": "INPUT"
+    },
+    {
+      "id": 365,
+      "label": "Sensor Value Mapping",
+      "group": "INPUT"
+    },
+    {
+      "id": 366,
+      "label": "Light Threshold Setting",
+      "group": "INPUT"
+    },
+    {
+      "id": 367,
+      "label": "Automatic Nightlight Trigger",
+      "group": "INPUT"
+    },
+    {
+      "id": 368,
+      "label": "Analog Value Smoothing",
+      "group": "INPUT"
+    },
+    {
+      "id": 369,
+      "label": "Sensor Calibration Steps",
+      "group": "INPUT"
+    },
+    {
+      "id": 370,
+      "label": "Interrupt vs Polling",
+      "group": "INPUT"
+    },
+    {
+      "id": 371,
+      "label": "Button Long-Press Logic",
+      "group": "INPUT"
+    },
+    {
+      "id": 372,
+      "label": "Two-Button Combination",
+      "group": "INPUT"
+    },
+    {
+      "id": 373,
+      "label": "Button LED Test Pattern",
+      "group": "INPUT"
+    },
+    {
+      "id": 374,
+      "label": "Interactive Mode Controller",
+      "group": "INPUT"
+    },
+    {
+      "id": 375,
+      "label": "Real-Time Input Response",
+      "group": "INPUT"
+    },
+    {
+      "id": 376,
+      "label": "Input Validation",
+      "group": "INPUT"
+    },
+    {
+      "id": 377,
+      "label": "Sensor Data Range Mapping",
+      "group": "INPUT"
+    },
+    {
+      "id": 378,
+      "label": "Hysteresis in Sensor Reading",
+      "group": "INPUT"
+    },
+    {
+      "id": 379,
+      "label": "Capacitive Touch Concept",
+      "group": "INPUT"
+    },
+    {
+      "id": 380,
+      "label": "Input Abstraction Layer",
+      "group": "INPUT"
+    },
+    {
+      "id": 381,
+      "label": "Thonny IDE Overview",
+      "group": "TOOLS"
+    },
+    {
+      "id": 382,
+      "label": "Thonny REPL Panel",
+      "group": "TOOLS"
+    },
+    {
+      "id": 383,
+      "label": "Thonny Run Controls",
+      "group": "TOOLS"
+    },
+    {
+      "id": 384,
+      "label": "Syntax Highlighting",
+      "group": "TOOLS"
+    },
+    {
+      "id": 385,
+      "label": "Code Autocomplete",
+      "group": "TOOLS"
+    },
+    {
+      "id": 386,
+      "label": "Serial Console in Thonny",
+      "group": "TOOLS"
+    },
+    {
+      "id": 387,
+      "label": "REPL Interactive Testing",
+      "group": "TOOLS"
+    },
+    {
+      "id": 388,
+      "label": "File Upload Workflow",
+      "group": "TOOLS"
+    },
+    {
+      "id": 389,
+      "label": "Running Script on Pico",
+      "group": "TOOLS"
+    },
+    {
+      "id": 390,
+      "label": "Git Version Control",
+      "group": "TOOLS",
+      "shape": "box"
+    },
+    {
+      "id": 391,
+      "label": "git clone Command",
+      "group": "TOOLS"
+    },
+    {
+      "id": 392,
+      "label": "git add Command",
+      "group": "TOOLS"
+    },
+    {
+      "id": 393,
+      "label": "git commit Command",
+      "group": "TOOLS"
+    },
+    {
+      "id": 394,
+      "label": "git push Command",
+      "group": "TOOLS"
+    },
+    {
+      "id": 395,
+      "label": "git pull Command",
+      "group": "TOOLS"
+    },
+    {
+      "id": 396,
+      "label": "git status Command",
+      "group": "TOOLS"
+    },
+    {
+      "id": 397,
+      "label": "GitHub Repository",
+      "group": "TOOLS"
+    },
+    {
+      "id": 398,
+      "label": "Repository Structure",
+      "group": "TOOLS"
+    },
+    {
+      "id": 399,
+      "label": "README File Creation",
+      "group": "TOOLS"
+    },
+    {
+      "id": 400,
+      "label": "File Organization in Repo",
+      "group": "TOOLS"
+    },
+    {
+      "id": 401,
+      "label": "Firmware Flashing Workflow",
+      "group": "TOOLS"
+    },
+    {
+      "id": 402,
+      "label": "UF2 Drag-and-Drop Process",
+      "group": "TOOLS"
+    },
+    {
+      "id": 403,
+      "label": "Python Module Paths",
+      "group": "TOOLS"
+    },
+    {
+      "id": 404,
+      "label": "config.py Module Pattern",
+      "group": "TOOLS"
+    },
+    {
+      "id": 405,
+      "label": "Hardware Abstraction Layer",
+      "group": "TOOLS"
+    },
+    {
+      "id": 406,
+      "label": "Cross-Kit Compatibility",
+      "group": "TOOLS"
+    },
+    {
+      "id": 407,
+      "label": "Thonny Package Manager",
+      "group": "TOOLS"
+    },
+    {
+      "id": 408,
+      "label": "MicroPython Standard Library",
+      "group": "TOOLS"
+    },
+    {
+      "id": 409,
+      "label": "Code Backup with GitHub",
+      "group": "TOOLS"
+    },
+    {
+      "id": 410,
+      "label": "Commit Message Writing",
+      "group": "TOOLS"
+    },
+    {
+      "id": 411,
+      "label": "Project Ideation",
+      "group": "PROJ",
+      "shape": "box"
+    },
+    {
+      "id": 412,
+      "label": "Requirements Specification",
+      "group": "PROJ"
+    },
+    {
+      "id": 413,
+      "label": "Circuit Connection Diagram",
+      "group": "PROJ"
+    },
+    {
+      "id": 414,
+      "label": "Algorithm Pseudocode Plan",
+      "group": "PROJ"
+    },
+    {
+      "id": 415,
+      "label": "Milestone Planning",
+      "group": "PROJ"
+    },
+    {
+      "id": 416,
+      "label": "Timeline Creation",
+      "group": "PROJ"
+    },
+    {
+      "id": 417,
+      "label": "Iterative Development Cycle",
+      "group": "PROJ"
+    },
+    {
+      "id": 418,
+      "label": "Build-Test-Revise Cycle",
+      "group": "PROJ"
+    },
+    {
+      "id": 419,
+      "label": "Peer Code Review",
+      "group": "PROJ"
+    },
+    {
+      "id": 420,
+      "label": "Code Review Criteria",
+      "group": "PROJ"
+    },
+    {
+      "id": 421,
+      "label": "Inline Code Comments",
+      "group": "PROJ"
+    },
+    {
+      "id": 422,
+      "label": "Project Documentation",
+      "group": "PROJ"
+    },
+    {
+      "id": 423,
+      "label": "Technical Presentation Skills",
+      "group": "PROJ"
+    },
+    {
+      "id": 424,
+      "label": "Project Reflection",
+      "group": "PROJ"
+    },
+    {
+      "id": 425,
+      "label": "Wearable Electronics Design",
+      "group": "PROJ"
+    },
+    {
+      "id": 426,
+      "label": "LED Costume Project",
+      "group": "PROJ"
+    },
+    {
+      "id": 427,
+      "label": "Room Decoration Project",
+      "group": "PROJ"
+    },
+    {
+      "id": 428,
+      "label": "Interactive Art Installation",
+      "group": "PROJ"
+    },
+    {
+      "id": 429,
+      "label": "Practical Device Project",
+      "group": "PROJ"
+    },
+    {
+      "id": 430,
+      "label": "Solar-Powered LED System",
+      "group": "PROJ"
+    },
+    {
+      "id": 431,
+      "label": "LED Clock Project",
+      "group": "PROJ"
+    },
+    {
+      "id": 432,
+      "label": "LED Nightlight Project",
+      "group": "PROJ"
+    },
+    {
+      "id": 433,
+      "label": "Bike Safety Light Project",
+      "group": "PROJ"
+    },
+    {
+      "id": 434,
+      "label": "Project Proposal Document",
+      "group": "PROJ"
+    },
+    {
+      "id": 435,
+      "label": "Component Parts List",
+      "group": "PROJ"
+    },
+    {
+      "id": 436,
+      "label": "Project Testing Protocol",
+      "group": "PROJ"
+    },
+    {
+      "id": 437,
+      "label": "User Experience Design",
+      "group": "PROJ"
+    },
+    {
+      "id": 438,
+      "label": "Project Iteration",
+      "group": "PROJ"
+    },
+    {
+      "id": 439,
+      "label": "Final Project Demo",
+      "group": "PROJ"
+    },
+    {
+      "id": 440,
+      "label": "Capstone Presentation",
+      "group": "PROJ"
+    },
+    {
+      "id": 441,
+      "label": "Project Peer Feedback",
+      "group": "PROJ"
+    },
+    {
+      "id": 442,
+      "label": "Design Constraint Analysis",
+      "group": "PROJ"
+    },
+    {
+      "id": 443,
+      "label": "Project Complexity Estimate",
+      "group": "PROJ"
+    },
+    {
+      "id": 444,
+      "label": "Feature Prioritization",
+      "group": "PROJ"
+    },
+    {
+      "id": 445,
+      "label": "Minimum Viable Project",
+      "group": "PROJ"
+    },
+    {
+      "id": 446,
+      "label": "Modulo Arithmetic",
+      "group": "MATH"
+    },
+    {
+      "id": 447,
+      "label": "Integer Arithmetic",
+      "group": "MATH"
+    },
+    {
+      "id": 448,
+      "label": "Floating-Point Arithmetic",
+      "group": "MATH"
+    },
+    {
+      "id": 449,
+      "label": "Linear Interpolation",
+      "group": "MATH"
+    },
+    {
+      "id": 450,
+      "label": "Sine Wave Function",
+      "group": "MATH"
+    },
+    {
+      "id": 451,
+      "label": "math.pow() Function",
+      "group": "MATH"
+    },
+    {
+      "id": 452,
+      "label": "Normalization (0.0 to 1.0)",
+      "group": "MATH"
+    },
+    {
+      "id": 453,
+      "label": "Mapping Value Ranges",
+      "group": "MATH"
+    },
+    {
+      "id": 454,
+      "label": "Random Number Generation",
+      "group": "MATH"
+    },
+    {
+      "id": 455,
+      "label": "Pseudorandom Numbers",
+      "group": "MATH"
+    },
+    {
+      "id": 456,
+      "label": "Uniform Distribution",
+      "group": "MATH"
+    },
+    {
+      "id": 457,
+      "label": "Weighted Random Selection",
+      "group": "MATH"
+    },
+    {
+      "id": 458,
+      "label": "Array Index Calculation",
+      "group": "MATH"
+    },
+    {
+      "id": 459,
+      "label": "Brightness Formula",
+      "group": "MATH"
+    },
+    {
+      "id": 460,
+      "label": "Ohm's Law Arithmetic",
+      "group": "MATH"
+    },
+    {
+      "id": 461,
+      "label": "Battery Life Calculation",
+      "group": "MATH"
+    },
+    {
+      "id": 462,
+      "label": "Time Delay Calculation",
+      "group": "MATH"
+    },
+    {
+      "id": 463,
+      "label": "Percentage Calculations",
+      "group": "MATH"
+    },
+    {
+      "id": 464,
+      "label": "Ratio and Proportion",
+      "group": "MATH"
+    },
+    {
+      "id": 465,
+      "label": "Sequence Generation",
+      "group": "MATH"
+    },
+    {
+      "id": 466,
+      "label": "Step Size Calculation",
+      "group": "MATH"
+    },
+    {
+      "id": 467,
+      "label": "Phase Offset Calculation",
+      "group": "MATH"
+    },
+    {
+      "id": 468,
+      "label": "Exponential Decay",
+      "group": "MATH"
+    },
+    {
+      "id": 469,
+      "label": "Brightness Gamma Function",
+      "group": "MATH"
+    },
+    {
+      "id": 470,
+      "label": "Sine-Based Breathing Effect",
+      "group": "MATH"
+    },
+    {
+      "id": 471,
+      "label": "Coordinate Mapping",
+      "group": "MATH"
+    },
+    {
+      "id": 472,
+      "label": "Wrap-Around Arithmetic",
+      "group": "MATH"
+    },
+    {
+      "id": 473,
+      "label": "Scaling Between Ranges",
+      "group": "MATH"
+    },
+    {
+      "id": 474,
+      "label": "Floor and Ceiling Functions",
+      "group": "MATH"
+    },
+    {
+      "id": 475,
+      "label": "Absolute Value Function",
+      "group": "MATH"
+    },
+    {
+      "id": 476,
+      "label": "RP2040-Zero Form Factor",
+      "group": "HW"
+    },
+    {
+      "id": 477,
+      "label": "8x8 NeoPixel Matrix",
+      "group": "HW"
+    },
+    {
+      "id": 478,
+      "label": "16x16 LED Matrix",
+      "group": "HW"
+    },
+    {
+      "id": 479,
+      "label": "Raspberry Pi 500 Keyboard",
+      "group": "HW"
+    },
+    {
+      "id": 480,
+      "label": "Pi Keyboard RGB Effects",
+      "group": "HW"
+    },
+    {
+      "id": 481,
+      "label": "Electrical Safety Rules",
+      "group": "HW"
+    },
+    {
+      "id": 482,
+      "label": "Short Circuit Prevention",
+      "group": "HW"
+    },
+    {
+      "id": 483,
+      "label": "LiPo Battery Safe Handling",
+      "group": "HW"
+    },
+    {
+      "id": 484,
+      "label": "Wearable Safety Standards",
+      "group": "HW"
+    },
+    {
+      "id": 485,
+      "label": "USB Power Safety Limits",
+      "group": "HW"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 3,
+      "to": 1
+    },
+    {
+      "from": 3,
+      "to": 2
+    },
+    {
+      "from": 4,
+      "to": 2
+    },
+    {
+      "from": 4,
+      "to": 3
+    },
+    {
+      "from": 5,
+      "to": 4
+    },
+    {
+      "from": 6,
+      "to": 2
+    },
+    {
+      "from": 6,
+      "to": 3
+    },
+    {
+      "from": 7,
+      "to": 4
+    },
+    {
+      "from": 7,
+      "to": 5
+    },
+    {
+      "from": 8,
+      "to": 2
+    },
+    {
+      "from": 8,
+      "to": 4
+    },
+    {
+      "from": 8,
+      "to": 6
+    },
+    {
+      "from": 9,
+      "to": 8
+    },
+    {
+      "from": 10,
+      "to": 2
+    },
+    {
+      "from": 10,
+      "to": 7
+    },
+    {
+      "from": 11,
+      "to": 4
+    },
+    {
+      "from": 11,
+      "to": 5
+    },
+    {
+      "from": 11,
+      "to": 6
+    },
+    {
+      "from": 12,
+      "to": 4
+    },
+    {
+      "from": 12,
+      "to": 5
+    },
+    {
+      "from": 13,
+      "to": 4
+    },
+    {
+      "from": 13,
+      "to": 7
+    },
+    {
+      "from": 13,
+      "to": 12
+    },
+    {
+      "from": 14,
+      "to": 7
+    },
+    {
+      "from": 14,
+      "to": 13
+    },
+    {
+      "from": 15,
+      "to": 7
+    },
+    {
+      "from": 15,
+      "to": 13
+    },
+    {
+      "from": 15,
+      "to": 14
+    },
+    {
+      "from": 16,
+      "to": 3
+    },
+    {
+      "from": 16,
+      "to": 15
+    },
+    {
+      "from": 17,
+      "to": 16
+    },
+    {
+      "from": 18,
+      "to": 16
+    },
+    {
+      "from": 19,
+      "to": 16
+    },
+    {
+      "from": 19,
+      "to": 17
+    },
+    {
+      "from": 19,
+      "to": 18
+    },
+    {
+      "from": 20,
+      "to": 3
+    },
+    {
+      "from": 20,
+      "to": 8
+    },
+    {
+      "from": 21,
+      "to": 3
+    },
+    {
+      "from": 21,
+      "to": 15
+    },
+    {
+      "from": 22,
+      "to": 21
+    },
+    {
+      "from": 23,
+      "to": 20
+    },
+    {
+      "from": 23,
+      "to": 21
+    },
+    {
+      "from": 24,
+      "to": 20
+    },
+    {
+      "from": 24,
+      "to": 21
+    },
+    {
+      "from": 25,
+      "to": 3
+    },
+    {
+      "from": 25,
+      "to": 20
+    },
+    {
+      "from": 26,
+      "to": 4
+    },
+    {
+      "from": 26,
+      "to": 20
+    },
+    {
+      "from": 27,
+      "to": 8
+    },
+    {
+      "from": 28,
+      "to": 4
+    },
+    {
+      "from": 28,
+      "to": 11
+    },
+    {
+      "from": 29,
+      "to": 5
+    },
+    {
+      "from": 29,
+      "to": 11
+    },
+    {
+      "from": 30,
+      "to": 6
+    },
+    {
+      "from": 31,
+      "to": 1
+    },
+    {
+      "from": 32,
+      "to": 31
+    },
+    {
+      "from": 33,
+      "to": 31
+    },
+    {
+      "from": 34,
+      "to": 31
+    },
+    {
+      "from": 34,
+      "to": 32
+    },
+    {
+      "from": 35,
+      "to": 3
+    },
+    {
+      "from": 35,
+      "to": 31
+    },
+    {
+      "from": 36,
+      "to": 31
+    },
+    {
+      "from": 36,
+      "to": 35
+    },
+    {
+      "from": 37,
+      "to": 35
+    },
+    {
+      "from": 38,
+      "to": 1
+    },
+    {
+      "from": 39,
+      "to": 1
+    },
+    {
+      "from": 39,
+      "to": 38
+    },
+    {
+      "from": 40,
+      "to": 1
+    },
+    {
+      "from": 41,
+      "to": 1
+    },
+    {
+      "from": 42,
+      "to": 6
+    },
+    {
+      "from": 43,
+      "to": 4
+    },
+    {
+      "from": 43,
+      "to": 8
+    },
+    {
+      "from": 44,
+      "to": 8
+    },
+    {
+      "from": 44,
+      "to": 20
+    },
+    {
+      "from": 45,
+      "to": 8
+    },
+    {
+      "from": 45,
+      "to": 9
+    },
+    {
+      "from": 46,
+      "to": 4
+    },
+    {
+      "from": 46,
+      "to": 12
+    },
+    {
+      "from": 47,
+      "to": 4
+    },
+    {
+      "from": 47,
+      "to": 12
+    },
+    {
+      "from": 48,
+      "to": 1
+    },
+    {
+      "from": 48,
+      "to": 40
+    },
+    {
+      "from": 49,
+      "to": 1
+    },
+    {
+      "from": 49,
+      "to": 2
+    },
+    {
+      "from": 50,
+      "to": 1
+    },
+    {
+      "from": 50,
+      "to": 40
+    },
+    {
+      "from": 51,
+      "to": 1
+    },
+    {
+      "from": 51,
+      "to": 11
+    },
+    {
+      "from": 52,
+      "to": 8
+    },
+    {
+      "from": 52,
+      "to": 43
+    },
+    {
+      "from": 53,
+      "to": 26
+    },
+    {
+      "from": 53,
+      "to": 43
+    },
+    {
+      "from": 54,
+      "to": 31
+    },
+    {
+      "from": 54,
+      "to": 40
+    },
+    {
+      "from": 54,
+      "to": 41
+    },
+    {
+      "from": 55,
+      "to": 31
+    },
+    {
+      "from": 55,
+      "to": 34
+    },
+    {
+      "from": 55,
+      "to": 54
+    },
+    {
+      "from": 56,
+      "to": 1
+    },
+    {
+      "from": 56,
+      "to": 38
+    },
+    {
+      "from": 58,
+      "to": 57
+    },
+    {
+      "from": 59,
+      "to": 57
+    },
+    {
+      "from": 60,
+      "to": 59
+    },
+    {
+      "from": 61,
+      "to": 59
+    },
+    {
+      "from": 61,
+      "to": 60
+    },
+    {
+      "from": 62,
+      "to": 59
+    },
+    {
+      "from": 63,
+      "to": 59
+    },
+    {
+      "from": 64,
+      "to": 57
+    },
+    {
+      "from": 65,
+      "to": 64
+    },
+    {
+      "from": 66,
+      "to": 56
+    },
+    {
+      "from": 66,
+      "to": 64
+    },
+    {
+      "from": 66,
+      "to": 65
+    },
+    {
+      "from": 67,
+      "to": 66
+    },
+    {
+      "from": 68,
+      "to": 66
+    },
+    {
+      "from": 69,
+      "to": 66
+    },
+    {
+      "from": 69,
+      "to": 67
+    },
+    {
+      "from": 70,
+      "to": 66
+    },
+    {
+      "from": 70,
+      "to": 67
+    },
+    {
+      "from": 71,
+      "to": 66
+    },
+    {
+      "from": 71,
+      "to": 68
+    },
+    {
+      "from": 72,
+      "to": 56
+    },
+    {
+      "from": 72,
+      "to": 64
+    },
+    {
+      "from": 73,
+      "to": 72
+    },
+    {
+      "from": 74,
+      "to": 72
+    },
+    {
+      "from": 75,
+      "to": 56
+    },
+    {
+      "from": 75,
+      "to": 64
+    },
+    {
+      "from": 76,
+      "to": 75
+    },
+    {
+      "from": 77,
+      "to": 75
+    },
+    {
+      "from": 77,
+      "to": 76
+    },
+    {
+      "from": 78,
+      "to": 56
+    },
+    {
+      "from": 78,
+      "to": 38
+    },
+    {
+      "from": 79,
+      "to": 78
+    },
+    {
+      "from": 80,
+      "to": 78
+    },
+    {
+      "from": 81,
+      "to": 78
+    },
+    {
+      "from": 82,
+      "to": 78
+    },
+    {
+      "from": 83,
+      "to": 56
+    },
+    {
+      "from": 83,
+      "to": 38
+    },
+    {
+      "from": 84,
+      "to": 83
+    },
+    {
+      "from": 85,
+      "to": 56
+    },
+    {
+      "from": 85,
+      "to": 38
+    },
+    {
+      "from": 86,
+      "to": 85
+    },
+    {
+      "from": 87,
+      "to": 57
+    },
+    {
+      "from": 88,
+      "to": 87
+    },
+    {
+      "from": 89,
+      "to": 57
+    },
+    {
+      "from": 89,
+      "to": 87
+    },
+    {
+      "from": 90,
+      "to": 88
+    },
+    {
+      "from": 90,
+      "to": 89
+    },
+    {
+      "from": 91,
+      "to": 56
+    },
+    {
+      "from": 92,
+      "to": 56
+    },
+    {
+      "from": 92,
+      "to": 87
+    },
+    {
+      "from": 93,
+      "to": 56
+    },
+    {
+      "from": 93,
+      "to": 87
+    },
+    {
+      "from": 94,
+      "to": 56
+    },
+    {
+      "from": 94,
+      "to": 91
+    },
+    {
+      "from": 95,
+      "to": 57
+    },
+    {
+      "from": 96,
+      "to": 56
+    },
+    {
+      "from": 97,
+      "to": 93
+    },
+    {
+      "from": 97,
+      "to": 96
+    },
+    {
+      "from": 98,
+      "to": 95
+    },
+    {
+      "from": 98,
+      "to": 97
+    },
+    {
+      "from": 99,
+      "to": 96
+    },
+    {
+      "from": 99,
+      "to": 98
+    },
+    {
+      "from": 100,
+      "to": 30
+    },
+    {
+      "from": 100,
+      "to": 94
+    },
+    {
+      "from": 100,
+      "to": 99
+    },
+    {
+      "from": 102,
+      "to": 101
+    },
+    {
+      "from": 103,
+      "to": 101
+    },
+    {
+      "from": 104,
+      "to": 102
+    },
+    {
+      "from": 104,
+      "to": 103
+    },
+    {
+      "from": 105,
+      "to": 104
+    },
+    {
+      "from": 105,
+      "to": 141
+    },
+    {
+      "from": 106,
+      "to": 103
+    },
+    {
+      "from": 106,
+      "to": 104
+    },
+    {
+      "from": 107,
+      "to": 106
+    },
+    {
+      "from": 108,
+      "to": 101
+    },
+    {
+      "from": 108,
+      "to": 246
+    },
+    {
+      "from": 109,
+      "to": 101
+    },
+    {
+      "from": 109,
+      "to": 246
+    },
+    {
+      "from": 110,
+      "to": 101
+    },
+    {
+      "from": 110,
+      "to": 284
+    },
+    {
+      "from": 111,
+      "to": 101
+    },
+    {
+      "from": 112,
+      "to": 101
+    },
+    {
+      "from": 113,
+      "to": 101
+    },
+    {
+      "from": 114,
+      "to": 101
+    },
+    {
+      "from": 115,
+      "to": 101
+    },
+    {
+      "from": 116,
+      "to": 101
+    },
+    {
+      "from": 117,
+      "to": 101
+    },
+    {
+      "from": 118,
+      "to": 4
+    },
+    {
+      "from": 118,
+      "to": 103
+    },
+    {
+      "from": 119,
+      "to": 86
+    },
+    {
+      "from": 119,
+      "to": 104
+    },
+    {
+      "from": 120,
+      "to": 9
+    },
+    {
+      "from": 120,
+      "to": 141
+    },
+    {
+      "from": 121,
+      "to": 120
+    },
+    {
+      "from": 121,
+      "to": 141
+    },
+    {
+      "from": 122,
+      "to": 121
+    },
+    {
+      "from": 123,
+      "to": 86
+    },
+    {
+      "from": 124,
+      "to": 64
+    },
+    {
+      "from": 124,
+      "to": 86
+    },
+    {
+      "from": 125,
+      "to": 85
+    },
+    {
+      "from": 125,
+      "to": 86
+    },
+    {
+      "from": 125,
+      "to": 123
+    },
+    {
+      "from": 125,
+      "to": 124
+    },
+    {
+      "from": 126,
+      "to": 108
+    },
+    {
+      "from": 126,
+      "to": 251
+    },
+    {
+      "from": 127,
+      "to": 118
+    },
+    {
+      "from": 127,
+      "to": 120
+    },
+    {
+      "from": 127,
+      "to": 125
+    },
+    {
+      "from": 128,
+      "to": 127
+    },
+    {
+      "from": 129,
+      "to": 102
+    },
+    {
+      "from": 130,
+      "to": 101
+    },
+    {
+      "from": 130,
+      "to": 102
+    },
+    {
+      "from": 131,
+      "to": 104
+    },
+    {
+      "from": 132,
+      "to": 110
+    },
+    {
+      "from": 132,
+      "to": 121
+    },
+    {
+      "from": 133,
+      "to": 110
+    },
+    {
+      "from": 133,
+      "to": 121
+    },
+    {
+      "from": 134,
+      "to": 111
+    },
+    {
+      "from": 135,
+      "to": 104
+    },
+    {
+      "from": 135,
+      "to": 131
+    },
+    {
+      "from": 136,
+      "to": 104
+    },
+    {
+      "from": 136,
+      "to": 246
+    },
+    {
+      "from": 137,
+      "to": 136
+    },
+    {
+      "from": 138,
+      "to": 118
+    },
+    {
+      "from": 138,
+      "to": 127
+    },
+    {
+      "from": 139,
+      "to": 127
+    },
+    {
+      "from": 139,
+      "to": 138
+    },
+    {
+      "from": 140,
+      "to": 85
+    },
+    {
+      "from": 140,
+      "to": 86
+    },
+    {
+      "from": 142,
+      "to": 141
+    },
+    {
+      "from": 143,
+      "to": 141
+    },
+    {
+      "from": 144,
+      "to": 141
+    },
+    {
+      "from": 144,
+      "to": 142
+    },
+    {
+      "from": 145,
+      "to": 141
+    },
+    {
+      "from": 145,
+      "to": 142
+    },
+    {
+      "from": 146,
+      "to": 141
+    },
+    {
+      "from": 146,
+      "to": 142
+    },
+    {
+      "from": 147,
+      "to": 121
+    },
+    {
+      "from": 147,
+      "to": 141
+    },
+    {
+      "from": 148,
+      "to": 121
+    },
+    {
+      "from": 148,
+      "to": 141
+    },
+    {
+      "from": 149,
+      "to": 141
+    },
+    {
+      "from": 150,
+      "to": 149
+    },
+    {
+      "from": 151,
+      "to": 120
+    },
+    {
+      "from": 151,
+      "to": 141
+    },
+    {
+      "from": 152,
+      "to": 141
+    },
+    {
+      "from": 152,
+      "to": 144
+    },
+    {
+      "from": 152,
+      "to": 145
+    },
+    {
+      "from": 152,
+      "to": 146
+    },
+    {
+      "from": 153,
+      "to": 152
+    },
+    {
+      "from": 153,
+      "to": 448
+    },
+    {
+      "from": 154,
+      "to": 153
+    },
+    {
+      "from": 155,
+      "to": 149
+    },
+    {
+      "from": 156,
+      "to": 155
+    },
+    {
+      "from": 157,
+      "to": 141
+    },
+    {
+      "from": 158,
+      "to": 155
+    },
+    {
+      "from": 158,
+      "to": 156
+    },
+    {
+      "from": 158,
+      "to": 157
+    },
+    {
+      "from": 159,
+      "to": 141
+    },
+    {
+      "from": 159,
+      "to": 158
+    },
+    {
+      "from": 160,
+      "to": 141
+    },
+    {
+      "from": 160,
+      "to": 158
+    },
+    {
+      "from": 161,
+      "to": 149
+    },
+    {
+      "from": 162,
+      "to": 149
+    },
+    {
+      "from": 163,
+      "to": 141
+    },
+    {
+      "from": 164,
+      "to": 149
+    },
+    {
+      "from": 165,
+      "to": 149
+    },
+    {
+      "from": 166,
+      "to": 141
+    },
+    {
+      "from": 166,
+      "to": 157
+    },
+    {
+      "from": 167,
+      "to": 161
+    },
+    {
+      "from": 167,
+      "to": 162
+    },
+    {
+      "from": 168,
+      "to": 157
+    },
+    {
+      "from": 168,
+      "to": 170
+    },
+    {
+      "from": 169,
+      "to": 168
+    },
+    {
+      "from": 170,
+      "to": 157
+    },
+    {
+      "from": 171,
+      "to": 157
+    },
+    {
+      "from": 172,
+      "to": 168
+    },
+    {
+      "from": 172,
+      "to": 169
+    },
+    {
+      "from": 173,
+      "to": 121
+    },
+    {
+      "from": 173,
+      "to": 452
+    },
+    {
+      "from": 174,
+      "to": 141
+    },
+    {
+      "from": 175,
+      "to": 170
+    },
+    {
+      "from": 175,
+      "to": 174
+    },
+    {
+      "from": 176,
+      "to": 149
+    },
+    {
+      "from": 177,
+      "to": 152
+    },
+    {
+      "from": 177,
+      "to": 167
+    },
+    {
+      "from": 178,
+      "to": 121
+    },
+    {
+      "from": 178,
+      "to": 154
+    },
+    {
+      "from": 179,
+      "to": 153
+    },
+    {
+      "from": 179,
+      "to": 154
+    },
+    {
+      "from": 180,
+      "to": 8
+    },
+    {
+      "from": 180,
+      "to": 151
+    },
+    {
+      "from": 181,
+      "to": 79
+    },
+    {
+      "from": 181,
+      "to": 125
+    },
+    {
+      "from": 181,
+      "to": 127
+    },
+    {
+      "from": 182,
+      "to": 178
+    },
+    {
+      "from": 182,
+      "to": 181
+    },
+    {
+      "from": 182,
+      "to": 207
+    },
+    {
+      "from": 183,
+      "to": 182
+    },
+    {
+      "from": 184,
+      "to": 20
+    },
+    {
+      "from": 184,
+      "to": 79
+    },
+    {
+      "from": 184,
+      "to": 127
+    },
+    {
+      "from": 185,
+      "to": 79
+    },
+    {
+      "from": 185,
+      "to": 127
+    },
+    {
+      "from": 185,
+      "to": 203
+    },
+    {
+      "from": 186,
+      "to": 185
+    },
+    {
+      "from": 186,
+      "to": 205
+    },
+    {
+      "from": 187,
+      "to": 20
+    },
+    {
+      "from": 187,
+      "to": 127
+    },
+    {
+      "from": 187,
+      "to": 209
+    },
+    {
+      "from": 188,
+      "to": 125
+    },
+    {
+      "from": 188,
+      "to": 150
+    },
+    {
+      "from": 188,
+      "to": 160
+    },
+    {
+      "from": 189,
+      "to": 188
+    },
+    {
+      "from": 189,
+      "to": 209
+    },
+    {
+      "from": 190,
+      "to": 20
+    },
+    {
+      "from": 190,
+      "to": 160
+    },
+    {
+      "from": 190,
+      "to": 188
+    },
+    {
+      "from": 191,
+      "to": 185
+    },
+    {
+      "from": 191,
+      "to": 207
+    },
+    {
+      "from": 191,
+      "to": 208
+    },
+    {
+      "from": 192,
+      "to": 185
+    },
+    {
+      "from": 192,
+      "to": 207
+    },
+    {
+      "from": 192,
+      "to": 224
+    },
+    {
+      "from": 193,
+      "to": 20
+    },
+    {
+      "from": 193,
+      "to": 127
+    },
+    {
+      "from": 193,
+      "to": 210
+    },
+    {
+      "from": 194,
+      "to": 127
+    },
+    {
+      "from": 194,
+      "to": 185
+    },
+    {
+      "from": 195,
+      "to": 20
+    },
+    {
+      "from": 195,
+      "to": 84
+    },
+    {
+      "from": 195,
+      "to": 127
+    },
+    {
+      "from": 196,
+      "to": 84
+    },
+    {
+      "from": 196,
+      "to": 127
+    },
+    {
+      "from": 196,
+      "to": 219
+    },
+    {
+      "from": 197,
+      "to": 84
+    },
+    {
+      "from": 197,
+      "to": 127
+    },
+    {
+      "from": 198,
+      "to": 84
+    },
+    {
+      "from": 198,
+      "to": 185
+    },
+    {
+      "from": 199,
+      "to": 82
+    },
+    {
+      "from": 199,
+      "to": 127
+    },
+    {
+      "from": 200,
+      "to": 79
+    },
+    {
+      "from": 200,
+      "to": 125
+    },
+    {
+      "from": 201,
+      "to": 79
+    },
+    {
+      "from": 201,
+      "to": 200
+    },
+    {
+      "from": 202,
+      "to": 201
+    },
+    {
+      "from": 202,
+      "to": 227
+    },
+    {
+      "from": 203,
+      "to": 3
+    },
+    {
+      "from": 203,
+      "to": 4
+    },
+    {
+      "from": 203,
+      "to": 20
+    },
+    {
+      "from": 204,
+      "to": 3
+    },
+    {
+      "from": 204,
+      "to": 7
+    },
+    {
+      "from": 205,
+      "to": 13
+    },
+    {
+      "from": 205,
+      "to": 203
+    },
+    {
+      "from": 205,
+      "to": 204
+    },
+    {
+      "from": 206,
+      "to": 46
+    },
+    {
+      "from": 206,
+      "to": 203
+    },
+    {
+      "from": 207,
+      "to": 12
+    },
+    {
+      "from": 207,
+      "to": 152
+    },
+    {
+      "from": 207,
+      "to": 173
+    },
+    {
+      "from": 208,
+      "to": 203
+    },
+    {
+      "from": 208,
+      "to": 207
+    },
+    {
+      "from": 209,
+      "to": 46
+    },
+    {
+      "from": 209,
+      "to": 203
+    },
+    {
+      "from": 210,
+      "to": 20
+    },
+    {
+      "from": 210,
+      "to": 127
+    },
+    {
+      "from": 211,
+      "to": 125
+    },
+    {
+      "from": 211,
+      "to": 127
+    },
+    {
+      "from": 212,
+      "to": 22
+    },
+    {
+      "from": 212,
+      "to": 125
+    },
+    {
+      "from": 213,
+      "to": 200
+    },
+    {
+      "from": 213,
+      "to": 201
+    },
+    {
+      "from": 214,
+      "to": 78
+    },
+    {
+      "from": 214,
+      "to": 79
+    },
+    {
+      "from": 215,
+      "to": 4
+    },
+    {
+      "from": 215,
+      "to": 191
+    },
+    {
+      "from": 216,
+      "to": 4
+    },
+    {
+      "from": 216,
+      "to": 192
+    },
+    {
+      "from": 217,
+      "to": 4
+    },
+    {
+      "from": 217,
+      "to": 193
+    },
+    {
+      "from": 218,
+      "to": 5
+    },
+    {
+      "from": 218,
+      "to": 194
+    },
+    {
+      "from": 219,
+      "to": 5
+    },
+    {
+      "from": 219,
+      "to": 84
+    },
+    {
+      "from": 220,
+      "to": 181
+    },
+    {
+      "from": 220,
+      "to": 182
+    },
+    {
+      "from": 221,
+      "to": 220
+    },
+    {
+      "from": 221,
+      "to": 356
+    },
+    {
+      "from": 222,
+      "to": 221
+    },
+    {
+      "from": 222,
+      "to": 357
+    },
+    {
+      "from": 223,
+      "to": 3
+    },
+    {
+      "from": 223,
+      "to": 356
+    },
+    {
+      "from": 224,
+      "to": 8
+    },
+    {
+      "from": 224,
+      "to": 207
+    },
+    {
+      "from": 225,
+      "to": 32
+    },
+    {
+      "from": 225,
+      "to": 201
+    },
+    {
+      "from": 226,
+      "to": 177
+    },
+    {
+      "from": 226,
+      "to": 180
+    },
+    {
+      "from": 227,
+      "to": 4
+    },
+    {
+      "from": 227,
+      "to": 225
+    },
+    {
+      "from": 228,
+      "to": 79
+    },
+    {
+      "from": 228,
+      "to": 80
+    },
+    {
+      "from": 228,
+      "to": 225
+    },
+    {
+      "from": 229,
+      "to": 207
+    },
+    {
+      "from": 229,
+      "to": 224
+    },
+    {
+      "from": 230,
+      "to": 203
+    },
+    {
+      "from": 230,
+      "to": 466
+    },
+    {
+      "from": 231,
+      "to": 209
+    },
+    {
+      "from": 231,
+      "to": 467
+    },
+    {
+      "from": 232,
+      "to": 80
+    },
+    {
+      "from": 232,
+      "to": 203
+    },
+    {
+      "from": 233,
+      "to": 82
+    },
+    {
+      "from": 233,
+      "to": 199
+    },
+    {
+      "from": 234,
+      "to": 46
+    },
+    {
+      "from": 234,
+      "to": 233
+    },
+    {
+      "from": 235,
+      "to": 152
+    },
+    {
+      "from": 235,
+      "to": 233
+    },
+    {
+      "from": 236,
+      "to": 127
+    },
+    {
+      "from": 236,
+      "to": 234
+    },
+    {
+      "from": 237,
+      "to": 182
+    },
+    {
+      "from": 237,
+      "to": 363
+    },
+    {
+      "from": 238,
+      "to": 181
+    },
+    {
+      "from": 238,
+      "to": 358
+    },
+    {
+      "from": 239,
+      "to": 182
+    },
+    {
+      "from": 239,
+      "to": 365
+    },
+    {
+      "from": 240,
+      "to": 222
+    },
+    {
+      "from": 240,
+      "to": 356
+    },
+    {
+      "from": 241,
+      "to": 212
+    },
+    {
+      "from": 241,
+      "to": 358
+    },
+    {
+      "from": 242,
+      "to": 185
+    },
+    {
+      "from": 242,
+      "to": 207
+    },
+    {
+      "from": 243,
+      "to": 204
+    },
+    {
+      "from": 243,
+      "to": 242
+    },
+    {
+      "from": 244,
+      "to": 20
+    },
+    {
+      "from": 244,
+      "to": 193
+    },
+    {
+      "from": 245,
+      "to": 127
+    },
+    {
+      "from": 245,
+      "to": 194
+    },
+    {
+      "from": 249,
+      "to": 246
+    },
+    {
+      "from": 249,
+      "to": 247
+    },
+    {
+      "from": 249,
+      "to": 248
+    },
+    {
+      "from": 250,
+      "to": 246
+    },
+    {
+      "from": 250,
+      "to": 247
+    },
+    {
+      "from": 251,
+      "to": 246
+    },
+    {
+      "from": 251,
+      "to": 247
+    },
+    {
+      "from": 252,
+      "to": 246
+    },
+    {
+      "from": 253,
+      "to": 246
+    },
+    {
+      "from": 253,
+      "to": 247
+    },
+    {
+      "from": 253,
+      "to": 252
+    },
+    {
+      "from": 254,
+      "to": 248
+    },
+    {
+      "from": 254,
+      "to": 253
+    },
+    {
+      "from": 255,
+      "to": 253
+    },
+    {
+      "from": 257,
+      "to": 256
+    },
+    {
+      "from": 258,
+      "to": 247
+    },
+    {
+      "from": 258,
+      "to": 248
+    },
+    {
+      "from": 259,
+      "to": 248
+    },
+    {
+      "from": 259,
+      "to": 252
+    },
+    {
+      "from": 260,
+      "to": 248
+    },
+    {
+      "from": 260,
+      "to": 252
+    },
+    {
+      "from": 261,
+      "to": 248
+    },
+    {
+      "from": 261,
+      "to": 256
+    },
+    {
+      "from": 262,
+      "to": 261
+    },
+    {
+      "from": 263,
+      "to": 248
+    },
+    {
+      "from": 264,
+      "to": 263
+    },
+    {
+      "from": 265,
+      "to": 246
+    },
+    {
+      "from": 265,
+      "to": 247
+    },
+    {
+      "from": 265,
+      "to": 248
+    },
+    {
+      "from": 266,
+      "to": 265
+    },
+    {
+      "from": 267,
+      "to": 265
+    },
+    {
+      "from": 268,
+      "to": 265
+    },
+    {
+      "from": 269,
+      "to": 265
+    },
+    {
+      "from": 270,
+      "to": 267
+    },
+    {
+      "from": 270,
+      "to": 268
+    },
+    {
+      "from": 270,
+      "to": 269
+    },
+    {
+      "from": 271,
+      "to": 265
+    },
+    {
+      "from": 271,
+      "to": 270
+    },
+    {
+      "from": 272,
+      "to": 248
+    },
+    {
+      "from": 272,
+      "to": 249
+    },
+    {
+      "from": 273,
+      "to": 272
+    },
+    {
+      "from": 274,
+      "to": 253
+    },
+    {
+      "from": 274,
+      "to": 258
+    },
+    {
+      "from": 275,
+      "to": 64
+    },
+    {
+      "from": 275,
+      "to": 271
+    },
+    {
+      "from": 275,
+      "to": 274
+    },
+    {
+      "from": 276,
+      "to": 271
+    },
+    {
+      "from": 276,
+      "to": 275
+    },
+    {
+      "from": 277,
+      "to": 271
+    },
+    {
+      "from": 277,
+      "to": 276
+    },
+    {
+      "from": 278,
+      "to": 263
+    },
+    {
+      "from": 278,
+      "to": 272
+    },
+    {
+      "from": 278,
+      "to": 277
+    },
+    {
+      "from": 279,
+      "to": 246
+    },
+    {
+      "from": 279,
+      "to": 247
+    },
+    {
+      "from": 279,
+      "to": 248
+    },
+    {
+      "from": 280,
+      "to": 248
+    },
+    {
+      "from": 280,
+      "to": 279
+    },
+    {
+      "from": 281,
+      "to": 246
+    },
+    {
+      "from": 281,
+      "to": 279
+    },
+    {
+      "from": 282,
+      "to": 253
+    },
+    {
+      "from": 283,
+      "to": 253
+    },
+    {
+      "from": 284,
+      "to": 247
+    },
+    {
+      "from": 285,
+      "to": 284
+    },
+    {
+      "from": 286,
+      "to": 285
+    },
+    {
+      "from": 287,
+      "to": 284
+    },
+    {
+      "from": 287,
+      "to": 285
+    },
+    {
+      "from": 288,
+      "to": 286
+    },
+    {
+      "from": 289,
+      "to": 286
+    },
+    {
+      "from": 290,
+      "to": 286
+    },
+    {
+      "from": 291,
+      "to": 286
+    },
+    {
+      "from": 292,
+      "to": 95
+    },
+    {
+      "from": 292,
+      "to": 286
+    },
+    {
+      "from": 293,
+      "to": 286
+    },
+    {
+      "from": 294,
+      "to": 286
+    },
+    {
+      "from": 295,
+      "to": 282
+    },
+    {
+      "from": 295,
+      "to": 286
+    },
+    {
+      "from": 296,
+      "to": 283
+    },
+    {
+      "from": 296,
+      "to": 286
+    },
+    {
+      "from": 297,
+      "to": 293
+    },
+    {
+      "from": 297,
+      "to": 294
+    },
+    {
+      "from": 298,
+      "to": 297
+    },
+    {
+      "from": 299,
+      "to": 297
+    },
+    {
+      "from": 300,
+      "to": 297
+    },
+    {
+      "from": 301,
+      "to": 284
+    },
+    {
+      "from": 301,
+      "to": 298
+    },
+    {
+      "from": 302,
+      "to": 110
+    },
+    {
+      "from": 302,
+      "to": 247
+    },
+    {
+      "from": 303,
+      "to": 284
+    },
+    {
+      "from": 303,
+      "to": 302
+    },
+    {
+      "from": 304,
+      "to": 250
+    },
+    {
+      "from": 304,
+      "to": 287
+    },
+    {
+      "from": 304,
+      "to": 303
+    },
+    {
+      "from": 305,
+      "to": 250
+    },
+    {
+      "from": 305,
+      "to": 265
+    },
+    {
+      "from": 306,
+      "to": 250
+    },
+    {
+      "from": 306,
+      "to": 305
+    },
+    {
+      "from": 307,
+      "to": 246
+    },
+    {
+      "from": 307,
+      "to": 249
+    },
+    {
+      "from": 308,
+      "to": 307
+    },
+    {
+      "from": 309,
+      "to": 246
+    },
+    {
+      "from": 309,
+      "to": 247
+    },
+    {
+      "from": 310,
+      "to": 246
+    },
+    {
+      "from": 310,
+      "to": 251
+    },
+    {
+      "from": 311,
+      "to": 256
+    },
+    {
+      "from": 311,
+      "to": 257
+    },
+    {
+      "from": 312,
+      "to": 253
+    },
+    {
+      "from": 313,
+      "to": 252
+    },
+    {
+      "from": 313,
+      "to": 257
+    },
+    {
+      "from": 314,
+      "to": 246
+    },
+    {
+      "from": 314,
+      "to": 274
+    },
+    {
+      "from": 315,
+      "to": 249
+    },
+    {
+      "from": 315,
+      "to": 258
+    },
+    {
+      "from": 315,
+      "to": 314
+    },
+    {
+      "from": 320,
+      "to": 319
+    },
+    {
+      "from": 321,
+      "to": 319
+    },
+    {
+      "from": 322,
+      "to": 316
+    },
+    {
+      "from": 322,
+      "to": 319
+    },
+    {
+      "from": 323,
+      "to": 316
+    },
+    {
+      "from": 324,
+      "to": 55
+    },
+    {
+      "from": 324,
+      "to": 317
+    },
+    {
+      "from": 325,
+      "to": 31
+    },
+    {
+      "from": 325,
+      "to": 318
+    },
+    {
+      "from": 326,
+      "to": 31
+    },
+    {
+      "from": 326,
+      "to": 32
+    },
+    {
+      "from": 326,
+      "to": 318
+    },
+    {
+      "from": 327,
+      "to": 326
+    },
+    {
+      "from": 328,
+      "to": 31
+    },
+    {
+      "from": 328,
+      "to": 55
+    },
+    {
+      "from": 328,
+      "to": 326
+    },
+    {
+      "from": 329,
+      "to": 319
+    },
+    {
+      "from": 330,
+      "to": 329
+    },
+    {
+      "from": 331,
+      "to": 322
+    },
+    {
+      "from": 332,
+      "to": 322
+    },
+    {
+      "from": 332,
+      "to": 331
+    },
+    {
+      "from": 333,
+      "to": 332
+    },
+    {
+      "from": 334,
+      "to": 4
+    },
+    {
+      "from": 334,
+      "to": 333
+    },
+    {
+      "from": 335,
+      "to": 100
+    },
+    {
+      "from": 335,
+      "to": 322
+    },
+    {
+      "from": 335,
+      "to": 332
+    },
+    {
+      "from": 336,
+      "to": 335
+    },
+    {
+      "from": 337,
+      "to": 316
+    },
+    {
+      "from": 338,
+      "to": 316
+    },
+    {
+      "from": 339,
+      "to": 316
+    },
+    {
+      "from": 340,
+      "to": 31
+    },
+    {
+      "from": 340,
+      "to": 41
+    },
+    {
+      "from": 341,
+      "to": 41
+    },
+    {
+      "from": 341,
+      "to": 340
+    },
+    {
+      "from": 342,
+      "to": 2
+    },
+    {
+      "from": 342,
+      "to": 340
+    },
+    {
+      "from": 343,
+      "to": 31
+    },
+    {
+      "from": 343,
+      "to": 340
+    },
+    {
+      "from": 344,
+      "to": 31
+    },
+    {
+      "from": 344,
+      "to": 318
+    },
+    {
+      "from": 345,
+      "to": 31
+    },
+    {
+      "from": 345,
+      "to": 344
+    },
+    {
+      "from": 346,
+      "to": 256
+    },
+    {
+      "from": 346,
+      "to": 257
+    },
+    {
+      "from": 347,
+      "to": 64
+    },
+    {
+      "from": 347,
+      "to": 65
+    },
+    {
+      "from": 347,
+      "to": 346
+    },
+    {
+      "from": 348,
+      "to": 66
+    },
+    {
+      "from": 348,
+      "to": 68
+    },
+    {
+      "from": 349,
+      "to": 259
+    },
+    {
+      "from": 349,
+      "to": 348
+    },
+    {
+      "from": 350,
+      "to": 260
+    },
+    {
+      "from": 350,
+      "to": 348
+    },
+    {
+      "from": 351,
+      "to": 22
+    },
+    {
+      "from": 351,
+      "to": 71
+    },
+    {
+      "from": 351,
+      "to": 348
+    },
+    {
+      "from": 352,
+      "to": 79
+    },
+    {
+      "from": 352,
+      "to": 351
+    },
+    {
+      "from": 353,
+      "to": 4
+    },
+    {
+      "from": 353,
+      "to": 352
+    },
+    {
+      "from": 354,
+      "to": 16
+    },
+    {
+      "from": 354,
+      "to": 352
+    },
+    {
+      "from": 355,
+      "to": 20
+    },
+    {
+      "from": 355,
+      "to": 351
+    },
+    {
+      "from": 356,
+      "to": 3
+    },
+    {
+      "from": 356,
+      "to": 4
+    },
+    {
+      "from": 357,
+      "to": 46
+    },
+    {
+      "from": 357,
+      "to": 356
+    },
+    {
+      "from": 358,
+      "to": 354
+    },
+    {
+      "from": 358,
+      "to": 357
+    },
+    {
+      "from": 359,
+      "to": 330
+    },
+    {
+      "from": 359,
+      "to": 356
+    },
+    {
+      "from": 360,
+      "to": 356
+    },
+    {
+      "from": 360,
+      "to": 359
+    },
+    {
+      "from": 361,
+      "to": 358
+    },
+    {
+      "from": 361,
+      "to": 359
+    },
+    {
+      "from": 362,
+      "to": 329
+    },
+    {
+      "from": 362,
+      "to": 351
+    },
+    {
+      "from": 363,
+      "to": 256
+    },
+    {
+      "from": 363,
+      "to": 263
+    },
+    {
+      "from": 364,
+      "to": 77
+    },
+    {
+      "from": 364,
+      "to": 363
+    },
+    {
+      "from": 365,
+      "to": 364
+    },
+    {
+      "from": 365,
+      "to": 453
+    },
+    {
+      "from": 366,
+      "to": 16
+    },
+    {
+      "from": 366,
+      "to": 365
+    },
+    {
+      "from": 367,
+      "to": 363
+    },
+    {
+      "from": 367,
+      "to": 366
+    },
+    {
+      "from": 368,
+      "to": 5
+    },
+    {
+      "from": 368,
+      "to": 364
+    },
+    {
+      "from": 369,
+      "to": 280
+    },
+    {
+      "from": 369,
+      "to": 364
+    },
+    {
+      "from": 370,
+      "to": 351
+    },
+    {
+      "from": 371,
+      "to": 80
+    },
+    {
+      "from": 371,
+      "to": 354
+    },
+    {
+      "from": 372,
+      "to": 16
+    },
+    {
+      "from": 372,
+      "to": 355
+    },
+    {
+      "from": 373,
+      "to": 127
+    },
+    {
+      "from": 373,
+      "to": 358
+    },
+    {
+      "from": 374,
+      "to": 240
+    },
+    {
+      "from": 374,
+      "to": 358
+    },
+    {
+      "from": 375,
+      "to": 22
+    },
+    {
+      "from": 375,
+      "to": 362
+    },
+    {
+      "from": 376,
+      "to": 16
+    },
+    {
+      "from": 376,
+      "to": 333
+    },
+    {
+      "from": 377,
+      "to": 365
+    },
+    {
+      "from": 377,
+      "to": 453
+    },
+    {
+      "from": 378,
+      "to": 366
+    },
+    {
+      "from": 378,
+      "to": 368
+    },
+    {
+      "from": 379,
+      "to": 363
+    },
+    {
+      "from": 380,
+      "to": 318
+    },
+    {
+      "from": 380,
+      "to": 374
+    },
+    {
+      "from": 381,
+      "to": 96
+    },
+    {
+      "from": 382,
+      "to": 91
+    },
+    {
+      "from": 382,
+      "to": 96
+    },
+    {
+      "from": 383,
+      "to": 96
+    },
+    {
+      "from": 383,
+      "to": 99
+    },
+    {
+      "from": 384,
+      "to": 96
+    },
+    {
+      "from": 385,
+      "to": 96
+    },
+    {
+      "from": 386,
+      "to": 94
+    },
+    {
+      "from": 386,
+      "to": 96
+    },
+    {
+      "from": 387,
+      "to": 56
+    },
+    {
+      "from": 387,
+      "to": 91
+    },
+    {
+      "from": 388,
+      "to": 97
+    },
+    {
+      "from": 388,
+      "to": 98
+    },
+    {
+      "from": 389,
+      "to": 98
+    },
+    {
+      "from": 389,
+      "to": 99
+    },
+    {
+      "from": 391,
+      "to": 390
+    },
+    {
+      "from": 392,
+      "to": 390
+    },
+    {
+      "from": 393,
+      "to": 392
+    },
+    {
+      "from": 394,
+      "to": 393
+    },
+    {
+      "from": 395,
+      "to": 391
+    },
+    {
+      "from": 396,
+      "to": 390
+    },
+    {
+      "from": 397,
+      "to": 390
+    },
+    {
+      "from": 398,
+      "to": 397
+    },
+    {
+      "from": 399,
+      "to": 41
+    },
+    {
+      "from": 399,
+      "to": 397
+    },
+    {
+      "from": 400,
+      "to": 398
+    },
+    {
+      "from": 401,
+      "to": 88
+    },
+    {
+      "from": 401,
+      "to": 89
+    },
+    {
+      "from": 401,
+      "to": 90
+    },
+    {
+      "from": 402,
+      "to": 88
+    },
+    {
+      "from": 402,
+      "to": 401
+    },
+    {
+      "from": 403,
+      "to": 38
+    },
+    {
+      "from": 403,
+      "to": 39
+    },
+    {
+      "from": 404,
+      "to": 39
+    },
+    {
+      "from": 404,
+      "to": 63
+    },
+    {
+      "from": 404,
+      "to": 64
+    },
+    {
+      "from": 405,
+      "to": 318
+    },
+    {
+      "from": 405,
+      "to": 404
+    },
+    {
+      "from": 406,
+      "to": 404
+    },
+    {
+      "from": 406,
+      "to": 405
+    },
+    {
+      "from": 407,
+      "to": 381
+    },
+    {
+      "from": 408,
+      "to": 38
+    },
+    {
+      "from": 408,
+      "to": 39
+    },
+    {
+      "from": 408,
+      "to": 56
+    },
+    {
+      "from": 409,
+      "to": 393
+    },
+    {
+      "from": 409,
+      "to": 397
+    },
+    {
+      "from": 410,
+      "to": 341
+    },
+    {
+      "from": 410,
+      "to": 393
+    },
+    {
+      "from": 412,
+      "to": 411
+    },
+    {
+      "from": 413,
+      "to": 312
+    },
+    {
+      "from": 413,
+      "to": 412
+    },
+    {
+      "from": 414,
+      "to": 320
+    },
+    {
+      "from": 414,
+      "to": 412
+    },
+    {
+      "from": 415,
+      "to": 412
+    },
+    {
+      "from": 416,
+      "to": 415
+    },
+    {
+      "from": 417,
+      "to": 331
+    },
+    {
+      "from": 417,
+      "to": 412
+    },
+    {
+      "from": 418,
+      "to": 417
+    },
+    {
+      "from": 419,
+      "to": 54
+    },
+    {
+      "from": 419,
+      "to": 418
+    },
+    {
+      "from": 420,
+      "to": 342
+    },
+    {
+      "from": 420,
+      "to": 419
+    },
+    {
+      "from": 421,
+      "to": 41
+    },
+    {
+      "from": 421,
+      "to": 341
+    },
+    {
+      "from": 422,
+      "to": 340
+    },
+    {
+      "from": 422,
+      "to": 421
+    },
+    {
+      "from": 423,
+      "to": 411
+    },
+    {
+      "from": 423,
+      "to": 422
+    },
+    {
+      "from": 424,
+      "to": 417
+    },
+    {
+      "from": 424,
+      "to": 423
+    },
+    {
+      "from": 425,
+      "to": 411
+    },
+    {
+      "from": 425,
+      "to": 412
+    },
+    {
+      "from": 426,
+      "to": 125
+    },
+    {
+      "from": 426,
+      "to": 425
+    },
+    {
+      "from": 427,
+      "to": 125
+    },
+    {
+      "from": 427,
+      "to": 411
+    },
+    {
+      "from": 428,
+      "to": 374
+    },
+    {
+      "from": 428,
+      "to": 425
+    },
+    {
+      "from": 429,
+      "to": 125
+    },
+    {
+      "from": 429,
+      "to": 411
+    },
+    {
+      "from": 430,
+      "to": 293
+    },
+    {
+      "from": 430,
+      "to": 298
+    },
+    {
+      "from": 430,
+      "to": 429
+    },
+    {
+      "from": 431,
+      "to": 199
+    },
+    {
+      "from": 431,
+      "to": 429
+    },
+    {
+      "from": 432,
+      "to": 278
+    },
+    {
+      "from": 432,
+      "to": 367
+    },
+    {
+      "from": 432,
+      "to": 429
+    },
+    {
+      "from": 433,
+      "to": 186
+    },
+    {
+      "from": 433,
+      "to": 429
+    },
+    {
+      "from": 434,
+      "to": 412
+    },
+    {
+      "from": 434,
+      "to": 414
+    },
+    {
+      "from": 435,
+      "to": 413
+    },
+    {
+      "from": 435,
+      "to": 434
+    },
+    {
+      "from": 436,
+      "to": 332
+    },
+    {
+      "from": 436,
+      "to": 418
+    },
+    {
+      "from": 437,
+      "to": 411
+    },
+    {
+      "from": 438,
+      "to": 418
+    },
+    {
+      "from": 438,
+      "to": 436
+    },
+    {
+      "from": 439,
+      "to": 423
+    },
+    {
+      "from": 439,
+      "to": 438
+    },
+    {
+      "from": 440,
+      "to": 423
+    },
+    {
+      "from": 440,
+      "to": 439
+    },
+    {
+      "from": 441,
+      "to": 419
+    },
+    {
+      "from": 441,
+      "to": 440
+    },
+    {
+      "from": 442,
+      "to": 333
+    },
+    {
+      "from": 442,
+      "to": 412
+    },
+    {
+      "from": 443,
+      "to": 415
+    },
+    {
+      "from": 443,
+      "to": 442
+    },
+    {
+      "from": 444,
+      "to": 443
+    },
+    {
+      "from": 445,
+      "to": 444
+    },
+    {
+      "from": 446,
+      "to": 4
+    },
+    {
+      "from": 446,
+      "to": 12
+    },
+    {
+      "from": 447,
+      "to": 4
+    },
+    {
+      "from": 447,
+      "to": 12
+    },
+    {
+      "from": 448,
+      "to": 5
+    },
+    {
+      "from": 448,
+      "to": 12
+    },
+    {
+      "from": 449,
+      "to": 447
+    },
+    {
+      "from": 449,
+      "to": 448
+    },
+    {
+      "from": 450,
+      "to": 448
+    },
+    {
+      "from": 450,
+      "to": 451
+    },
+    {
+      "from": 451,
+      "to": 38
+    },
+    {
+      "from": 451,
+      "to": 448
+    },
+    {
+      "from": 452,
+      "to": 5
+    },
+    {
+      "from": 452,
+      "to": 121
+    },
+    {
+      "from": 453,
+      "to": 447
+    },
+    {
+      "from": 453,
+      "to": 452
+    },
+    {
+      "from": 454,
+      "to": 4
+    },
+    {
+      "from": 454,
+      "to": 84
+    },
+    {
+      "from": 455,
+      "to": 454
+    },
+    {
+      "from": 456,
+      "to": 455
+    },
+    {
+      "from": 457,
+      "to": 8
+    },
+    {
+      "from": 457,
+      "to": 456
+    },
+    {
+      "from": 458,
+      "to": 43
+    },
+    {
+      "from": 458,
+      "to": 447
+    },
+    {
+      "from": 459,
+      "to": 207
+    },
+    {
+      "from": 459,
+      "to": 452
+    },
+    {
+      "from": 460,
+      "to": 249
+    },
+    {
+      "from": 460,
+      "to": 447
+    },
+    {
+      "from": 461,
+      "to": 287
+    },
+    {
+      "from": 461,
+      "to": 447
+    },
+    {
+      "from": 462,
+      "to": 201
+    },
+    {
+      "from": 462,
+      "to": 447
+    },
+    {
+      "from": 463,
+      "to": 5
+    },
+    {
+      "from": 463,
+      "to": 12
+    },
+    {
+      "from": 464,
+      "to": 448
+    },
+    {
+      "from": 464,
+      "to": 463
+    },
+    {
+      "from": 465,
+      "to": 8
+    },
+    {
+      "from": 465,
+      "to": 26
+    },
+    {
+      "from": 466,
+      "to": 4
+    },
+    {
+      "from": 466,
+      "to": 447
+    },
+    {
+      "from": 467,
+      "to": 448
+    },
+    {
+      "from": 467,
+      "to": 466
+    },
+    {
+      "from": 468,
+      "to": 448
+    },
+    {
+      "from": 468,
+      "to": 451
+    },
+    {
+      "from": 469,
+      "to": 168
+    },
+    {
+      "from": 469,
+      "to": 451
+    },
+    {
+      "from": 469,
+      "to": 452
+    },
+    {
+      "from": 470,
+      "to": 182
+    },
+    {
+      "from": 470,
+      "to": 450
+    },
+    {
+      "from": 471,
+      "to": 4
+    },
+    {
+      "from": 471,
+      "to": 453
+    },
+    {
+      "from": 472,
+      "to": 43
+    },
+    {
+      "from": 472,
+      "to": 446
+    },
+    {
+      "from": 473,
+      "to": 449
+    },
+    {
+      "from": 473,
+      "to": 453
+    },
+    {
+      "from": 474,
+      "to": 447
+    },
+    {
+      "from": 474,
+      "to": 448
+    },
+    {
+      "from": 475,
+      "to": 447
+    },
+    {
+      "from": 475,
+      "to": 448
+    },
+    {
+      "from": 476,
+      "to": 59
+    },
+    {
+      "from": 477,
+      "to": 113
+    },
+    {
+      "from": 478,
+      "to": 113
+    },
+    {
+      "from": 479,
+      "to": 57
+    },
+    {
+      "from": 480,
+      "to": 479
+    },
+    {
+      "from": 481,
+      "to": 247
+    },
+    {
+      "from": 481,
+      "to": 253
+    },
+    {
+      "from": 482,
+      "to": 254
+    },
+    {
+      "from": 482,
+      "to": 481
+    },
+    {
+      "from": 483,
+      "to": 293
+    },
+    {
+      "from": 483,
+      "to": 481
+    },
+    {
+      "from": 484,
+      "to": 425
+    },
+    {
+      "from": 484,
+      "to": 483
+    },
+    {
+      "from": 485,
+      "to": 110
+    },
+    {
+      "from": 485,
+      "to": 292
+    },
+    {
+      "from": 485,
+      "to": 481
+    }
+  ]
+}
