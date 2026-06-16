@@ -9,6 +9,13 @@ edit_uri: edit/master/docs/
 nav:
   - Course Description: course-description.md
   - Concept Sequence: concept-sequence.md
+  - Learning Graph:
+    - Introduction: learning-graph/index.md
+    - Course Description Assessment: learning-graph/course-description-assessment.md
+    - Concept List: learning-graph/concept-list.md
+    - Graph Quality Analysis: learning-graph/quality-metrics.md
+    - Concept Taxonomy: learning-graph/concept-taxonomy.md
+    - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
   - Getting Started:
     - Overview: getting-started/index.md
     - About: getting-started/about.md
@@ -28,6 +35,7 @@ nav:
     - 2. Pi 500 Keyboard: chapters/02-pi-500-keyboard/index.md
     - 3. Pi Keyboard Python: chapters/03-pi-keyboard-python/index.md
     - 4. Pi Keyboard Skill: chapters/04-pi-keyboard-skill/index.md
+    - 5. MacBook Touch Bar: chapters/macbook-touchbar-status/index.md
 
   - NeoPixel Lessons:
     - List of Lessons: lessons/index.md
@@ -78,6 +86,7 @@ nav:
     - Photoresistor: sims/photoresistor-component/index.md
     - LED Nightlight: sims/nightlight/index.md
     - Pico Light Sensor: sims/pico-light-sensor/index.md
+    - Claude Code Hooks Workflow: sims/claude-code-hooks-workflow/index.md
 
   - Kits:
     - Intro: kits/index.md
@@ -107,7 +116,6 @@ nav:
     - Analog Nightlight: kits/analog-nightlight/index.md
     - LED Noodle Nightlight: kits/led-noodle-nightlight/index.md
     - Digital Nightlight: kits/digital-nightlight/index.md
-    - LED Fire: kits/led-fire/index.md
     - Name Sign Night Light: kits/name-sign-night-light/index.md
 
   - Teachers Guide:
@@ -172,8 +180,11 @@ theme:
 plugins:
   - search
   - social
-  - social_override
   # - mermaid2 - takes too long to build - use a screen image for now
+
+hooks:
+  - plugins/social_override.py
+
 markdown_extensions:
   - meta
   - admonition
@@ -201,4 +212,7 @@ extra_javascript:
 
 copyright: Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
 extra:
+  schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
+  textbook_name: Moving Rainbow
+  textbook_version: "1.0"
   generator: false

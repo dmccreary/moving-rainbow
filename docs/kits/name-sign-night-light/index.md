@@ -1,5 +1,5 @@
 # Name Sign Night Light
-![](./jason-sign-02.jpg)
+![](./jason-sign.jpg)
 
 ## Project Description
 
@@ -7,10 +7,29 @@ This is a NeoPixel sign of the letters "JASON" that has a photo sensor on the ba
 When the light goes out, the sign stays on for 10 minutes and then fades out.  Push
 buttons on the back allow the user to change the pattern.
 
+## Instructions for Use
+
+If there is light in a room when the sign is turned on, the sign will be off.
+There are two ways to see the letters:
+
+1. Press one of the buttons on the back of the sign that are on the breadboard.  This will show each letter with a different color. Press a button again for another pattern.  There are four patterns.
+2. Turn the lights off.  This will trigger the default nightlight mode.  The sign will display a rainbow color for 20 minutes, slowly getting dimmer after 10 minutes.
+
+!!! note
+    By turning the lights on and off, the 20 minute timer will reset.  You can cover the light sensor in the back of the sign to simulate the lights going off.
+
+## Repairability
+
+Don't worry if the sign gets broken.  All parts are replaceable.  Although the sign is designed to be placed on a dresser or bookshelf, we know that kids will want to play with the sign as a toy and it can easily get broken.  But don't worry.  This is an opportunity for us to work together to fix the sign.
+
+## Programmability
+
+Do you not like one of the patterns or want to add a new feature?  No problem!  The sign is easy to reprogram using a Windows PC or a Mac.  You just need to plug the USB cable into a USB port and run the Thonny editor.  There is a file called `main.py` which is the program that is run when the sign powers up.  There also also many sample programs you can run for fun.  If you are curious, you can read the source code!
+
 ## Parts Used
 
 1. 65 NeoPixels on a 60 pixels per meter LED strip ($6)
-2. Raspberry Pi Nano ($4)
+2. Raspberry Pi Pico ($4)
 3. Breadboard ($2)
 4. Photo resistor (under $1 each) when you buy in packs of 10
 5. 47K ohm resistor ($.10)
@@ -164,3 +183,79 @@ Good observation! Human perception of brightness is logarithmic, so linear fadin
 ## Link to Source Code
 
 [JASON Sign Source Code](https://github.com/dmccreary/moving-rainbow/tree/master/src/jason-sign)
+
+---
+
+## Quiz Time!
+
+Let's see what you learned about the JASON sign! Pick the best answer for each question.
+
+---
+
+#### 1. What name does the LED sign spell?
+
+<div class="upper-alpha" markdown>
+1. JAMES
+2. JASON
+3. JACOB
+4. JAMIE
+</div>
+
+??? question "Show Answer"
+    The correct answer is **B**. The sign spells JASON using 65 colorful LED lights!
+
+---
+
+#### 2. What happens to the sign when you turn off the lights in the room?
+
+<div class="upper-alpha" markdown>
+1. The sign turns off right away
+2. The sign gets brighter
+3. The sign stays on like a nightlight
+4. The sign makes a sound
+</div>
+
+??? question "Show Answer"
+    The correct answer is **C**. When the room gets dark, the sign stays on like a nightlight to help you see! It slowly gets dimmer over time.
+
+---
+
+#### 3. How many letters are in the word JASON?
+
+<div class="upper-alpha" markdown>
+1. 3 letters
+2. 4 letters
+3. 5 letters
+4. 6 letters
+</div>
+
+??? question "Show Answer"
+    The correct answer is **C**. JASON has 5 letters: J - A - S - O - N. Can you count them on your fingers?
+
+---
+
+#### 4. In Mode 1, each letter is a different color. What does this mean?
+
+<div class="upper-alpha" markdown>
+1. All letters are the same color
+2. The J might be red, A might be blue, S might be green, and so on
+3. The letters are invisible
+4. Only one letter lights up
+</div>
+
+??? question "Show Answer"
+    The correct answer is **B**. In Mode 1, each letter gets its own special color! The J could be red, A could be blue, S could be green - each letter is different and pretty!
+
+---
+
+#### 5. What do the buttons on the back of the sign do?
+
+<div class="upper-alpha" markdown>
+1. Turn the sign upside down
+2. Make the sign louder
+3. Change the color patterns
+4. Make the sign bigger
+</div>
+
+??? question "Show Answer"
+    The correct answer is **C**. The buttons let you change how the colors look! You can pick rainbow colors, different colors for each letter, or fun random colors.

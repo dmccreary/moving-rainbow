@@ -1,0 +1,71 @@
+{
+  "title": "Claude Code Hooks Workflow",
+  "description": "Interactive flowchart showing how Claude Code hooks integrate with the MacBook Touch Bar notification system for visual status feedback",
+  "subject": "Developer Tools",
+  "creator": "Claude AI with Mermaid Generator Skill",
+  "date": "2026-01-11",
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "coverage": "Introductory",
+  "rights": "Educational Use",
+  "audience": "Developers",
+  "diagram_type": "flowchart",
+  "direction": "TD",
+  "node_count": "10",
+  "edge_count": "10",
+  "concepts": [
+    "Claude Code Hooks",
+    "PreToolUse Hook",
+    "Stop Hook",
+    "BetterTouchTool",
+    "Touch Bar Integration",
+    "JSON Status Files",
+    "Event-Driven Architecture",
+    "Visual Feedback Systems"
+  ],
+  "bloom_taxonomy": "Understand",
+  "version": "1.0",
+  "visualizationType": [
+    "diagram",
+    "graph",
+    "interactive-demo",
+    "map"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of claude code hooks workflow",
+    "Explore claude code hooks workflow through interactive visualization",
+    "Apply knowledge of claude code hooks workflow to solve problems",
+    "Test understanding of claude code hooks workflow through interactive exercises"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ],
+  "pedagogical": {
+    "pattern": "demonstration",
+    "bloomAlignment": [
+      "understand",
+      "apply",
+      "analyze"
+    ],
+    "bloomVerbs": [
+      "compare",
+      "explain",
+      "interpret",
+      "summarize",
+      "illustrate"
+    ],
+    "pacing": "self-paced",
+    "supportsPrediction": false,
+    "dataVisibility": "medium",
+    "feedbackType": [
+      "explanatory"
+    ],
+    "interactionStyle": "respond"
+  }
+}

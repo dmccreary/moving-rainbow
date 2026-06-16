@@ -1,0 +1,486 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Python Programming Language,,PYTH
+2,Variable,1,PYTH
+3,Variable Assignment,"1|2",PYTH
+4,Integer Data Type,"2|3",PYTH
+5,Float Data Type,4,PYTH
+6,String Data Type,"2|3",PYTH
+7,Boolean Data Type,"4|5",PYTH
+8,List Data Type,"2|4|6",PYTH
+9,Tuple Data Type,8,PYTH
+10,None Value,"2|7",PYTH
+11,Type Conversion,"4|5|6",PYTH
+12,Mathematical Operators,"4|5",PYTH
+13,Comparison Operators,"4|7|12",PYTH
+14,Logical Operators,"7|13",PYTH
+15,Boolean Expressions,"7|13|14",PYTH
+16,if Statement,"3|15",PYTH
+17,elif Clause,16,PYTH
+18,else Clause,16,PYTH
+19,Nested Conditionals,"16|17|18",PYTH
+20,for Loop,"3|8",PYTH
+21,while Loop,"3|15",PYTH
+22,Infinite Loop,21,PYTH
+23,break Statement,"20|21",PYTH
+24,continue Statement,"20|21",PYTH
+25,Loop Counter Variable,"3|20",PYTH
+26,range() Function,"4|20",PYTH
+27,len() Function,8,PYTH
+28,int() Function,"4|11",PYTH
+29,float() Function,"5|11",PYTH
+30,print() Function,6,PYTH
+31,Function Definition,1,PYTH
+32,Function Parameters,31,PYTH
+33,Function Return Value,31,PYTH
+34,Function Call,"31|32",PYTH
+35,Variable Scope,"3|31",PYTH
+36,Local Variable,"31|35",PYTH
+37,Global Variable,35,PYTH
+38,Import Statement,1,PYTH
+39,Module System,"1|38",PYTH
+40,Code Indentation Rules,1,PYTH
+41,Python Comments,1,PYTH
+42,String Concatenation,6,PYTH
+43,List Indexing,"4|8",PYTH
+44,List Iteration,"8|20",PYTH
+45,Tuple Immutability,"8|9",PYTH
+46,Modulo Operator,"4|12",PYTH
+47,Integer Division,"4|12",PYTH
+48,SyntaxError,"1|40",PYTH
+49,NameError,"1|2",PYTH
+50,IndentationError,"1|40",PYTH
+51,TypeError,"1|11",PYTH
+52,IndexError,"8|43",PYTH
+53,Off-by-One Error,"26|43",PYTH
+54,Code Readability,"31|40|41",PYTH
+55,DRY Principle,"31|34|54",PYTH
+56,MicroPython,"1|38",UPICO
+57,Raspberry Pi Pico,,UPICO
+58,Raspberry Pi Pico W,57,UPICO
+59,RP2040 Microcontroller,57,UPICO
+60,ARM Cortex M0+ Processor,59,UPICO
+61,Dual-Core Processing,"59|60",UPICO
+62,264 KB SRAM,59,UPICO
+63,2 MB Flash Storage,59,UPICO
+64,GPIO Pins,57,UPICO
+65,Pin Numbering System,64,UPICO
+66,machine.Pin Class,"56|64|65",UPICO
+67,Digital Output Mode,66,UPICO
+68,Digital Input Mode,66,UPICO
+69,Pin.high() Method,"66|67",UPICO
+70,Pin.low() Method,"66|67",UPICO
+71,Pin.value() Method,"66|68",UPICO
+72,Pulse Width Modulation,"56|64",UPICO
+73,PWM Frequency Setting,72,UPICO
+74,PWM Duty Cycle,72,UPICO
+75,Analog to Digital Converter,"56|64",UPICO
+76,16-Bit ADC Resolution,75,UPICO
+77,ADC.read_u16() Method,"75|76",UPICO
+78,utime Module,"56|38",UPICO
+79,sleep() Function,78,UPICO
+80,ticks_ms() Function,78,UPICO
+81,ticks_us() Function,78,UPICO
+82,localtime() Function,78,UPICO
+83,urandom Module,"56|38",UPICO
+84,randint() Function,83,UPICO
+85,neopixel Module,"56|38",UPICO
+86,NeoPixel Class,85,UPICO
+87,Firmware,57,UPICO
+88,UF2 File Format,87,UPICO
+89,BOOTSEL Button,"57|87",UPICO
+90,Drag-and-Drop Flashing,"88|89",UPICO
+91,REPL,56,UPICO
+92,main.py Auto-Run,"56|87",UPICO
+93,Pico File System,"56|87",UPICO
+94,Serial Console,"56|91",UPICO
+95,USB Connectivity,57,UPICO
+96,Thonny IDE,56,UPICO
+97,Thonny File Manager,"93|96",UPICO
+98,Uploading Files to Pico,"95|97",UPICO
+99,Running Scripts on Pico,"96|98",UPICO
+100,Serial Console Debugging,"30|94|99",UPICO
+101,NeoPixel LED,,NEO
+102,WS2812B Integrated Circuit,101,NEO
+103,Addressable LED,101,NEO
+104,Single-Wire Serial Protocol,"102|103",NEO
+105,24-Bit Color Data Format,"104|141",NEO
+106,LED Data Chaining,"103|104",NEO
+107,Data Stripping,106,NEO
+108,Three-Wire LED Connection,"101|246",NEO
+109,5V Power Requirement,"101|246",NEO
+110,20 mA Per Pixel,"101|284",NEO
+111,LED Strip Form Factor,101,NEO
+112,LED Ring Form Factor,101,NEO
+113,LED Matrix Form Factor,101,NEO
+114,NeoPixel Fairy Lights,101,NEO
+115,IP20 Weather Rating,101,NEO
+116,IP65 Weather Rating,101,NEO
+117,IP67 Weather Rating,101,NEO
+118,Pixel Indexing,"4|103",NEO
+119,strip.write() Method,"86|104",NEO
+120,RGB Tuple Format,"9|141",NEO
+121,Color Value Range,"120|141",NEO
+122,8-Bit Color Depth,121,NEO
+123,Number of Pixels Parameter,86,NEO
+124,Data Pin Parameter,"64|86",NEO
+125,NeoPixel Class Instantiation,"85|86|123|124",NEO
+126,LED Strip Polarity,"108|251",NEO
+127,Setting Individual Pixels,"118|120|125",NEO
+128,Clearing All Pixels,127,NEO
+129,WS2811 vs WS2812B,102,NEO
+130,SK6812 RGBW Variant,"101|102",NEO
+131,LED Refresh Rate,104,NEO
+132,Maximum Strip Brightness,"110|121",NEO
+133,LED Power Scaling,"110|121",NEO
+134,LED Strip Density,111,NEO
+135,LED Chain Data Timing,"104|131",NEO
+136,Data Signal Voltage Level,"104|246",NEO
+137,Level Shifter for 5V Data,136,NEO
+138,LED Strip Segmentation,"118|127",NEO
+139,Pixel Group Operations,"127|138",NEO
+140,NeoPixel Library Overview,"85|86",NEO
+141,RGB Color Model,,COLOR
+142,Additive Color Mixing,141,COLOR
+143,Subtractive Color Mixing,141,COLOR
+144,Red as Primary Light Color,"141|142",COLOR
+145,Green as Primary Light Color,"141|142",COLOR
+146,Blue as Primary Light Color,"141|142",COLOR
+147,Black Color,"121|141",COLOR
+148,White Color,"121|141",COLOR
+149,Color Wheel,141,COLOR
+150,Spectral Color Sequence,149,COLOR
+151,Named Color Constants,"120|141",COLOR
+152,Color Mixing by Channel,"141|144|145|146",COLOR
+153,Color Interpolation,"152|448",COLOR
+154,Smooth Color Transition,153,COLOR
+155,Hue,149,COLOR
+156,Saturation,155,COLOR
+157,Value (Brightness Level),141,COLOR
+158,HSV Color Model,"155|156|157",COLOR
+159,RGB to HSV Conversion,"141|158",COLOR
+160,HSV to RGB Conversion,"141|158",COLOR
+161,Complementary Colors,149,COLOR
+162,Analogous Colors,149,COLOR
+163,Color Temperature,141,COLOR
+164,Warm Colors,149,COLOR
+165,Cool Colors,149,COLOR
+166,Color Contrast,"141|157",COLOR
+167,Color Harmony,"161|162",COLOR
+168,Gamma Correction,"157|170",COLOR
+169,Gamma Value,168,COLOR
+170,Perceived Brightness,157,COLOR
+171,Linear Brightness,157,COLOR
+172,Gamma Lookup Table,"168|169",COLOR
+173,Normalized Color Values,"121|452",COLOR
+174,Color Psychology,141,COLOR
+175,Color Perception,"170|174",COLOR
+176,Triadic Color Scheme,149,COLOR
+177,Color Palette Design,"152|167",COLOR
+178,Color Fade Effect,"121|154",COLOR
+179,Color Gradient,"153|154",COLOR
+180,Color Sequence Array,"8|151",COLOR
+181,Blink Pattern,"79|125|127",ANIM
+182,Fade In and Out,"178|181|207",ANIM
+183,Heartbeat Pattern,182,ANIM
+184,Color Wipe Animation,"20|79|127",ANIM
+185,Moving Pixel Animation,"79|127|203",ANIM
+186,Bounce Animation,"185|205",ANIM
+187,Moving Bands Pattern,"20|127|209",ANIM
+188,Rainbow Static Pattern,"125|150|160",ANIM
+189,Moving Rainbow Pattern,"188|209",ANIM
+190,Rainbow Cycle,"20|160|188",ANIM
+191,Comet Tail Animation,"185|207|208",ANIM
+192,Larson Scanner Pattern,"185|207|224",ANIM
+193,Theater Chase Pattern,"20|127|210",ANIM
+194,Ripple Animation,"127|185",ANIM
+195,Twinkle Effect,"20|84|127",ANIM
+196,Candle Flicker Animation,"84|127|219",ANIM
+197,Random Colors Animation,"84|127",ANIM
+198,Random Walk Animation,"84|185",ANIM
+199,Clock Display Animation,"82|127",ANIM
+200,Frame-Based Animation,"79|125",ANIM
+201,Animation Delay,"79|200",ANIM
+202,Animation Speed Control,"201|227",ANIM
+203,Position Tracking Variable,"3|4|20",ANIM
+204,Direction Variable,"3|7",ANIM
+205,Bounce Logic,"13|203|204",ANIM
+206,Modulo Wrapping,"46|203",ANIM
+207,Brightness Scaling Factor,"12|152|173",ANIM
+208,Color Trail with Fading,"203|207",ANIM
+209,Pixel Offset Calculation,"46|203",ANIM
+210,Sequential Pixel Lighting,"20|127",ANIM
+211,Parallel Pixel Update,"125|127",ANIM
+212,Animation Loop Structure,"22|125",ANIM
+213,Frame Rate Concept,"200|201",ANIM
+214,Timing with utime Module,"78|79",ANIM
+215,Comet Trail Length,"4|191",ANIM
+216,Scanner Width Parameter,"4|192",ANIM
+217,Chase Group Size,"4|193",ANIM
+218,Ripple Decay Rate,"5|194",ANIM
+219,Flicker Randomness,"5|84",ANIM
+220,Pattern Composition,"181|182",ANIM
+221,Multi-Pattern Program,"220|356",ANIM
+222,Pattern Switching Logic,"221|357",ANIM
+223,Animation State Variable,"3|356",ANIM
+224,Brightness Array,"8|207",ANIM
+225,Animation Parameterization,"32|201",ANIM
+226,Color Palette Selection,"177|180",ANIM
+227,Speed Parameter,"4|225",ANIM
+228,Delay Function Selection,"79|80|225",ANIM
+229,Brightness Envelope,"207|224",ANIM
+230,Step Size in Animation,"203|466",ANIM
+231,Offset and Phase,"209|467",ANIM
+232,Time-Based Animation,"80|203",ANIM
+233,Clock with localtime(),"82|199",ANIM
+234,Seconds and Minutes Display,"46|233",ANIM
+235,Color Mapping to Time,"152|233",ANIM
+236,LED as Clock Hands,"127|234",ANIM
+237,Photo-Reactive Animation,"182|363",ANIM
+238,Button-Triggered Animation,"181|358",ANIM
+239,Sensor-Driven Animation,"182|365",ANIM
+240,Mode-Based Animation,"222|356",ANIM
+241,Animation Restart Logic,"212|358",ANIM
+242,Single-Color Scan,"185|207",ANIM
+243,Dual-Direction Scan,"204|242",ANIM
+244,Alternating Pixel Groups,"20|193",ANIM
+245,Expanding Ripple Rings,"127|194",ANIM
+246,Voltage,,ELEC
+247,Electrical Current,,ELEC
+248,Resistance,,ELEC
+249,Ohm's Law,"246|247|248",ELEC
+250,Power Formula,"246|247",ELEC
+251,Electrical Polarity,"246|247",ELEC
+252,Ground (GND),246,ELEC
+253,Complete Circuit Path,"246|247|252",ELEC
+254,Short Circuit,"248|253",ELEC
+255,Open Circuit,253,ELEC
+256,Breadboard,,ELEC
+257,Jumper Wires,256,ELEC
+258,Current-Limiting Resistor,"247|248",ELEC
+259,Pull-Up Resistor,"248|252",ELEC
+260,Pull-Down Resistor,"248|252",ELEC
+261,Potentiometer,"248|256",ELEC
+262,Potentiometer Wiper,261,ELEC
+263,Light-Dependent Resistor,248,ELEC
+264,Photoresistor Curve,263,ELEC
+265,NPN Transistor,"246|247|248",ELEC
+266,2N2222 Transistor,265,ELEC
+267,Transistor Base Terminal,265,ELEC
+268,Transistor Collector Terminal,265,ELEC
+269,Transistor Emitter Terminal,265,ELEC
+270,Transistor Current Gain,"267|268|269",ELEC
+271,Transistor as Switch,"265|270",ELEC
+272,Voltage Divider Circuit,"248|249",ELEC
+273,Voltage Divider Formula,272,ELEC
+274,Static LED Circuit,"253|258",ELEC
+275,Dynamic LED Circuit,"64|271|274",ELEC
+276,LED Dimmer Circuit,"271|275",ELEC
+277,Transistor Driver Circuit,"271|276",ELEC
+278,Analog Nightlight Circuit,"263|272|277",ELEC
+279,Multimeter Overview,"246|247|248",ELEC
+280,Resistance Measurement,"248|279",ELEC
+281,Voltage Measurement,"246|279",ELEC
+282,Series Circuit,253,ELEC
+283,Parallel Circuit,253,ELEC
+284,Milliamps (mA),247,ELEC
+285,Milliamp-Hours (mAh),284,ELEC
+286,Battery Capacity,285,ELEC
+287,Battery Life Formula,"284|285",ELEC
+288,Coin Cell Battery,286,ELEC
+289,AA Alkaline Battery,286,ELEC
+290,AAA Alkaline Battery,286,ELEC
+291,9-Volt Battery,286,ELEC
+292,USB Power Bank,"95|286",ELEC
+293,LiPo Battery,286,ELEC
+294,18650 Lithium Cell,286,ELEC
+295,Series Battery Configuration,"282|286",ELEC
+296,Parallel Battery Configuration,"283|286",ELEC
+297,Battery Charging Circuit,"293|294",ELEC
+298,TC4056 Charger IC,297,ELEC
+299,Overcharge Protection,297,ELEC
+300,Over-Discharge Protection,297,ELEC
+301,Charging Current Setting,"284|298",ELEC
+302,LED Current Draw,"110|247",ELEC
+303,Total System Current Draw,"284|302",ELEC
+304,Power Consumption Calculation,"250|287|303",ELEC
+305,Heat Dissipation,"250|265",ELEC
+306,Component Power Rating,"250|305",ELEC
+307,Voltage Regulator,"246|249",ELEC
+308,Buck Converter,307,ELEC
+309,Capacitor for Power Smoothing,"246|247",ELEC
+310,Diode for Polarity Protection,"246|251",ELEC
+311,Solderless Circuit Assembly,"256|257",ELEC
+312,Circuit Diagram Reading,253,ELEC
+313,Wire Color Conventions,"252|257",ELEC
+314,LED Forward Voltage,"246|274",ELEC
+315,LED Series Resistor Calculation,"249|258|314",ELEC
+316,Decomposition,,CT
+317,Pattern Recognition,,CT
+318,Abstraction,,CT
+319,Algorithm Design,,CT
+320,Pseudocode Writing,319,CT
+321,Flowchart Creation,319,CT
+322,Problem-Solving Steps,"316|319",CT
+323,Breaking Down Problems,316,CT
+324,Identifying Repeated Code,"55|317",CT
+325,Hiding Implementation Details,"31|318",CT
+326,Generalizing a Solution,"31|32|318",CT
+327,Template-Based Solving,326,CT
+328,Code Reuse via Functions,"31|55|326",CT
+329,Event-Based Thinking,319,CT
+330,State-Based Thinking,329,CT
+331,Iterative Development,322,CT
+332,Test Cases,"322|331",CT
+333,Edge Case Identification,332,CT
+334,Boundary Conditions,"4|333",CT
+335,Debugging Methodology,"100|322|332",CT
+336,Systematic Troubleshooting,335,CT
+337,Divide and Conquer,316,CT
+338,Bottom-Up Problem Solving,316,CT
+339,Top-Down Problem Solving,316,CT
+340,Documentation as Communication,"31|41",CT
+341,Code Commenting Strategy,"41|340",CT
+342,Readable Variable Names,"2|340",CT
+343,Meaningful Function Names,"31|340",CT
+344,Separation of Concerns,"31|318",CT
+345,Modular Program Design,"31|344",CT
+346,Momentary Push Button,"256|257",INPUT
+347,Button Wiring to GPIO,"64|65|346",INPUT
+348,GPIO Input Mode Setup,"66|68",INPUT
+349,Pin.PULL_UP Configuration,"259|348",INPUT
+350,Pin.PULL_DOWN Configuration,"260|348",INPUT
+351,Polling a Button State,"22|71|348",INPUT
+352,Button Debouncing,"79|351",INPUT
+353,Debounce Delay Value,"4|352",INPUT
+354,Software Debounce Pattern,"16|352",INPUT
+355,Multiple Button Handling,"20|351",INPUT
+356,Mode Variable,"3|4",INPUT
+357,Mode Cycling Logic,"46|356",INPUT
+358,Mode Switching on Button,"354|357",INPUT
+359,State Machine Pattern,"330|356",INPUT
+360,Current Mode Tracking,"356|359",INPUT
+361,State Transition Logic,"358|359",INPUT
+362,Event-Driven Programming,"329|351",INPUT
+363,Photoresistor Sensor,"256|263",INPUT
+364,ADC Voltage Reading,"77|363",INPUT
+365,Sensor Value Mapping,"364|453",INPUT
+366,Light Threshold Setting,"16|365",INPUT
+367,Automatic Nightlight Trigger,"363|366",INPUT
+368,Analog Value Smoothing,"5|364",INPUT
+369,Sensor Calibration Steps,"280|364",INPUT
+370,Interrupt vs Polling,351,INPUT
+371,Button Long-Press Logic,"80|354",INPUT
+372,Two-Button Combination,"16|355",INPUT
+373,Button LED Test Pattern,"127|358",INPUT
+374,Interactive Mode Controller,"240|358",INPUT
+375,Real-Time Input Response,"22|362",INPUT
+376,Input Validation,"16|333",INPUT
+377,Sensor Data Range Mapping,"365|453",INPUT
+378,Hysteresis in Sensor Reading,"366|368",INPUT
+379,Capacitive Touch Concept,363,INPUT
+380,Input Abstraction Layer,"318|374",INPUT
+381,Thonny IDE Overview,96,TOOLS
+382,Thonny REPL Panel,"91|96",TOOLS
+383,Thonny Run Controls,"96|99",TOOLS
+384,Syntax Highlighting,96,TOOLS
+385,Code Autocomplete,96,TOOLS
+386,Serial Console in Thonny,"94|96",TOOLS
+387,REPL Interactive Testing,"56|91",TOOLS
+388,File Upload Workflow,"97|98",TOOLS
+389,Running Script on Pico,"98|99",TOOLS
+390,Git Version Control,,TOOLS
+391,git clone Command,390,TOOLS
+392,git add Command,390,TOOLS
+393,git commit Command,392,TOOLS
+394,git push Command,393,TOOLS
+395,git pull Command,391,TOOLS
+396,git status Command,390,TOOLS
+397,GitHub Repository,390,TOOLS
+398,Repository Structure,397,TOOLS
+399,README File Creation,"41|397",TOOLS
+400,File Organization in Repo,398,TOOLS
+401,Firmware Flashing Workflow,"88|89|90",TOOLS
+402,UF2 Drag-and-Drop Process,"88|401",TOOLS
+403,Python Module Paths,"38|39",TOOLS
+404,config.py Module Pattern,"39|63|64",TOOLS
+405,Hardware Abstraction Layer,"318|404",TOOLS
+406,Cross-Kit Compatibility,"404|405",TOOLS
+407,Thonny Package Manager,381,TOOLS
+408,MicroPython Standard Library,"38|39|56",TOOLS
+409,Code Backup with GitHub,"393|397",TOOLS
+410,Commit Message Writing,"341|393",TOOLS
+411,Project Ideation,,PROJ
+412,Requirements Specification,411,PROJ
+413,Circuit Connection Diagram,"312|412",PROJ
+414,Algorithm Pseudocode Plan,"320|412",PROJ
+415,Milestone Planning,412,PROJ
+416,Timeline Creation,415,PROJ
+417,Iterative Development Cycle,"331|412",PROJ
+418,Build-Test-Revise Cycle,417,PROJ
+419,Peer Code Review,"54|418",PROJ
+420,Code Review Criteria,"342|419",PROJ
+421,Inline Code Comments,"41|341",PROJ
+422,Project Documentation,"340|421",PROJ
+423,Technical Presentation Skills,"411|422",PROJ
+424,Project Reflection,"417|423",PROJ
+425,Wearable Electronics Design,"411|412",PROJ
+426,LED Costume Project,"125|425",PROJ
+427,Room Decoration Project,"125|411",PROJ
+428,Interactive Art Installation,"374|425",PROJ
+429,Practical Device Project,"125|411",PROJ
+430,Solar-Powered LED System,"293|298|429",PROJ
+431,LED Clock Project,"199|429",PROJ
+432,LED Nightlight Project,"278|367|429",PROJ
+433,Bike Safety Light Project,"186|429",PROJ
+434,Project Proposal Document,"412|414",PROJ
+435,Component Parts List,"413|434",PROJ
+436,Project Testing Protocol,"332|418",PROJ
+437,User Experience Design,411,PROJ
+438,Project Iteration,"418|436",PROJ
+439,Final Project Demo,"423|438",PROJ
+440,Capstone Presentation,"423|439",PROJ
+441,Project Peer Feedback,"419|440",PROJ
+442,Design Constraint Analysis,"333|412",PROJ
+443,Project Complexity Estimate,"415|442",PROJ
+444,Feature Prioritization,443,PROJ
+445,Minimum Viable Project,444,PROJ
+446,Modulo Arithmetic,"4|12",MATH
+447,Integer Arithmetic,"4|12",MATH
+448,Floating-Point Arithmetic,"5|12",MATH
+449,Linear Interpolation,"447|448",MATH
+450,Sine Wave Function,"448|451",MATH
+451,math.pow() Function,"38|448",MATH
+452,Normalization (0.0 to 1.0),"5|121",MATH
+453,Mapping Value Ranges,"447|452",MATH
+454,Random Number Generation,"4|84",MATH
+455,Pseudorandom Numbers,454,MATH
+456,Uniform Distribution,455,MATH
+457,Weighted Random Selection,"8|456",MATH
+458,Array Index Calculation,"43|447",MATH
+459,Brightness Formula,"207|452",MATH
+460,Ohm's Law Arithmetic,"249|447",MATH
+461,Battery Life Calculation,"287|447",MATH
+462,Time Delay Calculation,"201|447",MATH
+463,Percentage Calculations,"5|12",MATH
+464,Ratio and Proportion,"448|463",MATH
+465,Sequence Generation,"8|26",MATH
+466,Step Size Calculation,"4|447",MATH
+467,Phase Offset Calculation,"448|466",MATH
+468,Exponential Decay,"448|451",MATH
+469,Brightness Gamma Function,"168|451|452",MATH
+470,Sine-Based Breathing Effect,"182|450",MATH
+471,Coordinate Mapping,"4|453",MATH
+472,Wrap-Around Arithmetic,"43|446",MATH
+473,Scaling Between Ranges,"449|453",MATH
+474,Floor and Ceiling Functions,"447|448",MATH
+475,Absolute Value Function,"447|448",MATH
+476,RP2040-Zero Form Factor,59,HW
+477,8x8 NeoPixel Matrix,113,HW
+478,16x16 LED Matrix,113,HW
+479,Raspberry Pi 500 Keyboard,57,HW
+480,Pi Keyboard RGB Effects,479,HW
+481,Electrical Safety Rules,"247|253",HW
+482,Short Circuit Prevention,"254|481",HW
+483,LiPo Battery Safe Handling,"293|481",HW
+484,Wearable Safety Standards,"425|483",HW
+485,USB Power Safety Limits,"110|292|481",HW
