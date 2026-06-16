@@ -33,6 +33,6 @@ LETTERS = [
     ('S', 62, 77),    # 16 pixels
     ('T', 78, 87),    # 10 pixels
     ('O', 88, 101),   # 14 pixels
-    ('R', 102, 115),  # 14 pixels
-    ('E', 116, 133),  # 18 pixels
+    ('R', 102, 119),  # 14 pixels
+    ('E', 120, 133),  # 18 pixels
 ]
