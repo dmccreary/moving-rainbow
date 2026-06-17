@@ -1,6 +1,4 @@
-# BookStore Sign
-
-# Bookstore Sign - Pattern User Guide
+# BookStore Sign Programmer's Guide
 
 This guide explains *how* the patterns in
 [`pattern-mode-test.py`](pattern-mode-test.py) work. It is written for students
