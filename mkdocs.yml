@@ -9,13 +9,16 @@ edit_uri: edit/master/docs/
 nav:
   - Course Description: course-description.md
   - Concept Sequence: concept-sequence.md
-  - Learning Graph:
-    - Introduction: learning-graph/index.md
-    - Course Description Assessment: learning-graph/course-description-assessment.md
-    - Concept List: learning-graph/concept-list.md
-    - Graph Quality Analysis: learning-graph/quality-metrics.md
-    - Concept Taxonomy: learning-graph/concept-taxonomy.md
-    - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
+
+  - Chapters:
+    - Introduction: chapters/index.md
+    - 1. Introduction: chapters/01-introduction/index.md
+    - 2. Pi 500 Keyboard: chapters/02-pi-500-keyboard/index.md
+    - 3. Pi Keyboard Python: chapters/03-pi-keyboard-python/index.md
+    - 4. Pi Keyboard Skill: chapters/04-pi-keyboard-skill/index.md
+    - 5. MacBook Touch Bar: chapters/macbook-touchbar-status/index.md
+
+   
   - Getting Started:
     - Overview: getting-started/index.md
     - About: getting-started/about.md
@@ -29,13 +32,6 @@ nav:
     - Electrical Connections: getting-started/connections.md
     - Troubleshooting Resets: getting-started/troubleshooting-resets.md
   
-  - Chapters:
-    - Introduction: chapters/index.md
-    - 1. Introduction: chapters/01-introduction/index.md
-    - 2. Pi 500 Keyboard: chapters/02-pi-500-keyboard/index.md
-    - 3. Pi Keyboard Python: chapters/03-pi-keyboard-python/index.md
-    - 4. Pi Keyboard Skill: chapters/04-pi-keyboard-skill/index.md
-    - 5. MacBook Touch Bar: chapters/macbook-touchbar-status/index.md
 
   - NeoPixel Lessons:
     - List of Lessons: lessons/index.md
@@ -88,10 +84,11 @@ nav:
     - Pico Light Sensor: sims/pico-light-sensor/index.md
     - Claude Code Hooks Workflow: sims/claude-code-hooks-workflow/index.md
 
-  - Kits:
+  - Project Kits:
     - Intro: kits/index.md
     - Base Moving Rainbow Kit: kits/moving-rainbow-base/index.md
     - 8x8 NeoPixel Matrix: kits/8x8-neopixel-matrix/index.md
+
     - Solar Powered Nightlight:
       - Intro: kits/solar-powered-led-nightlight/index.md
       - kits/solar-powered-led-nightlight/how-it-works.md
@@ -108,6 +105,7 @@ nav:
       - Valentine's Day: kits/holiday-hats/valentines-day.md
     - Halloween Patterns:
       - Intro: kits/halloween/index.md
+
     - Jake's Fire:
       - Intro: kits/jakes-fire/index.md
       - Advanced Version: kits/jakes-fire/advanced-version.md
@@ -116,7 +114,12 @@ nav:
     - Analog Nightlight: kits/analog-nightlight/index.md
     - LED Noodle Nightlight: kits/led-noodle-nightlight/index.md
     - Digital Nightlight: kits/digital-nightlight/index.md
-    - Name Sign Night Light: kits/name-sign-night-light/index.md
+
+    - Signs:
+      - Bookstore Sign: kits/bookstore-sign/index.md
+      - Bookstore Sign User Guide: kits/bookstore-sign/user-guide.md
+      - Tiki Bar Sign: kits/tiki-bar-sign/index.md
+      - Name Sign Night Light: kits/name-sign-night-light/index.md
 
   - Teachers Guide:
     - Introduction: teachers-guide/index.md
@@ -148,10 +151,20 @@ nav:
   - Challenges: challenges.md
   - Challenges v2: challenges-v2.md
   - Moving Rainbow Skill: skills/index.md
+
+  - Learning Graph:
+    - Introduction: learning-graph/index.md
+    - Course Description Assessment: learning-graph/course-description-assessment.md
+    - Concept List: learning-graph/concept-list.md
+    - Graph Quality Analysis: learning-graph/quality-metrics.md
+    - Concept Taxonomy: learning-graph/concept-taxonomy.md
+    - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
+ 
   - License: license.md
   - Glossary: glossary.md
   - Resources: resources.md
   - How we built this site: how-we-built-this-site.md
+
 
 # Dan's Intelligent books standards from here down
 theme:
