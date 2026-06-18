@@ -116,6 +116,7 @@ nav:
     - Digital Nightlight: kits/digital-nightlight/index.md
 
     - Signs:
+      - List of Sign Kits: kits/signs/index.md
       - Bookstore Sign: kits/bookstore-sign/index.md
       - Bookstore Sign User Guide: kits/bookstore-sign/user-guide.md
       - Tiki Bar Sign: kits/tiki-bar-sign/index.md
@@ -225,6 +226,9 @@ extra_javascript:
 
 copyright: Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
 extra:
+  analytics:
+    provider: google
+    property: G-HGKRQ8K7VG
   schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
   textbook_name: Moving Rainbow
   textbook_version: "1.0"
