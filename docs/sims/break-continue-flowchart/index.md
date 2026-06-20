@@ -1,6 +1,6 @@
 ---
 title: break vs. continue Flow
-description: 
+description: Step through an interactive flowchart that shows how break and continue change the flow of a for loop.
 image: /sims/break-continue-flowchart/break-continue-flowchart.png
 og:image: /sims/break-continue-flowchart/break-continue-flowchart.png
 twitter:image: /sims/break-continue-flowchart/break-continue-flowchart.png

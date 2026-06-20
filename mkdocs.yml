@@ -110,9 +110,7 @@ nav:
     - LED Nightlight Circuit: sims/nightlight/index.md
     - Math Functions in Animation: sims/animation-math-explorer/index.md
     - MicroPython API Connections: sims/micropython-api-connections/index.md
-    - MicroSim Template: sims/animated-wire/index.md
     - Modulo Wrap-Around Animation: sims/modulo-wrap-simulation/index.md
-    - Moving Rainbow Learning Graph: sims/graph-viewer-v1/index.md
     - NeoPixel Wiring Diagram: sims/neopixel-wiring-diagram/index.md
     - Ohm's Law Calculator: sims/ohms-law-calculator/index.md
     - Perceived vs. Linear Brightness: sims/perceived-vs-linear-brightness/index.md
@@ -124,9 +122,7 @@ nav:
     - Python Operator Playground: sims/python-operator-playground/index.md
     - Raspberry Pi Pico Hardware Overview: sims/pico-hardware-overview/index.md
     - Ripple Animation Mechanics: sims/ripple-animation-sim/index.md
-    - Solar Powered Nightlight: sims/solar-powered-nightlight/index.md
     - State Machine for a 3-Mode LED Controller: sims/state-machine-diagram/index.md
-    - Title of this MicroSim: sims/templates/index.md
     - Transistor Driver and Dimmer Circuit: sims/transistor-circuit-diagrams/index.md
     - Variable Scope Explorer: sims/variable-scope-explorer/index.md
 
