@@ -2,14 +2,15 @@
   "title": "Math Functions in Animation",
   "description": "Analyzing — the student can match a math function to the visual LED effect it produces.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "animation-math-explorer",
   "library": "Chart.js",
   "bloomLevel": "TBD",

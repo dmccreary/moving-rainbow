@@ -2,14 +2,15 @@
   "title": "DRY Principle Before and After",
   "description": "Students compare repeated code (\"Before DRY\") with a refactored version that uses a function (\"After DRY\"), identifying which lines were duplicated, what the function parameter replaced, and why the refactored version is better.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "dry-principle-before-after",
   "library": "p5.js",
   "bloomLevel": "Analyze (L4)",

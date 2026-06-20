@@ -2,14 +2,15 @@
   "title": "Decomposition in Action",
   "description": "Students will *understand* (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "decomposition-in-action",
   "library": "p5.js",
   "bloomLevel": "TBD",

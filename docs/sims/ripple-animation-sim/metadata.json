@@ -2,14 +2,15 @@
   "title": "Ripple Animation Mechanics",
   "description": "Analyzing — the student can explain how phase and distance combine to produce the ripple pattern.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "ripple-animation-sim",
   "library": "p5.js",
   "bloomLevel": "TBD",

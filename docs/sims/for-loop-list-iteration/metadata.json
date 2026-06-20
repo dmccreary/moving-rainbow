@@ -2,14 +2,15 @@
   "title": "How a for Loop Iterates Over a List",
   "description": "Remembering — the student can recall that a for loop assigns each list item to the loop variable in order.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "for-loop-list-iteration",
   "library": "p5.js",
   "bloomLevel": "TBD",

@@ -2,14 +2,15 @@
   "title": "Modulo Wrap-Around Animation",
   "description": "Understanding — the student can explain why modulo creates wrap-around behavior.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "modulo-wrap-simulation",
   "library": "p5.js",
   "bloomLevel": "TBD",
