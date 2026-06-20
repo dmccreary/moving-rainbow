@@ -1,0 +1,14 @@
+{
+  "sim_id": "neopixel-wiring-diagram",
+  "diagram_name": "NeoPixel Wiring Diagram",
+  "chapter_number": 8,
+  "chapter_title": "NeoPixel LED Hardware — WS2812B, Wiring, and Form Factors",
+  "chapter_dir": "08-neopixel-led-hardware",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Applying — the student can wire a NeoPixel strip from a diagram.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: interactive-infographic\n**sim-id:** neopixel-wiring-diagram\n**Library:** p5.js\n**Status:** Specified\n\nAn interactive wiring diagram showing a Raspberry Pi Pico on the left and a 10-pixel NeoPixel strip on the right. Three colored wires connect them:\n- Red wire from VSYS (Pico) to +5V (strip)\n- Black wire from GND (Pico) to GND (strip)\n- Green wire from GP0 (Pico) to DIN/DATA (strip)\n\nEach wire is clickable: clicking opens a tooltip explaining \"What this wire does\" and \"What happens if you forget this wire.\" An arrow on the strip shows the data direction. A small inset shows the WS2812B chip inside one pixel with labels: \"RGB LEDs\", \"Control IC\", \"DIN\", \"DOUT\". Hovering over a pixel on the strip shows its index number (0, 1, 2...). Canvas: 700 × 400 px. Responds to window resize.\n\nLearning objective: Applying — the student can wire a NeoPixel strip from a diagram."
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Python Data Type Explorer",
+  "description": "Students classify Python values by data type — given a displayed value, they select its type from six options and receive feedback that connects the type to an LED programming context.",
+  "creator": "Moving Rainbow",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "python-data-type-explorer",
+  "library": "p5.js",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "classify, identify",
+  "completion_status": "scaffold",
+  "chapter_number": 2,
+  "chapter_title": "Python Basics — Variables, Data Types, and Operators",
+  "chapter_dir": "02-python-variables-types-operators"
+}

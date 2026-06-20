@@ -1,0 +1,14 @@
+{
+  "sim_id": "git-workflow-diagram",
+  "diagram_name": "Git Workflow",
+  "chapter_number": 19,
+  "chapter_title": "Interactive Animations and Development Tools",
+  "chapter_dir": "19-interactive-animations-and-tools",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Understanding — the student can describe the three locations where Git stores data (working directory, local repo, GitHub) and which command moves data between them.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: diagram\n**sim-id:** git-workflow-diagram\n**Library:** Mermaid\n**Status:** Specified\n\nA Mermaid flowchart (left-to-right) with three columns:\n\n**Column 1 — Your computer (working files):**\n- \"Edit code in Thonny\" box\n- Arrow down to \"git add <files>\"\n- Arrow down to \"Staging Area\" (dashed box)\n\n**Column 2 — Local Git repository:**\n- Arrow from Staging Area labeled \"git commit -m '...'\"\n- \"Local commit history\" box with three stacked snapshots\n- Arrow up from \"git pull\" (from GitHub to local)\n\n**Column 3 — GitHub (cloud):**\n- Arrow from Local labeled \"git push\"\n- \"GitHub repository\" box\n- Arrow down labeled \"git clone\" to \"Another computer\" (faded, showing the copy)\n\nEach action box is clickable: clicking it shows a tooltip with the exact command syntax and what it does.\n\nCanvas: 700 × 360 px. Responds to window resize.\n\nLearning objective: Understanding — the student can describe the three locations where Git stores data (working directory, local repo, GitHub) and which command moves data between them."
+}

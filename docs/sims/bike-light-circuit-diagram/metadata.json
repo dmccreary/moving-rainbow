@@ -1,0 +1,21 @@
+{
+  "title": "Example Circuit Connection Diagram for Bike Light Project",
+  "description": "Applying — the student can trace any signal path from source to destination and identify which pin it uses.",
+  "creator": "Moving Rainbow",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "bike-light-circuit-diagram",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 20,
+  "chapter_title": "Project Design, Capstone Projects, and Presentation",
+  "chapter_dir": "20-project-design-and-capstone"
+}

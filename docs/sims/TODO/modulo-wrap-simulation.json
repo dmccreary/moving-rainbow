@@ -1,0 +1,14 @@
+{
+  "sim_id": "modulo-wrap-simulation",
+  "diagram_name": "Modulo Wrap-Around Animation",
+  "chapter_number": 11,
+  "chapter_title": "Mathematics for LED Programming",
+  "chapter_dir": "11-math-for-led-programming",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Understanding — the student can explain why modulo creates wrap-around behavior.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: interactive-infographic\n**sim-id:** modulo-wrap-simulation\n**Library:** p5.js\n**Status:** Specified\n\nA row of 10 pixel circles representing a NeoPixel strip. A \"position\" counter is shown above. Controls: a **Step** button advances `pos` by 1, a **Auto** toggle runs it continuously at 5 steps/second. As `pos` increments, the current pixel lights red and the previous one turns off. When `pos` reaches 10 (end of strip), the next step shows the modulo calculation: `10 % 10 = 0` in an overlay, and the first pixel lights up again. Below the strip, the formula `pos = (pos + 1) % 10` is displayed with current values substituted in. Canvas: 700 × 300 px. Responds to window resize.\n\nLearning objective: Understanding — the student can explain why modulo creates wrap-around behavior."
+}

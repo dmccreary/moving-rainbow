@@ -1,0 +1,14 @@
+{
+  "sim_id": "perceived-vs-linear-brightness",
+  "diagram_name": "Perceived vs. Linear Brightness",
+  "chapter_number": 7,
+  "chapter_title": "Color Theory — The RGB Color Model and Color Mixing",
+  "chapter_dir": "07-rgb-color-theory",
+  "library": "Chart.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Understanding — explain why gamma correction is needed.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: chart\n**sim-id:** perceived-vs-linear-brightness\n**Library:** Chart.js\n**Status:** Specified\n\nA line chart with two curves on the same axes. X-axis: \"Linear LED value (0–255)\". Y-axis: \"Perceived brightness (0–100%)\". Curve 1 labeled \"Linear (what the LED does)\": a straight diagonal line from (0,0) to (255,100). Curve 2 labeled \"Perceived (what your eye sees)\": a concave curve that rises quickly at low values and slowly at high values, approximating a power function with gamma ~2.2. On hover, tooltips show: \"LED value: X → Perceived brightness: Y%\". A slider below lets users drag and see a dot move along both curves simultaneously, highlighting the gap between them. Canvas: 700 × 350 px. Responds to window resize.\n\nLearning objective: Understanding — explain why gamma correction is needed."
+}

@@ -1,0 +1,14 @@
+{
+  "sim_id": "pico-hardware-overview",
+  "diagram_name": "Raspberry Pi Pico Hardware Overview",
+  "chapter_number": 5,
+  "chapter_title": "Raspberry Pi Pico Hardware and Development Environment",
+  "chapter_dir": "05-raspberry-pi-pico-hardware",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Remembering — identify key parts of the Pico board by name.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: interactive-infographic\n**sim-id:** pico-hardware-overview\n**Library:** p5.js\n**Status:** Specified\n\nA top-down illustration of the Raspberry Pi Pico board. Labeled regions with click-to-expand info boxes:\n- RP2040 chip (center): \"The RP2040 microcontroller — dual ARM Cortex M0+ cores at up to 133 MHz\"\n- USB connector (top): \"Micro-USB port — connects to your computer for power and programming\"\n- BOOTSEL button (top-left): \"Hold this while plugging in USB to enter firmware-flash mode\"\n- LED (near USB): \"Built-in green LED connected to GPIO 25\"\n- Left GPIO bank: \"Pins GP0–GP14 — general-purpose input/output\"\n- Right GPIO bank: \"Pins GP15–GP28 — more GPIO, plus ADC inputs\"\n- GND pins: \"Ground — the common reference for all circuits\"\n- 3.3V OUT pin: \"Regulated 3.3 V output for sensors and small components\"\n- VSYS pin: \"Raw supply voltage from USB or battery (4.5–5.5 V)\"\n\nCanvas: 700 × 420 px. Clicking any labeled region opens an overlay card with name, description, and a relevant fact. Responds to window resize.\n\nLearning objective: Remembering — identify key parts of the Pico board by name."
+}

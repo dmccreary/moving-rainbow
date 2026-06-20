@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSV Color Space Explorer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>HSV Color Space Explorer</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> hsv-color-explorer</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> Understanding — the student can predict how changing H, S, or V affects the output color.</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: interactive-infographic
+    **sim-id:** hsv-color-explorer
+    **Library:** p5.js
+    **Status:** Specified
+    
+    A p5.js MicroSim with three sliders:
+    - H (Hue): 0–360, default 180
+    - S (Saturation): 0.0–1.0, default 1.0
+    - V (Value/Brightness): 0.0–1.0, default 1.0
+    
+    A large filled circle shows the current color. Below it, the corresponding RGB tuple is displayed as text: e.g., "RGB: (0, 255, 255)". A color wheel diagram on the side has a movable dot that tracks the H value. Moving the H slider moves the dot around the wheel. Moving S changes the dot's distance from the center (center = gray, edge = saturated). Moving V dims or brightens both the circle and the wheel. Canvas: 700 × 380 px. Responds to window resize.
+    
+    Learning objective: Understanding — the student can predict how changing H, S, or V affects the output color.
+    -->
+</body>
+</html>
