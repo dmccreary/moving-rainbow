@@ -1,0 +1,21 @@
+{
+  "title": "Perceived vs. Linear Brightness",
+  "description": "Understanding — explain why gamma correction is needed.",
+  "creator": "Moving Rainbow",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "perceived-vs-linear-brightness",
+  "library": "Chart.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 7,
+  "chapter_title": "Color Theory — The RGB Color Model and Color Mixing",
+  "chapter_dir": "07-rgb-color-theory"
+}

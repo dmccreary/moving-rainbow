@@ -1,0 +1,14 @@
+{
+  "sim_id": "brightness-envelope-comparison",
+  "diagram_name": "Brightness Envelopes for Advanced Patterns",
+  "chapter_number": 14,
+  "chapter_title": "Advanced Animation Patterns — Comet, Scanner, and Heartbeat",
+  "chapter_dir": "14-advanced-animation-patterns",
+  "library": "Chart.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Analyzing — the student can match a brightness envelope shape to the visual effect it produces.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: chart\n**sim-id:** brightness-envelope-comparison\n**Library:** Chart.js\n**Status:** Specified\n\nA tab-panel with four tabs, each showing the brightness envelope for one pattern:\n\n1. **Heartbeat tab**: X axis = time steps (0–60), Y axis = brightness (0–255). Two narrow peaks (at t=6 and t=18) followed by a long flat zero section. Animates a moving dot.\n2. **Comet Tail tab**: X axis = pixel index (0–29), Y axis = brightness. Exponential decay from a peak at position 20, falling toward zero to the left. A \"head position\" slider moves the peak.\n3. **Larson Scanner tab**: X axis = pixel index, Y axis = brightness. A triangular peak centered at scan position. A \"width\" slider changes the peak width.\n4. **Sine Breathing tab**: X axis = time, Y axis = brightness. Smooth sine curve, labeled with key points (peak, trough, half-way).\n\nEach tab plays a live animation of the strip simulated below the chart. Canvas: 700 × 400 px. Responds to window resize.\n\nLearning objective: Analyzing — the student can match a brightness envelope shape to the visual effect it produces."
+}

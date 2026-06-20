@@ -1,0 +1,14 @@
+{
+  "sim_id": "state-machine-diagram",
+  "diagram_name": "State Machine for a 3-Mode LED Controller",
+  "chapter_number": 18,
+  "chapter_title": "Input Devices, Sensors, and State Machines",
+  "chapter_dir": "18-input-devices-and-sensors",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Understanding — the student can trace a state machine through a sequence of transitions given a series of inputs.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: diagram\n**sim-id:** state-machine-diagram\n**Library:** Mermaid\n**Status:** Specified\n\nA Mermaid state diagram with three states: \"Mode 0: Red\", \"Mode 1: Green\", \"Mode 2: Blue\". Directed arrows between each state labeled \"button pressed\". Mode 0 → Mode 1 → Mode 2 → Mode 0 (full cycle). Each state node is clickable: clicking opens a tooltip showing what the LED animation does in that mode. The current active state is highlighted in a different color. An \"Animate\" button cycles through states one step at a time. Arrow labels show the transition condition: \"button pressed (debounced)\".\n\nCanvas: 700 × 380 px. Responds to window resize.\n\nLearning objective: Understanding — the student can trace a state machine through a sequence of transitions given a series of inputs."
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decomposition in Action</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Decomposition in Action</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> decomposition-in-action</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> Students will *understand* (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: MicroSim
+    **sim-id:** decomposition-in-action<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    **Learning Objective:** Students will *understand* (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.
+    
+    **Description:** An interactive p5.js simulation showing a 30-LED strip playing a moving rainbow animation. The canvas is divided into two panels: a left panel showing the full running animation, and a right panel showing a labeled decomposition tree that reveals sub-problems one level at a time.
+    
+    **Canvas:** 760 × 420 px, responsive (responds to window resize events via `updateCanvasSize()` called first in `setup()`).
+    
+    **Controls (p5.js built-in):**
+    - `createButton("Decompose")` — when clicked, animates the right panel to reveal the next level of the decomposition tree (4 levels total, one click per level).
+    - `createButton("Reset")` — collapses the tree back to the root node only.
+    - `createCheckbox("Animate", true)` — pauses or resumes the left-panel LED animation.
+    
+    **Decomposition tree structure (right panel):**
+    - Root (always visible): "Moving Rainbow Animation" (purple node, #642580)
+      - Level 1 (click 1): "Set pixel colors", "Shift by 1 each frame", "Loop forever"
+      - Level 2 under "Set pixel colors" (click 2): "Hue = position + offset", "Convert hue → RGB"
+      - Level 2 under "Shift by 1 each frame" (click 3): "offset += 1 each frame", "Use % to wrap around"
+    
+    **Interactions:** Every node in the decomposition tree is clickable. Clicking a node opens a one-sentence tooltip on the canvas explaining what that sub-problem is about. A second click on the same node closes the tooltip.
+    
+    **Visual design:**
+    - Left panel: dark (#111) background, glowing HSV-rainbow LED circles (30 circles, radius 10px each, soft glow drawn with decreasing-alpha circles).
+    - Right panel: light grey (#f0f0f0) background, rounded-rectangle nodes connected by thin dark lines.
+    - Node colors: root = purple (#642580), Level 1 = teal (#41BAC1), Level 2 = orange (#E8903A).
+    - White text inside all nodes.
+    
+    Implementation: p5.js, vanilla JavaScript. HSV-to-RGB conversion defined inline. All controls created with p5.js built-in functions. Canvas parented to `document.querySelector('main')`.
+    -->
+</body>
+</html>

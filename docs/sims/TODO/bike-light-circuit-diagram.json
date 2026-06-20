@@ -1,0 +1,14 @@
+{
+  "sim_id": "bike-light-circuit-diagram",
+  "diagram_name": "Example Circuit Connection Diagram for Bike Light Project",
+  "chapter_number": 20,
+  "chapter_title": "Project Design, Capstone Projects, and Presentation",
+  "chapter_dir": "20-project-design-and-capstone",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Applying — the student can trace any signal path from source to destination and identify which pin it uses.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: diagram\n**sim-id:** bike-light-circuit-diagram\n**Library:** p5.js\n**Status:** Specified\n\nA p5.js interactive wiring diagram showing:\n\n**Components:**\n- Raspberry Pi Pico (center, with all GPIO pins labeled on both sides)\n- WS2812B LED strip (right side, 8 pixels shown as a row)\n- Momentary button (left side, on breadboard)\n- USB power bank (top right, labeled \"5V source\")\n\n**Connections drawn as colored wires:**\n- Red: USB power bank 5V → Pico VBUS pin → LED strip 5V pin\n- Black: USB power bank GND → Pico GND → LED strip GND\n- Yellow: Pico GP0 → LED strip Data In (with a note: \"330Ω resistor in-line recommended\")\n- Green: Pico GP15 → Button one leg\n- Black: Button other leg → GND\n\nClicking any component opens a tooltip explaining its role. Clicking any wire highlights its full path and shows voltage/signal name.\n\nCanvas: 700 × 420 px. Responds to window resize.\n\nLearning objective: Applying — the student can trace any signal path from source to destination and identify which pin it uses."
+}

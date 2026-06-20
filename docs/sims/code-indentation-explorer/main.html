@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Indentation Explorer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Code Indentation Explorer</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> code-indentation-explorer</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> Understand (L2)</p>
+            <p><strong>Learning Objective:</strong> Students identify which lines of a Python snippet are correctly indented, which have errors, and explain what block each line belongs to.</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** code-indentation-explorer<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Bloom Level: Understand (L2)
+    Bloom Verb: identify, interpret
+    Learning Objective: Students identify which lines of a Python snippet are correctly indented, which have errors, and explain what block each line belongs to.
+    
+    Instructional Rationale: Identify/interpret (L2 Understand) calls for a classify-and-explain pattern. The student clicks a line to see its block membership highlighted, then clicks "Check Indentation" to receive color-coded feedback on all lines simultaneously. Immediate feedback on individual lines before the whole-snippet check builds understanding step by step.
+    
+    Canvas layout:
+    - Left panel (60%): A Python code snippet displayed in monospace font on a dark background (Thonny-like). Each line is a clickable row. Line numbers shown on the left margin.
+    - Right panel (40%): Feedback area showing:
+      - Block membership for the last clicked line: "This line is at indentation level 1 — inside the `if` block"
+      - After "Check Indentation": color-coded verdict for every line
+    
+    Visual elements:
+    - Code font: monospace, 14px, white on dark gray background
+    - Block-level bracket overlays on left: vertical colored lines connecting lines that belong to the same block (level 0 = white, level 1 = blue, level 2 = orange)
+    - Line highlights: green border = correct indentation, red border = error
+    - Feedback panel: white background, plain text, 13px
+    
+    Code examples (cycle with "Next Example" button, 4 examples total):
+    
+    Example 1 (correct — single if block):
+    ```
+    is_on = True
+    if is_on:
+        print("LED is on")
+        print("Glowing!")
+    print("Outside the if block")
+    ```
+    
+    Example 2 (error — missing indentation):
+    ```
+    brightness = 100
+    if brightness > 50:
+    print("Bright!")
+    ```
+    Error on line 3: should be indented 4 spaces.
+    
+    Example 3 (correct — nested blocks):
+    ```
+    for i in range(30):
+        if i % 2 == 0:
+            print("Even pixel:", i)
+        print("Pixel:", i)
+    ```
+    
+    Example 4 (error — inconsistent indentation):
+    ```
+    for i in range(5):
+        print(i)
+          print("extra spaces")
+    ```
+    Error on line 3: 6 spaces instead of 4.
+    
+    Interactive features:
+    - Click any line → highlight that line, show block membership in right panel
+    - "Check Indentation" button → color all lines green/red and show error explanations for bad lines
+    - "Show Fix" button → reveal the corrected version side by side with the original
+    - "Next Example" button → advance to the next code snippet
+    
+    Responsive design: Panel layout is side-by-side on wide screens, stacks vertically on narrow screens. Font size scales down on narrow screens to keep line content visible.
+    -->
+</body>
+</html>

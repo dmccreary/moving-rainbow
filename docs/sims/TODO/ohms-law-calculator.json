@@ -1,0 +1,14 @@
+{
+  "sim_id": "ohms-law-calculator",
+  "diagram_name": "Ohm's Law Calculator",
+  "chapter_number": 15,
+  "chapter_title": "Electronics Fundamentals — Resistance, Ohm's Law, and Components",
+  "chapter_dir": "15-electronics-fundamentals",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Applying — the student can solve Ohm's Law problems for any unknown variable.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: interactive-infographic\n**sim-id:** ohms-law-calculator\n**Library:** p5.js\n**Status:** Specified\n\nAn interactive Ohm's Law triangle with three circles labeled V (volts), I (current), R (resistance). Two inputs are active at a time; the third is calculated. A dropdown lets the user choose which value to solve for. Numeric input fields accept values. Below the triangle, the formula is displayed with the current values substituted: e.g., \"I = V ÷ R = 5 ÷ 220 = 0.023 A = 23 mA\". A second section shows the power formula: \"P = V × I = 5 × 0.023 = 0.115 W\". Clicking any circle highlights the formula. Canvas: 700 × 350 px. Responds to window resize.\n\nLearning objective: Applying — the student can solve Ohm's Law problems for any unknown variable."
+}

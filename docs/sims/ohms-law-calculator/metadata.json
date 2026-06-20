@@ -1,0 +1,21 @@
+{
+  "title": "Ohm's Law Calculator",
+  "description": "Applying — the student can solve Ohm's Law problems for any unknown variable.",
+  "creator": "Moving Rainbow",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "ohms-law-calculator",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 15,
+  "chapter_title": "Electronics Fundamentals — Resistance, Ohm's Law, and Components",
+  "chapter_dir": "15-electronics-fundamentals"
+}

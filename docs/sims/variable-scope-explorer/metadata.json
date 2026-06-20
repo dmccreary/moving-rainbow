@@ -1,0 +1,21 @@
+{
+  "title": "Variable Scope Explorer",
+  "description": "Students differentiate local from global variables by clicking variable names in a complete program and seeing which scope zone each variable belongs to, with a plain-English explanation of why.",
+  "creator": "Moving Rainbow",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "variable-scope-explorer",
+  "library": "p5.js",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "differentiate, classify, identify",
+  "completion_status": "scaffold",
+  "chapter_number": 3,
+  "chapter_title": "Python Functions, Modules, and Programming Best Practices",
+  "chapter_dir": "03-python-functions-modules-practices"
+}

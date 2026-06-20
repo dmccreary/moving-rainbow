@@ -1,0 +1,21 @@
+{
+  "title": "Animation Pattern Comparison",
+  "description": "Analyzing — the student can visually match a running LED pattern to its name and algorithm.",
+  "creator": "Moving Rainbow",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "animation-pattern-comparison",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 12,
+  "chapter_title": "Basic LED Animation Patterns",
+  "chapter_dir": "12-basic-animation-patterns"
+}

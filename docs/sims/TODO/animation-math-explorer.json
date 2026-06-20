@@ -1,0 +1,14 @@
+{
+  "sim_id": "animation-math-explorer",
+  "diagram_name": "Math Functions in Animation",
+  "chapter_number": 11,
+  "chapter_title": "Mathematics for LED Programming",
+  "chapter_dir": "11-math-for-led-programming",
+  "library": "Chart.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Analyzing — the student can match a math function to the visual LED effect it produces.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: chart\n**sim-id:** animation-math-explorer\n**Library:** Chart.js\n**Status:** Specified\n\nA tab-panel with three tabs labeled \"Sine Wave\", \"Linear Interpolation\", and \"Exponential Decay\". Each tab shows an animated line chart on the X axis (frame number 0–100) and Y axis (value 0–255).\n\nSine Wave tab: A sine curve plotted from frame 0 to 100, with `time_step` incremented by 0.2 per frame. Y value shown as brightness (0–255). A slider controls the speed (0.05–0.4 step size).\n\nLinear Interpolation tab: A straight diagonal line from (0, 0) to (100, 255). A movable dot on the line shows the current t value and interpolated output. Sliders for `a` (start value) and `b` (end value) change the line endpoints.\n\nExponential Decay tab: A decaying curve from (0, 255) approaching 0. A slider controls the DECAY factor (0.7–0.99). Canvas: 700 × 380 px. Responds to window resize.\n\nLearning objective: Analyzing — the student can match a math function to the visual LED effect it produces."
+}

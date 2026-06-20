@@ -1,0 +1,14 @@
+{
+  "sim_id": "ripple-animation-sim",
+  "diagram_name": "Ripple Animation Mechanics",
+  "chapter_number": 13,
+  "chapter_title": "Intermediate Animation Techniques",
+  "chapter_dir": "13-intermediate-animations",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Analyzing — the student can explain how phase and distance combine to produce the ripple pattern.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: interactive-infographic\n**sim-id:** ripple-animation-sim\n**Library:** p5.js\n**Status:** Specified\n\nA p5.js MicroSim showing a horizontal row of 20 pixel circles. A center pixel is marked with a small dot. A **Pulse** button triggers a ripple — a brightness wave that expands from the center outward. As the wave passes each pixel, that pixel brightens then dims. The wave reaches the strip edges and disappears. Controls: a **Decay** slider (0.2–0.9) showing how quickly the ripple fades with distance; a **Speed** slider (slow/fast); a **Loop** checkbox for continuous pulsing. A live formula display shows the current brightness for the highlighted pixel based on `cos((distance - phase) * decay_rate)`. Canvas: 700 × 280 px. Responds to window resize.\n\nLearning objective: Analyzing — the student can explain how phase and distance combine to produce the ripple pattern."
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Pixel Indexing on a NeoPixel Strip",
+  "description": "Applying — the student can predict which physical pixel will light up given an index in code.",
+  "creator": "Moving Rainbow",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "pixel-indexing-explorer",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 9,
+  "chapter_title": "NeoPixel Programming — Pixels, Colors, and the NeoPixel Library",
+  "chapter_dir": "09-neopixel-programming"
+}

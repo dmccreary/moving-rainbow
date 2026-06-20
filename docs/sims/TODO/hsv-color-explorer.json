@@ -1,0 +1,14 @@
+{
+  "sim_id": "hsv-color-explorer",
+  "diagram_name": "HSV Color Space Explorer",
+  "chapter_number": 10,
+  "chapter_title": "Advanced Color Theory — HSV, Gamma Correction, and Color Palettes",
+  "chapter_dir": "10-advanced-color-theory",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Understanding — the student can predict how changing H, S, or V affects the output color.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: interactive-infographic\n**sim-id:** hsv-color-explorer\n**Library:** p5.js\n**Status:** Specified\n\nA p5.js MicroSim with three sliders:\n- H (Hue): 0–360, default 180\n- S (Saturation): 0.0–1.0, default 1.0\n- V (Value/Brightness): 0.0–1.0, default 1.0\n\nA large filled circle shows the current color. Below it, the corresponding RGB tuple is displayed as text: e.g., \"RGB: (0, 255, 255)\". A color wheel diagram on the side has a movable dot that tracks the H value. Moving the H slider moves the dot around the wheel. Moving S changes the dot's distance from the center (center = gray, edge = saturated). Moving V dims or brightens both the circle and the wheel. Canvas: 700 × 380 px. Responds to window resize.\n\nLearning objective: Understanding — the student can predict how changing H, S, or V affects the output color."
+}

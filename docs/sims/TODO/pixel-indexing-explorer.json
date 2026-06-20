@@ -1,0 +1,14 @@
+{
+  "sim_id": "pixel-indexing-explorer",
+  "diagram_name": "Pixel Indexing on a NeoPixel Strip",
+  "chapter_number": 9,
+  "chapter_title": "NeoPixel Programming — Pixels, Colors, and the NeoPixel Library",
+  "chapter_dir": "09-neopixel-programming",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Applying — the student can predict which physical pixel will light up given an index in code.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: interactive-infographic\n**sim-id:** pixel-indexing-explorer\n**Library:** p5.js\n**Status:** Specified\n\nA row of 10 colored LED circles representing pixels 0–9 on a strip. Each circle has its index number displayed below it. A text input field lets the user type an index (0–9) and a color (as a preset from a dropdown: red, green, blue, white, yellow, off). Clicking \"Set Pixel\" colors that circle and shows the Python code that would produce that effect: `strip[3] = (0, 255, 0)`. A \"Clear All\" button resets all circles to off. A \"Write\" button (highlighted) sends the colors (animates a signal wave moving from pixel 0 to pixel 9). Canvas: 700 × 280 px. Responds to window resize.\n\nLearning objective: Applying — the student can predict which physical pixel will light up given an index in code."
+}

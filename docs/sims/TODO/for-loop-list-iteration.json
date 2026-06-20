@@ -1,0 +1,14 @@
+{
+  "sim_id": "for-loop-list-iteration",
+  "diagram_name": "How a for Loop Iterates Over a List",
+  "chapter_number": 4,
+  "chapter_title": "Python Control Flow, Loops, and Error Handling",
+  "chapter_dir": "04-python-control-flow-loops",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Remembering — the student can recall that a for loop assigns each list item to the loop variable in order.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: interactive-infographic\n**sim-id:** for-loop-list-iteration\n**Library:** p5.js\n**Status:** Specified\n\nA p5.js MicroSim showing a list of three colored boxes labeled `(255,0,0)`, `(0,255,0)`, `(0,0,255)`. A \"loop cursor\" arrow moves from box to box as the user clicks a **Next Step** button. Each step highlights the current item, shows the value of the loop variable `color`, and displays the iteration number (Iteration 1 of 3, etc.). A **Reset** button returns the arrow to the start. A label below reads: \"The for loop gives `color` a new value each time.\" Canvas: 600 × 280 px. Responds to window resize.\n\nLearning objective: Remembering — the student can recall that a for loop assigns each list item to the loop variable in order."
+}

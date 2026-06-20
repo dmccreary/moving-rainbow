@@ -1,0 +1,14 @@
+{
+  "sim_id": "micropython-api-connections",
+  "diagram_name": "MicroPython API Connections",
+  "chapter_number": 6,
+  "chapter_title": "MicroPython APIs, GPIO Control, and Electrical Fundamentals",
+  "chapter_dir": "06-micropython-apis-and-electronics",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: diagram\n**sim-id:** micropython-api-connections\n**Library:** Mermaid\n**Status:** Specified\n\nA Mermaid diagram showing a central \"Raspberry Pi Pico\" box with arrows going to hardware components. Each arrow is labeled with the MicroPython API used:\n- Pico → LED strip (NeoPixel): \"neopixel.NeoPixel via machine.Pin(GP0)\"\n- Pico → Buzzer or servo: \"machine.PWM via machine.Pin\"\n- Pico → Photoresistor: \"machine.ADC via machine.Pin(GP26)\"\n- Pico → Button: \"machine.Pin(GP15, IN)\"\n- Pico → Built-in LED: \"machine.Pin(25, OUT)\"\n- Pico → Time/Delays: \"utime.sleep()\"\n- Pico → Random effects: \"urandom.randint()\"\n\nEach node is clickable: clicking opens an overlay explaining what that API does and which chapter covers it in depth. Use a left-to-right flow layout. Color-code: GPIO in blue, PWM in orange, ADC in green, time in purple, random in yellow."
+}
