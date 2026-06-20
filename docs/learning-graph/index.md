@@ -1,5 +1,9 @@
 # Learning Graph for Moving Rainbow
 
+[Open Learning Graph Viewer Fullscreen](../sims/graph-viewer/main.html){ .md-button .md-button--primary }
+
+<iframe src="../sims/graph-viewer/main.html" width="100%" height="600px" frameborder="0"></iframe>
+
 This section contains the learning graph for the Moving Rainbow intelligent textbook. A learning graph is
 a graph of concepts used in this course. Each concept is represented by a
 node in a network graph. Concepts are connected by directed edges that indicate

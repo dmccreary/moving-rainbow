@@ -8,26 +8,29 @@ quality_score: 91
 
 ## Course Overview
 
-**Course Code:** CS-110
 **Target Audience:** Junior high and high school school students (grades 7–12), makers, and adults interested in creating responsive lighting designs
 **Duration:** 10 weeks (1 semester)
-**Credit:** 0.5 Credit (Elective — Computer Science / STEM)
+**Category:** Elective, Computer Science, Programming, STEM
 **Prerequisites:** None. No prior programming experience required.
 **Materials Fee:** ~$15 (students keep their kit)
 
 ## Why This Course
 
-Many students in wealthy school districts have access to $10,000 robotics kits.
+Many students in wealthy school districts have access to $10,000 robotics systems.
 However, we strongly believe that we can teach the core skills of computational thinking
 and problem solving using low-cost (under $50) programming kits.  This
 entire course is designed around modern MicroPython coding and there are
-many areas we teach color, art and debugging skills.  In summary, we think
-this is one of the funnest ways to learn to code!  And the upside
+many areas we teach problem solving, color theory, art, costumes and debugging skills.
+In summary, we think this is one of the funnest ways to learn to code!  And the upside
 is you can wear your project in costumes to your next Halloween party!
 
 ## Course Description
 
-Moving Rainbow is a hands-on introduction to computer science, computational thinking, and physical computing through the creation of colorful LED animations and wearable electronics. Students learn Python programming by controlling addressable WS2812B NeoPixel LED strips with Raspberry Pi Pico microcontrollers, progressing from simple blinking patterns to complex interactive light displays driven by buttons and sensors.
+Moving Rainbow is a hands-on introduction to computer science, computational thinking, and physical computing through the creation of colorful LED animations and wearable electronics.
+Students learn Python programming by controlling addressable WS2812B "NeoPixel" LED strips driven
+bu low cost ($4) Raspberry Pi Pico microcontrollers.
+Our hands-on labs progress from simple blinking patterns and night lights through fun
+hats and costumes to complex interactive lighting displays driven by buttons and sensors.
 
 The course is grounded in the four pillars of computational thinking — decomposition, pattern recognition, abstraction, and algorithm design — and applies them concretely in every lesson. Students gain practical electronics skills including circuit design, battery selection, and power management, alongside software skills in debugging, version control, and project documentation.
 

@@ -75,7 +75,7 @@ nav:
     - Battery Life Calculator: sims/battery-life-calculator/index.md
     - Solar Powered LED Nightlight: sims/solar-powered-nightlight/index.md
     - Color Wheel: sims/color-wheel/index.md
-    - Learning Graph: sims/learning-graph/index.md
+    - Learning Graph Viewer: sims/graph-viewer/index.md
     - LED Current Predictor: sims/current-predictor/index.md
     - Animated Wire: sims/animated-wire/index.md
     - LED Dimmer: sims/led-dimmer/index.md
