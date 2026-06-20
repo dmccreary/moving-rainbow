@@ -4,7 +4,7 @@ When Dan McCreary's youngest daughter went off to college, Dan and his wife were
 As Dan dropped his daughter off at college 
 
 ## The Empty Nester
-![](panel-01.png)
+![](panel-01.jpeg)
 <details>
     <summary>Dan Dropping Daughter Off at College<summary>
     Create a new wide-format image for a graphic novel type story. 
@@ -24,7 +24,7 @@ Mood/Tone: Warm but emotionally bittersweet — a proud father quietly grieving 
 </details>
 
 ## Volunteering With Coding Clubs
-![](panel-02.png)
+![](panel-02.jpeg)
 
 With his daughter gone to college, Dan decided he loved working with kids.  So he began volunteering for coding clubs.  And boy did they need help!
 
@@ -41,7 +41,7 @@ With his daughter gone to college, Dan decided he loved working with kids.  So h
 </details>
 
 ## Dan Sees Variability In Success
-![](panel-03.png)
+![](panel-03.jpeg)
 
 <details>
     <summary>Dan Sees Variability In Success</summary>
@@ -69,8 +69,8 @@ with wiring and then just copy and paste code.
 Only a few students are patient enough to try
 to change the code to create new patterns of lights.
 
-## Dan Builds His Own Arduino Kits
-![](panel-05.png)
+## Dan Builds His Own Moving Rainbow Kits
+![](panel-04.jpeg)
 
 <details>
     <summary>Dan at His Workbench</summary>
@@ -97,7 +97,7 @@ For several years Dan tried to build better project kits that were both fun
 and would teach the core elements of Computational Thinking.
 
 ## Dan Builds Moving Rainbow 1.0
-![](panel-04.png)
+![](panel-05.jpeg)
 
 <details>
     <summary>Dan Sees A Pattern</summary>
@@ -238,6 +238,9 @@ and motion but spend more time on the code and less time making connections.
 </details>
 
 ## Panel 10: The Computational Thinking Checklist
+
+
+![](panel-10.jpeg)
 
 Please generate a new Wide-landscape drawing.
 The aspect ratio is 16:9
