@@ -117,6 +117,10 @@ The table below compares how RGB and HSV describe the same colors:
 
 #### Diagram: HSV Color Space Explorer
 
+
+<iframe src="../../sims/hsv-color-explorer/main.html" width="100%" height="392px" scrolling="no"></iframe>
+[Run HSV Color Space Explorer Fullscreen](../../sims/hsv-color-explorer/main.html)
+
 <details markdown="1">
 <summary>Interactive diagram: HSV color wheel and controls</summary>
 Type: interactive-infographic

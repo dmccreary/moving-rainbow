@@ -86,18 +86,51 @@ nav:
     - Dynamic Projects: led-noodles/dynamic-projects.md
   
   - MicroSims:
-    - Introduction: sims/index.md
+    - List of MicroSims: sims/index.md
+    - Additive vs. Subtractive Color Mixing: sims/additive-subtractive-mixing/index.md
+    - Animation Pattern Comparison: sims/animation-pattern-comparison/index.md
     - Battery Life Calculator: sims/battery-life-calculator/index.md
-    - Solar Powered LED Nightlight: sims/solar-powered-nightlight/index.md
-    - Color Wheel: sims/color-wheel/index.md
+    - break vs. continue Flow: sims/break-continue-flowchart/index.md
+    - Brightness Envelopes for Advanced Patterns: sims/brightness-envelope-comparison/index.md
+    - Claude Code Hooks Workflow: sims/claude-code-hooks-workflow/index.md
+    - Code Indentation Explorer: sims/code-indentation-explorer/index.md
+    - Color Wheel MicroSim: sims/color-wheel/index.md
+    - Decomposition in Action: sims/decomposition-in-action/index.md
+    - DRY Principle Before and After: sims/dry-principle-before-after/index.md
+    - Example Circuit Connection Diagram for Bike Light Project: sims/bike-light-circuit-diagram/index.md
+    - Full Project Lifecycle: sims/project-lifecycle-timeline/index.md
+    - Function Call Step-Through: sims/function-call-step-through/index.md
+    - Git Workflow: sims/git-workflow-diagram/index.md
+    - How a for Loop Iterates Over a List: sims/for-loop-list-iteration/index.md
+    - HSV Color Space Explorer: sims/hsv-color-explorer/index.md
+    - Iterative Development Simulator: sims/iterative-dev-simulator/index.md
     - Learning Graph Viewer: sims/graph-viewer/index.md
     - LED Current Predictor: sims/current-predictor/index.md
-    - Animated Wire: sims/animated-wire/index.md
-    - LED Dimmer: sims/led-dimmer/index.md
-    - Photoresistor: sims/photoresistor-component/index.md
-    - LED Nightlight: sims/nightlight/index.md
-    - Pico Light Sensor: sims/pico-light-sensor/index.md
-    - Claude Code Hooks Workflow: sims/claude-code-hooks-workflow/index.md
+    - LED Dimmer Circuit: sims/led-dimmer/index.md
+    - LED Nightlight Circuit: sims/nightlight/index.md
+    - Math Functions in Animation: sims/animation-math-explorer/index.md
+    - MicroPython API Connections: sims/micropython-api-connections/index.md
+    - MicroSim Template: sims/animated-wire/index.md
+    - Modulo Wrap-Around Animation: sims/modulo-wrap-simulation/index.md
+    - Moving Rainbow Learning Graph: sims/graph-viewer-v1/index.md
+    - NeoPixel Wiring Diagram: sims/neopixel-wiring-diagram/index.md
+    - Ohm's Law Calculator: sims/ohms-law-calculator/index.md
+    - Perceived vs. Linear Brightness: sims/perceived-vs-linear-brightness/index.md
+    - Photoresistor Component Visualization: sims/photoresistor-component/index.md
+    - Pico Light Sensor Circuit: sims/pico-light-sensor/index.md
+    - Pixel Indexing on a NeoPixel Strip: sims/pixel-indexing-explorer/index.md
+    - Problem-Solving Steps Flowchart: sims/problem-solving-steps/index.md
+    - Python Data Type Explorer: sims/python-data-type-explorer/index.md
+    - Python Operator Playground: sims/python-operator-playground/index.md
+    - Raspberry Pi Pico Hardware Overview: sims/pico-hardware-overview/index.md
+    - Ripple Animation Mechanics: sims/ripple-animation-sim/index.md
+    - Solar Powered Nightlight: sims/solar-powered-nightlight/index.md
+    - State Machine for a 3-Mode LED Controller: sims/state-machine-diagram/index.md
+    - Title of this MicroSim: sims/templates/index.md
+    - Transistor Driver and Dimmer Circuit: sims/transistor-circuit-diagrams/index.md
+    - Variable Scope Explorer: sims/variable-scope-explorer/index.md
+
+
 
   - Project Kits:
     - Intro: kits/index.md
@@ -172,6 +205,7 @@ nav:
     - List of Stories: stories/index.md
     - Larson Scanner: stories/larson-scanner.md
     - Moving Rainbow: stories/moving-rainbow.md
+    - The NeoPixel Train: stories/neopixel-train/index.md
 
     
   - Learning Graph:
@@ -183,6 +217,7 @@ nav:
     - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
     - Pixel Mascot Style Guide: learning-graph/mascot-test.md
  
+  - About: about.md
   - License: license.md
   - Glossary: glossary.md
   - Resources: resources.md

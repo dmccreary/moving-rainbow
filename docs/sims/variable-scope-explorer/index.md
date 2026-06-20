@@ -1,23 +1,72 @@
 ---
 title: Variable Scope Explorer
-description: Students differentiate local from global variables by clicking variable names in a complete program and seeing which scope zone each variable belongs to, with a plain-English explanation of why.
-status: scaffold
+description: Students differentiate local from global variables by clicking variable names in a complete program and seeing which scope zone each variable belongs to, w
+image: /sims/variable-scope-explorer/variable-scope-explorer.png
+og:image: /sims/variable-scope-explorer/variable-scope-explorer.png
+twitter:image: /sims/variable-scope-explorer/variable-scope-explorer.png
+social:
+   cards: false
 library: p5.js
-bloom_level: Understand (L2)
+status: implemented
 ---
 
 # Variable Scope Explorer
 
+<iframe src="main.html" width="100%" height="432px" scrolling="no"></iframe>
 
+[Run the Variable Scope Explorer MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Students differentiate local from global variables by clicking variable names in a complete program and seeing which scope zone each variable belongs to, with a plain-English explanation of why.
 
-## Specification
+**Learning objective:** Students differentiate local from global variables by clicking variable names in a complete program and seeing which scope zone each variable belongs to, with a plain-English explanation of why.
 
-The full specification below is extracted from
-[Chapter 3: Python Functions, Modules, and Programming Best Practices](../../chapters/03-python-functions-modules-practices/index.md).
+## How to Use
+
+Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/variable-scope-explorer/main.html"
+        height="432px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Students differentiate local from global variables by clicking variable names in a complete program and seeing which scope zone each variable belongs to, with a plain-English explanation of why.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 3](../../chapters/03-python-functions-modules-practices/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 3: Python Functions, Modules, and Programming Best Practices](../../chapters/03-python-functions-modules-practices/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: microsim
@@ -85,6 +134,4 @@ Controls:
 Responsive design: Panels stack vertically on screens narrower than 580px; font size minimum 12px.
 ```
 
-## Related Resources
-
-- [Chapter 3: Python Functions, Modules, and Programming Best Practices](../../chapters/03-python-functions-modules-practices/index.md)
+</details>

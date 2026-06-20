@@ -283,6 +283,10 @@ You should see the first three LEDs light up red, green, and blue.
 
 #### Diagram: MicroPython API Connections
 
+
+<iframe src="../../sims/micropython-api-connections/main.html" width="100%" height="682px" scrolling="no"></iframe>
+[Run MicroPython API Connections Fullscreen](../../sims/micropython-api-connections/main.html)
+
 <details markdown="1">
 <summary>Interactive diagram: MicroPython APIs and hardware connections</summary>
 Type: diagram

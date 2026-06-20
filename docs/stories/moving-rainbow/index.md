@@ -237,7 +237,24 @@ and motion but spend more time on the code and less time making connections.
     The classroom instructor is a short black woman who is very happy.
 </details>
 
- In 2015
+## Panel 10: The Computational Thinking Checklist
+
+Please generate a new Wide-landscape drawing.
+The aspect ratio is 16:9
+
+Art Style: Wide-landscape graphic novel panel, bold ink outlines with flat cel-shaded color fills, high contrast, dramatic close-up lighting. Style reminiscent of a technically-detailed indie graphic novel — clean linework, precise electronic component detail. 
+
+Background is an electronics workshop bench, slightly blurred, showing a soldering iron, needle-nose pliers, and coiled spools of red, black, yellow, and green hookup wire.
+
+On the electronics workshop bench is a old worn sheet of graph paper with a checklist.
+The title at the top of the paper is "Computational Thinking".
+The items under the title are the following items that are check off Done!:
+
+1. Decomposition
+2. Patterns
+3. Abstractions
+4. Algorithms
+
 
 ## Panel 8; The First Moving Rainbow Intelligent Book
 

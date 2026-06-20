@@ -1,6 +1,6 @@
 {
   "title": "Ohm's Law Calculator",
-  "description": "Applying — the student can solve Ohm's Law problems for any unknown variable.",
+  "description": "Applying - the student can solve Ohm's Law problems for any unknown variable.",
   "creator": "Moving Rainbow",
   "author": "Dan McCreary",
   "date": "2026-06-20",
@@ -15,8 +15,47 @@
   "library": "p5.js",
   "bloomLevel": "TBD",
   "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "completion_status": "implemented",
   "chapter_number": 15,
-  "chapter_title": "Electronics Fundamentals — Resistance, Ohm's Law, and Components",
-  "chapter_dir": "15-electronics-fundamentals"
+  "chapter_title": "Electronics Fundamentals \u2014 Resistance, Ohm's Law, and Components",
+  "chapter_dir": "15-electronics-fundamentals",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Ohm's Law Calculator",
+    "learningObjectives": [
+      "Applying - the student can solve Ohm's Law problems for any unknown variable."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 360
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
 }

@@ -1,23 +1,72 @@
 ---
 title: Brightness Envelopes for Advanced Patterns
-description: Analyzing — the student can match a brightness envelope shape to the visual effect it produces.
-status: scaffold
+description: Analyzing - the student can match a brightness envelope shape to the visual effect it produces.
+image: /sims/brightness-envelope-comparison/brightness-envelope-comparison.png
+og:image: /sims/brightness-envelope-comparison/brightness-envelope-comparison.png
+twitter:image: /sims/brightness-envelope-comparison/brightness-envelope-comparison.png
+social:
+   cards: false
 library: Chart.js
-bloom_level: TBD
+status: implemented
 ---
 
 # Brightness Envelopes for Advanced Patterns
 
+<iframe src="main.html" width="100%" height="462px" scrolling="no"></iframe>
 
+[Run the Brightness Envelopes for Advanced Patterns MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+A tab-panel with four tabs, each showing the brightness envelope for one pattern:
 
-## Specification
+**Learning objective:** Analyzing - the student can match a brightness envelope shape to the visual effect it produces.
 
-The full specification below is extracted from
-[Chapter 14: Advanced Animation Patterns — Comet, Scanner, and Heartbeat](../../chapters/14-advanced-animation-patterns/index.md).
+## How to Use
+
+Use the tabs to switch views and drag the sliders to change the inputs. The chart, the moving marker, and the readout all update live as you drag.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/brightness-envelope-comparison/main.html"
+        height="462px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Analyzing - the student can match a brightness envelope shape to the visual effect it produces.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 14](../../chapters/14-advanced-animation-patterns/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 14: Advanced Animation Patterns — Comet, Scanner, and Heartbeat](../../chapters/14-advanced-animation-patterns/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: chart
@@ -37,6 +86,4 @@ Each tab plays a live animation of the strip simulated below the chart. Canvas: 
 Learning objective: Analyzing — the student can match a brightness envelope shape to the visual effect it produces.
 ```
 
-## Related Resources
-
-- [Chapter 14: Advanced Animation Patterns — Comet, Scanner, and Heartbeat](../../chapters/14-advanced-animation-patterns/index.md)
+</details>

@@ -117,6 +117,10 @@ Before we look at the interactive simulation below, make sure the core idea is s
 
 #### Diagram: Decomposition in Action
 
+
+<iframe src="../../sims/decomposition-in-action/main.html" width="100%" height="422px" scrolling="no"></iframe>
+[Run Decomposition in Action Fullscreen](../../sims/decomposition-in-action/main.html)
+
 <details markdown="1">
 <summary>Decomposition in Action — p5.js MicroSim</summary>
 Type: MicroSim
@@ -234,6 +238,10 @@ A **flowchart** is a diagram that shows the steps of an algorithm using shapes c
 Flowcharts make the *structure* of a program visible at a glance — especially loops and decisions. Before you explore the interactive flowchart below, make sure those four shapes are clear in your mind. The diagram shows the five **problem-solving steps** that programmers use every time they tackle something new. Each step is clickable and will show you a definition plus a real LED example.
 
 #### Diagram: Problem-Solving Steps Flowchart
+
+
+<iframe src="../../sims/problem-solving-steps/main.html" width="100%" height="782px" scrolling="no"></iframe>
+[Run Problem-Solving Steps Flowchart Fullscreen](../../sims/problem-solving-steps/main.html)
 
 <details markdown="1">
 <summary>Five Problem-Solving Steps — Interactive Mermaid Flowchart</summary>
@@ -380,6 +388,10 @@ Writing test cases — even on paper before you code — is a key part of any so
 The interactive MicroSim below lets you experience iterative development in action. Follow the four build stages in order, and notice how you can verify each stage before moving to the next.
 
 #### Diagram: Iterative Development Simulator
+
+
+<iframe src="../../sims/iterative-dev-simulator/main.html" width="100%" height="382px" scrolling="no"></iframe>
+[Run Iterative Development Simulator Fullscreen](../../sims/iterative-dev-simulator/main.html)
 
 <details markdown="1">
 <summary>Build It Piece by Piece — p5.js Iterative Development Simulator</summary>

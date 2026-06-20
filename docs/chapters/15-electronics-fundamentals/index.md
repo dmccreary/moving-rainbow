@@ -109,6 +109,10 @@ Power is measured in watts (W) or milliwatts (mW). A pixel drawing 20 mA at 5 V 
 
 #### Diagram: Ohm's Law Calculator
 
+
+<iframe src="../../sims/ohms-law-calculator/main.html" width="100%" height="362px" scrolling="no"></iframe>
+[Run Ohm's Law Calculator Fullscreen](../../sims/ohms-law-calculator/main.html)
+
 <details markdown="1">
 <summary>Interactive calculator: Ohm's Law triangle</summary>
 Type: interactive-infographic

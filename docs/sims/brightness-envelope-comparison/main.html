@@ -3,105 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- microsim-scaffold-stub -->
-    <title>Brightness Envelopes for Advanced Patterns</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Brightness Envelopes for Advanced Patterns MicroSim</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="brightness-envelope-comparison.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Brightness Envelopes for Advanced Patterns</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> brightness-envelope-comparison</p>
-            <p><strong>Library:</strong> Chart.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> Analyzing — the student can match a brightness envelope shape to the visual effect it produces.</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: chart
-    **sim-id:** brightness-envelope-comparison
-    **Library:** Chart.js
-    **Status:** Specified
-    
-    A tab-panel with four tabs, each showing the brightness envelope for one pattern:
-    
-    1. **Heartbeat tab**: X axis = time steps (0–60), Y axis = brightness (0–255). Two narrow peaks (at t=6 and t=18) followed by a long flat zero section. Animates a moving dot.
-    2. **Comet Tail tab**: X axis = pixel index (0–29), Y axis = brightness. Exponential decay from a peak at position 20, falling toward zero to the left. A "head position" slider moves the peak.
-    3. **Larson Scanner tab**: X axis = pixel index, Y axis = brightness. A triangular peak centered at scan position. A "width" slider changes the peak width.
-    4. **Sine Breathing tab**: X axis = time, Y axis = brightness. Smooth sine curve, labeled with key points (peak, trough, half-way).
-    
-    Each tab plays a live animation of the strip simulated below the chart. Canvas: 700 × 400 px. Responds to window resize.
-    
-    Learning objective: Analyzing — the student can match a brightness envelope shape to the visual effect it produces.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Documentation</a>
 </body>
 </html>

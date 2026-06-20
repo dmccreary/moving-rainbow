@@ -1,6 +1,6 @@
 {
   "title": "Transistor Driver and Dimmer Circuit",
-  "description": "Applying — the student can trace current flow through a transistor driver circuit and predict the LED brightness given a duty cycle.",
+  "description": "Applying - the student can trace current flow through a transistor driver circuit and predict the LED brightness given a duty cycle.",
   "creator": "Moving Rainbow",
   "author": "Dan McCreary",
   "date": "2026-06-20",
@@ -15,8 +15,47 @@
   "library": "p5.js",
   "bloomLevel": "TBD",
   "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "completion_status": "implemented",
   "chapter_number": 16,
-  "chapter_title": "Circuit Assembly — Resistors, Transistors, and Circuit Types",
-  "chapter_dir": "16-circuit-assembly"
+  "chapter_title": "Circuit Assembly \u2014 Resistors, Transistors, and Circuit Types",
+  "chapter_dir": "16-circuit-assembly",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Transistor Driver and Dimmer Circuit",
+    "learningObjectives": [
+      "Applying - the student can trace current flow through a transistor driver circuit and predict the LED brightness given a duty cycle."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 400
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
 }

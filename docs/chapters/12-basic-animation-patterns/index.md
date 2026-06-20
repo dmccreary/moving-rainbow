@@ -304,6 +304,10 @@ You should see the entire strip flash with new random colors every 100 ms.
 
 #### Diagram: Animation Pattern Comparison
 
+
+<iframe src="../../sims/animation-pattern-comparison/main.html" width="100%" height="502px" scrolling="no"></iframe>
+[Run Animation Pattern Comparison Fullscreen](../../sims/animation-pattern-comparison/main.html)
+
 <details markdown="1">
 <summary>Interactive comparison: six animation patterns side by side</summary>
 Type: interactive-infographic

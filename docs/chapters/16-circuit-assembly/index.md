@@ -173,6 +173,10 @@ You should see the LED glow at about 30% brightness. Change the multiplier (0.0 
 
 #### Diagram: Transistor Driver and Dimmer Circuit
 
+
+<iframe src="../../sims/transistor-circuit-diagrams/main.html" width="100%" height="402px" scrolling="no"></iframe>
+[Run Transistor Driver and Dimmer Circuit Fullscreen](../../sims/transistor-circuit-diagrams/main.html)
+
 <details markdown="1">
 <summary>Interactive circuit diagram: transistor switch and dimmer</summary>
 Type: interactive-infographic

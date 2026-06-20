@@ -240,7 +240,7 @@ Now let's practice identifying all six types interactively:
 
 #### Diagram: Python Data Type Explorer
 
-<iframe src="../../sims/python-data-type-explorer/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/python-data-type-explorer/main.html" width="100%" height="422px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Python Data Type Explorer</summary>
@@ -422,7 +422,7 @@ Now let's try all three operator groups in a hands-on simulation:
 
 #### Diagram: Python Operator Playground
 
-<iframe src="../../sims/python-operator-playground/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/python-operator-playground/main.html" width="100%" height="432px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Python Operator Playground</summary>
@@ -566,7 +566,7 @@ Let's explore correct and incorrect indentation visually:
 
 #### Diagram: Code Indentation Explorer
 
-<iframe src="../../sims/code-indentation-explorer/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="../../sims/code-indentation-explorer/main.html" width="100%" height="442px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Code Indentation Explorer</summary>

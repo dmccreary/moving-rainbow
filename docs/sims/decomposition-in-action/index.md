@@ -1,23 +1,72 @@
 ---
 title: Decomposition in Action
-description: Students will *understand* (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.
-status: scaffold
+description: Students will understand (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.
+image: /sims/decomposition-in-action/decomposition-in-action.png
+og:image: /sims/decomposition-in-action/decomposition-in-action.png
+twitter:image: /sims/decomposition-in-action/decomposition-in-action.png
+social:
+   cards: false
 library: p5.js
-bloom_level: TBD
+status: implemented
 ---
 
 # Decomposition in Action
 
+<iframe src="main.html" width="100%" height="422px" scrolling="no"></iframe>
 
+[Run the Decomposition in Action MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+An interactive p5.js simulation showing a 30-LED strip playing a moving rainbow animation. The canvas is divided into two panels: a left panel showing the full running animation, and a right panel showing a labeled decomposition tree that reveals sub-problems one level at a time.
 
-## Specification
+**Learning objective:** Students will understand (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.
 
-The full specification below is extracted from
-[Chapter 1: Introduction and Computational Thinking Foundations](../../chapters/01-intro-and-computational-thinking/index.md).
+## How to Use
+
+Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/decomposition-in-action/main.html"
+        height="422px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Students will understand (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 1](../../chapters/01-intro-and-computational-thinking/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 1: Introduction and Computational Thinking Foundations](../../chapters/01-intro-and-computational-thinking/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: MicroSim
@@ -53,6 +102,4 @@ Type: MicroSim
 Implementation: p5.js, vanilla JavaScript. HSV-to-RGB conversion defined inline. All controls created with p5.js built-in functions. Canvas parented to `document.querySelector('main')`.
 ```
 
-## Related Resources
-
-- [Chapter 1: Introduction and Computational Thinking Foundations](../../chapters/01-intro-and-computational-thinking/index.md)
+</details>

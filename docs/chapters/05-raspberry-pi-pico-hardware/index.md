@@ -98,6 +98,10 @@ The **Raspberry Pi Pico W** is the same board with a Wi-Fi chip added. For this 
 
 #### Diagram: Raspberry Pi Pico Hardware Overview
 
+
+<iframe src="../../sims/pico-hardware-overview/main.html" width="100%" height="432px" scrolling="no"></iframe>
+[Run Raspberry Pi Pico Hardware Overview Fullscreen](../../sims/pico-hardware-overview/main.html)
+
 <details markdown="1">
 <summary>Interactive diagram: Pico board with labeled parts</summary>
 Type: interactive-infographic

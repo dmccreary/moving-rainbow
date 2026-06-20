@@ -1,23 +1,72 @@
 ---
 title: Additive vs. Subtractive Color Mixing
-description: Understanding — explain why light mixing and paint mixing produce different results.
-status: scaffold
+description: Understanding - explain why light mixing and paint mixing produce different results.
+image: /sims/additive-subtractive-mixing/additive-subtractive-mixing.png
+og:image: /sims/additive-subtractive-mixing/additive-subtractive-mixing.png
+twitter:image: /sims/additive-subtractive-mixing/additive-subtractive-mixing.png
+social:
+   cards: false
 library: p5.js
-bloom_level: TBD
+status: implemented
 ---
 
 # Additive vs. Subtractive Color Mixing
 
+<iframe src="main.html" width="100%" height="362px" scrolling="no"></iframe>
 
+[Run the Additive vs. Subtractive Color Mixing MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Two side-by-side panels. Left panel labeled "Additive (Light - LEDs)": three overlapping circles in red, green, and blue on a black background.
 
-## Specification
+**Learning objective:** Understanding - explain why light mixing and paint mixing produce different results.
 
-The full specification below is extracted from
-[Chapter 7: Color Theory — The RGB Color Model and Color Mixing](../../chapters/07-rgb-color-theory/index.md).
+## How to Use
+
+Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/additive-subtractive-mixing/main.html"
+        height="362px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Understanding - explain why light mixing and paint mixing produce different results.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 7](../../chapters/07-rgb-color-theory/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 7: Color Theory — The RGB Color Model and Color Mixing](../../chapters/07-rgb-color-theory/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: interactive-infographic
@@ -30,6 +79,4 @@ Two side-by-side panels. Left panel labeled "Additive (Light — LEDs)": three o
 Learning objective: Understanding — explain why light mixing and paint mixing produce different results.
 ```
 
-## Related Resources
-
-- [Chapter 7: Color Theory — The RGB Color Model and Color Mixing](../../chapters/07-rgb-color-theory/index.md)
+</details>

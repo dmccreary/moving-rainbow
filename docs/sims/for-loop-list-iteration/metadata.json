@@ -1,6 +1,6 @@
 {
   "title": "How a for Loop Iterates Over a List",
-  "description": "Remembering — the student can recall that a for loop assigns each list item to the loop variable in order.",
+  "description": "Remembering - the student can recall that a for loop assigns each list item to the loop variable in order.",
   "creator": "Moving Rainbow",
   "author": "Dan McCreary",
   "date": "2026-06-20",
@@ -15,8 +15,47 @@
   "library": "p5.js",
   "bloomLevel": "TBD",
   "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "completion_status": "implemented",
   "chapter_number": 4,
   "chapter_title": "Python Control Flow, Loops, and Error Handling",
-  "chapter_dir": "04-python-control-flow-loops"
+  "chapter_dir": "04-python-control-flow-loops",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "How a for Loop Iterates Over a List",
+    "learningObjectives": [
+      "Remembering - the student can recall that a for loop assigns each list item to the loop variable in order."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 280
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
 }

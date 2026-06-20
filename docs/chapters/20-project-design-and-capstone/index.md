@@ -250,6 +250,10 @@ A diagram reviewed in advance takes 5 minutes. A short circuit discovered at pow
 
 #### Diagram: Example Circuit Connection Diagram for Bike Light Project
 
+
+<iframe src="../../sims/bike-light-circuit-diagram/main.html" width="100%" height="422px" scrolling="no"></iframe>
+[Run Example Circuit Connection Diagram for Bike Light Project Fullscreen](../../sims/bike-light-circuit-diagram/main.html)
+
 <details markdown="1">
 <summary>Interactive wiring diagram: Pico + LED strip + button for bike light</summary>
 Type: diagram
@@ -547,6 +551,10 @@ Avoid vague feedback like "good job" or "it was cool" — that doesn't help the 
 ---
 
 #### Diagram: Full Project Lifecycle
+
+
+<iframe src="../../sims/project-lifecycle-timeline/main.html" width="100%" height="562px" scrolling="no"></iframe>
+[Run Full Project Lifecycle Fullscreen](../../sims/project-lifecycle-timeline/main.html)
 
 <details markdown="1">
 <summary>Interactive timeline diagram: from ideation to presentation</summary>

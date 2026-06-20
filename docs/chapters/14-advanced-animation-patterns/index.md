@@ -276,6 +276,10 @@ You should see the strip smoothly pulse between dark and a soft blue-purple colo
 
 #### Diagram: Brightness Envelopes for Advanced Patterns
 
+
+<iframe src="../../sims/brightness-envelope-comparison/main.html" width="100%" height="462px" scrolling="no"></iframe>
+[Run Brightness Envelopes for Advanced Patterns Fullscreen](../../sims/brightness-envelope-comparison/main.html)
+
 <details markdown="1">
 <summary>Interactive chart: compare heartbeat, comet, scanner, and sine envelopes</summary>
 Type: chart

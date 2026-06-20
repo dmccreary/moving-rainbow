@@ -1,23 +1,72 @@
 ---
 title: Modulo Wrap-Around Animation
-description: Understanding — the student can explain why modulo creates wrap-around behavior.
-status: scaffold
+description: Understanding - the student can explain why modulo creates wrap-around behavior.
+image: /sims/modulo-wrap-simulation/modulo-wrap-simulation.png
+og:image: /sims/modulo-wrap-simulation/modulo-wrap-simulation.png
+twitter:image: /sims/modulo-wrap-simulation/modulo-wrap-simulation.png
+social:
+   cards: false
 library: p5.js
-bloom_level: TBD
+status: implemented
 ---
 
 # Modulo Wrap-Around Animation
 
+<iframe src="main.html" width="100%" height="302px" scrolling="no"></iframe>
 
+[Run the Modulo Wrap-Around Animation MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+A row of 10 pixel circles representing a NeoPixel strip. A "position" counter is shown above.
 
-## Specification
+**Learning objective:** Understanding - the student can explain why modulo creates wrap-around behavior.
 
-The full specification below is extracted from
-[Chapter 11: Mathematics for LED Programming](../../chapters/11-math-for-led-programming/index.md).
+## How to Use
+
+Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/modulo-wrap-simulation/main.html"
+        height="302px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Understanding - the student can explain why modulo creates wrap-around behavior.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 11](../../chapters/11-math-for-led-programming/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 11: Mathematics for LED Programming](../../chapters/11-math-for-led-programming/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: interactive-infographic
@@ -30,6 +79,4 @@ A row of 10 pixel circles representing a NeoPixel strip. A "position" counter is
 Learning objective: Understanding — the student can explain why modulo creates wrap-around behavior.
 ```
 
-## Related Resources
-
-- [Chapter 11: Mathematics for LED Programming](../../chapters/11-math-for-led-programming/index.md)
+</details>

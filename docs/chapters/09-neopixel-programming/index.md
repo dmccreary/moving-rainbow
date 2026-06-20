@@ -141,6 +141,10 @@ The **RGB Tuple Format** is `(red, green, blue)` with each value in the **color 
 
 #### Diagram: Pixel Indexing on a NeoPixel Strip
 
+
+<iframe src="../../sims/pixel-indexing-explorer/main.html" width="100%" height="292px" scrolling="no"></iframe>
+[Run Pixel Indexing on a NeoPixel Strip Fullscreen](../../sims/pixel-indexing-explorer/main.html)
+
 <details markdown="1">
 <summary>Interactive diagram: pixel index numbers on a strip</summary>
 Type: interactive-infographic
