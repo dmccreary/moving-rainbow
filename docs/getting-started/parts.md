@@ -6,7 +6,8 @@ You can easily create personal projects based on the Moving Rainbow kits and sof
 
 [Search eBay for WS2812b LED strip](https://www.ebay.com/sch/i.html?_nkw=WS2812b+led+strip)
 
-Note that the term "WS2812b" is technically the name of the integrated 
+Note that the term "WS2812b" is technically the name of the integrated circuit that displays
+the red, green and blue values from the data values sent over the data wire.
 
 If you are a good planner you can purchase parts from China that take longer to arrive, 
 but they can cost significantly less than parts that ship overnight on Amazon.  

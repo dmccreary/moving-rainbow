@@ -11,12 +11,27 @@ nav:
   - Concept Sequence: concept-sequence.md
 
   - Chapters:
-    - Introduction: chapters/index.md
-    - 1. Introduction: chapters/01-introduction/index.md
-    - 2. Pi 500 Keyboard: chapters/02-pi-500-keyboard/index.md
-    - 3. Pi Keyboard Python: chapters/03-pi-keyboard-python/index.md
-    - 4. Pi Keyboard Skill: chapters/04-pi-keyboard-skill/index.md
-    - 5. MacBook Touch Bar: chapters/macbook-touchbar-status/index.md
+    - List of Chapters: chapters/index.md
+    - 1. Intro and CT: chapters/01-intro-and-computational-thinking/index.md
+    - 2. Python Basics: chapters/02-python-variables-types-operators/index.md
+    - 3. Functions and Modules: chapters/03-python-functions-modules-practices/index.md
+    - 4. Control Flow and Loops: chapters/04-python-control-flow-loops/index.md
+    - 5. Pico Hardware: chapters/05-raspberry-pi-pico-hardware/index.md
+    - 6. MicroPython APIs: chapters/06-micropython-apis-and-electronics/index.md
+    - 7. RGB Color Theory: chapters/07-rgb-color-theory/index.md
+    - 8. NeoPixel Hardware: chapters/08-neopixel-led-hardware/index.md
+    - 9. NeoPixel Programming: chapters/09-neopixel-programming/index.md
+    - 10. Advanced Color: chapters/10-advanced-color-theory/index.md
+    - 11. LED Math: chapters/11-math-for-led-programming/index.md
+    - 12. Basic Animations: chapters/12-basic-animation-patterns/index.md
+    - 13. Intermediate Animations: chapters/13-intermediate-animations/index.md
+    - 14. Advanced Animations: chapters/14-advanced-animation-patterns/index.md
+    - 15. Electronics: chapters/15-electronics-fundamentals/index.md
+    - 16. Circuit Assembly: chapters/16-circuit-assembly/index.md
+    - 17. Power Systems: chapters/17-power-and-battery-systems/index.md
+    - 18. Input and Sensors: chapters/18-input-devices-and-sensors/index.md
+    - 19. Interactive and Tools: chapters/19-interactive-animations-and-tools/index.md
+    - 20. Projects and Capstone: chapters/20-project-design-and-capstone/index.md
 
    
   - Getting Started:

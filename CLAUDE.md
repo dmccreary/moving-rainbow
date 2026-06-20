@@ -1,10 +1,10 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code, Codex or Google Antigravity Agents when working with code in this repository.
 
 ## Project Overview
 
-This is the Moving Rainbow project - an educational resource for teaching computational thinking and computer science concepts using LED strips and microcontrollers. The project uses both MicroPython (for Raspberry Pi Pico) and Arduino C++ for hands-on learning with addressable LEDs (WS2812B/NeoPixels).
+This is the Moving Rainbow project - an educational resource for teaching computational thinking and computer science concepts using LED strips and microcontrollers. The project uses MicroPython for the Raspberry Pi Pico for hands-on learning with addressable LEDs (WS2812B/NeoPixels).
 
 ## Build and Documentation Commands
 
@@ -18,139 +18,56 @@ mkdocs gh-deploy    # Deploy to GitHub Pages
 
 ## Project Structure
 
+User documentation is located in the `/docs/` like all standard mkdocs projects.
+Source code that is uploaded into the Raspberry Pi Pico is "packaged" for
+easy uploading into the kits and is not stored in the `/src/` directory.
+
+### Documentation Structure (`/docs/`)
+
+- **`chapters/`** - main chapter content
+- **`lessons/`** - Progressive hands-on tutorials mapped to numbered source files
+- **`sims/`** - Interactive MicroSims (mostly p5.js browser simulations) with `templates/` for creating new sims
+- **`kits/`** - Kit-specific assembly and usage guides
+- **`prompts/`** - GenAI prompts for content generation
+- **`posters/`** - posters for displays, handouts or science fair events
+- **`teachers-guide/`** - teacher-facing content (professional register, no Pixel mascot)
+
 ### Source Code (`/src/`)
 
+- Code for downloading into project kits is stored in `/src/kits/{KIT_NAME}/`
 - **`led-strip-two-buttons/`** - Main kit examples with numbered progression (01-blink.py through 60-pixel-demo.py). This is the canonical reference for lesson code.
-- **`arduino/`** - Arduino C++ sketches using Adafruit NeoPixel library (~79 sketch directories)
 - **`pi-500-keyboard/`** - Raspberry Pi 500+ keyboard RGB LED control scripts
 - Kit-specific directories (e.g., `katies-busy-board/`, `tiki-bar-sign/`, `kits/holiday-hats/`)
 
-### Documentation (`/docs/`)
+## MicroPython Coding Standards
 
-- **`lessons/`** - Progressive tutorials mapped to numbered source files
-- **`sims/`** - Interactive MicroSims (p5.js browser simulations) with `templates/` for creating new sims
-- **`kits/`** - Kit-specific assembly and usage guides
-- **`prompts/`** - GenAI prompts for content generation
+When generating MicroPython code for student learning, use the `CODING-GUIDELINES.md` file.
 
-### Key Configuration Pattern
+## Content Generation — REQUIRED READING
 
-Each kit uses a `config.py` for hardware abstraction that is imported by all lesson files:
-```python
-# src/led-strip-two-buttons/config.py
-NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 30
-BUTTON_PIN_1 = 15
-BUTTON_PIN_2 = 14
-```
+**Before generating any documentation, chapter content, lesson, sidebar, or
+teacher's guide entry, read the content generation guide in full:**
 
-When creating new MicroPython examples, always import config and use `config.NEOPIXEL_PIN`, `config.NUMBER_PIXELS`, etc.
+> **[`CONTENT-GENERATION-GUIDE.md`](CONTENT-GENERATION-GUIDE.md)**
 
-## Platform-Specific Notes
+That guide defines:
+- Two audiences (student vs. teacher) with distinct writing registers
+- Rules for the **Pixel** mascot (student content only, they/them always)
+- Reading level targets, vocabulary rules, and positive-framing requirements
+- MkDocs formatting conventions
+- A pre-submission checklist
 
-### MicroPython (Raspberry Pi Pico)
-- Uses `neopixel` and `machine` libraries (built into MicroPython)
-- Standard pattern: `strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)`
-- Files run directly on Pico via Thonny IDE
+The Pixel character sheet is the canonical visual and voice reference:
 
-### Arduino
-- Uses Adafruit NeoPixel library
-- Standard Arduino IDE workflow
+> **[`docs/img/mascot/character-sheet.md`](docs/img/mascot/character-sheet.md)**
 
-### Pi 500+ Keyboard RGB
-- Uses `rpi-keyboard-config` command-line tool and `RPiKeyboardConfig` Python library
-- 45 built-in effects (IDs 0-44), 7 preset slots (0-6)
-- Key commands: `rpi-keyboard-config effect <id>`, `rpi-keyboard-config preset set <slot> <effect>`
-- Keystroke-triggered effects: 29, 31-42 (react to key presses)
-- See `src/pi-500-keyboard/cycle-effects.sh` for effect names
-
-### MicroSims
-- Browser-based p5.js simulations in `docs/sims/`
-- Each sim has: `index.md` (documentation), `main.html` (entry point), `sketch.js` (p5.js code)
-- Use `docs/sims/templates/` as starting point for new sims
-
-## Lesson File Numbering Convention
-
-Files in `src/led-strip-two-buttons/` follow a progression:
-- 01-10: Basics (blink, colors, dimmer, movement)
-- 11-20: Patterns (bands, comets, rainbow, candle, theater chase)
-- 20-30: Advanced (clock, larson scanner, random bounce)
-- 30-40: Button integration
-- 50+: Complete demos
-
-When adding new lessons, maintain this numbering scheme.
+Do not write any Pixel dialogue without anchoring to that character sheet.
 
 ## Educational Design Principles
 
 - **Progressive complexity**: Lessons build incrementally (blink → motion → color → complex patterns)
 - **Immediate visual feedback**: Every code change produces visible LED results
-- **Low barrier to entry**: ~$13 total hardware cost, minimal wiring (3 wires for LED strip)
+- **Low barrier to entry**: ~$15 total hardware cost, minimal wiring (3 wires for LED strip)
 
 When modifying code or documentation, prioritize clarity for beginners over code elegance. Maintain the numbered lesson progression and consistent configuration patterns across kits.
 
-## Claude Code Keyboard Notifications
-
-This project includes a notification system that flashes function keys (F1-F3) on the Pi 500+ keyboard when Claude Code needs attention.
-
-### Notification Script
-**File:** `src/pi-500-keyboard/claude-notify.py`
-
-| Command | Key | Action | Color |
-|---------|-----|--------|-------|
-| `claude-notify.py flash` | F1 | Task complete | Blue flash (20x) |
-| `claude-notify.py question` | F1 | Question asked | Blue blink (10x) |
-| `claude-notify.py permission` | F1 | Permission needed | Yellow blink (10x) |
-| `claude-notify.py waiting` | F2 | Waiting for user input | Red flash (15x) |
-| `claude-notify.py context` | F3 | Context window almost full | Orange flash (10x) |
-| `claude-notify.py off` | All | Turn off | Off |
-
-### Hooks Configuration
-**File:** `~/.claude/settings.json` (user-level, requires Claude Code restart to take effect)
-
-```json
-{
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py flash"
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "idle_prompt",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py waiting"
-          }
-        ]
-      },
-      {
-        "matcher": "permission_prompt",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py permission"
-          }
-        ]
-      }
-    ],
-    "PreCompact": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/dan/ws/moving-rainbow/src/pi-500-keyboard/claude-notify.py context"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-**Important:** The `Stop` and `PreCompact` hooks must NOT have a `matcher` field - only `Notification` hooks use matchers.
