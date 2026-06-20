@@ -153,6 +153,12 @@ nav:
   - Challenges v2: challenges-v2.md
   - Moving Rainbow Skill: skills/index.md
 
+  - Stories:
+    - List of Stories: stories/index.md
+    - Larson Scanner: stories/larson-scanner.md
+    - Moving Rainbow: stories/moving-rainbow.md
+
+    
   - Learning Graph:
     - Introduction: learning-graph/index.md
     - Course Description Assessment: learning-graph/course-description-assessment.md
