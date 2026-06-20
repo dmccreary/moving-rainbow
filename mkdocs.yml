@@ -7,6 +7,7 @@ site_author: 'Dan McCreary'
 edit_uri: edit/master/docs/
 
 nav:
+  - About this Project: about.md
   - Course Description: course-description.md
   - Concept Sequence: concept-sequence.md
 
@@ -199,8 +200,8 @@ nav:
 
   - Stories:
     - List of Stories: stories/index.md
-    - Larson Scanner: stories/larson-scanner.md
-    - Moving Rainbow: stories/moving-rainbow.md
+    - Larson Scanner: stories/larson-scanner/index.md
+    - Moving Rainbow: stories/moving-rainbow/index.md
     - The NeoPixel Train: stories/neopixel-train/index.md
 
     
@@ -213,7 +214,6 @@ nav:
     - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
     - Pixel Mascot Style Guide: learning-graph/mascot-test.md
  
-  - About: about.md
   - License: license.md
   - Glossary: glossary.md
   - Resources: resources.md

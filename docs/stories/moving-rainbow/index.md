@@ -6,11 +6,11 @@ As Dan dropped his daughter off at college
 ## The Empty Nester
 ![](panel-01.jpeg)
 <details>
-    <summary>Dan Dropping Daughter Off at College<summary>
-    Create a new wide-format image for a graphic novel type story. 
-    Use a modern graphic novel with a bright colorful drawing style.
+<summary>Dan Dropping Daughter Off at College</summary>
+Create a new wide-format image for a graphic novel type story. 
+Use a modern graphic novel with a bright colorful drawing style.
 
-    Subject: Dan McCreary, a white male in his mid-40s with short, slightly thinning brown hair, a round friendly face, brown eyes, clean-shaven, and a medium-to-stocky build. He is wearing a bright blue polo shirt.
+Subject: Dan McCreary, a white male in his mid-40s with short, slightly thinning brown hair, a round friendly face, brown eyes, clean-shaven, and a medium-to-stocky build. He is wearing a bright blue polo shirt.
 
 Scene: September 2011, move-in day at Carleton College, Northfield, Minnesota. Dan is seated in the driver's seat of a SUV, window down, pulling away from a dormitory drop-off area. He is turned slightly, looking back over his left shoulder out the window. 
 The SUV is a light green BMW X5.
@@ -29,15 +29,15 @@ Mood/Tone: Warm but emotionally bittersweet — a proud father quietly grieving 
 With his daughter gone to college, Dan decided he loved working with kids.  So he began volunteering for coding clubs.  And boy did they need help!
 
 <details>
-   <summary>Dan Helping Kids Learn to Code<summary>
-   Dan in a busy classroom teaching kids how to code.
-   He is wearing a bright blue shirt and black jeans.
-   A sign behind the students says "Learn Computational Thinking"
-   The kids are at laptops with Arduino kit in front of them.
-   One kit has a colorful red, green and blue LED lights.
-   One kit has a row of 10 red LEDs.
-   There are a lot of wires that need to be connected.
-   Dan is leaning over a student and pointing to a wire on a breadboard.
+<summary>Dan Helping Kids Learn to Code</summary>
+Dan in a busy classroom teaching kids how to code.
+He is wearing a bright blue shirt and black jeans.
+A sign behind the students says "Learn Computational Thinking"
+The kids are at laptops with Arduino kit in front of them.
+One kit has a colorful red, green and blue LED lights.
+One kit has a row of 10 red LEDs.
+There are a lot of wires that need to be connected.
+Dan is leaning over a student and pointing to a wire on a breadboard.
 </details>
 
 ## Dan Sees Variability In Success
