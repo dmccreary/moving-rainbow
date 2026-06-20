@@ -239,7 +239,6 @@ and motion but spend more time on the code and less time making connections.
 
 ## Panel 10: The Computational Thinking Checklist
 
-
 ![](panel-10.jpeg)
 
 Please generate a new Wide-landscape drawing.
