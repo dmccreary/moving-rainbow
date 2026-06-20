@@ -9,11 +9,21 @@ quality_score: 91
 ## Course Overview
 
 **Course Code:** CS-110
-**Target Audience:** High school students (grades 9–12), CoderDojo youth makers, and adult beginners
+**Target Audience:** Junior high and high school school students (grades 7–12), makers, and adults interested in creating responsive lighting designs
 **Duration:** 10 weeks (1 semester)
 **Credit:** 0.5 Credit (Elective — Computer Science / STEM)
 **Prerequisites:** None. No prior programming experience required.
-**Materials Fee:** ~$13 (students keep their kit)
+**Materials Fee:** ~$15 (students keep their kit)
+
+## Why This Course
+
+Many students in wealthy school districts have access to $10,000 robotics kits.
+However, we strongly believe that we can teach the core skills of computational thinking
+and problem solving using low-cost (under $50) programming kits.  This
+entire course is designed around modern MicroPython coding and there are
+many areas we teach color, art and debugging skills.  In summary, we think
+this is one of the funnest ways to learn to code!  And the upside
+is you can wear your project in costumes to your next Halloween party!
 
 ## Course Description
 
@@ -22,6 +32,9 @@ Moving Rainbow is a hands-on introduction to computer science, computational thi
 The course is grounded in the four pillars of computational thinking — decomposition, pattern recognition, abstraction, and algorithm design — and applies them concretely in every lesson. Students gain practical electronics skills including circuit design, battery selection, and power management, alongside software skills in debugging, version control, and project documentation.
 
 The course culminates in a three-week capstone project where students design, build, and present an original LED creation of their choice: a wearable costume, room decoration, interactive art installation, or practical device such as a smart nightlight or clock display.
+
+We focus on building critical thinking skills and hands-on problem solving.  We encourage
+students to work in teams to improve their social interaction skills.
 
 ## Main Topics Covered
 
