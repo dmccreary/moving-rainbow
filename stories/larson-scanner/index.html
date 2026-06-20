@@ -1,0 +1,1552 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="How a Hollywood TV producer's love of drama gave birth to the iconic red scanning eye from Battlestar Galactica and Knight Rider — a pattern that makers still code with NeoPixels today.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/stories/larson-scanner/">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>The Scanning Eye - Glen Larson's Iconic LED Pattern - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="The Scanning Eye - Glen Larson's Iconic LED Pattern - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="How a Hollywood TV producer's love of drama gave birth to the iconic red scanning eye from Battlestar Galactica and Knight Rider — a pattern that makers still code with NeoPixels today." >
+      
+        <meta property="og:image" content="https://dmccreary.github.io/moving-rainbow/stories/larson-scanner/cover.png">
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/stories/larson-scanner/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="The Scanning Eye - Glen Larson's Iconic LED Pattern - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="How a Hollywood TV producer's love of drama gave birth to the iconic red scanning eye from Battlestar Galactica and Knight Rider — a pattern that makers still code with NeoPixels today." >
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/moving-rainbow/stories/larson-scanner/cover.png">
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-scanning-eye-glen-larsons-iconic-led-pattern" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Scanning Eye - Glen Larson's Iconic LED Pattern
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prologue-the-light-that-looked-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prologue – The Light That Looked Back
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-1-the-singers-dream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 1: The Singer's Dream
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-2-a-writers-ambition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 2: A Writer's Ambition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-3-pitching-the-stars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 3: Pitching the Stars
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-4-the-face-of-the-enemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 4: The Face of the Enemy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-5-the-sweep-that-changed-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 5: The Sweep That Changed Everything
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-6-the-cylons-invade-living-rooms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 6: The Cylons Invade Living Rooms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-7-families-around-the-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 7: Families Around the Screen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-8-kitt-the-car-that-thinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 8: KITT — The Car That Thinks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-9-a-double-legacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 9: A Double Legacy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-10-makers-discover-the-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 10: Makers Discover the Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-11-neopixels-and-micropython" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 11: NeoPixels and MicroPython
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-12-a-pattern-that-endures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Panel 12: A Pattern That Endures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Panel 12: A Pattern That Endures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#epilogue-what-made-glen-larson-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      Epilogue – What Made Glen Larson Different?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-to-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call to Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/stories/larson-scanner/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="the-scanning-eye-glen-larsons-iconic-led-pattern">The Scanning Eye: Glen Larson's Iconic LED Pattern</h1>
+<p><img alt="" src="cover.png" /></p>
+<details>
+<summary>Cover Image Prompt</summary>
+(This is the Cover Image. Do not include this label in the image.)
+Please generate a wide-landscape 16:9 cover image for this graphic novel story in bold cinematic 1980s Hollywood graphic novel style. The cover depicts a dramatic split composition: on the left, a gleaming silver Cylon Centurion robot from 1978 science fiction television with a single red scanning light sweeping left to right across a horizontal visor slot; on the right, a sleek black 1982 Pontiac Trans Am sports car at night with a glowing red scanner light sweeping back and forth across its front bumper. Both red lights trace the same iconic arc pattern. In the center background, a strip of NeoPixel LEDs glows red in the same back-and-forth scanning pattern, connecting past to future. Above, the title text "The Scanning Eye" appears in bold chrome-effect letters with a red LED glow behind them, and below it "Glen Larson's Iconic LED Pattern" in smaller text. Color palette: deep blacks, chrome silvers, vivid red LED glow against darkness, with warm amber street lighting on the car side. Emotional tone: exciting, futuristic, iconic — like a movie poster from the 1980s with modern graphic novel polish. Generate the image immediately without asking clarifying questions.
+</details>
+
+<details>
+<summary>Narrative Prompt</summary>
+This graphic novel tells the story of Glen A. Larson (1937–2014), the prolific American television producer who created the iconic back-and-forth LED scanning light pattern — now called the "Larson Scanner" — through his landmark TV shows Battlestar Galactica (1978) and Knight Rider (1982). The story follows Glen from his early days as a musician in 1950s Los Angeles through his transformation into one of the most successful TV producers of the 1970s and 1980s, and traces how his visual design choice — a simple back-and-forth scanning red light to make robots and cars feel "alive" — became one of the most beloved LED patterns in the modern maker community.
+
+Art style throughout: Bold cinematic graphic novel illustration with warm 1980s Hollywood color palette. Use deep reds, chrome silvers, television amber, and dark navy. Digital painting style with clean confident lines and dramatic lighting inspired by 1980s TV production design. The era shifts from warm 1950s California tones (panels 1–2) to bold 1970s TV drama style (panels 3–7) to sleek 1980s night-time action (panels 8–9) to modern bright maker lab lighting (panels 10–12).
+
+Key visual consistencies: Glen Larson appears as a confident, well-dressed man in his 40s during the 1970s–80s panels — silver-streaked dark hair, warm expression, often holding papers or scripts. The Cylon eye is always a horizontal visor slot with a red LED moving smoothly left to right. KITT's scanner is a red LED bar on the black car's nose moving in the same pattern. NeoPixel strips in the modern panels glow the same vivid red.
+</details>
+
+<h3 id="prologue-the-light-that-looked-back">Prologue – The Light That Looked Back</h3>
+<p>Before there were LED strips and MicroPython boards, before there were Raspberry Pi Picos and NeoPixels, a single back-and-forth sweeping red light captured the imaginations of millions of television viewers. That light — moving steadily, silently, watching — came from the mind of one man: Glen A. Larson, television producer, songwriter, and accidental inventor of one of the most beloved patterns in maker history. This is his story.</p>
+<h2 id="panel-1-the-singers-dream">Panel 1: The Singer's Dream</h2>
+<p><img alt="" src="panel-01.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 01. Do not include the panel number in the image.)
+I am about to ask you to generate a series of images for a graphic novel. Please make the images have a consistent style and consistent characters. Do not ask any clarifying questions. Just generate the image immediately when asked.
+
+Please generate a 16:9 image in bold cinematic 1950s California graphic novel style depicting panel 1 of 12. The scene shows a young Glen Larson, about 20 years old, on a small stage at a high school gymnasium in Los Angeles, California, 1957. He is performing with three other young men as part of a close-harmony vocal group — The Four Preps. Glen wears a candy-striped blazer and has a bright confident smile, holding a vintage microphone on a stand. Swooping 1950s pompadour hair, Buddy Holly era stage lighting with warm tungsten amber glow. An enthusiastic teenage audience fills the bleachers beyond the stage edge. A banner in the background reads "SENIOR NIGHT 1957." Through a high gymnasium window, the glittering lights of the Los Angeles skyline glow at night. Color palette: warm amber and cream with deep navy shadows, 1950s bobby-sock era costumes. Emotional tone: youthful energy, the joy of performing, the first flicker of a dream. Six details: the four young men in matching blazers, a vintage microphone, an excited teenage crowd, a 1957 gymnasium with hardwood floor, a visible Los Angeles night-glow through the window, and sheet music visible on a music stand at the side of the stage. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>Long before he dreamed of robots and race cars, Glen A. Larson was a singer. In the late 1950s, as a teenager in Los Angeles, he helped form a vocal harmony group called The Four Preps, and their sweet close-harmony pop songs became genuine hits across America. Glen had a gift for connecting with an audience — for making people feel something through performance. But even as the crowds cheered for his music, his imagination kept wandering toward another kind of storytelling: the stories being told on the glowing screen in everyone's living room.</p>
+<h2 id="panel-2-a-writers-ambition">Panel 2: A Writer's Ambition</h2>
+<p><img alt="" src="panel-02.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 02. Do not include the panel number in the image.)
+Please generate a 16:9 image in bold cinematic early-1960s Hollywood graphic novel style depicting panel 2 of 12. Make the characters and style consistent with the prior panel. The scene shows Glen Larson, now in his late 20s, sitting at a wooden desk in a modest Universal Studios writer's room in Hollywood, California, 1963. He is typing on a manual typewriter, surrounded by stacked script pages, a cup of coffee, and a legal notepad covered in handwritten story notes. Black-and-white photographs of 1960s TV shows are pinned to the corkboard behind him. Through the venetian blinds on the window, California sunlight casts bold horizontal stripe shadows across the room. Glen's character: well-dressed in a sport coat, confident posture, a pencil tucked behind his ear, dark hair neatly combed. Color palette: warm sunlight yellows and cream paper tones, oak wood browns, deep shadows from venetian blind stripes creating graphic light patterns. Emotional tone: focused ambition, the quiet hard work of a writer learning a new craft, the buzz of ideas. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>Turning away from his music career, Glen threw himself into the art of television writing. He got his start at Universal Studios in Hollywood, learning the craft from the ground up — story structure, character, pacing, and most importantly, how to hook a viewer in the first thirty seconds. His early work on action shows taught him that audiences weren't just watching stories — they were <em>feeling</em> them through sound, color, and motion. Every camera angle, every sound effect, every flicker of light was a tool for emotion. Glen Larson was becoming a master of those tools.</p>
+<h2 id="panel-3-pitching-the-stars">Panel 3: Pitching the Stars</h2>
+<p><img alt="" src="./panel-03.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 03. Do not include the panel number in the image.)
+Please generate a 16:9 image in bold cinematic 1970s Hollywood graphic novel style depicting panel 3 of 12. Make the characters and style consistent with the prior panel. The scene shows Glen Larson, now in his early 40s, silver-streaked dark hair, confident and animated, standing at the head of a conference table in a television network boardroom in Hollywood, California, 1977. He is presenting concept artwork to a group of skeptical TV executives seated around the table. He holds up a large illustration showing a hulking silver robot warrior — the Cylon Centurion — with a distinctive horizontal visor slot in place of eyes. The executives lean in with expressions mixing curiosity and doubt. Behind Glen, a chalkboard reads "BATTLESTAR GALACTICA — ABC TELEVISION." Color palette: 1970s earth tones — mustard yellow, burnt orange, brown wood paneling, fluorescent office lighting. Emotional tone: high-stakes pitch, confident vision, the drama of selling a bold creative idea. Six details: Glen's animated gesture, the Cylon concept art held up clearly, a second storyboard showing spaceships in the background, executives in 1970s business suits, a Sony television on a cart in the corner showing static, and water glasses on the conference table. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>By the mid-1970s, Glen Larson had become one of the most prolific producers in Hollywood. But his biggest dream was to create a sweeping science fiction epic for television. Inspired by the success of <em>Star Wars</em>, he pitched <em>Battlestar Galactica</em> to ABC Television: a story of the last surviving humans fleeing a robotic empire through deep space. The executives were nervous — nothing on this scale had been attempted on TV before. Glen Larson believed he could make them see what he saw. And he had exactly one idea that would make his robots unforgettable.</p>
+<h2 id="panel-4-the-face-of-the-enemy">Panel 4: The Face of the Enemy</h2>
+<p><img alt="" src="./panel-04.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 04. Do not include the panel number in the image.)
+Please generate a 16:9 image in bold cinematic late-1970s science fiction production style depicting panel 4 of 12. Make the characters and style consistent with the prior panel. The scene shows a Hollywood costume and effects workshop in Burbank, California, 1977. Three costume designers and prop builders work around a silver-painted Cylon Centurion costume standing upright on a pedestal. The costume has a silver humanoid torso with angular shoulders and a distinctive horizontal visor slot in the helmet — but the visor slot is dark and unlit. One designer kneels by the base examining wiring. Another holds a string of small red LED components and a battery pack, studying them. Glen Larson stands to the side with arms crossed, studying the dark visor slot with a thoughtful expression. A cluttered work bench holds soldering tools, wiring spools, circuit components, and sketch drawings of the Cylon head design. Color palette: workshop cool grey with warm tungsten bulb lighting, silver metallic reflections everywhere, sparse red electrical components among grey and silver. Emotional tone: creative problem-solving, the critical moment before a breakthrough, the technical challenge of bringing a villain to life. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>The Cylon Centurion — the robotic soldiers of <em>Battlestar Galactica</em> — looked fearsome enough in their silver armor. But something was missing. On a television set, a motionless face looks dead, not dangerous. Glen Larson and his effects team wrestled with the problem: how do you make a silver robot's blank face feel like a thinking machine? How do you give a creature with no mouth, no eyes, and no expression a sense of inner life? The answer was right there in their electronics parts bin — simpler than anyone expected, and more powerful than anyone could have imagined.</p>
+<h2 id="panel-5-the-sweep-that-changed-everything">Panel 5: The Sweep That Changed Everything</h2>
+<p><img alt="" src="./panel-05.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 05. Do not include the panel number in the image.)
+Please generate a 16:9 image in bold cinematic 1970s science fiction graphic novel style depicting panel 5 of 12. Make the characters and style consistent with the prior panel. The scene is a dramatic close-up moment in the Burbank effects studio, 1977, lit almost entirely in darkness. An effects technician holds up the Cylon helmet in both hands — now with a glowing red LED light installed in the horizontal visor slot, sweeping from left to right across the dark visor, casting vivid red light on the studio around it. The red glow is vivid and dramatic, reflecting in flashes off the silver chrome surface of the helmet. Glen Larson stands behind the technician, his eyes lit with excitement, pointing at the scanning red light and grinning widely. Other crew members crowd around in the darkness to watch, their faces washed in red reflected light. Color palette: deep black studio darkness everywhere, with the vivid red LED scanning arc as the only warm color, painting everything in dramatic red. Emotional tone: eureka moment, shared wonder, the electric thrill of discovering the exactly right effect. Six details: the glowing red sweep clearly mid-scan across the visor, chrome reflections of red light on the helmet surface, Glen's excited pointing gesture, crew members' expressions of surprise and delight, wiring harness visible at the base of the helmet, the rest of the dark workshop barely visible in silhouette. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>The moment the technician powered on the scanning light inside the Cylon visor, something magical happened. That helmet transformed from a prop into a <em>presence</em>. The back-and-forth sweep of red light gave the overwhelming impression of perception — of intelligence scanning, evaluating, choosing. The room went quiet. Everyone was staring at a red light moving left and right, and yet somehow they all felt <em>watched</em>. Glen Larson knew immediately: this was the face of the enemy. Simple, mechanical, relentless, and somehow terrifying. In that single sweeping motion, an icon was born.</p>
+<h2 id="panel-6-the-cylons-invade-living-rooms">Panel 6: The Cylons Invade Living Rooms</h2>
+<p><img alt="" src="./panel-06.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 06. Do not include the panel number in the image.)
+Please generate a 16:9 image in bold cinematic 1978 science fiction television graphic novel style depicting panel 6 of 12. Make the characters and style consistent with the prior panel. The scene shows three Cylon Centurion soldiers marching in a V-formation down a corridor of their massive battleship, shot from a low angle to make them appear towering and imposing. Each Cylon is a tall silver humanoid figure with angular chrome armor and the distinctive horizontal visor slot — each showing the vivid red scanning LED sweeping from left to right at a different stage in its arc, so one is scanning left, one is at center, one is scanning right. Behind them, a stylized spacecraft interior glows with blue and amber lighting panels. The chrome floor reflects their silver forms. Color palette: cool silver and polished grey for the Cylons, deep space blue for the corridor background, three brilliant red LED scanner sweeps as the dominant warm color, creating a sense of mechanical menace. Emotional tone: unstoppable threat, alien intelligence made visible through light, the arrival of something terrifyingly other. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p><em>Battlestar Galactica</em> premiered on ABC on September 17, 1978, and it was an immediate sensation. But nobody talked more about the Cylon robots than the children watching at home. That sweeping red eye — moving steadily left, right, left, right — was unlike anything they had ever seen on television. It looked <em>alive</em>. It looked like something was home inside that chrome skull, thinking cold machine thoughts and searching the darkness for humans to destroy. The scanning light became the most recognizable special effect on television — the unmistakable signal that the Cylons had found you.</p>
+<h2 id="panel-7-families-around-the-screen">Panel 7: Families Around the Screen</h2>
+<p><img alt="" src="./panel-07.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 07. Do not include the panel number in the image.)
+Please generate a 16:9 image in bold cinematic 1978–1979 American home life graphic novel style depicting panel 7 of 12. Make the characters and style consistent with the prior panel. The scene shows a typical American family — two parents in their 30s, a boy about 12 and a girl about 8 — all sitting together on a couch in a warm living room, watching a large 1970s console television set. On the TV screen, clearly visible and detailed, a Cylon Centurion's face dominates the picture with its iconic red scanning LED sweeping across the visor. The family's faces are lit with the blue-grey glow of the television, their expressions mixing excitement and theatrical fright. The youngest child holds a pillow up to her face, peeking over it. The older child leans forward with wide eyes. 1970s home furnishings: shag carpet, wood-paneled TV console, avocado-green couch, lamps with macramé shades. Color palette: warm incandescent home lighting mixing with cool blue television glow, the TV screen's vivid Cylon red scanner as the most intense color in the scene. Emotional tone: shared family joy, safe excitement, the communal magic of being frightened together by a wonderful story. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>Across America, families gathered every week to watch the human survivors of the Twelve Colonies battle the Cylons across the stars. Children became obsessed — not just with the spaceships and the battles, but with that red eye. They drew it in their notebooks, tried to recreate it with flashlights and red paper, argued about what it meant. <em>Was the Cylon thinking? Did it feel anything?</em> That question, planted by a single back-and-forth light, turned a television prop into a philosophical puzzle — and turned young viewers into the next generation of engineers and makers.</p>
+<h2 id="panel-8-kitt-the-car-that-thinks">Panel 8: KITT — The Car That Thinks</h2>
+<p><img alt="" src="./panel-08.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 08. Do not include the panel number in the image.)
+Please generate a 16:9 image in bold cinematic 1982 night-time action graphic novel style depicting panel 8 of 12. Make the characters and style consistent with the prior panel. The scene shows the dramatic first reveal of KITT — the Knight Industries Two Thousand — a sleek, low-profile black 1982 Pontiac Trans Am sports car, parked on a lonely desert highway at night. The car's most striking feature dominates the foreground: a vivid red LED scanner bar mounted on the front bumper, glowing in a smooth arc sweep from left to right, casting vivid red light on the dark asphalt below. Glen Larson stands beside the car in a studio parking lot, one hand resting proudly on the black roof, looking satisfied. Stars fill the sky above the desert highway. The car's T-top roof lines and sharp angular body panels reflect ambient blue moonlight. Color palette: deep black for the car, midnight blue for the sky, chrome accents catching starlight, and the vivid sweeping red scanner as the only warm luminous element. Emotional tone: the power of a triumphant reveal, the same scanning pattern now expressing friendship and protection rather than menace. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>Four years after the Cylons first swept their red eye across America's television screens, Glen Larson reached into the same visual vocabulary for his newest creation. <em>Knight Rider</em> premiered in 1982, and its true star wasn't the actor — it was the car. KITT, the Knight Industries Two Thousand, was a sleek black Pontiac Trans Am equipped with artificial intelligence. And to communicate that KITT was thinking, feeling, and always watching out for its driver, Larson gave the car the same iconic back-and-forth red scanner light, mounted on its front bumper. The same pattern, used for a villain in 1978, now introduced a hero in 1982.</p>
+<h2 id="panel-9-a-double-legacy">Panel 9: A Double Legacy</h2>
+<p><img alt="" src="./panel-09.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 09. Do not include the panel number in the image.)
+Please generate a 16:9 image in bold cinematic 1980s television graphic novel style depicting panel 9 of 12. Make the characters and style consistent with the prior panel. The scene is a dramatic split-screen composition showing the parallel legacy of the scanning light pattern. On the left half: a single Cylon Centurion standing in a dark space corridor, its red eye scanning left across the dark visor — cold, silver, menacing, the light painting a sharp red line on the chrome surface. On the right half: KITT's sleek black nose, low to the ground on a night highway with white lane markings, the red scanner sweeping right across the front bumper bar — warm, bold, friendly. A sharp diagonal split divides the two half-scenes, and at the very center point where the two red scanning beams nearly meet, tiny glowing text reads "The Same Pattern." Color palette: left side cool silver and space black, right side chrome and midnight highway blue, both scenes unified by the identical vivid red scanning arc — the exact same motion, the exact same glow, two completely different meanings. Emotional tone: the satisfying visual rhyme between villain and hero, the power of a single pattern to carry multiple emotions. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>The same back-and-forth arc of red light that made the Cylons terrifying made KITT beloved. Glen Larson had discovered something profound about visual storytelling: a simple, rhythmic motion of light could communicate consciousness — the sense that something was alive and aware — regardless of whether the observer was meant to fear it or love it. The scanning pattern worked as evil and it worked as good, because it worked as <em>thought</em>. By 1986, the "Larson Scanner" had appeared in two of the decade's most iconic television shows, burned permanently into the memory of a generation.</p>
+<h2 id="panel-10-makers-discover-the-pattern">Panel 10: Makers Discover the Pattern</h2>
+<p><img alt="" src="./panel-10.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 10. Do not include the panel number in the image.)
+Please generate a 16:9 image in bright, energetic early-2000s maker culture graphic novel style depicting panel 10 of 12. Make the characters and style consistent with the prior panel. The scene shows a crowded Maker Faire outdoor festival tent in San Mateo, California, around 2008. At the center of the image, a young man in his early 20s with round glasses and a maker-culture t-shirt (no logos visible) holds up a green circuit board — an Arduino Uno microcontroller — connected by colorful jumper wires to a row of ten red LEDs mounted on a white breadboard. The LEDs are actively displaying the Larson Scanner pattern: a bright central LED with progressively dimmer LEDs on either side, sweeping left to right. People of various ages crowd around the table, smiling and pointing at the scanning light. Behind the demonstrator, a hand-drawn poster sign reads "LARSON SCANNER — Arduino Demo — Try It!" Color palette: bright daylight with orange maker fair banners, blue sky showing through the tent canopy, warm maker-table lighting, the vivid red LED sweep as the star of the image. Emotional tone: joyful rediscovery, the excitement of recreation, a whole community sharing a beloved cultural memory. Six details: the Arduino board with visible chips, breadboard with ten distinct red LEDs clearly showing the scanning pattern, the demo sign, admiring crowd of different ages, orange maker faire tent fabric in background, and the young demonstrator's excited expression. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>As the 2000s arrived and the open-source maker movement blossomed, something unexpected happened: a new generation of engineers and hobbyists began writing code to recreate Glen Larson's iconic scanning light. At Maker Faires, in school electronics clubs, and in late-night dorm rooms, the "Larson Scanner" became one of the most popular beginner LED projects. It was the perfect blend of technical challenge and nostalgic joy — write a loop, add a fading tail, wire up some LEDs, and suddenly you had summoned both KITT and the Cylons at once. The pattern had found a whole new life beyond the television screen.</p>
+<h2 id="panel-11-neopixels-and-micropython">Panel 11: NeoPixels and MicroPython</h2>
+<p><img alt="" src="./panel-11.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 11. Do not include the panel number in the image.)
+Please generate a 16:9 image in bright, modern educational maker lab graphic novel style depicting panel 11 of 12. Make the characters and style consistent with the prior panel. The scene shows a student, about 13 years old, sitting at a clean white desk in a bright school electronics lab, leaning forward with a huge delighted smile. In front of them is a Raspberry Pi Pico microcontroller on a breadboard, connected by jumper wires to a strip of approximately 12 NeoPixel RGB LEDs glowing in vivid red. The LED strip is actively displaying a Larson Scanner pattern — a bright central LED with progressively dimmer red LEDs on either side, sweeping from left to right. The student's open laptop shows MicroPython code with a visible for-loop that creates the scanning animation. On the desk: a USB cable, colorful jumper wires, a printed wiring diagram, and a small KITT toy car. Color palette: bright classroom white and cream surfaces, the vivid red NeoPixel scanner as the dominant warm accent glowing richly against white breadboard, laptop screen in cool blue-grey. Emotional tone: the pure joy of making something work, the magical connection to a beloved childhood memory. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>Today, the Larson Scanner is one of the very first projects thousands of students tackle when learning to program NeoPixel LED strips with MicroPython on the Raspberry Pi Pico. The pattern — a bright center LED with progressively dimmer LEDs trailing behind in both directions, sweeping back and forth — requires a loop, a list, and a little math to create the fading tail. It teaches core programming concepts while producing something that immediately and unmistakably <em>looks alive</em>. And every time a student powers it on for the first time, there's a moment of recognition: they have seen this light before, sweeping across a robot's face in an old television show.</p>
+<h2 id="panel-12-a-pattern-that-endures">Panel 12: A Pattern That Endures</h2>
+<p><img alt="" src="./panel-12.png" /></p>
+<details><summary>Image Prompt</summary>
+(This is Panel 12. Do not include the panel number in the image.)
+Please generate a 16:9 image in warm, celebratory montage graphic novel style depicting panel 12 of 12. Make the characters and style consistent with the prior panel. The scene is a tribute montage composition. At the center, a warm portrait of Glen A. Larson in his 60s — silver hair, warm and confident smile, wearing a fine suit — shown from the shoulders up with a slightly warm golden lighting as if photographed for a lifetime achievement award. Surrounding his portrait in a circular arc are three glowing scene vignettes: upper-left, the Cylon Centurion face in silver with its vivid red scanning eye at mid-sweep; upper-right, KITT's black front bumper scanner sweeping red on a night road; bottom-center, a NeoPixel LED strip on a breadboard scanning the same pattern in vivid red. All three red scanning arcs are shown at the same point in their sweep — synchronized, the same motion across three eras, three contexts, one enduring idea. Below Glen's portrait in elegant typography: "Glen A. Larson  1937–2014." Color palette: warm gold and cream tones for Glen's portrait at center, each surrounding vignette in its own period palette (silver sci-fi, chrome night, bright lab white), all three unified by the identical vivid red LED arc. Emotional tone: warm tribute, lasting legacy, the satisfying feeling of a creative idea that outlived its creator and kept on inspiring. Generate the image immediately without asking clarifying questions.
+</details>
+
+<p>Glen A. Larson passed away on November 14, 2014, leaving behind one of the most productive careers in television history — more than thirty shows, hundreds of episodes, and millions of loyal viewers. But his most enduring legacy may be the one he never could have predicted: a back-and-forth LED pattern that bears his name, taught today in electronics classrooms and maker workshops all over the world. The Cylon eye and KITT's scanner were born from a single question — <em>how do you make something feel alive with just a light?</em> — and the answer still glows on breadboards and NeoPixel strips everywhere you look.</p>
+<h3 id="epilogue-what-made-glen-larson-different">Epilogue – What Made Glen Larson Different?</h3>
+<p>Glen Larson wasn't an electrical engineer, and he didn't invent the LED. He was a storyteller who understood that emotion lives in motion. His instinct to add a rhythmic scanning light to his robots and cars transformed props into characters — and in doing so, accidentally created one of the most imitated and celebrated patterns in the entire history of electronics education. The Larson Scanner endures not because it is technically complex, but because it captures something true: a light that moves back and forth, searching, watching, thinking, feels <em>alive</em>. That insight belongs to one Hollywood producer with a songwriter's ear for rhythm and a storyteller's eye for drama.</p>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>How Glen Larson Responded</th>
+<th>Lesson for Today</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Making robots feel alive on television</td>
+<td>Added a simple back-and-forth red scanning light to the Cylon visor slot</td>
+<td>A single well-chosen motion can communicate more than a thousand lines of visual complexity</td>
+</tr>
+<tr>
+<td>Reusing the same visual effect in a new show</td>
+<td>Applied the scanner to KITT, changing its meaning from menace to friendship</td>
+<td>The same pattern can carry entirely different emotions depending on its context</td>
+</tr>
+<tr>
+<td>Creating a villain viewers would never forget</td>
+<td>Made the Cylon eye move rhythmically, suggesting patient machine intelligence</td>
+<td>Rhythm and repetition are powerful tools in both storytelling and programming</td>
+</tr>
+<tr>
+<td>Building a creative legacy</td>
+<td>Created visual effects that became cultural touchstones across generations of makers</td>
+<td>The best creative ideas outlive their original context and keep inspiring new builders</td>
+</tr>
+</tbody>
+</table>
+<h3 id="call-to-action">Call to Action</h3>
+<p>The next time you wire up a NeoPixel strip and code a Larson Scanner in MicroPython, remember that you are connecting yourself to a chain of creativity that stretches back to a Hollywood writer's room in 1977. Glen Larson used light to tell stories about robots and heroes. Now the same pattern lives in your breadboard — waiting for your story. What will your scanning light mean? What feeling will it carry? The choice is yours.</p>
+<hr />
+<p><em>"I wanted to give people something to dream about — something that lifts them out of the ordinary and makes them believe the impossible is just around the corner."</em>
+— Glen A. Larson, on his philosophy of television production</p>
+<p><em>"One man can make a difference, Michael."</em>
+— KITT, Knight Industries Two Thousand, Knight Rider (1982)</p>
+<hr />
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Glen_A._Larson">Wikipedia: Glen A. Larson</a> - Biography of the prolific American television producer who created Battlestar Galactica and Knight Rider</li>
+<li><a href="https://en.wikipedia.org/wiki/KITT">Wikipedia: KITT</a> - The Knight Industries Two Thousand, the iconic AI car from Knight Rider featuring the front-mounted Larson Scanner</li>
+<li><a href="https://en.wikipedia.org/wiki/Cylon_(Battlestar_Galactica)">Wikipedia: Cylon (Battlestar Galactica)</a> - The robotic antagonists of Battlestar Galactica, whose sweeping red eye became one of television's most iconic visual effects</li>
+<li><a href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)">Wikipedia: Knight Rider (1982 TV series)</a> - Background on the 1982 television series that gave the Larson Scanner its second iconic appearance</li>
+<li><a href="https://en.wikipedia.org/wiki/Battlestar_Galactica_(1978_TV_series)">Wikipedia: Battlestar Galactica (1978 TV series)</a> - The original 1978 Battlestar Galactica series that introduced the scanning Cylon eye to the world</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>
