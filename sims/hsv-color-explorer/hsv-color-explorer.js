@@ -25,6 +25,10 @@ function hsvToRgb(h, s, v) {
 
 function buildWheel() {
   wheelGfx = createGraphics(WHEEL_D, WHEEL_D);
+  // Force 1:1 pixel density so the direct pixels[] indexing below is correct
+  // on Retina/HiDPI displays (otherwise the buffer is 2x and the wheel renders
+  // as two squished copies).
+  wheelGfx.pixelDensity(1);
   wheelGfx.loadPixels();
   const R = WHEEL_D / 2;
   for (let y = 0; y < WHEEL_D; y++) {
@@ -86,16 +90,18 @@ function draw() {
   textSize(12); fill(80);
   text('HSV: (' + H + ', ' + S.toFixed(2) + ', ' + V.toFixed(2) + ')', swX, swY + swR * 2 + 28);
 
-  // color wheel
-  const wx = canvasWidth * 0.6, wy = 56, R = WHEEL_D / 2;
+  // color wheel (anchored to the right edge, vertically centered with the swatch)
+  const R = WHEEL_D / 2;
+  const wx = canvasWidth - WHEEL_D - 60, wy = 36;
+  const cx = wx + R, cy = wy + R;
   image(wheelGfx, wx, wy);
   // value dimming overlay
-  noStroke(); fill(0, (1 - V) * 255); circle(wx + R, wy + R, WHEEL_D);
+  noStroke(); fill(0, (1 - V) * 255); circle(cx, cy, WHEEL_D);
   // dot
   const ang = H * Math.PI / 180, rr = S * R;
-  const dotX = wx + R + Math.cos(ang) * rr, dotY = wy + R + Math.sin(ang) * rr;
+  const dotX = cx + Math.cos(ang) * rr, dotY = cy + Math.sin(ang) * rr;
   stroke('white'); strokeWeight(2); fill(rgb[0], rgb[1], rgb[2]); circle(dotX, dotY, 16);
-  noStroke(); fill(70); textSize(11); textAlign(CENTER, TOP); text('color wheel (angle = hue, radius = saturation)', wx + R, wy + WHEEL_D + 4);
+  noStroke(); fill(70); textSize(11); textAlign(CENTER, TOP); text('color wheel (angle = hue, radius = saturation)', cx, wy + WHEEL_D + 4);
 
   // slider labels
   noStroke(); fill('black'); textSize(14); textAlign(LEFT, CENTER);
