@@ -1,23 +1,72 @@
 ---
 title: Function Call Step-Through
-description: Students trace the execution flow of a function call — from the call site, into the function with its parameters bound, through each line of the body, across the return statement, and back to the caller — using a concrete NeoPixel example.
-status: scaffold
+description: Students trace the execution flow of a function call - from the call site, into the function with its parameters bound, through each line of the body, acro
+image: /sims/function-call-step-through/function-call-step-through.png
+og:image: /sims/function-call-step-through/function-call-step-through.png
+twitter:image: /sims/function-call-step-through/function-call-step-through.png
+social:
+   cards: false
 library: p5.js
-bloom_level: Understand (L2)
+status: implemented
 ---
 
 # Function Call Step-Through
 
+<iframe src="main.html" width="100%" height="412px" scrolling="no"></iframe>
 
+[Run the Function Call Step-Through MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Students trace the execution flow of a function call - from the call site, into the function with its parameters bound, through each line of the body, across the return statement, and back to the caller - using a concrete NeoPixel example.
 
-## Specification
+**Learning objective:** Students trace the execution flow of a function call - from the call site, into the function with its parameters bound, through each line of the body, across the return statement, and back to the caller - using a concrete NeoPixel example.
 
-The full specification below is extracted from
-[Chapter 3: Python Functions, Modules, and Programming Best Practices](../../chapters/03-python-functions-modules-practices/index.md).
+## How to Use
+
+Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/function-call-step-through/main.html"
+        height="412px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Students trace the execution flow of a function call - from the call site, into the function with its parameters bound, through each line of the body, across the return statement, and back to the caller - using a concrete NeoPixel example.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 3](../../chapters/03-python-functions-modules-practices/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 3: Python Functions, Modules, and Programming Best Practices](../../chapters/03-python-functions-modules-practices/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: microsim
@@ -87,6 +136,4 @@ Visual elements:
 Responsive design: Panels stack vertically on screens narrower than 600px. Font size reduces to 11px when stacked.
 ```
 
-## Related Resources
-
-- [Chapter 3: Python Functions, Modules, and Programming Best Practices](../../chapters/03-python-functions-modules-practices/index.md)
+</details>

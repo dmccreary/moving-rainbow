@@ -332,6 +332,10 @@ You should see blue brightness waves appearing to expand outward from the center
 
 #### Diagram: Ripple Animation Mechanics
 
+
+<iframe src="../../sims/ripple-animation-sim/main.html" width="100%" height="312px" scrolling="no"></iframe>
+[Run Ripple Animation Mechanics Fullscreen](../../sims/ripple-animation-sim/main.html)
+
 <details markdown="1">
 <summary>Interactive simulation: ripple expanding from center</summary>
 Type: interactive-infographic

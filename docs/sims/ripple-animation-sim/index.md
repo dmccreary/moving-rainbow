@@ -1,23 +1,72 @@
 ---
 title: Ripple Animation Mechanics
-description: Analyzing — the student can explain how phase and distance combine to produce the ripple pattern.
-status: scaffold
+description: Analyzing - the student can explain how phase and distance combine to produce the ripple pattern.
+image: /sims/ripple-animation-sim/ripple-animation-sim.png
+og:image: /sims/ripple-animation-sim/ripple-animation-sim.png
+twitter:image: /sims/ripple-animation-sim/ripple-animation-sim.png
+social:
+   cards: false
 library: p5.js
-bloom_level: TBD
+status: implemented
 ---
 
 # Ripple Animation Mechanics
 
+<iframe src="main.html" width="100%" height="312px" scrolling="no"></iframe>
 
+[Run the Ripple Animation Mechanics MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+A p5.js MicroSim showing a horizontal row of 20 pixel circles. A center pixel is marked with a small dot.
 
-## Specification
+**Learning objective:** Analyzing - the student can explain how phase and distance combine to produce the ripple pattern.
 
-The full specification below is extracted from
-[Chapter 13: Intermediate Animation Techniques](../../chapters/13-intermediate-animations/index.md).
+## How to Use
+
+Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/ripple-animation-sim/main.html"
+        height="312px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Analyzing - the student can explain how phase and distance combine to produce the ripple pattern.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 13](../../chapters/13-intermediate-animations/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 13: Intermediate Animation Techniques](../../chapters/13-intermediate-animations/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: interactive-infographic
@@ -30,6 +79,4 @@ A p5.js MicroSim showing a horizontal row of 20 pixel circles. A center pixel is
 Learning objective: Analyzing — the student can explain how phase and distance combine to produce the ripple pattern.
 ```
 
-## Related Resources
-
-- [Chapter 13: Intermediate Animation Techniques](../../chapters/13-intermediate-animations/index.md)
+</details>

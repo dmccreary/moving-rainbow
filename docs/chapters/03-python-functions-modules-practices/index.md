@@ -245,7 +245,7 @@ Let's see this step by step in the next interactive simulation:
 
 #### Diagram: Function Call Step-Through
 
-<iframe src="../../sims/function-call-step-through/main.html" width="100%" height="540px" scrolling="no"></iframe>
+<iframe src="../../sims/function-call-step-through/main.html" width="100%" height="412px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Function Call Step-Through</summary>
@@ -350,7 +350,7 @@ Let's see scope visually — click on any variable in the explorer below to see 
 
 #### Diagram: Variable Scope Explorer
 
-<iframe src="../../sims/variable-scope-explorer/main.html" width="100%" height="520px" scrolling="no"></iframe>
+<iframe src="../../sims/variable-scope-explorer/main.html" width="100%" height="432px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>Variable Scope Explorer</summary>
@@ -533,7 +533,7 @@ Now let's see the DRY Principle in action — before and after refactoring:
 
 #### Diagram: DRY Principle Before and After
 
-<iframe src="../../sims/dry-principle-before-after/main.html" width="100%" height="560px" scrolling="no"></iframe>
+<iframe src="../../sims/dry-principle-before-after/main.html" width="100%" height="472px" scrolling="no"></iframe>
 
 <details markdown="1">
 <summary>DRY Principle Before and After</summary>

@@ -1,23 +1,72 @@
 ---
 title: Animation Pattern Comparison
-description: Analyzing — the student can visually match a running LED pattern to its name and algorithm.
-status: scaffold
+description: Analyzing - the student can visually match a running LED pattern to its name and algorithm.
+image: /sims/animation-pattern-comparison/animation-pattern-comparison.png
+og:image: /sims/animation-pattern-comparison/animation-pattern-comparison.png
+twitter:image: /sims/animation-pattern-comparison/animation-pattern-comparison.png
+social:
+   cards: false
 library: p5.js
-bloom_level: TBD
+status: implemented
 ---
 
 # Animation Pattern Comparison
 
+<iframe src="main.html" width="100%" height="502px" scrolling="no"></iframe>
 
+[Run the Animation Pattern Comparison MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Six rows of small LED strip simulations (10 pixels each), each labeled with its pattern name:
 
-## Specification
+**Learning objective:** Analyzing - the student can visually match a running LED pattern to its name and algorithm.
 
-The full specification below is extracted from
-[Chapter 12: Basic LED Animation Patterns](../../chapters/12-basic-animation-patterns/index.md).
+## How to Use
+
+Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/animation-pattern-comparison/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Analyzing - the student can visually match a running LED pattern to its name and algorithm.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 12](../../chapters/12-basic-animation-patterns/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 12: Basic LED Animation Patterns](../../chapters/12-basic-animation-patterns/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: interactive-infographic
@@ -38,6 +87,4 @@ A global **Play/Pause** button runs or pauses all six simultaneously. A **Speed*
 Learning objective: Analyzing — the student can visually match a running LED pattern to its name and algorithm.
 ```
 
-## Related Resources
-
-- [Chapter 12: Basic LED Animation Patterns](../../chapters/12-basic-animation-patterns/index.md)
+</details>

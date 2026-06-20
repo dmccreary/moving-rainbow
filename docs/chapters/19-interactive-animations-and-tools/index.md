@@ -574,6 +574,10 @@ An interactive NeoPixel LED animation controller using a Raspberry Pi Pico.
 
 #### Diagram: Git Workflow
 
+
+<iframe src="../../sims/git-workflow-diagram/main.html" width="100%" height="432px" scrolling="no"></iframe>
+[Run Git Workflow Fullscreen](../../sims/git-workflow-diagram/main.html)
+
 <details markdown="1">
 <summary>Interactive diagram: local ↔ GitHub file flow</summary>
 Type: diagram

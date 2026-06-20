@@ -127,6 +127,10 @@ For strips up to about 30 pixels powered from USB, you can power the strip direc
 
 #### Diagram: NeoPixel Wiring Diagram
 
+
+<iframe src="../../sims/neopixel-wiring-diagram/main.html" width="100%" height="402px" scrolling="no"></iframe>
+[Run NeoPixel Wiring Diagram Fullscreen](../../sims/neopixel-wiring-diagram/main.html)
+
 <details markdown="1">
 <summary>Interactive wiring diagram: Pico to NeoPixel strip</summary>
 Type: interactive-infographic

@@ -107,6 +107,10 @@ This is why you can't just use your childhood knowledge of paint mixing to predi
 
 #### Diagram: Additive vs. Subtractive Color Mixing
 
+
+<iframe src="../../sims/additive-subtractive-mixing/main.html" width="100%" height="362px" scrolling="no"></iframe>
+[Run Additive vs. Subtractive Color Mixing Fullscreen](../../sims/additive-subtractive-mixing/main.html)
+
 <details markdown="1">
 <summary>Interactive diagram: additive and subtractive color mixing side by side</summary>
 Type: interactive-infographic
@@ -208,6 +212,10 @@ This means that the difference between `(0, 0, 0)` and `(30, 0, 0)` *looks* much
 You'll learn how to correct for perceived brightness in Chapter 10, where we cover gamma correction.
 
 #### Diagram: Perceived vs. Linear Brightness
+
+
+<iframe src="../../sims/perceived-vs-linear-brightness/main.html" width="100%" height="382px" scrolling="no"></iframe>
+[Run Perceived vs. Linear Brightness Fullscreen](../../sims/perceived-vs-linear-brightness/main.html)
 
 <details markdown="1">
 <summary>Interactive chart: how perceived brightness differs from linear brightness</summary>

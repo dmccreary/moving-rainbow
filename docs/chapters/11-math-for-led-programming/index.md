@@ -129,6 +129,10 @@ You should see a single red pixel travel around the strip in a continuous loop â
 
 #### Diagram: Modulo Wrap-Around Animation
 
+
+<iframe src="../../sims/modulo-wrap-simulation/main.html" width="100%" height="302px" scrolling="no"></iframe>
+[Run Modulo Wrap-Around Animation Fullscreen](../../sims/modulo-wrap-simulation/main.html)
+
 <details markdown="1">
 <summary>Interactive simulation: modulo wrap-around on a strip</summary>
 Type: interactive-infographic
@@ -351,6 +355,10 @@ distance = abs(pixel_pos - center)   # distance from center, always positive
 **math.pow() function** â€” raises a number to a power. `math.pow(2, 8)` = 256.0. Used in gamma correction and exponential calculations.
 
 #### Diagram: Math Functions in Animation
+
+
+<iframe src="../../sims/animation-math-explorer/main.html" width="100%" height="432px" scrolling="no"></iframe>
+[Run Math Functions in Animation Fullscreen](../../sims/animation-math-explorer/main.html)
 
 <details markdown="1">
 <summary>Interactive chart: sine wave, lerp, and exponential decay visualized</summary>

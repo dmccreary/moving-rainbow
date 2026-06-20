@@ -1,6 +1,6 @@
 {
   "title": "MicroPython API Connections",
-  "description": "MicroPython API Connections",
+  "description": "",
   "creator": "Moving Rainbow",
   "author": "Dan McCreary",
   "date": "2026-06-20",
@@ -15,8 +15,45 @@
   "library": "Mermaid",
   "bloomLevel": "TBD",
   "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "completion_status": "implemented",
   "chapter_number": 6,
   "chapter_title": "MicroPython APIs, GPIO Control, and Electrical Fundamentals",
-  "chapter_dir": "06-micropython-apis-and-electronics"
+  "chapter_dir": "06-micropython-apis-and-electronics",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "MicroPython API Connections",
+    "learningObjectives": [],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "Mermaid",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 680
+    },
+    "dependencies": [
+      "Mermaid CDN"
+    ]
+  }
 }

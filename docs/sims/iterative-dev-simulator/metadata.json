@@ -1,6 +1,6 @@
 {
   "title": "Iterative Development Simulator",
-  "description": "Students will *apply* (Bloom's Level 3) the iterative development process by constructing a working LED animation through four small, independently testable stages.",
+  "description": "Students will apply (Bloom's Level 3) the iterative development process by constructing a working LED animation through four small, independently testable ",
   "creator": "Moving Rainbow",
   "author": "Dan McCreary",
   "date": "2026-06-20",
@@ -15,8 +15,47 @@
   "library": "p5.js",
   "bloomLevel": "TBD",
   "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "completion_status": "implemented",
   "chapter_number": 1,
   "chapter_title": "Introduction and Computational Thinking Foundations",
-  "chapter_dir": "01-intro-and-computational-thinking"
+  "chapter_dir": "01-intro-and-computational-thinking",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Iterative Development Simulator",
+    "learningObjectives": [
+      "Students will apply (Bloom's Level 3) the iterative development process by constructing a working LED animation through four small, independently testable stages."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 380
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
 }

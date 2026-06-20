@@ -1,23 +1,72 @@
 ---
 title: Python Data Type Explorer
-description: Students classify Python values by data type — given a displayed value, they select its type from six options and receive feedback that connects the type to an LED programming context.
-status: scaffold
+description: Students classify Python values by data type - given a displayed value, they select its type from six options and receive feedback that connects the type t
+image: /sims/python-data-type-explorer/python-data-type-explorer.png
+og:image: /sims/python-data-type-explorer/python-data-type-explorer.png
+twitter:image: /sims/python-data-type-explorer/python-data-type-explorer.png
+social:
+   cards: false
 library: p5.js
-bloom_level: Understand (L2)
+status: implemented
 ---
 
 # Python Data Type Explorer
 
+<iframe src="main.html" width="100%" height="422px" scrolling="no"></iframe>
 
+[Run the Python Data Type Explorer MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Students classify Python values by data type - given a displayed value, they select its type from six options and receive feedback that connects the type to an LED programming context.
 
-## Specification
+**Learning objective:** Students classify Python values by data type - given a displayed value, they select its type from six options and receive feedback that connects the type to an LED programming context.
 
-The full specification below is extracted from
-[Chapter 2: Python Basics — Variables, Data Types, and Operators](../../chapters/02-python-variables-types-operators/index.md).
+## How to Use
+
+Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/python-data-type-explorer/main.html"
+        height="422px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Students classify Python values by data type - given a displayed value, they select its type from six options and receive feedback that connects the type to an LED programming context.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 2](../../chapters/02-python-variables-types-operators/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 2: Python Basics — Variables, Data Types, and Operators](../../chapters/02-python-variables-types-operators/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: microsim
@@ -75,6 +124,4 @@ Controls:
 Responsive design: Canvas width fills container; font sizes and button layout scale with canvas width; buttons reflow to two rows on narrow screens.
 ```
 
-## Related Resources
-
-- [Chapter 2: Python Basics — Variables, Data Types, and Operators](../../chapters/02-python-variables-types-operators/index.md)
+</details>

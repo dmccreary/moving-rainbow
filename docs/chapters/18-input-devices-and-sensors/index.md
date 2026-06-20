@@ -238,6 +238,10 @@ Before the diagram, here are the key concepts:
 
 #### Diagram: State Machine for a 3-Mode LED Controller
 
+
+<iframe src="../../sims/state-machine-diagram/main.html" width="100%" height="442px" scrolling="no"></iframe>
+[Run State Machine for a 3-Mode LED Controller Fullscreen](../../sims/state-machine-diagram/main.html)
+
 <details markdown="1">
 <summary>Interactive state machine diagram: mode transitions on button press</summary>
 Type: diagram

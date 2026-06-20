@@ -1,23 +1,72 @@
 ---
 title: Iterative Development Simulator
-description: Students will *apply* (Bloom's Level 3) the iterative development process by constructing a working LED animation through four small, independently testable stages.
-status: scaffold
+description: Students will apply (Bloom's Level 3) the iterative development process by constructing a working LED animation through four small, independently testable 
+image: /sims/iterative-dev-simulator/iterative-dev-simulator.png
+og:image: /sims/iterative-dev-simulator/iterative-dev-simulator.png
+twitter:image: /sims/iterative-dev-simulator/iterative-dev-simulator.png
+social:
+   cards: false
 library: p5.js
-bloom_level: TBD
+status: implemented
 ---
 
 # Iterative Development Simulator
 
+<iframe src="main.html" width="100%" height="382px" scrolling="no"></iframe>
 
+[Run the Iterative Development Simulator MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+A p5.js canvas showing a row of 10 simulated LED circles on a dark background. A step panel on the right guides the student through four build stages.
 
-## Specification
+**Learning objective:** Students will apply (Bloom's Level 3) the iterative development process by constructing a working LED animation through four small, independently testable stages.
 
-The full specification below is extracted from
-[Chapter 1: Introduction and Computational Thinking Foundations](../../chapters/01-intro-and-computational-thinking/index.md).
+## How to Use
+
+Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.
+
+## Iframe Embed Code
+
+You can place this MicroSim on any web page by adding the following HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/moving-rainbow/sims/iterative-dev-simulator/main.html"
+        height="382px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Grade Level
+Grades 6-12
+
+### Duration
+10-15 minutes
+
+### Learning Objective
+Students will apply (Bloom's Level 3) the iterative development process by constructing a working LED animation through four small, independently testable stages.
+
+### Activities
+
+1. **Explore (5 min):** Open the MicroSim and try every control. Notice what changes on screen.
+2. **Predict (5 min):** Before each change, predict what will happen, then test your prediction.
+3. **Discuss (5 min):** Explain the idea in your own words and connect it to the LED code in [Chapter 1](../../chapters/01-intro-and-computational-thinking/index.md).
+
+### Assessment
+Ask students to describe, in one or two sentences, the relationship the MicroSim demonstrates and how it shows up when programming the LED strip.
+
+## References
+
+1. [Chapter 1: Introduction and Computational Thinking Foundations](../../chapters/01-intro-and-computational-thinking/index.md) - the chapter where this MicroSim is used.
+2. [Moving Rainbow Intelligent Textbook](https://dmccreary.github.io/moving-rainbow/) - the full course this MicroSim belongs to.
+3. [MicroSims Reference](https://dmccreary.github.io/microsims/) - the standards behind these interactive simulations.
+
+## Original Specification
+
+<details markdown="1">
+<summary>Full specification used to generate this MicroSim</summary>
 
 ```text
 Type: MicroSim
@@ -60,6 +109,4 @@ Type: MicroSim
 Implementation: p5.js, vanilla JavaScript. HSV-to-RGB conversion inline (no external library). All controls created with p5.js built-in `createButton` and `createSlider`. Canvas parented to `document.querySelector('main')`.
 ```
 
-## Related Resources
-
-- [Chapter 1: Introduction and Computational Thinking Foundations](../../chapters/01-intro-and-computational-thinking/index.md)
+</details>

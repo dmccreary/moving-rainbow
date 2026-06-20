@@ -214,6 +214,10 @@ You should see `(255, 0, 0)`, `(0, 255, 0)`, and `(0, 0, 255)` on separate lines
 
 #### Diagram: How a for Loop Iterates Over a List
 
+
+<iframe src="../../sims/for-loop-list-iteration/main.html" width="100%" height="282px" scrolling="no"></iframe>
+[Run How a for Loop Iterates Over a List Fullscreen](../../sims/for-loop-list-iteration/main.html)
+
 <details markdown="1">
 <summary>Interactive diagram: for loop stepping through a list</summary>
 Type: interactive-infographic
@@ -310,6 +314,10 @@ strip.write()
 You should see all LEDs blue-cyan except the very first one, which stays off.
 
 #### Diagram: break vs. continue Flow
+
+
+<iframe src="../../sims/break-continue-flowchart/main.html" width="100%" height="1012px" scrolling="no"></iframe>
+[Run break vs. continue Flow Fullscreen](../../sims/break-continue-flowchart/main.html)
 
 <details markdown="1">
 <summary>Interactive flowchart: break and continue in a for loop</summary>

@@ -1,6 +1,6 @@
 {
   "title": "Full Project Lifecycle",
-  "description": "Analyzing — the student can identify which phase of the project lifecycle is most at risk given a project's current state.",
+  "description": "Analyzing - the student can identify which phase of the project lifecycle is most at risk given a project's current state.",
   "creator": "Moving Rainbow",
   "author": "Dan McCreary",
   "date": "2026-06-20",
@@ -15,8 +15,47 @@
   "library": "Mermaid",
   "bloomLevel": "TBD",
   "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "completion_status": "implemented",
   "chapter_number": 20,
   "chapter_title": "Project Design, Capstone Projects, and Presentation",
-  "chapter_dir": "20-project-design-and-capstone"
+  "chapter_dir": "20-project-design-and-capstone",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Full Project Lifecycle",
+    "learningObjectives": [
+      "Analyzing - the student can identify which phase of the project lifecycle is most at risk given a project's current state."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "Mermaid",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "dependencies": [
+      "Mermaid CDN"
+    ]
+  }
 }
