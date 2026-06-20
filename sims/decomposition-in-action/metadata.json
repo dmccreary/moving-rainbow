@@ -1,0 +1,61 @@
+{
+  "title": "Decomposition in Action",
+  "description": "Students will understand (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.",
+  "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "decomposition-in-action",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "implemented",
+  "chapter_number": 1,
+  "chapter_title": "Introduction and Computational Thinking Foundations",
+  "chapter_dir": "01-intro-and-computational-thinking",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Decomposition in Action",
+    "learningObjectives": [
+      "Students will understand (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 420
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
+}

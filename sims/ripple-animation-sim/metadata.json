@@ -1,0 +1,61 @@
+{
+  "title": "Ripple Animation Mechanics",
+  "description": "Analyzing - the student can explain how phase and distance combine to produce the ripple pattern.",
+  "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "ripple-animation-sim",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "implemented",
+  "chapter_number": 13,
+  "chapter_title": "Intermediate Animation Techniques",
+  "chapter_dir": "13-intermediate-animations",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Ripple Animation Mechanics",
+    "learningObjectives": [
+      "Analyzing - the student can explain how phase and distance combine to produce the ripple pattern."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 310
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
+}

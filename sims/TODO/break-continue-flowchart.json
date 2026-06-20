@@ -1,0 +1,14 @@
+{
+  "sim_id": "break-continue-flowchart",
+  "diagram_name": "break vs. continue Flow",
+  "chapter_number": 4,
+  "chapter_title": "Python Control Flow, Loops, and Error Handling",
+  "chapter_dir": "04-python-control-flow-loops",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: diagram\n**sim-id:** break-continue-flowchart\n**Library:** Mermaid\n**Status:** Specified\n\nA Mermaid flowchart showing a `for` loop cycle. Nodes: \"Start Loop\" → \"i in range?\" → yes → \"Check condition\" → \"break?\" → yes → \"Exit loop\"; no → \"continue?\" → yes → \"Back to top\" (arrow goes back to \"i in range?\" node); no → \"Run loop body\" → \"Back to top\". Each node is clickable: clicking \"break?\" shows a tooltip \"break exits the loop entirely\"; clicking \"continue?\" shows \"continue skips to the next iteration\"; clicking \"Run loop body\" shows \"This is where your animation code goes.\" Color-code: break path in red, continue path in orange, normal path in green."
+}

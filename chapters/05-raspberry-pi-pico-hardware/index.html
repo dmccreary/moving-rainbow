@@ -1,0 +1,2753 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Meet the RP2040 microcontroller, learn GPIO pins, flash MicroPython firmware, and set up the Thonny IDE for writing and uploading programs to your Pico.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/05-raspberry-pi-pico-hardware/">
+      
+      
+        <link rel="prev" href="../04-python-control-flow-loops/">
+      
+      
+        <link rel="next" href="../06-micropython-apis-and-electronics/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Raspberry Pi Pico Hardware and Development Environment - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Raspberry Pi Pico Hardware and Development Environment - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Meet the RP2040 microcontroller, learn GPIO pins, flash MicroPython firmware, and set up the Thonny IDE for writing and uploading programs to your Pico." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/05-raspberry-pi-pico-hardware/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/05-raspberry-pi-pico-hardware/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Raspberry Pi Pico Hardware and Development Environment - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Meet the RP2040 microcontroller, learn GPIO pins, flash MicroPython firmware, and set up the Thonny IDE for writing and uploading programs to your Pico." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/05-raspberry-pi-pico-hardware/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#raspberry-pi-pico-hardware-and-development-environment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Raspberry Pi Pico Hardware and Development Environment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meet-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meet the Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meet the Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-raspberry-pi-pico-hardware-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Raspberry Pi Pico Hardware Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpio-pins-the-picos-hands" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIO Pins: The Pico's Hands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-firmware-and-micropython" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Firmware and MicroPython?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Is Firmware and MicroPython?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flashing-micropython-with-a-uf2-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flashing MicroPython with a UF2 File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-thonny-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Thonny IDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Up Thonny IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-thonny-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Thonny Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uploading-files-to-the-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uploading Files to the Pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mainpy-auto-run-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      The main.py Auto-Run Behavior
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-repl-for-interactive-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the REPL for Interactive Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the REPL for Interactive Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pico-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pico File System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternative Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rp2040-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      RP2040-Zero
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-500-keyboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raspberry Pi 500 Keyboard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-methodology-a-systematic-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Methodology: A Systematic Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meet-the-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meet the Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meet the Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-raspberry-pi-pico-hardware-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Raspberry Pi Pico Hardware Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpio-pins-the-picos-hands" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIO Pins: The Pico's Hands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-firmware-and-micropython" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Firmware and MicroPython?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Is Firmware and MicroPython?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flashing-micropython-with-a-uf2-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flashing MicroPython with a UF2 File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-thonny-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Thonny IDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Up Thonny IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-thonny-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Thonny Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uploading-files-to-the-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uploading Files to the Pico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mainpy-auto-run-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      The main.py Auto-Run Behavior
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-repl-for-interactive-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the REPL for Interactive Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the REPL for Interactive Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pico-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pico File System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternative-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Platforms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternative Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rp2040-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      RP2040-Zero
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-500-keyboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raspberry Pi 500 Keyboard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-methodology-a-systematic-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Methodology: A Systematic Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/05-raspberry-pi-pico-hardware/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="raspberry-pi-pico-hardware-and-development-environment">Raspberry Pi Pico Hardware and Development Environment</h1>
+<h2 id="summary">Summary</h2>
+<p>Introduces the RP2040 microcontroller, GPIO pins, MicroPython firmware, Thonny IDE, REPL, the Pico file system, firmware flashing, and debugging methodology, along with alternative platforms including the RP2040-Zero and Raspberry Pi 500 keyboard.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 29 concepts from the learning graph:</p>
+<ol>
+<li>MicroPython</li>
+<li>Raspberry Pi Pico</li>
+<li>Raspberry Pi Pico W</li>
+<li>RP2040 Microcontroller</li>
+<li>ARM Cortex M0+ Processor</li>
+<li>Dual-Core Processing</li>
+<li>264 KB SRAM</li>
+<li>2 MB Flash Storage</li>
+<li>GPIO Pins</li>
+<li>Pin Numbering System</li>
+<li>Firmware</li>
+<li>UF2 File Format</li>
+<li>BOOTSEL Button</li>
+<li>Drag-and-Drop Flashing</li>
+<li>REPL</li>
+<li>main.py Auto-Run</li>
+<li>Pico File System</li>
+<li>Serial Console</li>
+<li>USB Connectivity</li>
+<li>Thonny IDE</li>
+<li>Thonny File Manager</li>
+<li>Uploading Files to Pico</li>
+<li>Running Scripts on Pico</li>
+<li>Serial Console Debugging</li>
+<li>Raspberry Pi 500 Keyboard</li>
+<li>Pi Keyboard RGB Effects</li>
+<li>RP2040-Zero Form Factor</li>
+<li>Debugging Methodology</li>
+<li>Systematic Troubleshooting</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+<li><a href="../03-python-functions-modules-practices/">Chapter 3: Python Functions, Modules, and Programming Best Practices</a></li>
+<li><a href="../04-python-control-flow-loops/">Chapter 4: Python Control Flow, Loops, and Error Handling</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 5! So far you've been writing Python on a laptop. Now you're going to put your code onto a tiny computer that fits in your palm — the Raspberry Pi Pico. Get ready to go from software to hardware. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Describe what the Raspberry Pi Pico is and what the RP2040 chip does</li>
+<li>Identify the GPIO pins and their numbering system</li>
+<li>Flash MicroPython firmware onto the Pico</li>
+<li>Use the Thonny IDE to write, upload, and run Python programs on the Pico</li>
+<li>Use the REPL to test code interactively</li>
+<li>Explain what happens when the Pico boots and finds <code>main.py</code></li>
+<li>Apply a systematic debugging method when something doesn't work</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>A Raspberry Pi Pico or Pico W</li>
+<li>A USB cable (micro-USB to USB-A)</li>
+<li>A computer with Thonny IDE installed (download at thonny.org)</li>
+</ul>
+<hr />
+<h2 id="meet-the-raspberry-pi-pico">Meet the Raspberry Pi Pico</h2>
+<p>The <strong>Raspberry Pi Pico</strong> is a small green circuit board about the size of a stick of gum. It costs around four dollars and can run Python programs that control LEDs, read sensors, and drive motors. Unlike a full computer, it has no screen, no keyboard, and no operating system — just a chip, some memory, and a row of pins.</p>
+<p>The Pico's brain is the <strong>RP2040 microcontroller</strong> — a chip designed by Raspberry Pi specifically for this board. A <strong>microcontroller</strong> is a small computer-on-a-chip that contains a processor, memory, and input/output controls all in one package.</p>
+<p>Inside the RP2040 are two <strong>ARM Cortex M0+ processors</strong> running at up to 133 MHz. Having two processors is called <strong>dual-core processing</strong>. For our LED projects, one core does all the work, but knowing two exist helps you understand why the Pico is fast enough for smooth animations.</p>
+<p>The Pico has two types of memory:</p>
+<ul>
+<li><strong>264 KB SRAM</strong> (Static RAM) — the working memory where your running program and its variables live. It's fast but temporary — everything in SRAM disappears when you unplug the Pico.</li>
+<li><strong>2 MB Flash Storage</strong> — permanent storage that keeps your files (including <code>main.py</code>) even when power is off. 2 MB is enough for thousands of lines of code.</li>
+</ul>
+<p>The <strong>Raspberry Pi Pico W</strong> is the same board with a Wi-Fi chip added. For this course, you can use either the Pico or Pico W — the LED programming is identical on both.</p>
+<h4 id="diagram-raspberry-pi-pico-hardware-overview">Diagram: Raspberry Pi Pico Hardware Overview</h4>
+<iframe src="../../sims/pico-hardware-overview/main.html" width="100%" height="432px" scrolling="no"></iframe>
+<p><a href="../../sims/pico-hardware-overview/main.html">Run Raspberry Pi Pico Hardware Overview Fullscreen</a></p>
+<details>
+<summary>Interactive diagram: Pico board with labeled parts</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> pico-hardware-overview
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>A top-down illustration of the Raspberry Pi Pico board. Labeled regions with click-to-expand info boxes:
+- RP2040 chip (center): "The RP2040 microcontroller — dual ARM Cortex M0+ cores at up to 133 MHz"
+- USB connector (top): "Micro-USB port — connects to your computer for power and programming"
+- BOOTSEL button (top-left): "Hold this while plugging in USB to enter firmware-flash mode"
+- LED (near USB): "Built-in green LED connected to GPIO 25"
+- Left GPIO bank: "Pins GP0–GP14 — general-purpose input/output"
+- Right GPIO bank: "Pins GP15–GP28 — more GPIO, plus ADC inputs"
+- GND pins: "Ground — the common reference for all circuits"
+- 3.3V OUT pin: "Regulated 3.3 V output for sensors and small components"
+- VSYS pin: "Raw supply voltage from USB or battery (4.5–5.5 V)"</p>
+<p>Canvas: 700 × 420 px. Clicking any labeled region opens an overlay card with name, description, and a relevant fact. Responds to window resize.</p>
+<p>Learning objective: Remembering — identify key parts of the Pico board by name.</p>
+</details>
+<hr />
+<h2 id="gpio-pins-the-picos-hands">GPIO Pins: The Pico's Hands</h2>
+<p>The Pico has 40 pins along its edges. Many of them are <strong>GPIO pins</strong> — <strong>General Purpose Input/Output</strong> pins. A GPIO pin can:</p>
+<ul>
+<li>Output a high voltage (3.3 V, meaning "on") or low voltage (0 V, meaning "off") to drive an LED or signal a device</li>
+<li>Read whether an external signal is high or low (for reading a button press, for example)</li>
+</ul>
+<p>The <strong>pin numbering system</strong> uses two kinds of labels:</p>
+<ul>
+<li><strong>Physical pin numbers</strong> — the actual position on the board (1–40, counting around the chip)</li>
+<li><strong>GP numbers</strong> — the GPIO function name printed on most diagrams (GP0, GP1, GP2, …, GP28)</li>
+</ul>
+<p>In MicroPython code, you always use the GP number, not the physical position. For example, the NeoPixel data line in this course connects to GP0, and in code you write <code>machine.Pin(0)</code>.</p>
+<p>The following pins have special roles you'll use in this course:</p>
+<table>
+<thead>
+<tr>
+<th>Pin Name</th>
+<th>Function</th>
+<th>Use in this course</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GP0</td>
+<td>GPIO (digital)</td>
+<td>NeoPixel data line</td>
+</tr>
+<tr>
+<td>GP25</td>
+<td>Built-in LED</td>
+<td>Quick test: blink without extra hardware</td>
+</tr>
+<tr>
+<td>ADC0 (GP26)</td>
+<td>Analog input</td>
+<td>Read photoresistor (light sensor)</td>
+</tr>
+<tr>
+<td>ADC1 (GP27)</td>
+<td>Analog input</td>
+<td>Second analog sensor</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>Ground</td>
+<td>Required for every circuit</td>
+</tr>
+<tr>
+<td>VSYS</td>
+<td>Power in</td>
+<td>Battery or USB power input</td>
+</tr>
+<tr>
+<td>3V3 OUT</td>
+<td>3.3 V out</td>
+<td>Power for small sensors</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward">
+Every Pico diagram you'll ever find online uses GP numbers. When a tutorial says "connect to GP0", that's the number you use in your Python code. The physical pin number (the position around the edge) is mainly for physical wiring — not for code.</p>
+</div>
+<hr />
+<h2 id="what-is-firmware-and-micropython">What Is Firmware and MicroPython?</h2>
+<p>Your Pico needs to know what <em>language</em> to speak before it can run your programs. That knowledge is called <strong>firmware</strong> — software stored permanently in flash memory that controls basic hardware behavior.</p>
+<p>Out of the box, the Pico ships with its own firmware. To run Python programs, you need to replace that firmware with <strong>MicroPython</strong> — a version of Python 3 designed to run on tiny microcontrollers. MicroPython fits in less than 1 MB and includes just the Python features you need for hardware control.</p>
+<h3 id="flashing-micropython-with-a-uf2-file">Flashing MicroPython with a UF2 File</h3>
+<p>Replacing firmware is called <strong>flashing</strong>. The process uses a special file format called <strong>UF2</strong> (USB Flashing Format). Here's how it works:</p>
+<ol>
+<li>Hold down the <strong>BOOTSEL button</strong> (the small white button near the USB connector)</li>
+<li>While holding BOOTSEL, plug the USB cable into your computer</li>
+<li>A new drive called <strong>RPI-RP2</strong> appears on your computer — like a USB flash drive</li>
+<li>Download the MicroPython UF2 file from the official MicroPython site for Raspberry Pi Pico</li>
+<li>Drag and drop the UF2 file onto the <strong>RPI-RP2</strong> drive</li>
+<li>The Pico automatically restarts with MicroPython installed</li>
+</ol>
+<p>This is called <strong>drag-and-drop flashing</strong>. The Pico erases its old firmware and writes the new UF2 in seconds. After the restart, the RPI-RP2 drive disappears — that means it worked.</p>
+<hr />
+<h2 id="setting-up-thonny-ide">Setting Up Thonny IDE</h2>
+<p><strong>Thonny</strong> is a Python code editor designed for learners. It has a built-in connection to the Pico that makes writing, uploading, and running programs easy.</p>
+<p>Download Thonny from thonny.org if you haven't already. After installing and opening it:</p>
+<ol>
+<li>Click <strong>Tools → Options → Interpreter</strong></li>
+<li>Choose <strong>MicroPython (Raspberry Pi Pico)</strong> from the dropdown</li>
+<li>Choose the correct USB port (on Windows it looks like <code>COM3</code>, on Mac like <code>/dev/tty.usbmodem1</code>)</li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<p>You should see <code>MicroPython vX.X.X; Raspberry Pi Pico</code> in the Shell panel at the bottom. That means Thonny is connected.</p>
+<h3 id="the-thonny-layout">The Thonny Layout</h3>
+<p>Thonny has three main areas:</p>
+<ul>
+<li><strong>Editor panel</strong> (top) — where you write your Python code</li>
+<li><strong>Shell / REPL panel</strong> (bottom) — where you see output and can type commands interactively</li>
+<li><strong>File Manager</strong> (optional panel on the left) — shows files on both your computer and the Pico</li>
+</ul>
+<h3 id="uploading-files-to-the-pico">Uploading Files to the Pico</h3>
+<p>To run a program on the Pico, you need to upload it to the Pico's file system. Here's how:</p>
+<ol>
+<li>Write your code in the editor</li>
+<li>Click <strong>File → Save As</strong></li>
+<li>When asked where to save, choose <strong>Raspberry Pi Pico</strong></li>
+<li>Name the file (e.g., <code>my_program.py</code>)</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<p>The file is now stored in the Pico's <strong>flash storage</strong>. You can see it in the File Manager under the Pico section.</p>
+<p>To run the file you just uploaded, click the green <strong>Run</strong> button (▶) in Thonny.</p>
+<h3 id="the-mainpy-auto-run-behavior">The main.py Auto-Run Behavior</h3>
+<p>The Pico has a special rule: when it boots (powers up or restarts), it automatically runs a file called <strong><code>main.py</code></strong> if one exists. This is how your project runs without a computer attached.</p>
+<p>When you're developing, you usually save files with descriptive names like <code>fade.py</code> and run them from Thonny. When you want the project to run standalone (battery powered, no computer), rename the file to <code>main.py</code> or save it as <code>main.py</code> directly.</p>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up both hands">
+If you have a <code>main.py</code> on your Pico that crashes immediately, you might not be able to connect to Thonny — because the Pico keeps restarting. Hold Ctrl+C in the Thonny Shell right after plugging in to interrupt the program before it crashes again. Then you can fix and re-upload <code>main.py</code>.</p>
+</div>
+<hr />
+<h2 id="using-the-repl-for-interactive-testing">Using the REPL for Interactive Testing</h2>
+<p>The <strong>REPL</strong> stands for <strong>Read-Eval-Print Loop</strong>. It's the interactive console in Thonny's Shell panel. You type a line of Python, press Enter, and the Pico runs it immediately and shows the result.</p>
+<p>Try typing these in the REPL after connecting your Pico:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from the Pico!&quot;</span><span class="p">)</span>
+<span class="n">Hello</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">Pico</span><span class="err">!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">machine</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+</code></pre></div>
+<p>After <code>led.on()</code>, the small green LED on the Pico board should light up. Type <code>led.off()</code> to turn it off. This is how you test ideas without writing a full program.</p>
+<p>The <strong>Serial Console</strong> is the same channel the REPL uses. When your running program calls <code>print()</code>, the output appears in the Thonny Shell. This makes <code>print()</code> a powerful debugging tool — you can print variable values while your program runs.</p>
+<h3 id="pico-file-system">Pico File System</h3>
+<p>The Pico's <strong>file system</strong> stores your Python files permanently in flash memory. You can:</p>
+<ul>
+<li>Upload files from your computer using Thonny's File Manager or Save As dialog</li>
+<li>Download files from the Pico back to your computer the same way</li>
+<li>Delete files you no longer need (right-click in the File Manager)</li>
+</ul>
+<p>Typical files you'll have on your Pico:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main.py</code></td>
+<td>Runs automatically on boot</td>
+</tr>
+<tr>
+<td><code>config.py</code></td>
+<td>Hardware settings (pin numbers, strip length)</td>
+</tr>
+<tr>
+<td><code>animation.py</code></td>
+<td>A library file with animation functions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="alternative-platforms">Alternative Platforms</h2>
+<p>This course focuses on the standard Pico, but two other RP2040-based boards are worth knowing about.</p>
+<h3 id="rp2040-zero">RP2040-Zero</h3>
+<p>The <strong>RP2040-Zero</strong> is a tiny version of the Pico — about half the size — made by Waveshare. It uses the same RP2040 chip and runs MicroPython identically. It's popular for wearable projects where every millimeter counts. The GPIO pinout is slightly different, so always check the diagram for whichever board you're using.</p>
+<h3 id="raspberry-pi-500-keyboard">Raspberry Pi 500 Keyboard</h3>
+<p>The <strong>Raspberry Pi 500</strong> is a full keyboard with a Raspberry Pi 5 computer built into it. Some versions include RGB LED keys, making it a fun platform for writing <strong>Pi Keyboard RGB Effects</strong> — lighting effects that run directly on the keyboard hardware. The underlying programming concepts are identical to what you're learning here.</p>
+<hr />
+<h2 id="debugging-methodology-a-systematic-approach">Debugging Methodology: A Systematic Approach</h2>
+<p>When your program doesn't work, resist the urge to change things randomly. <strong>Debugging methodology</strong> means following a logical process to find the root cause.</p>
+<p><strong>Systematic troubleshooting</strong> follows these steps:</p>
+<ol>
+<li><strong>Identify the symptom</strong> — what exactly is wrong? ("The LEDs don't light up" is more useful than "it's broken.")</li>
+<li><strong>Form a hypothesis</strong> — what could cause that symptom? ("Maybe the wrong pin number is in config.py")</li>
+<li><strong>Test one thing at a time</strong> — change only one variable and observe what happens</li>
+<li><strong>Use print() liberally</strong> — print variable values at key points to verify assumptions</li>
+<li><strong>Check the simple things first</strong> — power, connections, and file name before digging into logic</li>
+</ol>
+<p>Here's a quick checklist for the most common Pico + LED problems:</p>
+<ul>
+<li>Is the USB cable plugged in fully?</li>
+<li>Does Thonny show "MicroPython" in the Shell (not a connection error)?</li>
+<li>Is <code>config.py</code> on the Pico with the correct <code>NEOPIXEL_PIN</code> and <code>NUMBER_PIXELS</code>?</li>
+<li>Is the LED strip's data wire connected to the correct GPIO pin?</li>
+<li>Did you call <code>strip.write()</code> after setting pixel colors?</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">You've got this!</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Pixel gives a thumbs-up">
+Setting up new hardware always takes a few tries. If something doesn't connect right away, run through the checklist above. Almost every first-time setup issue is a cable, a pin number, or a missing <code>strip.write()</code>. You're closer than you think!</p>
+</div>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Blink the built-in LED:</strong> Open Thonny, connect to your Pico, and type these lines in the REPL one at a time:
+   <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">led</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</code></pre></div>
+   You should see the small green LED blink once.</p>
+</li>
+<li>
+<p><strong>REPL math:</strong> In the REPL, type <code>2 ** 8</code> and press Enter. What do you get? (Hint: <code>**</code> is "to the power of".)</p>
+</li>
+<li>
+<p><strong>Upload a file:</strong> Write a program that prints <code>"Pico is alive!"</code> every second in an infinite loop. Save it as <code>test.py</code> on the Pico and run it from Thonny. Press Ctrl+C to stop it.</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What does RP2040 stand for, and what is a microcontroller?</li>
+<li>What is the difference between SRAM and flash storage on the Pico?</li>
+<li>What does BOOTSEL stand for, and when do you press it?</li>
+<li>What is the difference between a GP number and a physical pin number?</li>
+<li>What happens when the Pico finds a file called <code>main.py</code> on boot?</li>
+<li>What is the REPL and what can you do with it?</li>
+<li>List the first three steps of the debugging methodology.</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You've met your hardware partner! You know what the RP2040 chip is, how to flash MicroPython, how to use Thonny to upload and run code, and how to debug problems systematically. You're ready to start writing programs that control real LEDs. That's huge!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../06-micropython-apis-and-electronics/">Chapter 6</a>, you'll learn the MicroPython APIs that control GPIO pins, generate PWM signals, read analog sensors, and drive NeoPixels — plus the basic electrical concepts you need to wire everything safely.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../04-python-control-flow-loops/" title="4. Control Flow and Loops" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  4. Control Flow and Loops
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../06-micropython-apis-and-electronics/" title="6. MicroPython APIs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  6. MicroPython APIs
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

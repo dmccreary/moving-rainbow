@@ -1,0 +1,2588 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn how WS2812B addressable LEDs work, how to wire them safely, their power requirements, weather ratings, and the various form factors available.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/08-neopixel-led-hardware/">
+      
+      
+        <link rel="prev" href="../07-rgb-color-theory/">
+      
+      
+        <link rel="next" href="../09-neopixel-programming/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>NeoPixel LED Hardware — WS2812B, Wiring, and Form Factors - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="NeoPixel LED Hardware — WS2812B, Wiring, and Form Factors - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Learn how WS2812B addressable LEDs work, how to wire them safely, their power requirements, weather ratings, and the various form factors available." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/08-neopixel-led-hardware/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/08-neopixel-led-hardware/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="NeoPixel LED Hardware — WS2812B, Wiring, and Form Factors - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Learn how WS2812B addressable LEDs work, how to wire them safely, their power requirements, weather ratings, and the various form factors available." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/08-neopixel-led-hardware/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#neopixel-led-hardware-ws2812b-wiring-and-form-factors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NeoPixel LED Hardware — WS2812B, Wiring, and Form Factors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-neopixel-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is a NeoPixel LED?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-single-wire-serial-protocol-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the Single-Wire Serial Protocol Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-three-wire-led-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiring: Three-Wire LED Connection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wiring: Three-Wire LED Connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wiring-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiring Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wiring Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-neopixel-wiring-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: NeoPixel Wiring Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weather-ratings-ip-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weather Ratings: IP Codes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#led-strip-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      LED Strip Density
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Form Factors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chip-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chip Variants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-neopixel-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is a NeoPixel LED?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-single-wire-serial-protocol-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the Single-Wire Serial Protocol Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-three-wire-led-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiring: Three-Wire LED Connection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wiring: Three-Wire LED Connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wiring-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiring Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wiring Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-neopixel-wiring-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: NeoPixel Wiring Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weather-ratings-ip-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weather Ratings: IP Codes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#led-strip-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      LED Strip Density
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Form Factors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chip-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chip Variants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/08-neopixel-led-hardware/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="neopixel-led-hardware-ws2812b-wiring-and-form-factors">NeoPixel LED Hardware: WS2812B, Wiring, and Form Factors</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers WS2812B integrated circuits, addressable LED technology, single-wire serial protocol, three-wire connections, power requirements (5V and 20 mA per pixel), weather ratings, strip density, data chaining, LED polarity, and 8×8 and 16×16 matrix form factors.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 22 concepts from the learning graph:</p>
+<ol>
+<li>NeoPixel LED</li>
+<li>WS2812B Integrated Circuit</li>
+<li>Addressable LED</li>
+<li>Single-Wire Serial Protocol</li>
+<li>Three-Wire LED Connection</li>
+<li>5V Power Requirement</li>
+<li>20 mA Per Pixel</li>
+<li>LED Strip Form Factor</li>
+<li>LED Ring Form Factor</li>
+<li>LED Matrix Form Factor</li>
+<li>NeoPixel Fairy Lights</li>
+<li>IP20 Weather Rating</li>
+<li>IP65 Weather Rating</li>
+<li>IP67 Weather Rating</li>
+<li>LED Strip Polarity</li>
+<li>WS2811 vs WS2812B</li>
+<li>SK6812 RGBW Variant</li>
+<li>LED Refresh Rate</li>
+<li>LED Strip Density</li>
+<li>Data Signal Voltage Level</li>
+<li>8x8 NeoPixel Matrix</li>
+<li>16x16 LED Matrix</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../05-raspberry-pi-pico-hardware/">Chapter 5: Raspberry Pi Pico Hardware and Development Environment</a></li>
+<li><a href="../06-micropython-apis-and-electronics/">Chapter 6: MicroPython APIs, GPIO Control, and Electrical Fundamentals</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 8! This chapter is about <em>me</em> — the WS2812B integrated circuit! You'll learn how I work inside, how to wire me safely, and all the different shapes I come in. Understanding your hardware makes your programming much more confident. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Explain what a WS2812B integrated circuit is and why it's called "addressable"</li>
+<li>Describe the single-wire serial protocol that carries color data</li>
+<li>Wire a NeoPixel strip with three wires: power, ground, and data</li>
+<li>Calculate the power requirements for a given number of pixels</li>
+<li>Identify IP weather rating codes</li>
+<li>Compare strip, ring, matrix, and fairy-light form factors</li>
+<li>Describe the difference between WS2812B and similar chips</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>A NeoPixel LED strip (any length)</li>
+<li>A Raspberry Pi Pico with MicroPython installed</li>
+<li>Three jumper wires</li>
+<li>A USB power source</li>
+</ul>
+<hr />
+<h2 id="what-is-a-neopixel-led">What Is a NeoPixel LED?</h2>
+<p>A <strong>NeoPixel LED</strong> is a special kind of LED that contains its own control chip inside the package. The chip is called the <strong>WS2812B integrated circuit</strong> (IC). "WS2812B" is the part number from the manufacturer, WorldSemi.</p>
+<p>An ordinary LED has just two wires — power and ground. To change the brightness, you change the voltage or use PWM (which you learned about in Chapter 6). Controlling many ordinary LEDs independently requires one PWM output pin per LED.</p>
+<p>A WS2812B NeoPixel is different. It's an <strong>addressable LED</strong> — each one has its own built-in IC that receives, decodes, and acts on color commands. You can control hundreds of addressable LEDs with just <em>one</em> GPIO pin on the Pico.</p>
+<p>Here's why that matters: a 30-LED NeoPixel strip needs only 3 wires total (power, ground, data), versus 30 separate PWM wires for ordinary LEDs. That simplicity is the reason NeoPixels are the choice for wearable and beginner projects.</p>
+<hr />
+<h2 id="how-the-single-wire-serial-protocol-works">How the Single-Wire Serial Protocol Works</h2>
+<p>All those color commands travel down a <strong>single-wire serial protocol</strong> — one data wire carries all the information for all the pixels.</p>
+<p>Here's the key idea: <strong>data chaining</strong>. When color data arrives at the first pixel in the strip:</p>
+<ol>
+<li>The first pixel reads the first 24 bits of data (8 bits for red, 8 for green, 8 for blue)</li>
+<li>It stores those 24 bits as its own color</li>
+<li>It passes all <em>remaining</em> data to the next pixel in the chain</li>
+</ol>
+<p>This is called <strong>data stripping</strong> — each pixel "strips off" its own 24 bits and forwards the rest. The second pixel does the same. By the time data reaches the last pixel, each pixel has consumed exactly its 24 bits.</p>
+<p>This means the order you specify colors in code directly matches the physical order of pixels on the strip. Pixel 0 in your code is the first pixel on the strip; pixel N-1 is the last one.</p>
+<p>The data signal must be at <strong>5 V</strong> to be reliable with most WS2812B strips, but the Pico's GPIO pins only output 3.3 V. In practice, most NeoPixel strips work fine with a 3.3 V data signal, especially at cable lengths under 50 cm. For longer runs or unreliable operation, a <strong>level shifter</strong> (a small chip that converts 3.3 V to 5 V) can be added to the data line.</p>
+<hr />
+<h2 id="wiring-three-wire-led-connection">Wiring: Three-Wire LED Connection</h2>
+<p>Every NeoPixel LED strip has exactly <strong>three connections</strong>. Learn these and you can wire any NeoPixel product:</p>
+<table>
+<thead>
+<tr>
+<th>Wire</th>
+<th>Color</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power</td>
+<td>Red</td>
+<td>5 V supply</td>
+</tr>
+<tr>
+<td>Ground</td>
+<td>Black or White</td>
+<td>GND (common reference)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>Green or Yellow</td>
+<td>Serial color commands from the Pico</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>LED strip polarity</strong> matters: connect the power wire to 5 V and ground to GND. Reversing these can damage the strip.</p>
+<p>For strips up to about 30 pixels powered from USB, you can power the strip directly from the Pico's VSYS pin (which provides the USB 5 V). For longer strips, use a separate 5 V power supply and make sure its GND is also connected to the Pico's GND.</p>
+<h3 id="wiring-steps">Wiring Steps</h3>
+<ol>
+<li>Connect the strip's <strong>power (red)</strong> wire to <strong>VSYS</strong> on the Pico (or a separate 5 V supply)</li>
+<li>Connect the strip's <strong>ground (black/white)</strong> wire to any <strong>GND</strong> pin on the Pico</li>
+<li>Connect the strip's <strong>data (green/yellow)</strong> wire to <strong>GP0</strong> on the Pico</li>
+<li>Make sure the data wire is connected to the <strong>input end</strong> of the strip (look for an arrow on the strip — data flows in the direction the arrow points)</li>
+</ol>
+<h4 id="diagram-neopixel-wiring-diagram">Diagram: NeoPixel Wiring Diagram</h4>
+<iframe src="../../sims/neopixel-wiring-diagram/main.html" width="100%" height="402px" scrolling="no"></iframe>
+<p><a href="../../sims/neopixel-wiring-diagram/main.html">Run NeoPixel Wiring Diagram Fullscreen</a></p>
+<details>
+<summary>Interactive wiring diagram: Pico to NeoPixel strip</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> neopixel-wiring-diagram
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>An interactive wiring diagram showing a Raspberry Pi Pico on the left and a 10-pixel NeoPixel strip on the right. Three colored wires connect them:
+- Red wire from VSYS (Pico) to +5V (strip)
+- Black wire from GND (Pico) to GND (strip)
+- Green wire from GP0 (Pico) to DIN/DATA (strip)</p>
+<p>Each wire is clickable: clicking opens a tooltip explaining "What this wire does" and "What happens if you forget this wire." An arrow on the strip shows the data direction. A small inset shows the WS2812B chip inside one pixel with labels: "RGB LEDs", "Control IC", "DIN", "DOUT". Hovering over a pixel on the strip shows its index number (0, 1, 2...). Canvas: 700 × 400 px. Responds to window resize.</p>
+<p>Learning objective: Applying — the student can wire a NeoPixel strip from a diagram.</p>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up both hands">
+Always connect the data wire to the <strong>INPUT</strong> end of the strip. Strips have an arrow indicating the direction of data flow. If you connect to the wrong end, no pixels will respond — they'll all stay dark no matter what you program.</p>
+</div>
+<hr />
+<h2 id="power-requirements">Power Requirements</h2>
+<p>NeoPixels are power-hungry when running bright colors. Here's how to calculate what you need.</p>
+<p>Each WS2812B pixel draws up to <strong>20 mA at full white</strong> (all three channels at 255). That's the worst case — most animations use partial brightness, so actual current is lower.</p>
+<p>To calculate peak current for your strip:</p>
+<div class="arithmatex">\[ \text{Max current (mA)} = \text{number of pixels} \times 20 \text{ mA} \]</div>
+<p>For common strip lengths:</p>
+<table>
+<thead>
+<tr>
+<th>Pixels</th>
+<th>Peak Current</th>
+<th>Can USB supply it?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>200 mA</td>
+<td>Yes (USB 500 mA)</td>
+</tr>
+<tr>
+<td>30</td>
+<td>600 mA</td>
+<td>Barely — limit brightness to 30%</td>
+</tr>
+<tr>
+<td>60</td>
+<td>1,200 mA</td>
+<td>No — need separate power supply</td>
+</tr>
+<tr>
+<td>144</td>
+<td>2,880 mA</td>
+<td>No — need high-current supply</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>5V power requirement</strong> is strict — NeoPixels do not work reliably at lower voltages. If your strip flickers or shows wrong colors, low voltage is often the cause.</p>
+<p>A practical rule for wearable projects: <strong>limit all pixels to 30% brightness</strong> (RGB values max 76 instead of 255). This cuts power to 6 mA per pixel, meaning 30 pixels use only 180 mA — well within USB limits and much more comfortable for wearable warmth.</p>
+<hr />
+<h2 id="weather-ratings-ip-codes">Weather Ratings: IP Codes</h2>
+<p>NeoPixel products come with <strong>IP ratings</strong> that tell you how well they're protected from dust and water. "IP" stands for Ingress Protection.</p>
+<p>Two numbers follow "IP": the first is dust protection (0–6), the second is water protection (0–9).</p>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>Protection Level</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IP20</strong></td>
+<td>No protection from water</td>
+<td>Indoor use only (bare strips)</td>
+</tr>
+<tr>
+<td><strong>IP65</strong></td>
+<td>Splash-proof; silicone-coated</td>
+<td>Outdoor use, some rain, wearables</td>
+</tr>
+<tr>
+<td><strong>IP67</strong></td>
+<td>Submersible to 1 m for 30 min</td>
+<td>Water features, wet environments</td>
+</tr>
+</tbody>
+</table>
+<p>For costumes and wearables, <strong>IP65</strong> is ideal. The silicone coating protects from sweat and light rain without adding too much weight.</p>
+<hr />
+<h2 id="led-strip-density">LED Strip Density</h2>
+<p><strong>LED strip density</strong> tells you how many pixels are packed into each meter of strip. More density = more pixels = smoother gradients, but also higher power draw.</p>
+<p>Common densities:</p>
+<table>
+<thead>
+<tr>
+<th>Density</th>
+<th>Pixels per meter</th>
+<th>1-meter strip current</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30 LEDs/m</td>
+<td>30</td>
+<td>600 mA peak</td>
+</tr>
+<tr>
+<td>60 LEDs/m</td>
+<td>60</td>
+<td>1,200 mA peak</td>
+</tr>
+<tr>
+<td>144 LEDs/m</td>
+<td>144</td>
+<td>2,880 mA peak</td>
+</tr>
+</tbody>
+</table>
+<p>For learning projects, 30 LEDs/m strips are the best starting point. They're easy to power from USB (at moderate brightness) and show smooth effects even at short lengths.</p>
+<hr />
+<h2 id="form-factors">Form Factors</h2>
+<p>NeoPixels come in many shapes. The same WS2812B chip and the same wiring principles apply to all of them.</p>
+<p><strong>LED Strip Form Factor</strong> — a flexible PCB strip, typically sold in 1-meter or 5-meter rolls. Most common for costumes, room lighting, and general projects.</p>
+<p><strong>LED Ring Form Factor</strong> — pixels arranged in a circle. Popular for clock faces, eye effects in costumes, and decorative rings. Pixel 0 is at a specific physical position — usually marked with a notch or label.</p>
+<p><strong>LED Matrix Form Factor</strong> — pixels arranged in a grid. An <strong>8×8 NeoPixel Matrix</strong> has 64 pixels (8 rows × 8 columns). A <strong>16×16 LED Matrix</strong> has 256 pixels. Matrices are great for scrolling text and simple pixel-art animations. Wiring is the same — the strip just zigzags back and forth across the grid.</p>
+<p><strong>NeoPixel Fairy Lights</strong> — individual NeoPixel LEDs on thin wires instead of a strip. Popular for embedded in fabric, hanging from a hat brim, or other 3D arrangements. Each "bulb" is a single WS2812B addressed like a strip pixel.</p>
+<hr />
+<h2 id="chip-variants">Chip Variants</h2>
+<p>It's useful to know the close relatives of the WS2812B you'll encounter in online searches.</p>
+<p><strong>WS2811 vs WS2812B</strong> — The WS2811 is an older external driver chip that controls three ordinary LEDs from outside the package. The WS2812B integrates the driver and LEDs in one package. WS2812B is the modern standard and what we use in this course.</p>
+<p><strong>SK6812 RGBW Variant</strong> — the SK6812 adds a fourth channel: <strong>white</strong> (W). RGBW LEDs can produce purer whites than mixing R+G+B, and cooler animation effects. The NeoPixel library supports RGBW with a slight modification, but requires a different object type and stores 4 bytes per pixel instead of 3.</p>
+<p><strong>LED Refresh Rate</strong> — how many times per second the strip can update all pixel colors. The WS2812B refresh rate depends on strip length. A 30-pixel strip can refresh roughly 800 times per second — far more than your eye can detect. A 300-pixel strip refreshes about 100 times per second, still plenty for smooth animation.</p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Pixel thinking">
+All of this hardware knowledge makes you a smarter coder. When you know that power is limited, you design your animations to use partial brightness. When you know the data flows in one direction, you check the strip arrow before every connection. Hardware understanding → better software decisions.</p>
+</div>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Power check:</strong> You have a 60-pixel strip. What is the peak current draw at full white? Is that safe from USB alone?</p>
+</li>
+<li>
+<p><strong>Wire your strip:</strong> Following the three-wire wiring steps, connect your NeoPixel strip to your Pico. Write a test program that lights the first pixel red.</p>
+</li>
+<li>
+<p><strong>Direction test:</strong> Try connecting the data wire to the wrong end of a strip on purpose. What happens? (Don't worry — this won't damage anything on most strips.)</p>
+</li>
+<li>
+<p><strong>IP rating research:</strong> Look up a NeoPixel product online. What is its IP rating? Is it suitable for a outdoor Halloween costume?</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What makes an LED "addressable"?</li>
+<li>How does data chaining work? What does each pixel do with the data it receives?</li>
+<li>What are the three wires on a NeoPixel strip and what does each do?</li>
+<li>How much current does one WS2812B pixel draw at full white?</li>
+<li>What does IP65 mean?</li>
+<li>What is the difference between 30 LEDs/m and 60 LEDs/m strip density?</li>
+<li>What is the difference between WS2812B and SK6812 RGBW?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You know my hardware secrets now! You understand how WS2812B chips work, how to wire strips safely, how to calculate power needs, and what all those form factor options are. You're ready to make real connections and write programs that bring them to life!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../09-neopixel-programming/">Chapter 9</a>, you'll write MicroPython code that uses every concept from this chapter — pixel indexing, RGB tuples, <code>strip.write()</code>, and more — to control individual pixels and groups of pixels with confidence.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../07-rgb-color-theory/" title="7. RGB Color Theory" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  7. RGB Color Theory
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../09-neopixel-programming/" title="9. NeoPixel Programming" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  9. NeoPixel Programming
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

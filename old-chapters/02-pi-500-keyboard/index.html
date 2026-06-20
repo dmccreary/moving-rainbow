@@ -1,0 +1,2153 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/old-chapters/02-pi-500-keyboard/">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Programming the Raspberry Pi 500 Keyboard - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Programming the Raspberry Pi 500 Keyboard - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/old-chapters/02-pi-500-keyboard/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/old-chapters/02-pi-500-keyboard/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Programming the Raspberry Pi 500 Keyboard - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/old-chapters/02-pi-500-keyboard/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#programming-the-raspberry-pi-500-keyboard" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Programming the Raspberry Pi 500 Keyboard
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-will-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You Will Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-shell-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the Shell Scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-rgb-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the RGB Library
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-function-key-to-cycle-through-the-seven-presets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the Function Key to Cycle Through the Seven Presets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-rgb-with-terminal-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling RGB With Terminal Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-keyboard-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Keyboard Effects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cycle-through-all-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cycle Through All Effects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cycle Through All Effects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-keystroke-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Keystroke Effects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keystroke-triggered-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keystroke Triggered Effects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-shell-scripts-to-demonstrate-each-effect-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Shell Scripts to Demonstrate Each Effect Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-the-seven-presets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing the Seven Presets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboard-configuration-shell-command-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard Configuration Shell Command Examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding-function-keys-to-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binding Function Keys to Programs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-the-default-behavior-of-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the Default Behavior of Keys
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/old-chapters/02-pi-500-keyboard/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="programming-the-raspberry-pi-500-keyboard">Programming the Raspberry Pi 500 Keyboard</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Much of these examples were taken from <a href="https://core-electronics.com.au/guides/how-to-customise-your-pi-500-plus-rgb-keyboard-python-scripts-and-custom-effects/">How To Customize Your Pi 500+ RGB Keyboard | Custom Effects &amp; Python Scripts</a> by Jaryd at Core Electronics in New Zealand. Updated 08 October 2025.</p>
+</div>
+<p>In this guide, we're going to be programming the LEDs on the Pi 500+ keyboard.  We will
+start out just using some function keys to turn on different patterns and
+we will learn about the seven preset patterns we can program.
+Then we will run a few simple shell commands that change the LEDs and preset patterns. 
+Lastly we will move to writing small Python scripts to create your own animations, reactive lighting, and even little games or notification systems. By the end, you'll have full control over every LED on your keyboard.  Programming all the keys on your computer will be
+your new superpower!  Your friends will be impressed!</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#what-you-will-need">What You Will Need</a></li>
+<li><a href="#installing-the-shell-scripts">Installing the Shell Scripts</a></li>
+<li><a href="#installing-the-rgb-library">Installing the RGB Library</a></li>
+<li><a href="#controlling-rgb-with-terminal-commands">Controlling RGB With Terminal Commands</a></li>
+<li><a href="#binding-function-keys-to-programs">Binding Function Keys to Programs</a></li>
+</ul>
+<h2 id="what-you-will-need">What You Will Need</h2>
+<p>To follow along with this guide, you will need:</p>
+<ul>
+<li>Raspberry Pi 500+</li>
+<li>USB-C power supply (ideally a 5-watt power supply that supports external USB ports)</li>
+<li>Mouse</li>
+<li>Monitor</li>
+<li>Micro-HDMI to HDMI cable (note, this is a non-standard cable and you may need to special order it)</li>
+</ul>
+<h2 id="installing-the-shell-scripts">Installing the Shell Scripts</h2>
+<p>All the source code for our samples can be downloaded directly from the
+Moving Rainbow GitHub site <a href="https://github.com/dmccreary/moving-rainbow/tree/master/src/pi-500-keyboard">here</a>.</p>
+<p>In the documentation below, we often give shell script path that includes the variable <code>$MOVING_RAINBOW_HOME</code>.  This refers to where you have checked out the Moving Rainbow
+GitHub repository.  You can do this using the github <code>clone</code> command.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/projects
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccreary/moving-rainbow
+<span class="nb">set</span><span class="w"> </span><span class="nv">MOVING_RAINBOW_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/projects/moving-rainbow&quot;</span>
+</code></pre></div>
+<p>Alternatively, you can also simply download the individual shell scripts from GitHub and put them in your local bin <code>~/.local/bin</code> if you don't want to download the entire repository.  After you install them
+you might need to run the <code>chmod +x ~/.local/bin/*.sh</code> program to give the scripts execution permission.</p>
+<h2 id="installing-the-rgb-library">Installing the RGB Library</h2>
+<p>To get started, we need to update and upgrade our linux packages:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</code></pre></div>
+<p>To handle all of our RGB interactions, we are going to be using the official Raspberry Pi keyboard config library. If you are using Raspberry Pi OS <code>bookworm</code>, chances are this will come pre-installed. </p>
+<p>You can run the Linux Software Base program with the codename short option (CS) to see what version you are running.</p>
+<div class="highlight"><pre><span></span><code>lsb_release<span class="w"> </span>-cs
+</code></pre></div>
+<p>This tutorial was created on the <code>bookworm</code> release which came out in 2023 and which the Pi OS is based on.</p>
+<p>You can now install the library (and know you have the updated library) with:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>rpi-keyboard-config
+</code></pre></div>
+<p>Then very importantly, ensure your keyboard's firmware is up to date with:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>rpi-keyboard-fw-update
+sudo<span class="w"> </span>rpi-keyboard-fw-update
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The update command is a separate command from the <code>rpi-keyboard-config</code> command.
+You can't update the library with the config command.  You MUST use the separate <code>rpi-keyboard-fw-update</code> command.  This allows administrators to prevent
+unauthorized updates, which could be a security concern.</p>
+</div>
+<h2 id="using-the-function-key-to-cycle-through-the-seven-presets">Using the Function Key to Cycle Through the Seven Presets</h2>
+<iframe width="560" height="415" src="https://www.youtube.com/embed/CY3thrGdL6I?si=Z0JaC9OIb8RPBsbD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Off</td>
+<td>The default preset that only lights the power key, the startup animation, and the Caps Lock indicator.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Solid Color White</td>
+<td>Solid white backlight.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Solid Color</td>
+<td>Solid color backlight, which you can change using Fn + F3.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gradient Left Right</td>
+<td>Fixed rainbow backlight.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Cycle Pinwheel</td>
+<td>Animated rainbow backlight, where the keys cycle through different colors in a rainbow pattern across the keyboard.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Typing Heatmap</td>
+<td>The more you press a key, the closer to red it gets and the more the keys around it light up.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Solid Reactive Simple</td>
+<td>Reactive keyboard, where the keys light up when you press them. You can choose which color using Fn + F3.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="controlling-rgb-with-terminal-commands">Controlling RGB With Terminal Commands</h2>
+<p>We are going to start with some basic terminal commands, and keep building up the complexity. It is worthwhile starting basic as most of the commands here will be important in the more advanced sections.</p>
+<p>If you hit <code>FN + F4</code>, you will cycle through the seven preset colors stored on your keyboard. It's worth noting that by default, the Pi 500+ can hold 7 of these presets.</p>
+<p>In the terminal, we can choose which preset we want with:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>preset<span class="w"> </span>index<span class="w"> </span><span class="m">3</span>
+</code></pre></div>
+<p>This will set the keyboard to preset 3, and we can choose any number from preset 0 to preset 6. This command is essentially the equivalent of pressing <code>FN + F4</code>, but just doing it through the terminal.</p>
+<p>The default effects you see in these presets are nice, but there are plenty of other effects available to choose from!</p>
+<p>A quick distinction here: effects are the RGB patterns/colors/layouts programmed into the keyboard, and presets are slots that can store these effects for convenient access.</p>
+<p>Enter the following command to see a list of all the available effects to choose from:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>list-effects
+</code></pre></div>
+<h2 id="built-in-keyboard-effects">Built-in Keyboard Effects</h2>
+<p>Below is a table of the built-in effects for the keyboard LEDs.  There is a video
+below that will show these effects.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Effect Name</th>
+<th>Keystroke Trigger</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>OFF</td>
+<td>No</td>
+<td>All keys turned off.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Direct</td>
+<td>No</td>
+<td>Direct LED control mode for custom programming via Python scripts.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Solid Color</td>
+<td>No</td>
+<td>All keys the same color. Use the hue parameter to set the color.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Alphas Mods</td>
+<td>No</td>
+<td>Letter keys and modifier keys display different colors.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Gradient Up Down</td>
+<td>No</td>
+<td>Keys on the same row have the same color, creating a vertical gradient.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Gradient Left Right</td>
+<td>No</td>
+<td>Keys on the same column have the same color, creating a horizontal gradient.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Breathing</td>
+<td>No</td>
+<td>The brightness of the entire keyboard pulses up and down over a five second interval.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Band Sat</td>
+<td>No</td>
+<td>A single saturation band moves left to right on a contrasting background color.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Band Val</td>
+<td>No</td>
+<td>A band of varying brightness moves horizontally across the keyboard.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Band Pinwheel Sat</td>
+<td>No</td>
+<td>A rotating pinwheel pattern with saturation-based band effect.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Band Pinwheel Val</td>
+<td>No</td>
+<td>A rotating pinwheel pattern with brightness-based band effect.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Band Spiral Sat</td>
+<td>No</td>
+<td>A spiral pattern with saturation-based band effect emanating from center.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Band Spiral Val</td>
+<td>No</td>
+<td>A spiral pattern with brightness-based band effect emanating from center.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Cycle All</td>
+<td>No</td>
+<td>All keys simultaneously cycle through all hue values together.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Cycle Left Right</td>
+<td>No</td>
+<td>Rainbow colors cycle horizontally across the keyboard from left to right.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Cycle Up Down</td>
+<td>No</td>
+<td>Rainbow colors cycle vertically across the keyboard from top to bottom.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Rainbow Moving Chevron</td>
+<td>No</td>
+<td>Animated multicolor chevron pattern moves across the keyboard.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Cycle Out In</td>
+<td>No</td>
+<td>Colors cycle from the outer edges toward the center of the keyboard.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Cycle Out In Dual</td>
+<td>No</td>
+<td>Dual-sided colors cycling from both left and right edges toward center.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Cycle Pinwheel</td>
+<td>No</td>
+<td>Rainbow pinwheel effect rotating from the center of the keyboard.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Cycle Spiral</td>
+<td>No</td>
+<td>A spiral rainbow pattern emanates and rotates from the center outward.</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Dual Beacon</td>
+<td>No</td>
+<td>A two-color lighthouse beacon pattern rotates over the keys.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Rainbow Beacon</td>
+<td>No</td>
+<td>A rainbow lighthouse beacon pattern rotates over the keys.</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Rainbow Pinwheels</td>
+<td>No</td>
+<td>Multiple colored pinwheel patterns move from the center outward.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Raindrops</td>
+<td>No</td>
+<td>Random keys light up and fade like raindrops falling on the keyboard.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Jellybean Raindrops</td>
+<td>No</td>
+<td>Colorful random keys light up like multicolored jellybeans falling.</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Hue Breathing</td>
+<td>No</td>
+<td>The entire keyboard's hue slowly shifts while pulsing in brightness.</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Hue Pendulum</td>
+<td>No</td>
+<td>The hue swings back and forth across the color spectrum like a pendulum.</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Hue Wave</td>
+<td>No</td>
+<td>A wave of changing hues moves horizontally across the keyboard.</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Typing Heatmap</td>
+<td>Yes</td>
+<td>Keys change color based on how frequently they are pressed; more presses means redder.</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Digital Rain</td>
+<td>No</td>
+<td>Matrix-style falling green characters cascade down the keyboard.</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Solid Reactive Simple</td>
+<td>Yes</td>
+<td>Keys light up briefly when pressed, then fade out.</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Solid Reactive</td>
+<td>Yes</td>
+<td>Keys light up when pressed with a smooth fade effect.</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Solid Reactive Wide</td>
+<td>Yes</td>
+<td>Pressed keys and nearby keys light up with a wider area glow effect.</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Solid Reactive Multiwide</td>
+<td>Yes</td>
+<td>Multiple wide glows appear simultaneously from multiple key presses.</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Solid Reactive Cross</td>
+<td>Yes</td>
+<td>A cross/plus pattern lights up centered on each pressed key.</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Solid Reactive Multicross</td>
+<td>Yes</td>
+<td>Multiple cross patterns appear from simultaneous key presses.</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Solid Reactive Nexus</td>
+<td>Yes</td>
+<td>A nexus/star pattern radiates outward from each pressed key.</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Solid Reactive Multinexus</td>
+<td>Yes</td>
+<td>Multiple nexus patterns radiate from simultaneous key presses.</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Splash</td>
+<td>Yes</td>
+<td>A colorful splash of rainbow colors radiates outward from pressed keys.</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Multisplash</td>
+<td>Yes</td>
+<td>Multiple rainbow splashes radiate from simultaneous key presses.</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Solid Splash</td>
+<td>Yes</td>
+<td>A solid single-color splash radiates outward from pressed keys.</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Solid Multisplash</td>
+<td>Yes</td>
+<td>Multiple solid-color splashes from simultaneous key presses.</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Pixel Rain</td>
+<td>No</td>
+<td>Individual lit pixels fall down the keyboard like digital rain.</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Pixel Fractal</td>
+<td>No</td>
+<td>Fractal-like pixel patterns spread and grow across the keyboard.</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the third column is set to Yes if the effect is triggered by a keyboard stroke.
+When the the third column is No, the effect only changes the keyboard backlight effect and
+is not dependant on any key being pressed.</p>
+<p>And you can view an effect with:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>effect<span class="w"> </span><span class="m">25</span>
+</code></pre></div>
+<p>The command line above views effect number 25, but you should play around and view some more, there are some pretty cool ones available! Some of our favorites are 25, 29, and 40.</p>
+<p>Some presets also have inputs that can alter their behavior. You can set the speed, saturation and hue of the effects with the modified command:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>effect<span class="w"> </span><span class="m">30</span><span class="w"> </span>--speed<span class="w"> </span><span class="m">255</span><span class="w"> </span>--sat<span class="w"> </span><span class="m">255</span><span class="w"> </span>--hue<span class="w"> </span><span class="m">255</span>
+</code></pre></div>
+<p>The commands will take a number between 0 and 255. You can set all the options like in the command above, or only set two, or one:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>effect<span class="w"> </span><span class="m">30</span><span class="w"> </span>--hue<span class="w"> </span><span class="m">255</span>
+rpi-keyboard-config<span class="w"> </span>effect<span class="w"> </span><span class="m">30</span><span class="w"> </span>--speed<span class="w"> </span><span class="m">255</span><span class="w"> </span>--hue<span class="w"> </span><span class="m">255</span>
+</code></pre></div>
+<p>Note that there is no delay in the loop.  This shows that the <code>rpi-keyboard-config</code> takes about one second to work.</p>
+<h2 id="cycle-through-all-effects">Cycle Through All Effects</h2>
+<p>You can cycle through all the effects by running the cycle-effects.sh script. This script uses <code>figlet</code> to display ASCII art names for each effect. Install it first:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>figlet
+</code></pre></div>
+<h3 id="non-keystroke-effects">Non-Keystroke Effects</h3>
+<p>These effects just change the keyboard backdrop color.  They are not triggered by a keystroke.</p>
+<p>Then run script the demo with the "-n" option:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$MOVING_RAINBOW_HOME</span>/src/pi-500-keyboard/cycle-effects.sh<span class="w"> </span>-n
+</code></pre></div>
+<p>This will cycle through all the NON-keystroke effects where the Keystroke Trigger in the above table is set to No.</p>
+<iframe width="560" height="450" src="https://www.youtube.com/embed/hjW20oUe9d0?si=XVZZMvpBovNXsx3k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p>Note that on the terminal, if the effect takes parameters, the parameter names are listed in the shell script output under the ASCII art.  So for example the <code>Solid Color</code> pattern
+shows that the <code>speed</code> is 128 and the <code>sat</code> is 255 and the effect allows you to set the hue (not fixed) using an <code>hue</code> parameter.</p>
+<p>Sample output:
+<div class="highlight"><pre><span></span><code>========================================
+Effect 24 of 44
+========================================
+
+____       _           _
+|  _ \ __ _(_)_ __   __| |_ __ ___  _ __  ___ 
+| |_) / _` | | &#39;_ \ / _` | &#39;__/ _ \| &#39;_ \/ __|
+|  _ &lt; (_| | | | | | (_| | | | (_) | |_) \__ \
+|_| \_\__,_|_|_| |_|\__,_|_|  \___/| .__/|___/
+                                |_|        
+
+----------------------------------------
+
+Effect: Raindrops (ID 24)
+Press Ctrl+C to exit early at any time.
+</code></pre></div></p>
+<h3 id="keystroke-triggered-effects">Keystroke Triggered Effects</h3>
+<p>The prior video only showed effect that changed the overall backlighting of the keyboard.  The
+backlighting did not change as you type on the keyboard.  The next set of effects
+are all triggered by a keystroke.</p>
+<p>To run this script, use the "-k" (keystroke) option of the <code>cycle-effects.sh</code> shell script.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$MOVING_RAINBOW_HOME</span>/src/pi-500-keyboard/cycle-effects.sh<span class="w"> </span>-k
+</code></pre></div>
+<iframe width="560" height="415" src="https://www.youtube.com/embed/Xs5iFZHpCvs?si=oyTRflilRuLBkk2J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p>Note that you can also change parameters of the keyboard stroke effects.</p>
+<h2 id="creating-shell-scripts-to-demonstrate-each-effect-parameters">Creating Shell Scripts to Demonstrate Each Effect Parameters</h2>
+<p>Many of the builtin effect also take parameters.  For example
+the solid effect will take the hue of the color you want to use as a <code>--hue</code> parameter.</p>
+<p>The following shell script will cycle through the hues for the solid color patten.
+It will skip 9 out of the 10 colors so that the script will finish in about 25 seconds.</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># Cycle through all hues on the Pi 500+ keyboard</span>
+<span class="c1"># Uses effect 2 (Solid Color) with varying hue values</span>
+
+<span class="k">for</span><span class="w"> </span>hue<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>seq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">255</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>rpi-keyboard-config<span class="w"> </span>effect<span class="w"> </span><span class="m">2</span><span class="w"> </span>--hue<span class="w"> </span><span class="nv">$hue</span>
+<span class="k">done</span>
+</code></pre></div>
+<h2 id="customizing-the-seven-presets">Customizing the Seven Presets</h2>
+<p>Being able to view these commands through the terminal is nice and all, but if you really want to start customizing your keyboard, you can assign an effect to your keyboard's preset slot:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>preset<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">25</span>
+</code></pre></div>
+<p>In the command above, we are setting effect number 25 to preset slot 2. You should be able to now use the <code>FN+F4</code> keys to cycle through the preset slots and see your effect saved in slot 2!</p>
+<p>If you ever want to see what effects are assigned to what slot, you can use the following command:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>preset<span class="w"> </span>get
+</code></pre></div>
+<p>By default, preset slot 0 will be empty. This preset slot is the default that will be loaded when the Pi 500+ is powered on - if you assign your favorite effect to this slot, it will automatically be displayed every time you turn on your Pi.</p>
+<p>If you press <code>FN+F5</code> and <code>FN+F6</code> on your keyboard, you can control the global brightness of your effect. This can also be done in the terminal with:</p>
+<h2 id="keyboard-configuration-shell-command-examples">Keyboard Configuration Shell Command Examples</h2>
+<p>The <code>rpi-keyboard-config</code> command has a <code>brightness</code> parameter can be set with any number between 0 and 255 where 0 is off and 255 is the maximum brightness.</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>brightness<span class="w"> </span><span class="m">255</span>
+</code></pre></div>
+<p>First we run the clear command to clear all the current LED colors so we can start with a blank canvas:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>leds<span class="w"> </span>clear
+</code></pre></div>
+<p>Let's use a basic command to set all the LEDs on our keyboard a specific color with:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>leds<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--colour<span class="w"> </span><span class="s2">&quot;0,255,255&quot;</span>
+</code></pre></div>
+<p>Note that <code>colour</code> is not a typo.  This is the British spelling of the command.</p>
+<p>The command above uses the HSV format to represent colors. If it is not your cup of tea, you can instead choose to use the RGB format with:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>leds<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--colour<span class="w"> </span><span class="s2">&quot;rgb(255,0,0)&quot;</span>
+</code></pre></div>
+<p>Both of these commands achieve the same thing; they just use different ways of representing the color red. Also note that usually the hue value in HSVs range from 0 to 360, in this library it instead only takes a number from 0 to 255. So cyan (which is usually 180), will be scaled down to 128.</p>
+<p>Now let's set individual LED colors! It may be wise to run the LEDs clear command to start with a blank canvas again. Then we can use the following command to set the W key to an aqua color with:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>led<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="s2">&quot;2,3&quot;</span><span class="w"> </span>--colour<span class="w"> </span><span class="s2">&quot;rgb(0,255,255)&quot;</span>
+</code></pre></div>
+<p>This is very similar to the previous command, but this time we have a row and column being used to specify which key to light up.</p>
+<p>You can generate a nice visualization of what key has what number row and column with the following command:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>info<span class="w"> </span>--ascii
+</code></pre></div>
+<p>In the image on the right, we went through and assigned some colors with this command. If you have created a custom RGB layout with this and wish to save it, you can do so with the save command:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>leds<span class="w"> </span>save
+</code></pre></div>
+<p>This will save your custom layout as effect 1. Even if you restart your Pi, your layout will still be saved to this effect, and you can also assign it to a keyboard preset slot as usual.</p>
+<p>Unfortunately, only one custom layout can be saved at a time - you can only save to effect 1. We will look at how to create unlimited custom layouts with Python scripts later.</p>
+<p>Wrapping up, if you ever want to reset all your effects and presets back to the defaults, you can use the following command:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>reset-presets
+</code></pre></div>
+<p>And just for fun, you can play a game of Flappy Birds with:</p>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>game
+</code></pre></div>
+<h2 id="binding-function-keys-to-programs">Binding Function Keys to Programs</h2>
+<p>The Raspberry Pi Desktop use the Wayfire configuration
+file to bind a function key to a program.  In the
+example below, we have configured the F9 function key to do a screen image
+of a region and put it in the <sub>/screenshots/</sub> directory.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># User Wayfire configuration</span>
+<span class="c1"># This supplements /etc/wayfire/defaults.ini</span>
+
+<span class="k">[command]</span>
+<span class="c1"># F9: Screenshot selected area (interactive)</span>
+<span class="na">binding_screenshot_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">KEY_F9</span>
+<span class="na">command_screenshot_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">bash -c &#39;grim -g &quot;$(slurp)&quot; ~/screenshots/ss-$(date +%Y%m%d-%H%M%S).png&#39;</span>
+
+<span class="c1"># This is what the PrtScn screen should do!</span>
+<span class="c1"># F8: Screenshot entire screen</span>
+<span class="na">binding_screenshot_full</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">KEY_F8</span>
+<span class="na">command_screenshot_full</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">grim ~/screenshot-$(date +%Y%m%d-%H%M%S).png</span>
+</code></pre></div>
+<p>After you change this file you must run the following in the terminal</p>
+<div class="highlight"><pre><span></span><code>killall<span class="w"> </span>-SIGUSR1<span class="w"> </span>wayfire
+</code></pre></div>
+<h2 id="changing-the-default-behavior-of-keys">Changing the Default Behavior of Keys</h2>
+<p>When the user logs in, a program run to initialize the key bindings.
+This program reads a sequence of startup *<em>run commands</em> in <sub>/</sub>/.config/labwc/rc.xml</p>
+<p>This file has a set of <code>keybind</code> elements that bind a key to an action.  The action can
+be any shell script.  Here are some examples:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Print Screen: select area screenshot with timestamp and store the region in the home Screenshots directory --&gt;</span>
+<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Print&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Execute&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>&#39;grim<span class="w"> </span>-g<span class="w"> </span>&quot;$(slurp)&quot;<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png&#39;<span class="nt">&lt;/command&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/action&gt;</span>
+<span class="nt">&lt;/keybind&gt;</span>
+<span class="cm">&lt;!-- F8: full screenshot with timestamp --&gt;</span>
+<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;F8&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Execute&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>&#39;grim<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png&#39;<span class="nt">&lt;/command&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/action&gt;</span>
+<span class="nt">&lt;/keybind&gt;</span>
+<span class="cm">&lt;!-- F9: select area screenshot with timestamp --&gt;</span>
+<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;F9&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Execute&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>&#39;grim<span class="w"> </span>-g<span class="w"> </span>&quot;$(slurp)&quot;<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png&#39;<span class="nt">&lt;/command&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/action&gt;</span>
+<span class="nt">&lt;/keybind&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>killall<span class="w"> </span>-SIGHUP<span class="w"> </span>labwc
+</code></pre></div>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://www.raspberrypi.com/documentation/computers/keyboard-computers.html">Raspberry Pi Documentation on the Keyboard Computers</a></li>
+<li><a href="https://www.raspberrypi.com/documentation/computers/keyboard-computers.html#backlighting">Pi Docs Backlighting Section</a></li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

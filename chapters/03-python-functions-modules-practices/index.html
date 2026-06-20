@@ -1,0 +1,3152 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn to define and call functions, understand variable scope, and apply clean-code principles that make LED programs easier to read, reuse, and extend.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/03-python-functions-modules-practices/">
+      
+      
+        <link rel="prev" href="../02-python-variables-types-operators/">
+      
+      
+        <link rel="next" href="../04-python-control-flow-loops/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Python Functions, Modules, and Programming Best Practices - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Python Functions, Modules, and Programming Best Practices - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Learn to define and call functions, understand variable scope, and apply clean-code principles that make LED programs easier to read, reuse, and extend." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/03-python-functions-modules-practices/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/03-python-functions-modules-practices/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Python Functions, Modules, and Programming Best Practices - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Learn to define and call functions, understand variable scope, and apply clean-code principles that make LED programs easier to read, reuse, and extend." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/03-python-functions-modules-practices/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-functions-modules-and-programming-best-practices" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python Functions, Modules, and Programming Best Practices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-functions-python-already-knows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Functions Python Already Knows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-write-your-own-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Write Your Own Functions?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-a-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining a Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Defining a Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-return-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Return Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Calls
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-function-call-step-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Function Call Step-Through
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-scope-where-variables-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Scope: Where Variables Live
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Scope: Where Variables Live">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-variable-scope-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Variable Scope Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-clean-readable-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Clean, Readable Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing Clean, Readable Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-readability-and-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Readability and Naming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-commenting-strategy-and-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Commenting Strategy and Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-concerns-and-hiding-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Separation of Concerns and Hiding Implementation Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalizing-solutions-and-template-based-solving" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generalizing Solutions and Template-Based Solving
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generalizing Solutions and Template-Based Solving">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dry-principle-before-and-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: DRY Principle Before and After
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modular-program-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modular Program Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boundary Conditions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#built-in-functions-python-already-knows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Functions Python Already Knows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-write-your-own-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Write Your Own Functions?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-a-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining a Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Defining a Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-return-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Return Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Calls
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-function-call-step-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Function Call Step-Through
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-scope-where-variables-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Scope: Where Variables Live
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Scope: Where Variables Live">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-variable-scope-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Variable Scope Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-clean-readable-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Clean, Readable Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing Clean, Readable Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-readability-and-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Readability and Naming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-commenting-strategy-and-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Commenting Strategy and Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-concerns-and-hiding-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Separation of Concerns and Hiding Implementation Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalizing-solutions-and-template-based-solving" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generalizing Solutions and Template-Based Solving
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generalizing Solutions and Template-Based Solving">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dry-principle-before-and-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: DRY Principle Before and After
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modular-program-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modular Program Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boundary Conditions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/03-python-functions-modules-practices/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="python-functions-modules-and-programming-best-practices">Python Functions, Modules, and Programming Best Practices</h1>
+<h2 id="summary">Summary</h2>
+<p>Teaches function definition, parameters, return values, variable scope, the DRY principle, and applied computational thinking concepts including code readability, abstraction, modular design, and code reuse strategies.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 25 concepts from the learning graph:</p>
+<ol>
+<li>len() Function</li>
+<li>int() Function</li>
+<li>float() Function</li>
+<li>print() Function</li>
+<li>Function Definition</li>
+<li>Function Parameters</li>
+<li>Function Return Value</li>
+<li>Function Call</li>
+<li>Variable Scope</li>
+<li>Local Variable</li>
+<li>Global Variable</li>
+<li>Code Readability</li>
+<li>DRY Principle</li>
+<li>Hiding Implementation Details</li>
+<li>Documentation as Communication</li>
+<li>Separation of Concerns</li>
+<li>Generalizing a Solution</li>
+<li>Template-Based Solving</li>
+<li>Code Commenting Strategy</li>
+<li>Readable Variable Names</li>
+<li>Meaningful Function Names</li>
+<li>Modular Program Design</li>
+<li>Code Reuse via Functions</li>
+<li>Identifying Repeated Code</li>
+<li>Boundary Conditions</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 3! In Chapter 2 you learned how to store and compute with data. Now you'll learn how to organize that code so it's easy to reuse, easy to read, and easy to build on. Functions are one of the most powerful tools in programming. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Use Python's built-in functions like <code>len()</code>, <code>int()</code>, <code>float()</code>, and <code>print()</code></li>
+<li>Define your own functions with parameters and return values</li>
+<li>Explain the difference between local and global variables</li>
+<li>Apply the DRY principle to remove repeated code from your programs</li>
+<li>Write code that is organized, readable, and easy to build on</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<p>For this chapter, you need Thonny and your Raspberry Pi Pico connected via USB. The short examples in the first two sections run in the Python Shell (REPL). The LED examples near the end need your NeoPixel strip connected.</p>
+<h2 id="built-in-functions-python-already-knows">Built-in Functions Python Already Knows</h2>
+<p>In Chapter 2, you used <code>print()</code> to show values on the screen. <code>print()</code> is a <strong>function</strong> — a named block of code that does a specific job. You run it by writing its name followed by parentheses.</p>
+<p>Before looking at more built-in functions, let's define two terms. An <strong>argument</strong> is a value you hand to a function so it can work with that value. A <strong>return value</strong> is the result the function sends back to you when it finishes.</p>
+<p>Python comes loaded with many useful built-in functions. Here are the ones you'll use most in this course. Study this table, then we'll try each one:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>What It Does</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>print()</code></td>
+<td>Shows a value in Thonny's Shell</td>
+<td><code>print("hello")</code></td>
+<td>Displays <code>hello</code></td>
+</tr>
+<tr>
+<td><code>len()</code></td>
+<td>Returns the count of items</td>
+<td><code>len([1, 2, 3])</code></td>
+<td><code>3</code></td>
+</tr>
+<tr>
+<td><code>int()</code></td>
+<td>Converts to an integer</td>
+<td><code>int("200")</code></td>
+<td><code>200</code></td>
+</tr>
+<tr>
+<td><code>float()</code></td>
+<td>Converts to a float</td>
+<td><code>float("1.5")</code></td>
+<td><code>1.5</code></td>
+</tr>
+<tr>
+<td><code>str()</code></td>
+<td>Converts to a string</td>
+<td><code>str(255)</code></td>
+<td><code>"255"</code></td>
+</tr>
+<tr>
+<td><code>range()</code></td>
+<td>Creates a number sequence</td>
+<td><code>range(5)</code></td>
+<td><code>0, 1, 2, 3, 4</code></td>
+</tr>
+</tbody>
+</table>
+<p>Let's see <code>len()</code> in a real NeoPixel context. <code>len()</code> counts the items in any list or collection. Here it counts the pixels in our strip:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">))</span>   <span class="c1"># Prints the number of LEDs in the strip, e.g. 30</span>
+</code></pre></div>
+<p>Run this in Thonny and you should see your pixel count appear in the Shell.</p>
+<p><code>range()</code> is one you'll use inside almost every <code>for</code> loop. It generates a sequence of integers starting from 0. <code>range(30)</code> generates 0, 1, 2, ... 29 — perfect for stepping through a 30-LED strip one pixel at a time.</p>
+<h2 id="why-write-your-own-functions">Why Write Your Own Functions?</h2>
+<p>Imagine you want to turn all your pixels red, then all green, then all blue. Without a custom function, you'd repeat almost identical code three times:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="c1"># Turn all pixels red</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Turn all pixels green</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Turn all pixels blue</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+<p>All three blocks do the same job. The only thing that changes is the color value. This is called <strong>identifying repeated code</strong> — and it's the first step toward writing better programs.</p>
+<p>The <strong>DRY Principle</strong> stands for "Don't Repeat Yourself." When you find yourself writing the same structure more than once, that's a signal to create a function. Repeated code creates problems: if you discover a bug in that structure, you must fix it in three places instead of one.</p>
+<p><strong>Code reuse via functions</strong> is the solution. You write the code once, give it a name, and call that name whenever you need it.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward with a sparkle">
+How do you spot repeated code? Look for copy-paste patterns — blocks that look nearly identical except for one or two values. Those changing values (like the color) are exactly what become function parameters. The shared code becomes the function body.</p>
+</div>
+<h2 id="defining-a-function">Defining a Function</h2>
+<p>A <strong>function definition</strong> tells Python: "here is a block of code, and here is its name." You use the <code>def</code> keyword (short for "define"):</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">):</span>
+    <span class="c1"># Code that runs when the function is called</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+<p>The <code>def</code> line must end with a colon (<code>:</code>). Everything indented below it belongs to the function.</p>
+<p>Let's replace the three repeated blocks from above with one function. The function needs to accept a color, fill every pixel, send the update, and pause briefly:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Now the three-color sequence is just three short lines</span>
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>   <span class="c1"># Red</span>
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>   <span class="c1"># Green</span>
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>   <span class="c1"># Blue</span>
+</code></pre></div>
+<p>The same visual result — red, green, blue flashes — now takes three lines instead of fifteen. If you find a bug in how <code>fill_color</code> works, you fix it in one place.</p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Pixel thinks with a glowing ring">
+Think of a function like a recipe. The recipe's name is <code>fill_color</code>. The ingredients are <code>strip</code> and <code>color</code> (the parameters). The steps are the lines inside the function. You "cook" the recipe by writing its name and handing it the ingredients. Every time you need that dish, you just call the same recipe — you don't rewrite it from scratch.</p>
+</div>
+<h3 id="function-parameters">Function Parameters</h3>
+<p><strong>Function parameters</strong> are the inputs a function needs to do its job. You list them inside the parentheses in the <code>def</code> line, separated by commas.</p>
+<p>In <code>def fill_color(strip, color):</code>, there are two parameters:</p>
+<ul>
+<li><code>strip</code> — the NeoPixel strip object to fill</li>
+<li><code>color</code> — the RGB tuple to use as the fill color</li>
+</ul>
+<p>When you call the function, you pass the actual values in the same order. Python matches the first argument to the first parameter, the second to the second, and so on:</p>
+<div class="highlight"><pre><span></span><code><span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="c1">#          ^       ^</span>
+<span class="c1">#          |       color = (255, 0, 0)</span>
+<span class="c1">#          strip = our NeoPixel object</span>
+</code></pre></div>
+<p>A function can have as many parameters as it needs. A function with no parameters is also valid — just leave the parentheses empty:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clear_strip</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="function-return-values">Function Return Values</h3>
+<p>A <strong>function return value</strong> is the result a function sends back to the caller. You use the <code>return</code> keyword followed by the value to send back.</p>
+<p>Not every function needs to return a value. <code>fill_color</code> does its work and that's it. But some functions calculate something you want to use later:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>   <span class="c1"># Scale the red channel</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>   <span class="c1"># Scale the green channel</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>   <span class="c1"># Scale the blue channel</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>             <span class="c1"># Send the new color back to the caller</span>
+</code></pre></div>
+<p>When a function returns a value, you capture it in a variable:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dim_red</span> <span class="o">=</span> <span class="n">scale_color</span><span class="p">((</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dim_red</span><span class="p">)</span>   <span class="c1"># Prints: (127, 0, 0) — half as bright</span>
+</code></pre></div>
+<p>The <code>return</code> statement immediately exits the function and hands the value back to wherever the function was called.</p>
+<h3 id="function-calls">Function Calls</h3>
+<p>A <strong>function call</strong> runs a function. It's the function name followed by parentheses holding any arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>            <span class="c1"># Call with two arguments</span>
+<span class="n">dim</span> <span class="o">=</span> <span class="n">scale_color</span><span class="p">((</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)</span>       <span class="c1"># Call that captures the return value</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">))</span>                          <span class="c1"># A built-in function call</span>
+</code></pre></div>
+<p>Every function call follows three steps: Python jumps to the function's code, runs it with your arguments, then jumps back to where you called it (bringing the return value, if any).</p>
+<p>Let's see this step by step in the next interactive simulation:</p>
+<h4 id="diagram-function-call-step-through">Diagram: Function Call Step-Through</h4>
+<iframe src="../../sims/function-call-step-through/main.html" width="100%" height="412px" scrolling="no"></iframe>
+
+<details>
+<summary>Function Call Step-Through</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> function-call-step-through<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: explain, interpret, trace
+Learning Objective: Students trace the execution flow of a function call — from the call site, into the function with its parameters bound, through each line of the body, across the return statement, and back to the caller — using a concrete NeoPixel example.</p>
+<p>Instructional Rationale: Trace/explain (L2 Understand) requires seeing data values at each step, not abstract animation. The step-through pattern (Next/Previous buttons) lets students pause at each phase and predict what happens before revealing the next state. This is superior to auto-play animation, which removes the prediction step essential for encoding at the Understand level.</p>
+<p>Canvas layout:
+- Left panel (55%): Two code areas stacked vertically:
+  - Top: "Caller code" — the main program lines that include the function call, with an animated red arrow pointing at the active line
+  - Bottom: "Function body" — the <code>def fill_color(...)</code> block, with an animated red arrow pointing at the active line
+- Right panel (45%): "State Inspector" showing:
+  - Current step label: "Step 3 of 7: Loop body — strip[0] gets color"
+  - Parameter table: variable names and current values at this step
+  - Return value: blank until the return statement is active, then shows the value
+  - Plain-English explanation of what is happening this step</p>
+<p>Code used in the simulation:
+<div class="highlight"><pre><span></span><code><span class="c1"># Caller code (top panel)</span>
+<span class="n">dim</span> <span class="o">=</span> <span class="n">scale_color</span><span class="p">((</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+
+<span class="c1"># Function body (bottom panel)</span>
+<span class="k">def</span> <span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Execution steps (7 total):
+Step 1: Caller — "Python reads <code>scale_color((255,0,0), 0.5)</code> and prepares to jump"
+Step 2: Function — "Parameters are bound: color=(255,0,0), factor=0.5"
+Step 3: Function — "r = int(255 * 0.5) = 127"
+Step 4: Function — "g = int(0 * 0.5) = 0"
+Step 5: Function — "b = int(0 * 0.5) = 0"
+Step 6: Function — "return (127, 0, 0) — function exits and sends this tuple back"
+Step 7: Caller — "dim = (127, 0, 0); print(dim) shows (127, 0, 0)"</p>
+<p>Data Visibility Requirements:
+At each step the State Inspector shows:
+- Which panel is active (caller vs. function) — highlighted with a blue tint
+- All current parameter and local variable values with concrete numbers
+- Whether we're "inside" or "outside" the function
+- Return value column (blank until step 6, then shows <code>(127, 0, 0)</code>)</p>
+<p>Controls:
+- "Next Step" button — advance to next step
+- "Previous Step" button — go back one step
+- "Restart" button — reset to step 1
+- Step counter display: "Step X of 7"</p>
+<p>Visual elements:
+- Code font: monospace, 13px, syntax-highlighted (keywords in blue, strings in green, numbers in orange)
+- Active line: yellow background highlight
+- Active arrow: red arrow pointing at the active line in the relevant panel
+- "Inside function" indicator: blue tinted background behind the function panel when execution is there
+- State Inspector: white background, 12px sans-serif, colored variable names</p>
+<p>Responsive design: Panels stack vertically on screens narrower than 600px. Font size reduces to 11px when stacked.</p>
+</details>
+<h2 id="variable-scope-where-variables-live">Variable Scope: Where Variables Live</h2>
+<p><strong>Variable scope</strong> describes where in a program a variable can be seen and used. Not every variable is visible from everywhere.</p>
+<p>Before seeing code, let's define the two main types clearly. A <strong>local variable</strong> is created inside a function and only exists while that function is running. Once the function ends, the local variable disappears. A <strong>global variable</strong> is created outside all functions and can be seen from anywhere in the program.</p>
+<p>Here's a side-by-side example showing both types at work:</p>
+<div class="highlight"><pre><span></span><code><span class="n">NUM_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>        <span class="c1"># Global variable — visible everywhere in the program</span>
+<span class="n">BRIGHTNESS</span> <span class="o">=</span> <span class="mf">0.8</span>       <span class="c1"># Global variable — visible everywhere</span>
+
+<span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">pixel_index</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Local variable — only exists inside fill_color</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_PIXELS</span><span class="p">):</span>   <span class="c1"># i is also local — loop variable</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="c1"># pixel_index and i disappear when fill_color ends</span>
+
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">NUM_PIXELS</span><span class="p">)</span>       <span class="c1"># Works — NUM_PIXELS is global</span>
+<span class="c1"># print(pixel_index)    # Would raise NameError — pixel_index is local and gone</span>
+</code></pre></div>
+<p>Local variables are created when a function starts and deleted when it ends. You can't access them from outside the function. This is intentional — it means each function manages its own data cleanly, and functions can't accidentally change each other's variables.</p>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up hands gently">
+It's tempting to put every variable at the top of your program as a global so you can access it anywhere. Resist that! Too many global variables make bugs hard to find — when a value changes unexpectedly, you have to search your entire program to find where it changed. Keep variables as local as possible, and pass values through function parameters instead.</p>
+</div>
+<p>Let's see scope visually — click on any variable in the explorer below to see exactly where it lives:</p>
+<h4 id="diagram-variable-scope-explorer">Diagram: Variable Scope Explorer</h4>
+<iframe src="../../sims/variable-scope-explorer/main.html" width="100%" height="432px" scrolling="no"></iframe>
+
+<details>
+<summary>Variable Scope Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> variable-scope-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: differentiate, classify, identify
+Learning Objective: Students differentiate local from global variables by clicking variable names in a complete program and seeing which scope zone each variable belongs to, with a plain-English explanation of why.</p>
+<p>Instructional Rationale: Differentiate (L2) is served by a classify-on-click pattern: the student examines a full program, clicks a variable name, and the sim highlights the scope zone that contains it with an explanation. This makes scope concrete and spatial — students build an accurate mental map of what's visible where — rather than abstract.</p>
+<p>Canvas layout:
+- Left panel (60%): A complete Python program with two functions displayed in monospace font on a dark background. Each variable name occurrence is rendered as a clickable highlighted span.
+- Right panel (40%): Scope Inspector showing:
+  - Variable name (e.g., <code>scaled</code>)
+  - Scope type: "LOCAL — lives only inside <code>fill_color()</code>"
+  - Explanation: "This variable was created inside a function. Python deletes it when the function ends."
+  - Visual diagram: A nested rectangle diagram — outer rectangle labeled "Program (global scope)", inner rectangle labeled "fill_color function (local scope)", with the clicked variable highlighted inside its correct box</p>
+<p>Code displayed (same for both panels):
+<div class="highlight"><pre><span></span><code><span class="n">NUM_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>          <span class="c1"># global</span>
+<span class="n">BRIGHTNESS</span> <span class="o">=</span> <span class="mf">0.8</span>         <span class="c1"># global</span>
+
+<span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">scaled</span> <span class="o">=</span> <span class="n">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">BRIGHTNESS</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaled</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</code></pre></div></p>
+<p>Clickable variables and their scope labels:
+- <code>NUM_PIXELS</code> → Global: defined at module level, visible everywhere
+- <code>BRIGHTNESS</code> → Global: defined at module level, visible everywhere
+- <code>strip</code> (fill_color param) → Local parameter: created when fill_color is called
+- <code>color</code> (fill_color param) → Local parameter: created when fill_color is called
+- <code>scaled</code> → Local variable in fill_color
+- <code>i</code> → Local loop variable in fill_color's for loop
+- <code>color</code> (scale_color param) → Local parameter: separate from fill_color's <code>color</code>
+- <code>factor</code> → Local parameter in scale_color
+- <code>r</code>, <code>g</code>, <code>b</code> → Local variables in scale_color</p>
+<p>Visual elements:
+- Program background: dark gray
+- fill_color function zone: blue-tinted rounded rectangle
+- scale_color function zone: orange-tinted rounded rectangle
+- Global variables outside both zones: white text, no tint
+- Clicked variable: its zone pulses and its name highlights in yellow everywhere it appears in the code</p>
+<p>Controls:
+- Click any highlighted variable name → show scope info in right panel
+- "Highlight all globals" button → flash all global variables yellow for 1.5 seconds
+- "Highlight all locals" button → flash all local variables blue for 1.5 seconds</p>
+<p>Responsive design: Panels stack vertically on screens narrower than 580px; font size minimum 12px.</p>
+</details>
+<h2 id="writing-clean-readable-code">Writing Clean, Readable Code</h2>
+<p>A program that works is good. A program that works AND that any teammate can read and understand is great. The practices in this section help you reach that higher standard.</p>
+<h3 id="code-readability-and-naming">Code Readability and Naming</h3>
+<p><strong>Code readability</strong> measures how easily another person — or your future self — can read and understand your code.</p>
+<p>Two of the most powerful readability tools are the simplest ones: choosing good names.</p>
+<p><strong>Readable variable names</strong> describe exactly what they store. Compare these two programs:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Hard to read — what do x, y, and z mean?</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">0.75</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Easy to read — names tell the whole story</span>
+<span class="n">num_pixels</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">brightness_factor</span> <span class="o">=</span> <span class="mf">0.75</span>
+<span class="n">red_color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Meaningful function names</strong> describe exactly what a function does. A function named <code>f()</code> tells you nothing. A function named <code>fill_strip_with_color()</code> tells you everything:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Unclear name</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="c1"># Clear name — reads like a sentence</span>
+<span class="k">def</span> <span class="nf">fill_strip_with_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>When your main program reads like plain English, you know you have great names:</p>
+<div class="highlight"><pre><span></span><code><span class="n">fill_strip_with_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+<span class="n">fade_to_black</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+<span class="n">play_rainbow_cycle</span><span class="p">(</span><span class="n">strip</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="code-commenting-strategy-and-documentation">Code Commenting Strategy and Documentation</h3>
+<p>A <strong>code commenting strategy</strong> means deciding what to comment and what to leave uncommented.</p>
+<p>Good comments explain <strong>why</strong> you made a choice — not <strong>what</strong> the code does. The code already shows what it does. Comments fill in the reasoning:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Section labels — mark where a new topic begins</span>
+<span class="c1"># ---- Color Constants ----</span>
+<span class="n">RED</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">GREEN</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Why comments — explain a non-obvious choice</span>
+<span class="n">brightness</span> <span class="o">=</span> <span class="mf">0.5</span>     <span class="c1"># Half brightness saves battery on wearable costumes</span>
+
+<span class="c1"># Parameter labels — name a mystery number</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.033</span><span class="p">)</span>   <span class="c1"># 33 ms pause gives approximately 30 frames per second</span>
+</code></pre></div>
+<p><strong>Documentation as communication</strong> is the bigger idea behind all of this. Your code is a message. Every name, every comment, and every structure you choose is part of that message. Clear code is clear communication — it tells the next reader (which might be you in six months) exactly what you were thinking.</p>
+<h3 id="separation-of-concerns-and-hiding-implementation-details">Separation of Concerns and Hiding Implementation Details</h3>
+<p><strong>Separation of concerns</strong> means organizing your code so each function does exactly one job. A function called <code>fill_color</code> should only fill colors. It should not also print debug messages, handle timing, or check for button presses. Each concern gets its own function.</p>
+<p><strong>Hiding implementation details</strong> (also called <strong>abstraction</strong>) means that the code calling a function doesn't need to know how the function works inside. When you call <code>fill_color(strip, (255, 0, 0))</code>, you don't need to think about the <code>for</code> loop or <code>strip.write()</code> inside. That complexity is hidden. You just see a simple call that fills the strip.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Caller sees one clear line — complexity is hidden inside the function</span>
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+</code></pre></div>
+<p>This is one of the four pillars of computational thinking: abstraction. You hide the complexity so you can think about the problem at a higher level.</p>
+<h3 id="generalizing-solutions-and-template-based-solving">Generalizing Solutions and Template-Based Solving</h3>
+<p><strong>Generalizing a solution</strong> means taking code that works for one specific case and turning it into code that works for any case.</p>
+<p>Our <code>fill_color</code> function is a generalized solution. Instead of being locked to one color, it works with any color you pass in. Instead of assuming 30 pixels, it uses <code>len(strip)</code> to work with any strip length.</p>
+<p><strong>Template-based solving</strong> is closely related. You recognize that a new problem matches a pattern — a template — you've already solved. You adapt the template rather than starting from scratch.</p>
+<p>Here is the general "moving position" template for LED animations:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">move_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">max_pos</span><span class="p">):</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="n">position</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span> <span class="o">%</span> <span class="n">max_pos</span>   <span class="c1"># Wrap using modulo</span>
+    <span class="k">return</span> <span class="n">position</span>
+</code></pre></div>
+<p>Once you know this template, you can adapt it for a bouncing pixel (change the step direction), a fast pixel (larger step), or a wrapping comet (same template, different drawing code). The template stays the same; only the parameters and drawing code change.</p>
+<p>Before reading the summary table below, review each practice in your mind. The table summarizes what you've just read — it doesn't introduce new ideas:</p>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>What It Means</th>
+<th>LED Code Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DRY Principle</td>
+<td>No repeated code — use a function</td>
+<td><code>fill_color(strip, RED)</code> instead of copying the loop</td>
+</tr>
+<tr>
+<td>Readable variable names</td>
+<td>Names describe what's stored</td>
+<td><code>brightness_factor</code> not <code>bf</code></td>
+</tr>
+<tr>
+<td>Meaningful function names</td>
+<td>Names describe what the function does</td>
+<td><code>scale_color()</code> not <code>sc()</code></td>
+</tr>
+<tr>
+<td>Separation of concerns</td>
+<td>Each function does exactly one job</td>
+<td><code>fill_color()</code> fills; <code>scale_color()</code> scales</td>
+</tr>
+<tr>
+<td>Hiding details</td>
+<td>Callers don't see the inner workings</td>
+<td><code>fill_color(strip, RED)</code> — no visible loop</td>
+</tr>
+<tr>
+<td>Generalizing a solution</td>
+<td>Works for any input, not one hardcoded case</td>
+<td><code>color</code> parameter instead of <code>(255,0,0)</code> hardcoded</td>
+</tr>
+<tr>
+<td>Template-based solving</td>
+<td>Adapt a known pattern to a new situation</td>
+<td>Moving-position template → bouncing, wrapping, etc.</td>
+</tr>
+<tr>
+<td>Code commenting strategy</td>
+<td>Comment WHY, not WHAT</td>
+<td><code># Half brightness saves battery</code></td>
+</tr>
+<tr>
+<td>Documentation as communication</td>
+<td>Code is a message to future readers</td>
+<td>Clear names + comments = readable message</td>
+</tr>
+</tbody>
+</table>
+<p>Now let's see the DRY Principle in action — before and after refactoring:</p>
+<h4 id="diagram-dry-principle-before-and-after">Diagram: DRY Principle Before and After</h4>
+<iframe src="../../sims/dry-principle-before-after/main.html" width="100%" height="472px" scrolling="no"></iframe>
+
+<details>
+<summary>DRY Principle Before and After</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> dry-principle-before-after<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: differentiate, compare, examine
+Learning Objective: Students compare repeated code ("Before DRY") with a refactored version that uses a function ("After DRY"), identifying which lines were duplicated, what the function parameter replaced, and why the refactored version is better.</p>
+<p>Instructional Rationale: Compare/differentiate (L4 Analyze) is served by a side-by-side comparison with interactive highlighting. The student clicks a repeated block on the left to see it matched to its corresponding function call on the right. A "Find the Bug" challenge makes the DRY benefit concrete: a bug inserted in only two of three copies illustrates how DRY reduces a three-fix problem to a one-fix problem.</p>
+<p>Canvas layout:
+- Two code panels side by side (47% each, 6% gap):
+  - Left panel: "Before DRY" — three repeated fill-strip blocks
+  - Right panel: "After DRY" — one function definition, three short calls
+- Below panels: "What changed" explanation panel
+- Line count badges: "Before: 15 lines" and "After: 9 lines" shown above each panel</p>
+<p>Before DRY code (left panel):
+<div class="highlight"><pre><span></span><code><span class="c1"># Turn all pixels red</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Turn all pixels green</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Turn all pixels blue</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div></p>
+<p>After DRY code (right panel):
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>   <span class="c1"># Red</span>
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>   <span class="c1"># Green</span>
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>   <span class="c1"># Blue</span>
+</code></pre></div></p>
+<p>Interactive features:
+- Click any 5-line block on the left → that block highlights orange, and the matching <code>fill_color(...)</code> call on the right highlights orange
+- Click the function body on the right → all three blocks on the left highlight simultaneously
+- "Count lines" toggle → shows/hides "15 lines" and "9 lines" badges
+- "What's different?" button → reveals the explanation panel: "The three blocks are identical except for the color value. Moving the shared code into a function and making color a parameter reduces 15 lines to 9. If a bug exists in the loop, you only fix it once instead of three times."
+- "Find the Bug" challenge: A typo — <code>strip.write</code> (missing parentheses <code>()</code>) — is pre-inserted in two of the three left-panel blocks but not the third. The student must click all instances of the bug to "fix" them. Counter shows "0 / 2 fixed". After fixing: "With DRY, this bug would only exist in one place — the function body."</p>
+<p>Responsive design: Panels stack vertically on screens narrower than 600px (left on top of right). Font size 12px minimum.</p>
+</details>
+<h2 id="modular-program-design">Modular Program Design</h2>
+<p><strong>Modular program design</strong> means building a program as a collection of small, focused functions. Each function (module) does one job well. You build bigger programs by combining these small pieces.</p>
+<p>This approach has three big benefits:</p>
+<ul>
+<li>Each function is easy to test on its own</li>
+<li>You can reuse functions across different programs</li>
+<li>When something breaks, you know which function to look in</li>
+</ul>
+<p>Here's a short but complete modular LED program. Notice how the main section at the bottom reads almost like plain English:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">fade_to_black</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">factor</span> <span class="o">=</span> <span class="n">step</span> <span class="o">/</span> <span class="n">steps</span>          <span class="c1"># 1.0, 0.9, 0.8 ... 0.1</span>
+        <span class="n">dim</span> <span class="o">=</span> <span class="n">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">)</span>
+        <span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="c1"># Main program — reads like a plan, not a puzzle</span>
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>         <span class="c1"># Flash red</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">fade_to_black</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>      <span class="c1"># Slowly fade to off</span>
+<span class="n">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>         <span class="c1"># Flash green</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">fade_to_black</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>      <span class="c1"># Slowly fade to off</span>
+</code></pre></div>
+<p>The main section is short and readable because all the complexity is hidden inside the three functions above. If you want to change how fading works, you only change <code>fade_to_black</code>. Nothing else needs to touch.</p>
+<h2 id="boundary-conditions">Boundary Conditions</h2>
+<p><strong>Boundary conditions</strong> are the edge cases that happen at the very limits of your code — the first value, the last value, an empty input, or an unexpected number. Bugs hide most often at boundaries.</p>
+<p>Before looking at LED examples, picture any "between X and Y" rule. The boundary conditions are exactly at X and at Y — not somewhere safe in the middle.</p>
+<p>Common boundary conditions in LED programming:</p>
+<ul>
+<li>Pixel index <code>0</code> (the very first pixel)</li>
+<li>Pixel index <code>len(strip) - 1</code> (the very last pixel)</li>
+<li>Color channel value <code>0</code> (completely off)</li>
+<li>Color channel value <code>255</code> (maximum brightness)</li>
+<li>A position counter that reaches exactly the strip length during a wrap-around animation</li>
+</ul>
+<p>Here's a function that handles a boundary condition safely:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">safe_set_pixel</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="c1"># Boundary condition check — index must be a valid position</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">):</span>
+        <span class="k">return</span>   <span class="c1"># Exit quietly instead of crashing</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+</code></pre></div>
+<p>Without the check, passing an out-of-range index raises an <code>IndexError</code> and stops your program. With the check, the function exits gracefully and your animation keeps running.</p>
+<div class="admonition success">
+<p class="admonition-title">You've got this!</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Pixel gives a big thumbs-up">
+Boundary conditions feel like a lot to think about — and they are! Good programmers develop a habit: whenever you write a loop or use an index, ask three quick questions: "What happens at the very first value? At the very last value? What if the list is empty?" Asking those three questions catches most boundary bugs before they bite. Every bug is just a puzzle in disguise!</p>
+</div>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p><strong>Challenge 1 — Your First Function:</strong> Write a function called <code>set_single_pixel</code> that takes three parameters: <code>strip</code>, <code>index</code>, and <code>color</code>. It should set the pixel at <code>index</code> to <code>color</code> and call <code>strip.write()</code>. Test it by calling the function three times to light pixels 0, 1, and 2 in three different colors.</p>
+<p><strong>Challenge 2 — DRY Cleanup:</strong> Here is some repeated code. Identify what's repeated, write a function to replace it, then rewrite the code using three function calls.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="c1"># Flash red 3 times</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Flash green 3 times</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+</code></pre></div>
+<p>Hint: What is the only thing that changes between "flash red" and "flash green"? That's your parameter.</p>
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<p>Think through each answer first, then check below.</p>
+<ol>
+<li>
+<p>What does the DRY Principle stand for, and why does it matter if your strip changes from 30 to 60 pixels?</p>
+</li>
+<li>
+<p>What is the difference between a <strong>local variable</strong> and a <strong>global variable</strong>? Give one example of each from the code in this chapter.</p>
+</li>
+<li>
+<p>A function called <code>go()</code> takes no parameters and returns nothing. Another function is <code>calculate_dim_color(color, factor)</code>. Which follows the principle of <strong>meaningful function names</strong>? What might you rename <code>go()</code> to?</p>
+</li>
+<li>
+<p>What is a <strong>boundary condition</strong>? Give one specific example from LED strip programming.</p>
+</li>
+<li>
+<p>A classmate shows you this function. Find two problems with it and explain how you'd fix each one.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">turn_on</span><span class="p">(</span><span class="n">strip</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>          <span class="c1"># 30 is hardcoded</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Color is hardcoded</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<details class="question">
+<summary>Show answers</summary>
+<ol>
+<li>
+<p>DRY stands for "Don't Repeat Yourself." If you hardcode <code>30</code> in five places and the strip grows to 60 pixels, you'd need to change five lines. With DRY, you read the strip length from <code>config.NUMBER_PIXELS</code> (or <code>len(strip)</code>) in one place, and the rest of your code updates automatically.</p>
+</li>
+<li>
+<p>A <strong>local variable</strong> is created inside a function and disappears when the function ends. Example: <code>r</code>, <code>g</code>, <code>b</code> inside <code>scale_color()</code>. A <strong>global variable</strong> is created outside all functions and is visible everywhere. Example: <code>NUM_PIXELS = 30</code> at the top of the program.</p>
+</li>
+<li>
+<p><code>calculate_dim_color(color, factor)</code> has a meaningful name — it tells you what it does, what it needs, and what it returns (a dimmed color). <code>go()</code> tells you nothing. You might rename it <code>start_animation()</code>, <code>run_color_fade()</code>, or whatever it actually does.</p>
+</li>
+<li>
+<p>A <strong>boundary condition</strong> is a value at the edge of what your code can handle. Example: pixel index <code>0</code> (the first pixel) and <code>len(strip) - 1</code> (the last pixel) are boundary conditions for any loop or index operation on the strip. Accessing an index outside these bounds causes an <code>IndexError</code>.</p>
+</li>
+<li>
+<p>Two problems: (1) <code>range(30)</code> hardcodes the strip length — if the strip has a different number of pixels, this loop goes past the end or stops short. Fix: <code>range(len(strip))</code>. (2) <code>(255, 0, 0)</code> hardcodes the color — the function can only ever fill red. Fix: add a <code>color</code> parameter and use it: <code>def turn_on(strip, color)</code> and <code>strip[i] = color</code>.</p>
+</li>
+</ol>
+</details>
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with a full rainbow blazing">
+You've mastered functions! You know how to define them, call them, pass data in with parameters, and get results back with return values. You understand scope, and you know the best practices that separate a good programmer from a great one. Your LED code is about to get a whole lot cleaner — and cleaner code is easier to build on, easier to share, and way more fun to work with!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../04-python-control-flow-loops/">Chapter 4</a>, you'll add decision-making and repetition to your toolkit — <code>if</code> statements, <code>for</code> loops, and <code>while</code> loops — the control structures that make your LED animations actually come alive.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../02-python-variables-types-operators/" title="2. Python Basics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  2. Python Basics
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../04-python-control-flow-loops/" title="4. Control Flow and Loops" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  4. Control Flow and Loops
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

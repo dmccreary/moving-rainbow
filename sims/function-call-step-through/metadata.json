@@ -1,0 +1,61 @@
+{
+  "title": "Function Call Step-Through",
+  "description": "Students trace the execution flow of a function call - from the call site, into the function with its parameters bound, through each line of the body, acro",
+  "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "function-call-step-through",
+  "library": "p5.js",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "explain, interpret, trace",
+  "completion_status": "implemented",
+  "chapter_number": 3,
+  "chapter_title": "Python Functions, Modules, and Programming Best Practices",
+  "chapter_dir": "03-python-functions-modules-practices",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Function Call Step-Through",
+    "learningObjectives": [
+      "Students trace the execution flow of a function call - from the call site, into the function with its parameters bound, through each line of the body, across the return statement, and back to the caller - using a concrete NeoPixel example."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 410
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
+}

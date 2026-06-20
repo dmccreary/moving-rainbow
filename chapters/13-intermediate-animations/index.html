@@ -1,0 +1,2619 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Build fade in/out, color wipe, bounce, moving bands, theater chase, ripple, and random walk animations with parameterization, trail fading, and speed control.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/13-intermediate-animations/">
+      
+      
+        <link rel="prev" href="../12-basic-animation-patterns/">
+      
+      
+        <link rel="next" href="../14-advanced-animation-patterns/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Intermediate Animation Techniques - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Intermediate Animation Techniques - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Build fade in/out, color wipe, bounce, moving bands, theater chase, ripple, and random walk animations with parameterization, trail fading, and speed control." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/13-intermediate-animations/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/13-intermediate-animations/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Intermediate Animation Techniques - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Build fade in/out, color wipe, bounce, moving bands, theater chase, ripple, and random walk animations with parameterization, trail fading, and speed control." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/13-intermediate-animations/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intermediate-animation-techniques" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Intermediate Animation Techniques
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation-architecture-parameters-and-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation Architecture: Parameters and Speed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-fade-in-and-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Fade In and Out
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-color-wipe-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Color Wipe Animation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-moving-pixel-animation-and-bounce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Moving Pixel Animation and Bounce
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-color-trail-with-fading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Color Trail with Fading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-moving-bands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Moving Bands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-theater-chase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Theater Chase
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-ripple-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Ripple Animation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern: Ripple Animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ripple-animation-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Ripple Animation Mechanics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-random-walk-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Random Walk Animation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation-architecture-parameters-and-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation Architecture: Parameters and Speed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-fade-in-and-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Fade In and Out
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-color-wipe-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Color Wipe Animation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-moving-pixel-animation-and-bounce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Moving Pixel Animation and Bounce
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-color-trail-with-fading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Color Trail with Fading
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-moving-bands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Moving Bands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-theater-chase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Theater Chase
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-ripple-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Ripple Animation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern: Ripple Animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ripple-animation-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Ripple Animation Mechanics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-random-walk-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Random Walk Animation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/13-intermediate-animations/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="intermediate-animation-techniques">Intermediate Animation Techniques</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers fade in/out, theater chase, ripple, bounce, random walk, brightness scaling factor, color trail fading, animation speed control, offset and phase, multi-pattern programs, pattern composition, and the mathematical timing behind animation delays.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 22 concepts from the learning graph:</p>
+<ol>
+<li>Fade In and Out</li>
+<li>Color Wipe Animation</li>
+<li>Moving Pixel Animation</li>
+<li>Bounce Animation</li>
+<li>Moving Bands Pattern</li>
+<li>Theater Chase Pattern</li>
+<li>Ripple Animation</li>
+<li>Random Walk Animation</li>
+<li>Animation Speed Control</li>
+<li>Brightness Scaling Factor</li>
+<li>Color Trail with Fading</li>
+<li>Animation Loop Structure</li>
+<li>Frame Rate Concept</li>
+<li>Chase Group Size</li>
+<li>Ripple Decay Rate</li>
+<li>Brightness Array</li>
+<li>Animation Parameterization</li>
+<li>Color Palette Selection</li>
+<li>Speed Parameter</li>
+<li>Delay Function Selection</li>
+<li>Offset and Phase</li>
+<li>Time Delay Calculation</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+<li><a href="../03-python-functions-modules-practices/">Chapter 3: Python Functions, Modules, and Programming Best Practices</a></li>
+<li><a href="../04-python-control-flow-loops/">Chapter 4: Python Control Flow, Loops, and Error Handling</a></li>
+<li><a href="../06-micropython-apis-and-electronics/">Chapter 6: MicroPython APIs, GPIO Control, and Electrical Fundamentals</a></li>
+<li><a href="../07-rgb-color-theory/">Chapter 7: Color Theory: The RGB Color Model and Color Mixing</a></li>
+<li><a href="../09-neopixel-programming/">Chapter 9: NeoPixel Programming: Pixels, Colors, and the NeoPixel Library</a></li>
+<li><a href="../11-math-for-led-programming/">Chapter 11: Mathematics for LED Programming</a></li>
+<li><a href="../12-basic-animation-patterns/">Chapter 12: Basic LED Animation Patterns</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 13! The patterns in Chapter 12 were like single notes. Now you're learning chords — animations that combine position tracking, fading trails, speed parameters, and phase offsets. These are the effects that make people stop and say "whoa!" Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Implement fade in/out, color wipe, moving pixel, and bounce animations</li>
+<li>Build the theater chase and moving bands patterns</li>
+<li>Create a ripple effect that expands from a center point</li>
+<li>Use brightness arrays to create trail effects</li>
+<li>Add speed parameters and phase offsets to animations</li>
+<li>Explain what frame rate is and how delay affects it</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>Raspberry Pi Pico with NeoPixel strip connected</li>
+<li>Thonny IDE connected</li>
+<li>Chapters 11 and 12 fresh in your mind</li>
+</ul>
+<hr />
+<h2 id="animation-architecture-parameters-and-speed">Animation Architecture: Parameters and Speed</h2>
+<p>Before building new patterns, let's talk about <strong>animation parameterization</strong> — designing animations with variables you can easily change.</p>
+<p>A well-parameterized animation has a few key variables at the top:</p>
+<ul>
+<li><strong>Speed parameter</strong> — controls how fast the animation runs (often a delay in ms, or a step size)</li>
+<li><strong>Color palette selection</strong> — the color(s) used</li>
+<li><strong>Chase group size</strong>, <strong>ripple decay rate</strong>, etc. — pattern-specific constants</li>
+</ul>
+<p>The <strong>frame rate concept</strong> describes how many frames run per second. Frame rate (fps) = 1000 / delay_ms. A delay of 50 ms = 20 fps. A delay of 16 ms ≈ 60 fps. Faster frame rates make animations look smoother, but your Pico can only compute so fast.</p>
+<p><strong>Delay function selection</strong> — choose between <code>utime.sleep_ms()</code> for simple fixed delays and <code>utime.ticks_ms()</code> for time-based animation where the delay adapts to computation time.</p>
+<p><strong>Time delay calculation</strong> for a target frame rate:
+[ \text{delay_ms} = \frac{1000}{\text{target_fps}} ]</p>
+<p>For 30 fps: <code>delay_ms = 1000 / 30 ≈ 33 ms</code>. For 50 fps: <code>delay_ms = 20 ms</code>.</p>
+<hr />
+<h2 id="pattern-fade-in-and-out">Pattern: Fade In and Out</h2>
+<p><strong>Fade In and Out</strong> smoothly increases the brightness of the strip to full, then decreases back to zero.</p>
+<p>Before the code, here's the key idea: a <strong>brightness scaling factor</strong> multiplies the base color. Scaling from 0.0 to 1.0 fades in; from 1.0 back to 0.0 fades out.</p>
+<div class="highlight"><pre><span></span><code><span class="n">BASE_COLOR</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># orange base</span>
+<span class="n">STEPS</span> <span class="o">=</span> <span class="mi">50</span>                    <span class="c1"># steps from dark to full brightness</span>
+
+<span class="k">def</span> <span class="nf">fade</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">delay_ms</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">step</span> <span class="o">/</span> <span class="p">(</span><span class="n">steps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># 0.0 to 1.0</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="n">delay_ms</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">fade</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">BASE_COLOR</span><span class="p">,</span> <span class="n">STEPS</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>   <span class="c1"># fade in</span>
+    <span class="c1"># Run fade in reverse for fade out</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">STEPS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">step</span> <span class="o">/</span> <span class="p">(</span><span class="n">STEPS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">BASE_COLOR</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">BASE_COLOR</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">BASE_COLOR</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see the strip gently breathing orange — brightening, then dimming, then repeating.</p>
+<hr />
+<h2 id="pattern-color-wipe-animation">Pattern: Color Wipe Animation</h2>
+<p>The <strong>Color Wipe Animation</strong> lights pixels one at a time from left to right, then clears them left to right. It's like drawing a line, then erasing it.</p>
+<p>This introduces <strong>sequential pixel lighting</strong> — updating pixels one at a time instead of all at once.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">color_wipe</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay_ms</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="n">delay_ms</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">color_clear</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">delay_ms</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="n">delay_ms</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">color_wipe</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="mi">30</span><span class="p">)</span>   <span class="c1"># wipe green-cyan</span>
+    <span class="n">color_clear</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a green-cyan color sweep across the strip, then disappear from left to right.</p>
+<hr />
+<h2 id="pattern-moving-pixel-animation-and-bounce">Pattern: Moving Pixel Animation and Bounce</h2>
+<p>The <strong>Moving Pixel Animation</strong> moves a single lit pixel across the strip. The <strong>Bounce Animation</strong> adds a direction variable so the pixel reverses when it hits either end.</p>
+<p>Two key concepts:
+- <strong>Position Tracking Variable</strong> — stores which pixel is currently lit
+- <strong>Direction Variable</strong> — <code>1</code> for moving right, <code>-1</code> for moving left</p>
+<div class="highlight"><pre><span></span><code><span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">direction</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">COLOR</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>   <span class="c1"># pink-red</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Clear all pixels</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">strip</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>   <span class="c1"># light only the current pixel</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+    <span class="n">pos</span> <span class="o">+=</span> <span class="n">direction</span>
+
+    <span class="c1"># Bounce logic: reverse direction at either end</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&gt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a single pink-red pixel bounce back and forth across the strip.</p>
+<p><strong>Bounce logic</strong> is the pattern you'll use every time motion needs to reverse at a boundary. Always check both ends: <code>&gt;= NUM_PIXELS - 1</code> catches the right end, <code>&lt;= 0</code> catches the left.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward">
+The order matters in bounce logic. Check <code>&gt;= NUM_PIXELS - 1</code> first — if you checked <code>&lt;= 0</code> first, you'd reverse direction before the pixel ever reaches the left end on the very first iteration.</p>
+</div>
+<hr />
+<h2 id="pattern-color-trail-with-fading">Pattern: Color Trail with Fading</h2>
+<p>A <strong>Color Trail with Fading</strong> keeps a <strong>brightness array</strong> — one brightness value per pixel — and decays all values each frame while placing a bright value at the moving pixel's position.</p>
+<p>Before reading the code: <code>trail[i]</code> holds the current brightness of pixel <code>i</code>. Each frame, every brightness value is multiplied by DECAY (a value less than 1.0), making it dimmer. The head pixel is set to maximum brightness.</p>
+<div class="highlight"><pre><span></span><code><span class="n">trail</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>   <span class="c1"># brightness per pixel</span>
+<span class="n">DECAY</span> <span class="o">=</span> <span class="mf">0.85</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Decay all brightness values</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">DECAY</span><span class="p">)</span>
+
+    <span class="c1"># Set head pixel to maximum</span>
+    <span class="n">trail</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+
+    <span class="c1"># Update the strip from the brightness array</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">))</span>   <span class="c1"># red with slight blue trail</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a bright head pixel moving around the strip, leaving a decaying red-purple trail behind it.</p>
+<hr />
+<h2 id="pattern-moving-bands">Pattern: Moving Bands</h2>
+<p>The <strong>Moving Bands Pattern</strong> creates blocks of color that advance across the strip. Think of it as multiple colored pixels moving together as a group.</p>
+<p><strong>Chase group size</strong> determines how wide each band is. An offset advances each frame to create motion.</p>
+<div class="highlight"><pre><span></span><code><span class="n">BAND_SIZE</span> <span class="o">=</span> <span class="mi">5</span>    <span class="c1"># width of each colored band</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">COLORS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>    <span class="c1"># red</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>    <span class="c1"># green</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>    <span class="c1"># blue</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>      <span class="c1"># gap (off)</span>
+<span class="p">]</span>
+<span class="n">CYCLE</span> <span class="o">=</span> <span class="n">BAND_SIZE</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">COLORS</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">band_index</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">//</span> <span class="n">BAND_SIZE</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">COLORS</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLORS</span><span class="p">[</span><span class="n">band_index</span><span class="p">]</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">CYCLE</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see colored bands of red, green, and blue scrolling across the strip with gaps between them.</p>
+<hr />
+<h2 id="pattern-theater-chase">Pattern: Theater Chase</h2>
+<p>The <strong>Theater Chase</strong> pattern creates a marquee effect: alternating groups of lit and unlit pixels, with the groups advancing each frame. The classic "movie theater" effect.</p>
+<p>Before the code, the key parameter is <strong>chase group size</strong> — how many pixels are in each lit group.</p>
+<div class="highlight"><pre><span></span><code><span class="n">CHASE_SIZE</span> <span class="o">=</span> <span class="mi">3</span>    <span class="c1"># pixels on, then 3 pixels off, repeating</span>
+<span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">CHASE_SIZE</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">CHASE_SIZE</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># amber/warm</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>        <span class="c1"># off</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="n">step</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">CHASE_SIZE</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see groups of three amber pixels chasing each other across the strip.</p>
+<p><strong>Offset and Phase</strong> are the key concepts here. The <code>step</code> variable is the offset — it shifts which pixels are "in phase" to be lit. As step advances from 0 to 5 and wraps back, the pattern appears to move.</p>
+<hr />
+<h2 id="pattern-ripple-animation">Pattern: Ripple Animation</h2>
+<p>The <strong>Ripple Animation</strong> creates expanding brightness waves from a center point. Each frame, the brightness of each pixel is determined by its distance from the center, shifted by the ripple phase.</p>
+<p>Before reading the code, the key variables:
+- <code>center</code> — the pixel index the ripple originates from
+- <code>phase</code> — how far the ripple has traveled
+- <code>ripple_decay_rate</code> — how quickly amplitude falls with distance</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">center</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">//</span> <span class="mi">2</span>   <span class="c1"># middle of the strip</span>
+<span class="n">phase</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span>           <span class="c1"># distance from center</span>
+        <span class="n">brightness</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="n">distance</span> <span class="o">-</span> <span class="n">phase</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">)</span>   <span class="c1"># ripple formula</span>
+        <span class="n">brightness</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">brightness</span><span class="p">)</span>      <span class="c1"># no negative brightness</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">brightness</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># blue ripple</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">phase</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see blue brightness waves appearing to expand outward from the center of the strip. The <strong>ripple decay rate</strong> (controlled by the <code>0.6</code> multiplier) sets how many ripples are visible at once.</p>
+<h4 id="diagram-ripple-animation-mechanics">Diagram: Ripple Animation Mechanics</h4>
+<iframe src="../../sims/ripple-animation-sim/main.html" width="100%" height="312px" scrolling="no"></iframe>
+<p><a href="../../sims/ripple-animation-sim/main.html">Run Ripple Animation Mechanics Fullscreen</a></p>
+<details>
+<summary>Interactive simulation: ripple expanding from center</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> ripple-animation-sim
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>A p5.js MicroSim showing a horizontal row of 20 pixel circles. A center pixel is marked with a small dot. A <strong>Pulse</strong> button triggers a ripple — a brightness wave that expands from the center outward. As the wave passes each pixel, that pixel brightens then dims. The wave reaches the strip edges and disappears. Controls: a <strong>Decay</strong> slider (0.2–0.9) showing how quickly the ripple fades with distance; a <strong>Speed</strong> slider (slow/fast); a <strong>Loop</strong> checkbox for continuous pulsing. A live formula display shows the current brightness for the highlighted pixel based on <code>cos((distance - phase) * decay_rate)</code>. Canvas: 700 × 280 px. Responds to window resize.</p>
+<p>Learning objective: Analyzing — the student can explain how phase and distance combine to produce the ripple pattern.</p>
+</details>
+<hr />
+<h2 id="pattern-random-walk-animation">Pattern: Random Walk Animation</h2>
+<p>The <strong>Random Walk Animation</strong> moves a pixel that doesn't bounce — instead, it randomly steps left or right each frame. Over time, it explores the strip unpredictably.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urandom</span>
+
+<span class="n">pos</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">//</span> <span class="mi">2</span>   <span class="c1"># start in the middle</span>
+<span class="n">trail</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+<span class="n">DECAY</span> <span class="o">=</span> <span class="mf">0.9</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">DECAY</span><span class="p">)</span>
+
+    <span class="n">trail</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>   <span class="c1"># blue-green trail</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+    <span class="c1"># Random step: -1 or +1</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">urandom</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">step</span><span class="p">))</span>   <span class="c1"># clamp to strip edges</span>
+
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a bright blue-green point wandering left and right, leaving a fading trail. Unlike the bounce pattern, the motion is unpredictable.</p>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Dual bounce:</strong> Create a bounce animation with TWO pixels moving in opposite directions. When they meet, make them briefly flash white.</p>
+</li>
+<li>
+<p><strong>Parameterize chase:</strong> Turn the theater chase into a function with parameters: <code>theater_chase(strip, color, group_size, delay_ms)</code>. Try it with different group sizes.</p>
+</li>
+<li>
+<p><strong>Ripple from edge:</strong> Modify the ripple to start from pixel 0 instead of the center. How does the effect change?</p>
+</li>
+<li>
+<p><strong>Combine wipe and fade:</strong> Write a color wipe that gets brighter as it progresses (first pixel at 10% brightness, last pixel at 100%).</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What does the "brightness scaling factor" do in a fade animation?</li>
+<li>What is a "direction variable" and what two values does it hold?</li>
+<li>How does the theater chase create the illusion of movement?</li>
+<li>What does a <strong>brightness array</strong> store?</li>
+<li>What is the role of the "ripple decay rate"?</li>
+<li>How does a random walk differ from a bounce animation?</li>
+<li>What formula converts delay_ms to frames per second?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+Intermediate level unlocked! You built fade, wipe, bounce, theater chase, ripple, and random walk — each using a different combination of position tracking, brightness arrays, decay, and phase. Every animation in this chapter could be the centerpiece of a costume or display project. You're genuinely building effects now!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../14-advanced-animation-patterns/">Chapter 14</a>, you'll tackle the most challenging effects — heartbeat, Larson scanner, comet tail, and LED clock displays — using brightness envelopes, scanner parameters, and sine-based breathing.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../12-basic-animation-patterns/" title="12. Basic Animations" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  12. Basic Animations
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../14-advanced-animation-patterns/" title="14. Advanced Animations" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  14. Advanced Animations
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

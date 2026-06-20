@@ -1,0 +1,2638 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn the HSV color space, how gamma correction fixes perceived brightness, gamma lookup tables, saturation, and strategies for designing color palettes and sequences.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/10-advanced-color-theory/">
+      
+      
+        <link rel="prev" href="../09-neopixel-programming/">
+      
+      
+        <link rel="next" href="../11-math-for-led-programming/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Advanced Color Theory — HSV, Gamma Correction, and Color Palettes - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Advanced Color Theory — HSV, Gamma Correction, and Color Palettes - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Learn the HSV color space, how gamma correction fixes perceived brightness, gamma lookup tables, saturation, and strategies for designing color palettes and sequences." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/10-advanced-color-theory/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/10-advanced-color-theory/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Advanced Color Theory — HSV, Gamma Correction, and Color Palettes - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Learn the HSV color space, how gamma correction fixes perceived brightness, gamma lookup tables, saturation, and strategies for designing color palettes and sequences." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/10-advanced-color-theory/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-color-theory-hsv-gamma-correction-and-color-palettes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Advanced Color Theory — HSV, Gamma Correction, and Color Palettes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named-color-constants-and-color-mixing-by-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named Color Constants and Color Mixing by Channel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hsv-color-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      The HSV Color Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The HSV Color Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-hsv-color-space-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: HSV Color Space Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rgb-to-hsv-and-hsv-to-rgb-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      RGB to HSV and HSV to RGB Conversion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RGB to HSV and HSV to RGB Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hsv-to-rgb-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      HSV to RGB Conversion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rainbow-effect-with-hsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rainbow Effect with HSV
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamma-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gamma Correction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamma-lookup-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gamma Lookup Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-perception-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Perception Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-palette-design-and-color-sequence-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Palette Design and Color Sequence Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Color Palette Design and Color Sequence Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#palette-design-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Palette Design Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#named-color-constants-and-color-mixing-by-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named Color Constants and Color Mixing by Channel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hsv-color-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      The HSV Color Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The HSV Color Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-hsv-color-space-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: HSV Color Space Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rgb-to-hsv-and-hsv-to-rgb-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      RGB to HSV and HSV to RGB Conversion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RGB to HSV and HSV to RGB Conversion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hsv-to-rgb-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      HSV to RGB Conversion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rainbow-effect-with-hsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rainbow Effect with HSV
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamma-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gamma Correction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamma-lookup-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gamma Lookup Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-perception-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Perception Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-palette-design-and-color-sequence-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Palette Design and Color Sequence Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Color Palette Design and Color Sequence Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#palette-design-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Palette Design Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/10-advanced-color-theory/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="advanced-color-theory-hsv-gamma-correction-and-color-palettes">Advanced Color Theory: HSV, Gamma Correction, and Color Palettes</h1>
+<h2 id="summary">Summary</h2>
+<p>Introduces the HSV color space, gamma correction for perceptual accuracy, gamma lookup tables, color harmony principles, saturation, RGB-to-HSV and HSV-to-RGB conversions, named color constants, color sequences, and palette design strategies.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 15 concepts from the learning graph:</p>
+<ol>
+<li>Black Color</li>
+<li>White Color</li>
+<li>Named Color Constants</li>
+<li>Color Mixing by Channel</li>
+<li>Saturation</li>
+<li>HSV Color Model</li>
+<li>RGB to HSV Conversion</li>
+<li>HSV to RGB Conversion</li>
+<li>Color Harmony</li>
+<li>Gamma Correction</li>
+<li>Gamma Value</li>
+<li>Gamma Lookup Table</li>
+<li>Color Perception</li>
+<li>Color Palette Design</li>
+<li>Color Sequence Array</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../07-rgb-color-theory/">Chapter 7: Color Theory: The RGB Color Model and Color Mixing</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 10! You know the RGB model. Now you'll learn its smarter sibling — HSV — and understand why LEDs look different from what the numbers say they should. This chapter makes your color choices intentional and precise. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Describe the HSV color model and its three components</li>
+<li>Explain what saturation means and how it affects color</li>
+<li>Convert between RGB and HSV using Python code</li>
+<li>Explain why gamma correction is needed and how it works</li>
+<li>Build and use a gamma lookup table</li>
+<li>Create named color constants for your projects</li>
+<li>Design a color palette and store it as a color sequence array</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>Thonny IDE connected to your Pico</li>
+<li>NeoPixel strip wired and ready</li>
+<li>Chapter 7 concepts fresh in your mind</li>
+</ul>
+<hr />
+<h2 id="named-color-constants-and-color-mixing-by-channel">Named Color Constants and Color Mixing by Channel</h2>
+<p>Before diving into HSV, let's establish a useful coding practice: <strong>named color constants</strong>.</p>
+<p>Instead of writing <code>(255, 0, 0)</code> every time you want red, define constants at the top of your program:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Named color constants — define once, use anywhere</span>
+<span class="n">RED</span>     <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">GREEN</span>   <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">BLUE</span>    <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">YELLOW</span>  <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">CYAN</span>    <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">MAGENTA</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">WHITE</span>   <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">BLACK</span>   <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>        <span class="c1"># off</span>
+<span class="n">ORANGE</span>  <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">PURPLE</span>  <span class="o">=</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</code></pre></div>
+<p>Notice that <strong>black</strong> <code>(0, 0, 0)</code> is not a color of light — it's simply "off." And <strong>white</strong> <code>(200, 200, 200)</code> is all three channels equal and bright. Brightness is intentionally set to 200 here (not 255) to limit power draw.</p>
+<p><strong>Color mixing by channel</strong> means combining colors by adding or averaging their RGB components. Mixing red and blue: <code>((255+0)//2, (0+0)//2, (0+255)//2)</code> = <code>(127, 0, 127)</code> — a medium purple. This mathematical mixing lets you create smooth transitions between any two colors.</p>
+<hr />
+<h2 id="the-hsv-color-model">The HSV Color Model</h2>
+<p>The <strong>HSV color model</strong> describes colors with three values that match how people naturally think about color:</p>
+<ul>
+<li><strong>H = Hue</strong> — the color itself, expressed as a degree on a color wheel from 0° to 360°. Red is at 0°, green at 120°, blue at 240°, and red again at 360°.</li>
+<li><strong>S = Saturation</strong> — how "pure" or "vivid" the color is, from 0.0 (gray/white) to 1.0 (fully saturated, pure hue).</li>
+<li><strong>V = Value</strong> — how bright the color is, from 0.0 (black) to 1.0 (full brightness).</li>
+</ul>
+<p><strong>Saturation</strong> deserves a closer look. A fully saturated color (S=1.0) is a vivid, pure hue — like fire-truck red. A low-saturation color (S=0.2) looks washed out and pastel. At S=0, the hue doesn't matter — you get a shade of gray determined only by V.</p>
+<p>The power of HSV is that you can change the hue smoothly to cycle through rainbow colors without touching saturation or brightness. In RGB, doing this requires complex three-channel math. In HSV, you just increment H from 0 to 360.</p>
+<p>The table below compares how RGB and HSV describe the same colors:</p>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>RGB</th>
+<th>HSV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red</td>
+<td>(255, 0, 0)</td>
+<td>H=0°, S=1.0, V=1.0</td>
+</tr>
+<tr>
+<td>Yellow</td>
+<td>(255, 255, 0)</td>
+<td>H=60°, S=1.0, V=1.0</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>(0, 255, 0)</td>
+<td>H=120°, S=1.0, V=1.0</td>
+</tr>
+<tr>
+<td>Cyan</td>
+<td>(0, 255, 255)</td>
+<td>H=180°, S=1.0, V=1.0</td>
+</tr>
+<tr>
+<td>Blue</td>
+<td>(0, 0, 255)</td>
+<td>H=240°, S=1.0, V=1.0</td>
+</tr>
+<tr>
+<td>Pastel pink</td>
+<td>(255, 180, 200)</td>
+<td>H=350°, S=0.29, V=1.0</td>
+</tr>
+<tr>
+<td>Dim gray</td>
+<td>(60, 60, 60)</td>
+<td>H=any, S=0, V=0.24</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-hsv-color-space-explorer">Diagram: HSV Color Space Explorer</h4>
+<iframe src="../../sims/hsv-color-explorer/main.html" width="100%" height="392px" scrolling="no"></iframe>
+<p><a href="../../sims/hsv-color-explorer/main.html">Run HSV Color Space Explorer Fullscreen</a></p>
+<details>
+<summary>Interactive diagram: HSV color wheel and controls</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> hsv-color-explorer
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>A p5.js MicroSim with three sliders:
+- H (Hue): 0–360, default 180
+- S (Saturation): 0.0–1.0, default 1.0
+- V (Value/Brightness): 0.0–1.0, default 1.0</p>
+<p>A large filled circle shows the current color. Below it, the corresponding RGB tuple is displayed as text: e.g., "RGB: (0, 255, 255)". A color wheel diagram on the side has a movable dot that tracks the H value. Moving the H slider moves the dot around the wheel. Moving S changes the dot's distance from the center (center = gray, edge = saturated). Moving V dims or brightens both the circle and the wheel. Canvas: 700 × 380 px. Responds to window resize.</p>
+<p>Learning objective: Understanding — the student can predict how changing H, S, or V affects the output color.</p>
+</details>
+<hr />
+<h2 id="rgb-to-hsv-and-hsv-to-rgb-conversion">RGB to HSV and HSV to RGB Conversion</h2>
+<p>To use HSV in your NeoPixel programs, you need to convert between HSV and RGB. The Pico's <code>neopixel</code> library only accepts RGB tuples.</p>
+<h3 id="hsv-to-rgb-conversion">HSV to RGB Conversion</h3>
+<p>This conversion function takes hue (0–360), saturation (0.0–1.0), and value (0.0–1.0) and returns an RGB tuple with values 0–255:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hsv_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="c1"># h = hue (0-360), s = saturation (0-1), v = value (0-1)</span>
+    <span class="c1"># returns (r, g, b) with values 0-255</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>   <span class="c1"># gray</span>
+
+    <span class="n">h</span> <span class="o">=</span> <span class="n">h</span> <span class="o">/</span> <span class="mf">60.0</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">h</span> <span class="o">-</span> <span class="n">i</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s</span> <span class="o">*</span> <span class="n">f</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>   <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">q</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">t</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">v</span>
+    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span>
+    <span class="k">else</span><span class="p">:</span>        <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="mi">255</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">g</span> <span class="o">*</span> <span class="mi">255</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="mi">255</span><span class="p">))</span>
+</code></pre></div>
+<p>Before testing this function, here's what it does: it takes the HSV values, applies a standard mathematical conversion, and returns the equivalent RGB tuple. The math inside handles six different "sectors" of the color wheel.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">hsv_to_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>    <span class="c1"># red → (255, 0, 0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hsv_to_rgb</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>  <span class="c1"># green → (0, 255, 0)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hsv_to_rgb</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>  <span class="c1"># blue → (0, 0, 255)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hsv_to_rgb</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>   <span class="c1"># muted yellow</span>
+</code></pre></div>
+<h3 id="rainbow-effect-with-hsv">Rainbow Effect with HSV</h3>
+<p>Now here's where HSV shines. To create a rainbow across your strip, just map each pixel's position to a hue from 0 to 360:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">hue</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span> <span class="o">*</span> <span class="mi">360</span>    <span class="c1"># map position to hue</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">hsv_to_rgb</span><span class="p">(</span><span class="n">hue</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>     <span class="c1"># full saturation, 50% brightness</span>
+
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<p>You should see a smooth rainbow spread across the entire strip.</p>
+<hr />
+<h2 id="gamma-correction">Gamma Correction</h2>
+<p>This is one of the most important concepts for making LEDs look good.</p>
+<p>As you learned in Chapter 7, your eyes don't respond to light in a straight line. They're more sensitive to changes in dark areas. This means:</p>
+<ul>
+<li>LED value <code>(30, 0, 0)</code> looks much brighter than "12% of maximum" — it looks more like 40%</li>
+<li>LED value <code>(200, 0, 0)</code> looks only slightly brighter than <code>(170, 0, 0)</code></li>
+</ul>
+<p><strong>Gamma correction</strong> is a mathematical adjustment that fixes this mismatch. You apply a formula to your intended brightness values before sending them to the strip, so the <em>perceived</em> brightness changes linearly with your input.</p>
+<p>The <strong>gamma value</strong> (typically 2.2) determines the shape of the correction:</p>
+<div class="arithmatex">\[ \text{corrected} = \left(\frac{\text{input}}{255}\right)^{\gamma} \times 255 \]</div>
+<p>For a gamma of 2.2, an input of 128 (half scale) corrects to:</p>
+<div class="arithmatex">\[ \left(\frac{128}{255}\right)^{2.2} \times 255 \approx 55 \]</div>
+<p>So instead of sending 128, you send 55. The LED outputs less light, but it <em>looks</em> like 50% brightness to your eye. Without correction, 128 looks much brighter than halfway.</p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Pixel thinking">
+Gamma correction doesn't change what colors you want — it changes the numbers you send to the LED to get those colors. You think in "perceived brightness." The gamma function translates to "LED output." It's a translation layer between human vision and digital electronics.</p>
+</div>
+<hr />
+<h2 id="gamma-lookup-table">Gamma Lookup Table</h2>
+<p>Calculating the gamma formula for every pixel, every frame, on a microcontroller is slow. A smarter approach is a <strong>gamma lookup table</strong> — a pre-calculated list of 256 corrected values, one for each possible input.</p>
+<p>You calculate this table once at startup, then use it with a simple index lookup (fast!) instead of computing the formula each time:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">GAMMA</span> <span class="o">=</span> <span class="mf">2.2</span>
+
+<span class="c1"># Build the lookup table once</span>
+<span class="n">gamma_table</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">i</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span> <span class="o">**</span> <span class="n">GAMMA</span> <span class="o">*</span> <span class="mi">255</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">apply_gamma</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">gamma_table</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">gamma_table</span><span class="p">[</span><span class="n">g</span><span class="p">],</span> <span class="n">gamma_table</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
+
+<span class="c1"># Use it when setting pixels</span>
+<span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">apply_gamma</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># gamma-corrected dim red</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<p>The list comprehension <code>[int((i / 255) ** GAMMA * 255 + 0.5) for i in range(256)]</code> creates all 256 values at once. The <code>+ 0.5</code> rounds to the nearest integer.</p>
+<hr />
+<h2 id="color-perception-summary">Color Perception Summary</h2>
+<p><strong>Color perception</strong> is the study of how human eyes and brains interpret light. The key insights for LED programming:</p>
+<ul>
+<li>The eye is most sensitive to <strong>green</strong> light — green LEDs look brighter than red or blue at the same power level</li>
+<li>Brightness is perceived on a <strong>logarithmic scale</strong> — doubling light output doesn't double perceived brightness</li>
+<li><strong>Color adaptation</strong> means the eye adjusts to ambient lighting — colors look different in a dark room vs. a bright room</li>
+<li><strong>Simultaneous contrast</strong> means a color looks different depending on what surrounds it</li>
+</ul>
+<p>These perceptual effects are why identical RGB values can produce visually different results in different contexts. Gamma correction addresses the most important effect (the logarithmic scale), but the others are worth knowing as you design animations.</p>
+<hr />
+<h2 id="color-palette-design-and-color-sequence-arrays">Color Palette Design and Color Sequence Arrays</h2>
+<p>A <strong>color palette</strong> is a carefully chosen set of colors that work well together. A well-designed palette makes your animation look professional instead of random.</p>
+<p>A <strong>color sequence array</strong> stores your palette as a Python list of RGB tuples. Your animation code loops through the sequence:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># A warm sunset palette</span>
+<span class="n">PALETTE</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>    <span class="c1"># deep red</span>
+    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>    <span class="c1"># red-orange</span>
+    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>   <span class="c1"># orange</span>
+    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>   <span class="c1"># yellow</span>
+    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="c1"># warm yellow-white</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Here's a program that cycles through the palette one color per frame, changing the whole strip each step:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">palette</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">palette</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>   <span class="c1"># hold each color for half a second</span>
+</code></pre></div>
+<p>You should see the strip cycle through red, orange, yellow, green, and blue, holding each for half a second.</p>
+<h3 id="palette-design-strategies">Palette Design Strategies</h3>
+<p>Here are three reliable palette design approaches:</p>
+<ul>
+<li><strong>Analogous palette</strong> — pick 4–6 adjacent colors on the color wheel. Looks harmonious and calm. Example: blues and teals for an ocean theme.</li>
+<li><strong>Complementary pair with neutrals</strong> — one strong complementary pair (e.g., red and cyan) plus several neutrals (whites, grays). High impact without chaos.</li>
+<li><strong>Gradient palette</strong> — interpolate between two endpoint colors with 8–12 steps. Use the color mixing technique from earlier in this chapter.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward">
+Start with four colors maximum for your first palette. More is not always more — a focused palette with great transitions often looks better than ten random colors fighting for attention.</p>
+</div>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>HSV rainbow:</strong> Use <code>hsv_to_rgb()</code> to light each pixel a different hue, distributing hues evenly from 0 to 360. Try different values for S and V.</p>
+</li>
+<li>
+<p><strong>Gamma compare:</strong> Light pixel 0 with <code>(128, 0, 0)</code> (no gamma). Light pixel 1 with <code>apply_gamma(128, 0, 0)</code> (gamma corrected). Compare how they look side by side.</p>
+</li>
+<li>
+<p><strong>Palette cycling:</strong> Design your own 5-color palette with a theme (ocean, fire, forest). Implement the cycling program above with your palette.</p>
+</li>
+<li>
+<p><strong>Color fade:</strong> Use color mixing by channel to create a smooth fade from <code>RED = (200, 0, 0)</code> to <code>BLUE = (0, 0, 200)</code> across 20 steps. Store each step in a list.</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What do H, S, and V stand for in the HSV color model?</li>
+<li>What does saturation of 0.0 produce, regardless of hue?</li>
+<li>Why is HSV easier than RGB for creating rainbow effects?</li>
+<li>What is the gamma value typically used, and what does it represent?</li>
+<li>Why is a gamma lookup table faster than calculating the formula each time?</li>
+<li>What is a color sequence array?</li>
+<li>Describe one color palette design strategy in your own words.</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You're thinking about color like a professional lighting designer! You can work in HSV to control hue, saturation, and brightness independently. You know why gamma correction matters and how to apply it. And you have a toolkit for building beautiful, intentional color palettes. Your animations are about to level up!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../11-math-for-led-programming/">Chapter 11</a>, you'll learn the mathematics that power animation effects — modulo arithmetic, linear interpolation, sine waves, exponential decay, and more. The math is simpler than it sounds, and the visual results are spectacular.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../09-neopixel-programming/" title="9. NeoPixel Programming" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  9. NeoPixel Programming
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../11-math-for-led-programming/" title="11. LED Math" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  11. LED Math
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

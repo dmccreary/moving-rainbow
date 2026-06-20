@@ -1,0 +1,14 @@
+{
+  "sim_id": "project-lifecycle-timeline",
+  "diagram_name": "Full Project Lifecycle",
+  "chapter_number": 20,
+  "chapter_title": "Project Design, Capstone Projects, and Presentation",
+  "chapter_dir": "20-project-design-and-capstone",
+  "library": "Mermaid",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Analyzing — the student can identify which phase of the project lifecycle is most at risk given a project's current state.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: diagram\n**sim-id:** project-lifecycle-timeline\n**Library:** Mermaid\n**Status:** Specified\n\nA Mermaid Gantt-style diagram showing the six-week project timeline:\n\n**Week 1 — Plan:**\n- Project ideation\n- Constraint analysis\n- Proposal document\n\n**Week 2 — Build MVP:**\n- Circuit wiring\n- Config.py setup\n- Basic animation working\n\n**Week 3 — Core features:**\n- Button cycling\n- All must-have modes\n- Git commit at each milestone\n\n**Week 4 — Enhancements:**\n- Should-have features\n- Battery power integration\n- UX polish\n\n**Week 5 — Verify:**\n- Full testing protocol\n- Peer code review\n- Fix issues found\n\n**Week 6 — Present:**\n- Demo rehearsal\n- Capstone presentation\n- Peer feedback session\n\nEach bar is clickable: clicking a phase opens a tooltip with the success criteria for that phase.\n\nCanvas: 700 × 340 px. Responds to window resize.\n\nLearning objective: Analyzing — the student can identify which phase of the project lifecycle is most at risk given a project's current state."
+}

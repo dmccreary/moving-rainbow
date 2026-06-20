@@ -5,6 +5,10 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/about/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/moving-rainbow/challenges-v2/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
@@ -41,23 +45,83 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/moving-rainbow/chapters/01-introduction/</loc>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/01-intro-and-computational-thinking/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/moving-rainbow/chapters/02-pi-500-keyboard/</loc>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/02-python-variables-types-operators/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/moving-rainbow/chapters/03-pi-keyboard-python/</loc>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/03-python-functions-modules-practices/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/moving-rainbow/chapters/04-pi-keyboard-skill/</loc>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/04-python-control-flow-loops/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/moving-rainbow/chapters/macbook-touchbar-status/</loc>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/05-raspberry-pi-pico-hardware/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/06-micropython-apis-and-electronics/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/07-rgb-color-theory/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/08-neopixel-led-hardware/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/09-neopixel-programming/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/10-advanced-color-theory/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/11-math-for-led-programming/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/12-basic-animation-patterns/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/13-intermediate-animations/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/14-advanced-animation-patterns/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/15-electronics-fundamentals/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/16-circuit-assembly/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/17-power-and-battery-systems/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/18-input-devices-and-sensors/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/19-interactive-animations-and-tools/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/chapters/20-project-design-and-capstone/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
@@ -105,7 +169,11 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/moving-rainbow/img/mascot/image-prompts/</loc>
+         <loc>https://dmccreary.github.io/moving-rainbow/img/mascot/character-sheet/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/img/mascot/mascot-image-prompts/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
@@ -234,6 +302,10 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/moving-rainbow/learning-graph/course-description-assessment/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/learning-graph/mascot-test/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
@@ -381,6 +453,30 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/old-chapters/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/old-chapters/01-introduction/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/old-chapters/02-pi-500-keyboard/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/old-chapters/03-pi-keyboard-python/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/old-chapters/04-pi-keyboard-skill/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/old-chapters/macbook-touchbar-status/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/moving-rainbow/posters/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
@@ -425,7 +521,19 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/prompts/neopixel-train-graphic-novel/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/moving-rainbow/sims/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/TODO/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/additive-subtractive-mixing/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
@@ -433,11 +541,35 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/animation-math-explorer/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/animation-pattern-comparison/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/moving-rainbow/sims/battery-life-calculator/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/bike-light-circuit-diagram/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/break-continue-flowchart/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/brightness-envelope-comparison/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/moving-rainbow/sims/claude-code-hooks-workflow/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/code-indentation-explorer/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
@@ -449,11 +581,43 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/moving-rainbow/sims/learning-graph/</loc>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/decomposition-in-action/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
-         <loc>https://dmccreary.github.io/moving-rainbow/sims/learning-graph/TODO/</loc>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/dry-principle-before-after/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/for-loop-list-iteration/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/function-call-step-through/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/git-workflow-diagram/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/graph-viewer/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/graph-viewer-v1/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/graph-viewer-v1/TODO/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/hsv-color-explorer/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/iterative-dev-simulator/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
@@ -461,7 +625,27 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/micropython-api-connections/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/modulo-wrap-simulation/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/neopixel-wiring-diagram/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/moving-rainbow/sims/nightlight/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/ohms-law-calculator/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/perceived-vs-linear-brightness/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
@@ -469,7 +653,35 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/pico-hardware-overview/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/moving-rainbow/sims/pico-light-sensor/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/pixel-indexing-explorer/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/problem-solving-steps/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/project-lifecycle-timeline/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/python-data-type-explorer/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/python-operator-playground/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/ripple-animation-sim/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
@@ -481,7 +693,19 @@
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/state-machine-diagram/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/moving-rainbow/sims/templates/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/transistor-circuit-diagrams/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/sims/variable-scope-explorer/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>
@@ -506,6 +730,10 @@
     </url>
     <url>
          <loc>https://dmccreary.github.io/moving-rainbow/stories/moving-rainbow/</loc>
+         <lastmod>2026-06-20</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/moving-rainbow/stories/neopixel-train/</loc>
          <lastmod>2026-06-20</lastmod>
     </url>
     <url>

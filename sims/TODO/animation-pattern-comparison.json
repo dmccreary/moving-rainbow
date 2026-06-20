@@ -1,0 +1,14 @@
+{
+  "sim_id": "animation-pattern-comparison",
+  "diagram_name": "Animation Pattern Comparison",
+  "chapter_number": 12,
+  "chapter_title": "Basic LED Animation Patterns",
+  "chapter_dir": "12-basic-animation-patterns",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": "Analyzing — the student can visually match a running LED pattern to its name and algorithm.",
+  "completion_status": "specified",
+  "extracted_date": "2026-06-20",
+  "specification": "Type: interactive-infographic\n**sim-id:** animation-pattern-comparison\n**Library:** p5.js\n**Status:** Specified\n\nSix rows of small LED strip simulations (10 pixels each), each labeled with its pattern name:\n1. Blink — alternates all-on / all-off every 500 ms\n2. Rainbow Static — shows fixed rainbow\n3. Moving Rainbow — rainbow scrolls left at adjustable speed\n4. Twinkle — random pixels flash bright on a dark background\n5. Candle Flicker — warm colors randomly varying brightness\n6. Random Colors — all pixels flash random colors each frame\n\nA global **Play/Pause** button runs or pauses all six simultaneously. A **Speed** slider (slow/medium/fast) adjusts all animation speeds together. Each row has a label and a brief description on the right. Canvas: 700 × 500 px. Responds to window resize.\n\nLearning objective: Analyzing — the student can visually match a running LED pattern to its name and algorithm."
+}

@@ -1,0 +1,61 @@
+{
+  "title": "Example Circuit Connection Diagram for Bike Light Project",
+  "description": "Applying - the student can trace any signal path from source to destination and identify which pin it uses.",
+  "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "bike-light-circuit-diagram",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "implemented",
+  "chapter_number": 20,
+  "chapter_title": "Project Design, Capstone Projects, and Presentation",
+  "chapter_dir": "20-project-design-and-capstone",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Example Circuit Connection Diagram for Bike Light Project",
+    "learningObjectives": [
+      "Applying - the student can trace any signal path from source to destination and identify which pin it uses."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 420
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
+}

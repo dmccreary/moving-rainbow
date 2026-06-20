@@ -1,0 +1,61 @@
+{
+  "title": "Pixel Indexing on a NeoPixel Strip",
+  "description": "Applying - the student can predict which physical pixel will light up given an index in code.",
+  "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "pixel-indexing-explorer",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "implemented",
+  "chapter_number": 9,
+  "chapter_title": "NeoPixel Programming \u2014 Pixels, Colors, and the NeoPixel Library",
+  "chapter_dir": "09-neopixel-programming",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Pixel Indexing on a NeoPixel Strip",
+    "learningObjectives": [
+      "Applying - the student can predict which physical pixel will light up given an index in code."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 290
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
+}

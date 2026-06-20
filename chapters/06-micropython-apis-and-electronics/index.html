@@ -1,0 +1,2777 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn the machine.Pin, PWM, ADC, utime, urandom, and neopixel MicroPython APIs, and understand the five electrical concepts you need to wire LED circuits safely.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/06-micropython-apis-and-electronics/">
+      
+      
+        <link rel="prev" href="../05-raspberry-pi-pico-hardware/">
+      
+      
+        <link rel="next" href="../07-rgb-color-theory/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>MicroPython APIs, GPIO Control, and Electrical Fundamentals - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="MicroPython APIs, GPIO Control, and Electrical Fundamentals - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Learn the machine.Pin, PWM, ADC, utime, urandom, and neopixel MicroPython APIs, and understand the five electrical concepts you need to wire LED circuits safely." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/06-micropython-apis-and-electronics/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/06-micropython-apis-and-electronics/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="MicroPython APIs, GPIO Control, and Electrical Fundamentals - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Learn the machine.Pin, PWM, ADC, utime, urandom, and neopixel MicroPython APIs, and understand the five electrical concepts you need to wire LED circuits safely." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/06-micropython-apis-and-electronics/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#micropython-apis-gpio-control-and-electrical-fundamentals" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MicroPython APIs, GPIO Control, and Electrical Fundamentals
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#five-electrical-concepts-you-must-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      Five Electrical Concepts You Must Know
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Five Electrical Concepts You Must Know">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voltage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voltage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electrical Current
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#milliamps-ma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Milliamps (mA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-polarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electrical Polarity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ground-gnd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ground (GND)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-machine-module-controlling-gpio-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      The machine Module: Controlling GPIO Pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The machine Module: Controlling GPIO Pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#machinepin-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      machine.Pin Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pulse-width-modulation-pwm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pulse Width Modulation (PWM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analog-to-digital-converter-adc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analog to Digital Converter (ADC)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-utime-module-timing-and-delays" class="md-nav__link">
+    <span class="md-ellipsis">
+      The utime Module: Timing and Delays
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-urandom-module-random-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      The urandom Module: Random Numbers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-neopixel-module-controlling-led-strips" class="md-nav__link">
+    <span class="md-ellipsis">
+      The neopixel Module: Controlling LED Strips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The neopixel Module: Controlling LED Strips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#neopixel-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      NeoPixel Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NeoPixel Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-micropython-api-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: MicroPython API Connections
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-a-first-neopixel-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It Together: A First NeoPixel Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#five-electrical-concepts-you-must-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      Five Electrical Concepts You Must Know
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Five Electrical Concepts You Must Know">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voltage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voltage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electrical Current
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#milliamps-ma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Milliamps (mA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-polarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electrical Polarity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ground-gnd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ground (GND)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-machine-module-controlling-gpio-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      The machine Module: Controlling GPIO Pins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The machine Module: Controlling GPIO Pins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#machinepin-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      machine.Pin Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pulse-width-modulation-pwm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pulse Width Modulation (PWM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analog-to-digital-converter-adc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analog to Digital Converter (ADC)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-utime-module-timing-and-delays" class="md-nav__link">
+    <span class="md-ellipsis">
+      The utime Module: Timing and Delays
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-urandom-module-random-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      The urandom Module: Random Numbers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-neopixel-module-controlling-led-strips" class="md-nav__link">
+    <span class="md-ellipsis">
+      The neopixel Module: Controlling LED Strips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The neopixel Module: Controlling LED Strips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#neopixel-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      NeoPixel Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NeoPixel Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-micropython-api-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: MicroPython API Connections
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-a-first-neopixel-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It Together: A First NeoPixel Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/06-micropython-apis-and-electronics/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="micropython-apis-gpio-control-and-electrical-fundamentals">MicroPython APIs, GPIO Control, and Electrical Fundamentals</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers the machine.Pin, PWM, ADC, utime, urandom, and neopixel MicroPython APIs for hardware control, alongside five foundational electrical concepts—voltage, current, polarity, ground, and milliamps—needed to safely wire LED circuits.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 26 concepts from the learning graph:</p>
+<ol>
+<li>machine.Pin Class</li>
+<li>Digital Output Mode</li>
+<li>Digital Input Mode</li>
+<li>Pin.high() Method</li>
+<li>Pin.low() Method</li>
+<li>Pin.value() Method</li>
+<li>Pulse Width Modulation</li>
+<li>PWM Frequency Setting</li>
+<li>PWM Duty Cycle</li>
+<li>Analog to Digital Converter</li>
+<li>16-Bit ADC Resolution</li>
+<li>ADC.read_u16() Method</li>
+<li>utime Module</li>
+<li>sleep() Function</li>
+<li>ticks_ms() Function</li>
+<li>ticks_us() Function</li>
+<li>localtime() Function</li>
+<li>urandom Module</li>
+<li>randint() Function</li>
+<li>neopixel Module</li>
+<li>NeoPixel Class</li>
+<li>Voltage</li>
+<li>Electrical Current</li>
+<li>Electrical Polarity</li>
+<li>Ground (GND)</li>
+<li>Milliamps (mA)</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+<li><a href="../03-python-functions-modules-practices/">Chapter 3: Python Functions, Modules, and Programming Best Practices</a></li>
+<li><a href="../04-python-control-flow-loops/">Chapter 4: Python Control Flow, Loops, and Error Handling</a></li>
+<li><a href="../05-raspberry-pi-pico-hardware/">Chapter 5: Raspberry Pi Pico Hardware and Development Environment</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 6! Your Pico is set up and ready. Now you're going to learn the tools MicroPython gives you to talk to hardware — and the electrical basics that keep everything safe. This is where code meets the real world. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Use <code>machine.Pin</code> to set GPIO pins high or low and read their state</li>
+<li>Explain what PWM is and set its frequency and duty cycle</li>
+<li>Read analog sensor values with the ADC</li>
+<li>Use <code>utime</code> to create delays and measure elapsed time</li>
+<li>Generate random numbers with <code>urandom</code></li>
+<li>Create and control a NeoPixel strip with the <code>neopixel</code> module</li>
+<li>Describe voltage, current, polarity, ground, and milliamps in plain terms</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>Raspberry Pi Pico connected via USB with MicroPython installed</li>
+<li>Thonny IDE open and connected</li>
+<li>NeoPixel LED strip connected to GP0 (data) and power</li>
+</ul>
+<hr />
+<h2 id="five-electrical-concepts-you-must-know">Five Electrical Concepts You Must Know</h2>
+<p>Before we look at MicroPython code, you need five electrical building blocks. Every wiring decision you make for the rest of this course depends on these ideas.</p>
+<h3 id="voltage">Voltage</h3>
+<p><strong>Voltage</strong> is the "pressure" that pushes electrical charge through a circuit. It's measured in <strong>volts (V)</strong>. Think of voltage like the pressure of water in a hose — higher pressure pushes more water through. Your USB port provides 5 V. The Pico's GPIO pins output 3.3 V.</p>
+<h3 id="electrical-current">Electrical Current</h3>
+<p><strong>Electrical current</strong> is the flow of charge through a wire. It's measured in <strong>amps (A)</strong> or for small circuits in <strong>milliamps (mA)</strong>. One milliamp is one-thousandth of an amp. A typical NeoPixel LED draws up to 20 mA at full brightness. Your USB port can supply up to 500 mA — enough for about 25 pixels at full white.</p>
+<h3 id="milliamps-ma">Milliamps (mA)</h3>
+<p><strong>Milliamps (mA)</strong> is the unit you'll use most often in this course. Remember: <strong>20 mA per NeoPixel pixel at full white</strong>. Multiply the number of pixels by 20 to estimate peak current draw. A 30-pixel strip at full white needs 600 mA — more than a single USB port can safely supply.</p>
+<h3 id="electrical-polarity">Electrical Polarity</h3>
+<p><strong>Electrical polarity</strong> means that electricity flows in one direction. Every power source has a positive terminal (+) and a negative terminal (−). Connect them the right way and everything works. Connect them backward and you can damage components. On LED strips, the wires are color-coded: red is positive (+5 V), black or white is negative (GND).</p>
+<h3 id="ground-gnd">Ground (GND)</h3>
+<p><strong>Ground (GND)</strong> is the common reference point for all voltages in your circuit. It is always 0 V. Every component in a circuit must connect back to ground to complete the electrical path. On the Pico, any pin labeled GND works. The GND pin on the Pico and the GND wire on the LED strip must connect together — always.</p>
+<p>The table below summarizes these five concepts:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Symbol</th>
+<th>Unit</th>
+<th>What It Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voltage</td>
+<td>V</td>
+<td>Volts (V)</td>
+<td>Electrical "pressure" — how hard charge is pushed</td>
+</tr>
+<tr>
+<td>Current</td>
+<td>I</td>
+<td>Amps (A) or milliamps (mA)</td>
+<td>How much charge flows per second</td>
+</tr>
+<tr>
+<td>Milliamps</td>
+<td>mA</td>
+<td>mA</td>
+<td>1/1000 of an amp — used for small circuits</td>
+</tr>
+<tr>
+<td>Polarity</td>
+<td>+/−</td>
+<td>None</td>
+<td>Direction — connect + to + and − to −</td>
+</tr>
+<tr>
+<td>Ground</td>
+<td>GND</td>
+<td>0 V</td>
+<td>Common reference; must connect to all components</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up both hands">
+Always connect GND first. If you connect power before ground, some components can get a voltage spike and break. Build the habit now: ground first, power second.</p>
+</div>
+<hr />
+<h2 id="the-machine-module-controlling-gpio-pins">The machine Module: Controlling GPIO Pins</h2>
+<p>MicroPython's <code>machine</code> module gives you control over the Pico's hardware. Before exploring each API, import the module:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+</code></pre></div>
+<h3 id="machinepin-class">machine.Pin Class</h3>
+<p>The <strong><code>machine.Pin</code> class</strong> represents a single GPIO pin. The two most common modes are <strong>digital output</strong> (the Pico drives a signal) and <strong>digital input</strong> (the Pico reads a signal).</p>
+<p>To create a Pin object, you pass the GP number and the mode:</p>
+<div class="highlight"><pre><span></span><code><span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>   <span class="c1"># GP25 as digital output</span>
+<span class="n">btn</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>    <span class="c1"># GP15 as digital input</span>
+</code></pre></div>
+<p><strong>Digital Output Methods:</strong></p>
+<ul>
+<li><strong><code>Pin.high()</code></strong> — sets the pin to 3.3 V (logic "1")</li>
+<li><strong><code>Pin.low()</code></strong> — sets the pin to 0 V (logic "0")</li>
+<li><strong><code>Pin.value(1)</code></strong> — equivalent to <code>high()</code>; <strong><code>Pin.value(0)</code></strong> equivalent to <code>low()</code></li>
+</ul>
+<p><strong>Digital Input:</strong></p>
+<ul>
+<li><strong><code>Pin.value()</code></strong> with no argument — reads the pin; returns <code>1</code> (high) or <code>0</code> (low)</li>
+</ul>
+<p>Here's a blink example using the built-in LED:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>         <span class="c1"># turn on</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>   <span class="c1"># wait half a second</span>
+    <span class="n">led</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>          <span class="c1"># turn off</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see the small green LED on the Pico board blink at one blink per second.</p>
+<h3 id="pulse-width-modulation-pwm">Pulse Width Modulation (PWM)</h3>
+<p><strong>Pulse Width Modulation (PWM)</strong> is a technique for controlling brightness or motor speed by switching a pin on and off very fast. Instead of a constant 3.3 V, the pin switches between 3.3 V and 0 V hundreds or thousands of times per second. The proportion of time it spends "on" is called the <strong>duty cycle</strong>.</p>
+<p>Before writing PWM code, here are the key terms:
+- <strong>PWM Frequency</strong> — how many on/off cycles per second, in Hertz (Hz). For LEDs, 1000 Hz works well (1000 cycles per second — too fast for the eye to see flicker).
+- <strong>PWM Duty Cycle</strong> — the percentage of each cycle that the pin is "on". 0 = always off, 65535 = always on (MicroPython uses a 16-bit value, 0–65535).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+
+<span class="n">pwm</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">PWM</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>   <span class="c1"># attach PWM to the built-in LED pin</span>
+<span class="n">pwm</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>                        <span class="c1"># set frequency to 1000 Hz</span>
+<span class="n">pwm</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="mi">32768</span><span class="p">)</span>                   <span class="c1"># 50% duty cycle — half brightness</span>
+</code></pre></div>
+<p>You should see the built-in LED glow at roughly half brightness. Change <code>32768</code> to <code>0</code> for off and <code>65535</code> for full brightness.</p>
+<h3 id="analog-to-digital-converter-adc">Analog to Digital Converter (ADC)</h3>
+<p>The <strong>Analog to Digital Converter (ADC)</strong> reads an analog voltage (anything from 0 to 3.3 V) and converts it to a number your program can use. The Pico's ADC has <strong>16-bit resolution</strong>, meaning it produces values from 0 to 65535.</p>
+<p>Before reading the code, here's what the numbers mean: 0 represents 0 V (no signal), and 65535 represents 3.3 V (maximum signal). Values in between are proportional.</p>
+<p>The <strong><code>ADC.read_u16()</code> method</strong> takes a reading and returns a value from 0 to 65535:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>         <span class="c1"># create ADC on pin GP26 (ADC0)</span>
+<span class="n">reading</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>      <span class="c1"># take a reading (0–65535)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reading</span><span class="p">)</span>                   <span class="c1"># print to the Thonny console</span>
+</code></pre></div>
+<p>You should see a number appear in the Thonny Shell. If nothing is connected to GP26, you'll see a small noisy value (that's normal — unconnected analog pins pick up electrical noise).</p>
+<hr />
+<h2 id="the-utime-module-timing-and-delays">The utime Module: Timing and Delays</h2>
+<p>The <strong><code>utime</code> module</strong> provides time-related functions for MicroPython programs.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>What It Does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sleep(seconds)</code></td>
+<td>Pause for this many seconds</td>
+<td><code>utime.sleep(1)</code> — pause 1 second</td>
+</tr>
+<tr>
+<td><code>sleep_ms(ms)</code></td>
+<td>Pause for this many milliseconds</td>
+<td><code>utime.sleep_ms(500)</code> — pause 0.5 s</td>
+</tr>
+<tr>
+<td><code>ticks_ms()</code></td>
+<td>Milliseconds since boot</td>
+<td>Used to measure elapsed time</td>
+</tr>
+<tr>
+<td><code>ticks_us()</code></td>
+<td>Microseconds since boot</td>
+<td>For very precise timing</td>
+</tr>
+<tr>
+<td><code>localtime()</code></td>
+<td>Current time as a tuple</td>
+<td>Used in clock displays</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>sleep()</code> function is the one you'll use most often to control animation speed. The <code>ticks_ms()</code> function is useful when you want something to happen after a certain amount of time <em>without stopping the whole program</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>           <span class="c1"># record the current time</span>
+
+<span class="c1"># ... do other things here ...</span>
+
+<span class="n">elapsed</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="k">if</span> <span class="n">elapsed</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>                 <span class="c1"># if more than 1000 ms have passed</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One second has passed!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>The <strong><code>localtime()</code> function</strong> returns the current date and time as a tuple <code>(year, month, day, weekday, hour, minute, second, microsecond)</code>. You'll use this in the clock display animation in a later chapter.</p>
+<hr />
+<h2 id="the-urandom-module-random-numbers">The urandom Module: Random Numbers</h2>
+<p>The <strong><code>urandom</code> module</strong> generates random numbers. The most useful function is <code>randint()</code>.</p>
+<p><strong><code>randint(a, b)</code></strong> returns a random integer between <code>a</code> and <code>b</code>, inclusive. Both endpoints are included.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urandom</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>    <span class="c1"># random number from 0 to 255</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a different number every time you run this. Random numbers power effects like twinkle (random pixels light up) and candle flicker (random brightness variation).</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward">
+<code>urandom.randint(0, 255)</code> is your best friend for LED effects. Use it to pick a random pixel index, a random color value, or a random delay time. The combinations are endless!</p>
+</div>
+<hr />
+<h2 id="the-neopixel-module-controlling-led-strips">The neopixel Module: Controlling LED Strips</h2>
+<p>The <strong><code>neopixel</code> module</strong> is the MicroPython library specifically designed for WS2812B addressable LEDs. It handles all the complex timing needed to send color data to the strip.</p>
+<h3 id="neopixel-class">NeoPixel Class</h3>
+<p>The <strong><code>NeoPixel</code> class</strong> represents your entire LED strip. To create one, you need two things: the pin the data wire is connected to, and how many pixels are on your strip. In this course, we always get these from <code>config.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+</code></pre></div>
+<p>After creating <code>strip</code>, you set pixel colors by indexing it like a list. Each pixel takes an RGB tuple <code>(red, green, blue)</code> with values from 0 to 255. Then you call <code>strip.write()</code> to actually send the data:</p>
+<div class="highlight"><pre><span></span><code><span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1"># pixel 0 = red</span>
+<span class="n">strip</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1"># pixel 1 = green</span>
+<span class="n">strip</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>    <span class="c1"># pixel 2 = blue</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>              <span class="c1"># send all the data at once</span>
+</code></pre></div>
+<p>You should see the first three LEDs light up red, green, and blue.</p>
+<h4 id="diagram-micropython-api-connections">Diagram: MicroPython API Connections</h4>
+<iframe src="../../sims/micropython-api-connections/main.html" width="100%" height="682px" scrolling="no"></iframe>
+<p><a href="../../sims/micropython-api-connections/main.html">Run MicroPython API Connections Fullscreen</a></p>
+<details>
+<summary>Interactive diagram: MicroPython APIs and hardware connections</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> micropython-api-connections
+<strong>Library:</strong> Mermaid
+<strong>Status:</strong> Specified</p>
+<p>A Mermaid diagram showing a central "Raspberry Pi Pico" box with arrows going to hardware components. Each arrow is labeled with the MicroPython API used:
+- Pico → LED strip (NeoPixel): "neopixel.NeoPixel via machine.Pin(GP0)"
+- Pico → Buzzer or servo: "machine.PWM via machine.Pin"
+- Pico → Photoresistor: "machine.ADC via machine.Pin(GP26)"
+- Pico → Button: "machine.Pin(GP15, IN)"
+- Pico → Built-in LED: "machine.Pin(25, OUT)"
+- Pico → Time/Delays: "utime.sleep()"
+- Pico → Random effects: "urandom.randint()"</p>
+<p>Each node is clickable: clicking opens an overlay explaining what that API does and which chapter covers it in depth. Use a left-to-right flow layout. Color-code: GPIO in blue, PWM in orange, ADC in green, time in purple, random in yellow.</p>
+</details>
+<hr />
+<h2 id="putting-it-together-a-first-neopixel-program">Putting It Together: A First NeoPixel Program</h2>
+<p>Here's a complete program that uses many of the APIs from this chapter. Read the comments — they explain each step.</p>
+<p>Before reading the code, here are the key parameters:
+- <code>config.NEOPIXEL_PIN</code> — the GP number your data wire connects to
+- <code>config.NUMBER_PIXELS</code> — how many LEDs are on your strip
+- <code>utime.sleep_ms(50)</code> — 50 milliseconds per frame = roughly 20 frames per second</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="kn">import</span> <span class="nn">urandom</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="c1"># Create the strip object</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Pick a random pixel and a random color</span>
+    <span class="n">pixel</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+    <span class="n">strip</span><span class="p">[</span><span class="n">pixel</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># set that pixel</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>               <span class="c1"># send to the strip</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>          <span class="c1"># wait 50 ms before the next update</span>
+</code></pre></div>
+<p>You should see random pixels flashing random colors — a quick preview of the twinkle effect you'll build properly in Chapter 12.</p>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Blink faster:</strong> Modify the LED blink example to blink 5 times per second instead of 1.</p>
+</li>
+<li>
+<p><strong>Read ADC:</strong> Connect a wire from 3V3 to GP26 and run the ADC example. What value do you get? Then connect the wire from GND to GP26. What value do you get?</p>
+</li>
+<li>
+<p><strong>Random colors:</strong> Modify the final program so it only changes the color of pixel 0 — not a random pixel. Use <code>urandom.randint</code> just for the colors.</p>
+</li>
+<li>
+<p><strong>Timed blink:</strong> Use <code>ticks_ms()</code> to make an LED blink once per second without using <code>sleep()</code>. (Hint: record the start time, then check <code>ticks_ms() - start &gt; 1000</code>.)</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What is the difference between voltage and current?</li>
+<li>Why is it important that every component connects back to GND?</li>
+<li>What does <code>Pin.high()</code> do to the voltage on that pin?</li>
+<li>What values does <code>ADC.read_u16()</code> return, and what do the extremes represent?</li>
+<li>What does PWM duty cycle mean? What value means "always on"?</li>
+<li>What two arguments do you pass to <code>NeoPixel()</code> to create a strip?</li>
+<li>Why do you need to call <code>strip.write()</code> after setting pixel colors?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You've got the full toolkit now! You can drive GPIO pins, dim LEDs with PWM, read sensors with the ADC, control timing with utime, add randomness with urandom, and talk to NeoPixel strips directly. Plus you understand the electrical basics that keep everything safe. Let's build some animations!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../07-rgb-color-theory/">Chapter 7</a>, you'll explore the RGB color model in depth — how light mixes differently than paint, how the color wheel works, and why some color combinations look amazing together.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../05-raspberry-pi-pico-hardware/" title="5. Pico Hardware" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  5. Pico Hardware
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../07-rgb-color-theory/" title="7. RGB Color Theory" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  7. RGB Color Theory
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

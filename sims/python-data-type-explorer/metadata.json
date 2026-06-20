@@ -1,0 +1,61 @@
+{
+  "title": "Python Data Type Explorer",
+  "description": "Students classify Python values by data type - given a displayed value, they select its type from six options and receive feedback that connects the type t",
+  "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "python-data-type-explorer",
+  "library": "p5.js",
+  "bloomLevel": "Understand (L2)",
+  "bloomVerb": "classify, identify",
+  "completion_status": "implemented",
+  "chapter_number": 2,
+  "chapter_title": "Python Basics \u2014 Variables, Data Types, and Operators",
+  "chapter_dir": "02-python-variables-types-operators",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Python Data Type Explorer",
+    "learningObjectives": [
+      "Students classify Python values by data type - given a displayed value, they select its type from six options and receive feedback that connects the type to an LED programming context."
+    ],
+    "bloomsTaxonomy": "Understand (L2)",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 420
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
+}

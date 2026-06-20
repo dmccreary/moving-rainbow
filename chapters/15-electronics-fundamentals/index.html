@@ -1,0 +1,2713 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn resistance, Ohm's Law, breadboard assembly, common components (resistors, potentiometers, photoresistors, transistors), multimeter use, and electrical safety rules.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/15-electronics-fundamentals/">
+      
+      
+        <link rel="prev" href="../14-advanced-animation-patterns/">
+      
+      
+        <link rel="next" href="../16-circuit-assembly/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Electronics Fundamentals — Resistance, Ohm's Law, and Components - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Electronics Fundamentals — Resistance, Ohm's Law, and Components - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Learn resistance, Ohm's Law, breadboard assembly, common components (resistors, potentiometers, photoresistors, transistors), multimeter use, and electrical safety rules." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/15-electronics-fundamentals/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/15-electronics-fundamentals/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Electronics Fundamentals — Resistance, Ohm's Law, and Components - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Learn resistance, Ohm's Law, breadboard assembly, common components (resistors, potentiometers, photoresistors, transistors), multimeter use, and electrical safety rules." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/15-electronics-fundamentals/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#electronics-fundamentals-resistance-ohms-law-and-components" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Electronics Fundamentals — Resistance, Ohm's Law, and Components
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resistance-and-ohms-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resistance and Ohm's Law
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resistance and Ohm's Law">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ohms-law-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Ohm's Law Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-circuits-short-circuits-and-open-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Circuits, Short Circuits, and Open Circuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breadboard-and-solderless-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breadboard and Solderless Assembly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resistor-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resistor Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resistor Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-limiting-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current-Limiting Resistor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-up-and-pull-down-resistors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull-Up and Pull-Down Resistors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#potentiometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Potentiometer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light-dependent-resistor-photoresistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light-Dependent Resistor (Photoresistor)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npn-transistor-a-programmable-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      NPN Transistor: A Programmable Switch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capacitor-for-power-smoothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capacitor for Power Smoothing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diode-for-polarity-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diode for Polarity Protection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multimeter-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multimeter Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-circuit-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Circuit Diagrams
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrical-safety-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electrical Safety Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resistance-and-ohms-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resistance and Ohm's Law
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resistance and Ohm's Law">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ohms-law-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Ohm's Law Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-circuits-short-circuits-and-open-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Circuits, Short Circuits, and Open Circuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breadboard-and-solderless-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breadboard and Solderless Assembly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resistor-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resistor Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resistor Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-limiting-resistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current-Limiting Resistor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-up-and-pull-down-resistors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull-Up and Pull-Down Resistors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#potentiometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Potentiometer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light-dependent-resistor-photoresistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light-Dependent Resistor (Photoresistor)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npn-transistor-a-programmable-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      NPN Transistor: A Programmable Switch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capacitor-for-power-smoothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capacitor for Power Smoothing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diode-for-polarity-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diode for Polarity Protection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multimeter-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multimeter Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-circuit-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Circuit Diagrams
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electrical-safety-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Electrical Safety Rules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/15-electronics-fundamentals/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="electronics-fundamentals-resistance-ohms-law-and-components">Electronics Fundamentals: Resistance, Ohm's Law, and Components</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers resistance, Ohm's Law, complete circuit paths, short and open circuits, pull-up and pull-down resistors, potentiometers, light-dependent resistors, NPN transistors, multimeter operation, capacitors, diodes, voltage dividers, breadboard assembly, circuit diagram reading, and electrical safety rules.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 26 concepts from the learning graph:</p>
+<ol>
+<li>Resistance</li>
+<li>Ohm's Law</li>
+<li>Power Formula</li>
+<li>Complete Circuit Path</li>
+<li>Short Circuit</li>
+<li>Open Circuit</li>
+<li>Breadboard</li>
+<li>Jumper Wires</li>
+<li>Current-Limiting Resistor</li>
+<li>Pull-Up Resistor</li>
+<li>Pull-Down Resistor</li>
+<li>Potentiometer</li>
+<li>Potentiometer Wiper</li>
+<li>Light-Dependent Resistor</li>
+<li>Photoresistor Curve</li>
+<li>NPN Transistor</li>
+<li>2N2222 Transistor</li>
+<li>Transistor Base Terminal</li>
+<li>Multimeter Overview</li>
+<li>Milliamp-Hours (mAh)</li>
+<li>Capacitor for Power Smoothing</li>
+<li>Diode for Polarity Protection</li>
+<li>Solderless Circuit Assembly</li>
+<li>Circuit Diagram Reading</li>
+<li>Wire Color Conventions</li>
+<li>Electrical Safety Rules</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../06-micropython-apis-and-electronics/">Chapter 6: MicroPython APIs, GPIO Control, and Electrical Fundamentals</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 15! We're going deeper into electronics — the physical world that your code controls. Understanding resistance, components, and circuits makes you a more confident hardware builder. No soldering required — everything in this course uses breadboards! Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Explain resistance and apply Ohm's Law to calculate voltage, current, or resistance</li>
+<li>Identify and describe a complete circuit path, short circuit, and open circuit</li>
+<li>Use a breadboard to build circuits without soldering</li>
+<li>Explain and use current-limiting, pull-up, and pull-down resistors</li>
+<li>Describe how potentiometers, photoresistors, and NPN transistors work</li>
+<li>Read a simple circuit diagram</li>
+<li>Apply basic electrical safety rules</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>A breadboard</li>
+<li>Jumper wires (assorted colors)</li>
+<li>An LED (any color)</li>
+<li>A resistor (220 Ω or 330 Ω)</li>
+<li>Optional: a multimeter, potentiometer, photoresistor</li>
+</ul>
+<hr />
+<h2 id="resistance-and-ohms-law">Resistance and Ohm's Law</h2>
+<p>In Chapter 6, you learned about voltage and current. Now we add <strong>resistance</strong> — the third essential electrical concept.</p>
+<p><strong>Resistance</strong> is how much a component opposes the flow of electrical current. It is measured in <strong>ohms (Ω)</strong>. A high-resistance component lets very little current through. A low-resistance component lets more current flow.</p>
+<p>Water analogy: voltage is water pressure, current is flow rate, resistance is how narrow the pipe is.</p>
+<p><strong>Ohm's Law</strong> describes the relationship between these three quantities:</p>
+<div class="arithmatex">\[ V = I \times R \]</div>
+<p>Where:
+- V = voltage in volts (V)
+- I = current in amps (A) or milliamps (mA)
+- R = resistance in ohms (Ω)</p>
+<p>You can rearrange this formula to solve for any one of the three:</p>
+<ul>
+<li><span class="arithmatex">\( I = V / R \)</span> — how much current flows given voltage and resistance</li>
+<li><span class="arithmatex">\( R = V / I \)</span> — what resistance is needed to limit current</li>
+<li><span class="arithmatex">\( V = I \times R \)</span> — what voltage drop appears across a resistor</li>
+</ul>
+<p><strong>The Power Formula</strong> tells you how much electrical power a component consumes:</p>
+<div class="arithmatex">\[ P = V \times I \]</div>
+<p>Power is measured in watts (W) or milliwatts (mW). A pixel drawing 20 mA at 5 V uses 0.1 W = 100 mW.</p>
+<h4 id="diagram-ohms-law-calculator">Diagram: Ohm's Law Calculator</h4>
+<iframe src="../../sims/ohms-law-calculator/main.html" width="100%" height="362px" scrolling="no"></iframe>
+<p><a href="../../sims/ohms-law-calculator/main.html">Run Ohm's Law Calculator Fullscreen</a></p>
+<details>
+<summary>Interactive calculator: Ohm's Law triangle</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> ohms-law-calculator
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>An interactive Ohm's Law triangle with three circles labeled V (volts), I (current), R (resistance). Two inputs are active at a time; the third is calculated. A dropdown lets the user choose which value to solve for. Numeric input fields accept values. Below the triangle, the formula is displayed with the current values substituted: e.g., "I = V ÷ R = 5 ÷ 220 = 0.023 A = 23 mA". A second section shows the power formula: "P = V × I = 5 × 0.023 = 0.115 W". Clicking any circle highlights the formula. Canvas: 700 × 350 px. Responds to window resize.</p>
+<p>Learning objective: Applying — the student can solve Ohm's Law problems for any unknown variable.</p>
+</details>
+<hr />
+<h2 id="complete-circuits-short-circuits-and-open-circuits">Complete Circuits, Short Circuits, and Open Circuits</h2>
+<p>Before building anything, you need to understand three circuit states.</p>
+<p>A <strong>complete circuit path</strong> is an uninterrupted path for current from the positive terminal, through components, back to the negative terminal (ground). Current only flows when the path is complete.</p>
+<p>An <strong>open circuit</strong> has a gap somewhere in the path — a wire not connected, a switch that's open, or a broken component. No current flows. Your LED won't light.</p>
+<p>A <strong>short circuit</strong> is a direct low-resistance path from positive to ground, bypassing the intended components. A short circuit allows dangerously high current to flow, which can overheat wires, damage the power source, or start a fire. The most common cause in our projects: accidentally touching a power wire to a ground pin without a resistor in between.</p>
+<hr />
+<h2 id="breadboard-and-solderless-assembly">Breadboard and Solderless Assembly</h2>
+<p>A <strong>breadboard</strong> is a plastic board with holes that are internally connected in rows and columns. It lets you build circuits without soldering — just push wires and components into the holes.</p>
+<p>Before reading the layout description, here's the key structure:</p>
+<ul>
+<li>The <strong>top and bottom rails</strong> (long horizontal strips) are connected all the way across. Use them for power (+) and ground (−). Often marked with red (+) and blue (−) lines.</li>
+<li>The <strong>central rows</strong> (numbered 1–30 or 1–60) are connected in groups of 5, side by side (columns a–e and f–j). The gap in the middle separates the two halves.</li>
+</ul>
+<p><strong>Jumper wires</strong> are short pre-cut wires (or ribbon cables) used to connect breadboard positions to each other or to your Pico. Color conventions help readability:</p>
+<table>
+<thead>
+<tr>
+<th>Wire Color</th>
+<th>Convention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red</td>
+<td>Power (+) / Vcc</td>
+</tr>
+<tr>
+<td>Black</td>
+<td>Ground (−) / GND</td>
+</tr>
+<tr>
+<td>Yellow / Green / Blue</td>
+<td>Signal lines</td>
+</tr>
+<tr>
+<td>White / Orange</td>
+<td>Other connections</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wire color conventions</strong> are not enforced by physics — any wire works in any position. But following the convention makes your circuit much easier to read and debug.</p>
+<p><strong>Solderless circuit assembly</strong> means plugging components directly into the breadboard without heating any metal. Every circuit in this course uses solderless assembly. You can reuse all components in future projects.</p>
+<hr />
+<h2 id="resistor-types">Resistor Types</h2>
+<p>You'll use three kinds of resistors in this course. Before explaining each, let's define <strong>fixed resistor</strong>: a component with a specific resistance value that doesn't change. The value is printed as a color code on the body.</p>
+<h3 id="current-limiting-resistor">Current-Limiting Resistor</h3>
+<p>A <strong>current-limiting resistor</strong> protects an LED (or other component) from burning out. LEDs have very low resistance — without a limiting resistor, they would draw too much current and immediately fail.</p>
+<p>To choose the right resistor value, use Ohm's Law. For a red LED on a 3.3 V output with 20 mA maximum current:</p>
+<div class="arithmatex">\[ R = \frac{V_{\text{supply}} - V_{\text{LED}}}{I} = \frac{3.3 - 2.0}{0.02} = 65 \, \Omega \]</div>
+<p>A 100 Ω or 220 Ω resistor is a safe choice for this course's LEDs.</p>
+<h3 id="pull-up-and-pull-down-resistors">Pull-Up and Pull-Down Resistors</h3>
+<p>These resistors appear in button wiring. Their purpose: ensure a GPIO input pin reads a definite value (not a floating, undefined voltage) when the button is open.</p>
+<ul>
+<li><strong>Pull-up resistor</strong> — connects the input pin to the supply voltage (3.3 V). When the button is open, the pin reads HIGH (1). When the button closes, it connects to GND, pulling the pin LOW (0). The Pico has built-in pull-up resistors you can enable in code with <code>Pin.PULL_UP</code>.</li>
+<li><strong>Pull-down resistor</strong> — connects the input pin to GND. When the button is open, the pin reads LOW (0). When the button closes, it connects to power, reading HIGH (1).</li>
+</ul>
+<p>In MicroPython:</p>
+<div class="highlight"><pre><span></span><code><span class="n">btn</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">btn</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>   <span class="c1"># 1 when button open, 0 when button pressed</span>
+</code></pre></div>
+<p>You should see <code>1</code> in the console when the button is not pressed, and <code>0</code> when you press it.</p>
+<hr />
+<h2 id="potentiometer">Potentiometer</h2>
+<p>A <strong>potentiometer</strong> is a variable resistor — it has a knob or slider you can adjust to change its resistance from 0 Ω to its maximum (often 10 kΩ).</p>
+<p>It has three terminals:</p>
+<ul>
+<li>Two <strong>outer terminals</strong> — connected to power (+) and ground</li>
+<li>One <strong>middle terminal</strong> (the <strong>wiper</strong>) — moves between the two ends as you rotate the knob</li>
+</ul>
+<p>The <strong>potentiometer wiper</strong> acts as a voltage divider: when the knob is at one end, the wiper output is near GND; at the other end, it's near the supply voltage; in the middle, it's half the supply voltage.</p>
+<p>Connect the wiper to an ADC pin on the Pico to read the knob position as a number from 0 to 65535:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pot</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>    <span class="c1"># GP26 = ADC0</span>
+<span class="n">reading</span> <span class="o">=</span> <span class="n">pot</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="c1"># 0 when knob at GND end, 65535 when at power end</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reading</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see the number change smoothly as you turn the knob.</p>
+<hr />
+<h2 id="light-dependent-resistor-photoresistor">Light-Dependent Resistor (Photoresistor)</h2>
+<p>A <strong>Light-Dependent Resistor (LDR)</strong> — also called a photoresistor — changes its resistance based on how much light hits its surface.</p>
+<p>The <strong>photoresistor curve</strong> describes this relationship:
+- In bright light: resistance is low (1 kΩ or less)
+- In dark conditions: resistance is high (100 kΩ or more)</p>
+<p>To read a photoresistor, you build a <strong>voltage divider</strong> with a fixed resistor. The ADC reads the voltage at the midpoint, which changes as the LDR resistance changes. This technique is covered in depth in Chapter 18.</p>
+<hr />
+<h2 id="npn-transistor-a-programmable-switch">NPN Transistor: A Programmable Switch</h2>
+<p>An <strong>NPN transistor</strong> is a three-terminal device that acts as an electrically controlled switch. The <strong>2N2222</strong> is a common, inexpensive NPN transistor used for switching small loads like LEDs and motors.</p>
+<p>The three terminals are:</p>
+<ul>
+<li><strong>Base</strong> — the control input. When a small current flows into the base, the transistor "turns on."</li>
+<li><strong>Collector</strong> — connects to the positive side of the load (the LED or motor)</li>
+<li><strong>Emitter</strong> — connects to GND</li>
+</ul>
+<p>The <strong>transistor base terminal</strong> is driven by a GPIO output pin through a resistor. When the GPIO goes HIGH, a small current flows into the base, and the transistor allows a much larger current to flow from collector to emitter — turning on the LED.</p>
+<p>This is the "current gain" effect: a small base current (a few mA) controls a much larger load current (up to 600 mA for a 2N2222).</p>
+<hr />
+<h2 id="other-components">Other Components</h2>
+<h3 id="capacitor-for-power-smoothing">Capacitor for Power Smoothing</h3>
+<p>A <strong>capacitor</strong> stores a small amount of electrical charge and releases it quickly when needed. In LED circuits, a <strong>100 µF capacitor</strong> placed across the power rails (+ to power rail, − to GND) smooths out rapid current spikes — preventing the Pico from resetting when a large number of LEDs suddenly turn on simultaneously.</p>
+<h3 id="diode-for-polarity-protection">Diode for Polarity Protection</h3>
+<p>A <strong>diode</strong> allows current to flow in only one direction. A <strong>protection diode</strong> wired in series with the power input means that if you accidentally connect the battery backward, no current flows — protecting your circuit from damage.</p>
+<h3 id="multimeter-overview">Multimeter Overview</h3>
+<p>A <strong>multimeter</strong> is a handheld tool that measures voltage, current, and resistance. Key uses:</p>
+<ul>
+<li><strong>Voltage mode (V)</strong> — touch probes to two points; displays the voltage difference</li>
+<li><strong>Resistance mode (Ω)</strong> — measures a resistor or checks continuity (beeps if connected)</li>
+<li><strong>Current mode (A or mA)</strong> — must be wired <em>in series</em> with the circuit (more advanced)</li>
+</ul>
+<p>For this course, using a multimeter in voltage mode to check that your power rail is actually at 5 V, and in resistance mode to verify component values, covers 90% of your needs.</p>
+<p><strong>Milliamp-hours (mAh)</strong> is a measure of how much energy a battery stores — covered in detail in Chapter 17. One mAh can supply 1 mA for one hour, or 2 mA for half an hour, etc.</p>
+<hr />
+<h2 id="reading-circuit-diagrams">Reading Circuit Diagrams</h2>
+<p>A <strong>circuit diagram</strong> (also called a schematic) uses standardized symbols to represent components. Before wiring any project, practice reading the diagram to know what connects where.</p>
+<p>Common symbols:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Straight lines</td>
+<td>Wires</td>
+</tr>
+<tr>
+<td>Zigzag</td>
+<td>Resistor</td>
+</tr>
+<tr>
+<td>Two parallel lines (one longer)</td>
+<td>Battery/power source</td>
+</tr>
+<tr>
+<td>Triangle with a line</td>
+<td>Diode</td>
+</tr>
+<tr>
+<td>Circle with rays</td>
+<td>LED</td>
+</tr>
+<tr>
+<td>Three-terminal shape</td>
+<td>Transistor</td>
+</tr>
+</tbody>
+</table>
+<p>The rule for reading diagrams: follow the current flow from + to −. Every component in series shares the same current. Every component in parallel shares the same voltage.</p>
+<hr />
+<h2 id="electrical-safety-rules">Electrical Safety Rules</h2>
+<p>Working with the Pico and LED strips at 5 V is very safe — the voltages and currents involved cannot harm a healthy person. However, developing good habits now prepares you for working with higher-voltage systems later.</p>
+<p>Key rules for this course:</p>
+<ol>
+<li><strong>Never work on a live circuit</strong> while adding or removing components. Unplug first.</li>
+<li><strong>Always connect GND first</strong>, power second.</li>
+<li><strong>Always include a current-limiting resistor</strong> in series with any LED driven directly by a GPIO pin.</li>
+<li><strong>Never exceed 500 mA</strong> from a single USB port without a separate power supply.</li>
+<li><strong>Keep the Pico dry</strong> — liquid and electronics don't mix.</li>
+<li><strong>If something smells hot or smoky</strong>, unplug immediately. Inspect before plugging back in.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up both hands">
+Short circuits are the most common wiring mistake. A short circuit connects + to − without any resistance in between. The result: components overheat, batteries drain instantly, and USB ports may shut down to protect themselves. If your USB port stops providing power, unplug and look for a short circuit in your wiring.</p>
+</div>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Ohm's Law practice:</strong> You have a 5 V supply and a 330 Ω resistor. How much current flows? How much power does the resistor dissipate?</p>
+</li>
+<li>
+<p><strong>Breadboard LED:</strong> Wire an LED in series with a 220 Ω resistor between the 3.3 V output and GND on your Pico. The LED should light up without any code.</p>
+</li>
+<li>
+<p><strong>Open circuit test:</strong> Remove one wire from your LED circuit. What happens? Put it back. What changed?</p>
+</li>
+<li>
+<p><strong>Potentiometer reading:</strong> Wire a potentiometer to GP26 and read its value in the REPL with <code>machine.ADC(26).read_u16()</code>. Turn the knob and observe the value changing.</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>State Ohm's Law in your own words.</li>
+<li>What is the difference between an open circuit and a short circuit?</li>
+<li>Why do LEDs need a current-limiting resistor?</li>
+<li>What does a pull-up resistor do when a button is open?</li>
+<li>What are the three terminals of an NPN transistor?</li>
+<li>How does a potentiometer wiper work?</li>
+<li>Why do we say the Pico is safe to work with at 5 V?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You're now a real electronics builder! You know Ohm's Law, how to use a breadboard, what pull-up resistors do, how transistors switch, and how to stay safe. These skills let you go from code-only projects to full hardware-software systems. That's a huge step!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../16-circuit-assembly/">Chapter 16</a>, you'll put this theory to work — building transistor switch circuits, LED dimmers, voltage dividers, and analog nightlight circuits on your breadboard.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../14-advanced-animation-patterns/" title="14. Advanced Animations" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  14. Advanced Animations
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../16-circuit-assembly/" title="16. Circuit Assembly" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  16. Circuit Assembly
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

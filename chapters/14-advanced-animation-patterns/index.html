@@ -1,0 +1,2650 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Implement heartbeat, Larson scanner, comet tail, dual-direction scan, expanding ripple, and time-mapped LED clock using brightness envelopes, scanner widths, and sine-based breathing.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/14-advanced-animation-patterns/">
+      
+      
+        <link rel="prev" href="../13-intermediate-animations/">
+      
+      
+        <link rel="next" href="../15-electronics-fundamentals/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Advanced Animation Patterns — Comet, Scanner, and Heartbeat - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Advanced Animation Patterns — Comet, Scanner, and Heartbeat - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Implement heartbeat, Larson scanner, comet tail, dual-direction scan, expanding ripple, and time-mapped LED clock using brightness envelopes, scanner widths, and sine-based breathing." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/14-advanced-animation-patterns/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/14-advanced-animation-patterns/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Advanced Animation Patterns — Comet, Scanner, and Heartbeat - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Implement heartbeat, Larson scanner, comet tail, dual-direction scan, expanding ripple, and time-mapped LED clock using brightness envelopes, scanner widths, and sine-based breathing." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/14-advanced-animation-patterns/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-animation-patterns-comet-scanner-and-candle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Advanced Animation Patterns — Comet, Scanner, and Heartbeat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-brightness-envelope-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Brightness Envelope Concept
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-heartbeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Heartbeat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-comet-tail-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Comet Tail Animation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-larson-scanner-single-color-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Larson Scanner (Single-Color Scan)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern: Larson Scanner (Single-Color Scan)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-direction-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dual-Direction Scan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sine-based-breathing-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sine-Based Breathing Effect
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sine-Based Breathing Effect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-brightness-envelopes-for-advanced-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Brightness Envelopes for Advanced Patterns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expanding-ripple-rings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expanding Ripple Rings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern Composition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-brightness-envelope-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Brightness Envelope Concept
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-heartbeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Heartbeat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-comet-tail-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Comet Tail Animation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-larson-scanner-single-color-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern: Larson Scanner (Single-Color Scan)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern: Larson Scanner (Single-Color Scan)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-direction-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dual-Direction Scan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sine-based-breathing-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sine-Based Breathing Effect
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sine-Based Breathing Effect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-brightness-envelopes-for-advanced-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Brightness Envelopes for Advanced Patterns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expanding-ripple-rings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expanding Ripple Rings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern Composition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/14-advanced-animation-patterns/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="advanced-animation-patterns-comet-scanner-and-candle">Advanced Animation Patterns: Comet, Scanner, and Candle</h1>
+<h2 id="summary">Summary</h2>
+<p>Teaches the most complex animation effects—heartbeat, Larson scanner, comet tail, dual-direction scanning, candle flicker, photo-reactive animations, sensor-driven displays, and clock with localtime()—using brightness envelopes, scanner width parameters, and comet trail length control.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 17 concepts from the learning graph:</p>
+<ol>
+<li>Heartbeat Pattern</li>
+<li>Comet Tail Animation</li>
+<li>Larson Scanner Pattern</li>
+<li>Comet Trail Length</li>
+<li>Scanner Width Parameter</li>
+<li>Pattern Composition</li>
+<li>Brightness Envelope</li>
+<li>Clock with localtime()</li>
+<li>Seconds and Minutes Display</li>
+<li>Color Mapping to Time</li>
+<li>LED as Clock Hands</li>
+<li>Single-Color Scan</li>
+<li>Dual-Direction Scan</li>
+<li>Alternating Pixel Groups</li>
+<li>Expanding Ripple Rings</li>
+<li>Brightness Formula</li>
+<li>Sine-Based Breathing Effect</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+<li><a href="../03-python-functions-modules-practices/">Chapter 3: Python Functions, Modules, and Programming Best Practices</a></li>
+<li><a href="../04-python-control-flow-loops/">Chapter 4: Python Control Flow, Loops, and Error Handling</a></li>
+<li><a href="../06-micropython-apis-and-electronics/">Chapter 6: MicroPython APIs, GPIO Control, and Electrical Fundamentals</a></li>
+<li><a href="../09-neopixel-programming/">Chapter 9: NeoPixel Programming: Pixels, Colors, and the NeoPixel Library</a></li>
+<li><a href="../11-math-for-led-programming/">Chapter 11: Mathematics for LED Programming</a></li>
+<li><a href="../12-basic-animation-patterns/">Chapter 12: Basic LED Animation Patterns</a></li>
+<li><a href="../13-intermediate-animations/">Chapter 13: Intermediate Animation Techniques</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 14! These are the advanced patterns — the ones people remember. A Larson scanner on a costume gets noticed. A comet tail on a hat gets questions. A heartbeat on a glowing sign gets feelings. Let's build the effects that make people look twice. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Implement the heartbeat pattern using a brightness envelope</li>
+<li>Build a comet tail animation with controllable trail length</li>
+<li>Create the Larson scanner (Knight Rider effect) with scanner width control</li>
+<li>Implement dual-direction scanning with two independent scan points</li>
+<li>Use <code>localtime()</code> to map time to colors and pixel positions</li>
+<li>Compose multiple simple patterns into more complex visual effects</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>Raspberry Pi Pico with NeoPixel strip connected</li>
+<li>Thonny IDE connected</li>
+<li><code>import math</code> (available in MicroPython)</li>
+</ul>
+<hr />
+<h2 id="the-brightness-envelope-concept">The Brightness Envelope Concept</h2>
+<p>Before building the advanced patterns, let's define <strong>brightness envelope</strong> — the concept underlying all of them.</p>
+<p>A brightness envelope is a function that maps time (or position, or distance) to a brightness value. Instead of pixels being simply "on" or "off," each pixel has a brightness determined by where it falls in a mathematical envelope.</p>
+<p>The table below summarizes the envelopes used in this chapter:</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Envelope Shape</th>
+<th>Key Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heartbeat</td>
+<td>Double pulse then long pause</td>
+<td>Phase counter</td>
+</tr>
+<tr>
+<td>Comet tail</td>
+<td>Exponential decay behind head</td>
+<td>Trail length</td>
+</tr>
+<tr>
+<td>Larson scanner</td>
+<td>Gaussian peak at scan position</td>
+<td>Scanner width</td>
+</tr>
+<tr>
+<td>Sine breathing</td>
+<td>Smooth sine wave</td>
+<td>Time step</td>
+</tr>
+</tbody>
+</table>
+<p>Understanding the envelope is 80% of understanding the pattern. The code is just implementing the envelope mathematically.</p>
+<hr />
+<h2 id="pattern-heartbeat">Pattern: Heartbeat</h2>
+<p>The <strong>Heartbeat Pattern</strong> simulates a pulse: two quick bright flashes (the "lub-dub" of a heartbeat) followed by a longer dark pause.</p>
+<p>Before the code, here's the brightness envelope:
+- Phase 0: ramp up fast (bright flash 1)
+- Phase 1: ramp down fast
+- Phase 2: ramp up fast (bright flash 2, slightly smaller)
+- Phase 3: ramp down fast
+- Phase 4: long pause at darkness</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">utime</span>
+
+<span class="k">def</span> <span class="nf">heartbeat_value</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">total_phases</span><span class="p">):</span>
+    <span class="c1"># Returns brightness 0-255 for a given phase position</span>
+    <span class="k">if</span> <span class="n">phase</span> <span class="o">&lt;</span> <span class="n">total_phases</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">phase</span> <span class="o">/</span> <span class="p">(</span><span class="n">total_phases</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>   <span class="c1"># ramp up fast</span>
+    <span class="k">elif</span> <span class="n">phase</span> <span class="o">&lt;</span> <span class="n">total_phases</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">phase</span> <span class="o">-</span> <span class="n">total_phases</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">total_phases</span><span class="o">*</span><span class="mf">0.1</span><span class="p">))</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>  <span class="c1"># ramp down</span>
+    <span class="k">elif</span> <span class="n">phase</span> <span class="o">&lt;</span> <span class="n">total_phases</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="n">phase</span> <span class="o">-</span> <span class="n">total_phases</span><span class="o">*</span><span class="mf">0.2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">total_phases</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span><span class="p">)</span>   <span class="c1"># smaller pulse</span>
+    <span class="k">elif</span> <span class="n">phase</span> <span class="o">&lt;</span> <span class="n">total_phases</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">phase</span> <span class="o">-</span> <span class="n">total_phases</span><span class="o">*</span><span class="mf">0.3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">total_phases</span><span class="o">*</span><span class="mf">0.1</span><span class="p">))</span> <span class="o">*</span> <span class="mi">180</span><span class="p">)</span>  <span class="c1"># ramp down</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>   <span class="c1"># long pause</span>
+
+<span class="n">TOTAL</span> <span class="o">=</span> <span class="mi">60</span>   <span class="c1"># total phases per heartbeat cycle</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">phase</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">TOTAL</span><span class="p">):</span>
+        <span class="n">brightness</span> <span class="o">=</span> <span class="n">heartbeat_value</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">TOTAL</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">brightness</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># red heartbeat</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see the strip pulse red in a double-beat heartbeat rhythm — two quick flashes, then a pause, then repeat.</p>
+<hr />
+<h2 id="pattern-comet-tail-animation">Pattern: Comet Tail Animation</h2>
+<p>The <strong>Comet Tail Animation</strong> features a bright head pixel moving across the strip with a decaying brightness trail behind it. The <strong>comet trail length</strong> controls how many pixels the trail spans.</p>
+<p>Before the code:
+- <code>trail</code> — a list of brightness values for each pixel
+- <code>DECAY</code> — how quickly trail brightness fades (0.8 = drops to 80% each frame)
+- <code>TRAIL_LENGTH</code> controls apparent tail length — higher DECAY = longer tail</p>
+<div class="highlight"><pre><span></span><code><span class="n">trail</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+<span class="n">DECAY</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Decay all brightness</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="n">DECAY</span>
+
+    <span class="c1"># Set head to maximum</span>
+    <span class="n">trail</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Render the trail</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># orange-yellow comet</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a bright orange-yellow comet head racing around the strip, leaving a fading warm trail.</p>
+<p>To control trail length: change <code>DECAY</code>. At 0.95, the trail persists much longer. At 0.5, it disappears almost instantly after the head passes.</p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Pixel thinking">
+The trail length is not a direct setting — it's an emergent property of the decay rate and animation speed. Want a longer trail? Slow down the animation OR increase the DECAY value. Want a shorter, crisper trail? Speed up or decrease DECAY. Two knobs, one effect.</p>
+</div>
+<hr />
+<h2 id="pattern-larson-scanner-single-color-scan">Pattern: Larson Scanner (Single-Color Scan)</h2>
+<p>The <strong>Larson Scanner</strong> (inspired by the KITT car from Knight Rider) is a bright hot-spot that bounces back and forth, with neighboring pixels lit proportionally dimmer based on their distance from the scan center.</p>
+<p>Before the code, the <strong>brightness formula</strong> for each pixel:
+- Distance from scan center → 0 = full brightness, higher distance = dimmer
+- The <strong>scanner width parameter</strong> controls how wide the bright spot appears</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">scan_pos</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1"># position (float for smooth motion)</span>
+<span class="n">direction</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">SPEED</span> <span class="o">=</span> <span class="mf">0.5</span>       <span class="c1"># pixels per frame</span>
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">3</span>         <span class="c1"># half-width of scanner glow</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">scan_pos</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;</span> <span class="n">WIDTH</span><span class="p">:</span>
+            <span class="n">brightness</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">distance</span> <span class="o">/</span> <span class="n">WIDTH</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">brightness</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">brightness</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># red scanner</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">scan_pos</span> <span class="o">+=</span> <span class="n">direction</span> <span class="o">*</span> <span class="n">SPEED</span>
+
+    <span class="k">if</span> <span class="n">scan_pos</span> <span class="o">&gt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">scan_pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a red glow that sweeps back and forth, with pixels on either side of the center glowing proportionally dimmer.</p>
+<p>Increase <code>WIDTH</code> for a wider, softer glow. Decrease it to 1 for a tight, intense spot.</p>
+<h3 id="dual-direction-scan">Dual-Direction Scan</h3>
+<p>The <strong>Dual-Direction Scan</strong> extends the scanner to two independent scan heads moving in opposite directions. The brightness is the maximum of the two scanners at each pixel.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pos1</span><span class="p">,</span> <span class="n">pos2</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">dir1</span><span class="p">,</span> <span class="n">dir2</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">d1</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">pos1</span><span class="p">)</span>
+        <span class="n">d2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">pos2</span><span class="p">)</span>
+        <span class="n">b1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d1</span> <span class="o">/</span> <span class="n">WIDTH</span><span class="p">)</span> <span class="o">*</span> <span class="mi">200</span><span class="p">))</span> <span class="k">if</span> <span class="n">d1</span> <span class="o">&lt;</span> <span class="n">WIDTH</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">b2</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d2</span> <span class="o">/</span> <span class="n">WIDTH</span><span class="p">)</span> <span class="o">*</span> <span class="mi">200</span><span class="p">))</span> <span class="k">if</span> <span class="n">d2</span> <span class="o">&lt;</span> <span class="n">WIDTH</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">brightness</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">)</span>   <span class="c1"># take the brighter of the two</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">brightness</span><span class="p">)</span>   <span class="c1"># blue dual scanner</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">pos1</span> <span class="o">+=</span> <span class="n">dir1</span> <span class="o">*</span> <span class="mf">0.5</span>
+    <span class="n">pos2</span> <span class="o">+=</span> <span class="n">dir2</span> <span class="o">*</span> <span class="mf">0.5</span>
+    <span class="k">if</span> <span class="n">pos1</span> <span class="o">&gt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">pos1</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="n">dir1</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">pos2</span> <span class="o">&gt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">pos2</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="n">dir2</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see two blue glowing spots racing toward each other, bouncing off the ends and crossing paths in the middle.</p>
+<hr />
+<h2 id="sine-based-breathing-effect">Sine-Based Breathing Effect</h2>
+<p>The <strong>Sine-Based Breathing Effect</strong> uses a sine wave to smoothly oscillate all pixel brightness. You learned the math in Chapter 11 — here's the full implementation:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">utime</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">SPEED</span> <span class="o">=</span> <span class="mf">0.05</span>   <span class="c1"># how fast the breath cycles</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Sine gives -1 to 1; shift and scale to 0 to 1</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">level</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">level</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">level</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># blue-purple breathing</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">SPEED</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see the strip smoothly pulse between dark and a soft blue-purple color.</p>
+<h4 id="diagram-brightness-envelopes-for-advanced-patterns">Diagram: Brightness Envelopes for Advanced Patterns</h4>
+<iframe src="../../sims/brightness-envelope-comparison/main.html" width="100%" height="462px" scrolling="no"></iframe>
+<p><a href="../../sims/brightness-envelope-comparison/main.html">Run Brightness Envelopes for Advanced Patterns Fullscreen</a></p>
+<details>
+<summary>Interactive chart: compare heartbeat, comet, scanner, and sine envelopes</summary>
+<p>Type: chart
+<strong>sim-id:</strong> brightness-envelope-comparison
+<strong>Library:</strong> Chart.js
+<strong>Status:</strong> Specified</p>
+<p>A tab-panel with four tabs, each showing the brightness envelope for one pattern:</p>
+<ol>
+<li><strong>Heartbeat tab</strong>: X axis = time steps (0–60), Y axis = brightness (0–255). Two narrow peaks (at t=6 and t=18) followed by a long flat zero section. Animates a moving dot.</li>
+<li><strong>Comet Tail tab</strong>: X axis = pixel index (0–29), Y axis = brightness. Exponential decay from a peak at position 20, falling toward zero to the left. A "head position" slider moves the peak.</li>
+<li><strong>Larson Scanner tab</strong>: X axis = pixel index, Y axis = brightness. A triangular peak centered at scan position. A "width" slider changes the peak width.</li>
+<li><strong>Sine Breathing tab</strong>: X axis = time, Y axis = brightness. Smooth sine curve, labeled with key points (peak, trough, half-way).</li>
+</ol>
+<p>Each tab plays a live animation of the strip simulated below the chart. Canvas: 700 × 400 px. Responds to window resize.</p>
+<p>Learning objective: Analyzing — the student can match a brightness envelope shape to the visual effect it produces.</p>
+</details>
+<hr />
+<h2 id="expanding-ripple-rings">Expanding Ripple Rings</h2>
+<p>The <strong>Expanding Ripple Rings</strong> effect sends concentric brightness waves outward from a center point on each pulse trigger. This builds on the Chapter 13 ripple with improved pulse logic.</p>
+<p>Before the code:
+- <code>rings</code> — a list of (position, brightness) tuples, one per active ring
+- Each frame, ring brightness decays and position expands
+- New rings appear on a timer</p>
+<div class="highlight"><pre><span></span><code><span class="n">rings</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># list of (center_offset, brightness)</span>
+<span class="n">pulse_timer</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">CENTER</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">//</span> <span class="mi">2</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Decay and expand existing rings</span>
+    <span class="n">new_rings</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">offset</span><span class="p">,</span> <span class="n">brightness</span> <span class="ow">in</span> <span class="n">rings</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">brightness</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">new_rings</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">offset</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">brightness</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">)))</span>
+    <span class="n">rings</span> <span class="o">=</span> <span class="n">new_rings</span>
+
+    <span class="c1"># Add a new ring pulse periodically</span>
+    <span class="n">pulse_timer</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">pulse_timer</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="n">rings</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>   <span class="c1"># new ring at center, full brightness</span>
+        <span class="n">pulse_timer</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Render</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">offset</span><span class="p">,</span> <span class="n">brightness</span> <span class="ow">in</span> <span class="n">rings</span><span class="p">:</span>
+        <span class="n">left</span>  <span class="o">=</span> <span class="n">CENTER</span> <span class="o">-</span> <span class="n">offset</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">CENTER</span> <span class="o">+</span> <span class="n">offset</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">left</span>  <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">:</span> <span class="n">strip</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>  <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">brightness</span><span class="p">)</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">:</span> <span class="n">strip</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">brightness</span><span class="p">)</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see blue rings appearing at the center and expanding outward, fading as they travel.</p>
+<hr />
+<h2 id="pattern-composition">Pattern Composition</h2>
+<p><strong>Pattern composition</strong> means combining two or more simpler animations into one complex effect. The key technique: compute the output from each sub-pattern and blend the results.</p>
+<p>Here's an example: a scanner pattern overlaid with a slow breathing effect.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">utime</span>
+
+<span class="n">scan_pos</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">scan_dir</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">breath_t</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">breath_level</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">breath_t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="c1"># Scanner component</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">scan_pos</span><span class="p">)</span>
+        <span class="n">scan_b</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">distance</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">200</span><span class="p">))</span> <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">0</span>
+
+        <span class="c1"># Breathing background</span>
+        <span class="n">bg_r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">breath_level</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+        <span class="n">bg_b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">breath_level</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">bg_r</span> <span class="o">+</span> <span class="n">scan_b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bg_b</span><span class="p">)</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">scan_pos</span> <span class="o">+=</span> <span class="n">scan_dir</span>
+    <span class="k">if</span> <span class="n">scan_pos</span> <span class="o">&gt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">scan_pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">scan_dir</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">breath_t</span> <span class="o">+=</span> <span class="mf">0.03</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a warm scanner gliding over a slow blue-breathing background — two patterns, one program.</p>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Color heartbeat:</strong> Modify the heartbeat to pulse through the color sequence red → orange → yellow across three consecutive heartbeats.</p>
+</li>
+<li>
+<p><strong>Long comet:</strong> Set DECAY to 0.97 in the comet tail. How far back does the tail reach? Count the pixels that are visibly lit.</p>
+</li>
+<li>
+<p><strong>Wide scanner:</strong> Increase the scanner WIDTH to 8. Compare with WIDTH = 2. Which looks more like a "laser sweep"?</p>
+</li>
+<li>
+<p><strong>Composed effect:</strong> Combine the comet tail and twinkle effects. The comet runs normally, but random pixels briefly spark with a different color as the comet passes nearby.</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What is a "brightness envelope"? Give one example.</li>
+<li>In the comet tail, what does the DECAY value control?</li>
+<li>What two parameters control the appearance of the Larson scanner?</li>
+<li>How does dual-direction scanning differ from the single-color scan?</li>
+<li>What does <code>(math.sin(t) + 1) / 2</code> produce, and why is it useful?</li>
+<li>What is "pattern composition"?</li>
+<li>How does the expanding ripple rings effect track each ring's position over time?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You've built the showstoppers! The Larson scanner, comet tail, heartbeat, and dual scanner are the effects that get noticed at Halloween, maker fairs, and costume contests. You also learned how to compose patterns together — which means from now on, "pattern + pattern = new pattern" is always an option. Level up!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../15-electronics-fundamentals/">Chapter 15</a>, you'll step back from code and go deeper into electronics — resistance, Ohm's Law, breadboard wiring, potentiometers, transistors, and the components you'll use in your capstone circuits.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../13-intermediate-animations/" title="13. Intermediate Animations" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  13. Intermediate Animations
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../15-electronics-fundamentals/" title="15. Electronics" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  15. Electronics
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3121 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Combine buttons, sensors, and animations into polished multi-mode programs, then master the full development toolchain — Thonny, Git, GitHub, config.py, and firmware flashing.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/19-interactive-animations-and-tools/">
+      
+      
+        <link rel="prev" href="../18-input-devices-and-sensors/">
+      
+      
+        <link rel="next" href="../20-project-design-and-capstone/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Interactive Animations and Development Tools - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Interactive Animations and Development Tools - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Combine buttons, sensors, and animations into polished multi-mode programs, then master the full development toolchain — Thonny, Git, GitHub, config.py, and firmware flashing." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/19-interactive-animations-and-tools/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/19-interactive-animations-and-tools/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Interactive Animations and Development Tools - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Combine buttons, sensors, and animations into polished multi-mode programs, then master the full development toolchain — Thonny, Git, GitHub, config.py, and firmware flashing." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/19-interactive-animations-and-tools/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interactive-animations-and-development-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Interactive Animations and Development Tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-pattern-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Pattern Programs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Pattern Programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#animation-restart-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation Restart Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-switching-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern Switching Logic
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-abstraction-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Abstraction Layer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-mode-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Mode Controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thonny-ide-deep-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thonny IDE Deep Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thonny IDE Deep Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thonny-repl-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thonny REPL Panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thonny-run-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thonny Run Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-highlighting-and-code-autocomplete" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax Highlighting and Code Autocomplete
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thonny-package-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thonny Package Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-upload-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Upload Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-configpy-module-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The config.py Module Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Version Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Version Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-status-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git status Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-add-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git add Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-commit-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git commit Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-push-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git push Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-pull-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git pull Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clone-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git clone Command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readme-file-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      README File Creation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="README File Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-git-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Git Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firmware-flashing-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firmware Flashing Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-pattern-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Pattern Programs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Pattern Programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#animation-restart-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation Restart Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-switching-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern Switching Logic
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-abstraction-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Abstraction Layer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-mode-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Mode Controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thonny-ide-deep-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thonny IDE Deep Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thonny IDE Deep Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thonny-repl-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thonny REPL Panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thonny-run-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thonny Run Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-highlighting-and-code-autocomplete" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax Highlighting and Code Autocomplete
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thonny-package-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thonny Package Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-upload-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Upload Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-configpy-module-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The config.py Module Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Version Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Version Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-status-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git status Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-add-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git add Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-commit-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git commit Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-push-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git push Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-pull-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git pull Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-clone-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      git clone Command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readme-file-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      README File Creation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="README File Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-git-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Git Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firmware-flashing-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firmware Flashing Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/19-interactive-animations-and-tools/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="interactive-animations-and-development-tools">Interactive Animations and Development Tools</h1>
+<h2 id="summary">Summary</h2>
+<p>Connects input and animation by implementing mode-based, button-triggered, photo-reactive, and sensor-driven animations, then covers the complete development toolchain: Git version control, GitHub repositories, Thonny IDE deep features, firmware flashing workflows, and the config.py hardware abstraction pattern.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 40 concepts from the learning graph:</p>
+<ol>
+<li>Multi-Pattern Program</li>
+<li>Pattern Switching Logic</li>
+<li>Animation State Variable</li>
+<li>Photo-Reactive Animation</li>
+<li>Button-Triggered Animation</li>
+<li>Sensor-Driven Animation</li>
+<li>Mode-Based Animation</li>
+<li>Animation Restart Logic</li>
+<li>Interactive Mode Controller</li>
+<li>Input Abstraction Layer</li>
+<li>Thonny IDE Overview</li>
+<li>Thonny REPL Panel</li>
+<li>Thonny Run Controls</li>
+<li>Syntax Highlighting</li>
+<li>Code Autocomplete</li>
+<li>Serial Console in Thonny</li>
+<li>REPL Interactive Testing</li>
+<li>File Upload Workflow</li>
+<li>Running Script on Pico</li>
+<li>Git Version Control</li>
+<li>git clone Command</li>
+<li>git add Command</li>
+<li>git commit Command</li>
+<li>git push Command</li>
+<li>git pull Command</li>
+<li>git status Command</li>
+<li>GitHub Repository</li>
+<li>Repository Structure</li>
+<li>README File Creation</li>
+<li>File Organization in Repo</li>
+<li>Firmware Flashing Workflow</li>
+<li>UF2 Drag-and-Drop Process</li>
+<li>Python Module Paths</li>
+<li>config.py Module Pattern</li>
+<li>Hardware Abstraction Layer</li>
+<li>Cross-Kit Compatibility</li>
+<li>Thonny Package Manager</li>
+<li>MicroPython Standard Library</li>
+<li>Code Backup with GitHub</li>
+<li>Commit Message Writing</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+<li><a href="../03-python-functions-modules-practices/">Chapter 3: Python Functions, Modules, and Programming Best Practices</a></li>
+<li><a href="../04-python-control-flow-loops/">Chapter 4: Python Control Flow, Loops, and Error Handling</a></li>
+<li><a href="../05-raspberry-pi-pico-hardware/">Chapter 5: Raspberry Pi Pico Hardware and Development Environment</a></li>
+<li><a href="../06-micropython-apis-and-electronics/">Chapter 6: MicroPython APIs, GPIO Control, and Electrical Fundamentals</a></li>
+<li><a href="../09-neopixel-programming/">Chapter 9: NeoPixel Programming: Pixels, Colors, and the NeoPixel Library</a></li>
+<li><a href="../12-basic-animation-patterns/">Chapter 12: Basic LED Animation Patterns</a></li>
+<li><a href="../13-intermediate-animations/">Chapter 13: Intermediate Animation Techniques</a></li>
+<li><a href="../14-advanced-animation-patterns/">Chapter 14: Advanced Animation Patterns: Comet, Scanner, and Candle</a></li>
+<li><a href="../18-input-devices-and-sensors/">Chapter 18: Input Devices, Sensors, and State Machines</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 19! This is where everything connects. You have animations from Chapters 12–14, and inputs from Chapter 18. Now you'll wire them together into programs people can actually interact with — then learn the pro tools to save, share, and version your work. This is the full-stack maker chapter. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Build a complete multi-mode interactive animation program with button cycling</li>
+<li>Implement photo-reactive and sensor-driven animations</li>
+<li>Use Thonny's REPL, autocomplete, package manager, and console features</li>
+<li>Use the six core Git commands to save and manage your code</li>
+<li>Create and organize a GitHub repository for your projects</li>
+<li>Apply the <code>config.py</code> hardware abstraction pattern for cross-kit compatibility</li>
+<li>Flash new firmware onto the Pico using the UF2 drag-and-drop process</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>Raspberry Pi Pico with NeoPixel strip connected</li>
+<li>Thonny IDE installed and connected</li>
+<li>A momentary push button wired with debouncing (from Chapter 18)</li>
+<li>Optional: photoresistor for sensor-driven animations</li>
+<li>A GitHub account (free at github.com)</li>
+<li>Git installed on your computer</li>
+</ul>
+<hr />
+<h2 id="multi-pattern-programs">Multi-Pattern Programs</h2>
+<p>A <strong>multi-pattern program</strong> is one that can run several different animations, switching between them based on user input. Before Chapter 18, your programs ran one animation forever. Now you can build programs where every button press changes the experience.</p>
+<p>Before reading the design, here are two key terms:
+- <strong>Animation state variable</strong> — an integer that tracks which animation is currently active
+- <strong>Pattern switching logic</strong> — the code that reads the current state and calls the right animation function</p>
+<p><strong>Mode-Based Animation</strong> is the design pattern that holds it all together:</p>
+<ol>
+<li>Each animation gets a unique mode number (0, 1, 2 …)</li>
+<li>A button press increments the mode (with wrap-around)</li>
+<li>The main loop calls the animation function for the current mode</li>
+<li>Each animation function runs for one frame and returns</li>
+</ol>
+<h3 id="animation-restart-logic">Animation Restart Logic</h3>
+<p>When the mode changes, many animations need to reset their state. Without this, a comet tail animation might start mid-trail when you switch into it — which looks glitchy.</p>
+<p><strong>Animation Restart Logic</strong> resets all animation-specific variables when the mode changes:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span><span class="o">,</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="c1"># ── Button setup ──────────────────────────────────────────────────</span>
+<span class="n">btn</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+<span class="n">prev_btn</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">last_press</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">DEBOUNCE_MS</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">NUM_MODES</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">prev_mode</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>   <span class="c1"># forces a restart on first loop iteration</span>
+
+<span class="c1"># ── Per-animation state ───────────────────────────────────────────</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>                      <span class="c1"># rainbow offset</span>
+<span class="n">scan_pos</span> <span class="o">=</span> <span class="mf">0.0</span>                  <span class="c1"># scanner position</span>
+<span class="n">scan_dir</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">trail</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>  <span class="c1"># comet trail</span>
+<span class="n">breath_t</span> <span class="o">=</span> <span class="mf">0.0</span>                  <span class="c1"># breathing phase</span>
+
+<span class="k">def</span> <span class="nf">restart_animation</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">offset</span><span class="p">,</span> <span class="n">scan_pos</span><span class="p">,</span> <span class="n">scan_dir</span><span class="p">,</span> <span class="n">trail</span><span class="p">,</span> <span class="n">breath_t</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">scan_pos</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">scan_dir</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">trail</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+    <span class="n">breath_t</span> <span class="o">=</span> <span class="mf">0.0</span>
+</code></pre></div>
+<p>The <code>restart_animation</code> function initializes everything back to a known clean state whenever the mode changes.</p>
+<h3 id="pattern-switching-logic">Pattern Switching Logic</h3>
+<p>Before reading the complete loop, here's how the switching works:</p>
+<ol>
+<li>Check if <code>mode != prev_mode</code> — if so, call <code>restart_animation()</code> and record the new <code>prev_mode</code></li>
+<li>Check the button — if pressed, increment <code>mode</code></li>
+<li>Run one frame of the current animation function</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">frame_rainbow</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">offset</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">hue</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">i</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">)</span>
+        <span class="c1"># Simple hue-to-RGB (wheel function from Chapter 10)</span>
+        <span class="k">if</span> <span class="n">hue</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">hue</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">hue</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">hue</span> <span class="o">&lt;</span> <span class="mi">170</span><span class="p">:</span>
+            <span class="n">hue</span> <span class="o">-=</span> <span class="mi">85</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">hue</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">hue</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hue</span> <span class="o">-=</span> <span class="mi">170</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">hue</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">hue</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span>
+
+<span class="k">def</span> <span class="nf">frame_scanner</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">scan_pos</span><span class="p">,</span> <span class="n">scan_dir</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">scan_pos</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">220</span><span class="p">))</span> <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">scan_pos</span> <span class="o">+=</span> <span class="n">scan_dir</span> <span class="o">*</span> <span class="mf">0.6</span>
+    <span class="k">if</span> <span class="n">scan_pos</span> <span class="o">&gt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">scan_pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">scan_dir</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">frame_comet</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">trail</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">0.82</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span> <span class="o">%</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+    <span class="n">trail</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">frame_breathe</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">breath_t</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">breath_t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">level</span> <span class="o">*</span> <span class="mi">80</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">level</span> <span class="o">*</span> <span class="mi">30</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">level</span> <span class="o">*</span> <span class="mi">200</span><span class="p">))</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">breath_t</span> <span class="o">+=</span> <span class="mf">0.04</span>
+
+<span class="n">FRAMES</span> <span class="o">=</span> <span class="p">[</span><span class="n">frame_rainbow</span><span class="p">,</span> <span class="n">frame_scanner</span><span class="p">,</span> <span class="n">frame_comet</span><span class="p">,</span> <span class="n">frame_breathe</span><span class="p">]</span>
+
+<span class="c1"># ── Main loop ─────────────────────────────────────────────────────</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Restart on mode change</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="n">prev_mode</span><span class="p">:</span>
+        <span class="n">restart_animation</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+        <span class="n">prev_mode</span> <span class="o">=</span> <span class="n">mode</span>
+
+    <span class="c1"># Read button</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">btn</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">prev_btn</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">-</span> <span class="n">last_press</span> <span class="o">&gt;</span> <span class="n">DEBOUNCE_MS</span><span class="p">:</span>
+            <span class="n">mode</span> <span class="o">=</span> <span class="p">(</span><span class="n">mode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUM_MODES</span>
+            <span class="n">last_press</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+    <span class="n">prev_btn</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="c1"># Run one frame</span>
+    <span class="n">FRAMES</span><span class="p">[</span><span class="n">mode</span><span class="p">]()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a moving rainbow, then a scanner, then a comet tail, then breathing color — one button press per switch. Each animation starts cleanly from its initial state when you enter it.</p>
+<hr />
+<h2 id="input-abstraction-layer">Input Abstraction Layer</h2>
+<p>An <strong>Input Abstraction Layer</strong> is a helper module that handles all the low-level input details (pin setup, debouncing, state tracking) so the main program can just call <code>button_pressed()</code> without thinking about those details.</p>
+<p>Before the code, here's the value: if you ever change which GPIO pin your button is on, you update one line in the abstraction layer — not every place in the main program that checks the button.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># input_helpers.py  — save this file to the Pico alongside main.py</span>
+<span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span>
+
+<span class="k">class</span> <span class="nc">Button</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pin_num</span><span class="p">,</span> <span class="n">debounce_ms</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">pin_num</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debounce_ms</span> <span class="o">=</span> <span class="n">debounce_ms</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_press</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">just_pressed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+        <span class="n">pressed</span> <span class="o">=</span> <span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span>
+                   <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_press</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">debounce_ms</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pressed</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_press</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="k">return</span> <span class="n">pressed</span>
+</code></pre></div>
+<p>With this class, <code>btn.just_pressed()</code> returns <code>True</code> exactly once per button press. Your main loop becomes clean:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">input_helpers</span> <span class="kn">import</span> <span class="n">Button</span>
+<span class="n">btn</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">btn</span><span class="o">.</span><span class="n">just_pressed</span><span class="p">():</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="p">(</span><span class="n">mode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUM_MODES</span>
+    <span class="n">FRAMES</span><span class="p">[</span><span class="n">mode</span><span class="p">]()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="interactive-mode-controller">Interactive Mode Controller</h2>
+<p>The <strong>Interactive Mode Controller</strong> is the fully assembled program structure that manages:
+- Multiple animation patterns
+- Button cycling
+- Photo-reactive or sensor-driven override
+- Animation restart on mode change</p>
+<p><strong>Photo-Reactive Animation</strong>: the ADC reads the photoresistor and maps it to a brightness parameter that all animations use. In bright room conditions, animations run dimmer; in dark rooms, they run brighter.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ldr</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_brightness</span><span class="p">():</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">ldr</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>
+    <span class="c1"># Map 20000–55000 to 60–220 brightness (inverted: darker = brighter LEDs)</span>
+    <span class="n">clamped</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">20000</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">55000</span><span class="p">,</span> <span class="n">raw</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="mi">220</span> <span class="o">-</span> <span class="p">(</span><span class="n">clamped</span> <span class="o">-</span> <span class="mi">20000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">35000</span> <span class="o">*</span> <span class="mi">160</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Sensor-Driven Animation</strong>: instead of a fixed color, the animation hue or speed responds to sensor values:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">frame_sensor_rainbow</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">offset</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ldr</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">/</span> <span class="mi">65535</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1"># 1–7 pixels per frame</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">hue</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">i</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">)</span>
+        <span class="c1"># ... wheel function ...</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">speed</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span>
+</code></pre></div>
+<p>Moving the photoresistor from dark to bright changes the rainbow speed from slow to fast.</p>
+<p><strong>Button-Triggered Animation</strong>: a specific mode that only animates while the button is held, then stops when released. Useful for a "flash" or "strobe" effect:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">frame_hold_to_flash</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">btn</span><span class="o">.</span><span class="n">pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># held</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">220</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward with a smile">
+The "frame function returns immediately" rule is what makes all of this work. If an animation used <code>time.sleep()</code> inside it, the button wouldn't respond while that sleep ran. Frame-based animation gives both smooth visuals AND fast input response.</p>
+</div>
+<hr />
+<h2 id="thonny-ide-deep-features">Thonny IDE Deep Features</h2>
+<p>You've been using Thonny since Chapter 5. Now let's explore every feature it provides.</p>
+<h3 id="thonny-repl-panel">Thonny REPL Panel</h3>
+<p>The <strong>Thonny REPL Panel</strong> (also called the Shell) is the interactive Python console at the bottom of the Thonny window. REPL stands for Read–Eval–Print Loop.</p>
+<p><strong>REPL Interactive Testing</strong> means typing Python expressions directly and seeing the result immediately — without writing a full file. This is ideal for hardware debugging:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">machine</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+<span class="mi">1</span>
+</code></pre></div>
+<p>If you press the button while the cursor is after the parenthesis and press Enter again, you'll see <code>0</code> — confirming the button is wired correctly.</p>
+<p>The REPL is also useful for testing math formulas, checking color values, and exploring the <code>neopixel</code> module without running a full program.</p>
+<h3 id="thonny-run-controls">Thonny Run Controls</h3>
+<p>The Thonny toolbar has four key run controls:</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run (F5)</td>
+<td>Runs the current file on the connected device</td>
+</tr>
+<tr>
+<td>Stop (F2)</td>
+<td>Stops the running program; returns to REPL prompt</td>
+</tr>
+<tr>
+<td>Debug</td>
+<td>Steps through code line by line</td>
+</tr>
+<tr>
+<td>Open REPL</td>
+<td>Opens a fresh REPL session</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Serial Console in Thonny</strong>: the Shell panel doubles as a serial console — any <code>print()</code> calls in your Pico code appear here in real time. This is your primary debugging tool.</p>
+<h3 id="syntax-highlighting-and-code-autocomplete">Syntax Highlighting and Code Autocomplete</h3>
+<p><strong>Syntax Highlighting</strong> colors different parts of your code automatically: keywords are one color, strings another, comments another. This makes errors easier to spot — a string that doesn't end will immediately show as a wrong color.</p>
+<p><strong>Code Autocomplete</strong> appears when you press Tab after typing part of an identifier. Type <code>machine.</code> and press Tab — a list of all available attributes appears. This speeds up writing and reduces spelling mistakes.</p>
+<h3 id="thonny-package-manager">Thonny Package Manager</h3>
+<p>The <strong>Thonny Package Manager</strong> installs Python packages to the connected Pico. Open it from the Tools menu → Manage packages.</p>
+<p>The <strong>MicroPython Standard Library</strong> is built into MicroPython and does not need to be installed:</p>
+<ul>
+<li><code>machine</code> — hardware control (Pin, ADC, PWM, I2C, SPI)</li>
+<li><code>utime</code> — time functions (sleep, ticks_ms)</li>
+<li><code>neopixel</code> — NeoPixel driver</li>
+<li><code>math</code> — math functions (sin, cos, sqrt, pi)</li>
+<li><code>urandom</code> — random numbers</li>
+<li><code>ujson</code> — JSON encoding/decoding</li>
+<li><code>uos</code> — filesystem operations</li>
+</ul>
+<p>Packages NOT included in the standard MicroPython firmware must be installed via the package manager. For example, <code>umqtt.simple</code> (for MQTT messaging) must be installed before import.</p>
+<hr />
+<h2 id="file-upload-workflow">File Upload Workflow</h2>
+<p><strong>File Upload Workflow</strong> describes how a <code>.py</code> file moves from your computer to the Pico:</p>
+<ol>
+<li>Write and test your code in Thonny with the file open locally</li>
+<li>Use File → Save as → select "Raspberry Pi Pico" as the destination</li>
+<li>Save as <code>main.py</code> (Pico runs this automatically on power-up) or any other name</li>
+<li>Click Run (F5) to execute it immediately</li>
+</ol>
+<p><strong>Running Script on Pico</strong>: if a script is saved as <code>main.py</code> on the Pico, it runs every time the Pico receives power — even without a USB connection. This is how you make a standalone costume project that starts automatically when you plug in the battery.</p>
+<p>A typical file organization on the Pico:</p>
+<div class="highlight"><pre><span></span><code>/ (root of Pico filesystem)
+├── main.py          ← runs automatically on power-up
+├── config.py        ← hardware settings
+└── input_helpers.py ← button abstraction class
+</code></pre></div>
+<p><strong>Python Module Paths</strong>: MicroPython searches for imported modules in the root of the Pico filesystem. If you <code>import config</code>, MicroPython looks for <code>config.py</code> in <code>/</code>. Place helper files in the root directory alongside <code>main.py</code>.</p>
+<hr />
+<h2 id="the-configpy-module-pattern">The config.py Module Pattern</h2>
+<p>The <strong>config.py Module Pattern</strong> is a file named <code>config.py</code> that stores hardware-specific settings in one place. Every other file imports from <code>config</code> instead of using hard-coded values.</p>
+<p><strong>Hardware Abstraction Layer</strong> — the <code>config.py</code> file acts as an abstraction layer between your animation code (which doesn't care which pin is used) and the hardware (which requires a specific pin).</p>
+<p>A typical <code>config.py</code> for this course:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># config.py — hardware configuration for this kit</span>
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># GP0 → data line to NeoPixel strip</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>        <span class="c1"># number of LEDs in the strip</span>
+<span class="n">BRIGHTNESS_LIMIT</span> <span class="o">=</span> <span class="mf">0.4</span>    <span class="c1"># maximum brightness (0.0–1.0) to save power</span>
+<span class="n">BTN_PIN</span> <span class="o">=</span> <span class="mi">15</span>              <span class="c1"># GP15 → button input</span>
+<span class="n">LDR_PIN</span> <span class="o">=</span> <span class="mi">26</span>              <span class="c1"># ADC0 (GP26) → photoresistor</span>
+</code></pre></div>
+<p>Every program file starts with:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Cross-Kit Compatibility</strong>: when a student borrows a kit with a different number of pixels or a different pin assignment, they only change <code>config.py</code>. All programs import from config, so they all adapt automatically.</p>
+<p>If you compare this to the alternative — hard-coding <code>30</code> as the number of pixels in every program file — the advantage is clear. Changing kits would require editing every file.</p>
+<hr />
+<h2 id="git-version-control">Git Version Control</h2>
+<p><strong>Git Version Control</strong> is software that tracks changes to your code files over time. Every time you make a meaningful change and "commit" it, Git saves a snapshot. You can compare snapshots, go back to an earlier version, and collaborate with others.</p>
+<p>The following six commands cover 90% of everyday Git use.</p>
+<h3 id="git-status-command">git status Command</h3>
+<p><code>git status</code> shows which files have been changed, added, or are not yet tracked. Always run this first before doing anything else.</p>
+<div class="highlight"><pre><span></span><code>$ git status
+On branch main
+Changes not staged for commit:
+  modified:   main.py
+Untracked files:
+  input_helpers.py
+</code></pre></div>
+<h3 id="git-add-command">git add Command</h3>
+<p><code>git add</code> stages a file for the next commit. "Staging" means marking it as "include this change in the next snapshot."</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>main.py<span class="w"> </span>input_helpers.py
+</code></pre></div>
+<p>Or to add every changed file at once:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+</code></pre></div>
+<h3 id="git-commit-command">git commit Command</h3>
+<p><code>git commit</code> saves a permanent snapshot of all staged files. The <code>-m</code> flag lets you write a <strong>Commit Message</strong> on the same line.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add button input abstraction and four-mode animation&quot;</span>
+</code></pre></div>
+<p><strong>Commit Message Writing</strong>: a good commit message answers "what changed and why in one sentence." Use the imperative mood ("Add", "Fix", "Remove", not "Added", "Fixed", "Removed"). A reader should be able to understand the purpose of the snapshot without reading the code diff.</p>
+<h3 id="git-push-command">git push Command</h3>
+<p><code>git push</code> uploads your local commits to GitHub. After committing, push to save your work remotely:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push
+</code></pre></div>
+<p>If this is the first push on a new branch, you may need:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+<h3 id="git-pull-command">git pull Command</h3>
+<p><code>git pull</code> downloads commits that exist on GitHub but not yet on your computer. Run this when you've made changes on another computer (like the school lab) and want them locally:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull
+</code></pre></div>
+<h3 id="git-clone-command">git clone Command</h3>
+<p><code>git clone</code> downloads an entire repository from GitHub to your computer for the first time:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-username/moving-rainbow-projects.git
+</code></pre></div>
+<p>After cloning, Git automatically sets up the link to GitHub, so <code>push</code> and <code>pull</code> work immediately.</p>
+<hr />
+<h2 id="github-repository">GitHub Repository</h2>
+<p>A <strong>GitHub Repository</strong> is a cloud-hosted home for a project's code, tracked by Git. GitHub adds a web interface, collaboration tools, and issue tracking on top of Git.</p>
+<h3 id="repository-structure">Repository Structure</h3>
+<p>Before creating your repository, plan a sensible <strong>file organization</strong> structure. A clear layout helps others (and future-you) understand the project at a glance.</p>
+<p>Recommended structure for your Moving Rainbow repository:</p>
+<div class="highlight"><pre><span></span><code>moving-rainbow-projects/
+├── README.md           ← project overview (required!)
+├── config.py           ← hardware configuration
+├── main.py             ← the main program
+├── input_helpers.py    ← button/sensor helpers
+├── animations/
+│   ├── rainbow.py      ← rainbow animation functions
+│   ├── scanner.py      ← scanner animation functions
+│   └── comet.py        ← comet animation functions
+└── docs/
+    └── wiring.md       ← wiring diagram and setup notes
+</code></pre></div>
+<h3 id="readme-file-creation">README File Creation</h3>
+<p>A <strong>README</strong> file (always named <code>README.md</code>) appears on the GitHub repository front page. It should explain:
+1. What the project does
+2. What hardware it needs
+3. How to install and run it
+4. Any configuration steps</p>
+<p>A minimal <code>README.md</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gh"># Moving Rainbow Project</span>
+
+An interactive NeoPixel LED animation controller using a Raspberry Pi Pico.
+
+<span class="gu">## Hardware needed</span>
+<span class="k">-</span><span class="w"> </span>Raspberry Pi Pico
+<span class="k">-</span><span class="w"> </span>WS2812B LED strip (30 pixels)
+<span class="k">-</span><span class="w"> </span>One momentary push button
+
+<span class="gu">## Setup</span>
+<span class="k">1.</span> Copy <span class="sb">`config.py`</span> and <span class="sb">`main.py`</span> to the Pico using Thonny
+<span class="k">2.</span> Press the button to cycle between animation modes
+</code></pre></div>
+<p><strong>Code Backup with GitHub</strong>: beyond collaboration, GitHub acts as an automatic off-site backup of your code. If your computer is lost, stolen, or damaged, you can <code>git clone</code> your repository to any other machine and continue working within minutes.</p>
+<h4 id="diagram-git-workflow">Diagram: Git Workflow</h4>
+<iframe src="../../sims/git-workflow-diagram/main.html" width="100%" height="432px" scrolling="no"></iframe>
+<p><a href="../../sims/git-workflow-diagram/main.html">Run Git Workflow Fullscreen</a></p>
+<details>
+<summary>Interactive diagram: local ↔ GitHub file flow</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> git-workflow-diagram
+<strong>Library:</strong> Mermaid
+<strong>Status:</strong> Specified</p>
+<p>A Mermaid flowchart (left-to-right) with three columns:</p>
+<p><strong>Column 1 — Your computer (working files):</strong>
+- "Edit code in Thonny" box
+- Arrow down to "git add <files>"
+- Arrow down to "Staging Area" (dashed box)</p>
+<p><strong>Column 2 — Local Git repository:</strong>
+- Arrow from Staging Area labeled "git commit -m '...'"
+- "Local commit history" box with three stacked snapshots
+- Arrow up from "git pull" (from GitHub to local)</p>
+<p><strong>Column 3 — GitHub (cloud):</strong>
+- Arrow from Local labeled "git push"
+- "GitHub repository" box
+- Arrow down labeled "git clone" to "Another computer" (faded, showing the copy)</p>
+<p>Each action box is clickable: clicking it shows a tooltip with the exact command syntax and what it does.</p>
+<p>Canvas: 700 × 360 px. Responds to window resize.</p>
+<p>Learning objective: Understanding — the student can describe the three locations where Git stores data (working directory, local repo, GitHub) and which command moves data between them.</p>
+</details>
+<hr />
+<h2 id="firmware-flashing-workflow">Firmware Flashing Workflow</h2>
+<p><strong>Firmware flashing</strong> replaces the software that runs permanently inside the Pico's flash memory. You flash new firmware when:
+- You want to upgrade to a newer version of MicroPython
+- The Pico is stuck and not responding to Thonny
+- You want to switch to CircuitPython (a different flavor of Python)</p>
+<p>The <strong>UF2 Drag-and-Drop Process</strong> for flashing MicroPython onto a Pico:</p>
+<ol>
+<li>Download the latest <code>rp2-pico-*.uf2</code> file from the MicroPython website</li>
+<li>Hold the BOOTSEL button on the Pico while plugging in the USB cable</li>
+<li>Release BOOTSEL after the cable is plugged in — the Pico appears as a USB drive named <code>RPI-RP2</code></li>
+<li>Drag and drop the <code>.uf2</code> file onto the <code>RPI-RP2</code> drive</li>
+<li>The Pico restarts automatically and MicroPython is now running</li>
+</ol>
+<p>The entire process takes about 30 seconds. After flashing, reconnect Thonny by selecting the port in the bottom-right corner of the Thonny window.</p>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up both hands">
+Flashing new firmware erases everything stored on the Pico's filesystem — including <code>main.py</code>, <code>config.py</code>, and any helper files. Always push your code to GitHub before reflashing, so you can restore it with <code>git clone</code> afterward. Losing a half-finished project to an accidental reflash is a real risk.</p>
+</div>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Four-mode controller:</strong> Build the complete four-mode interactive controller from this chapter. Test all four modes and verify that each animation starts from a clean state when you enter it.</p>
+</li>
+<li>
+<p><strong>Config swap:</strong> Change <code>config.NUMBER_PIXELS</code> in <code>config.py</code> to half your actual pixel count. Observe how all animations automatically adapt. Then restore the original value.</p>
+</li>
+<li>
+<p><strong>First Git commit:</strong> Create a GitHub repository called <code>moving-rainbow</code>, add your <code>main.py</code> and <code>config.py</code>, write a README, and make your first commit and push.</p>
+</li>
+<li>
+<p><strong>Sensor speed control:</strong> Add a photoresistor to your kit and modify the rainbow animation to change speed based on light level. Push the updated code to GitHub with a meaningful commit message.</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What is an animation state variable and why is it needed?</li>
+<li>What does animation restart logic do and when does it run?</li>
+<li>What is the purpose of the Thonny REPL? Give one example of something you would test there.</li>
+<li>List the six core Git commands in order, and explain what each one does.</li>
+<li>What is the difference between <code>git commit</code> and <code>git push</code>?</li>
+<li>What is the <code>config.py</code> pattern and why does it enable cross-kit compatibility?</li>
+<li>When would you flash new MicroPython firmware onto the Pico?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You've graduated from writing single-pattern programs to building complete interactive systems — with Git, GitHub, and the full pro development toolchain to back them up. Every skill you learned in Chapters 1–18 now has a professional workflow wrapped around it. This is how real engineers work. You've earned it!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../20-project-design-and-capstone/">Chapter 20</a>, you'll plan and build a complete capstone project from scratch — applying every skill in this book to create something uniquely yours, document it, and present it to an audience.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../18-input-devices-and-sensors/" title="18. Input and Sensors" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  18. Input and Sensors
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../20-project-design-and-capstone/" title="20. Projects and Capstone" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  20. Projects and Capstone
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

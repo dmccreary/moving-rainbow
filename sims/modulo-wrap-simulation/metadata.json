@@ -1,0 +1,61 @@
+{
+  "title": "Modulo Wrap-Around Animation",
+  "description": "Understanding - the student can explain why modulo creates wrap-around behavior.",
+  "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "modulo-wrap-simulation",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "implemented",
+  "chapter_number": 11,
+  "chapter_title": "Mathematics for LED Programming",
+  "chapter_dir": "11-math-for-led-programming",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Modulo Wrap-Around Animation",
+    "learningObjectives": [
+      "Understanding - the student can explain why modulo creates wrap-around behavior."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 300
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
+}

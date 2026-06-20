@@ -1,0 +1,61 @@
+{
+  "title": "HSV Color Space Explorer",
+  "description": "Understanding - the student can predict how changing H, S, or V affects the output color.",
+  "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
+  "date": "2026-06-20",
+  "subject": [
+    "Moving Rainbow"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "hsv-color-explorer",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "implemented",
+  "chapter_number": 10,
+  "chapter_title": "Advanced Color Theory \u2014 HSV, Gamma Correction, and Color Palettes",
+  "chapter_dir": "10-advanced-color-theory",
+  "educational": {
+    "gradeLevel": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "HSV Color Space Explorer",
+    "learningObjectives": [
+      "Understanding - the student can predict how changing H, S, or V affects the output color."
+    ],
+    "bloomsTaxonomy": "TBD",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": []
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration with predict-then-check",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": [
+      "Students explain the demonstrated relationship in their own words."
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 390
+    },
+    "dependencies": [
+      "p5.js CDN"
+    ]
+  }
+}

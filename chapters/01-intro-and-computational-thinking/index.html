@@ -1,0 +1,2928 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn the four pillars of computational thinking—decomposition, pattern recognition, abstraction, and algorithm design—and the problem-solving frameworks you'll use throughout this course.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/01-intro-and-computational-thinking/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-python-variables-types-operators/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Introduction and Computational Thinking Foundations - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Introduction and Computational Thinking Foundations - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Learn the four pillars of computational thinking—decomposition, pattern recognition, abstraction, and algorithm design—and the problem-solving frameworks you'll use throughout this course." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/01-intro-and-computational-thinking/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/01-intro-and-computational-thinking/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Introduction and Computational Thinking Foundations - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Learn the four pillars of computational thinking—decomposition, pattern recognition, abstraction, and algorithm design—and the problem-solving frameworks you'll use throughout this course." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/01-intro-and-computational-thinking/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-and-computational-thinking-foundations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction and Computational Thinking Foundations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-computational-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Computational Thinking?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-four-pillars-of-computational-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Four Pillars of Computational Thinking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Four Pillars of Computational Thinking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decomposition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decomposition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-decomposition-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Decomposition in Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-recognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern Recognition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-your-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planning Your Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning Your Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#writing-pseudocode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Pseudocode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drawing-a-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drawing a Flowchart
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Drawing a Flowchart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-problem-solving-steps-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Problem-Solving Steps Flowchart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thinking-in-events-and-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thinking in Events and States
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thinking in Events and States">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-based-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event-Based Thinking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-based-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      State-Based Thinking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building and Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iterative-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-case-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Case Identification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-iterative-development-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Iterative Development Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-computational-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Computational Thinking?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-four-pillars-of-computational-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Four Pillars of Computational Thinking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Four Pillars of Computational Thinking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decomposition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decomposition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-decomposition-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Decomposition in Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-recognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern Recognition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-your-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planning Your Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning Your Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#writing-pseudocode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Pseudocode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drawing-a-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drawing a Flowchart
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Drawing a Flowchart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-problem-solving-steps-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Problem-Solving Steps Flowchart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thinking-in-events-and-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thinking in Events and States
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thinking in Events and States">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-based-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event-Based Thinking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-based-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      State-Based Thinking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building and Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iterative-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-case-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Case Identification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-iterative-development-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Iterative Development Simulator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/01-intro-and-computational-thinking/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="introduction-and-computational-thinking-foundations">Introduction and Computational Thinking Foundations</h1>
+<h2 id="summary">Summary</h2>
+<p>Introduces the four computational thinking pillars—decomposition, pattern recognition, abstraction, and algorithm design—alongside foundational problem-solving frameworks that students will apply throughout the entire course.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 16 concepts from the learning graph:</p>
+<ol>
+<li>Decomposition</li>
+<li>Pattern Recognition</li>
+<li>Abstraction</li>
+<li>Algorithm Design</li>
+<li>Breaking Down Problems</li>
+<li>Divide and Conquer</li>
+<li>Bottom-Up Problem Solving</li>
+<li>Top-Down Problem Solving</li>
+<li>Pseudocode Writing</li>
+<li>Flowchart Creation</li>
+<li>Problem-Solving Steps</li>
+<li>Event-Based Thinking</li>
+<li>State-Based Thinking</li>
+<li>Iterative Development</li>
+<li>Edge Case Identification</li>
+<li>Test Cases</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This is the first chapter. No prior chapters are required.</p>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Meet Pixel!</p>
+<p><img align="left" alt="Pixel waves hello" src="../../img/mascot/welcome.png" width="110" /></p>
+<p>Hi, I'm <strong>Pixel</strong> — an anthropomorphic WS2812B addressable LED, and I'll be your guide through this entire book. I'm the same kind of chip you'll be programming in every lesson, so what I can do with my rainbow halo ring is exactly what your LEDs will do on your strip.</p>
+<p>I don't show up randomly. I have exactly <strong>six jobs</strong> in this book, and you'll learn to recognize me by which one I'm doing:</p>
+<ol>
+<li><strong>Welcome you</strong> at the start of every chapter — that's what I'm doing right now!</li>
+<li><strong>Help you think</strong> when an idea needs a moment to sink in. My ring glows brighter when I'm in "deep think" mode.</li>
+<li><strong>Give you tips</strong> — the small moves a working coder would share that nobody writes down.</li>
+<li><strong>Warn you</strong> about the spots where coders get tripped up. I'll hold both hands up so you stop and check.</li>
+<li><strong>Encourage you</strong> when a concept looks scary on first contact. It almost always gets easier — I promise.</li>
+<li><strong>Celebrate with you</strong> at the end of each chapter when you've earned it!</li>
+</ol>
+<p>That's it. If I'm not doing one of those six things, I'm not in the chapter. Ready? <strong>Let's light this up!</strong></p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Describe the four pillars of computational thinking and use each one on a new problem</li>
+<li>Break a large problem into smaller, solvable pieces using decomposition</li>
+<li>Write a step-by-step plan in pseudocode before you write any code</li>
+<li>Draw and read a simple flowchart</li>
+<li>Explain the difference between event-based and state-based thinking</li>
+<li>Describe how iterative development and test cases help you build better programs</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<p>This chapter is about <em>thinking</em>. No hardware required yet!</p>
+<ul>
+<li>A pencil and paper (great for sketching flowcharts)</li>
+<li>Your curiosity</li>
+</ul>
+<hr />
+<h2 id="what-is-computational-thinking">What Is Computational Thinking?</h2>
+<p>Before we write a single line of code, we need to talk about how programmers <em>think</em>. Coding is two skills working together. The first skill is learning the rules of a programming language — like Python. The second skill is figuring out <em>how to solve a problem</em> before you write anything. That second skill is called <strong>computational thinking</strong>.</p>
+<p><strong>Computational thinking</strong> is a way of approaching problems that computers can help solve. It is not about typing fast or memorizing commands. It is about breaking hard problems into pieces, finding patterns, hiding complexity you don't need right now, and writing clear step-by-step plans. Professional programmers use these skills every single day — even when they've been coding for twenty years.</p>
+<p>The good news: you already use some of these skills in real life without realizing it. Let's look at all four.</p>
+<hr />
+<h2 id="the-four-pillars-of-computational-thinking">The Four Pillars of Computational Thinking</h2>
+<p>Computational thinking is built on four ideas. Programmers call these the <strong>four pillars</strong>. You'll use all four of them in almost every project in this course.</p>
+<p>The table below gives a quick overview. Don't worry if the ideas seem abstract right now — we'll explain each one with concrete examples right after.</p>
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>One-Line Definition</th>
+<th>Real-World Analogy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Decomposition</strong></td>
+<td>Break a big problem into smaller pieces</td>
+<td>Sorting a jigsaw puzzle into edge pieces and inside pieces</td>
+</tr>
+<tr>
+<td><strong>Pattern Recognition</strong></td>
+<td>Spot things that repeat or look similar</td>
+<td>Noticing that every traffic light cycles green → yellow → red</td>
+</tr>
+<tr>
+<td><strong>Abstraction</strong></td>
+<td>Focus on the details that matter; hide the rest</td>
+<td>Using a map app — you see roads, not every blade of grass</td>
+</tr>
+<tr>
+<td><strong>Algorithm Design</strong></td>
+<td>Write a clear, step-by-step plan a computer can follow</td>
+<td>A recipe that lists every step so anyone can bake the same cake</td>
+</tr>
+</tbody>
+</table>
+<h3 id="decomposition">Decomposition</h3>
+<p><strong>Decomposition</strong> means breaking a big, complicated problem into smaller problems you can solve one at a time.</p>
+<p>Imagine trying to make a glowing rainbow scroll across an LED strip. If you try to solve the whole thing at once, it feels overwhelming. But what if you split it up?</p>
+<ul>
+<li>First, figure out how to light up one single LED with a specific color.</li>
+<li>Then figure out how to set many LEDs to different colors at once.</li>
+<li>Then figure out how to shift all the colors one position along the strip each frame.</li>
+<li>Finally, figure out how to repeat that shift in a continuous loop.</li>
+</ul>
+<p>Each piece is manageable on its own. This strategy is called <strong>breaking down problems</strong>. The technique of splitting a problem in half — then splitting each half again — is called <strong>divide and conquer</strong>. It is one of the most powerful ideas in all of programming.</p>
+<p>You can attack a problem from two directions. <strong>Top-down problem solving</strong> means starting with the big goal and dividing it into smaller and smaller steps until each step is simple enough to code. <strong>Bottom-up problem solving</strong> means starting with the small pieces you already know how to build, then combining them into something bigger. In practice, most programmers use both directions, switching back and forth as the project evolves.</p>
+<p>Before we look at the interactive simulation below, make sure the core idea is solid: decomposition turns <em>one hard thing</em> into <em>several easier things</em>. The MicroSim shows this process in action with a real LED animation.</p>
+<h4 id="diagram-decomposition-in-action">Diagram: Decomposition in Action</h4>
+<iframe src="../../sims/decomposition-in-action/main.html" width="100%" height="422px" scrolling="no"></iframe>
+<p><a href="../../sims/decomposition-in-action/main.html">Run Decomposition in Action Fullscreen</a></p>
+<details>
+<summary>Decomposition in Action — p5.js MicroSim</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> decomposition-in-action<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning Objective:</strong> Students will <em>understand</em> (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.</p>
+<p><strong>Description:</strong> An interactive p5.js simulation showing a 30-LED strip playing a moving rainbow animation. The canvas is divided into two panels: a left panel showing the full running animation, and a right panel showing a labeled decomposition tree that reveals sub-problems one level at a time.</p>
+<p><strong>Canvas:</strong> 760 × 420 px, responsive (responds to window resize events via <code>updateCanvasSize()</code> called first in <code>setup()</code>).</p>
+<p><strong>Controls (p5.js built-in):</strong>
+- <code>createButton("Decompose")</code> — when clicked, animates the right panel to reveal the next level of the decomposition tree (4 levels total, one click per level).
+- <code>createButton("Reset")</code> — collapses the tree back to the root node only.
+- <code>createCheckbox("Animate", true)</code> — pauses or resumes the left-panel LED animation.</p>
+<p><strong>Decomposition tree structure (right panel):</strong>
+- Root (always visible): "Moving Rainbow Animation" (purple node, #642580)
+  - Level 1 (click 1): "Set pixel colors", "Shift by 1 each frame", "Loop forever"
+  - Level 2 under "Set pixel colors" (click 2): "Hue = position + offset", "Convert hue → RGB"
+  - Level 2 under "Shift by 1 each frame" (click 3): "offset += 1 each frame", "Use % to wrap around"</p>
+<p><strong>Interactions:</strong> Every node in the decomposition tree is clickable. Clicking a node opens a one-sentence tooltip on the canvas explaining what that sub-problem is about. A second click on the same node closes the tooltip.</p>
+<p><strong>Visual design:</strong>
+- Left panel: dark (#111) background, glowing HSV-rainbow LED circles (30 circles, radius 10px each, soft glow drawn with decreasing-alpha circles).
+- Right panel: light grey (#f0f0f0) background, rounded-rectangle nodes connected by thin dark lines.
+- Node colors: root = purple (#642580), Level 1 = teal (#41BAC1), Level 2 = orange (#E8903A).
+- White text inside all nodes.</p>
+<p>Implementation: p5.js, vanilla JavaScript. HSV-to-RGB conversion defined inline. All controls created with p5.js built-in functions. Canvas parented to <code>document.querySelector('main')</code>.</p>
+</details>
+<h3 id="pattern-recognition">Pattern Recognition</h3>
+<p><strong>Pattern recognition</strong> means spotting things that repeat, or noticing that two different problems have the same underlying shape.</p>
+<p>Look at these three LED animation ideas:</p>
+<ul>
+<li>A single pixel slides from the left end to the right end and starts over.</li>
+<li>A color wipe fills LEDs one at a time from left to right.</li>
+<li>A comet tail moves from left to right, leaving a fading trail behind it.</li>
+</ul>
+<p>All three share the same pattern: <em>something moves from left to right along the strip.</em> Once you see that, you can write one general "move left to right" function and adapt it for all three effects. Pattern recognition turns twenty separate problems into three. It is how experienced coders write less code and still accomplish more.</p>
+<p>You'll put this skill to work right away in Chapter 12, when we build our first library of animation patterns.</p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p><img align="left" alt="Pixel thinks deeply" src="../../img/mascot/thinking.png" width="100" /></p>
+<p>Here's a pattern I notice in almost every LED animation: <em>set the colors → wait a moment → shift or update → repeat.</em> That three-part loop shows up in blinking, fading, moving rainbows, comet tails, and nearly every effect in this course. Once you see it, a huge amount of code suddenly makes sense. Keep your eyes open for it!</p>
+</div>
+<h3 id="abstraction">Abstraction</h3>
+<p><strong>Abstraction</strong> means choosing to focus only on the details that matter for the problem you're solving right now — and setting everything else aside.</p>
+<p>Think about a map on your phone. You need to know which roads to take. You do <em>not</em> need to know the color of every front door, the names of every tree, or the speed of every passing car. The map app <em>abstracts away</em> those details so you can think clearly about navigation.</p>
+<p>In code, abstraction usually means creating a <strong>function</strong> — a named block of code that handles the details internally, so you don't have to think about them every time you use it. Later in this course you'll write a function that sets a pixel's color. When you call it, you won't need to think about how 24 bits of color data travel through a single wire to the LED chip. The function hides that complexity. Good abstraction makes code shorter, easier to read, and much easier to fix when something goes wrong.</p>
+<h3 id="algorithm-design">Algorithm Design</h3>
+<p><strong>Algorithm design</strong> means writing a clear, step-by-step plan that a computer — or anyone — can follow exactly and get the same result every time.</p>
+<p>A computer does precisely what you tell it. Nothing more, nothing less. An <strong>algorithm</strong> (say it: <em>AL-go-rith-um</em>) is a list of instructions specific enough that the result is always predictable. A bad instruction might say: "Make the LED strip look cool." A computer has no idea what "cool" means. A good algorithm says something like this:</p>
+<ol>
+<li>Set pixel 0 to red <code>(255, 0, 0)</code>.</li>
+<li>Set pixel 1 to orange <code>(255, 80, 0)</code>.</li>
+<li>Continue through yellow, green, blue, and violet.</li>
+<li>Wait 50 milliseconds.</li>
+<li>Shift every color one position to the right.</li>
+<li>Go back to step 4.</li>
+</ol>
+<p>Every step is specific and unambiguous. <em>That</em> is what computers need — and what good algorithm design provides.</p>
+<hr />
+<h2 id="planning-your-solution">Planning Your Solution</h2>
+<p>Good programmers plan before they code. Two tools make planning much easier: <strong>pseudocode</strong> and <strong>flowcharts</strong>. Using them is a key part of any solid problem-solving approach.</p>
+<h3 id="writing-pseudocode">Writing Pseudocode</h3>
+<p><strong>Pseudocode</strong> (say it: <em>SOO-doe-code</em>) is your algorithm written out in plain English before you translate it into real code. It looks a little like code, but it is meant for humans — not computers. The goal is to think through the logic of your solution without worrying about Python's exact rules.</p>
+<p>Here is a pseudocode example for a simple blink animation. Read through it once — notice how it reads almost like a to-do list:</p>
+<div class="highlight"><pre><span></span><code># Pseudocode: Simple Blink
+set all pixels to RED
+wait 0.5 seconds
+set all pixels to BLACK (off)
+wait 0.5 seconds
+repeat forever
+</code></pre></div>
+<p>That's not real Python — but it's clear enough that converting it to Python takes about five minutes. Writing pseudocode first prevents a very common mistake: starting to type before you've figured out what you're actually trying to do.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img align="left" alt="Pixel points upward with a sparkle" src="../../img/mascot/tip.png" width="100" /></p>
+<p>Write your pseudocode on paper or in a comment block first, <em>then</em> open your editor. Students who skip this step often write half a program, get confused about what comes next, and start over from scratch. Three minutes of planning usually saves twenty minutes of frustration — and sometimes saves the whole project!</p>
+</div>
+<h3 id="drawing-a-flowchart">Drawing a Flowchart</h3>
+<p>A <strong>flowchart</strong> is a diagram that shows the steps of an algorithm using shapes connected by arrows. Each shape has a specific meaning:</p>
+<ul>
+<li><strong>Oval (rounded rectangle):</strong> Start or End of the program</li>
+<li><strong>Rectangle:</strong> An action step — <em>do something</em></li>
+<li><strong>Diamond:</strong> A decision — a yes-or-no question</li>
+<li><strong>Arrow:</strong> Shows which step happens next</li>
+</ul>
+<p>Flowcharts make the <em>structure</em> of a program visible at a glance — especially loops and decisions. Before you explore the interactive flowchart below, make sure those four shapes are clear in your mind. The diagram shows the five <strong>problem-solving steps</strong> that programmers use every time they tackle something new. Each step is clickable and will show you a definition plus a real LED example.</p>
+<h4 id="diagram-problem-solving-steps-flowchart">Diagram: Problem-Solving Steps Flowchart</h4>
+<iframe src="../../sims/problem-solving-steps/main.html" width="100%" height="782px" scrolling="no"></iframe>
+<p><a href="../../sims/problem-solving-steps/main.html">Run Problem-Solving Steps Flowchart Fullscreen</a></p>
+<details>
+<summary>Five Problem-Solving Steps — Interactive Mermaid Flowchart</summary>
+<p>Type: Diagram
+<strong>sim-id:</strong> problem-solving-steps<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning Objective:</strong> Students will <em>understand</em> (Bloom's Level 2) the five-step problem-solving framework and be able to sequence the steps correctly.</p>
+<p><strong>Description:</strong> A vertical Mermaid flowchart (top-down direction) showing five problem-solving steps used by programmers. Every node has a <code>click</code> directive that calls a JavaScript function to update a <code>&lt;div id="step-info"&gt;</code> element below the diagram with a one-sentence definition and a one-sentence LED-specific example. Default div text: "Click any step to learn more."</p>
+<p><strong>Nodes and click content:</strong></p>
+<ul>
+<li>
+<p><strong>step1</strong> — "Understand the Problem" (stadium shape)
+  Click: "Restate the problem in your own words before touching code. <em>LED example: 'I need 30 LEDs to display a rainbow that scrolls right, one pixel per frame.'</em>"</p>
+</li>
+<li>
+<p><strong>step2</strong> — "Plan Your Solution" (rectangle)
+  Click: "Write pseudocode or draw a flowchart before opening your editor. <em>LED example: Pseudocode listing how to calculate each pixel's color from its position.</em>"</p>
+</li>
+<li>
+<p><strong>step3</strong> — "Write the Code" (rectangle)
+  Click: "Translate your plan into Python one small, testable piece at a time. <em>LED example: Write just the loop that assigns a hue to each pixel index.</em>"</p>
+</li>
+<li>
+<p><strong>step4</strong> — "Test and Debug" (diamond shape, question text: "Does it work?")
+  Click: "Run the program and compare actual output to expected output. <em>LED example: The rainbow scrolls backward — trace the offset increment sign.</em>"</p>
+</li>
+<li>
+<p><strong>step5</strong> — "Reflect and Improve" (stadium shape)
+  Click: "Ask: is the code readable? Can it be reused? What would you change? <em>LED example: Extract the hue formula into a named function for Chapter 9.</em>"</p>
+</li>
+</ul>
+<p><strong>Arrows:</strong>
+- step1 → step2 → step3 → step4 (main flow)
+- step4 → step3 (labeled "bug found", loops back)
+- step4 → step5 (labeled "it works!")
+- step5 → step1 (labeled "new challenge")</p>
+<p><strong>Info box:</strong> A <code>&lt;div id="step-info"&gt;</code> below the Mermaid <code>&lt;div&gt;</code>, styled with a light-purple background, rounded corners, and 1em padding. Updated by <code>showStepInfo(id)</code> JavaScript function triggered by Mermaid <code>click</code> directives.</p>
+<p><strong>Visual style:</strong> Node fill: purple (#642580), white text. Arrow labels styled in teal (#41BAC1). Direction: <code>flowchart TD</code>.</p>
+<p>Implementation: Mermaid 10.x <code>&lt;div class="mermaid"&gt;</code> block. Companion <code>&lt;script&gt;</code> block defines <code>window.showStepInfo(id)</code> as a global function mapping node ids to content strings, and sets the innerHTML of <code>#step-info</code>. The Mermaid <code>click</code> directive uses: <code>click step1 showStepInfo "step1"</code>.</p>
+</details>
+<hr />
+<h2 id="thinking-in-events-and-states">Thinking in Events and States</h2>
+<p>Two thinking patterns show up constantly in interactive programs. Learning to recognize them will make you a much better coder — especially when we add buttons and sensors in Chapter 18.</p>
+<h3 id="event-based-thinking">Event-Based Thinking</h3>
+<p><strong>Event-based thinking</strong> means organizing your program around things that <em>happen</em> — called <strong>events</strong> — rather than running a fixed sequence of steps over and over.</p>
+<p>An event is something that occurs at an unpredictable moment. In an LED project, common events include:</p>
+<ul>
+<li>A button gets pressed</li>
+<li>A light sensor detects sudden darkness</li>
+<li>A timer reaches zero</li>
+</ul>
+<p>When an event occurs, your program responds. When nothing is happening, the program might keep playing an animation in the background and simply wait. Most interactive electronics programs work this way.</p>
+<p>Think of a vending machine. It sits idle until you press a button (the event), then it drops a snack and goes back to waiting. It does not run through every possible product choice every second — it just waits for an event and responds when one arrives.</p>
+<h3 id="state-based-thinking">State-Based Thinking</h3>
+<p><strong>State-based thinking</strong> means tracking what your program is <em>currently doing</em> — its <strong>state</strong> — so it knows how to respond when the next event arrives.</p>
+<p>Imagine your LED controller can show three animations: Rainbow, Blink, and Comet Tail. A single button cycles through them. Your program needs to remember <em>which</em> animation is active right now. That "currently active animation" information is the state.</p>
+<p>A program that forgets its state would jump to a random animation on every button press. A program that tracks its state always moves in a predictable cycle: Rainbow → Blink → Comet → Rainbow → and so on.</p>
+<p>The table below compares the two thinking patterns side by side. Both have been explained above — the table is here to organize and contrast them.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Event-Based</th>
+<th>State-Based</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Question it answers</strong></td>
+<td>"What just happened?"</td>
+<td>"What is happening right now?"</td>
+</tr>
+<tr>
+<td><strong>Trigger</strong></td>
+<td>An external input (button, sensor, timer)</td>
+<td>No external trigger — just the current condition</td>
+</tr>
+<tr>
+<td><strong>LED example</strong></td>
+<td>Button pressed → switch to next animation</td>
+<td>Currently in Rainbow mode → next press goes to Blink</td>
+</tr>
+<tr>
+<td><strong>Code pattern</strong></td>
+<td><code>if button.value() == 0:</code></td>
+<td><code>if mode == 0:</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img align="left" alt="Pixel holds up both hands" src="../../img/mascot/warning.png" width="100" /></p>
+<p>Events and states are easy to confuse at first. Here's a clean rule: an <em>event</em> is something that <em>happens</em> (a press, a reading, a tick). A <em>state</em> is what your program <em>is currently doing</em>. In real interactive programs, you'll use both together: "When this event happens, change the state."</p>
+</div>
+<hr />
+<h2 id="building-and-testing">Building and Testing</h2>
+<p>Knowing how to plan and code is important. Knowing how to build things that <em>actually work</em> is equally important. Three ideas will help you enormously throughout this course: iterative development, edge case identification, and test cases.</p>
+<h3 id="iterative-development">Iterative Development</h3>
+<p><strong>Iterative development</strong> means building your program a small piece at a time and testing after every single addition.</p>
+<p>The opposite approach — writing the entire program before running it — almost always leads to trouble. When something breaks and you haven't tested anything, you have no idea where to look for the problem.</p>
+<p>Iterative development follows a simple cycle:</p>
+<ol>
+<li>Write the smallest piece that does <em>something</em> you can see or verify.</li>
+<li>Run it. Does it work?</li>
+<li>If yes, add the next piece.</li>
+<li>If no, fix it before adding anything new.</li>
+</ol>
+<p>For an LED project, you might start with just one pixel turning on. Then make it a specific color. Then add more pixels. Then add motion. Each step is small, tested, and confirmed before you move forward.</p>
+<div class="admonition success">
+<p class="admonition-title">You've got this!</p>
+<p><img align="left" alt="Pixel gives an encouraging thumbs-up" src="../../img/mascot/encouraging.png" width="100" /></p>
+<p>Iterative development is the single biggest habit that separates programmers who finish projects from those who get stuck. Build a little. Test a little. Build a little more. You'll be amazed at how quickly complex things come together when you work this way. Every coder in this room started exactly where you are!</p>
+</div>
+<h3 id="edge-case-identification">Edge Case Identification</h3>
+<p><strong>Edge case identification</strong> means finding the unusual, extreme, or unexpected situations where your program might break.</p>
+<p>The "normal" case is easy to test. The hard part is thinking about all the weird things that <em>could</em> happen. Here are some edge case questions for an LED animation program:</p>
+<ul>
+<li>What if the button gets pressed ten times in one second?</li>
+<li>What if the strip has only 1 pixel instead of 30?</li>
+<li>What if someone sets the brightness value to 0 — or to 300 (which is above the maximum of 255)?</li>
+<li>What if the battery is almost dead and the voltage drops while the animation runs?</li>
+</ul>
+<p>Edge cases are not rare in real life — they happen all the time, especially at science fairs and demos. Identifying them <em>before</em> you show your project means your project won't break in front of an audience.</p>
+<h3 id="test-cases">Test Cases</h3>
+<p>A <strong>test case</strong> is a specific example you use to check whether your code is working the way you intended.</p>
+<p>Every good test case has three parts:</p>
+<ul>
+<li><strong>Input:</strong> What you give to the program</li>
+<li><strong>Expected output:</strong> What you expect to see happen</li>
+<li><strong>Actual output:</strong> What actually happens when you run it</li>
+</ul>
+<p>If the expected and actual outputs match, the test passes. If they don't match, you've found a bug.</p>
+<p>Here is a sample test case for a color-fade function that dims red to black over five steps:</p>
+<ul>
+<li><strong>Input:</strong> Start color <code>(255, 0, 0)</code>, end color <code>(0, 0, 0)</code>, 5 steps</li>
+<li><strong>Expected output:</strong> Red decreases by 51 each step: <code>(255,0,0)</code> → <code>(204,0,0)</code> → <code>(153,0,0)</code> → <code>(102,0,0)</code> → <code>(51,0,0)</code> → <code>(0,0,0)</code></li>
+<li><strong>Actual output:</strong> Run the function and compare each value</li>
+</ul>
+<p>Writing test cases — even on paper before you code — is a key part of any solid problem-solving approach. It forces you to think precisely about what your code is supposed to do before you write a single line.</p>
+<p>The interactive MicroSim below lets you experience iterative development in action. Follow the four build stages in order, and notice how you can verify each stage before moving to the next.</p>
+<h4 id="diagram-iterative-development-simulator">Diagram: Iterative Development Simulator</h4>
+<iframe src="../../sims/iterative-dev-simulator/main.html" width="100%" height="382px" scrolling="no"></iframe>
+<p><a href="../../sims/iterative-dev-simulator/main.html">Run Iterative Development Simulator Fullscreen</a></p>
+<details>
+<summary>Build It Piece by Piece — p5.js Iterative Development Simulator</summary>
+<p>Type: MicroSim
+<strong>sim-id:</strong> iterative-dev-simulator<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p><strong>Learning Objective:</strong> Students will <em>apply</em> (Bloom's Level 3) the iterative development process by constructing a working LED animation through four small, independently testable stages.</p>
+<p><strong>Description:</strong> A p5.js canvas showing a row of 10 simulated LED circles on a dark background. A step panel on the right guides the student through four build stages. Each stage adds exactly one new feature and produces visible, verifiable output.</p>
+<p><strong>Canvas:</strong> 760 × 380 px, responsive (responds to window resize events via <code>updateCanvasSize()</code> called first in <code>setup()</code>). Canvas parented to <code>document.querySelector('main')</code>.</p>
+<p><strong>Step Panel (right side, ~240 px wide):</strong>
+- Title: "Build It Step by Step"
+- Numbered list showing all four steps. Current active step highlighted with teal (#41BAC1) background.
+- <code>createButton("Apply Next Step")</code> — advances to the next step and updates the LED display and status message.
+- <code>createButton("Reset")</code> — returns to the initial state (all LEDs off, Step 1 highlighted).</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Step 1 – One Pixel On:</strong> LED at index 0 lights up red <code>(255, 0, 0)</code>. All others remain dark.
+   Status message: "One pixel on! We can control a single LED."</p>
+</li>
+<li>
+<p><strong>Step 2 – All Pixels One Color:</strong> All 10 LEDs light up red.
+   Status message: "All 10 pixels on! We extended the same idea to the whole strip."</p>
+</li>
+<li>
+<p><strong>Step 3 – Rainbow Spread:</strong> Each LED gets a unique hue: <code>hue = (i / 10.0) * 360</code>, converted to RGB.
+   Status message: "Each pixel has its own hue — that's a rainbow!"</p>
+</li>
+<li>
+<p><strong>Step 4 – Animate:</strong> The rainbow scrolls using <code>offset</code>, incrementing by 1 each <code>draw()</code> frame. Pixel hue: <code>hue = ((i + offset) / 10.0) * 360 % 360</code>.
+   Status message: "It's moving! A full animation built in four tested steps."</p>
+</li>
+</ol>
+<p><strong>Edge Case Panel (visible only after Step 4 is applied):</strong>
+- Section header: "Try some edge cases:"
+- <code>createSlider("Pixels", 1, 30, 10, 1)</code> — adjusts the number of active LED circles. Extremes labeled "1 (edge)" and "30 (edge)". At 1 pixel, show the single-pixel animation so students see the degenerate case.
+- <code>createSlider("Speed", 1, 20, 4, 1)</code> — controls offset increment per frame. At value 20, the animation jumps too fast to look smooth (intentional edge case demonstration).
+- Text note below sliders: "Extreme values are called edge cases. Testing them now beats discovering them at the demo."</p>
+<p>Implementation: p5.js, vanilla JavaScript. HSV-to-RGB conversion inline (no external library). All controls created with p5.js built-in <code>createButton</code> and <code>createSlider</code>. Canvas parented to <code>document.querySelector('main')</code>.</p>
+</details>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>These activities need only a pencil and paper — no computer required.</p>
+<p><strong>Activity 1 — Decompose a Task</strong></p>
+<p>You want to create a "comet tail" effect: one bright pixel moves from left to right across the strip, leaving a trail of three progressively dimmer pixels behind it.</p>
+<p>Write a decomposed list of at least four sub-problems you would need to solve. For each one, write one sentence describing what it involves.</p>
+<p><strong>Activity 2 — Write Pseudocode</strong></p>
+<p>Pick one of your sub-problems from Activity 1. Write six to eight lines of pseudocode that solve <em>just that one piece</em>. Use plain English. Don't worry about Python syntax.</p>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<p>Answer each question in your own words. One or two sentences each is fine.</p>
+<ol>
+<li>Name the four pillars of computational thinking. Give one real-life example of each that is not mentioned in this chapter.</li>
+<li>What is the difference between top-down and bottom-up problem solving? Give an example of each.</li>
+<li>What is pseudocode, and why do programmers write it before writing real code?</li>
+<li>Explain the difference between an event and a state. Use a button-controlled LED animation as your example.</li>
+<li>A classmate says, "I'll write the whole program and then test it at the very end." What advice would you give them, and why?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter Complete!</p>
+<p><img align="left" alt="Pixel celebrates" src="../../img/mascot/celebration.png" width="120" /></p>
+<p>You just covered 16 big ideas in one chapter — the four pillars of computational thinking, pseudocode, flowcharts, problem-solving steps, event-based and state-based thinking, iterative development, edge case identification, and test cases.</p>
+<p>Every single one of these ideas shows up again in every chapter, every animation, and every project from here on. You are already thinking like a programmer. That is not a small thing. <strong>Let's light this up!</strong></p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../02-python-variables-types-operators/">Chapter 2</a>, we move from pure thinking into Python: variables, data types, and operators — the basic building blocks you'll use to make those LED animations actually run.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../" title="List of Chapters" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  List of Chapters
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../02-python-variables-types-operators/" title="2. Python Basics" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  2. Python Basics
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

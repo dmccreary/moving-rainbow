@@ -1,0 +1,2766 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Explore the RGB additive color model, the color wheel, complementary and analogous colors, color temperature, and color psychology for LED design.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/07-rgb-color-theory/">
+      
+      
+        <link rel="prev" href="../06-micropython-apis-and-electronics/">
+      
+      
+        <link rel="next" href="../08-neopixel-led-hardware/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Color Theory — The RGB Color Model and Color Mixing - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Color Theory — The RGB Color Model and Color Mixing - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Explore the RGB additive color model, the color wheel, complementary and analogous colors, color temperature, and color psychology for LED design." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/07-rgb-color-theory/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/07-rgb-color-theory/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Color Theory — The RGB Color Model and Color Mixing - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Explore the RGB additive color model, the color wheel, complementary and analogous colors, color temperature, and color psychology for LED design." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/07-rgb-color-theory/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#color-theory-the-rgb-color-model-and-color-mixing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Color Theory — The RGB Color Model and Color Mixing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-light-makes-color-the-rgb-color-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Light Makes Color: The RGB Color Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Light Makes Color: The RGB Color Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additive-vs-subtractive-color-mixing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additive vs. Subtractive Color Mixing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additive vs. Subtractive Color Mixing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-additive-vs-subtractive-color-mixing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Additive vs. Subtractive Color Mixing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-color-wheel-and-spectral-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Color Wheel and Spectral Sequence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-relationships-complementary-analogous-and-triadic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Relationships: Complementary, Analogous, and Triadic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Color Relationships: Complementary, Analogous, and Triadic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complementary-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complementary Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analogous-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analogous Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#triadic-color-scheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Triadic Color Scheme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warm-cool-and-color-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warm, Cool, and Color Temperature
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Warm, Cool, and Color Temperature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warm-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warm Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cool-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cool Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Temperature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perceived-brightness-vs-linear-brightness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perceived Brightness vs. Linear Brightness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perceived Brightness vs. Linear Brightness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-perceived-vs-linear-brightness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Perceived vs. Linear Brightness
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-psychology-color-affects-mood" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Psychology: Color Affects Mood
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-color-theory-into-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting Color Theory Into Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-light-makes-color-the-rgb-color-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Light Makes Color: The RGB Color Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Light Makes Color: The RGB Color Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additive-vs-subtractive-color-mixing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additive vs. Subtractive Color Mixing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additive vs. Subtractive Color Mixing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-additive-vs-subtractive-color-mixing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Additive vs. Subtractive Color Mixing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-color-wheel-and-spectral-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Color Wheel and Spectral Sequence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-relationships-complementary-analogous-and-triadic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Relationships: Complementary, Analogous, and Triadic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Color Relationships: Complementary, Analogous, and Triadic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complementary-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complementary Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analogous-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analogous Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#triadic-color-scheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Triadic Color Scheme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warm-cool-and-color-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warm, Cool, and Color Temperature
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Warm, Cool, and Color Temperature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warm-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warm Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cool-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cool Colors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Temperature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perceived-brightness-vs-linear-brightness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perceived Brightness vs. Linear Brightness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perceived Brightness vs. Linear Brightness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-perceived-vs-linear-brightness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Perceived vs. Linear Brightness
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-psychology-color-affects-mood" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Psychology: Color Affects Mood
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-color-theory-into-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting Color Theory Into Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/07-rgb-color-theory/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="color-theory-the-rgb-color-model-and-color-mixing">Color Theory: The RGB Color Model and Color Mixing</h1>
+<h2 id="summary">Summary</h2>
+<p>Explores the RGB additive color model, primary light colors, the color wheel, spectral sequence, complementary and analogous colors, warm and cool colors, color temperature, color contrast, and the psychological effects of color choices.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 20 concepts from the learning graph:</p>
+<ol>
+<li>RGB Color Model</li>
+<li>Additive Color Mixing</li>
+<li>Subtractive Color Mixing</li>
+<li>Red as Primary Light Color</li>
+<li>Green as Primary Light Color</li>
+<li>Blue as Primary Light Color</li>
+<li>Color Wheel</li>
+<li>Spectral Color Sequence</li>
+<li>Hue</li>
+<li>Value (Brightness Level)</li>
+<li>Complementary Colors</li>
+<li>Analogous Colors</li>
+<li>Color Temperature</li>
+<li>Warm Colors</li>
+<li>Cool Colors</li>
+<li>Color Contrast</li>
+<li>Perceived Brightness</li>
+<li>Linear Brightness</li>
+<li>Color Psychology</li>
+<li>Triadic Color Scheme</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 7! This chapter is all about color — what it is, how light mixes, and how to pick colors that look amazing together. Artists spend years learning this. You're going to learn the part that matters most for LED design in one chapter. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Explain how the RGB additive color model works</li>
+<li>Describe the difference between additive (light) and subtractive (paint) color mixing</li>
+<li>Identify the color wheel and name complementary, analogous, and triadic color schemes</li>
+<li>Choose warm vs. cool colors intentionally</li>
+<li>Explain the difference between perceived brightness and linear brightness</li>
+<li>Describe how color affects mood and how to use that in your LED projects</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>No hardware required for this chapter — it's all about understanding color!</li>
+<li>Optional: A NeoPixel strip to test the color examples as you read</li>
+</ul>
+<hr />
+<h2 id="how-light-makes-color-the-rgb-color-model">How Light Makes Color: The RGB Color Model</h2>
+<p>When you look at a screen, a TV, or an LED, the colors you see are made of light — not paint. That changes <em>everything</em> about how colors mix.</p>
+<p>The <strong>RGB color model</strong> describes colors using three <strong>primary light colors</strong>: <strong>red</strong>, <strong>green</strong>, and <strong>blue</strong>. Every color your LED strip can make is a combination of those three.</p>
+<p>Each channel — red, green, and blue — has a value from <strong>0 to 255</strong>:</p>
+<ul>
+<li><strong>0</strong> means that channel is completely off (contributes no light)</li>
+<li><strong>255</strong> means that channel is at full brightness</li>
+</ul>
+<p>Here are some key colors expressed as RGB tuples:</p>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Red</th>
+<th>Green</th>
+<th>Blue</th>
+<th>Tuple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red</td>
+<td>255</td>
+<td>0</td>
+<td>0</td>
+<td><code>(255, 0, 0)</code></td>
+</tr>
+<tr>
+<td>Green</td>
+<td>0</td>
+<td>255</td>
+<td>0</td>
+<td><code>(0, 255, 0)</code></td>
+</tr>
+<tr>
+<td>Blue</td>
+<td>0</td>
+<td>0</td>
+<td>255</td>
+<td><code>(0, 0, 255)</code></td>
+</tr>
+<tr>
+<td>White</td>
+<td>255</td>
+<td>255</td>
+<td>255</td>
+<td><code>(255, 255, 255)</code></td>
+</tr>
+<tr>
+<td>Black (off)</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td><code>(0, 0, 0)</code></td>
+</tr>
+<tr>
+<td>Yellow</td>
+<td>255</td>
+<td>255</td>
+<td>0</td>
+<td><code>(255, 255, 0)</code></td>
+</tr>
+<tr>
+<td>Cyan</td>
+<td>0</td>
+<td>255</td>
+<td>255</td>
+<td><code>(0, 255, 255)</code></td>
+</tr>
+<tr>
+<td>Magenta</td>
+<td>255</td>
+<td>0</td>
+<td>255</td>
+<td><code>(255, 0, 255)</code></td>
+</tr>
+<tr>
+<td>Orange</td>
+<td>255</td>
+<td>128</td>
+<td>0</td>
+<td><code>(255, 128, 0)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Notice that <strong>white</strong> is all three channels at maximum. Black is all channels at zero — the LED is simply off.</p>
+<h3 id="additive-vs-subtractive-color-mixing">Additive vs. Subtractive Color Mixing</h3>
+<p>Here's the surprising part: <strong>light mixes differently from paint</strong>.</p>
+<p><strong>Additive color mixing</strong> is what LEDs do. You start with darkness and <em>add</em> light. Adding red + green light makes yellow. Adding all three makes white. The more light you add, the brighter the result.</p>
+<p><strong>Subtractive color mixing</strong> is what paint and ink do. You start with white paper and <em>subtract</em> light by applying pigments. Mixing red and green paint makes a muddy brown. The more pigments you add, the darker the result gets.</p>
+<p>This is why you can't just use your childhood knowledge of paint mixing to predict LED colors. In LED-world: red + green = yellow. That surprises almost everyone the first time!</p>
+<h4 id="diagram-additive-vs-subtractive-color-mixing">Diagram: Additive vs. Subtractive Color Mixing</h4>
+<iframe src="../../sims/additive-subtractive-mixing/main.html" width="100%" height="362px" scrolling="no"></iframe>
+<p><a href="../../sims/additive-subtractive-mixing/main.html">Run Additive vs. Subtractive Color Mixing Fullscreen</a></p>
+<details>
+<summary>Interactive diagram: additive and subtractive color mixing side by side</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> additive-subtractive-mixing
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>Two side-by-side panels. Left panel labeled "Additive (Light — LEDs)": three overlapping circles in red, green, and blue on a black background. Where red and green overlap: yellow. Where green and blue overlap: cyan. Where red and blue overlap: magenta. Where all three overlap: white. Right panel labeled "Subtractive (Paint — Pigments)": three overlapping circles in red (magenta-red), blue (cyan-blue), and yellow on a white background. Where they overlap, colors darken toward brown/gray/black. Hovering over any overlap region shows a tooltip: "Red + Green light = Yellow" or "Red + Blue paint = Purple-brown". A toggle button switches between "Light Mode" and "Paint Mode" to emphasize the difference. Canvas: 700 × 350 px. Responds to window resize.</p>
+<p>Learning objective: Understanding — explain why light mixing and paint mixing produce different results.</p>
+</details>
+<hr />
+<h2 id="the-color-wheel-and-spectral-sequence">The Color Wheel and Spectral Sequence</h2>
+<p>The <strong>spectral color sequence</strong> is the order colors appear in a rainbow: red → orange → yellow → green → cyan → blue → indigo → violet. This sequence matches the wavelengths of visible light, from longest (red, ~700 nm) to shortest (violet, ~400 nm).</p>
+<p>A <strong>color wheel</strong> arranges these colors in a circle so you can see the relationships between them. Understanding the color wheel helps you choose colors that work well together.</p>
+<p>A <strong>hue</strong> is the pure color itself — where it sits on the wheel (red, blue, orange, etc.) without considering brightness or how much white or black is mixed in.</p>
+<p><strong>Value</strong> (also called <strong>brightness level</strong>) describes how light or dark a color is. A high-value color is bright; a low-value color is dark. In RGB, you control value by scaling all three channels up or down equally. For example, dim red is <code>(60, 0, 0)</code> and bright red is <code>(255, 0, 0)</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Pixel thinking">
+Hue is the "what color" — red, blue, green, orange. Value is the "how bright" — dim, medium, full blast. You control both with RGB numbers. Hue comes from the <em>ratio</em> of R:G:B. Value comes from how <em>large</em> those numbers are.</p>
+</div>
+<hr />
+<h2 id="color-relationships-complementary-analogous-and-triadic">Color Relationships: Complementary, Analogous, and Triadic</h2>
+<p>Artists use color relationships to create effects. Here are the three most useful for LED design.</p>
+<h3 id="complementary-colors">Complementary Colors</h3>
+<p><strong>Complementary colors</strong> are opposite each other on the color wheel. Placing them together creates strong visual contrast — each color makes the other look more vivid.</p>
+<p>The main complementary pairs:</p>
+<ul>
+<li>Red ↔ Cyan</li>
+<li>Green ↔ Magenta</li>
+<li>Blue ↔ Yellow</li>
+</ul>
+<p>In RGB, the complement of a color is simply <code>(255-r, 255-g, 255-b)</code>. The complement of red <code>(255, 0, 0)</code> is cyan <code>(0, 255, 255)</code>.</p>
+<h3 id="analogous-colors">Analogous Colors</h3>
+<p><strong>Analogous colors</strong> sit next to each other on the color wheel. They blend smoothly and feel harmonious. A red → orange → yellow sequence is analogous. Use analogous colors for smooth gradient effects and calm, cohesive lighting.</p>
+<h3 id="triadic-color-scheme">Triadic Color Scheme</h3>
+<p>A <strong>triadic color scheme</strong> uses three colors evenly spaced around the color wheel — 120° apart. The classic example is red, green, and blue — which happen to be your three RGB primaries! Triadic schemes feel balanced and energetic.</p>
+<p>The table below compares the three relationships:</p>
+<table>
+<thead>
+<tr>
+<th>Scheme</th>
+<th>Description</th>
+<th>Feel</th>
+<th>LED Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Complementary</td>
+<td>Two opposite colors</td>
+<td>High contrast, vibrant</td>
+<td>Alert patterns, attention-grabbing effects</td>
+</tr>
+<tr>
+<td>Analogous</td>
+<td>Adjacent colors</td>
+<td>Smooth, harmonious</td>
+<td>Gradients, calm ambient lighting</td>
+</tr>
+<tr>
+<td>Triadic</td>
+<td>Three evenly spaced colors</td>
+<td>Balanced, energetic</td>
+<td>Rainbow effects, party lighting</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="warm-cool-and-color-temperature">Warm, Cool, and Color Temperature</h2>
+<p>Colors carry emotional weight. Understanding this helps you choose the right mood for your projects.</p>
+<h3 id="warm-colors">Warm Colors</h3>
+<p><strong>Warm colors</strong> — reds, oranges, and yellows — feel energetic, exciting, or cozy. Think of fire, sunsets, and candlelight. They tend to "advance" visually, meaning they seem closer to the viewer.</p>
+<p>In RGB, warm colors have high red and moderate-to-high green values, with low or zero blue.</p>
+<h3 id="cool-colors">Cool Colors</h3>
+<p><strong>Cool colors</strong> — blues, greens, and cyans — feel calm, peaceful, or refreshing. Think of ocean water, moonlight, and clear sky. They tend to "recede" visually, seeming farther away.</p>
+<p>In RGB, cool colors have high blue or green values with low red.</p>
+<h3 id="color-temperature">Color Temperature</h3>
+<p><strong>Color temperature</strong> is the warmth or coolness of a white or near-white light, measured in Kelvin (K). Warmer whites (2700 K) look orange-ish, like candlelight. Cooler whites (6500 K) look blue-white, like an overcast day. You can simulate color temperature on your LED strip by adjusting the ratio of red to blue in your white color value. A warm white might be <code>(255, 200, 100)</code>, while a cool white might be <code>(200, 220, 255)</code>.</p>
+<hr />
+<h2 id="perceived-brightness-vs-linear-brightness">Perceived Brightness vs. Linear Brightness</h2>
+<p>Here's a fact that surprises most people: <strong>your eyes don't respond to light in a straight line</strong>.</p>
+<p><strong>Linear brightness</strong> is the actual physical light output of the LED. Doubling the RGB value doubles the light output.</p>
+<p><strong>Perceived brightness</strong> is how bright <em>your eye thinks</em> something is. Because of how human vision works, doubling the physical brightness does not make something look twice as bright. The eye is more sensitive to changes in dark areas than bright ones.</p>
+<p>This means that the difference between <code>(0, 0, 0)</code> and <code>(30, 0, 0)</code> <em>looks</em> much bigger than the difference between <code>(200, 0, 0)</code> and <code>(230, 0, 0)</code> — even though both are a change of 30 units.</p>
+<p><strong>Color contrast</strong> is the difference in hue, value, or both between two colors that appear next to each other. High contrast (dark background, bright foreground) makes patterns easy to see. Low contrast creates subtle, blended effects.</p>
+<p>You'll learn how to correct for perceived brightness in Chapter 10, where we cover gamma correction.</p>
+<h4 id="diagram-perceived-vs-linear-brightness">Diagram: Perceived vs. Linear Brightness</h4>
+<iframe src="../../sims/perceived-vs-linear-brightness/main.html" width="100%" height="382px" scrolling="no"></iframe>
+<p><a href="../../sims/perceived-vs-linear-brightness/main.html">Run Perceived vs. Linear Brightness Fullscreen</a></p>
+<details>
+<summary>Interactive chart: how perceived brightness differs from linear brightness</summary>
+<p>Type: chart
+<strong>sim-id:</strong> perceived-vs-linear-brightness
+<strong>Library:</strong> Chart.js
+<strong>Status:</strong> Specified</p>
+<p>A line chart with two curves on the same axes. X-axis: "Linear LED value (0–255)". Y-axis: "Perceived brightness (0–100%)". Curve 1 labeled "Linear (what the LED does)": a straight diagonal line from (0,0) to (255,100). Curve 2 labeled "Perceived (what your eye sees)": a concave curve that rises quickly at low values and slowly at high values, approximating a power function with gamma ~2.2. On hover, tooltips show: "LED value: X → Perceived brightness: Y%". A slider below lets users drag and see a dot move along both curves simultaneously, highlighting the gap between them. Canvas: 700 × 350 px. Responds to window resize.</p>
+<p>Learning objective: Understanding — explain why gamma correction is needed.</p>
+</details>
+<hr />
+<h2 id="color-psychology-color-affects-mood">Color Psychology: Color Affects Mood</h2>
+<p><strong>Color psychology</strong> is the study of how color influences how people feel. As an LED designer, you can use this knowledge intentionally.</p>
+<p>Here are common associations (these vary by culture, so treat them as tendencies, not rules):</p>
+<ul>
+<li><strong>Red</strong> — energy, excitement, urgency, warmth</li>
+<li><strong>Orange</strong> — enthusiasm, creativity, friendliness</li>
+<li><strong>Yellow</strong> — happiness, optimism, attention</li>
+<li><strong>Green</strong> — nature, calm, growth, safety</li>
+<li><strong>Blue</strong> — trust, calm, focus, cool professionalism</li>
+<li><strong>Purple / Violet</strong> — creativity, mystery, luxury</li>
+<li><strong>White</strong> — cleanliness, clarity, openness</li>
+<li><strong>Warm orange-white</strong> — cozy, homey, relaxed (candlelight feel)</li>
+<li><strong>Cool blue-white</strong> — alert, clinical, modern</li>
+</ul>
+<p>When you design a costume or room light, think about the feeling you want to create. A Halloween costume might use deep reds and flickering orange. A study lamp might use cool blue-white. A party display might cycle through triadic colors quickly to create excitement.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward">
+Before you write any animation code, ask yourself: "What do I want this light to feel like?" Cozy? Exciting? Mysterious? Pick your colors based on the answer. The code comes after the design choice.</p>
+</div>
+<hr />
+<h2 id="putting-color-theory-into-code">Putting Color Theory Into Code</h2>
+<p>Now that you understand color relationships, let's put them to use. Here's a program that displays a complementary pair — red and cyan — alternating across the strip.</p>
+<p>The key idea: red is <code>(255, 0, 0)</code>. Its complement is <code>(255-255, 255-0, 255-0)</code> = <code>(0, 255, 255)</code> (cyan).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">cyan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>   <span class="c1"># complement of red</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">red</span>    <span class="c1"># even pixels: red</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cyan</span>   <span class="c1"># odd pixels: cyan</span>
+
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<p>You should see alternating red and cyan pixels — a strong complementary contrast pattern.</p>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Warm sunset:</strong> Create a "sunset" on your strip using five warm colors from dark red through orange to yellow. Set groups of pixels to each color.</p>
+</li>
+<li>
+<p><strong>Complement finder:</strong> Write a Python function <code>complement(r, g, b)</code> that returns the complementary color. Test it with a few colors.</p>
+</li>
+<li>
+<p><strong>Triadic display:</strong> Set your strip to thirds — one third red, one third green, one third blue. Observe the triadic balance.</p>
+</li>
+<li>
+<p><strong>Mood selector:</strong> Pick a mood (calm, excited, cozy, alert). Choose colors that match. Write the code to display them.</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What are the three primary light colors in the RGB model?</li>
+<li>What color do you get when red and green light are at full brightness and blue is at zero?</li>
+<li>What is the difference between additive and subtractive color mixing?</li>
+<li>What does "complementary colors" mean? Give one example pair.</li>
+<li>What are analogous colors? Why do they look smooth together?</li>
+<li>What is the difference between hue and value?</li>
+<li>Why doesn't doubling the LED brightness value make the LED look twice as bright?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You're now thinking like an LED artist! You know why light mixes differently from paint, how to find complementary and analogous colors, and how to use warm and cool colors intentionally. Your animations are about to get a lot more intentional — and a lot more beautiful.</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../08-neopixel-led-hardware/">Chapter 8</a>, you'll go deep on the WS2812B hardware itself — how these chips work, how to wire them, and what all those form factors (strips, rings, matrices) can do.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../06-micropython-apis-and-electronics/" title="6. MicroPython APIs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  6. MicroPython APIs
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../08-neopixel-led-hardware/" title="8. NeoPixel Hardware" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  8. NeoPixel Hardware
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

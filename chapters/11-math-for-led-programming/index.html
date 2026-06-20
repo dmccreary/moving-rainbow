@@ -1,0 +1,2640 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn the math that powers LED effects — modulo arithmetic, linear interpolation, sine waves, exponential decay, normalization, range mapping, and color gradients.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/11-math-for-led-programming/">
+      
+      
+        <link rel="prev" href="../10-advanced-color-theory/">
+      
+      
+        <link rel="next" href="../12-basic-animation-patterns/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Mathematics for LED Programming - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Mathematics for LED Programming - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Learn the math that powers LED effects — modulo arithmetic, linear interpolation, sine waves, exponential decay, normalization, range mapping, and color gradients." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/11-math-for-led-programming/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/11-math-for-led-programming/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Mathematics for LED Programming - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Learn the math that powers LED effects — modulo arithmetic, linear interpolation, sine waves, exponential decay, normalization, range mapping, and color gradients." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/11-math-for-led-programming/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mathematics-for-led-programming" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mathematics for LED Programming
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integer-and-floating-point-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integer and Floating-Point Arithmetic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulo-arithmetic-and-wrap-around" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modulo Arithmetic and Wrap-Around
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modulo Arithmetic and Wrap-Around">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-modulo-wrap-around-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Modulo Wrap-Around Animation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normalization-and-mapping-value-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normalization and Mapping Value Ranges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-interpolation-lerp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Interpolation (LERP)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sine-wave-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sine Wave Function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exponential-decay-and-brightness-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exponential Decay and Brightness Formulas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-numbers-for-animations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Random Numbers for Animations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floor-ceiling-and-absolute-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Floor, Ceiling, and Absolute Value
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Floor, Ceiling, and Absolute Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-math-functions-in-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Math Functions in Animation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-smooth-gradient-with-breathing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It Together: Smooth Gradient with Breathing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integer-and-floating-point-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integer and Floating-Point Arithmetic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulo-arithmetic-and-wrap-around" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modulo Arithmetic and Wrap-Around
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modulo Arithmetic and Wrap-Around">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-modulo-wrap-around-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Modulo Wrap-Around Animation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normalization-and-mapping-value-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normalization and Mapping Value Ranges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-interpolation-lerp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Interpolation (LERP)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sine-wave-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sine Wave Function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exponential-decay-and-brightness-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exponential Decay and Brightness Formulas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-numbers-for-animations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Random Numbers for Animations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floor-ceiling-and-absolute-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Floor, Ceiling, and Absolute Value
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Floor, Ceiling, and Absolute Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-math-functions-in-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Math Functions in Animation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-smooth-gradient-with-breathing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It Together: Smooth Gradient with Breathing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/11-math-for-led-programming/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="mathematics-for-led-programming">Mathematics for LED Programming</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers the mathematical concepts powering LED effects: modulo arithmetic, linear interpolation, normalization, sine wave functions, exponential decay, range mapping, random number generation, brightness gamma functions, and the math behind color interpolation and smooth color transitions.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 30 concepts from the learning graph:</p>
+<ol>
+<li>Modulo Arithmetic</li>
+<li>Integer Arithmetic</li>
+<li>Floating-Point Arithmetic</li>
+<li>Linear Interpolation</li>
+<li>Sine Wave Function</li>
+<li>math.pow() Function</li>
+<li>Normalization (0.0 to 1.0)</li>
+<li>Mapping Value Ranges</li>
+<li>Random Number Generation</li>
+<li>Pseudorandom Numbers</li>
+<li>Uniform Distribution</li>
+<li>Weighted Random Selection</li>
+<li>Array Index Calculation</li>
+<li>Percentage Calculations</li>
+<li>Ratio and Proportion</li>
+<li>Sequence Generation</li>
+<li>Step Size Calculation</li>
+<li>Phase Offset Calculation</li>
+<li>Exponential Decay</li>
+<li>Brightness Gamma Function</li>
+<li>Coordinate Mapping</li>
+<li>Wrap-Around Arithmetic</li>
+<li>Scaling Between Ranges</li>
+<li>Floor and Ceiling Functions</li>
+<li>Absolute Value Function</li>
+<li>Color Interpolation</li>
+<li>Smooth Color Transition</li>
+<li>Normalized Color Values</li>
+<li>Color Fade Effect</li>
+<li>Color Gradient</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+<li><a href="../03-python-functions-modules-practices/">Chapter 3: Python Functions, Modules, and Programming Best Practices</a></li>
+<li><a href="../04-python-control-flow-loops/">Chapter 4: Python Control Flow, Loops, and Error Handling</a></li>
+<li><a href="../06-micropython-apis-and-electronics/">Chapter 6: MicroPython APIs, GPIO Control, and Electrical Fundamentals</a></li>
+<li><a href="../07-rgb-color-theory/">Chapter 7: Color Theory: The RGB Color Model and Color Mixing</a></li>
+<li><a href="../09-neopixel-programming/">Chapter 9: NeoPixel Programming: Pixels, Colors, and the NeoPixel Library</a></li>
+<li><a href="../10-advanced-color-theory/">Chapter 10: Advanced Color Theory: HSV, Gamma Correction, and Color Palettes</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 11! Math powers every animation effect. The comet tail, the breathing glow, the smooth rainbow scroll — they're all math dressed up as light. Don't worry if math isn't your favorite subject. Each concept here connects directly to something visual you can watch on your strip. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Use modulo arithmetic for wrap-around motion and repeating patterns</li>
+<li>Apply linear interpolation to create smooth transitions between two values</li>
+<li>Use sine waves to create breathing and pulsing effects</li>
+<li>Normalize values to the 0.0–1.0 range and map them to new ranges</li>
+<li>Apply exponential decay to create fading trail effects</li>
+<li>Generate and use random numbers for randomized animations</li>
+<li>Blend between two colors using color interpolation</li>
+<li>Build smooth color fades and gradients across a strip</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>Thonny IDE connected to your Pico</li>
+<li>NeoPixel strip wired and ready</li>
+<li><code>import math</code> available in MicroPython</li>
+</ul>
+<hr />
+<h2 id="integer-and-floating-point-arithmetic">Integer and Floating-Point Arithmetic</h2>
+<p>Two types of numbers appear throughout animation code. Understanding them prevents surprises.</p>
+<p><strong>Integer arithmetic</strong> works with whole numbers. In Python 3, dividing two integers with <code>/</code> gives a float even if the result is whole: <code>10 / 2</code> = <code>5.0</code>. The <code>//</code> operator gives integer (floor) division: <code>10 // 2</code> = <code>5</code>. Use <code>//</code> when you need a result suitable for a pixel index.</p>
+<p><strong>Floating-point arithmetic</strong> works with decimal numbers like <code>0.5</code>, <code>3.14</code>, <code>0.001</code>. Most animation math uses floats for precision. Before sending values to the NeoPixel strip, convert them to integers with <code>int()</code>.</p>
+<p>The key rule: <strong>pixel indexes must be integers</strong>. Color values must be integers in the range 0–255. Everything else (intermediate calculations, step sizes, timing) can be float.</p>
+<hr />
+<h2 id="modulo-arithmetic-and-wrap-around">Modulo Arithmetic and Wrap-Around</h2>
+<p><strong>Modulo arithmetic</strong> computes the <em>remainder</em> after division. The operator in Python is <code>%</code>.</p>
+<ul>
+<li><code>10 % 3</code> = <code>1</code> (10 divided by 3 is 3 with remainder 1)</li>
+<li><code>7 % 7</code> = <code>0</code></li>
+<li><code>8 % 7</code> = <code>1</code></li>
+<li><code>14 % 7</code> = <code>0</code></li>
+</ul>
+<p>The magic for LED animations: modulo creates <strong>wrap-around arithmetic</strong>. When a pixel position <code>pos</code> reaches the end of the strip, <code>pos % NUM_PIXELS</code> wraps it back to the beginning.</p>
+<div class="highlight"><pre><span></span><code><span class="n">NUM_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># light the current pixel</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1"># erase it</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUM_PIXELS</span>   <span class="c1"># advance, wrapping at end</span>
+</code></pre></div>
+<p>You should see a single red pixel travel around the strip in a continuous loop — never stopping at the end. Without the <code>% NUM_PIXELS</code>, <code>pos</code> would grow past 29 and cause an <code>IndexError</code>.</p>
+<p><strong>Sequence generation</strong> using modulo also creates repeating color patterns. The expression <code>i % len(PALETTE)</code> cycles through a palette for any number of pixels.</p>
+<h4 id="diagram-modulo-wrap-around-animation">Diagram: Modulo Wrap-Around Animation</h4>
+<iframe src="../../sims/modulo-wrap-simulation/main.html" width="100%" height="302px" scrolling="no"></iframe>
+<p><a href="../../sims/modulo-wrap-simulation/main.html">Run Modulo Wrap-Around Animation Fullscreen</a></p>
+<details>
+<summary>Interactive simulation: modulo wrap-around on a strip</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> modulo-wrap-simulation
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>A row of 10 pixel circles representing a NeoPixel strip. A "position" counter is shown above. Controls: a <strong>Step</strong> button advances <code>pos</code> by 1, a <strong>Auto</strong> toggle runs it continuously at 5 steps/second. As <code>pos</code> increments, the current pixel lights red and the previous one turns off. When <code>pos</code> reaches 10 (end of strip), the next step shows the modulo calculation: <code>10 % 10 = 0</code> in an overlay, and the first pixel lights up again. Below the strip, the formula <code>pos = (pos + 1) % 10</code> is displayed with current values substituted in. Canvas: 700 × 300 px. Responds to window resize.</p>
+<p>Learning objective: Understanding — the student can explain why modulo creates wrap-around behavior.</p>
+</details>
+<hr />
+<h2 id="normalization-and-mapping-value-ranges">Normalization and Mapping Value Ranges</h2>
+<p>Two operations appear together constantly in animation code: <strong>normalization</strong> and <strong>mapping value ranges</strong>.</p>
+<p><strong>Normalization</strong> converts a value from any range to the <strong>0.0 to 1.0 range</strong>. A value expressed as 0.0–1.0 is called a <strong>normalized value</strong>. The formula is:</p>
+<div class="arithmatex">\[ \text{normalized} = \frac{\text{value} - \text{min}}{\text{max} - \text{min}} \]</div>
+<p>For example, normalizing a pixel index <code>i</code> on a 30-pixel strip:</p>
+<div class="highlight"><pre><span></span><code><span class="n">normalized</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># 0.0 at pixel 0, 1.0 at pixel 29</span>
+</code></pre></div>
+<p><strong>Mapping value ranges</strong> (also called <strong>scaling between ranges</strong>) converts a normalized value (or any value) to a new range. The general formula:</p>
+<div class="arithmatex">\[ \text{output} = \text{out\_min} + \text{normalized} \times (\text{out\_max} - \text{out\_min}) \]</div>
+<p>For example, mapping a pixel's position to a hue from 0 to 360:</p>
+<div class="highlight"><pre><span></span><code><span class="n">hue</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span> <span class="o">*</span> <span class="mi">360</span>   <span class="c1"># maps 0..29 → 0..360</span>
+</code></pre></div>
+<p><strong>Percentage calculations</strong> and <strong>ratio and proportion</strong> are just specialized forms of this mapping. 30% brightness means multiplying by 0.3. A ratio of 1:3 means the first value is 25% of the total.</p>
+<p><strong>Coordinate mapping</strong> applies this idea to pixel positions on 2D grids (like matrices). To map row <code>r</code> and column <code>c</code> of an 8×8 matrix to a single strip index:</p>
+<div class="highlight"><pre><span></span><code><span class="n">index</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">c</span>   <span class="c1"># row-major order</span>
+</code></pre></div>
+<hr />
+<h2 id="linear-interpolation-lerp">Linear Interpolation (LERP)</h2>
+<p><strong>Linear interpolation</strong> — often shortened to <strong>LERP</strong> — calculates a value that is a certain fraction of the way between two endpoints.</p>
+<p>Before the formula, here's the concept: if you're traveling from point A (value 0) to point B (value 100), after going 30% of the way, you're at 30. After 70%, you're at 70. The formula:</p>
+<div class="arithmatex">\[ \text{lerp}(a, b, t) = a + t \times (b - a) \]</div>
+<p>Where <code>t</code> goes from 0.0 (start at <code>a</code>) to 1.0 (arrive at <code>b</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">lerp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># 50% of the way from 0 to 255</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>   <span class="c1"># → 127.5</span>
+</code></pre></div>
+<p><strong>Color interpolation</strong> applies lerp to each RGB channel separately. This creates a <strong>smooth color transition</strong> between two colors:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">lerp_color</span><span class="p">(</span><span class="n">color_a</span><span class="p">,</span> <span class="n">color_b</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="n">color_a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color_b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">))</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="n">color_a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color_b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="n">color_a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color_b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">t</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">RED</span>  <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">BLUE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># Create a 10-step gradient from red to blue</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">9</span>   <span class="c1"># 0.0 at i=0, 1.0 at i=9</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lerp_color</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<p>You should see a smooth gradient from red through purple to blue across the first 10 pixels.</p>
+<p>A <strong>color gradient</strong> extends this to any number of steps across the full strip. A <strong>color fade effect</strong> applies the same idea over time — the same color at different brightness levels.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward">
+The <code>t</code> value in LERP is always between 0.0 and 1.0. If you compute <code>t = i / (N - 1)</code> for pixels 0 through N-1, pixel 0 gets the starting color and pixel N-1 gets the ending color. Pixels in between get a smooth blend. Perfect gradients, every time!</p>
+</div>
+<hr />
+<h2 id="sine-wave-function">Sine Wave Function</h2>
+<p>The <strong>sine wave function</strong> produces a smoothly oscillating value that cycles between -1.0 and 1.0. Import it from Python's <code>math</code> module:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_in_radians</span><span class="p">)</span>   <span class="c1"># returns a float from -1.0 to 1.0</span>
+</code></pre></div>
+<p>A <strong>radian</strong> is a unit of angle. One full revolution = 2π radians ≈ 6.28 radians. As the angle increases from 0 to 6.28, <code>math.sin()</code> produces one complete wave.</p>
+<p>The key use in LED programming: drive a breathing (pulsing) brightness effect.</p>
+<p>Before the code, here's the recipe:
+- <code>time_step</code> increases over each loop iteration
+- <code>math.sin(time_step)</code> produces a value from -1 to +1
+- We convert that to a brightness from 0 to 255</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">time_step</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># math.sin gives -1 to 1; convert to 0 to 1</span>
+    <span class="n">normalized</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">time_step</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>   <span class="c1"># now 0.0 to 1.0</span>
+    <span class="n">brightness</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">normalized</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span>            <span class="c1"># scale to 0–200</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">brightness</span><span class="p">,</span> <span class="n">brightness</span><span class="p">)</span>   <span class="c1"># cyan breathing</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">time_step</span> <span class="o">+=</span> <span class="mf">0.1</span>    <span class="c1"># advance the wave</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># ~50 frames per second</span>
+</code></pre></div>
+<p>You should see the entire strip breathing in and out — brightening and dimming smoothly in a wave pattern. This is called a <strong>sine-based breathing effect</strong>.</p>
+<p><strong>Phase offset</strong> lets you shift the wave for different pixels. Adding <code>(i / NUM_PIXELS) * 2 * math.pi</code> to the angle for pixel <code>i</code> makes the brightness wave roll across the strip instead of the whole strip pulsing at once.</p>
+<hr />
+<h2 id="exponential-decay-and-brightness-formulas">Exponential Decay and Brightness Formulas</h2>
+<p><strong>Exponential decay</strong> describes how something fades over time at a decreasing rate — like a comet tail. Each step, the brightness is multiplied by a factor less than 1.0. After many steps, it approaches zero.</p>
+<p>The formula: <code>brightness = initial × decay^step</code></p>
+<p>For LED trail effects, you keep a brightness array for each pixel:</p>
+<div class="highlight"><pre><span></span><code><span class="n">trail</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>   <span class="c1"># brightness level for each pixel</span>
+<span class="n">DECAY</span> <span class="o">=</span> <span class="mf">0.8</span>    <span class="c1"># each step, brightness drops to 80% of previous</span>
+
+<span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Decay all existing brightness values</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">DECAY</span><span class="p">)</span>
+
+    <span class="c1"># Set the head pixel to full brightness</span>
+    <span class="n">trail</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+
+    <span class="c1"># Update the strip</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># red trail</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a red pixel moving across the strip leaving a fading red tail. The tail length is controlled by DECAY — a value closer to 1.0 gives a longer tail.</p>
+<p><strong>Step size calculation</strong> determines how fast the position or brightness changes per frame. For the breathing effect: <code>time_step += 0.1</code> means one full breath takes about 63 frames (2π / 0.1 ≈ 63). Larger step sizes = faster breathing.</p>
+<hr />
+<h2 id="random-numbers-for-animations">Random Numbers for Animations</h2>
+<p><strong>Random number generation</strong> in Python uses the <code>urandom</code> module on MicroPython. A key concept: computers can't produce truly random numbers — they produce <strong>pseudorandom numbers</strong> that appear random but are generated by a formula.</p>
+<p><strong>Uniform distribution</strong> means every value in the range is equally likely. <code>urandom.randint(0, 255)</code> has equal probability of returning 0, 127, or 255 — or any other value in between.</p>
+<p><strong>Weighted random selection</strong> makes some outcomes more likely. One simple approach: build a list with the most common value repeated multiple times, then pick randomly from it:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urandom</span>
+
+<span class="c1"># Red appears 5× more often than blue or green</span>
+<span class="n">weighted_choices</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">1</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">weighted_choices</span><span class="p">[</span><span class="n">urandom</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">weighted_choices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+</code></pre></div>
+<p><strong>Array index calculation</strong> for random patterns: use <code>urandom.randint(0, config.NUMBER_PIXELS - 1)</code> to pick a random pixel index.</p>
+<hr />
+<h2 id="floor-ceiling-and-absolute-value">Floor, Ceiling, and Absolute Value</h2>
+<p>Three math functions appear frequently in animation code.</p>
+<p><strong>Floor function</strong> <code>int()</code> or <code>math.floor()</code> — rounds a float <em>down</em> to the nearest integer. Use it when you need a valid pixel index from a float calculation:</p>
+<div class="highlight"><pre><span></span><code><span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">4.9</span><span class="p">)</span>   <span class="c1"># → 4 (rounded down)</span>
+</code></pre></div>
+<p><strong>Ceiling function</strong> <code>math.ceil()</code> — rounds <em>up</em> to the nearest integer:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">4.1</span><span class="p">)</span>   <span class="c1"># → 5 (rounded up)</span>
+</code></pre></div>
+<p><strong>Absolute value function</strong> <code>abs()</code> — returns the non-negative version of a number. Use it to measure distance without caring about direction:</p>
+<div class="highlight"><pre><span></span><code><span class="n">distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pixel_pos</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span>   <span class="c1"># distance from center, always positive</span>
+</code></pre></div>
+<p><strong>math.pow() function</strong> — raises a number to a power. <code>math.pow(2, 8)</code> = 256.0. Used in gamma correction and exponential calculations.</p>
+<h4 id="diagram-math-functions-in-animation">Diagram: Math Functions in Animation</h4>
+<iframe src="../../sims/animation-math-explorer/main.html" width="100%" height="432px" scrolling="no"></iframe>
+<p><a href="../../sims/animation-math-explorer/main.html">Run Math Functions in Animation Fullscreen</a></p>
+<details>
+<summary>Interactive chart: sine wave, lerp, and exponential decay visualized</summary>
+<p>Type: chart
+<strong>sim-id:</strong> animation-math-explorer
+<strong>Library:</strong> Chart.js
+<strong>Status:</strong> Specified</p>
+<p>A tab-panel with three tabs labeled "Sine Wave", "Linear Interpolation", and "Exponential Decay". Each tab shows an animated line chart on the X axis (frame number 0–100) and Y axis (value 0–255).</p>
+<p>Sine Wave tab: A sine curve plotted from frame 0 to 100, with <code>time_step</code> incremented by 0.2 per frame. Y value shown as brightness (0–255). A slider controls the speed (0.05–0.4 step size).</p>
+<p>Linear Interpolation tab: A straight diagonal line from (0, 0) to (100, 255). A movable dot on the line shows the current t value and interpolated output. Sliders for <code>a</code> (start value) and <code>b</code> (end value) change the line endpoints.</p>
+<p>Exponential Decay tab: A decaying curve from (0, 255) approaching 0. A slider controls the DECAY factor (0.7–0.99). Canvas: 700 × 380 px. Responds to window resize.</p>
+<p>Learning objective: Analyzing — the student can match a math function to the visual LED effect it produces.</p>
+</details>
+<hr />
+<h2 id="putting-it-together-smooth-gradient-with-breathing">Putting It Together: Smooth Gradient with Breathing</h2>
+<p>This final example combines normalization, LERP, and sine waves to create a gradient that breathes:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="n">time_step</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">breath</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">time_step</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>   <span class="c1"># 0.0 to 1.0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># position 0.0 to 1.0</span>
+        <span class="c1"># Lerp from blue to green, then scale by breathing level</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">breath</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">breath</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">time_step</span> <span class="o">+=</span> <span class="mf">0.05</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a blue-to-green gradient that slowly breathes in and out. Every pixel's brightness pulses together.</p>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Modulo pattern:</strong> Use <code>i % 5</code> to create a repeating 5-color pattern across the strip. (Every 5th pixel should have the same color.)</p>
+</li>
+<li>
+<p><strong>LERP fade:</strong> Create a 20-step fade from black <code>(0,0,0)</code> to white <code>(200,200,200)</code> using <code>lerp_color</code>.</p>
+</li>
+<li>
+<p><strong>Breathing speed:</strong> Modify the breathing example to take exactly 3 seconds per full breath. (Hint: one full sine wave = 2π radians. At 20 ms per frame, how many frames is 3 seconds? What step size gets there in that many frames?)</p>
+</li>
+<li>
+<p><strong>Long comet tail:</strong> Change the DECAY value from 0.8 to 0.95 in the comet tail example. How does a larger decay value change the tail length?</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What does <code>15 % 7</code> evaluate to?</li>
+<li>Why is modulo useful for wrap-around pixel motion?</li>
+<li>What is the output of <code>lerp(0, 100, 0.75)</code>?</li>
+<li>What range does <code>math.sin()</code> produce?</li>
+<li>What is the formula for exponential decay?</li>
+<li>What is the difference between <code>int(4.9)</code> and <code>math.ceil(4.9)</code>?</li>
+<li>How would you map a pixel index (0 to 29) to a hue value (0 to 360)?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You've got the math toolkit! Modulo for wrap-around. LERP for smooth transitions. Sine for breathing. Exponential decay for trails. Normalization for flexible scaling. These seven tools cover 90% of the math in every animation you'll ever see. The effects in the next chapters are just creative combinations of what you learned here.</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../12-basic-animation-patterns/">Chapter 12</a>, you'll implement your first complete animation effects — blink, rainbow, moving rainbow, twinkle, candle flicker, and more — applying the math you just learned to create visual magic on your strip.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../10-advanced-color-theory/" title="10. Advanced Color" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  10. Advanced Color
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../12-basic-animation-patterns/" title="12. Basic Animations" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  12. Basic Animations
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

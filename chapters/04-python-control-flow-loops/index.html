@@ -1,0 +1,2988 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn conditional statements, for and while loops, loop control, list iteration, and how to read common Python error messages.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/04-python-control-flow-loops/">
+      
+      
+        <link rel="prev" href="../03-python-functions-modules-practices/">
+      
+      
+        <link rel="next" href="../05-raspberry-pi-pico-hardware/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Python Control Flow, Loops, and Error Handling - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Python Control Flow, Loops, and Error Handling - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Learn conditional statements, for and while loops, loop control, list iteration, and how to read common Python error messages." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/04-python-control-flow-loops/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/04-python-control-flow-loops/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Python Control Flow, Loops, and Error Handling - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Learn conditional statements, for and while loops, loop control, list iteration, and how to read common Python error messages." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/04-python-control-flow-loops/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-control-flow-loops-and-error-handling" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python Control Flow, Loops, and Error Handling
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-decisions-boolean-expressions-and-if-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making Decisions: Boolean Expressions and if Statements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Decisions: Boolean Expressions and if Statements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-if-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      The if Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-elif-and-else-clauses" class="md-nav__link">
+    <span class="md-ellipsis">
+      The elif and else Clauses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nested Conditionals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repeating-code-the-for-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repeating Code: The for Loop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repeating Code: The for Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using range()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Iteration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List Iteration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-how-a-for-loop-iterates-over-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: How a for Loop Iterates Over a List
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while-loops-repeat-until-something-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      while Loops: Repeat Until Something Changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="while Loops: Repeat Until Something Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infinite-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infinite Loops
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-loops-break-and-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling Loops: break and continue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controlling Loops: break and continue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-break-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      The break Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-continue-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      The continue Statement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The continue Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-break-vs-continue-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: break vs. continue Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-python-error-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Python Error Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading Python Error Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      SyntaxError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indentationerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      IndentationError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nameerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      NameError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      TypeError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      IndexError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#off-by-one-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Off-by-One Errors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-fading-an-led-strip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It Together: Fading an LED Strip
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-decisions-boolean-expressions-and-if-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making Decisions: Boolean Expressions and if Statements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Decisions: Boolean Expressions and if Statements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-if-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      The if Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-elif-and-else-clauses" class="md-nav__link">
+    <span class="md-ellipsis">
+      The elif and else Clauses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nested Conditionals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repeating-code-the-for-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repeating Code: The for Loop
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repeating Code: The for Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using range()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Iteration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List Iteration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-how-a-for-loop-iterates-over-a-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: How a for Loop Iterates Over a List
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while-loops-repeat-until-something-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      while Loops: Repeat Until Something Changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="while Loops: Repeat Until Something Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infinite-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infinite Loops
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-loops-break-and-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling Loops: break and continue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controlling Loops: break and continue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-break-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      The break Statement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-continue-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      The continue Statement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The continue Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-break-vs-continue-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: break vs. continue Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-python-error-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Python Error Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reading Python Error Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      SyntaxError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indentationerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      IndentationError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nameerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      NameError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typeerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      TypeError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexerror" class="md-nav__link">
+    <span class="md-ellipsis">
+      IndexError
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#off-by-one-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Off-by-One Errors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-fading-an-led-strip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It Together: Fading an LED Strip
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/04-python-control-flow-loops/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="python-control-flow-loops-and-error-handling">Python Control Flow, Loops, and Error Handling</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers conditional statements (if/elif/else), for and while loops, loop control statements (break/continue), infinite loops, list iteration, common Python error types, and off-by-one error prevention.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 19 concepts from the learning graph:</p>
+<ol>
+<li>Boolean Expressions</li>
+<li>if Statement</li>
+<li>elif Clause</li>
+<li>else Clause</li>
+<li>Nested Conditionals</li>
+<li>for Loop</li>
+<li>while Loop</li>
+<li>Infinite Loop</li>
+<li>break Statement</li>
+<li>continue Statement</li>
+<li>Loop Counter Variable</li>
+<li>range() Function</li>
+<li>List Iteration</li>
+<li>SyntaxError</li>
+<li>NameError</li>
+<li>IndentationError</li>
+<li>TypeError</li>
+<li>IndexError</li>
+<li>Off-by-One Error</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+<li><a href="../03-python-functions-modules-practices/">Chapter 3: Python Functions, Modules, and Programming Best Practices</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 4! You know how to store data and write functions. Now your code gets to <em>make decisions</em> and <em>repeat actions</em>. That's how animations work — your program checks what's happening and runs the right code, over and over. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Write <code>if</code>, <code>elif</code>, and <code>else</code> statements to make your code choose a path</li>
+<li>Use <code>for</code> loops to repeat code a set number of times</li>
+<li>Use <code>while</code> loops to repeat code until a condition changes</li>
+<li>Control loops with <code>break</code> and <code>continue</code></li>
+<li>Use <code>range()</code> to produce number sequences</li>
+<li>Iterate over lists to process every item</li>
+<li>Read five common Python error messages and fix them</li>
+<li>Avoid the off-by-one error</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>Thonny IDE open on your computer</li>
+<li>Your Raspberry Pi Pico connected via USB (helpful for testing, not strictly required)</li>
+</ul>
+<hr />
+<h2 id="making-decisions-boolean-expressions-and-if-statements">Making Decisions: Boolean Expressions and if Statements</h2>
+<p>Every decision in Python starts with a question that has a yes-or-no answer. That kind of question is called a <strong>boolean expression</strong> — a piece of code that evaluates to either <code>True</code> or <code>False</code>.</p>
+<p>You already know comparison operators from Chapter 2. Here they are again, because you'll use them constantly:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Equal to</td>
+<td><code>5 == 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Not equal to</td>
+<td><code>5 != 3</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>3 &lt; 10</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+<td><code>10 &gt; 3</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less than or equal to</td>
+<td><code>5 &lt;= 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater than or equal to</td>
+<td><code>4 &gt;= 7</code></td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p>You can combine boolean expressions using <code>and</code>, <code>or</code>, and <code>not</code>:</p>
+<ul>
+<li><code>True and True</code> → <code>True</code> (both must be true)</li>
+<li><code>True or False</code> → <code>True</code> (at least one must be true)</li>
+<li><code>not True</code> → <code>False</code> (flips the value)</li>
+</ul>
+<h3 id="the-if-statement">The if Statement</h3>
+<p>An <strong>if statement</strong> tells Python: "Run this block of code <em>only if</em> this condition is true." The block must be indented with four spaces (or one tab).</p>
+<p>Here's the basic form:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="c1"># code here runs only when condition is True</span>
+</code></pre></div>
+<p>Here's a real example. This code checks whether a brightness level is too high:</p>
+<div class="highlight"><pre><span></span><code><span class="n">brightness</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># brightness goes from 0 to 255</span>
+
+<span class="k">if</span> <span class="n">brightness</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;That&#39;s very bright!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>When you run this, nothing prints — because 200 is not greater than 200. Change <code>brightness</code> to <code>250</code> and you'll see <code>That's very bright!</code> in the console.</p>
+<h3 id="the-elif-and-else-clauses">The elif and else Clauses</h3>
+<p>An <strong>elif clause</strong> (short for "else if") checks a second condition when the first one is false. An <strong>else clause</strong> runs when none of the above conditions are true.</p>
+<p>Before reading the code below, here's what each keyword does:</p>
+<ul>
+<li><code>if</code> → checks the first condition</li>
+<li><code>elif</code> → checks the next condition (only if <code>if</code> was false)</li>
+<li><code>else</code> → runs when everything above was false</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">brightness</span> <span class="o">=</span> <span class="mi">128</span>
+
+<span class="k">if</span> <span class="n">brightness</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Very bright!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">brightness</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Medium brightness&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dim&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see <code>Medium brightness</code> because 128 is greater than 100 but not greater than 200.</p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Pixel thinking">
+Python checks <code>if</code>, then <code>elif</code>, then <code>else</code> — in order, top to bottom. The moment one condition is <code>True</code>, Python runs that block and skips all the rest. It never checks two conditions at once.</p>
+</div>
+<h3 id="nested-conditionals">Nested Conditionals</h3>
+<p>A <strong>nested conditional</strong> is an <code>if</code> statement inside another <code>if</code> statement. Use this when you need to check a second thing <em>only after</em> the first thing is true.</p>
+<div class="highlight"><pre><span></span><code><span class="n">red</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">green</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="k">if</span> <span class="n">red</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">green</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;High red, low green — looks orange!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see <code>High red, low green — looks orange!</code> Nesting too deeply can make code hard to read, so keep it to two levels at most.</p>
+<hr />
+<h2 id="repeating-code-the-for-loop">Repeating Code: The for Loop</h2>
+<p>A <strong>for loop</strong> runs a block of code a set number of times, once for each item in a sequence. The variable after <code>for</code> takes the value of each item, one at a time.</p>
+<h3 id="using-range">Using range()</h3>
+<p>The <strong><code>range()</code> function</strong> produces a sequence of integers. It's the most common tool for controlling how many times a <code>for</code> loop runs.</p>
+<p>Here are the three ways to call <code>range()</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Call</th>
+<th>Produces</th>
+<th>Example values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>range(n)</code></td>
+<td>0 up to but not including n</td>
+<td><code>range(5)</code> → 0, 1, 2, 3, 4</td>
+</tr>
+<tr>
+<td><code>range(start, stop)</code></td>
+<td>start up to but not including stop</td>
+<td><code>range(2, 6)</code> → 2, 3, 4, 5</td>
+</tr>
+<tr>
+<td><code>range(start, stop, step)</code></td>
+<td>counting by step</td>
+<td><code>range(0, 10, 2)</code> → 0, 2, 4, 6, 8</td>
+</tr>
+</tbody>
+</table>
+<p>This loop prints the numbers 0 through 4:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+<p>The variable <code>i</code> is the <strong>loop counter variable</strong>. Its value increases by 1 each time the loop runs. You should see the numbers 0, 1, 2, 3, 4 printed on separate lines.</p>
+<p>Here's how you'd use this to set every LED on a 30-pixel strip:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>   <span class="c1"># set pixel i to a blue-green color</span>
+
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>   <span class="c1"># send the data to the LEDs</span>
+</code></pre></div>
+<p>You should see your entire LED strip glow blue-green. The loop visits pixel 0, then pixel 1, all the way to the last pixel.</p>
+<h3 id="list-iteration">List Iteration</h3>
+<p>A <code>for</code> loop can also go through a <strong>list</strong> — visiting each item in order. This is called <strong>list iteration</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">colors</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)]</span>  <span class="c1"># red, green, blue</span>
+
+<span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see <code>(255, 0, 0)</code>, <code>(0, 255, 0)</code>, and <code>(0, 0, 255)</code> on separate lines. The variable <code>color</code> takes each tuple from the list, one at a time.</p>
+<h4 id="diagram-how-a-for-loop-iterates-over-a-list">Diagram: How a for Loop Iterates Over a List</h4>
+<iframe src="../../sims/for-loop-list-iteration/main.html" width="100%" height="282px" scrolling="no"></iframe>
+<p><a href="../../sims/for-loop-list-iteration/main.html">Run How a for Loop Iterates Over a List Fullscreen</a></p>
+<details>
+<summary>Interactive diagram: for loop stepping through a list</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> for-loop-list-iteration
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>A p5.js MicroSim showing a list of three colored boxes labeled <code>(255,0,0)</code>, <code>(0,255,0)</code>, <code>(0,0,255)</code>. A "loop cursor" arrow moves from box to box as the user clicks a <strong>Next Step</strong> button. Each step highlights the current item, shows the value of the loop variable <code>color</code>, and displays the iteration number (Iteration 1 of 3, etc.). A <strong>Reset</strong> button returns the arrow to the start. A label below reads: "The for loop gives <code>color</code> a new value each time." Canvas: 600 × 280 px. Responds to window resize.</p>
+<p>Learning objective: Remembering — the student can recall that a for loop assigns each list item to the loop variable in order.</p>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward">
+When you want to both know <em>which pixel</em> you're on AND set its color, use <code>for i in range(config.NUMBER_PIXELS)</code> and index with <code>strip[i]</code>. When you just need each item from a list, use <code>for item in my_list</code>. Choose the form that fits your task.</p>
+</div>
+<hr />
+<h2 id="while-loops-repeat-until-something-changes">while Loops: Repeat Until Something Changes</h2>
+<p>A <strong>while loop</strong> keeps running as long as its condition stays <code>True</code>. Use it when you don't know ahead of time how many times the loop should run.</p>
+<div class="highlight"><pre><span></span><code><span class="n">brightness</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">brightness</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">brightness</span><span class="p">)</span>
+    <span class="n">brightness</span> <span class="o">=</span> <span class="n">brightness</span> <span class="o">+</span> <span class="mi">10</span>
+</code></pre></div>
+<p>This loop prints 0, 10, 20, ... up to 250. When <code>brightness</code> reaches 260, the condition <code>brightness &lt; 256</code> is <code>False</code> and the loop stops.</p>
+<h3 id="infinite-loops">Infinite Loops</h3>
+<p>An <strong>infinite loop</strong> runs forever — on purpose. Almost every LED animation program uses one. The loop keeps updating LEDs until you unplug the device or press Ctrl+C in Thonny.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LEDs are running!&quot;</span><span class="p">)</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># wait 1 second before the next print</span>
+</code></pre></div>
+<p>You'll see <code>LEDs are running!</code> print once per second until you stop the program. In LED programs, you replace <code>print</code> with code that updates the strip.</p>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up both hands">
+A <code>while True</code> loop that never updates the LEDs will look like nothing is happening — but your Pico is actually running full speed. Always include <code>strip.write()</code> and a short <code>utime.sleep()</code> inside animation loops. Without the sleep, the strip may flicker or not update correctly.</p>
+</div>
+<hr />
+<h2 id="controlling-loops-break-and-continue">Controlling Loops: break and continue</h2>
+<p>Sometimes you need to exit a loop early or skip one iteration. Two keywords handle this.</p>
+<h3 id="the-break-statement">The break Statement</h3>
+<p>The <strong><code>break</code> statement</strong> stops the loop immediately and jumps past it, even if the condition is still true.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>         <span class="c1"># exit the loop when i reaches 5</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+<p>You'll see 0, 1, 2, 3, 4 — then the loop stops. The number 5 is never printed because <code>break</code> fires before the <code>print</code>.</p>
+<h3 id="the-continue-statement">The continue Statement</h3>
+<p>The <strong><code>continue</code> statement</strong> skips the rest of the current iteration and jumps back to the top of the loop to check the condition again.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">continue</span>      <span class="c1"># skip the print when i is 3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+<p>You'll see 0, 1, 2, 4, 5 — the number 3 is missing because <code>continue</code> skipped it.</p>
+<p>Here's a practical use: skip pixel 0 (the first pixel) and color the rest:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>          <span class="c1"># leave pixel 0 black</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<p>You should see all LEDs blue-cyan except the very first one, which stays off.</p>
+<h4 id="diagram-break-vs-continue-flow">Diagram: break vs. continue Flow</h4>
+<iframe src="../../sims/break-continue-flowchart/main.html" width="100%" height="1012px" scrolling="no"></iframe>
+<p><a href="../../sims/break-continue-flowchart/main.html">Run break vs. continue Flow Fullscreen</a></p>
+<details>
+<summary>Interactive flowchart: break and continue in a for loop</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> break-continue-flowchart
+<strong>Library:</strong> Mermaid
+<strong>Status:</strong> Specified</p>
+<p>A Mermaid flowchart showing a <code>for</code> loop cycle. Nodes: "Start Loop" → "i in range?" → yes → "Check condition" → "break?" → yes → "Exit loop"; no → "continue?" → yes → "Back to top" (arrow goes back to "i in range?" node); no → "Run loop body" → "Back to top". Each node is clickable: clicking "break?" shows a tooltip "break exits the loop entirely"; clicking "continue?" shows "continue skips to the next iteration"; clicking "Run loop body" shows "This is where your animation code goes." Color-code: break path in red, continue path in orange, normal path in green.</p>
+</details>
+<hr />
+<h2 id="reading-python-error-messages">Reading Python Error Messages</h2>
+<p>When something goes wrong, Python prints an error message. Learning to read these messages is a superpower. Here are the five errors you'll see most often.</p>
+<p>Before we look at each one, here's the key rule: <strong>always read the last line of the error first</strong>. That line tells you what went wrong. The lines above it tell you where.</p>
+<h3 id="syntaxerror">SyntaxError</h3>
+<p>A <strong>SyntaxError</strong> means Python can't understand your code. You typed something that isn't valid Python.</p>
+<div class="highlight"><pre><span></span><code>  File &quot;main.py&quot;, line 3
+    if brightness &gt; 200
+                       ^
+SyntaxError: expected &#39;:&#39;
+</code></pre></div>
+<p>The <code>^</code> points at the problem. Here, the <code>if</code> statement is missing its colon. Add <code>:</code> at the end of line 3 and it will work.</p>
+<h3 id="indentationerror">IndentationError</h3>
+<p>An <strong>IndentationError</strong> means the spaces at the start of a line are wrong. Python uses indentation to understand where blocks start and end.</p>
+<div class="highlight"><pre><span></span><code>  File &quot;main.py&quot;, line 4
+    print(&quot;hello&quot;)
+    ^
+IndentationError: unexpected indent
+</code></pre></div>
+<p>Check that every line inside a block uses exactly four spaces (not a mix of tabs and spaces).</p>
+<h3 id="nameerror">NameError</h3>
+<p>A <strong>NameError</strong> means you used a variable or function name that Python doesn't recognize.</p>
+<div class="highlight"><pre><span></span><code>NameError: name &#39;brigthness&#39; is not defined
+</code></pre></div>
+<p>Look carefully — this is often a typo. <code>brigthness</code> should be <code>brightness</code>. Check your spelling.</p>
+<h3 id="typeerror">TypeError</h3>
+<p>A <strong>TypeError</strong> means you tried to use a value in a way that doesn't match its type.</p>
+<div class="highlight"><pre><span></span><code>TypeError: can only concatenate str (not &quot;int&quot;) to str
+</code></pre></div>
+<p>This happens if you write <code>"Value: " + 42</code>. Python can't join a string and an integer directly. Use an f-string instead: <code>f"Value: {42}"</code>.</p>
+<h3 id="indexerror">IndexError</h3>
+<p>An <strong>IndexError</strong> means you tried to access a list position that doesn't exist.</p>
+<div class="highlight"><pre><span></span><code>IndexError: list index out of range
+</code></pre></div>
+<p>If your list has 3 items (indexes 0, 1, 2) and you try <code>my_list[3]</code>, Python raises this error. There is no index 3 — the last index is always <code>len(my_list) - 1</code>.</p>
+<h3 id="off-by-one-errors">Off-by-One Errors</h3>
+<p>An <strong>off-by-one error</strong> is a logic mistake, not a Python error. Your code runs without crashing, but it does the wrong thing by exactly one step.</p>
+<p>The most common cause: forgetting that Python counts from 0, not 1.</p>
+<div class="highlight"><pre><span></span><code><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]</span>  <span class="c1"># 3 items: indexes 0, 1, 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>                   <span class="c1"># IndexError! Index 3 does not exist.</span>
+</code></pre></div>
+<p>The fix: remember the last valid index is <code>len(colors) - 1</code>, which is 2. Use <code>range(len(colors))</code> to safely loop over all items.</p>
+<p>In LED programs, off-by-one errors look like: lighting one more pixel than intended, or an animation that ends one step early. When results are "almost right but off by one," check your <code>range()</code> call and your loop condition.</p>
+<div class="admonition success">
+<p class="admonition-title">You've got this!</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Pixel gives a thumbs-up">
+Error messages feel scary at first. But each one is Python's way of pointing right at the problem. Read the last line, find the file and line number, and you've already done half the detective work. Every bug is just a puzzle in disguise!</p>
+</div>
+<hr />
+<h2 id="putting-it-together-fading-an-led-strip">Putting It Together: Fading an LED Strip</h2>
+<p>Here's a program that uses a <code>while</code> loop, an <code>if</code> statement, and <code>range()</code> together. It fades the strip from dark to bright, then from bright back to dark — forever.</p>
+<p>Before reading the code, here's the plan:
+- <code>brightness</code> starts at 0 and counts up to 255, then back down
+- <code>direction</code> tracks whether we're going up (<code>1</code>) or down (<code>-1</code>)
+- Inside the loop, we set every pixel to a blue color scaled by brightness</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="n">brightness</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># starts dark</span>
+<span class="n">direction</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># 1 = going brighter, -1 = going darker</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">brightness</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>   <span class="c1"># scale green with brightness</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">255</span> <span class="o">*</span> <span class="n">brightness</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>   <span class="c1"># scale blue with brightness</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>   <span class="c1"># 10 ms delay between steps</span>
+
+    <span class="n">brightness</span> <span class="o">=</span> <span class="n">brightness</span> <span class="o">+</span> <span class="n">direction</span>
+
+    <span class="k">if</span> <span class="n">brightness</span> <span class="o">&gt;=</span> <span class="mi">255</span><span class="p">:</span>   <span class="c1"># reached the top — start going down</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">brightness</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># reached the bottom — start going up</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+<p>You should see the strip gently pulse between dark and a blue-green color, repeating smoothly. The <code>if/elif</code> at the bottom reverses the direction each time <code>brightness</code> hits an edge.</p>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Color selector:</strong> Write an <code>if/elif/else</code> block that prints a different message for each of these brightness values: below 85 prints "Dim", 85–170 prints "Medium", above 170 prints "Bright".</p>
+</li>
+<li>
+<p><strong>Countdown:</strong> Use a <code>for</code> loop with <code>range()</code> to print the numbers 10 down to 1 (hint: use <code>range(10, 0, -1)</code>), then print "Blast off!".</p>
+</li>
+<li>
+<p><strong>Skip the middle:</strong> Write a <code>for</code> loop over <code>range(10)</code> that uses <code>continue</code> to skip the numbers 4, 5, and 6.</p>
+</li>
+<li>
+<p><strong>Fade out:</strong> Modify the fade program above so it starts at full brightness (255) and fades to 0, then stops completely instead of bouncing back.</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What are the two possible values of a boolean expression?</li>
+<li>What is the difference between <code>elif</code> and <code>else</code>?</li>
+<li>What does <code>range(3, 10, 2)</code> produce?</li>
+<li>What does <code>break</code> do inside a loop? What does <code>continue</code> do?</li>
+<li>You have a list with 5 items. What is the valid range of indexes you can use?</li>
+<li>What type of error do you get when your code has a typo in a variable name?</li>
+<li>Why is an infinite <code>while True</code> loop useful for LED animations?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You did it! You can now make your code decide things with <code>if/elif/else</code>, repeat things with <code>for</code> and <code>while</code>, and control those repetitions with <code>break</code> and <code>continue</code>. You can also read error messages instead of panicking when they appear. That's real programmer thinking right there!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../05-raspberry-pi-pico-hardware/">Chapter 5</a>, you'll meet the Raspberry Pi Pico — the tiny computer that runs your LED animations — and set up the Thonny IDE so you can put your Python skills to work on real hardware.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../03-python-functions-modules-practices/" title="3. Functions and Modules" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  3. Functions and Modules
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../05-raspberry-pi-pico-hardware/" title="5. Pico Hardware" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  5. Pico Hardware
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

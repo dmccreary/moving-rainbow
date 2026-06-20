@@ -1,0 +1,2618 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Compare all battery types, learn series and parallel configurations, charging circuits, LiPo safety, power consumption calculations, and LED series resistor design.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/17-power-and-battery-systems/">
+      
+      
+        <link rel="prev" href="../16-circuit-assembly/">
+      
+      
+        <link rel="next" href="../18-input-devices-and-sensors/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Power Systems, Batteries, and Energy Management - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Power Systems, Batteries, and Energy Management - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Compare all battery types, learn series and parallel configurations, charging circuits, LiPo safety, power consumption calculations, and LED series resistor design." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/17-power-and-battery-systems/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/17-power-and-battery-systems/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Power Systems, Batteries, and Energy Management - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Compare all battery types, learn series and parallel configurations, charging circuits, LiPo safety, power consumption calculations, and LED series resistor design." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/17-power-and-battery-systems/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#power-systems-batteries-and-energy-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Power Systems, Batteries, and Energy Management
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#battery-types-for-led-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Battery Types for LED Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Battery Types for LED Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coin-cell-battery-cr2032" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coin Cell Battery (CR2032)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aa-alkaline-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      AA Alkaline Battery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aaa-alkaline-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      AAA Alkaline Battery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-volt-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      9-Volt Battery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb-power-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      USB Power Bank
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lipo-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      LiPo Battery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18650-lithium-cell" class="md-nav__link">
+    <span class="md-ellipsis">
+      18650 Lithium Cell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#series-and-parallel-battery-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Series and Parallel Battery Configurations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-consumption-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Consumption Calculation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Consumption Calculation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-battery-life-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Battery Life Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lipo-charging-circuits-and-the-tc4056" class="md-nav__link">
+    <span class="md-ellipsis">
+      LiPo Charging Circuits and the TC4056
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#led-forward-voltage-and-series-resistor-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      LED Forward Voltage and Series Resistor Calculation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#battery-types-for-led-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Battery Types for LED Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Battery Types for LED Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coin-cell-battery-cr2032" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coin Cell Battery (CR2032)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aa-alkaline-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      AA Alkaline Battery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aaa-alkaline-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      AAA Alkaline Battery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-volt-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      9-Volt Battery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb-power-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      USB Power Bank
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lipo-battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      LiPo Battery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18650-lithium-cell" class="md-nav__link">
+    <span class="md-ellipsis">
+      18650 Lithium Cell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#series-and-parallel-battery-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Series and Parallel Battery Configurations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-consumption-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Consumption Calculation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power Consumption Calculation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-battery-life-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Battery Life Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lipo-charging-circuits-and-the-tc4056" class="md-nav__link">
+    <span class="md-ellipsis">
+      LiPo Charging Circuits and the TC4056
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#led-forward-voltage-and-series-resistor-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      LED Forward Voltage and Series Resistor Calculation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/17-power-and-battery-systems/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="power-systems-batteries-and-energy-management">Power Systems, Batteries, and Energy Management</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers all battery types (coin cell, AA, AAA, 9V, USB power bank, LiPo, 18650), series and parallel battery configurations, charging circuits, LiPo and USB power safety, power consumption and battery life calculations, over-charge and over-discharge protection, and LED series resistor calculations.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 22 concepts from the learning graph:</p>
+<ol>
+<li>Coin Cell Battery</li>
+<li>AA Alkaline Battery</li>
+<li>AAA Alkaline Battery</li>
+<li>9-Volt Battery</li>
+<li>USB Power Bank</li>
+<li>LiPo Battery</li>
+<li>18650 Lithium Cell</li>
+<li>Series Battery Configuration</li>
+<li>Parallel Battery Configuration</li>
+<li>Battery Charging Circuit</li>
+<li>TC4056 Charger IC</li>
+<li>Overcharge Protection</li>
+<li>Over-Discharge Protection</li>
+<li>Charging Current Setting</li>
+<li>Total System Current Draw</li>
+<li>Power Consumption Calculation</li>
+<li>LED Forward Voltage</li>
+<li>LED Series Resistor Calculation</li>
+<li>LiPo Battery Safe Handling</li>
+<li>USB Power Safety Limits</li>
+<li>Ohm's Law Arithmetic</li>
+<li>Battery Life Calculation</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../06-micropython-apis-and-electronics/">Chapter 6: MicroPython APIs, GPIO Control, and Electrical Fundamentals</a></li>
+<li><a href="../15-electronics-fundamentals/">Chapter 15: Electronics Fundamentals: Resistance, Ohm's Law, and Components</a></li>
+<li><a href="../16-circuit-assembly/">Chapter 16: Circuit Assembly: Resistors, Transistors, and Circuit Types</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 17! Power is what makes your projects go. Choose the wrong battery and your costume dies halfway through the party. Choose the right one and you're glowing all night. Let's learn how to pick batteries like a pro. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Compare common battery types by voltage, capacity, size, and best use case</li>
+<li>Explain series and parallel battery configurations and what each does to voltage and capacity</li>
+<li>Calculate total system current draw and expected battery life</li>
+<li>Describe how LiPo charging circuits work and how to use them safely</li>
+<li>Calculate the correct LED series resistor using LED forward voltage and Ohm's Law</li>
+<li>Apply USB power safety limits to your project designs</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>Pencil and paper for calculations</li>
+<li>Optional: multimeter to measure actual battery voltage</li>
+<li>Your project power budget (number of pixels, estimated brightness)</li>
+</ul>
+<hr />
+<h2 id="battery-types-for-led-projects">Battery Types for LED Projects</h2>
+<p>Before comparing batteries, let's define two key terms:</p>
+<ul>
+<li><strong>Battery capacity</strong> — measured in milliamp-hours (mAh). Tells you how much total charge a battery holds.</li>
+<li><strong>Nominal voltage</strong> — the typical voltage the battery delivers during discharge.</li>
+</ul>
+<p>Now let's look at each type, from simplest to most capable.</p>
+<h3 id="coin-cell-battery-cr2032">Coin Cell Battery (CR2032)</h3>
+<p>The <strong>Coin Cell Battery</strong> (CR2032) is a flat, round lithium battery 20 mm in diameter and 3.2 mm thick. It provides <strong>3 V</strong> and about <strong>200–250 mAh</strong> capacity.</p>
+<p>Coin cells are great for very small, low-power projects — a single LED with a microcontroller. They cannot supply the current needed for NeoPixel strips (even a single NeoPixel at full white can briefly draw 60 mA — more than a coin cell can sustain).</p>
+<p>Use case: indicator LEDs, tiny keychain projects, small blinking badges.</p>
+<h3 id="aa-alkaline-battery">AA Alkaline Battery</h3>
+<p>The <strong>AA Alkaline Battery</strong> provides <strong>1.5 V</strong> and about <strong>2,000–3,000 mAh</strong> capacity. They're widely available, inexpensive, and safe.</p>
+<p>Two AA batteries in series = 3 V (usable for some Pico projects). Four AA batteries in series = 6 V, which works well with a voltage regulator to step down to 5 V.</p>
+<p>Use case: projects where the student needs batteries they can buy at a convenience store and swap easily.</p>
+<h3 id="aaa-alkaline-battery">AAA Alkaline Battery</h3>
+<p>The <strong>AAA Alkaline Battery</strong> is smaller than AA — same 1.5 V but about half the capacity (1,200 mAh). Useful when space is tight.</p>
+<h3 id="9-volt-battery">9-Volt Battery</h3>
+<p>The <strong>9-Volt Battery</strong> provides 9 V and about <strong>400–600 mAh</strong> capacity. Enough voltage to power a 5 V system with a voltage regulator, but low capacity — a 30-pixel strip at moderate brightness would drain it in under an hour.</p>
+<p>Use case: quick-test power supply when you don't have USB nearby. Not ideal for costumes.</p>
+<h3 id="usb-power-bank">USB Power Bank</h3>
+<p>The <strong>USB Power Bank</strong> is the most practical power source for wearable NeoPixel projects. It provides a regulated <strong>5 V</strong> output at up to <strong>2,000–5,000 mA</strong> and capacities ranging from 2,000 to 20,000+ mAh.</p>
+<p>Benefits:
+- Directly powers the NeoPixel strip at the correct 5 V
+- Charges via USB
+- Available in very small sizes (3,000–5,000 mAh fits in a pocket)
+- Has built-in overcharge and discharge protection</p>
+<p>Use case: costumes, portable art installations, wearable projects — the recommended choice for this course.</p>
+<p><strong>USB Power Safety Limits</strong>: a standard USB 2.0 port provides 500 mA. A USB 3.0 port provides 900 mA. USB-C Power Delivery ports can supply 1.5–5 A. Check your power bank's output rating before connecting many pixels.</p>
+<h3 id="lipo-battery">LiPo Battery</h3>
+<p>A <strong>LiPo Battery</strong> (Lithium Polymer) is a rechargeable flat-pack cell commonly used in RC cars, drones, and wearables. Voltage is <strong>3.7 V nominal</strong> (fully charged: 4.2 V, fully discharged: 3.0 V). Capacities range from 100 mAh to 10,000+ mAh.</p>
+<p>LiPo batteries are lightweight and flexible, making them ideal for sewn-in or compact wearable designs.</p>
+<p><strong>LiPo Battery Safe Handling</strong> — follow these rules without exception:</p>
+<ul>
+<li>Never puncture, crush, or bend a LiPo battery</li>
+<li>Never charge beyond 4.2 V — use a proper LiPo charger IC</li>
+<li>Never discharge below 3.0 V — this permanently damages the cell</li>
+<li>Store at 3.7–3.85 V (approximately 50% charge) for long-term storage</li>
+<li>If a LiPo battery swells (puffs up), stop using it immediately — it is damaged</li>
+</ul>
+<h3 id="18650-lithium-cell">18650 Lithium Cell</h3>
+<p>The <strong>18650 Lithium Cell</strong> is a cylindrical rechargeable cell 18 mm in diameter and 65 mm long (hence "18650"). It provides <strong>3.7 V nominal</strong> and <strong>2,000–3,500 mAh</strong> per cell. The same chemistry as LiPo, but in a rigid metal housing that's more durable.</p>
+<p>18650 cells are popular for projects that need more capacity than a LiPo pouch but where the cylindrical shape fits (flashlight-style holders, belt packs).</p>
+<p>The comparison table below summarizes all battery types:</p>
+<table>
+<thead>
+<tr>
+<th>Battery</th>
+<th>Voltage</th>
+<th>Capacity (mAh)</th>
+<th>Best Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CR2032 (coin cell)</td>
+<td>3.0 V</td>
+<td>200–250</td>
+<td>Tiny badges, single LEDs</td>
+</tr>
+<tr>
+<td>AA alkaline</td>
+<td>1.5 V</td>
+<td>2,000–3,000</td>
+<td>General projects, easy to replace</td>
+</tr>
+<tr>
+<td>AAA alkaline</td>
+<td>1.5 V</td>
+<td>1,000–1,200</td>
+<td>Compact projects</td>
+</tr>
+<tr>
+<td>9-volt</td>
+<td>9 V</td>
+<td>400–600</td>
+<td>Quick testing with regulator</td>
+</tr>
+<tr>
+<td>USB power bank</td>
+<td>5 V</td>
+<td>2,000–20,000+</td>
+<td>Costumes — recommended</td>
+</tr>
+<tr>
+<td>LiPo pouch</td>
+<td>3.7 V</td>
+<td>100–10,000</td>
+<td>Lightweight wearables</td>
+</tr>
+<tr>
+<td>18650 cell</td>
+<td>3.7 V</td>
+<td>2,000–3,500</td>
+<td>Higher-capacity portable</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="series-and-parallel-battery-configurations">Series and Parallel Battery Configurations</h2>
+<p>Two ways to connect multiple cells:</p>
+<p><strong>Series Battery Configuration</strong> — batteries connected positive-to-negative in a chain. Voltage adds up; capacity stays the same.</p>
+<p>Example: Two AA cells (1.5 V each) in series = 3.0 V at 2,500 mAh.</p>
+<p><strong>Parallel Battery Configuration</strong> — batteries connected positive-to-positive and negative-to-negative. Voltage stays the same; capacity adds up.</p>
+<p>Example: Two 2,500 mAh AA cells in parallel = 1.5 V at 5,000 mAh.</p>
+<p>The rule of thumb: use series to increase voltage for your circuit. Use parallel to increase runtime without changing voltage.</p>
+<hr />
+<h2 id="power-consumption-calculation">Power Consumption Calculation</h2>
+<p>To design a battery system, you need the <strong>total system current draw</strong> — the sum of all current consumers:</p>
+<div class="arithmatex">\[ I_{\text{total}} = I_{\text{Pico}} + I_{\text{LEDs}} + I_{\text{sensors}} \]</div>
+<p>Typical values:
+- Raspberry Pi Pico: ~25 mA
+- Each NeoPixel at full white: 20 mA
+- Each NeoPixel at 30% brightness: ~6 mA
+- Photoresistor + resistor divider: ~0.3 mA (negligible)</p>
+<p>A 30-pixel strip at 30% brightness plus the Pico:</p>
+<div class="arithmatex">\[ I_{\text{total}} = 25 + (30 \times 6) = 25 + 180 = 205 \text{ mA} \]</div>
+<p><strong>Battery Life Calculation</strong>:</p>
+<div class="arithmatex">\[ \text{Hours} = \frac{\text{capacity (mAh)}}{I_{\text{total}} \text{ (mA)}} \]</div>
+<p>For a 5,000 mAh USB power bank:</p>
+<div class="arithmatex">\[ \text{Hours} = \frac{5000}{205} \approx 24 \text{ hours} \]</div>
+<p>More than enough for any costume event.</p>
+<h4 id="diagram-battery-life-calculator">Diagram: Battery Life Calculator</h4>
+<details>
+<summary>Interactive calculator: battery life for LED projects</summary>
+<p>Type: interactive-infographic
+<strong>sim-id:</strong> battery-life-calculator
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>A clean p5.js form with interactive inputs:
+- Battery type selector: (coin cell / AA / USB power bank / LiPo 500mAh / LiPo 2000mAh / 18650)
+- Number of pixels slider: 1–60
+- Brightness level slider: 10%–100%
+- "Include Pico power" checkbox (adds 25 mA when checked)</p>
+<p>Outputs displayed dynamically:
+- Total current draw: X mA
+- Battery capacity: Y mAh
+- Estimated battery life: Z hours Z minutes
+- Warning indicator if total current exceeds safe USB limit (500 mA)</p>
+<p>A bar chart shows the proportion of power used by Pico vs. LEDs. Canvas: 700 × 420 px. Responds to window resize.</p>
+<p>Learning objective: Applying — the student can calculate battery life for any project configuration.</p>
+</details>
+<hr />
+<h2 id="lipo-charging-circuits-and-the-tc4056">LiPo Charging Circuits and the TC4056</h2>
+<p>To recharge a LiPo battery safely, you need a charger IC that controls the charging voltage and current precisely.</p>
+<p>The <strong>TC4056</strong> (also called the TP4056) is a popular, inexpensive LiPo charger IC available on small breakout modules. Here's what it does:</p>
+<ol>
+<li><strong>Constant-current phase</strong>: charges at the set current (up to 1000 mA) until the battery voltage approaches 4.2 V</li>
+<li><strong>Constant-voltage phase</strong>: holds at exactly 4.2 V and lets the current taper down</li>
+<li><strong>Termination</strong>: when current drops below about 10% of the set current, charging stops</li>
+</ol>
+<p><strong>Charging Current Setting</strong>: a single resistor on the TC4056 module sets the maximum charging current. A 1.2 kΩ resistor sets 1000 mA. A 10 kΩ resistor sets 130 mA. Most ready-made modules use 1 kΩ for 1000 mA charging.</p>
+<p><strong>Overcharge Protection</strong>: the TC4056 stops charging when the battery reaches 4.2 V — preventing the dangerous condition of a LiPo charged above its maximum voltage.</p>
+<p><strong>Over-Discharge Protection</strong>: the TC4056 itself doesn't include this, but most complete LiPo modules include a DW01 protection IC that cuts off the battery if voltage drops below 2.5–3.0 V, preventing irreversible cell damage.</p>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up both hands">
+Never charge a LiPo battery that is visibly swollen, has been punctured, or has been discharged below 3.0 V without first consulting an expert. A damaged LiPo can catch fire. The small extra cost of a protected LiPo module is always worth it for a student project.</p>
+</div>
+<hr />
+<h2 id="led-forward-voltage-and-series-resistor-calculation">LED Forward Voltage and Series Resistor Calculation</h2>
+<p>Non-addressable LEDs (ordinary LEDs, not NeoPixels) require a specific voltage called the <strong>LED Forward Voltage</strong> to operate. This is typically:</p>
+<ul>
+<li>Red: 1.8–2.2 V</li>
+<li>Green: 1.9–2.4 V</li>
+<li>Blue/White: 3.0–3.4 V</li>
+</ul>
+<p>When you power an LED from a 5 V supply, the resistor must drop the excess voltage. The <strong>LED Series Resistor Calculation</strong> uses Ohm's Law:</p>
+<div class="arithmatex">\[ R = \frac{V_{\text{supply}} - V_{\text{forward}}}{I_{\text{LED}}} \]</div>
+<p>For a red LED (V_forward = 2.0 V) at 20 mA from a 5 V supply:</p>
+<div class="arithmatex">\[ R = \frac{5.0 - 2.0}{0.020} = \frac{3.0}{0.020} = 150 \, \Omega \]</div>
+<p>Choose the nearest standard resistor value (150 Ω or 220 Ω). A higher value is safer (dimmer LED, less current) than a lower value.</p>
+<p><strong>Ohm's Law Arithmetic</strong> reminder — the calculation above assumes all quantities are in the same units. If supply is in volts and current in amps, resistance comes out in ohms.</p>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Battery comparison:</strong> You need a project to run for 8 hours at 100 mA total current. Which battery type from the table would work? Which is the lightest option?</p>
+</li>
+<li>
+<p><strong>Series config:</strong> Two 18650 cells each at 3.7 V connected in series. What is the total voltage? What is the capacity?</p>
+</li>
+<li>
+<p><strong>Current budget:</strong> Your project has 40 pixels at 30% brightness and a Pico. Calculate total current draw. How long will a 3000 mAh USB power bank last?</p>
+</li>
+<li>
+<p><strong>Resistor calculation:</strong> You want to drive a blue LED (V_forward = 3.2 V) at 15 mA from a 3.3 V Pico GPIO pin. What resistor do you need? (Hint: 3.3 V − 3.2 V = 0.1 V. Calculate R. What does that tell you?)</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What does mAh measure?</li>
+<li>What is the difference between series and parallel battery configurations?</li>
+<li>What voltage does a fully charged LiPo cell reach?</li>
+<li>What does the TC4056 charger IC protect against?</li>
+<li>Why is a USB power bank the recommended choice for wearable NeoPixel projects?</li>
+<li>What is LED forward voltage and why does it matter for resistor calculations?</li>
+<li>Your 18650 cell reads 2.8 V on a multimeter. Should you use it? Why or why not?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing">
+You're a power systems engineer now! You can compare battery types intelligently, calculate how long a project will run, choose the right charging circuit, and protect LiPo batteries correctly. These skills will serve you in every portable electronics project you build for the rest of your life. Huge win!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../18-input-devices-and-sensors/">Chapter 18</a>, you'll connect buttons and sensors to your Pico — writing code that responds to the physical world with button presses, debouncing, mode cycling, and photoresistor light sensing.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../16-circuit-assembly/" title="16. Circuit Assembly" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  16. Circuit Assembly
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../18-input-devices-and-sensors/" title="18. Input and Sensors" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  18. Input and Sensors
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

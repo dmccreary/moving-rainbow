@@ -1,0 +1,3254 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plan, build, document, and present a complete capstone LED project using the full engineering design cycle — from ideation and requirements through peer review and final demo.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/20-project-design-and-capstone/">
+      
+      
+        <link rel="prev" href="../19-interactive-animations-and-tools/">
+      
+      
+        <link rel="next" href="../../getting-started/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Project Design, Capstone Projects, and Presentation - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Project Design, Capstone Projects, and Presentation - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Plan, build, document, and present a complete capstone LED project using the full engineering design cycle — from ideation and requirements through peer review and final demo." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/20-project-design-and-capstone/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/20-project-design-and-capstone/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Project Design, Capstone Projects, and Presentation - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Plan, build, document, and present a complete capstone LED project using the full engineering design cycle — from ideation and requirements through peer review and final demo." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/20-project-design-and-capstone/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project-design-capstone-projects-and-presentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project Design, Capstone Projects, and Presentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-python-variables-types-operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-ideation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Ideation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-constraint-analysis-and-complexity-estimate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Constraint Analysis and Complexity Estimate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-viable-project-and-feature-prioritization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Viable Project and Feature Prioritization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-specification-and-project-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements Specification and Project Proposal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements Specification and Project Proposal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-parts-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component Parts List
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-connection-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Connection Diagram
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Circuit Connection Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-example-circuit-connection-diagram-for-bike-light-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Example Circuit Connection Diagram for Bike Light Project
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm-pseudocode-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Pseudocode Plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-planning-and-timeline-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Milestone Planning and Timeline Creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-build-test-revise-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Build-Test-Revise Cycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Build-Test-Revise Cycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-testing-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Testing Protocol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capstone-project-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Project Categories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capstone Project Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wearable-electronics-design-led-costume-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wearable Electronics Design — LED Costume Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#room-decoration-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Room Decoration Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-art-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Art Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-device-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Device Projects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wearable-safety-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wearable Safety Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peer-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peer Code Review
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Peer Code Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-review-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Review Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-experience-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Experience Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-presentation-skills-and-capstone-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Presentation Skills and Capstone Presentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Presentation Skills and Capstone Presentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Reflection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-peer-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Peer Feedback
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Peer Feedback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-full-project-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Full Project Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-ideation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Ideation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-constraint-analysis-and-complexity-estimate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Constraint Analysis and Complexity Estimate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-viable-project-and-feature-prioritization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Viable Project and Feature Prioritization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-specification-and-project-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements Specification and Project Proposal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements Specification and Project Proposal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-parts-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component Parts List
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-connection-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Connection Diagram
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Circuit Connection Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-example-circuit-connection-diagram-for-bike-light-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Example Circuit Connection Diagram for Bike Light Project
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm-pseudocode-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Pseudocode Plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestone-planning-and-timeline-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Milestone Planning and Timeline Creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-build-test-revise-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Build-Test-Revise Cycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Build-Test-Revise Cycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-testing-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Testing Protocol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capstone-project-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Project Categories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capstone Project Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wearable-electronics-design-led-costume-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wearable Electronics Design — LED Costume Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#room-decoration-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Room Decoration Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-art-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Art Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-device-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Device Projects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wearable-safety-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wearable Safety Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peer-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peer Code Review
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Peer Code Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-review-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Review Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Documentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-experience-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Experience Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-presentation-skills-and-capstone-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Presentation Skills and Capstone Presentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Presentation Skills and Capstone Presentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Reflection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-peer-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Peer Feedback
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Peer Feedback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-full-project-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Full Project Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/20-project-design-and-capstone/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="project-design-capstone-projects-and-presentation">Project Design, Capstone Projects, and Presentation</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers the complete project lifecycle from ideation and requirements specification through circuit design, algorithm pseudocode, milestone planning, iterative development, peer code review, and technical presentation, including all capstone project categories (wearable, room décor, interactive art, practical devices) and wearable safety standards.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 36 concepts from the learning graph:</p>
+<ol>
+<li>Project Ideation</li>
+<li>Requirements Specification</li>
+<li>Circuit Connection Diagram</li>
+<li>Algorithm Pseudocode Plan</li>
+<li>Milestone Planning</li>
+<li>Timeline Creation</li>
+<li>Iterative Development Cycle</li>
+<li>Build-Test-Revise Cycle</li>
+<li>Peer Code Review</li>
+<li>Code Review Criteria</li>
+<li>Inline Code Comments</li>
+<li>Project Documentation</li>
+<li>Technical Presentation Skills</li>
+<li>Project Reflection</li>
+<li>Wearable Electronics Design</li>
+<li>LED Costume Project</li>
+<li>Room Decoration Project</li>
+<li>Interactive Art Installation</li>
+<li>Practical Device Project</li>
+<li>Solar-Powered LED System</li>
+<li>LED Clock Project</li>
+<li>LED Nightlight Project</li>
+<li>Bike Safety Light Project</li>
+<li>Project Proposal Document</li>
+<li>Component Parts List</li>
+<li>Project Testing Protocol</li>
+<li>User Experience Design</li>
+<li>Project Iteration</li>
+<li>Final Project Demo</li>
+<li>Capstone Presentation</li>
+<li>Project Peer Feedback</li>
+<li>Design Constraint Analysis</li>
+<li>Project Complexity Estimate</li>
+<li>Feature Prioritization</li>
+<li>Minimum Viable Project</li>
+<li>Wearable Safety Standards</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+<li><a href="../02-python-variables-types-operators/">Chapter 2: Python Basics: Variables, Data Types, and Operators</a></li>
+<li><a href="../03-python-functions-modules-practices/">Chapter 3: Python Functions, Modules, and Programming Best Practices</a></li>
+<li><a href="../04-python-control-flow-loops/">Chapter 4: Python Control Flow, Loops, and Error Handling</a></li>
+<li><a href="../05-raspberry-pi-pico-hardware/">Chapter 5: Raspberry Pi Pico Hardware and Development Environment</a></li>
+<li><a href="../06-micropython-apis-and-electronics/">Chapter 6: MicroPython APIs, GPIO Control, and Electrical Fundamentals</a></li>
+<li><a href="../07-rgb-color-theory/">Chapter 7: Color Theory: The RGB Color Model and Color Mixing</a></li>
+<li><a href="../08-neopixel-led-hardware/">Chapter 8: NeoPixel LED Hardware: WS2812B, Wiring, and Form Factors</a></li>
+<li><a href="../09-neopixel-programming/">Chapter 9: NeoPixel Programming: Pixels, Colors, and the NeoPixel Library</a></li>
+<li><a href="../10-advanced-color-theory/">Chapter 10: Advanced Color Theory: HSV, Gamma Correction, and Color Palettes</a></li>
+<li><a href="../11-math-for-led-programming/">Chapter 11: Mathematics for LED Programming</a></li>
+<li><a href="../12-basic-animation-patterns/">Chapter 12: Basic LED Animation Patterns</a></li>
+<li><a href="../13-intermediate-animations/">Chapter 13: Intermediate Animation Techniques</a></li>
+<li><a href="../14-advanced-animation-patterns/">Chapter 14: Advanced Animation Patterns: Comet, Scanner, and Candle</a></li>
+<li><a href="../15-electronics-fundamentals/">Chapter 15: Electronics Fundamentals: Resistance, Ohm's Law, and Components</a></li>
+<li><a href="../16-circuit-assembly/">Chapter 16: Circuit Assembly: Resistors, Transistors, and Circuit Types</a></li>
+<li><a href="../17-power-and-battery-systems/">Chapter 17: Power Systems, Batteries, and Energy Management</a></li>
+<li><a href="../18-input-devices-and-sensors/">Chapter 18: Input Devices, Sensors, and State Machines</a></li>
+<li><a href="../19-interactive-animations-and-tools/">Chapter 19: Interactive Animations and Development Tools</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to the final chapter! Everything you've learned — code, circuits, color, animation, sensors, power, Git — comes together here. Chapter 20 isn't just about building a project. It's about learning to <em>think</em> like an engineer: define the problem, design before you build, test with purpose, and communicate what you made. This is where the book becomes <em>yours</em>. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Generate and evaluate project ideas using ideation techniques</li>
+<li>Write a requirements specification and project proposal document</li>
+<li>Create a circuit connection diagram and a components parts list</li>
+<li>Write algorithm pseudocode before coding</li>
+<li>Plan project milestones and timelines</li>
+<li>Apply the minimum viable project and feature prioritization approach</li>
+<li>Use the build-test-revise cycle for iterative development</li>
+<li>Perform and receive peer code reviews</li>
+<li>Design a wearable project that meets safety standards</li>
+<li>Deliver a technical presentation and capstone demo</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<ul>
+<li>All previous kit materials (Pico, LED strip, breadboard, wires, button, LDR)</li>
+<li>Optional: additional LEDs, additional buttons, a LiPo battery system, mounting materials</li>
+<li>Access to GitHub for code backup</li>
+<li>Paper or a document editor for planning documents</li>
+<li>Your 19 previous chapters as a reference library</li>
+</ul>
+<hr />
+<h2 id="project-ideation">Project Ideation</h2>
+<p><strong>Project Ideation</strong> is the creative phase where you generate as many project ideas as possible before committing to one. Good ideation rules:</p>
+<ul>
+<li>Write down every idea, no matter how impossible it seems — ideas evolve</li>
+<li>Think across all four project categories: wearable, décor, interactive art, practical device</li>
+<li>Ask: "Who will use this? Where? When? What problem does it solve or experience does it create?"</li>
+</ul>
+<p>Techniques that help:</p>
+<p><strong>Brainstorming</strong>: set a timer for 10 minutes and write every idea without judging them. Aim for quantity over quality.</p>
+<p><strong>Constraint brainstorming</strong>: deliberately limit yourself. "What if I could only use 10 pixels?" or "What if the project had to run on batteries for 8 hours?" Constraints often produce the most creative ideas.</p>
+<p><strong>Problem-first thinking</strong>: identify a problem first, then ask how LEDs and a Pico might help. "My backpack isn't visible at night." → Bike safety light or bag LED accent. "My room is boring." → Room decoration project.</p>
+<p>After ideation, narrow to 2–3 ideas and evaluate them against your constraints.</p>
+<hr />
+<h2 id="design-constraint-analysis-and-complexity-estimate">Design Constraint Analysis and Complexity Estimate</h2>
+<p>Before choosing a project, analyze what each one actually requires. <strong>Design Constraint Analysis</strong> identifies limitations that will affect your design:</p>
+<p>The following table shows common constraint categories:</p>
+<table>
+<thead>
+<tr>
+<th>Constraint Type</th>
+<th>Questions to ask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Budget</td>
+<td>How many components does it need? Can you afford them?</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>How many class periods or hours do you have?</td>
+</tr>
+<tr>
+<td>Skill</td>
+<td>Does it need techniques you haven't learned?</td>
+</tr>
+<tr>
+<td>Physical</td>
+<td>What size does it need to be? How does it attach?</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>How long does it need to run without charging?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Project Complexity Estimate</strong>: after listing the constraints, estimate complexity on a simple scale:</p>
+<ul>
+<li><strong>Basic</strong> — 1 animation, no input, USB power</li>
+<li><strong>Intermediate</strong> — 2–4 animations, one button, USB or power bank</li>
+<li><strong>Advanced</strong> — mode cycling, sensor input, battery-powered, wearable form factor</li>
+</ul>
+<p>For a capstone project in one course, target intermediate complexity. Advanced is achievable with extra time; basic is a starting point but aim to extend it.</p>
+<hr />
+<h2 id="minimum-viable-project-and-feature-prioritization">Minimum Viable Project and Feature Prioritization</h2>
+<p>A <strong>Minimum Viable Project</strong> (MVP) is the smallest version of your project that demonstrates its core function. For a bike safety light, the MVP is: LEDs on, attached to the bike, visible at night. Everything else (patterns, button cycling, battery level indicator) is an enhancement.</p>
+<p><strong>Feature Prioritization</strong> ranks features into three tiers:</p>
+<ol>
+<li><strong>Must-have</strong> — the MVP. These must work for the project to exist.</li>
+<li><strong>Should-have</strong> — strong improvements that add value if time allows.</li>
+<li><strong>Could-have</strong> — nice extras for if the core is done early.</li>
+</ol>
+<p>Example for an LED costume jacket:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LEDs sewn to jacket, solid color</td>
+<td>Must-have</td>
+</tr>
+<tr>
+<td>Moving rainbow animation</td>
+<td>Must-have</td>
+</tr>
+<tr>
+<td>Button to change animation</td>
+<td>Should-have</td>
+</tr>
+<tr>
+<td>LiPo battery (no USB cable dangling)</td>
+<td>Should-have</td>
+</tr>
+<tr>
+<td>Auto-brightness via photoresistor</td>
+<td>Could-have</td>
+</tr>
+<tr>
+<td>Heartbeat sync to music tempo</td>
+<td>Could-have</td>
+</tr>
+</tbody>
+</table>
+<p>Build the must-haves first. Only start should-haves after the MVPs are tested and working.</p>
+<hr />
+<h2 id="requirements-specification-and-project-proposal">Requirements Specification and Project Proposal</h2>
+<p>A <strong>Requirements Specification</strong> is a written document that defines exactly what your project will do. It prevents scope creep (the endless addition of features) and gives you a concrete target to test against.</p>
+<p>Before the template, here are two key terms:
+- <strong>Functional requirement</strong> — what the project does (e.g., "LEDs display a moving rainbow when powered on")
+- <strong>Non-functional requirement</strong> — quality of how it does it (e.g., "Battery life must exceed 4 hours at full brightness")</p>
+<p>A minimal requirements specification:</p>
+<div class="highlight"><pre><span></span><code>Project: LED Bike Safety Light
+Creator: [Your Name]
+
+PURPOSE
+Help cyclists be visible at night.
+
+FUNCTIONAL REQUIREMENTS
+1. LEDs illuminate red when powered on (default mode)
+2. Button cycles between: solid red, flashing red, white forward light
+3. Automatic mode switch at startup (manual override via button)
+
+NON-FUNCTIONAL REQUIREMENTS
+1. Battery life: minimum 4 hours in flashing mode
+2. Weatherproof: waterproof enclosure for Pico and battery
+3. Attachment: secures to bike frame without permanent mounting
+
+OUT OF SCOPE (not in this version)
+- Bluetooth connectivity
+- Charging from bike dynamo
+</code></pre></div>
+<p>The <strong>Project Proposal Document</strong> packages the requirements specification with:
+- Project title and creator
+- Project category (wearable / décor / art / practical)
+- Component parts list
+- Rough circuit diagram sketch
+- Timeline and milestones</p>
+<h3 id="component-parts-list">Component Parts List</h3>
+<p>A <strong>Component Parts List</strong> (also called a Bill of Materials) lists every physical item your project needs. Before ordering parts or signing out kit components, knowing exactly what you need avoids mid-project surprises.</p>
+<p>Example parts list for a bike safety light:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Quantity</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi Pico</td>
+<td>1</td>
+<td>From kit</td>
+</tr>
+<tr>
+<td>WS2812B LED strip, 30 pixels</td>
+<td>1</td>
+<td>Weatherproof variant</td>
+</tr>
+<tr>
+<td>5V LiPo battery, 2000 mAh</td>
+<td>1</td>
+<td>With USB output</td>
+</tr>
+<tr>
+<td>Momentary push button</td>
+<td>1</td>
+<td>Waterproof rated</td>
+</tr>
+<tr>
+<td>3D-printed enclosure</td>
+<td>1</td>
+<td>STL file from GitHub</td>
+</tr>
+<tr>
+<td>Jumper wires</td>
+<td>6</td>
+<td>10 cm</td>
+</tr>
+<tr>
+<td>Zip ties</td>
+<td>4</td>
+<td>For mounting</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="circuit-connection-diagram">Circuit Connection Diagram</h2>
+<p>A <strong>Circuit Connection Diagram</strong> shows how every component connects to the Pico. Before wiring anything, draw this diagram by hand or with a tool like Fritzing.</p>
+<p>The diagram should show:
+- Pico with labeled GPIO pins
+- Each component connected to the correct pin with wire color notation
+- Power rails (5V, 3.3V, GND) clearly marked
+- Any resistors or capacitors in the circuit</p>
+<p>Before wiring your actual project, walk through the diagram with a partner and check: "Is there a path from every component to GND? Is there a current-limiting resistor on every directly-driven LED? Is there a pull-up or pull-down on every input pin?"</p>
+<p>A diagram reviewed in advance takes 5 minutes. A short circuit discovered at power-on can take 30 minutes to diagnose.</p>
+<h4 id="diagram-example-circuit-connection-diagram-for-bike-light-project">Diagram: Example Circuit Connection Diagram for Bike Light Project</h4>
+<iframe src="../../sims/bike-light-circuit-diagram/main.html" width="100%" height="422px" scrolling="no"></iframe>
+<p><a href="../../sims/bike-light-circuit-diagram/main.html">Run Example Circuit Connection Diagram for Bike Light Project Fullscreen</a></p>
+<details>
+<summary>Interactive wiring diagram: Pico + LED strip + button for bike light</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> bike-light-circuit-diagram
+<strong>Library:</strong> p5.js
+<strong>Status:</strong> Specified</p>
+<p>A p5.js interactive wiring diagram showing:</p>
+<p><strong>Components:</strong>
+- Raspberry Pi Pico (center, with all GPIO pins labeled on both sides)
+- WS2812B LED strip (right side, 8 pixels shown as a row)
+- Momentary button (left side, on breadboard)
+- USB power bank (top right, labeled "5V source")</p>
+<p><strong>Connections drawn as colored wires:</strong>
+- Red: USB power bank 5V → Pico VBUS pin → LED strip 5V pin
+- Black: USB power bank GND → Pico GND → LED strip GND
+- Yellow: Pico GP0 → LED strip Data In (with a note: "330Ω resistor in-line recommended")
+- Green: Pico GP15 → Button one leg
+- Black: Button other leg → GND</p>
+<p>Clicking any component opens a tooltip explaining its role. Clicking any wire highlights its full path and shows voltage/signal name.</p>
+<p>Canvas: 700 × 420 px. Responds to window resize.</p>
+<p>Learning objective: Applying — the student can trace any signal path from source to destination and identify which pin it uses.</p>
+</details>
+<hr />
+<h2 id="algorithm-pseudocode-plan">Algorithm Pseudocode Plan</h2>
+<p><strong>Algorithm Pseudocode</strong> is a plain-language description of your program's logic written before you write actual code. Pseudocode uses everyday words to describe what the computer should do, step by step.</p>
+<p>Why write pseudocode first? It's much faster to catch logic errors in plain text than in working code. A missing step in pseudocode costs a sentence to fix. A missing step found after coding costs reworking the entire program.</p>
+<p>Pseudocode example for the bike safety light:</p>
+<div class="highlight"><pre><span></span><code>SET UP:
+  Initialize LED strip (30 pixels, GP0)
+  Initialize button (GP15, pull-up)
+  Set mode = 0 (solid red)
+
+MAIN LOOP:
+  If button just pressed:
+    mode = (mode + 1) modulo 3
+
+  If mode = 0:
+    Set all pixels red, full brightness
+    Write to strip
+
+  If mode = 1:
+    If frame counter is even: set all pixels red
+    If frame counter is odd:  set all pixels off
+    Write to strip
+    Advance frame counter
+
+  If mode = 2:
+    Set first 10 pixels white (forward light)
+    Set remaining 20 pixels off
+    Write to strip
+
+  Wait 50ms
+  Go back to top of loop
+</code></pre></div>
+<p>After writing pseudocode, review it with a partner. Can they follow every step? Does each step map to code you already know how to write?</p>
+<hr />
+<h2 id="milestone-planning-and-timeline-creation">Milestone Planning and Timeline Creation</h2>
+<p><strong>Milestone Planning</strong> breaks a project into named, dateable checkpoints. Each milestone is something you can demonstrate — a working subset of the final project.</p>
+<p><strong>Timeline Creation</strong> assigns dates to each milestone. Work backward from the final demo date:</p>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Target Date</th>
+<th>Success Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proposal approved</td>
+<td>Week 1</td>
+<td>Proposal document reviewed by teacher</td>
+</tr>
+<tr>
+<td>MVP working</td>
+<td>Week 2</td>
+<td>Solid LED color powered by USB</td>
+</tr>
+<tr>
+<td>Core features done</td>
+<td>Week 3</td>
+<td>All must-have features functional</td>
+</tr>
+<tr>
+<td>Should-haves added</td>
+<td>Week 4</td>
+<td>Button cycling, battery-powered</td>
+</tr>
+<tr>
+<td>Testing complete</td>
+<td>Week 5</td>
+<td>Project testing protocol run, issues fixed</td>
+</tr>
+<tr>
+<td>Peer review done</td>
+<td>Week 5</td>
+<td>Code review received and addressed</td>
+</tr>
+<tr>
+<td>Presentation ready</td>
+<td>Week 6</td>
+<td>Demo rehearsed, slide or poster prepared</td>
+</tr>
+</tbody>
+</table>
+<p>Plan for milestones to slip by one day each. If every milestone arrives exactly on time, you're either planning conservatively (fine) or getting very lucky.</p>
+<hr />
+<h2 id="the-build-test-revise-cycle">The Build-Test-Revise Cycle</h2>
+<p>The <strong>Iterative Development Cycle</strong> — also called the <strong>Build-Test-Revise Cycle</strong> — is how real engineers build anything non-trivial. Instead of building the entire project and testing at the end (where everything might be broken), you:</p>
+<ol>
+<li><strong>Build</strong> — implement the smallest next piece (one mode, one animation, one input)</li>
+<li><strong>Test</strong> — verify it works before adding more</li>
+<li><strong>Revise</strong> — fix what doesn't work, then go back to step 1</li>
+</ol>
+<p><strong>Project Iteration</strong> is each pass through this cycle. A typical intermediate project goes through 8–15 iterations before the final demo.</p>
+<p>The most important rule: <strong>test small, test early, test often</strong>. If you wire 30 pixels, write 200 lines of code, and test for the first time — and it doesn't work — you have 230 potential failure points. If you test after every 15 lines of code, you have at most 15 places to look.</p>
+<h3 id="project-testing-protocol">Project Testing Protocol</h3>
+<p>A <strong>Project Testing Protocol</strong> is a written checklist of tests that the project must pass. Writing it before building ensures you test what matters:</p>
+<p>Example testing protocol for the bike light:</p>
+<div class="highlight"><pre><span></span><code>FUNCTIONAL TESTS (must pass):
+[ ] Solid red mode: all 30 pixels display red on power-up
+[ ] Button press: mode advances from 0 → 1 → 2 → 0
+[ ] Flashing mode: LEDs blink at ~2 Hz, visible at arm&#39;s length in daylight
+[ ] White mode: forward 10 pixels white, no flicker
+[ ] Battery runtime: runs 4 hours in flashing mode without dimming
+
+NON-FUNCTIONAL TESTS (must pass):
+[ ] Drop test: enclosure survives a drop from handlebar height onto pavement
+[ ] Moisture test: survives 30 seconds of water spray from a garden hose
+[ ] Vibration test: mounted on bike and ridden 1 km on rough pavement, no loose connections
+
+EDGE CASES (should handle):
+[ ] Button held: no continuous mode cycling (debounce working)
+[ ] Low battery: brightness should reduce gracefully, not crash
+</code></pre></div>
+<p>Run every test before the final presentation. Document the results: which tests passed, which needed revision, and what was changed to fix failures.</p>
+<hr />
+<h2 id="capstone-project-categories">Capstone Project Categories</h2>
+<p>Four categories of projects are supported by this course's hardware. The description of each category below also identifies which chapters provide the key skills.</p>
+<h3 id="wearable-electronics-design-led-costume-project">Wearable Electronics Design — LED Costume Project</h3>
+<p><strong>Wearable Electronics Design</strong> combines programming and physical construction to create garments or accessories that light up. The <strong>LED Costume Project</strong> is the classic example: LEDs sewn or attached to a jacket, hat, bag, or costume.</p>
+<p>Key design considerations specific to wearables:
+- <strong>Weight and bulk</strong> — LiPo batteries add weight; route wires so they don't pull on fabric
+- <strong>Flexibility</strong> — LED strips must bend with the garment; use silicone-sheathed strips
+- <strong>Reachability</strong> — the Pico and battery must be accessible for charging without disassembly
+- <strong>Washability</strong> — the project is likely not washable; design for it to be removable</p>
+<p>Key chapters for wearables: 7 (color theory), 12–14 (animations), 17 (battery systems), 18 (buttons for mode switching).</p>
+<h3 id="room-decoration-project">Room Decoration Project</h3>
+<p>The <strong>Room Decoration Project</strong> creates permanent LED installations in a personal space: under-shelf accent lighting, backlit picture frames, desk ambient lighting, or holiday decorations.</p>
+<p>Because room decoration projects stay plugged into USB power, power budget constraints are much looser. This frees you to use higher brightness and more complex animations.</p>
+<p>Key chapters: 7, 9, 12–14 (color and animation), 19 (config.py for customization).</p>
+<h3 id="interactive-art-installation">Interactive Art Installation</h3>
+<p>The <strong>Interactive Art Installation</strong> creates an experience that responds to the viewer's presence or actions. Examples: a wall panel that changes color when touched, a mobile that sways and triggers pixel ripples, a shadow box where a photoresistor detects ambient light.</p>
+<p>Key skills: sensor-driven animation (Chapter 18), state machines (Chapter 18), mode cycling (Chapter 19).</p>
+<h3 id="practical-device-projects">Practical Device Projects</h3>
+<p><strong>Practical Device Projects</strong> solve a real problem. Four specific examples:</p>
+<p><strong>Bike Safety Light Project</strong>: red rear light with multiple flashing modes, waterproofed, battery-powered, attaches to bike seat post. Safety-critical — the testing protocol must include a visibility test.</p>
+<p><strong>LED Nightlight Project</strong>: photoresistor automatically activates warm-white LEDs when the room gets dark. Plugs into USB. Optional: button cycles through colors.</p>
+<p><strong>LED Clock Project</strong>: uses <code>utime.localtime()</code> to map hours, minutes, and seconds to pixel positions or colors. Requires the Pico to have its clock set (via Thonny or NTP with a wireless-capable variant).</p>
+<p><strong>Solar-Powered LED System</strong>: a small solar panel charges a LiPo via a MPPT solar charge controller, powering outdoor LEDs at night. Advanced project — requires the LiPo safety knowledge from Chapter 17 and a suitable weatherproof enclosure.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward with a smile">
+Not sure which category to choose? Ask yourself: will this project be used, displayed, or experienced? "Used" often points to a practical device. "Displayed" points to décor. "Experienced" points to interactive art. "Worn" points to a costume. That one question often settles it.</p>
+</div>
+<hr />
+<h2 id="wearable-safety-standards">Wearable Safety Standards</h2>
+<p><strong>Wearable Safety Standards</strong> are design rules that prevent wearable electronics from causing discomfort or harm. Before wearing any electronic project on the body:</p>
+<ol>
+<li>
+<p><strong>Enclose all bare conductors.</strong> Exposed solder joints, bare component legs, or bare wire ends can scratch skin or short-circuit against metal buttons. Cover with heat-shrink tubing, electrical tape, or a 3D-printed case.</p>
+</li>
+<li>
+<p><strong>Secure the battery.</strong> A LiPo battery that falls out of a pocket and gets stepped on can rupture. Use a battery pocket with a snap or zipper, not just friction.</p>
+</li>
+<li>
+<p><strong>Keep heat away from skin.</strong> Resistors and voltage regulators can run warm under load. Route them away from direct skin contact, especially in costume pieces worn under fabric.</p>
+</li>
+<li>
+<p><strong>Never bypass the LiPo protection circuit.</strong> Some bare LiPo cells are sold without protection ICs — they may be slightly lighter but can go into thermal runaway if over-discharged. Always use protected cells or add an external protection module.</p>
+</li>
+<li>
+<p><strong>Test before wearing in public.</strong> Run the full project at maximum brightness for 30 minutes before wearing it. If any component becomes noticeably warm, investigate before putting it on your body.</p>
+</li>
+<li>
+<p><strong>Add a power switch or accessible disconnect.</strong> If an LED gets stuck at maximum brightness and starts heating up, you should be able to disconnect power immediately without tools.</p>
+</li>
+</ol>
+<hr />
+<h2 id="peer-code-review">Peer Code Review</h2>
+<p><strong>Peer Code Review</strong> is the practice of having another student read, understand, and comment on your code before it's finalized. Code review catches bugs, spots confusing variable names, and often results in better designs — because a reviewer asks "why?" at exactly the places where the code is fragile.</p>
+<h3 id="code-review-criteria">Code Review Criteria</h3>
+<p>Before the review, the reviewer reads the code with these questions in mind:</p>
+<p><strong>Correctness:</strong>
+- Does the code do what the comments and function names promise?
+- Are there edge cases that would cause the code to fail?</p>
+<p><strong>Readability:</strong>
+- Are variable names descriptive? (<code>brightness</code> vs. <code>b</code>)
+- Are functions small and focused on one task?</p>
+<p><strong>Safety:</strong>
+- Are sensor values validated before being used as array indices?
+- Is there a way to exit the main loop if something goes wrong?</p>
+<p><strong>Inline Code Comments</strong>: comments should appear where the WHY is not obvious. A comment explaining that a delay exists because the strip needs 300 µs to latch the signal is valuable. A comment that says <code># add 1 to offset</code> above <code>offset += 1</code> adds no information.</p>
+<p>Good inline comment example:
+<div class="highlight"><pre><span></span><code><span class="n">utime</span><span class="o">.</span><span class="n">sleep_us</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>   <span class="c1"># WS2812B protocol requires 300µs latch gap after write</span>
+</code></pre></div></p>
+<h3 id="project-documentation">Project Documentation</h3>
+<p><strong>Project Documentation</strong> is everything a new person would need to understand and use your project: the README, the wiring diagram, the config.py settings, and the testing protocol.</p>
+<p>Minimum documentation for the capstone:</p>
+<ol>
+<li><strong>README.md</strong> on GitHub with: project description, hardware required, wiring overview, how to install and run</li>
+<li><strong>Circuit diagram</strong> (drawn or exported from Fritzing/KiCad)</li>
+<li><strong>config.py</strong> with comments explaining every setting</li>
+</ol>
+<hr />
+<h2 id="user-experience-design">User Experience Design</h2>
+<p><strong>User Experience Design</strong> (UX) is thinking about your project from the perspective of the person who will use it — not the programmer who built it.</p>
+<p>Questions to ask about your UX:</p>
+<ul>
+<li>How does the user know the project is on? (Indicator LED, startup animation?)</li>
+<li>How does the user know which mode they're in? (A label, a specific color, a pattern?)</li>
+<li>What happens if the user presses the button too quickly? (Debouncing handles this, but test it)</li>
+<li>What happens when the battery is nearly dead? (Does it crash, dim, or show a warning?)</li>
+</ul>
+<p>The best UX improvements are often tiny details: a brief flash of white at startup, a distinctive color for each mode, or a slow red blink when battery voltage is low.</p>
+<hr />
+<h2 id="technical-presentation-skills-and-capstone-presentation">Technical Presentation Skills and Capstone Presentation</h2>
+<p>The <strong>Capstone Presentation</strong> is your opportunity to explain what you built, how it works, and what you learned. A strong technical presentation has three parts:</p>
+<p><strong>1. Live Demo (3–5 minutes)</strong>
+- Power on the project in front of the audience
+- Demonstrate every must-have feature
+- Show one should-have if time allows
+- If something breaks during the demo, narrate what's happening and stay calm — this happens to professional engineers, too</p>
+<p><strong>2. Technical Explanation (2–3 minutes)</strong>
+- Describe the circuit: "The Pico's GP0 connects to the data line of the LED strip. GP15 reads a button with a pull-up resistor."
+- Describe the software: "The main loop checks the button state, updates a mode variable, and calls the animation function for the current mode."
+- Show the key code structure — you don't need to read every line, just the structure</p>
+<p><strong>3. Reflection (1–2 minutes)</strong>
+- What worked well?
+- What would you do differently?
+- What would you add if you had more time?</p>
+<p><strong>Final Project Demo</strong> tip: practice the demo twice before the presentation day. Know the exact sequence of button presses that shows all modes. Have a backup plan if the USB cable disconnects.</p>
+<h3 id="project-reflection">Project Reflection</h3>
+<p><strong>Project Reflection</strong> is the honest assessment of your own work after the project is complete. Good reflection goes beyond "it worked" or "it didn't work":</p>
+<ul>
+<li>What was the hardest part? Why?</li>
+<li>What skill from earlier chapters did you use most?</li>
+<li>Which early decision turned out to be a mistake, and how did you recover?</li>
+<li>What would the "version 2" of this project look like?</li>
+</ul>
+<p>Writing a brief reflection also helps the next student who might build a similar project — your lessons learned become their head start.</p>
+<h3 id="project-peer-feedback">Project Peer Feedback</h3>
+<p><strong>Project Peer Feedback</strong> is structured comments from classmates after the presentation. Useful peer feedback is specific and constructive:</p>
+<ul>
+<li>Specific: "The scanner mode felt slow compared to the other modes — was that intentional?"</li>
+<li>Constructive: "The wiring inside the enclosure was hard to follow — color-coding the wires would make it easier to service."</li>
+</ul>
+<p>Avoid vague feedback like "good job" or "it was cool" — that doesn't help the builder improve.</p>
+<hr />
+<h4 id="diagram-full-project-lifecycle">Diagram: Full Project Lifecycle</h4>
+<iframe src="../../sims/project-lifecycle-timeline/main.html" width="100%" height="562px" scrolling="no"></iframe>
+<p><a href="../../sims/project-lifecycle-timeline/main.html">Run Full Project Lifecycle Fullscreen</a></p>
+<details>
+<summary>Interactive timeline diagram: from ideation to presentation</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> project-lifecycle-timeline
+<strong>Library:</strong> Mermaid
+<strong>Status:</strong> Specified</p>
+<p>A Mermaid Gantt-style diagram showing the six-week project timeline:</p>
+<p><strong>Week 1 — Plan:</strong>
+- Project ideation
+- Constraint analysis
+- Proposal document</p>
+<p><strong>Week 2 — Build MVP:</strong>
+- Circuit wiring
+- Config.py setup
+- Basic animation working</p>
+<p><strong>Week 3 — Core features:</strong>
+- Button cycling
+- All must-have modes
+- Git commit at each milestone</p>
+<p><strong>Week 4 — Enhancements:</strong>
+- Should-have features
+- Battery power integration
+- UX polish</p>
+<p><strong>Week 5 — Verify:</strong>
+- Full testing protocol
+- Peer code review
+- Fix issues found</p>
+<p><strong>Week 6 — Present:</strong>
+- Demo rehearsal
+- Capstone presentation
+- Peer feedback session</p>
+<p>Each bar is clickable: clicking a phase opens a tooltip with the success criteria for that phase.</p>
+<p>Canvas: 700 × 340 px. Responds to window resize.</p>
+<p>Learning objective: Analyzing — the student can identify which phase of the project lifecycle is most at risk given a project's current state.</p>
+</details>
+<hr />
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ol>
+<li>
+<p><strong>Ideation sprint:</strong> Set a 10-minute timer. Generate at least 15 project ideas across all four categories. Then score each one: Easy / Medium / Hard, and Fun / Interesting / Useful. Circle your top three.</p>
+</li>
+<li>
+<p><strong>MVP definition:</strong> Choose your favorite idea from the sprint. Write the three must-have features that define the MVP. Write two should-haves and one could-have.</p>
+</li>
+<li>
+<p><strong>Pseudocode first:</strong> Write pseudocode for the main loop of your project. Get a partner to read it. Ask: "Is every step clear? Is anything missing?"</p>
+</li>
+<li>
+<p><strong>Peer review practice:</strong> Swap <code>main.py</code> files with a partner. Review their code using the four criteria: correctness, readability, safety, and inline comments. Provide at least three specific comments.</p>
+</li>
+</ol>
+<hr />
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What is the difference between a functional requirement and a non-functional requirement?</li>
+<li>What is a Minimum Viable Project and why should you build it first?</li>
+<li>What is the purpose of the build-test-revise cycle?</li>
+<li>Name three wearable safety standards for battery-powered projects.</li>
+<li>What makes peer feedback "constructive"? Give an example of vague vs. specific feedback on the same issue.</li>
+<li>What three parts make up a strong capstone presentation?</li>
+<li>What is project reflection and why is it valuable beyond just "it worked"?</li>
+</ol>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">Course complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with rainbow blazing, all colors streaming behind them">
+You made it! From "what is a variable" to "here is my capstone project" — that is one of the longest journeys in any technical field, and you completed it. You now know how to write Python, control real hardware, design circuits, choose power systems, handle sensor input, and build something that lights up a room — literally. Every professional engineer, every maker, every product designer you admire built on exactly these foundations. Where you go next is up to you. But you now have the tools to go anywhere. Pixel couldn't be prouder.</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>You've completed the Moving Rainbow course. Here are some directions to continue:</p>
+<ul>
+<li><strong>Explore MicroPython further</strong>: wireless networking with the Pico W (<code>network</code> module), I2C sensors, servo motors, and audio output</li>
+<li><strong>Try CircuitPython</strong>: a variant of MicroPython with different hardware support and a large Adafruit library ecosystem</li>
+<li><strong>Share your project</strong>: post it on GitHub, submit it to a maker fair, or teach a younger student how to do it</li>
+<li><strong>Extend your capstone</strong>: implement the should-haves and could-haves from your feature prioritization list</li>
+<li><strong>Learn more electronics</strong>: explore PCB design with KiCad, 3D printing enclosures, and surface-mount soldering</li>
+</ul>
+<p>The skills you built here — breaking problems into parts, testing incrementally, reading documentation, debugging systematically, and communicating your work — are transferable to every technical field. Use them well.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../19-interactive-animations-and-tools/" title="19. Interactive and Tools" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  19. Interactive and Tools
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../../getting-started/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Overview
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

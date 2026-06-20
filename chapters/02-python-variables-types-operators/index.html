@@ -1,0 +1,3210 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn Python's building blocks — variables, data types, operators, imports, and code structure — with LED-powered examples.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/chapters/02-python-variables-types-operators/">
+      
+      
+        <link rel="prev" href="../01-intro-and-computational-thinking/">
+      
+      
+        <link rel="next" href="../03-python-functions-modules-practices/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Python Basics — Variables, Data Types, and Operators - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Python Basics — Variables, Data Types, and Operators - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Learn Python's building blocks — variables, data types, operators, imports, and code structure — with LED-powered examples." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/02-python-variables-types-operators/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/chapters/02-python-variables-types-operators/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Python Basics — Variables, Data Types, and Operators - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Learn Python's building blocks — variables, data types, operators, imports, and code structure — with LED-powered examples." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/chapters/02-python-variables-types-operators/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-basics-variables-data-types-and-operators" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python Basics — Variables, Data Types, and Operators
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-and-computational-thinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Intro and Computational Thinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2. Python Basics
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-the-language-of-this-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python: The Language of This Course
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-named-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables: Named Storage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-types-what-kind-of-thing-is-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Types: What Kind of Thing Is It?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Types: What Kind of Thing Is It?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integers-whole-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integers: Whole Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floats-decimal-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Floats: Decimal Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strings: Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booleans-true-or-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booleans: True or False
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lists-ordered-and-changeable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lists: Ordered and Changeable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuples-ordered-and-unchangeable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuples: Ordered and Unchangeable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#none-no-value-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      None: No Value Yet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="None: No Value Yet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-python-data-type-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Python Data Type Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-conversion-changing-from-one-type-to-another" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Conversion: Changing From One Type to Another
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators-making-things-happen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators: Making Things Happen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operators: Making Things Happen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logical Operators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logical Operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-python-operator-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Python Operator Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-statements-and-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import Statements and Modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-indentation-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Indentation Rules
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Indentation Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-code-indentation-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Code Indentation Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Comments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-python-functions-modules-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Functions and Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-python-control-flow-loops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Control Flow and Loops
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-raspberry-pi-pico-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pico Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-micropython-apis-and-electronics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. MicroPython APIs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-rgb-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. RGB Color Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-neopixel-led-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. NeoPixel Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-neopixel-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. NeoPixel Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-advanced-color-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Advanced Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-math-for-led-programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. LED Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-basic-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Basic Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-intermediate-animations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Intermediate Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-advanced-animation-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Advanced Animations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-electronics-fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Electronics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-circuit-assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Circuit Assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-power-and-battery-systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Power Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-input-devices-and-sensors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. Input and Sensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-interactive-animations-and-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Interactive and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-project-design-and-capstone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Projects and Capstone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../lessons/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    NeoPixel Lessons
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You'll Need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-the-language-of-this-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python: The Language of This Course
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-named-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables: Named Storage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-types-what-kind-of-thing-is-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Types: What Kind of Thing Is It?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Types: What Kind of Thing Is It?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integers-whole-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integers: Whole Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floats-decimal-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Floats: Decimal Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strings: Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booleans-true-or-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booleans: True or False
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lists-ordered-and-changeable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lists: Ordered and Changeable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuples-ordered-and-unchangeable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuples: Ordered and Unchangeable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#none-no-value-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      None: No Value Yet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="None: No Value Yet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-python-data-type-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Python Data Type Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-conversion-changing-from-one-type-to-another" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Conversion: Changing From One Type to Another
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators-making-things-happen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators: Making Things Happen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operators: Making Things Happen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logical Operators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logical Operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-python-operator-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Python Operator Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-statements-and-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import Statements and Modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-indentation-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Indentation Rules
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Indentation Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-code-indentation-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Code Indentation Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Comments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Next
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/chapters/02-python-variables-types-operators/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="python-basics-variables-data-types-and-operators">Python Basics: Variables, Data Types, and Operators</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers Python's core building blocks: variables and assignment, all fundamental data types (integers, floats, strings, booleans, lists, tuples), mathematical and comparison operators, string operations, imports, and code indentation.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 23 concepts from the learning graph:</p>
+<ol>
+<li>Python Programming Language</li>
+<li>Variable</li>
+<li>Variable Assignment</li>
+<li>Integer Data Type</li>
+<li>Float Data Type</li>
+<li>String Data Type</li>
+<li>Boolean Data Type</li>
+<li>List Data Type</li>
+<li>Tuple Data Type</li>
+<li>None Value</li>
+<li>Type Conversion</li>
+<li>Mathematical Operators</li>
+<li>Comparison Operators</li>
+<li>Logical Operators</li>
+<li>Import Statement</li>
+<li>Module System</li>
+<li>Code Indentation Rules</li>
+<li>Python Comments</li>
+<li>String Concatenation</li>
+<li>List Indexing</li>
+<li>Tuple Immutability</li>
+<li>Modulo Operator</li>
+<li>Integer Division</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-and-computational-thinking/">Chapter 1: Introduction and Computational Thinking Foundations</a></li>
+</ul>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to Chapter 2! We're about to learn the building blocks of every Python program. Variables, data types, and operators are the tools you'll use in every single LED project. Let's light this up!</p>
+</div>
+<h2 id="what-youll-learn">What You'll Learn</h2>
+<p>By the end of this chapter, you'll be able to:</p>
+<ul>
+<li>Create variables and store different kinds of data in them</li>
+<li>Recognize and use Python's six main data types</li>
+<li>Write math expressions and comparisons using operators</li>
+<li>Import modules to add extra power to your programs</li>
+<li>Write clean, correctly indented Python code with helpful comments</li>
+</ul>
+<h2 id="what-youll-need">What You'll Need</h2>
+<p>For this chapter you don't need any hardware — just Thonny and your Raspberry Pi Pico. All the short examples run in Thonny's Shell panel (the REPL window at the bottom).</p>
+<h2 id="python-the-language-of-this-course">Python: The Language of This Course</h2>
+<p><strong>Python</strong> is a programming language — a set of words and rules that computers understand. Think of it like a recipe language. You write the steps, and the Pico follows them exactly.</p>
+<p>Python was created in 1991 by Guido van Rossum. It's now one of the most popular languages in the world. Scientists, game developers, and makers all use it.</p>
+<p>We use a special version called <strong>MicroPython</strong>. MicroPython is Python that runs on tiny computers like the Raspberry Pi Pico. It packs almost all of Python's features into a very small space.</p>
+<p>Here's the simplest Python program you can write. This single line prints a greeting to the screen:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>   <span class="c1"># This line shows text in the Shell panel</span>
+</code></pre></div>
+<p>Run it in Thonny's Shell. You should see <code>Hello, world!</code> appear immediately.</p>
+<h2 id="variables-named-storage">Variables: Named Storage</h2>
+<p>A <strong>variable</strong> is a named storage spot for a piece of information. Think of it like a labeled box. You put something inside, give the box a name, and use that name whenever you need what's inside.</p>
+<p><strong>Variable assignment</strong> means placing a value into a variable. In Python, you use the equals sign (<code>=</code>) to assign a value. The variable name goes on the left, and the value goes on the right:</p>
+<div class="highlight"><pre><span></span><code><span class="n">color_name</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>       <span class="c1"># Store the text &quot;red&quot; in color_name</span>
+<span class="n">led_brightness</span> <span class="o">=</span> <span class="mi">200</span>     <span class="c1"># Store the number 200 in led_brightness</span>
+<span class="n">is_on</span> <span class="o">=</span> <span class="kc">True</span>             <span class="c1"># Store True in is_on</span>
+</code></pre></div>
+<p>After assignment, you can read the value back by using the variable's name:</p>
+<div class="highlight"><pre><span></span><code><span class="n">color_name</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">color_name</span><span class="p">)</span>        <span class="c1"># Prints: red</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Pixel thinks with a glowing ring">
+Variable names can use letters, numbers, and underscores. Always start with a letter — not a number. So <code>led_1</code> is fine, but <code>1_led</code> won't work. Python is also case-sensitive: <code>Color</code> and <code>color</code> are two different variables. Use lowercase_with_underscores for all your variable names.</p>
+</div>
+<p>Here are the naming rules to remember:</p>
+<ul>
+<li>No spaces in names — use underscores: <code>strip_length</code>, not <code>strip length</code></li>
+<li>Python keywords (<code>for</code>, <code>if</code>, <code>while</code>) can't be used as variable names</li>
+<li>Choose names that describe what's stored: <code>red_brightness</code> is great, <code>x</code> is not</li>
+</ul>
+<h2 id="data-types-what-kind-of-thing-is-it">Data Types: What Kind of Thing Is It?</h2>
+<p>Every value in Python has a <strong>data type</strong> — a category that describes what kind of information it is. Python has six types you'll use in this course.</p>
+<p>Before we look at each type in detail, here's a quick overview:</p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Example</th>
+<th>What It Stores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer</td>
+<td><code>255</code></td>
+<td>Whole numbers (no decimal)</td>
+</tr>
+<tr>
+<td>Float</td>
+<td><code>2.5</code></td>
+<td>Numbers with a decimal point</td>
+</tr>
+<tr>
+<td>String</td>
+<td><code>"red"</code></td>
+<td>Text characters</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>True</code></td>
+<td>True or False only</td>
+</tr>
+<tr>
+<td>List</td>
+<td><code>[255, 0, 0]</code></td>
+<td>Ordered, changeable collection</td>
+</tr>
+<tr>
+<td>Tuple</td>
+<td><code>(255, 0, 0)</code></td>
+<td>Ordered, unchangeable collection</td>
+</tr>
+</tbody>
+</table>
+<p>Let's explore each one.</p>
+<h3 id="integers-whole-numbers">Integers: Whole Numbers</h3>
+<p>An <strong>integer</strong> (often shortened to <strong>int</strong>) is a whole number with no decimal point. Integers can be positive, negative, or zero.</p>
+<div class="highlight"><pre><span></span><code><span class="n">num_pixels</span> <span class="o">=</span> <span class="mi">30</span>     <span class="c1"># How many LEDs on the strip</span>
+<span class="n">red_channel</span> <span class="o">=</span> <span class="mi">255</span>   <span class="c1"># Maximum brightness for red</span>
+<span class="n">blue_channel</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Blue is completely off</span>
+</code></pre></div>
+<p>You'll use integers constantly in NeoPixel programming. Color values always range from 0 to 255 — all integers.</p>
+<h3 id="floats-decimal-numbers">Floats: Decimal Numbers</h3>
+<p>A <strong>float</strong> (short for "floating-point number") is a number that includes a decimal point.</p>
+<div class="highlight"><pre><span></span><code><span class="n">brightness_scale</span> <span class="o">=</span> <span class="mf">0.75</span>   <span class="c1"># 75% brightness</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mf">1.5</span>               <span class="c1"># 1.5 seconds per animation frame</span>
+</code></pre></div>
+<p>Use floats when whole numbers aren't precise enough — like setting brightness to 37.5%.</p>
+<h3 id="strings-text">Strings: Text</h3>
+<p>A <strong>string</strong> is a piece of text. You create a string by wrapping characters in quotation marks — either single quotes (<code>'</code>) or double quotes (<code>"</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="n">color_name</span> <span class="o">=</span> <span class="s2">&quot;rainbow&quot;</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Hello, coder!&#39;</span>
+<span class="n">empty</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>              <span class="c1"># An empty string — still a valid string</span>
+</code></pre></div>
+<p><strong>String concatenation</strong> means joining two strings together using the <code>+</code> operator. The following code joins two strings and prints the combined result:</p>
+<div class="highlight"><pre><span></span><code><span class="n">first</span> <span class="o">=</span> <span class="s2">&quot;Moving&quot;</span>
+<span class="n">second</span> <span class="o">=</span> <span class="s2">&quot; Rainbow&quot;</span>
+<span class="n">full</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="n">second</span>   <span class="c1"># full is now &quot;Moving Rainbow&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full</span><span class="p">)</span>             <span class="c1"># Prints: Moving Rainbow</span>
+</code></pre></div>
+<h3 id="booleans-true-or-false">Booleans: True or False</h3>
+<p>A <strong>boolean</strong> (or <strong>bool</strong>) can only hold one of two values: <code>True</code> or <code>False</code>. Always capitalize both words exactly that way.</p>
+<div class="highlight"><pre><span></span><code><span class="n">strip_is_on</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">animation_running</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+<p>Booleans are the building blocks of decisions. When you ask "is the button pressed?" the answer is always a boolean.</p>
+<h3 id="lists-ordered-and-changeable">Lists: Ordered and Changeable</h3>
+<p>A <strong>list</strong> is a collection of values stored in order. You create a list with square brackets <code>[ ]</code>, separating items with commas.</p>
+<div class="highlight"><pre><span></span><code><span class="n">rgb_color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>   <span class="c1"># Orange: red=255, green=100, blue=0</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>  <span class="c1"># Five pixel positions</span>
+</code></pre></div>
+<p>Lists are <strong>changeable</strong> — you can add, remove, or update items after you create them.</p>
+<p><strong>List indexing</strong> means accessing one item from a list by its position number. Python counts from 0, not 1. So the first item sits at index 0, the second at index 1, and so on:</p>
+<div class="highlight"><pre><span></span><code><span class="n">rgb_color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">red</span> <span class="o">=</span> <span class="n">rgb_color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># Gets 255 — the first item</span>
+<span class="n">green</span> <span class="o">=</span> <span class="n">rgb_color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Gets 100 — the second item</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="n">rgb_color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>   <span class="c1"># Gets 0 — the third item</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p><img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up hands gently">
+Python counts from 0, not 1. The first item is at index <code>[0]</code>, not <code>[1]</code>. If your list has 3 items, the valid indexes are 0, 1, and 2. Trying to access index 3 on a 3-item list will cause an error — and it surprises a lot of beginners!</p>
+</div>
+<h3 id="tuples-ordered-and-unchangeable">Tuples: Ordered and Unchangeable</h3>
+<p>A <strong>tuple</strong> is like a list — but once you create it, you can't change it. You create a tuple with parentheses <code>( )</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">RED</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">GREEN</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">BLUE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">WHITE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Tuple immutability</strong> means tuples are "locked." You can read items from a tuple, but you can't add, remove, or change them after creation. This is exactly why color constants in NeoPixel code use tuples — you don't want to accidentally overwrite <code>RED</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">RED</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">RED</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>    <span class="c1"># 255 — reading is fine</span>
+<span class="c1"># RED[0] = 128  # This would raise a TypeError — tuples can&#39;t be changed</span>
+</code></pre></div>
+<p>You index a tuple the same way you index a list — using <code>[position]</code>.</p>
+<h3 id="none-no-value-yet">None: No Value Yet</h3>
+<p><strong>None</strong> is a special value that means "nothing" or "no value yet." It's used when a variable needs to exist but doesn't have a meaningful value at the moment.</p>
+<div class="highlight"><pre><span></span><code><span class="n">last_button_press</span> <span class="o">=</span> <span class="kc">None</span>   <span class="c1"># No button pressed yet</span>
+</code></pre></div>
+<p>You'll see <code>None</code> used as a placeholder before a variable gets its real value.</p>
+<p>Now let's practice identifying all six types interactively:</p>
+<h4 id="diagram-python-data-type-explorer">Diagram: Python Data Type Explorer</h4>
+<iframe src="../../sims/python-data-type-explorer/main.html" width="100%" height="422px" scrolling="no"></iframe>
+
+<details>
+<summary>Python Data Type Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> python-data-type-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: classify, identify
+Learning Objective: Students classify Python values by data type — given a displayed value, they select its type from six options and receive feedback that connects the type to an LED programming context.</p>
+<p>Instructional Rationale: The classify objective (L2 Understand) calls for a prediction-then-reveal pattern, not animation. Students see a value, commit to a type selection, then receive confirmation with an explanation. Prediction before reveal is the key retrieval-practice mechanism for retention at this level.</p>
+<p>Canvas layout:
+- Top area: A large "value card" showing a Python value in monospace font on a dark background (e.g., <code>42</code>, <code>"hello"</code>, <code>True</code>, <code>3.14</code>, <code>[1,2,3]</code>, <code>(255,0,0)</code>, <code>None</code>)
+- Center area: Seven labeled type buttons — Integer, Float, String, Boolean, List, Tuple, None — arranged in a row or two rows on narrow screens
+- Bottom area: Feedback panel showing correct/incorrect result with an explanation and an LED code example
+- Progress bar: "Question X of 15" shown below the value card</p>
+<p>Visual elements:
+- Value card: Large rounded rectangle, dark background, white monospace text, border color matches type (blue=int, cyan=float, green=string, yellow=bool, orange=list, purple=tuple, gray=none) — border only shown AFTER student answers
+- Type buttons: Pill-shaped, highlight on hover, turn green (correct) or amber (incorrect) after selection
+- Feedback panel: Warm green background (correct) or amber (not quite) with two lines of text: (1) why this value is that type, (2) an LED example using this value</p>
+<p>Data Visibility Requirements:
+Stage 1: Show value card with value visible, border color hidden
+Stage 2: Student clicks a type button
+Stage 3: Reveal correct type, color the border, show feedback:
+- Why: e.g., "255 is an integer — it's a whole number with no decimal point"
+- LED example: e.g., "In NeoPixel code: <code>strip[0] = (255, 0, 0)</code> — 255 is the red channel value"
+Stage 4: "Next" button advances to a new value</p>
+<p>Values to cycle through (15 total):
+- <code>42</code> → Integer
+- <code>3.14</code> → Float
+- <code>"hello"</code> → String
+- <code>True</code> → Boolean
+- <code>[255, 0, 0]</code> → List
+- <code>(128, 0, 200)</code> → Tuple
+- <code>None</code> → None
+- <code>0</code> → Integer
+- <code>0.5</code> → Float
+- <code>"Moving Rainbow"</code> → String
+- <code>False</code> → Boolean
+- <code>[1, 2, 3, 4, 5]</code> → List
+- <code>(255, 255, 255)</code> → Tuple
+- <code>255</code> → Integer
+- <code>""</code> → String (empty string)</p>
+<p>Controls:
+- Seven type buttons (one per type)
+- "Next Value" button — shown after student answers, advances to next card
+- "Shuffle" button — randomizes card order for replay</p>
+<p>Responsive design: Canvas width fills container; font sizes and button layout scale with canvas width; buttons reflow to two rows on narrow screens.</p>
+</details>
+<h2 id="type-conversion-changing-from-one-type-to-another">Type Conversion: Changing From One Type to Another</h2>
+<p>Sometimes you need to convert a value from one type to another. This is called <strong>type conversion</strong>.</p>
+<p>Python has three built-in functions for the most common conversions. Before seeing examples, here's what each one does:</p>
+<ul>
+<li><code>int()</code> — converts to an integer, cutting off any decimal</li>
+<li><code>float()</code> — converts to a float, adding a decimal point</li>
+<li><code>str()</code> — converts to a string of text</li>
+</ul>
+<p>Now let's see each one in action:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># String to integer</span>
+<span class="n">brightness_text</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>               <span class="c1"># This is a string — you can&#39;t do math with it yet</span>
+<span class="n">brightness_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">brightness_text</span><span class="p">)</span>  <span class="c1"># Now it&#39;s the integer 200</span>
+
+<span class="c1"># Integer to float</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">speed_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>            <span class="c1"># Now it&#39;s 3.0</span>
+
+<span class="c1"># Integer to string</span>
+<span class="n">channel_value</span> <span class="o">=</span> <span class="mi">255</span>
+<span class="n">channel_text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">channel_value</span><span class="p">)</span>     <span class="c1"># Now it&#39;s the string &quot;255&quot;</span>
+</code></pre></div>
+<p>Type conversion matters in NeoPixel code. If a sensor returns a reading as a string, you must convert it to an integer before using it as a color value.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Pixel points upward with a sparkle">
+You can check a variable's type with <code>type()</code>. In the REPL, try <code>print(type(255))</code> — you'll see <code>&lt;class 'int'&gt;</code>. And <code>print(type(3.14))</code> shows <code>&lt;class 'float'&gt;</code>. This is great for debugging when a value isn't behaving the way you expect!</p>
+</div>
+<h2 id="operators-making-things-happen">Operators: Making Things Happen</h2>
+<p><strong>Operators</strong> are symbols that perform actions on values. Python has three groups you'll use constantly.</p>
+<h3 id="mathematical-operators">Mathematical Operators</h3>
+<p>Mathematical operators do arithmetic. You already know most from math class. Let's look at each one before summarizing them in a table:</p>
+<div class="highlight"><pre><span></span><code><span class="n">red</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">55</span>       <span class="c1"># 155 — addition</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">-</span> <span class="mi">5</span>       <span class="c1"># 25 — subtraction</span>
+<span class="n">double</span> <span class="o">=</span> <span class="mi">128</span> <span class="o">*</span> <span class="mi">2</span>     <span class="c1"># 256 — multiplication</span>
+<span class="n">half</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="mi">2</span>       <span class="c1"># 50.0 — division (result is always a float)</span>
+<span class="n">quotient</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">//</span> <span class="mi">3</span>  <span class="c1"># 33 — integer division (drops any remainder)</span>
+<span class="n">remainder</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">3</span>  <span class="c1"># 1 — modulo (just the leftover)</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">**</span> <span class="mi">2</span>     <span class="c1"># 16 — exponentiation</span>
+</code></pre></div>
+<p>Two operators deserve extra attention: <strong>integer division</strong> (<code>//</code>) and the <strong>modulo operator</strong> (<code>%</code>). They always work as a pair. When you divide 100 by 3:</p>
+<ul>
+<li><code>100 // 3</code> gives <code>33</code> — how many full groups of 3 fit into 100</li>
+<li><code>100 % 3</code> gives <code>1</code> — what's left over after those 33 full groups</li>
+</ul>
+<p>The modulo operator shows up constantly in LED animation. It lets a pixel position wrap around the strip instead of falling off the end:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+
+<span class="n">position</span> <span class="o">=</span> <span class="mi">47</span>
+<span class="n">strip_length</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>   <span class="c1"># e.g., 30</span>
+<span class="n">wrapped</span> <span class="o">=</span> <span class="n">position</span> <span class="o">%</span> <span class="n">strip_length</span>     <span class="c1"># 47 % 30 = 17</span>
+</code></pre></div>
+<p>If your strip has 30 LEDs and <code>position</code> reaches 47, then <code>47 % 30 = 17</code> — the pixel appears at position 17 instead of past the end of the strip.</p>
+<p>Now that you've seen every operator in action, here's a complete reference:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Symbol</th>
+<th>Example</th>
+<th>Result</th>
+<th>LED Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addition</td>
+<td><code>+</code></td>
+<td><code>100 + 55</code></td>
+<td><code>155</code></td>
+<td>Increase a color channel</td>
+</tr>
+<tr>
+<td>Subtraction</td>
+<td><code>-</code></td>
+<td><code>255 - 50</code></td>
+<td><code>205</code></td>
+<td>Decrease brightness</td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td><code>*</code></td>
+<td><code>128 * 2</code></td>
+<td><code>256</code></td>
+<td>Scale a color value</td>
+</tr>
+<tr>
+<td>Division</td>
+<td><code>/</code></td>
+<td><code>255 / 2</code></td>
+<td><code>127.5</code></td>
+<td>Split brightness (float result)</td>
+</tr>
+<tr>
+<td>Integer Division</td>
+<td><code>//</code></td>
+<td><code>255 // 2</code></td>
+<td><code>127</code></td>
+<td>Split brightness (whole number)</td>
+</tr>
+<tr>
+<td>Modulo</td>
+<td><code>%</code></td>
+<td><code>47 % 30</code></td>
+<td><code>17</code></td>
+<td>Wrap pixel position around strip</td>
+</tr>
+<tr>
+<td>Exponent</td>
+<td><code>**</code></td>
+<td><code>2 ** 8</code></td>
+<td><code>256</code></td>
+<td>Calculate bit-range sizes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comparison-operators">Comparison Operators</h3>
+<p><strong>Comparison operators</strong> compare two values and always return a boolean — either <code>True</code> or <code>False</code>. Before looking at the table, note that the result is never a number: it's always one of those two words.</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Equal to</td>
+<td><code>255 == 255</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Not equal to</td>
+<td><code>100 != 200</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>50 &lt; 100</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+<td><code>200 &gt; 255</code></td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less than or equal</td>
+<td><code>100 &lt;= 100</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater than or equal</td>
+<td><code>200 &gt;= 255</code></td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p>Notice that <code>==</code> (two equals signs) tests whether two values are the same, while <code>=</code> (one equals sign) assigns a value. Mixing these up is one of the most common Python mistakes!</p>
+<div class="highlight"><pre><span></span><code><span class="n">brightness</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">brightness</span> <span class="o">==</span> <span class="mi">255</span><span class="p">)</span>   <span class="c1"># False — not at maximum</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">brightness</span> <span class="o">&lt;</span> <span class="mi">255</span><span class="p">)</span>    <span class="c1"># True — below maximum brightness</span>
+</code></pre></div>
+<h3 id="logical-operators">Logical Operators</h3>
+<p><strong>Logical operators</strong> combine booleans. You use them to check multiple conditions at the same time. There are three logical operators: <code>and</code>, <code>or</code>, and <code>not</code>.</p>
+<p>Before seeing code, here's what each one means in plain English:</p>
+<ul>
+<li><code>and</code> — True only if <strong>both</strong> sides are True</li>
+<li><code>or</code> — True if <strong>at least one</strong> side is True</li>
+<li><code>not</code> — flips True to False, and False to True</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">button_pressed</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">strip_on</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">button_pressed</span> <span class="ow">and</span> <span class="n">strip_on</span><span class="p">)</span>   <span class="c1"># False — both must be True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">button_pressed</span> <span class="ow">or</span> <span class="n">strip_on</span><span class="p">)</span>    <span class="c1"># True — at least one is True</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">button_pressed</span><span class="p">)</span>            <span class="c1"># False — flips True to False</span>
+</code></pre></div>
+<p>Now let's try all three operator groups in a hands-on simulation:</p>
+<h4 id="diagram-python-operator-playground">Diagram: Python Operator Playground</h4>
+<iframe src="../../sims/python-operator-playground/main.html" width="100%" height="432px" scrolling="no"></iframe>
+
+<details>
+<summary>Python Operator Playground</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> python-operator-playground<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Apply (L3)
+Bloom Verb: calculate, use, demonstrate
+Learning Objective: Students apply Python's mathematical, comparison, and logical operators to LED-themed problems and observe the result of each expression.</p>
+<p>Instructional Rationale: Apply (L3) calls for a parameter-exploration or interactive calculator pattern. Students select an operator, enter operands, and see the Python result alongside a plain-English LED interpretation. Prediction challenges are included so students commit to an answer before seeing the result — strengthening Apply-level encoding over purely passive observation.</p>
+<p>Canvas layout:
+- Top row: Three category tabs — Math | Comparison | Logic — active tab highlighted in blue
+- Center panel: Left operand input, operator display (large, centered), right operand input
+- Result panel: Shows the Python expression and its result (e.g., <code>47 % 30 = 17</code>)
+- LED Interpretation panel: Explains what this result means in an LED context
+- Challenge panel: A pre-loaded challenge problem for the student to solve before revealing the answer</p>
+<p>Visual elements:
+- Three tabs: styled as segmented control at top; active tab has solid blue background
+- Operand inputs: Large text fields (100px wide), border highlights on focus
+- Operator display: Large centered symbol (font-size 36px) in a rounded box between the operands
+- Result value: Large (font-size 48px), color-coded: blue for numbers, green for True, red for False
+- LED interpretation: Small text panel below result — e.g., "If your strip has 30 LEDs and a pixel is at position 47, it wraps to position 17"</p>
+<p>Available operators:
+- Math tab (dropdown): +, -, *, /, //, %, **
+- Comparison tab (dropdown): ==, !=, &lt;, &gt;, &lt;=, &gt;=
+- Logic tab: operands become True/False dropdowns; operator dropdown has: and, or, not (not uses only left operand)</p>
+<p>Data Visibility Requirements:
+Stage 1: Student selects a tab and operator
+Stage 2: Student enters operand values (or selects True/False for Logic)
+Stage 3: Result updates live as student types: show full expression <code>100 % 30 = 10</code>
+Stage 4: LED interpretation panel updates with a real NeoPixel context for this exact calculation</p>
+<p>Challenge problems (pre-loaded, student must enter answer before "Reveal" button):
+- Math: "A strip has 30 LEDs. A pixel is at position 47. Where does it appear? Enter: 47 % 30"
+- Comparison: "Red channel = 128, Blue channel = 255. Is red brighter? Enter: 128 &gt; 255"
+- Logic: "Button A is pressed (True). Button B is not pressed (False). Are BOTH pressed? Select: True and False"</p>
+<p>Responsive design: Canvas fills container width; operator display and inputs scale with canvas width; tabs reflow to vertical on very narrow screens.</p>
+</details>
+<h2 id="import-statements-and-modules">Import Statements and Modules</h2>
+<p>Python's built-in features are powerful, but sometimes you need extra tools. That's where <strong>modules</strong> come in.</p>
+<p>A <strong>module</strong> is a collection of ready-made code that someone else wrote and packaged for you to use. Python's <strong>module system</strong> lets you load these tools into your program with a single line.</p>
+<p>An <strong>import statement</strong> loads a module. The syntax is simple: <code>import module_name</code>. After importing, you access the module's functions and values using a dot (<code>.</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># Pause for 1 second — the utime module provides this</span>
+</code></pre></div>
+<p>The four modules you'll use most in this course are:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>      <span class="c1"># Time tools: sleep(), ticks_ms()</span>
+<span class="kn">import</span> <span class="nn">urandom</span>    <span class="c1"># Random numbers: randint()</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>   <span class="c1"># NeoPixel LED control: NeoPixel class</span>
+<span class="kn">import</span> <span class="nn">machine</span>    <span class="c1"># Hardware control: Pin, PWM, ADC</span>
+</code></pre></div>
+<p>We also import a <code>config</code> module that stores your hardware settings — things like how many LEDs are on your strip:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>   <span class="c1"># e.g., 30 — how many LEDs</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">)</span>    <span class="c1"># The GPIO pin the strip connects to</span>
+</code></pre></div>
+<p>Here's a complete short program that uses imports to blink all LEDs red for one second:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span> <span class="nn">utime</span>
+
+<span class="c1"># Create the strip object</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="c1"># Turn all pixels red</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>     <span class="c1"># Send color data to the LEDs</span>
+
+<span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># Wait 1 second</span>
+
+<span class="c1"># Turn all pixels off</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</code></pre></div>
+<p>Every LED on your strip should flash red for one second, then turn off.</p>
+<div class="admonition success">
+<p class="admonition-title">You've got this!</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Pixel gives a big thumbs-up">
+Imports might feel like magic at first — they're not. They're shortcuts! Instead of writing hundreds of lines of NeoPixel control code yourself, <code>import neopixel</code> gives you all of that for free. Programming is full of tools like this. Using them is smart, not lazy.</p>
+</div>
+<h2 id="code-indentation-rules">Code Indentation Rules</h2>
+<p>Python uses <strong>indentation</strong> — the spaces at the start of a line — to understand how code is organized. This is different from most other languages, which use curly braces <code>{ }</code> for grouping.</p>
+<p>A <strong>block</strong> is a group of lines that belong together. All lines in the same block must have the same amount of indentation. Lines outside the block return to a smaller indentation level.</p>
+<p>Before seeing a code example, here are the two things Python checks:</p>
+<ol>
+<li>Every block must be indented the same amount as its peers</li>
+<li>Lines inside a block must be indented more than the line that opened the block</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># CORRECT — lines inside the if block are indented 4 spaces</span>
+<span class="n">is_on</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="n">is_on</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LED is on!&quot;</span><span class="p">)</span>     <span class="c1"># 4 spaces — inside the if block</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Glowing bright&quot;</span><span class="p">)</span> <span class="c1"># 4 spaces — still inside the block</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Always runs&quot;</span><span class="p">)</span>        <span class="c1"># 0 spaces — outside the if block</span>
+</code></pre></div>
+<p>The standard is <strong>4 spaces</strong> per indentation level. Thonny adds them automatically when you press Enter after <code>if</code>, <code>for</code>, <code>while</code>, or <code>def</code>. Do not mix tabs and spaces — Python treats them as different sizes and raises an error.</p>
+<p>Here's what a wrong indentation looks like:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># WRONG — IndentationError!</span>
+<span class="n">is_on</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="n">is_on</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LED is on!&quot;</span><span class="p">)</span>    <span class="c1"># Missing indentation — Python won&#39;t run this</span>
+</code></pre></div>
+<p>Try this in Thonny and you'll see <code>IndentationError: expected an indented block</code>. That error is Python's way of saying "I expected indented lines here."</p>
+<p>Let's explore correct and incorrect indentation visually:</p>
+<h4 id="diagram-code-indentation-explorer">Diagram: Code Indentation Explorer</h4>
+<iframe src="../../sims/code-indentation-explorer/main.html" width="100%" height="442px" scrolling="no"></iframe>
+
+<details>
+<summary>Code Indentation Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> code-indentation-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: identify, interpret
+Learning Objective: Students identify which lines of a Python snippet are correctly indented, which have errors, and explain what block each line belongs to.</p>
+<p>Instructional Rationale: Identify/interpret (L2 Understand) calls for a classify-and-explain pattern. The student clicks a line to see its block membership highlighted, then clicks "Check Indentation" to receive color-coded feedback on all lines simultaneously. Immediate feedback on individual lines before the whole-snippet check builds understanding step by step.</p>
+<p>Canvas layout:
+- Left panel (60%): A Python code snippet displayed in monospace font on a dark background (Thonny-like). Each line is a clickable row. Line numbers shown on the left margin.
+- Right panel (40%): Feedback area showing:
+  - Block membership for the last clicked line: "This line is at indentation level 1 — inside the <code>if</code> block"
+  - After "Check Indentation": color-coded verdict for every line</p>
+<p>Visual elements:
+- Code font: monospace, 14px, white on dark gray background
+- Block-level bracket overlays on left: vertical colored lines connecting lines that belong to the same block (level 0 = white, level 1 = blue, level 2 = orange)
+- Line highlights: green border = correct indentation, red border = error
+- Feedback panel: white background, plain text, 13px</p>
+<p>Code examples (cycle with "Next Example" button, 4 examples total):</p>
+<p>Example 1 (correct — single if block):
+<div class="highlight"><pre><span></span><code>is_on = True
+if is_on:
+    print(&quot;LED is on&quot;)
+    print(&quot;Glowing!&quot;)
+print(&quot;Outside the if block&quot;)
+</code></pre></div></p>
+<p>Example 2 (error — missing indentation):
+<div class="highlight"><pre><span></span><code>brightness = 100
+if brightness &gt; 50:
+print(&quot;Bright!&quot;)
+</code></pre></div>
+Error on line 3: should be indented 4 spaces.</p>
+<p>Example 3 (correct — nested blocks):
+<div class="highlight"><pre><span></span><code>for i in range(30):
+    if i % 2 == 0:
+        print(&quot;Even pixel:&quot;, i)
+    print(&quot;Pixel:&quot;, i)
+</code></pre></div></p>
+<p>Example 4 (error — inconsistent indentation):
+<div class="highlight"><pre><span></span><code>for i in range(5):
+    print(i)
+      print(&quot;extra spaces&quot;)
+</code></pre></div>
+Error on line 3: 6 spaces instead of 4.</p>
+<p>Interactive features:
+- Click any line → highlight that line, show block membership in right panel
+- "Check Indentation" button → color all lines green/red and show error explanations for bad lines
+- "Show Fix" button → reveal the corrected version side by side with the original
+- "Next Example" button → advance to the next code snippet</p>
+<p>Responsive design: Panel layout is side-by-side on wide screens, stacks vertically on narrow screens. Font size scales down on narrow screens to keep line content visible.</p>
+</details>
+<h2 id="python-comments">Python Comments</h2>
+<p>A <strong>comment</strong> is a note inside your code that Python completely ignores. Comments are for humans — they help you (and your teammates) understand what code does and why.</p>
+<p>You create a comment with the hash symbol <code>#</code>. Everything to the right of <code>#</code> on that line is ignored by Python:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set up the LED strip — this runs once when the program starts</span>
+<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># Red: full red, no green or blue</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>             <span class="c1"># Send the colors to the physical LEDs</span>
+</code></pre></div>
+<p>The best comments explain <strong>why</strong> you made a choice — not <strong>what</strong> the code does (the code already shows that). Here's the difference:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Not very helpful — just restates the code</span>
+<span class="n">red</span> <span class="o">=</span> <span class="mi">255</span>   <span class="c1"># Set red to 255</span>
+
+<span class="c1"># More helpful — explains the reason</span>
+<span class="n">red</span> <span class="o">=</span> <span class="mi">255</span>   <span class="c1"># WS2812B max channel value; values above 255 are ignored</span>
+</code></pre></div>
+<p>While you're learning, it's great to add "what" comments too. They help you trace your own thinking as you read back through your code.</p>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p><strong>Challenge 1 — Four Types:</strong> Create four variables, one of each type: an integer, a float, a string, and a boolean. Name each variable to describe an LED project property. Add a comment on each line. Then print all four variables.</p>
+<p><strong>Challenge 2 — Wrap the Pixel:</strong> A moving pixel starts at position 0 and jumps by 7 steps at a time. Your strip has 30 LEDs. Write a program that prints the pixel's position after each of 6 jumps — and wraps it around the strip using the modulo operator so it never goes past position 29.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Starter code for Challenge 2</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="n">strip_length</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>   <span class="c1"># 30 LEDs</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">position</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="n">position</span> <span class="o">+</span> <span class="n">step_size</span><span class="p">)</span> <span class="o">%</span> <span class="n">strip_length</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jump&quot;</span><span class="p">,</span> <span class="n">step</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;→ position&quot;</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span>
+</code></pre></div>
+<p>Run this and you should see six position values, all between 0 and 29.</p>
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<p>Answer these questions in your head first. Then check your answers below.</p>
+<ol>
+<li>
+<p>What is the difference between a <strong>list</strong> and a <strong>tuple</strong>? Why would you use a tuple for a color constant like <code>RED</code>?</p>
+</li>
+<li>
+<p>A variable holds <code>speed = "2.5"</code> as a string. You need it as a float for a calculation. What single function call converts it?</p>
+</li>
+<li>
+<p>Your strip has 25 LEDs. A position variable reaches <code>62</code>. What does <code>62 % 25</code> equal? What does that tell you about where the pixel appears?</p>
+</li>
+<li>
+<p>What does <code>color == "red"</code> do? What does <code>color = "red"</code> do? Why do these behave completely differently?</p>
+</li>
+<li>
+<p>Python finds an error in this code. What is the problem?</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">brightness</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">if</span> <span class="n">brightness</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bright!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="question">
+<summary>Show answers</summary>
+<ol>
+<li>
+<p>A list uses <code>[ ]</code> and <strong>can be changed</strong> after creation. A tuple uses <code>( )</code> and is <strong>unchangeable (immutable)</strong>. Use a tuple for color constants like <code>RED = (255, 0, 0)</code> because you don't want any part of your code accidentally changing the value of <code>RED</code>.</p>
+</li>
+<li>
+<p><code>speed = float("2.5")</code> — the <code>float()</code> function converts the string to the number <code>2.5</code>.</p>
+</li>
+<li>
+<p><code>62 % 25 = 12</code>. The pixel appears at position 12. After dividing 62 by 25, you get 2 remainder 12 — so the pixel wraps to position 12 on the strip.</p>
+</li>
+<li>
+<p><code>color == "red"</code> is a <strong>comparison</strong> — it checks if <code>color</code> holds <code>"red"</code> and returns <code>True</code> or <code>False</code>. <code>color = "red"</code> is an <strong>assignment</strong> — it stores the string <code>"red"</code> into <code>color</code>. Using <code>=</code> when you mean <code>==</code> (or vice versa) is one of the most common Python bugs!</p>
+</li>
+<li>
+<p>The <code>print</code> line is missing indentation. It should be indented 4 spaces because it belongs inside the <code>if</code> block. Python raises an <code>IndentationError</code> when a block opener like <code>if</code> isn't followed by indented lines.</p>
+</li>
+</ol>
+</details>
+<div class="admonition success">
+<p class="admonition-title">Chapter complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel leaps with a full rainbow blazing">
+You did it! You now know the building blocks of every Python program — variables, six data types, operators, imports, indentation, and comments. Every LED animation you'll ever write uses exactly these tools. You're already glowing, coder. Now let's go make the LEDs glow too!</p>
+</div>
+<h2 id="whats-next">What's Next</h2>
+<p>In <a href="../03-python-functions-modules-practices/">Chapter 3</a>, you'll learn how to wrap code into reusable <strong>functions</strong> and discover the programming principles — like DRY ("Don't Repeat Yourself") — that make your programs cleaner and easier to build on.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../01-intro-and-computational-thinking/" title="1. Intro and Computational Thinking" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  1. Intro and Computational Thinking
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../03-python-functions-modules-practices/" title="3. Functions and Modules" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  3. Functions and Modules
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>
