@@ -193,7 +193,7 @@ nav:
 theme:
   # should be name: material
   name: material
-  logo: img/logo.png
+  logo: img/mascot/welcome.png
   favicon: img/favicon.ico
   palette:
     primary: '#642580'

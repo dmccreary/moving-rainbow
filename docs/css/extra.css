@@ -3,8 +3,8 @@
     padding: 0;
 }
 .md-header__button.md-logo img, .md-header__button.md-logo svg {
-    height: 48px;
-    width: 70px;
+    height: 50px;
+    width: auto;
 }
 
 /* Styling for the Copy Button */

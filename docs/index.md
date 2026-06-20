@@ -18,14 +18,18 @@ Moving Rainbow is a way to learn the basics of programming using fun LED strips.
 We use low-cost components so you can build entire projects and costumes with 100s of LEDs for under $10.
 Since 2014 we have been building low-cost kits that teach all the concepts of [Computational Thinking](./teachers-guide/computational-thinking.md).
 
-We use low-cost components so you can build entire projects and costumes with 
-100s of colorful LEDs for under $10.
 Since 2014 we have been designing and programming low-cost kits that teach the concepts 
 of [Computational Thinking](./teachers-guide/computational-thinking.md).
 
-## Getting Started
+## Main Chapters
 
-Our getting [started guide](./getting-started/index.md) has several parts:
+You can get started with the main [chapters](./chapters/index.md) that will
+guide you though the main parts of the course.
+
+## Hands-On Projects
+
+If you have access to our Moving Rainbow hardware kits, you can go right to
+the hands on [started guide](./getting-started/index.md).  This guide several parts:
 
 1. About Moving Rainbow
 1. Sample Hardware Kits
@@ -33,11 +37,20 @@ Our getting [started guide](./getting-started/index.md) has several parts:
 2. Building Your Own Kits from Parts
 3. Desktop Setup
 
-## Raspberry Pi Pico
+## Build Your Own Kits
 
-The Raspberry Pi Pico cost only $4 and runs Python.  All our labs use this processor.
+We have a detailed guide on how you can build your own kits by purchasing low-cost parts.
+Here is an example of our parts list for getting started:
 
-## Breadboards
+1. Raspberry Pi [Pico](./img/raspberry-pi-pico.png) ($3.99 from MicroCenter)
+2. Half sized [solderless breadboard](img/breadboard.jpg) (about $2 on eBay)
+3. LED Strip ($6 for a 1 meter 60-pixel strip on [eBay](./img/led-strip-ebay-listing.png))
+4. USB cable
+4. Hookup wire
+
+That is it!  You can easily build these kits on your own for your entire classroom.
+
+### Breadboards
 
 In our projects we use 1/2 sized breadboard with 400 tie points.
 
@@ -49,6 +62,7 @@ Each mode has a number associated with it
 starting with 0 and continuing to the number of patterns we have in our program.
 
 In this section we will add two mode buttons.  One button will make the pattern mode go to the next mode.  The other button will go to the previous mode.
+
 
 ## Other Resources
 
