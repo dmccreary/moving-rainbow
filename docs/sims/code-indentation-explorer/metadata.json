@@ -2,14 +2,15 @@
   "title": "Code Indentation Explorer",
   "description": "Students identify which lines of a Python snippet are correctly indented, which have errors, and explain what block each line belongs to.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "code-indentation-explorer",
   "library": "p5.js",
   "bloomLevel": "Understand (L2)",

@@ -2,14 +2,15 @@
   "title": "Problem-Solving Steps Flowchart",
   "description": "Students will *understand* (Bloom's Level 2) the five-step problem-solving framework and be able to sequence the steps correctly.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "problem-solving-steps",
   "library": "Mermaid",
   "bloomLevel": "TBD",

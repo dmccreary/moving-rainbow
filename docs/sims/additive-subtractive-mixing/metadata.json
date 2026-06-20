@@ -2,14 +2,15 @@
   "title": "Additive vs. Subtractive Color Mixing",
   "description": "Understanding — explain why light mixing and paint mixing produce different results.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "additive-subtractive-mixing",
   "library": "p5.js",
   "bloomLevel": "TBD",

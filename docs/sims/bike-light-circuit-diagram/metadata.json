@@ -2,14 +2,15 @@
   "title": "Example Circuit Connection Diagram for Bike Light Project",
   "description": "Applying — the student can trace any signal path from source to destination and identify which pin it uses.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "bike-light-circuit-diagram",
   "library": "p5.js",
   "bloomLevel": "TBD",

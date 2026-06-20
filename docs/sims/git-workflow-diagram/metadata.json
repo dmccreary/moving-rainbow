@@ -2,14 +2,15 @@
   "title": "Git Workflow",
   "description": "Understanding — the student can describe the three locations where Git stores data (working directory, local repo, GitHub) and which command moves data between them.",
   "creator": "Moving Rainbow",
+  "author": "Dan McCreary",
   "date": "2026-06-20",
   "subject": [
     "Moving Rainbow"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "git-workflow-diagram",
   "library": "Mermaid",
   "bloomLevel": "TBD",
