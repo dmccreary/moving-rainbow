@@ -1,6 +1,6 @@
 ---
 title: MicroPython API Connections
-description: 
+description: A diagram showing how the Raspberry Pi Pico connects to hardware components, labeled with the MicroPython API each one uses.
 image: /sims/micropython-api-connections/micropython-api-connections.png
 og:image: /sims/micropython-api-connections/micropython-api-connections.png
 twitter:image: /sims/micropython-api-connections/micropython-api-connections.png
