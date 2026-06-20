@@ -12,7 +12,7 @@ nav:
 
   - Chapters:
     - List of Chapters: chapters/index.md
-    - 1. Intro and CT: chapters/01-intro-and-computational-thinking/index.md
+    - 1. Intro and Computational Thinking: chapters/01-intro-and-computational-thinking/index.md
     - 2. Python Basics: chapters/02-python-variables-types-operators/index.md
     - 3. Functions and Modules: chapters/03-python-functions-modules-practices/index.md
     - 4. Control Flow and Loops: chapters/04-python-control-flow-loops/index.md
@@ -181,6 +181,7 @@ nav:
     - Graph Quality Analysis: learning-graph/quality-metrics.md
     - Concept Taxonomy: learning-graph/concept-taxonomy.md
     - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
+    - Pixel Mascot Style Guide: learning-graph/mascot-test.md
  
   - License: license.md
   - Glossary: glossary.md
@@ -240,6 +241,7 @@ markdown_extensions:
       generic: true
 extra_css:
    - css/extra.css
+   - css/mascot.css
 extra_javascript:
     - js/extra.js
     # needed for mathjax to work

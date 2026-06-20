@@ -63,7 +63,7 @@ The background MUST be fully transparent. DO NOT use a white, black or a checker
 
 ## Friendly Warning Pose
 
-Please generate a new friendly warning pose for the mascot Pixel.
+Please generate a new friendly warning pose for the mascot Pixel using RGBA PNG with alpha-channel transparency.
 
 Pixel is a cheerful educational mascot for a children's MicroPython and LED programming textbook called "Moving Rainbow." Pixel is a friendly anthropomorphic WS2812B addressable LED with a perfectly circular body. The body is primarily matte charcoal-black, representing the LED package, surrounded by a glowing rainbow ring that smoothly transitions through red, orange, yellow, green, cyan, blue, and violet. In the center of the body is a stylized WS2812B LED package showing the three visible RGB LED chips (red, green, and blue) inside a white square housing.
 
@@ -75,7 +75,7 @@ Background: fully transparent PNG. No white background, no black background, no 
 
 Friendly warning pose: Pixel holds both oversized white-gloved hands up and open in a gentle "stop and pay attention" gesture, palms facing outward toward the viewer. The expression is caring and attentive — eyebrows slightly arched with concern, but the mouth shows a gentle reassuring half-smile rather than alarm. The eyes are wide and focused directly at the viewer. A small bright yellow cartoon exclamation mark or caution triangle floats near one shoulder. The rainbow ring shifts slightly toward warm amber and yellow tones near the caution symbol, reinforcing the alert without being frightening. The overall tone is helpful and protective, not scary.
 
-Please generate a new png image now with a fully transparent background.
+Please generate a new RGBA PNG with alpha-channel transparency image now with a fully transparent background.
 The background MUST be fully transparent. DO NOT use a white, black or a checkered background.
 
 ## Encouraging Pose
@@ -97,7 +97,7 @@ The background MUST be fully transparent. DO NOT use a white, black or a checker
 
 ## Celebration Pose
 
-Please generate a new celebration pose for Pixel.
+Please generate a new RGBA PNG with alpha-channel transparency celebration pose for Pixel.
 
 Pixel is a cheerful educational mascot for a children's MicroPython and LED programming textbook called "Moving Rainbow." Pixel is a friendly anthropomorphic WS2812B addressable LED with a perfectly circular body. The body is primarily matte charcoal-black, representing the LED package, surrounded by a glowing rainbow ring that smoothly transitions through red, orange, yellow, green, cyan, blue, and violet. In the center of the body is a stylized WS2812B LED package showing the three visible RGB LED chips (red, green, and blue) inside a white square housing.
 
@@ -109,5 +109,5 @@ Background: fully transparent PNG. No white background, no black background, no 
 
 Celebration pose: Pixel is jumping or leaping upward with both oversized white-gloved arms raised high above the head in pure jubilation — fists pumped or hands open in triumph. The legs are bent upward mid-jump to emphasize the leap. The eyes are squinted into joyful crescents and the mouth shows the widest most exuberant smile of any pose. The rainbow ring blazes at full brightness and intensity — all colors red, orange, yellow, green, cyan, blue, and violet visible simultaneously and fully saturated, as if every LED is lit at maximum power. Small rainbow-colored confetti pieces, sparkles, and tiny star bursts scatter around Pixel in an arc matching the hues of the rainbow ring. The entire image radiates achievement, pride, and the pure joy of completing something great.
 
-Please generate a new png image now with a fully transparent background.
+Please generate a new png image now with a RGBA PNG with alpha-channel transparency.
 The background MUST be fully transparent. DO NOT use a white, black or a checkered background.
