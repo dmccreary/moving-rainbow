@@ -128,11 +128,11 @@ nav:
     - Variable Scope Explorer: sims/variable-scope-explorer/index.md
 
 
-
   - Project Kits:
     - Intro: kits/index.md
     - Base Moving Rainbow Kit: kits/moving-rainbow-base/index.md
     - 8x8 NeoPixel Matrix: kits/8x8-neopixel-matrix/index.md
+    - Cylon Pumpkin: kits/cylon-pumpkin/index.md
 
     - Solar Powered Nightlight:
       - Intro: kits/solar-powered-led-nightlight/index.md
@@ -147,7 +147,7 @@ nav:
       - St. Patrick's Day: kits/holiday-hats/st-patricks-day.md
       - Halloween: kits/holiday-hats/halloween.md
       - Christmas: kits/holiday-hats/christmas.md
-      - Valentine's Day: kits/holiday-hats/valentines-day.md
+    
     - Halloween Patterns:
       - Intro: kits/halloween/index.md
 
@@ -275,8 +275,8 @@ extra_css:
    - css/mascot.css
 extra_javascript:
     - js/extra.js
-    # needed for mathjax to work
-    # - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+    - js/mathjax.js
+    - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 copyright: Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
 extra:
