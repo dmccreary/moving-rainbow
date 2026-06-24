@@ -5,6 +5,7 @@ description: "About Moving Rainbow — its purpose, audience, design, and the de
 
 # About This Book
 
+![](./img/students-in-classroom.png)
 ## Welcome from Pixel
 
 !!! mascot-welcome "Welcome!"

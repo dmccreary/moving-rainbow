@@ -2,9 +2,87 @@
 
 ![](../../img/cylon-pumpkin.gif)
 
+This kit uses a strip of the 144 pixels per meter LED strip.  We need
+the pixels closer together than the 60 pixels per meter to get a finer
+scroll visualization.
+
 [YouTube Video](https://youtu.be/QF3dZ03hCYk)
 
 [YouTube Video NeoPixel](https://youtu.be/8f3FgwETwNw)
+
+## Tools and Parts
+![](../../img/craft-pumpkin.jpg)
+The image above shows the kit parts.  We used a plastic craft pumpkin from Michaels and a USB power pack that can be placed inside the craft pumpkins
+
+### Tools
+
+1. Hot glue gun
+2. Utility knife (box cutter)
+3. Soldering iron (if you are not using a solderless breadboard)
+
+We use the following parts:
+
+### Parts
+
+![](./144-pixels-per-meter.png)
+The image above shows the close spacing of the 144 pixels per meter LED strips. 
+
+Required Parts
+
+1. **9-inch craft foam pumpkin** ($10) Examples: [Michaels Kit of Five Pumpkins for $11](https://www.michaels.com/product/foam-pumpkin-decorating-craft-kit-12-crafts-for-kids-and-fun-home-activities-77805589457453057) or [Oriental Trading](https://www.orientaltrading.com/9-x-8-1-4-orange-foam-pumpkin-halloween-decoration-a2-13743267.fltr)
+2. **114 Pixel/Meter NeoPixel strip** - 25 pixels using the 144 elements per meter 5v type ($10)
+3. **Raspberry Pi Pico** - $3.99 at MicroCenter
+4. **22 Gauge Wire** - Soldered connections or a solderless breadboard and wire
+5. **USB cable** - for programming and powering the LED strip (USD A to mini-USB connector)
+
+Optional:
+
+1. **USB power pack - ideally one that will not shut off with a low power draw
+2. Sensors for automatically triggering light
+3. Plexiglass base and screw headers
+4. An old USB cable for powering from a power pack
+5. A USB wall plug to power the pumpkin from an wall outlet
+
+## Eye Slot Width
+
+The slot you cut in the pumpkin must be wide enough to fit the recommended 25 pixels of
+the 144 pixels-per-meter strip.  Here is how to calculate that width.
+
+**Step 1 — pixel pitch (center-to-center spacing)**
+
+\[
+\frac{1000 \text{ mm}}{144 \text{ pixels}} = 6.94 \text{ mm per pixel}
+\]
+
+**Step 2 — total strip length for 25 pixels**
+
+Each pixel occupies one full pitch, so 25 pixels span:
+
+\[
+25 \times 6.94 \text{ mm} = 173.6 \text{ mm}
+\]
+
+**Step 3 — convert to inches**
+
+\[
+\frac{173.6 \text{ mm}}{25.4 \text{ mm/in}} \approx 6.83 \text{ inches}
+\]
+
+**Result:** cut the slot approximately \(6\tfrac{7}{8}\) inches (6.83 in) wide.
+In practice, add about \(\tfrac{1}{8}\) inch of clearance so the strip seats
+flat, making the recommended slot cut **7 inches** wide.
+
+## Steps
+
+1. Cut a 25-pixel length of LED from your 1-meter LED strip.  Make sure to keep the wires on the DATA IN side (arrow pointing away from the end)
+2. Cut a horizontal rectangle in your pumpkin the height of the NeoPixel strip and the width of a 25 pixel length
+3. Hot glue the LED strip from the inside and hook the ends up to the Pico or a breadboard
+4. Connect the red lead of the LED strip to the +5 rail of the breadboard or VBUS on the Pico board
+5. Connect the black or white lead of the LED strip to the GND rail of the breadboard or any GND pin of the Pico 
+6. Connect the center wire (green, yellow or white)
+7. Download the software from [https://github.com/dmccreary/moving-rainbow/tree/master/src/kits/cylon-pumpkin](https://github.com/dmccreary/moving-rainbow/tree/master/src/kits/cylon-pumpkin)
+
+
 
 ```python
 # Simplified Red Larson Scanner (Cylon / KITT eye)
