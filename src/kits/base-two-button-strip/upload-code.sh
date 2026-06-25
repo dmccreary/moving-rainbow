@@ -14,10 +14,19 @@ if ! command -v mpremote >/dev/null 2>&1; then
 fi
 
 echo "Checking for connected Pico..."
-if ! mpremote connect auto eval "1+1" >/dev/null 2>&1; then
-    echo "Error: No Pico detected. Plug it in and try again." >&2
+# Look for a usbmodem serial device — works even if a script is currently
+# running on the Pico and holding the REPL.
+shopt -s nullglob
+serial_devs=( /dev/cu.usbmodem* /dev/tty.usbmodem* )
+shopt -u nullglob
+if (( ${#serial_devs[@]} == 0 )); then
+    echo "Error: No Pico detected (no /dev/cu.usbmodem* device). Plug it in and try again." >&2
     exit 1
 fi
+echo "Found device: ${serial_devs[0]}"
+
+# Send Ctrl-C to interrupt any running program before copying files.
+mpremote connect auto soft-reset >/dev/null 2>&1 || true
 
 shopt -s nullglob
 files=( *.py )
