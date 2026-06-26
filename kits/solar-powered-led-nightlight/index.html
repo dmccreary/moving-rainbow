@@ -1844,6 +1844,77 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Circuit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-the-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explore the Circuit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-circuit-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the Circuit Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-kits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Kits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1866,6 +1937,75 @@
 
 
 <h1 id="solar-powered-nightlight">Solar Powered Nightlight</h1>
+<p>The Solar Powered Nightlight charges itself during the day and lights up
+on its own at night. There is no code and no power switch to flip. The
+sun does the charging, and the dark does the switching.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p>This is my dream gadget — it never needs new batteries! All day it
+drinks up sunlight to charge. When the sun goes down, it wakes up
+and glows. Let's see how the parts pull off this trick.</p>
+</div>
+<h2 id="what-youll-learn">What you'll learn</h2>
+<ul>
+<li>How a solar panel charges a battery</li>
+<li>How a diode keeps current flowing the right way</li>
+<li>How a transistor switches the lamp on at night</li>
+</ul>
+<h2 id="what-youll-need">What you'll need</h2>
+<ul>
+<li>A small solar panel</li>
+<li>A rechargeable battery (about 3.7V)</li>
+<li>A diode (1N4007)</li>
+<li>An NPN transistor (BC547)</li>
+<li>A 1 kΩ resistor</li>
+<li>A small lamp or LED (about 4V)</li>
+</ul>
+<h2 id="the-circuit">The Circuit</h2>
+<p><img alt="Solar powered nightlight circuit diagram" src="circuit-diagram.png" /></p>
+<p>The nightlight has two jobs: <strong>charge by day</strong> and <strong>light up at night</strong>.</p>
+<ul>
+<li>
+<p><strong>During the day,</strong> the solar panel makes a voltage higher than the
+  battery. Current flows through the diode and charges the battery. That
+  same panel voltage keeps the transistor switched off, so the lamp
+  stays dark and no power is wasted.</p>
+</li>
+<li>
+<p><strong>At night,</strong> the panel makes almost no voltage. Nothing holds the
+  transistor off anymore, so it switches on. Current flows from the
+  battery, through the lamp, and the lamp glows.</p>
+</li>
+</ul>
+<p>For a full part-by-part walkthrough, see:</p>
+<p><a href="how-it-works/">How the Solar Powered Nightlight Works</a></p>
+<h2 id="explore-the-circuit">Explore the Circuit</h2>
+<p>Want to play with the circuit before you build it? Try the interactive
+simulation:</p>
+<p><a href="microsim/">Solar Powered Nightlight MicroSim</a></p>
+<h2 id="build-the-circuit-diagram">Build the Circuit Diagram</h2>
+<p>The circuit diagram was drawn with a tool called CircuiTikz. You can see
+how an AI helper turned a sketch into a real diagram here:</p>
+<p><a href="prompt/">Circuit Diagram Prompt</a></p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p>The diode is the secret hero here. It's a one-way gate for
+electricity. It lets the panel charge the battery, but stops the
+battery from leaking backward into the panel at night.</p>
+</div>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ul>
+<li>Cover the solar panel with your hand and watch the lamp turn on.</li>
+<li>Measure the battery voltage in the morning and again at night.</li>
+<li>Trace the path the current takes at night with your finger:
+  battery → lamp → transistor → back to the battery.</li>
+</ul>
+<h2 id="related-kits">Related Kits</h2>
+<ul>
+<li><a href="../analog-nightlight/">Analog Nightlight kit</a></li>
+<li><a href="../digital-nightlight/">Digital Nightlight kit</a></li>
+<li><a href="../led-noodle-nightlight/">LED Noodle Nightlight kit</a></li>
+</ul>
 
 
 

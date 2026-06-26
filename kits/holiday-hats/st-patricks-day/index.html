@@ -1190,6 +1190,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    St. Patrick's Day
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1199,6 +1210,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-the-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use the Buttons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1896,6 +1971,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-the-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use the Buttons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1918,6 +2046,209 @@
 
 
 <h1 id="st-patricks-day-hat">St. Patrick's Day Hat</h1>
+<p>This hat celebrates St. Patrick's Day with green, gold, and white.
+The program below has 8 lucky patterns. Press the two buttons on your
+kit to move forward and backward through them.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p>Top o' the morning! Green is made from pure G in our (R, G, B)
+colors. Gold mixes a lot of red with some green. Let's find a
+pot of color at the end of your rainbow!</p>
+</div>
+<h2 id="what-youll-need">What you'll need</h2>
+<ul>
+<li>A Moving Rainbow base kit with a 30-pixel LED strip</li>
+<li>The two-button hat wiring (buttons on pins 15 and 14)</li>
+<li>A foam-core hat to mount the strip on</li>
+</ul>
+<h2 id="how-to-use-the-buttons">How to Use the Buttons</h2>
+<ul>
+<li><strong>Button 1</strong> moves forward to the next pattern.</li>
+<li><strong>Button 2</strong> moves backward to the previous pattern.</li>
+</ul>
+<p>When you reach the last pattern, the next press wraps back to the first one.</p>
+<h2 id="the-patterns">The Patterns</h2>
+<p>This program cycles through 8 patterns:</p>
+<ol>
+<li>Green color wipe (green fills the strip one pixel at a time)</li>
+<li>Gold comet (a gold dot with a fading tail)</li>
+<li>Green comet (a green dot with a fading tail)</li>
+<li>Shamrock chase (green and white moving stripes)</li>
+<li>Gold sparkle (random gold dots, like coins)</li>
+<li>Green and gold running lights</li>
+<li>Rainbow (because every St. Patrick's Day needs a rainbow!)</li>
+<li>Lucky blink (the whole strip flips between green and gold)</li>
+</ol>
+<h2 id="the-code">The Code</h2>
+<p>Copy this code into a file named <code>main.py</code> on your Pico. It runs all
+8 patterns and lets you switch between them with the two buttons.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># St. Patrick&#39;s Day Hat - green, gold, and white patterns</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
+<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># the data pin for the LED strip</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>     <span class="c1"># how many LEDs are on the hat</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="n">BUTTON_PIN_1</span> <span class="o">=</span> <span class="mi">15</span>      <span class="c1"># next pattern</span>
+<span class="n">BUTTON_PIN_2</span> <span class="o">=</span> <span class="mi">14</span>      <span class="c1"># previous pattern</span>
+
+<span class="c1"># St. Patrick&#39;s Day color palette (red, green, blue) values from 0 to 255</span>
+<span class="n">green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">gold</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">white</span> <span class="o">=</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">off</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Brightness levels used to draw a fading comet tail</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="n">mode</span> <span class="o">=</span> <span class="mi">0</span>               <span class="c1"># which pattern is playing</span>
+<span class="n">mode_count</span> <span class="o">=</span> <span class="mi">8</span>         <span class="c1"># how many patterns we have</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># steps the animation forward</span>
+<span class="n">last_time</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># the last time a button was pressed</span>
+
+<span class="c1"># A color wheel turns a number from 0 to 255 into a rainbow color.</span>
+<span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">170</span><span class="p">:</span>
+        <span class="n">pos</span> <span class="o">-=</span> <span class="mi">85</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">-=</span> <span class="mi">170</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># This runs every time a button is pressed.</span>
+<span class="k">def</span> <span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">mode</span><span class="p">,</span> <span class="n">last_time</span>
+    <span class="n">new_time</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
+    <span class="c1"># ignore presses closer than 1/5 of a second apart (debounce)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">new_time</span> <span class="o">-</span> <span class="n">last_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">pin_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pin</span><span class="p">)[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">pin_num</span> <span class="o">==</span> <span class="n">BUTTON_PIN_1</span><span class="p">:</span>
+            <span class="n">mode</span> <span class="o">+=</span> <span class="mi">1</span>      <span class="c1"># button 1 goes forward</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mode</span> <span class="o">-=</span> <span class="mi">1</span>      <span class="c1"># button 2 goes backward</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span> <span class="o">%</span> <span class="n">mode_count</span>   <span class="c1"># wrap around at the ends</span>
+        <span class="n">last_time</span> <span class="o">=</span> <span class="n">new_time</span>
+
+<span class="n">button1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">BUTTON_PIN_1</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">button2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">BUTTON_PIN_2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_DOWN</span><span class="p">)</span>
+<span class="n">button1</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">button_pressed_handler</span><span class="p">)</span>
+<span class="n">button2</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">button_pressed_handler</span><span class="p">)</span>
+
+<span class="c1"># Turn every pixel off.</span>
+<span class="k">def</span> <span class="nf">erase</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">off</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="c1"># Pattern 0: fill the strip one pixel at a time with green.</span>
+<span class="k">def</span> <span class="nf">color_wipe</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">erase</span><span class="p">()</span>
+
+<span class="c1"># Patterns 1 and 2: a bright dot with a fading tail.</span>
+<span class="k">def</span> <span class="nf">comet</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="n">erase</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)):</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">counter</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">levels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mi">255</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">),</span>
+                      <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">),</span>
+                      <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">))</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="c1"># Pattern 3: moving green and white stripes.</span>
+<span class="k">def</span> <span class="nf">shamrock_chase</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="n">counter</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">green</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">white</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="c1"># Pattern 4: random gold sparkles, like scattered coins.</span>
+<span class="k">def</span> <span class="nf">gold_sparkle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+    <span class="n">erase</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">gold</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="c1"># Pattern 5: green and gold lights spaced evenly that march along.</span>
+<span class="k">def</span> <span class="nf">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">green</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="n">counter</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">gold</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">off</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="c1"># Pattern 6: a full moving rainbow.</span>
+<span class="k">def</span> <span class="nf">rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">color_index</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">//</span> <span class="n">NUMBER_PIXELS</span> <span class="o">+</span> <span class="n">counter</span> <span class="o">*</span> <span class="mi">8</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">color_index</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="c1"># Pattern 7: flip the whole strip between green and gold.</span>
+<span class="k">def</span> <span class="nf">lucky_blink</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">green</span> <span class="k">if</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">gold</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># The main loop picks the right pattern for the current mode.</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">color_wipe</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">comet</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">gold</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">comet</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">shamrock_chase</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">gold_sparkle</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="n">lucky_blink</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">)</span>
+
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="n">NUMBER_PIXELS</span><span class="p">:</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+<p>You should see the strip glow in green and gold, with a surprise
+rainbow pattern in the middle of the cycle.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p>Green is the "luckiest" color to make on a NeoPixel. It uses only
+the green part of each pixel, so it draws less power than white.
+That means your battery lasts longer!</p>
+</div>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ul>
+<li>Change the <code>gold</code> values to make a brighter or deeper gold.</li>
+<li>Add a "lucky number" pattern that lights up exactly 7 green pixels.</li>
+<li>Make the rainbow move faster by changing <code>counter * 8</code> to <code>counter * 16</code>.</li>
+</ul>
 
 
 

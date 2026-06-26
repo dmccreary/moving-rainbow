@@ -1242,6 +1242,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Advanced Version
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1251,6 +1262,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#whats-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Different
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heat-to-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heat to Color
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-full-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Full Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-walk-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Walk-Through
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1812,6 +1887,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#whats-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Different
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heat-to-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heat to Color
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-full-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Full Program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-walk-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Walk-Through
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1834,7 +1962,175 @@
 
 
 <h1 id="jakes-fire-advanced-version">Jake's Fire - Advanced Version</h1>
-<p>TODO - write up </p>
+<p>The <a href="../">basic version</a> makes fire by lighting random pixels
+with random orange colors. It looks good, but it doesn't really <em>flow</em>
+like a real fire. This advanced version models heat itself, so the flames
+rise, flicker, and cool down the way real embers do.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p>Real fire isn't random — it's heat moving around! Here we give every
+pixel a heat number. Heat rises, cools off, and now and then a new
+spark jumps up from the embers. Watch it breathe!</p>
+</div>
+<h2 id="whats-different">What's Different</h2>
+<p>The basic version picks colors at random each frame. The advanced version
+keeps a <strong>heat map</strong> — a list of heat values, one per pixel. Each frame we
+do four steps:</p>
+<ol>
+<li><strong>Cool down.</strong> Every pixel loses a little heat.</li>
+<li><strong>Drift up.</strong> Heat spreads from each pixel to the next one along the ring.</li>
+<li><strong>Spark.</strong> Now and then a pixel near the base gets a burst of new heat.</li>
+<li><strong>Paint.</strong> We turn each pixel's heat number into a fire color.</li>
+</ol>
+<p>This is a small version of a classic fire algorithm. The key idea is
+<strong>state</strong> — the strip remembers its heat from one frame to the next,
+instead of starting fresh every time.</p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p>A higher cooling number makes a shorter, flickery flame. More sparks
+make a taller, hotter fire. Try changing <code>COOLING</code> and <code>SPARKING</code> to
+get the look Jake wants for each game.</p>
+</div>
+<h2 id="heat-to-color">Heat to Color</h2>
+<p>A real flame goes from dark red at the cool edges, up through orange and
+yellow, to near-white at the hottest core. This function maps a heat
+value (0 to 255) onto that range:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Turn a heat value (0-255) into a fire color (red, green, blue).</span>
+<span class="k">def</span> <span class="nf">heat_to_color</span><span class="p">(</span><span class="n">heat</span><span class="p">):</span>
+    <span class="c1"># scale heat down into 0-191 so we can split it into three bands</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">heat</span> <span class="o">*</span> <span class="mi">191</span><span class="p">)</span> <span class="o">//</span> <span class="mi">255</span>
+    <span class="n">band</span> <span class="o">=</span> <span class="n">t</span> <span class="o">&amp;</span> <span class="mh">0x3F</span>          <span class="c1"># the lower part within a band (0-63)</span>
+    <span class="n">band</span> <span class="o">=</span> <span class="n">band</span> <span class="o">*</span> <span class="mi">4</span>          <span class="c1"># spread it out to 0-252</span>
+
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mh">0x80</span><span class="p">:</span>             <span class="c1"># hottest third: orange -&gt; white</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mh">0x40</span><span class="p">:</span>           <span class="c1"># middle third: red -&gt; orange</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="n">band</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>                    <span class="c1"># coolest third: black -&gt; red</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="the-full-program">The Full Program</h2>
+<p>This program runs the heat model on both NeoPixel rings using the same
+<code>dual_ring_config.py</code> file as the basic version. The potentiometer
+changes how hot and tall the fire gets.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Jake&#39;s Fire - Advanced heat-model version</span>
+<span class="c1"># Uses a heat map so flames rise, flicker, and cool like real fire.</span>
+<span class="c1"># untested - adapt the COOLING and SPARKING values for your setup</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">ADC</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="kn">import</span> <span class="nn">dual_ring_config</span>
+
+<span class="n">pot</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">dual_ring_config</span><span class="o">.</span><span class="n">POT_PIN</span><span class="p">)</span>
+
+<span class="n">NUMBER_PIXELS0</span> <span class="o">=</span> <span class="n">dual_ring_config</span><span class="o">.</span><span class="n">NUMBER_PIXELS0</span>   <span class="c1"># 24 (outer ring)</span>
+<span class="n">NUMBER_PIXELS1</span> <span class="o">=</span> <span class="n">dual_ring_config</span><span class="o">.</span><span class="n">NUMBER_PIXELS1</span>   <span class="c1"># 12 (inner ring)</span>
+
+<span class="n">strip0</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">dual_ring_config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN0</span><span class="p">),</span> <span class="n">NUMBER_PIXELS0</span><span class="p">)</span>
+<span class="n">strip1</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">dual_ring_config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN1</span><span class="p">),</span> <span class="n">NUMBER_PIXELS1</span><span class="p">)</span>
+
+<span class="c1"># How fast pixels lose heat. Bigger = shorter, flickerier flames.</span>
+<span class="n">COOLING</span> <span class="o">=</span> <span class="mi">55</span>
+<span class="c1"># How often a new spark appears near the base. Bigger = taller fire.</span>
+<span class="n">SPARKING</span> <span class="o">=</span> <span class="mi">120</span>
+
+<span class="c1"># One heat value per pixel, all starting cold (0).</span>
+<span class="n">heat0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">NUMBER_PIXELS0</span>
+<span class="n">heat1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">NUMBER_PIXELS1</span>
+
+<span class="c1"># Turn a heat value (0-255) into a fire color.</span>
+<span class="k">def</span> <span class="nf">heat_to_color</span><span class="p">(</span><span class="n">heat</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">heat</span> <span class="o">*</span> <span class="mi">191</span><span class="p">)</span> <span class="o">//</span> <span class="mi">255</span>
+    <span class="n">band</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mh">0x80</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mh">0x40</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="n">band</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Run one frame of the fire model on a single ring.</span>
+<span class="k">def</span> <span class="nf">update_fire</span><span class="p">(</span><span class="n">heat</span><span class="p">,</span> <span class="n">num_pixels</span><span class="p">,</span> <span class="n">strip</span><span class="p">,</span> <span class="n">sparking</span><span class="p">):</span>
+    <span class="c1"># Step 1: cool every pixel down by a small random amount.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_pixels</span><span class="p">):</span>
+        <span class="n">cooldown</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">((</span><span class="n">COOLING</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">//</span> <span class="n">num_pixels</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">heat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">heat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">cooldown</span><span class="p">)</span>
+
+    <span class="c1"># Step 2: drift heat upward (around the ring).</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_pixels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">heat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">heat</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">heat</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">heat</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span> <span class="o">//</span> <span class="mi">3</span>
+
+    <span class="c1"># Step 3: now and then, add a spark near the base.</span>
+    <span class="k">if</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">sparking</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+        <span class="n">heat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="n">heat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+
+    <span class="c1"># Step 4: paint the heat onto the pixels.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_pixels</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">heat_to_color</span><span class="p">(</span><span class="n">heat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="c1"># Turn both rings off.</span>
+<span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS0</span><span class="p">):</span>
+        <span class="n">strip0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip0</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS1</span><span class="p">):</span>
+        <span class="n">strip1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip1</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Advanced fire running - Press Ctrl+C to stop&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># The pot sets the spark rate: turn it up for a bigger blaze.</span>
+        <span class="n">sparking</span> <span class="o">=</span> <span class="mi">40</span> <span class="o">+</span> <span class="p">(</span><span class="n">pot</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span>   <span class="c1"># ranges about 40-295</span>
+        <span class="n">update_fire</span><span class="p">(</span><span class="n">heat0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS0</span><span class="p">,</span> <span class="n">strip0</span><span class="p">,</span> <span class="n">sparking</span><span class="p">)</span>
+        <span class="n">update_fire</span><span class="p">(</span><span class="n">heat1</span><span class="p">,</span> <span class="n">NUMBER_PIXELS1</span><span class="p">,</span> <span class="n">strip1</span><span class="p">,</span> <span class="n">sparking</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mf">0.03</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Stopping fire effect&quot;</span><span class="p">)</span>
+    <span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<p>You should see flames that rise and fade smoothly instead of flickering
+at random. Turning the potentiometer up makes a taller, hotter fire.</p>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p>A full, bright fire on both rings draws a lot of power. If the rings
+flicker or the Pico resets, lower the colors in <code>heat_to_color</code> or
+power the rings from a separate 5V supply instead of USB.</p>
+</div>
+<h2 id="code-walk-through">Code Walk-Through</h2>
+<ul>
+<li><strong><code>heat0</code> and <code>heat1</code></strong> are the heat maps — the fire's memory. Each
+  number is how hot one pixel is right now.</li>
+<li><strong>Cooling</strong> subtracts a small random amount from every pixel. Random
+  cooling is what makes the flicker look natural.</li>
+<li><strong>Drifting</strong> averages each pixel with the two before it. This smooths
+  the heat and makes it climb the ring.</li>
+<li><strong>Sparking</strong> adds fresh heat near the base only some of the time. That
+  randomness is why no two flames look the same.</li>
+<li><strong>Painting</strong> converts heat to color with <code>heat_to_color</code>, so cool
+  pixels are dark red and the hottest are near white.</li>
+</ul>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ul>
+<li>Lower <code>COOLING</code> to 20 for a tall, lazy flame. Raise it to 90 for a
+  small, busy one.</li>
+<li>Add a second color map that makes a blue or green "magic" fire for a
+  different game.</li>
+<li>Use the button instead of the pot to switch between fire colors.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">For the maintainer</p>
+<p>This advanced version is built from the classic heat-map fire model
+and has <strong>not yet been tested on Jake's actual two-ring hardware</strong>.
+Before publishing, run it on the rings and tune <code>COOLING</code>,
+<code>SPARKING</code>, and the brightness in <code>heat_to_color</code> to match the
+diffusion sheet. If a tested advanced sketch already exists, drop it
+into <code>src/kits/jakes-fire/</code> and replace the code block above.</p>
+</div>
 
 
 

@@ -1126,9 +1126,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-photoresistor-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a Photoresistor Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#testing-the-photoresistor" class="md-nav__link">
     <span class="md-ellipsis">
       Testing the Photoresistor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#showing-light-level-on-the-strip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Showing Light Level on the Strip
     </span>
   </a>
   
@@ -1164,6 +1200,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
   
 </li>
       
@@ -1931,9 +1985,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-photoresistor-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a Photoresistor Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#testing-the-photoresistor" class="md-nav__link">
     <span class="md-ellipsis">
       Testing the Photoresistor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#showing-light-level-on-the-strip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Showing Light Level on the Strip
     </span>
   </a>
   
@@ -1972,6 +2062,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Your Understanding
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1996,10 +2104,161 @@
 
 
 <h1 id="photoresistor">Photoresistor</h1>
+<p>A <strong>photoresistor</strong> (a part that changes its resistance when light hits it)
+lets your Pico "see" how bright a room is. In this lesson we read the
+light level, print it, and then use it to control the LED strip.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p>Let's give your Pico a sense of sight! A photoresistor is like a
+tiny eye. The more light it sees, the more electricity it lets
+through. We can measure that and turn it into LED colors.</p>
+</div>
+<h2 id="what-youll-learn">What you'll learn</h2>
+<ul>
+<li>What a photoresistor is and how it changes with light</li>
+<li>How to read an analog value with the Pico's ADC</li>
+<li>How to turn a light reading into LED colors</li>
+<li>How a nightlight uses light to decide when to turn on</li>
+</ul>
+<h2 id="what-youll-need">What you'll need</h2>
+<ul>
+<li>A Moving Rainbow kit with a photoresistor wired to pin 28</li>
+<li>A NeoPixel strip on pin 0</li>
+<li>The kit's standard <code>config.py</code> file</li>
+</ul>
+<h2 id="how-a-photoresistor-works">How a Photoresistor Works</h2>
+<p>A photoresistor is wired as part of a <strong>voltage divider</strong> (two parts
+that split a voltage between them). As the light changes, the voltage at
+the middle of the divider changes too.</p>
+<p>The Pico reads that voltage with its <strong>ADC</strong> (Analog-to-Digital
+Converter — a part that turns a voltage into a number). The Pico's ADC
+gives us a number from 0 to 65535.</p>
+<div class="admonition info">
+<p class="admonition-title">Pixel thinks...</p>
+<p>A bigger number means more light. In a dark room you might read
+about 1,500. In a bright room you might read about 55,000. Your
+room will be different — that's why we test it first!</p>
+</div>
 <h2 id="testing-the-photoresistor">Testing the Photoresistor</h2>
+<p>This first program reads the light level and prints it to the screen.
+Run it, then wave your hand over the sensor or cover it with your finger.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Read the light level from a photoresistor and print it.</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="c1"># The ADC (light-reading) pins on the Pico are 26, 27, and 28</span>
+<span class="n">photo_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">PHOTORESISTOR_PIN</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">photo_pin</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>   <span class="c1"># read a number from 0 to 65535</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>                   <span class="c1"># show it in the console</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>                   <span class="c1"># wait a fifth of a second</span>
+</code></pre></div>
+<p>You should see numbers stream by in the console. Cover the sensor and
+the numbers drop. Shine a light on it and they jump up.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pixel's tip</p>
+<p>Write down your darkest number and your brightest number. You'll
+use them in the next program to set your nightlight's "trigger"
+point.</p>
+</div>
+<h2 id="showing-light-level-on-the-strip">Showing Light Level on the Strip</h2>
+<p>Now let's turn the light reading into a bar of color. The darker the
+room, the fewer LEDs light up. The brighter the room, the more light up.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show the room&#39;s light level as a bar of colored LEDs.</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">ADC</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span> <span class="nn">config</span>
+
+<span class="c1"># Set up the LED strip and the light sensor</span>
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<span class="n">photo_pin</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">PHOTORESISTOR_PIN</span><span class="p">))</span>
+
+<span class="c1"># Turn every pixel off.</span>
+<span class="k">def</span> <span class="nf">clear_strip</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">light_value</span> <span class="o">=</span> <span class="n">photo_pin</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>    <span class="c1"># read the light level</span>
+
+    <span class="c1"># Turn the light level into a number of pixels (0 to 12).</span>
+    <span class="c1"># Change 2000 and 55000 to match the numbers you wrote down.</span>
+    <span class="k">if</span> <span class="n">light_value</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
+        <span class="n">num_pixels</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">light_value</span> <span class="o">&gt;</span> <span class="mi">55000</span><span class="p">:</span>
+        <span class="n">num_pixels</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">light_range</span> <span class="o">=</span> <span class="n">light_value</span> <span class="o">-</span> <span class="mi">2000</span>
+        <span class="n">num_pixels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">light_range</span> <span class="o">/</span> <span class="p">(</span><span class="mi">55000</span> <span class="o">-</span> <span class="mi">2000</span><span class="p">))</span> <span class="o">*</span> <span class="mi">12</span><span class="p">)</span>
+
+    <span class="n">clear_strip</span><span class="p">()</span>
+
+    <span class="c1"># Light up the bar with blue, then green, then red.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_pixels</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>     <span class="c1"># low light: blue</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>     <span class="c1"># medium light: green</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>     <span class="c1"># high light: red</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+</code></pre></div>
+<p>You should see a bar of LEDs that grows when the room is bright and
+shrinks when you cover the sensor.</p>
+<div class="admonition warning">
+<p class="admonition-title">Watch out!</p>
+<p>If the bar never changes, your sensor's numbers may be different
+from 2000 and 55000. Go back to the test program, find your real
+dark and bright numbers, and put them in this code.</p>
+</div>
 <h2 id="the-nightlight">The Nightlight</h2>
+<p>A <strong>nightlight</strong> flips the idea around: it turns the LEDs <em>on</em> when the
+room gets <em>dark</em>. We pick a <strong>threshold</strong> (a cut-off number). When the
+light reading drops below the threshold, the strip turns on.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">light_value</span> <span class="o">&lt;</span> <span class="n">LIGHT_THRESHOLD</span><span class="p">:</span>
+    <span class="c1"># room is dark - turn the nightlight on</span>
+    <span class="o">...</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># room is bright - turn the nightlight off</span>
+    <span class="n">clear_strip</span><span class="p">()</span>
+</code></pre></div>
+<p>There are two ways to build a nightlight, and the Moving Rainbow kits
+include both.</p>
 <h3 id="analog-nightlight">Analog Nightlight</h3>
+<p>An <strong>analog</strong> nightlight uses no code at all. A transistor and a
+photoresistor act as a switch. When it gets dark, the transistor turns
+the LED on by itself.</p>
+<p><a href="../../kits/analog-nightlight/">See the Analog Nightlight kit</a></p>
 <h3 id="digital-nightlight">Digital Nightlight</h3>
+<p>A <strong>digital</strong> nightlight uses the Pico and the code you just learned.
+Because it runs code, you can add patterns, colors, brightness control,
+and even an automatic shutoff timer.</p>
+<p><a href="../../kits/digital-nightlight/">See the Digital Nightlight kit</a></p>
+<div class="admonition success">
+<p class="admonition-title">You've got this!</p>
+<p>You just taught your Pico to react to the world around it. That's
+the first step toward every sensor project — robots, weather
+stations, and smart lights all start right here.</p>
+</div>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<ul>
+<li>Change <code>LIGHT_THRESHOLD</code> so the light comes on at dusk instead of full dark.</li>
+<li>Make the bar use a rainbow of colors instead of blue, green, and red.</li>
+<li>Print "Nightlight ON" or "Nightlight OFF" each time the state changes.</li>
+</ul>
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<ol>
+<li>What does a photoresistor do when more light hits it?</li>
+<li>What range of numbers does the Pico's ADC return?</li>
+<li>Why do we test the sensor before setting a threshold?</li>
+<li>What is the difference between an analog and a digital nightlight?</li>
+</ol>
 
 
 
