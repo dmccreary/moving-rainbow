@@ -47,6 +47,7 @@ nav:
     - GitHub Summary: getting-started/github-summary.md
     - Electrical Connections: getting-started/connections.md
     - Troubleshooting Resets: getting-started/troubleshooting-resets.md
+    - macOS USB Bugs: getting-started/macos-usb-bugs.md
   
 
   - NeoPixel Lessons:
