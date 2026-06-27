@@ -1,12 +1,12 @@
 # Rotary Spinner Box - Rainbow
 # Filename: 07-rainbow.py
 #
-# This program spreads a full rainbow around the 12 pixels of the ring and
+# This program spreads a full rainbow across the 12 pixels of the strip and
 # holds it still.  It introduces the color wheel: a helper that turns a single
 # number (0-255) into a color somewhere in the rainbow.
 #
 # By giving each pixel an evenly spaced spot on the color wheel, the whole
-# ring shows one smooth rainbow.
+# strip shows one smooth rainbow from end to end.
 
 from neopixel import NeoPixel
 import machine
@@ -32,7 +32,7 @@ def color_wheel(pos):
         return (pos * 3, 0, 255 - pos * 3)
 
 
-print('Rainbow displayed. The ring shows one full rainbow.')
+print('Rainbow displayed. The strip shows one full rainbow.')
 
 # Set each pixel to an evenly spaced color around the wheel, just once
 for i in range(config.NUMBER_PIXELS):

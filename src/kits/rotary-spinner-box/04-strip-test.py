@@ -3,10 +3,10 @@
 #
 # This program checks that all 12 NeoPixels work and are in the right order.
 # It lights every pixel red, then green, then blue, then white, then turns
-# them all off.  Watch the ring to make sure no pixels are dark or stuck.
+# them all off.  Watch the strip to make sure no pixels are dark or stuck.
 #
 #   NEOPIXEL strip is on GPIO pin 0 (config.NEOPIXEL_PIN)
-#   The ring has 12 pixels      (config.NUMBER_PIXELS)
+#   The strip has 12 pixels     (config.NUMBER_PIXELS)
 
 from neopixel import NeoPixel
 import machine
