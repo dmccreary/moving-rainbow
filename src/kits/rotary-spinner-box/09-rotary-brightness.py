@@ -2,7 +2,7 @@
 # Filename: 09-rotary-brightness.py
 #
 # Now the knob does something useful: it controls a PARAMETER.  Here the
-# parameter is brightness.  Spin clockwise to make the ring brighter, spin
+# parameter is brightness.  Spin clockwise to make the strip brighter, spin
 # counterclockwise to make it dimmer.
 #
 # This is the key idea for the rest of the labs: a value we store in a variable
@@ -22,7 +22,7 @@ clk = machine.Pin(config.ROTARY_ENCODER_PIN_A, machine.Pin.IN, machine.Pin.PULL_
 dt = machine.Pin(config.ROTARY_ENCODER_PIN_B, machine.Pin.IN, machine.Pin.PULL_UP)
 last_clk = clk.value()
 
-# The base color of the ring before brightness is applied
+# The base color of the strip before brightness is applied
 BASE_COLOR = (255, 120, 0)
 
 # The brightness parameter: a value from 0 (off) to 20 (full)
@@ -30,7 +30,7 @@ brightness = 10
 MAX_BRIGHTNESS = 20
 
 
-# Draw the whole ring at the current brightness
+# Draw the whole strip at the current brightness
 def show_brightness():
     fade = brightness / MAX_BRIGHTNESS
     color = (int(BASE_COLOR[0] * fade),

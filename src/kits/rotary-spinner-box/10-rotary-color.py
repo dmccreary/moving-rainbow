@@ -2,7 +2,7 @@
 # Filename: 10-rotary-color.py
 #
 # This time the knob controls a different parameter: COLOR.  Spinning the knob
-# moves a position around the color wheel, so the whole ring slowly changes
+# moves a position around the color wheel, so the whole strip slowly changes
 # from red to orange to yellow to green to blue to purple and back.
 #
 # Same pattern as the brightness lab, but the parameter is a color-wheel
@@ -42,7 +42,7 @@ hue = 0
 STEP = 8
 
 
-# Fill the whole ring with the current color
+# Fill the whole strip with the current color
 def show_color():
     color = color_wheel(hue)
     for i in range(config.NUMBER_PIXELS):

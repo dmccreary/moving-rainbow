@@ -1,13 +1,13 @@
 # Rotary Spinner Box - Button Speed
 # Filename: 11-button-speed.py
 #
-# This lab runs the spinner from lab 05, but now the BUTTONS control a
-# parameter: the speed.
+# This lab runs the scanner from lab 05 (a dot bouncing back and forth along
+# the strip), but now the BUTTONS control a parameter: the speed.
 #
-#   BUTTON 1 (pin 14) makes the spinner faster
-#   BUTTON 2 (pin 15) makes the spinner slower
+#   BUTTON 1 (pin 14) makes the scanner faster
+#   BUTTON 2 (pin 15) makes the scanner slower
 #
-# The buttons use interrupts (like lab 02) so the spinner never has to stop
+# The buttons use interrupts (like lab 02) so the scanner never has to stop
 # and wait for a button.  The animation keeps running in the main loop while
 # the interrupt quietly changes the speed parameter in the background.
 
@@ -53,17 +53,23 @@ button_faster.irq(trigger=machine.Pin.IRQ_FALLING, handler=button_callback)
 button_slower.irq(trigger=machine.Pin.IRQ_FALLING, handler=button_callback)
 
 position = 0
+direction = 1
 
 print('Button Speed ready.')
 print('BUTTON 1 (pin', config.PUSH_BUTTON_PIN_1, ') = faster,',
       'BUTTON 2 (pin', config.PUSH_BUTTON_PIN_2, ') = slower.')
 
 while True:
+    # turn every pixel off, then light only the current one
+    for i in range(config.NUMBER_PIXELS):
+        strip[i] = (0, 0, 0)
     strip[position] = DOT_COLOR
     strip.write()
     utime.sleep(delay)
 
-    strip[position] = (0, 0, 0)
-    strip.write()
-
-    position = (position + 1) % config.NUMBER_PIXELS
+    # bounce off the ends instead of jumping back to the start
+    if position == 0:
+        direction = 1
+    elif position == config.NUMBER_PIXELS - 1:
+        direction = -1
+    position = position + direction

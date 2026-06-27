@@ -1,9 +1,10 @@
 # Rotary Spinner Box - Moving Rainbow
 # Filename: 08-moving-rainbow.py
 #
-# This program takes the rainbow from lab 07 and makes it spin around the ring.
-# The trick is a number called "offset" that grows a little each step.  Adding
-# the offset to every pixel's wheel position slides the whole rainbow forward.
+# This program takes the rainbow from lab 07 and scrolls it along the strip,
+# like a marquee.  The trick is a number called "offset" that grows a little
+# each step.  Adding the offset to every pixel's wheel position slides the
+# whole rainbow forward along the strip.
 
 from neopixel import NeoPixel
 import machine
@@ -33,11 +34,11 @@ DELAY = 0.03
 # This grows each step to make the rainbow move
 offset = 0
 
-print('Moving Rainbow running. The rainbow spins around the ring.')
+print('Moving Rainbow running. The rainbow scrolls along the strip.')
 
 while True:
     for i in range(config.NUMBER_PIXELS):
-        # spread the rainbow around the ring, then shift it by the offset
+        # spread the rainbow along the strip, then shift it by the offset
         position = int(i * 256 / config.NUMBER_PIXELS) + offset
         strip[i] = color_wheel(position)
     strip.write()
