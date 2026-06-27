@@ -135,6 +135,22 @@ nav:
     - 8x8 NeoPixel Matrix: kits/8x8-neopixel-matrix/index.md
     - Cylon Pumpkin: kits/cylon-pumpkin/index.md
 
+    - Rotary Spinner Box:
+      - Intro: kits/rotary-spinner-box/index.md
+      - 'Lab 1: Blink the Onboard LED': kits/rotary-spinner-box/01-blink-internal-led.md
+      - 'Lab 2: Test the Buttons': kits/rotary-spinner-box/02-button-test.md
+      - 'Lab 3: Test the Knob': kits/rotary-spinner-box/03-rotary-test.md
+      - 'Lab 4: Test the Strip': kits/rotary-spinner-box/04-strip-test.md
+      - 'Lab 5: The Scanner': kits/rotary-spinner-box/05-spinner.md
+      - 'Lab 6: The Comet': kits/rotary-spinner-box/06-comet.md
+      - 'Lab 7: The Rainbow': kits/rotary-spinner-box/07-rainbow.md
+      - 'Lab 8: The Moving Rainbow': kits/rotary-spinner-box/08-moving-rainbow.md
+      - 'Lab 9: Knob Brightness': kits/rotary-spinner-box/09-rotary-brightness.md
+      - 'Lab 10: Knob Color': kits/rotary-spinner-box/10-rotary-color.md
+      - 'Lab 11: Button Speed': kits/rotary-spinner-box/11-button-speed.md
+      - 'Lab 12: The Mode Machine': kits/rotary-spinner-box/20-mode-machine.md
+      - 'Lab 13: The Capability Demo': kits/rotary-spinner-box/21-demo.md
+
     - Solar Powered Nightlight:
       - Intro: kits/solar-powered-led-nightlight/index.md
       - kits/solar-powered-led-nightlight/how-it-works.md
