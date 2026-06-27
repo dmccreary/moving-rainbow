@@ -1,5 +1,9 @@
 # Rotary Spinner Box
 
+![Photo of the closed rotary spinner box](./img/rotary-spinner-box.png){ height="200px" align="left" }
+![Photo of the rotary spinner box opened up](./img/rotary-spinner-box-open.jpg){ height="200px" align="right" }
+
+
 The Rotary Spinner Box is a small light-up box you can hold in your hands.
 Inside is a strip of 12 color LEDs (lights). You control them with a **knob you
 spin** and **two buttons you press**. Turn the knob and watch the lights
@@ -54,8 +58,9 @@ the Pico.
 
 ![Wiring diagram for the Rotary Spinner Box showing the Raspberry Pi Pico connected to a 12-pixel NeoPixel strip, a rotary encoder with a built-in button, an extra push button, a power switch, and a 3xAA battery pack](img/circuit-diagram.png)
 
-Follow the colors: **red** wires carry *data and button signals*, **amber**
-wires carry *power*, and **black** wires are *ground* (the shared return path).
+Follow the colors: **red** wires carry *power*, **amber** wires carry *data
+and button signals*, and **black** wires are *ground* (the shared return
+path).
 
 - The NeoPixel strip's **DIN** (data-in) goes to **GP0**.
 - The knob's **A** and **B** go to **GP12** and **GP13**, and its built-in
