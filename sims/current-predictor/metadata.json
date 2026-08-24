@@ -40,10 +40,11 @@
     "map"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of led current predictor",
-    "Apply led current predictor to solve problems",
-    "Visualize and interpret led current predictor relationships",
-    "Experiment with parameters to observe their effects on led current predictor"
+    "Explain why an LED needs a base-limiting resistor in series to avoid being destroyed by excess current",
+    "Predict the LED current in milliamps that results from setting the base resistor anywhere from 3 KΩ to 350 KΩ",
+    "Identify the inverse relationship I = a/R + b between resistance and current from the plotted curve",
+    "Compare how much the current drops when resistance doubles at the low end of the range versus the high end",
+    "Calculate the resistor value needed to hold LED current at a chosen safe target"
   ],
   "pedagogical": {
     "pattern": "reference",
