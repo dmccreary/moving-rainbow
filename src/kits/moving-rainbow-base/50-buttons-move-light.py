@@ -10,18 +10,18 @@ NUMBER_PIXELS = config.NUMBER_PIXELS
 
 strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
-BUTTON_PIN_1 = 15 #Button 1 uses pin 15 on the Raspberry Pi circuit board (closer to board)
-BUTTON_PIN_2 = 14 #Button 2 uses pin 14 on the Raspberry Pi circuit board (closer to edge)
+BUTTON_PIN_1 = config.BUTTON_PIN_1 #Button 1 uses pin 15 on the Raspberry Pi circuit board (closer to board)
+BUTTON_PIN_2 = config.BUTTON_PIN_2 #Button 2 uses pin 14 on the Raspberry Pi circuit board (closer to edge)
 
 button1_presses = 0 # the count of times the button has been pressed
 button2_presses = 0
 last_time = 0 # the last time we pressed the button
 
-builtin_led = machine.Pin(25, Pin.OUT)
+builtin_led = Pin(25, Pin.OUT)
 # The lower left corner of the Pico has a wire that goes through the buttons upper left and the lower right goes to the 3.3 rail
 
-button1 = machine.Pin(BUTTON_PIN_1, machine.Pin.IN, machine.Pin.PULL_UP)
-button2 = machine.Pin(BUTTON_PIN_2, machine.Pin.IN, machine.Pin.PULL_UP)
+button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
+button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
 #Most of these color definitions are not needed here, but they came with the "copy/paste" of code I used
 red = (255, 0, 0)
@@ -69,8 +69,8 @@ def button_pressed_handler(pin):
         print('button 1 pressed ', button1_presses, 'times; button 2 pressed', button2_presses, 'times')
 
 # now we register the handler function when the button is pressed
-button1.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
-button2.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
+button1.irq(trigger=Pin.IRQ_FALLING, handler = button_pressed_handler)
+button2.irq(trigger=Pin.IRQ_FALLING, handler = button_pressed_handler)
 
 
 # erase the entire strip

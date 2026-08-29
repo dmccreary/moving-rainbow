@@ -13,17 +13,17 @@ PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
 
 strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
-BUTTON_PIN_1 = 15
-BUTTON_PIN_2 = 14
+BUTTON_PIN_1 = config.BUTTON_PIN_1
+BUTTON_PIN_2 = config.BUTTON_PIN_2
 
 button_presses = 0 # the count of times the button has been pressed
 last_time = 0 # the last time we pressed the button
 
-builtin_led = machine.Pin(25, Pin.OUT)
+builtin_led = Pin(25, Pin.OUT)
 # The lower left corner of the Pico has a wire that goes through the buttons upper left and the lower right goes to the 3.3 rail
 
-button1 = machine.Pin(BUTTON_PIN_1, machine.Pin.IN, machine.Pin.PULL_UP)
-button2 = machine.Pin(BUTTON_PIN_2, machine.Pin.IN, machine.Pin.PULL_UP)
+button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
+button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
 red = (255, 0, 0)
 red_med = (32, 0, 0)
@@ -67,8 +67,8 @@ def button_pressed_handler(pin):
         last_time = new_time
 
 # now we register the handler function when the button is pressed
-button1.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
-button2.irq(trigger=machine.Pin.IRQ_FALLING, handler = button_pressed_handler)
+button1.irq(trigger=Pin.IRQ_FALLING, handler = button_pressed_handler)
+button2.irq(trigger=Pin.IRQ_FALLING, handler = button_pressed_handler)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.

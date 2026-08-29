@@ -1,10 +1,11 @@
+import machine
 from neopixel import NeoPixel
 from utime import sleep
+import config
 
-NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 38
+NUMBER_PIXELS = config.NUMBER_PIXELS
 
-strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel(machine.Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
 
 red = (255, 0, 0)
 white = (128,128,128)

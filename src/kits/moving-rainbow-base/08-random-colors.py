@@ -2,11 +2,11 @@ from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 from urandom import randint
+import config
 # https://docs.micropython.org/en/latest/library/random.html
 
-NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 60
-strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+NUMBER_PIXELS = config.NUMBER_PIXELS
+strip = NeoPixel(Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
 
 red = (255, 0, 0)
 orange = (140, 60, 0)

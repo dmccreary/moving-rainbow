@@ -1,11 +1,11 @@
 from machine import ADC, Pin, PWM
 from utime import sleep
 from neopixel import NeoPixel
+import config
 
-NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 30
+NUMBER_PIXELS = config.NUMBER_PIXELS
 
-strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
 
 # Pins
 POT_PIN = 26
