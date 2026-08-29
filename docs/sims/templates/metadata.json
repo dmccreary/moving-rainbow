@@ -37,10 +37,10 @@
     "interactive-demo"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of title of this",
-    "Apply title of this to solve problems",
-    "Visualize and interpret title of this relationships",
-    "Experiment with parameters to observe their effects on title of this"
+    "Identify the two canvas regions of the MicroSim template: the aliceblue drawing area of height drawHeight and the white control area of height controlHeight",
+    "Explain why updateCanvasSize() must be called first in setup() so the canvas matches the parent container width",
+    "Trace how windowResized() recomputes containerWidth, calls resizeCanvas(), resizes sliders, and triggers redraw()",
+    "Design a new responsive p5.js sketch by copying the template and parenting the canvas to the document's main element"
   ],
   "pedagogical": {
     "pattern": "exploration",

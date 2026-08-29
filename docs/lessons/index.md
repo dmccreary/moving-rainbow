@@ -23,7 +23,13 @@
 19. **Theater Chase** - classic running light patterns popular in signs
 20. **Moving Bands** - moving bands of color
 
-## Rotating Patterns
+## Buttons and Modes
 
-1. **Modes** - assign a mode to each pattern
-2. **Button Modes** - use buttons to change a mode
+1. **Testing a Button** - read a momentary push button with a pull-up resistor
+2. **Button + Built-in LED** - use a button to turn an output on and off
+3. **Two Buttons and Interrupts** - catch fast presses with `irq()` and debouncing
+4. **Button-Controlled Color** - step through a list of colors with two buttons
+5. **Button-Controlled Speed** - speed up and slow down an animation with two buttons
+6. **Buttons Move a Pixel** - move a lit pixel forward and back with two buttons
+7. **Modes** - assign a mode to each pattern, switching automatically on a timer
+8. **Button Modes** - use buttons to change a mode

@@ -231,18 +231,15 @@
     "simulation"
   ],
   "learningObjectives": [
-    "Understand the key concepts of battery life calculator for led noodle costumes",
-    "Explore battery life calculator for led noodle costumes through interactive visualization",
-    "Apply knowledge of battery life calculator for led noodle costumes to solve problems",
-    "Experiment with parameters to observe their effects on battery life calculator for led noodle costumes"
+    "Apply the battery life formula to calculate runtime",
+    "Analyze the relationship between current draw and battery capacity",
+    "Evaluate trade-offs between brightness, LED count, and battery life",
+    "Compare different battery options for specific design requirements"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "assessment",

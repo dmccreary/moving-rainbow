@@ -42,10 +42,11 @@
     "map"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of led nightlight circuit",
-    "Apply led nightlight circuit to solve problems",
-    "Visualize and interpret led nightlight circuit relationships",
-    "Experiment with parameters to observe their effects on led nightlight circuit"
+    "Explain how a photoresistor paired with a 100kΩ resistor forms a voltage divider whose midpoint voltage tracks ambient light",
+    "Predict what happens to LED brightness as the ambient light slider is moved from 100 down to 0",
+    "Trace how the divider midpoint feeds through the 10kΩ base resistor to the 2N2222 base and controls collector current",
+    "Explain why photoresistor resistance rises as light falls, and why that inversion makes the LED turn on in the dark",
+    "Identify the role of the 220Ω resistor in limiting current through the LED"
   ],
   "pedagogical": {
     "pattern": "exploration",

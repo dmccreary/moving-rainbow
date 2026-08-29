@@ -39,10 +39,11 @@
     "map"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of color wheel",
-    "Apply color wheel to solve problems",
-    "Visualize and interpret color wheel relationships",
-    "Experiment with parameters to observe their effects on color wheel"
+    "Trace how the wheel() function maps a rotation position from 0 to 255 onto an RGB triple by ramping one channel up while another ramps down",
+    "Predict the RGB values produced at rotation positions 0, 85, and 170, which correspond to red, green, and blue",
+    "Explain why a 0 to 255 rotation range represents a full circle of hue that wraps back to its starting color",
+    "Identify complementary colors as the pair of positions on opposite sides of the wheel",
+    "Calculate the position of the rotation indicator line using the wheel center, radius, and rotation angle"
   ],
   "pedagogical": {
     "pattern": "exploration",
