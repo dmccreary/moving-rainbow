@@ -75,6 +75,14 @@ nav:
     - Clock: lessons/20-clock.md
     - How NeoPixels Work: lessons/40-how-neopixels-work.md
     - Photo Resistor: lessons/21-photo-resistor.md
+    - Testing a Button: lessons/22-button-test.md
+    - Button + Built-in LED: lessons/23-button-led-test.md
+    - Two Buttons and Interrupts: lessons/24-two-button-counter.md
+    - Button-Controlled Color: lessons/25-button-change-color.md
+    - Button-Controlled Speed: lessons/26-button-change-speed.md
+    - Buttons Move a Pixel: lessons/27-buttons-move-pixel.md
+    - Modes: lessons/28-modes.md
+    - Button Modes: lessons/29-button-modes.md
   
   - LED Noodles:
     - Introduction: led-noodles/index.md
@@ -131,7 +139,9 @@ nav:
 
   - Project Kits:
     - Intro: kits/index.md
-    - Base Moving Rainbow Kit: kits/moving-rainbow-base/index.md
+    - Base Moving Rainbow Kit:
+      - Intro: kits/moving-rainbow-base/index.md
+      - Purchasing Guide: kits/moving-rainbow-base/purchasing-guide/index.md
     - 8x8 NeoPixel Matrix: kits/8x8-neopixel-matrix/index.md
     - Cylon Pumpkin: kits/cylon-pumpkin/index.md
 

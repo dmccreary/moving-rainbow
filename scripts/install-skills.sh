@@ -15,6 +15,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 SKILLS_SOURCE="$PROJECT_DIR/skills"
 SKILLS_TARGET="$HOME/.claude/skills"
+PROJECT_SKILLS="$PROJECT_DIR/.claude/skills"
 
 echo "=========================================="
 echo "  Moving Rainbow Skills Installer"
@@ -40,6 +41,21 @@ for skill_dir in "$SKILLS_SOURCE"/*/; do
     if [ -f "$skill_dir/SKILL.md" ]; then
         skill_name=$(basename "$skill_dir")
         target_link="$SKILLS_TARGET/$skill_name"
+
+        # Skills linked from .claude/skills/ are deliberately scoped to this
+        # project only. Claude Code loads them when working in this repo and
+        # nowhere else, which keeps them out of the 30-skill global budget.
+        # Never install those globally -- and clean up a stale global link if
+        # one is left over from before the skill was project-scoped.
+        if [ -L "$PROJECT_SKILLS/$skill_name" ]; then
+            if [ -L "$target_link" ]; then
+                echo "  [unlink] $skill_name (project-scoped; removing global link)"
+                rm "$target_link"
+            else
+                echo "  [local] $skill_name (project-scoped via .claude/skills/)"
+            fi
+            continue
+        fi
 
         # Remove trailing slash from skill_dir for cleaner paths
         skill_dir="${skill_dir%/}"
@@ -75,9 +91,10 @@ if [ $skill_count -eq 0 ]; then
     echo "Skills must contain a SKILL.md file to be recognized."
 else
     echo "=========================================="
-    echo "  Installed $skill_count skill(s)"
+    echo "  Installed $skill_count global skill(s)"
     echo "=========================================="
 fi
 
 echo ""
-echo "To verify, run: ls -la ~/.claude/skills/"
+echo "To verify global skills, run: ls -la ~/.claude/skills/"
+echo "Project-scoped skills live in .claude/skills/ and load only in this repo."

@@ -41,10 +41,11 @@
     "map"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of led dimmer circuit",
-    "Apply led dimmer circuit to solve problems",
-    "Visualize and interpret led dimmer circuit relationships",
-    "Experiment with parameters to observe their effects on led dimmer circuit"
+    "Trace the path of current from the +5V supply through the LED, 220Ω limiting resistor, and 2N2222 collector-emitter to ground",
+    "Explain how a 20kΩ potentiometer acts as a voltage divider that sets the transistor base voltage between 0V and 5V",
+    "Predict the potentiometer position (about 14%, or 0.7V at the base) at which the LED first begins to glow",
+    "Describe how a small base voltage controls a much larger collector current, making the NPN transistor an amplifier and switch",
+    "Explain why the 220Ω current-limiting resistor keeps the LED safe even at full brightness"
   ],
   "pedagogical": {
     "pattern": "exploration",
