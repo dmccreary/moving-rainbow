@@ -1,13 +1,14 @@
 from machine import Pin
 import time
+import config
 
 # input on the lower left of the Pico
 # the other side of the button goes to ground
 # if the switch is open the value is pulled up to 3.3 volts
-BUTTON_PIN = 15
+BUTTON_PIN = config.BUTTON_PIN_1
 
 # Create a button object on the pin
-button = Pin(BUTTON_PIN, Pin.IN, Pin.PULL_UP) 
+button = Pin(BUTTON_PIN, Pin.IN, Pin.PULL_UP)
 
 BUILT_IN_LED_PIN = 25
 # create an LED object

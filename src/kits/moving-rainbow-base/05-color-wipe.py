@@ -1,14 +1,15 @@
+import machine
 from neopixel import NeoPixel
 from time import sleep
+import config
 
 # most people have a heart rate of around 60-70 beats per minute
 # If you add a once second deplay between "beats" you can make and LED
 # look like a beating heart.
 
-NUMBER_PIXELS = 60
-LED_PIN = 0
+NUMBER_PIXELS = config.NUMBER_PIXELS
 
-strip = NeoPixel(machine.Pin(LED_PIN), NUMBER_PIXELS)
+strip = NeoPixel(machine.Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
 
 red = (255, 0, 0)
 orange = (140, 60, 0)

@@ -1,10 +1,11 @@
+from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
+import config
 
-NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 30
+NUMBER_PIXELS = config.NUMBER_PIXELS
 
-strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
 
 while True:
     for i in range(0, NUMBER_PIXELS):

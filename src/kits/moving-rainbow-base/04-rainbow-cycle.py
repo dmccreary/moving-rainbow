@@ -1,12 +1,12 @@
 import machine
 from neopixel import NeoPixel
 from utime import sleep
+import config
 
-NEOPIXEL_PIN = 0
-NUMBER_PIXELS = 30
+NUMBER_PIXELS = config.NUMBER_PIXELS
 PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
 
-strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel(machine.Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
