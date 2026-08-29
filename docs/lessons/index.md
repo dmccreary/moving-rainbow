@@ -1,5 +1,9 @@
 # Moving Rainbow Lessons
 
+## Getting Started
+
+0. **Blink the Onboard LED** - test your Pico and Thonny with no wiring at all, and try changing the blink speed
+
 ## Simple Individual Patterns
 
 1. **Blink** - blink the first pixel red on and off
@@ -33,3 +37,17 @@
 6. **Buttons Move a Pixel** - move a lit pixel forward and back with two buttons
 7. **Modes** - assign a mode to each pattern, switching automatically on a timer
 8. **Button Modes** - use buttons to change a mode
+
+## Advanced Patterns and Games
+
+Ordered simplest first — each one builds on skills from earlier lessons.
+
+1. **Traffic Light** - a timed state machine using three pixels, no buttons needed
+2. **Binary Counter** - count from 0 to 31 using pixels as binary digits
+3. **Charge-Up Game** - hold a button and release inside a target zone to win
+4. **Tug of War** - a two-player race to pull a marker to your end of the strip
+5. **Reaction Duel** - a two-player reflex game with a random "go" signal
+6. **Fire Simulation** - a realistic flame effect using a heat simulation
+7. **Cellular Automaton** - grow a complex pattern from one simple rule (Rule 30)
+8. **Sorting Visualizer** - watch a bubble sort organize pixel brightness values
+9. **Binary Search Visualizer** - the Pico guesses your number in a handful of tries

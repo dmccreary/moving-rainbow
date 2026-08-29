@@ -52,6 +52,7 @@ nav:
 
   - NeoPixel Lessons:
     - List of Lessons: lessons/index.md
+    - Blink the Onboard LED: lessons/00-blink-onboard-led.md
     - Blink: lessons/01-blink.md
     - Fade In and Out: lessons/02-fade-in-and-out.md
     - Heartbeat: lessons/03-heartbeat.md
@@ -83,6 +84,15 @@ nav:
     - Buttons Move a Pixel: lessons/27-buttons-move-pixel.md
     - Modes: lessons/28-modes.md
     - Button Modes: lessons/29-button-modes.md
+    - Traffic Light: lessons/41-traffic-light.md
+    - Binary Counter: lessons/42-binary-counter.md
+    - Charge-Up Game: lessons/43-charge-up-game.md
+    - Tug of War: lessons/44-tug-of-war.md
+    - Reaction Duel: lessons/45-reaction-duel.md
+    - Fire Simulation: lessons/46-fire-simulation.md
+    - Cellular Automaton: lessons/47-cellular-automaton.md
+    - Sorting Visualizer: lessons/48-sorting-visualizer.md
+    - Binary Search Visualizer: lessons/49-binary-search-visualizer.md
   
   - LED Noodles:
     - Introduction: led-noodles/index.md
