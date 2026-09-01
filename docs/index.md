@@ -7,7 +7,9 @@ twitter:image: /img/cover.png
 hide:
   - toc
 ---
-
+<style>
+.md-content__inner h1 {display: none !important;}
+</style>
 # Welcome to the Moving Rainbow Website!
 
 ![](img/cover.png)
