@@ -11,7 +11,7 @@
   "format": "text/html",
   "language": "en",
   "rights": "CC BY-NC-SA 4.0",
-  "identifier": "state-machine-diagram",
+  "identifier": "https://dmccreary.github.io/moving-rainbow/sims/state-machine-diagram/",
   "library": "Mermaid",
   "bloomLevel": "TBD",
   "bloomVerb": "TBD",

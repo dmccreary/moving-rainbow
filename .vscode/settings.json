@@ -48,6 +48,7 @@
         "Thonny",
         "usbmodem",
         "utime",
+        "VBUS",
         "VREF"
     ]
 }

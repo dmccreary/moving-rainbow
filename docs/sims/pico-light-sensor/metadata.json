@@ -44,10 +44,11 @@
     "map"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of pico light sensor circuit",
-    "Apply pico light sensor circuit to solve problems",
-    "Visualize and interpret pico light sensor circuit relationships",
-    "Experiment with parameters to observe their effects on pico light sensor circuit"
+    "Trace the voltage divider from +5V through the photoresistor to the junction and down through the 47k fixed resistor to ground",
+    "Predict whether the ADC0 (GP26) reading moves toward 0 or 255 as the ambient light slider is moved from dark to very bright",
+    "Explain how the Pico's ADC converts the junction voltage into an 8-bit digital value between 0 and 255",
+    "Determine an ADC threshold (roughly 25-50) that a nightlight program should use to decide the room is dark",
+    "Relate the electron animation speed to the photoresistor's falling resistance under brighter light"
   ],
   "pedagogical": {
     "pattern": "demonstration",

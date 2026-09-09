@@ -38,10 +38,10 @@
     "network"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of photoresistor component visualization",
-    "Apply photoresistor component visualization to solve problems",
-    "Visualize and interpret photoresistor component visualization relationships",
-    "Experiment with parameters to observe their effects on photoresistor component visualization"
+    "Identify the serpentine cadmium sulfide pattern of a photoresistor and explain how it maximizes light-exposed surface area",
+    "Explain why incident photons excite electrons in the semiconductor and lower the component's resistance",
+    "Compare a photoresistor's dark resistance (about 1MΩ) with its bright-light resistance (about 50-100Ω)",
+    "Describe how pairing a photoresistor with a fixed resistor in a voltage divider converts light level into a readable voltage"
   ],
   "pedagogical": {
     "pattern": "demonstration",

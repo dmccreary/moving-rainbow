@@ -33,18 +33,16 @@
     "map"
   ],
   "learningObjectives": [
-    "Understand the key concepts of claude code hooks workflow",
-    "Explore claude code hooks workflow through interactive visualization",
-    "Apply knowledge of claude code hooks workflow to solve problems",
-    "Test understanding of claude code hooks workflow through interactive exercises"
+    "Distinguish the PreToolUse hook, which fires before a tool executes, from the Stop hook, which fires when Claude finishes responding",
+    "Trace a prompt through the flowchart's decision point to either the blue tool-use path or the green direct-response path",
+    "Explain how a hook script writes a color-coded JSON status file that BetterTouchTool polls each second to update the Touch Bar",
+    "Identify the matcher and command keys that register a hook in ~/.claude/settings.json",
+    "Design an event-driven status indicator by mapping additional hook events to distinct visual states"
   ],
   "bloomsTaxonomy": [
-    "Remember",
     "Understand",
     "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
+    "Analyze"
   ],
   "pedagogical": {
     "pattern": "demonstration",

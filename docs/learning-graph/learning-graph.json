@@ -100,2440 +100,2925 @@
       "id": 1,
       "label": "Python Programming Language",
       "group": "PYTH",
-      "shape": "box"
+      "shape": "box",
+      "cis": 7768
     },
     {
       "id": 2,
       "label": "Variable",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 3791
     },
     {
       "id": 3,
       "label": "Variable Assignment",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1861
     },
     {
       "id": 4,
       "label": "Integer Data Type",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1459
     },
     {
       "id": 5,
       "label": "Float Data Type",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 508
     },
     {
       "id": 6,
       "label": "String Data Type",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 238
     },
     {
       "id": 7,
       "label": "Boolean Data Type",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 205
     },
     {
       "id": 8,
       "label": "List Data Type",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 228
     },
     {
       "id": 9,
       "label": "Tuple Data Type",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 161
     },
     {
       "id": 10,
       "label": "None Value",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 11,
       "label": "Type Conversion",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 4
     },
     {
       "id": 12,
       "label": "Mathematical Operators",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 214
     },
     {
       "id": 13,
       "label": "Comparison Operators",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 101
     },
     {
       "id": 14,
       "label": "Logical Operators",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 49
     },
     {
       "id": 15,
       "label": "Boolean Expressions",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 48
     },
     {
       "id": 16,
       "label": "if Statement",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 22
     },
     {
       "id": 17,
       "label": "elif Clause",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 2
     },
     {
       "id": 18,
       "label": "else Clause",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 2
     },
     {
       "id": 19,
       "label": "Nested Conditionals",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 20,
       "label": "for Loop",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 49
     },
     {
       "id": 21,
       "label": "while Loop",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 25
     },
     {
       "id": 22,
       "label": "Infinite Loop",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 22
     },
     {
       "id": 23,
       "label": "break Statement",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 24,
       "label": "continue Statement",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 25,
       "label": "Loop Counter Variable",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 26,
       "label": "range() Function",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 3
     },
     {
       "id": 27,
       "label": "len() Function",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 28,
       "label": "int() Function",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 29,
       "label": "float() Function",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 30,
       "label": "print() Function",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 4
     },
     {
       "id": 31,
       "label": "Function Definition",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 64
     },
     {
       "id": 32,
       "label": "Function Parameters",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 12
     },
     {
       "id": 33,
       "label": "Function Return Value",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 34,
       "label": "Function Call",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 4
     },
     {
       "id": 35,
       "label": "Variable Scope",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 3
     },
     {
       "id": 36,
       "label": "Local Variable",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 37,
       "label": "Global Variable",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 38,
       "label": "Import Statement",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1267
     },
     {
       "id": 39,
       "label": "Module System",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 7
     },
     {
       "id": 40,
       "label": "Code Indentation Rules",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 10
     },
     {
       "id": 41,
       "label": "Python Comments",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 52
     },
     {
       "id": 42,
       "label": "String Concatenation",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 43,
       "label": "List Indexing",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 5
     },
     {
       "id": 44,
       "label": "List Iteration",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 45,
       "label": "Tuple Immutability",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 46,
       "label": "Modulo Operator",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 22
     },
     {
       "id": 47,
       "label": "Integer Division",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 48,
       "label": "SyntaxError",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 49,
       "label": "NameError",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 50,
       "label": "IndentationError",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 51,
       "label": "TypeError",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 52,
       "label": "IndexError",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 53,
       "label": "Off-by-One Error",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 1
     },
     {
       "id": 54,
       "label": "Code Readability",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 7
     },
     {
       "id": 55,
       "label": "DRY Principle",
-      "group": "PYTH"
+      "group": "PYTH",
+      "cis": 3
     },
     {
       "id": 56,
       "label": "MicroPython",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 711
     },
     {
       "id": 57,
       "label": "Raspberry Pi Pico",
       "group": "UPICO",
-      "shape": "box"
+      "shape": "box",
+      "cis": 386
     },
     {
       "id": 58,
       "label": "Raspberry Pi Pico W",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 1
     },
     {
       "id": 59,
       "label": "RP2040 Microcontroller",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 11
     },
     {
       "id": 60,
       "label": "ARM Cortex M0+ Processor",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 2
     },
     {
       "id": 61,
       "label": "Dual-Core Processing",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 1
     },
     {
       "id": 62,
       "label": "264 KB SRAM",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 1
     },
     {
       "id": 63,
       "label": "2 MB Flash Storage",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 5
     },
     {
       "id": 64,
       "label": "GPIO Pins",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 326
     },
     {
       "id": 65,
       "label": "Pin Numbering System",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 89
     },
     {
       "id": 66,
       "label": "machine.Pin Class",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 87
     },
     {
       "id": 67,
       "label": "Digital Output Mode",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 3
     },
     {
       "id": 68,
       "label": "Digital Input Mode",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 41
     },
     {
       "id": 69,
       "label": "Pin.high() Method",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 1
     },
     {
       "id": 70,
       "label": "Pin.low() Method",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 1
     },
     {
       "id": 71,
       "label": "Pin.value() Method",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 19
     },
     {
       "id": 72,
       "label": "Pulse Width Modulation",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 3
     },
     {
       "id": 73,
       "label": "PWM Frequency Setting",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 1
     },
     {
       "id": 74,
       "label": "PWM Duty Cycle",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 1
     },
     {
       "id": 75,
       "label": "Analog to Digital Converter",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 26
     },
     {
       "id": 76,
       "label": "16-Bit ADC Resolution",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 13
     },
     {
       "id": 77,
       "label": "ADC.read_u16() Method",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 12
     },
     {
       "id": 78,
       "label": "utime Module",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 86
     },
     {
       "id": 79,
       "label": "sleep() Function",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 68
     },
     {
       "id": 80,
       "label": "ticks_ms() Function",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 4
     },
     {
       "id": 81,
       "label": "ticks_us() Function",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 1
     },
     {
       "id": 82,
       "label": "localtime() Function",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 11
     },
     {
       "id": 83,
       "label": "urandom Module",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 12
     },
     {
       "id": 84,
       "label": "randint() Function",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 11
     },
     {
       "id": 85,
       "label": "neopixel Module",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 443
     },
     {
       "id": 86,
       "label": "NeoPixel Class",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 332
     },
     {
       "id": 87,
       "label": "Firmware",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 27
     },
     {
       "id": 88,
       "label": "UF2 File Format",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 7
     },
     {
       "id": 89,
       "label": "BOOTSEL Button",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 6
     },
     {
       "id": 90,
       "label": "Drag-and-Drop Flashing",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 3
     },
     {
       "id": 91,
       "label": "REPL",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 8
     },
     {
       "id": 92,
       "label": "main.py Auto-Run",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 1
     },
     {
       "id": 93,
       "label": "Pico File System",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 12
     },
     {
       "id": 94,
       "label": "Serial Console",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 5
     },
     {
       "id": 95,
       "label": "USB Connectivity",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 12
     },
     {
       "id": 96,
       "label": "Thonny IDE",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 25
     },
     {
       "id": 97,
       "label": "Thonny File Manager",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 11
     },
     {
       "id": 98,
       "label": "Uploading Files to Pico",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 9
     },
     {
       "id": 99,
       "label": "Running Scripts on Pico",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 6
     },
     {
       "id": 100,
       "label": "Serial Console Debugging",
-      "group": "UPICO"
+      "group": "UPICO",
+      "cis": 3
     },
     {
       "id": 101,
       "label": "NeoPixel LED",
       "group": "NEO",
-      "shape": "box"
+      "shape": "box",
+      "cis": 115
     },
     {
       "id": 102,
       "label": "WS2812B Integrated Circuit",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 13
     },
     {
       "id": 103,
       "label": "Addressable LED",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 80
     },
     {
       "id": 104,
       "label": "Single-Wire Serial Protocol",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 10
     },
     {
       "id": 105,
       "label": "24-Bit Color Data Format",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 106,
       "label": "LED Data Chaining",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 2
     },
     {
       "id": 107,
       "label": "Data Stripping",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 108,
       "label": "Three-Wire LED Connection",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 2
     },
     {
       "id": 109,
       "label": "5V Power Requirement",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 110,
       "label": "20 mA Per Pixel",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 7
     },
     {
       "id": 111,
       "label": "LED Strip Form Factor",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 2
     },
     {
       "id": 112,
       "label": "LED Ring Form Factor",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 113,
       "label": "LED Matrix Form Factor",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 3
     },
     {
       "id": 114,
       "label": "NeoPixel Fairy Lights",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 115,
       "label": "IP20 Weather Rating",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 116,
       "label": "IP65 Weather Rating",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 117,
       "label": "IP67 Weather Rating",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 118,
       "label": "Pixel Indexing",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 67
     },
     {
       "id": 119,
       "label": "strip.write() Method",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 120,
       "label": "RGB Tuple Format",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 159
     },
     {
       "id": 121,
       "label": "Color Value Range",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 91
     },
     {
       "id": 122,
       "label": "8-Bit Color Depth",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 123,
       "label": "Number of Pixels Parameter",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 110
     },
     {
       "id": 124,
       "label": "Data Pin Parameter",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 110
     },
     {
       "id": 125,
       "label": "NeoPixel Class Instantiation",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 109
     },
     {
       "id": 126,
       "label": "LED Strip Polarity",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 127,
       "label": "Setting Individual Pixels",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 64
     },
     {
       "id": 128,
       "label": "Clearing All Pixels",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 129,
       "label": "WS2811 vs WS2812B",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 130,
       "label": "SK6812 RGBW Variant",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 131,
       "label": "LED Refresh Rate",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 2
     },
     {
       "id": 132,
       "label": "Maximum Strip Brightness",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 133,
       "label": "LED Power Scaling",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 134,
       "label": "LED Strip Density",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 135,
       "label": "LED Chain Data Timing",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 136,
       "label": "Data Signal Voltage Level",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 2
     },
     {
       "id": 137,
       "label": "Level Shifter for 5V Data",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 138,
       "label": "LED Strip Segmentation",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 2
     },
     {
       "id": 139,
       "label": "Pixel Group Operations",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 140,
       "label": "NeoPixel Library Overview",
-      "group": "NEO"
+      "group": "NEO",
+      "cis": 1
     },
     {
       "id": 141,
       "label": "RGB Color Model",
       "group": "COLOR",
-      "shape": "box"
+      "shape": "box",
+      "cis": 672
     },
     {
       "id": 142,
       "label": "Additive Color Mixing",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 151
     },
     {
       "id": 143,
       "label": "Subtractive Color Mixing",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 144,
       "label": "Red as Primary Light Color",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 50
     },
     {
       "id": 145,
       "label": "Green as Primary Light Color",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 50
     },
     {
       "id": 146,
       "label": "Blue as Primary Light Color",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 50
     },
     {
       "id": 147,
       "label": "Black Color",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 148,
       "label": "White Color",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 149,
       "label": "Color Wheel",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 32
     },
     {
       "id": 150,
       "label": "Spectral Color Sequence",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 4
     },
     {
       "id": 151,
       "label": "Named Color Constants",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 3
     },
     {
       "id": 152,
       "label": "Color Mixing by Channel",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 49
     },
     {
       "id": 153,
       "label": "Color Interpolation",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 17
     },
     {
       "id": 154,
       "label": "Smooth Color Transition",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 15
     },
     {
       "id": 155,
       "label": "Hue",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 16
     },
     {
       "id": 156,
       "label": "Saturation",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 8
     },
     {
       "id": 157,
       "label": "Value (Brightness Level)",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 22
     },
     {
       "id": 158,
       "label": "HSV Color Model",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 7
     },
     {
       "id": 159,
       "label": "RGB to HSV Conversion",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 160,
       "label": "HSV to RGB Conversion",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 5
     },
     {
       "id": 161,
       "label": "Complementary Colors",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 4
     },
     {
       "id": 162,
       "label": "Analogous Colors",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 4
     },
     {
       "id": 163,
       "label": "Color Temperature",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 164,
       "label": "Warm Colors",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 165,
       "label": "Cool Colors",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 166,
       "label": "Color Contrast",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 167,
       "label": "Color Harmony",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 3
     },
     {
       "id": 168,
       "label": "Gamma Correction",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 5
     },
     {
       "id": 169,
       "label": "Gamma Value",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 2
     },
     {
       "id": 170,
       "label": "Perceived Brightness",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 7
     },
     {
       "id": 171,
       "label": "Linear Brightness",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 172,
       "label": "Gamma Lookup Table",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 173,
       "label": "Normalized Color Values",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 29
     },
     {
       "id": 174,
       "label": "Color Psychology",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 2
     },
     {
       "id": 175,
       "label": "Color Perception",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 176,
       "label": "Triadic Color Scheme",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 177,
       "label": "Color Palette Design",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 2
     },
     {
       "id": 178,
       "label": "Color Fade Effect",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 13
     },
     {
       "id": 179,
       "label": "Color Gradient",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 1
     },
     {
       "id": 180,
       "label": "Color Sequence Array",
-      "group": "COLOR"
+      "group": "COLOR",
+      "cis": 2
     },
     {
       "id": 181,
       "label": "Blink Pattern",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 21
     },
     {
       "id": 182,
       "label": "Fade In and Out",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 12
     },
     {
       "id": 183,
       "label": "Heartbeat Pattern",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 184,
       "label": "Color Wipe Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 185,
       "label": "Moving Pixel Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 13
     },
     {
       "id": 186,
       "label": "Bounce Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 2
     },
     {
       "id": 187,
       "label": "Moving Bands Pattern",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 188,
       "label": "Rainbow Static Pattern",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 3
     },
     {
       "id": 189,
       "label": "Moving Rainbow Pattern",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 190,
       "label": "Rainbow Cycle",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 191,
       "label": "Comet Tail Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 2
     },
     {
       "id": 192,
       "label": "Larson Scanner Pattern",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 2
     },
     {
       "id": 193,
       "label": "Theater Chase Pattern",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 3
     },
     {
       "id": 194,
       "label": "Ripple Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 3
     },
     {
       "id": 195,
       "label": "Twinkle Effect",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 196,
       "label": "Candle Flicker Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 197,
       "label": "Random Colors Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 198,
       "label": "Random Walk Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 199,
       "label": "Clock Display Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 6
     },
     {
       "id": 200,
       "label": "Frame-Based Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 10
     },
     {
       "id": 201,
       "label": "Animation Delay",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 8
     },
     {
       "id": 202,
       "label": "Animation Speed Control",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 203,
       "label": "Position Tracking Variable",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 27
     },
     {
       "id": 204,
       "label": "Direction Variable",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 5
     },
     {
       "id": 205,
       "label": "Bounce Logic",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 3
     },
     {
       "id": 206,
       "label": "Modulo Wrapping",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 207,
       "label": "Brightness Scaling Factor",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 28
     },
     {
       "id": 208,
       "label": "Color Trail with Fading",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 3
     },
     {
       "id": 209,
       "label": "Pixel Offset Calculation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 4
     },
     {
       "id": 210,
       "label": "Sequential Pixel Lighting",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 4
     },
     {
       "id": 211,
       "label": "Parallel Pixel Update",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 212,
       "label": "Animation Loop Structure",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 2
     },
     {
       "id": 213,
       "label": "Frame Rate Concept",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 214,
       "label": "Timing with utime Module",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 215,
       "label": "Comet Trail Length",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 216,
       "label": "Scanner Width Parameter",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 217,
       "label": "Chase Group Size",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 218,
       "label": "Ripple Decay Rate",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 219,
       "label": "Flicker Randomness",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 2
     },
     {
       "id": 220,
       "label": "Pattern Composition",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 7
     },
     {
       "id": 221,
       "label": "Multi-Pattern Program",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 6
     },
     {
       "id": 222,
       "label": "Pattern Switching Logic",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 5
     },
     {
       "id": 223,
       "label": "Animation State Variable",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 224,
       "label": "Brightness Array",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 4
     },
     {
       "id": 225,
       "label": "Animation Parameterization",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 4
     },
     {
       "id": 226,
       "label": "Color Palette Selection",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 227,
       "label": "Speed Parameter",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 2
     },
     {
       "id": 228,
       "label": "Delay Function Selection",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 229,
       "label": "Brightness Envelope",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 230,
       "label": "Step Size in Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 231,
       "label": "Offset and Phase",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 232,
       "label": "Time-Based Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 233,
       "label": "Clock with localtime()",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 4
     },
     {
       "id": 234,
       "label": "Seconds and Minutes Display",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 2
     },
     {
       "id": 235,
       "label": "Color Mapping to Time",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 236,
       "label": "LED as Clock Hands",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 237,
       "label": "Photo-Reactive Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 238,
       "label": "Button-Triggered Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 239,
       "label": "Sensor-Driven Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 240,
       "label": "Mode-Based Animation",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 4
     },
     {
       "id": 241,
       "label": "Animation Restart Logic",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 242,
       "label": "Single-Color Scan",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 2
     },
     {
       "id": 243,
       "label": "Dual-Direction Scan",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 244,
       "label": "Alternating Pixel Groups",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 245,
       "label": "Expanding Ripple Rings",
-      "group": "ANIM"
+      "group": "ANIM",
+      "cis": 1
     },
     {
       "id": 246,
       "label": "Voltage",
       "group": "ELEC",
-      "shape": "box"
+      "shape": "box",
+      "cis": 150
     },
     {
       "id": 247,
       "label": "Electrical Current",
       "group": "ELEC",
-      "shape": "box"
+      "shape": "box",
+      "cis": 171
     },
     {
       "id": 248,
       "label": "Resistance",
       "group": "ELEC",
-      "shape": "box"
+      "shape": "box",
+      "cis": 120
     },
     {
       "id": 249,
       "label": "Ohm's Law",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 9
     },
     {
       "id": 250,
       "label": "Power Formula",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 5
     },
     {
       "id": 251,
       "label": "Electrical Polarity",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 3
     },
     {
       "id": 252,
       "label": "Ground (GND)",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 30
     },
     {
       "id": 253,
       "label": "Complete Circuit Path",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 24
     },
     {
       "id": 254,
       "label": "Short Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 255,
       "label": "Open Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 256,
       "label": "Breadboard",
       "group": "ELEC",
-      "shape": "box"
+      "shape": "box",
+      "cis": 27
     },
     {
       "id": 257,
       "label": "Jumper Wires",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 5
     },
     {
       "id": 258,
       "label": "Current-Limiting Resistor",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 10
     },
     {
       "id": 259,
       "label": "Pull-Up Resistor",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 260,
       "label": "Pull-Down Resistor",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 261,
       "label": "Potentiometer",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 262,
       "label": "Potentiometer Wiper",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 263,
       "label": "Light-Dependent Resistor",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 20
     },
     {
       "id": 264,
       "label": "Photoresistor Curve",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 265,
       "label": "NPN Transistor",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 62
     },
     {
       "id": 266,
       "label": "2N2222 Transistor",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 267,
       "label": "Transistor Base Terminal",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 15
     },
     {
       "id": 268,
       "label": "Transistor Collector Terminal",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 15
     },
     {
       "id": 269,
       "label": "Transistor Emitter Terminal",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 15
     },
     {
       "id": 270,
       "label": "Transistor Current Gain",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 14
     },
     {
       "id": 271,
       "label": "Transistor as Switch",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 13
     },
     {
       "id": 272,
       "label": "Voltage Divider Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 4
     },
     {
       "id": 273,
       "label": "Voltage Divider Formula",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 274,
       "label": "Static LED Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 8
     },
     {
       "id": 275,
       "label": "Dynamic LED Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 5
     },
     {
       "id": 276,
       "label": "LED Dimmer Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 4
     },
     {
       "id": 277,
       "label": "Transistor Driver Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 3
     },
     {
       "id": 278,
       "label": "Analog Nightlight Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 279,
       "label": "Multimeter Overview",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 4
     },
     {
       "id": 280,
       "label": "Resistance Measurement",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 281,
       "label": "Voltage Measurement",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 282,
       "label": "Series Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 283,
       "label": "Parallel Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 284,
       "label": "Milliamps (mA)",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 44
     },
     {
       "id": 285,
       "label": "Milliamp-Hours (mAh)",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 30
     },
     {
       "id": 286,
       "label": "Battery Capacity",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 26
     },
     {
       "id": 287,
       "label": "Battery Life Formula",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 3
     },
     {
       "id": 288,
       "label": "Coin Cell Battery",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 289,
       "label": "AA Alkaline Battery",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 290,
       "label": "AAA Alkaline Battery",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 291,
       "label": "9-Volt Battery",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 292,
       "label": "USB Power Bank",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 293,
       "label": "LiPo Battery",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 10
     },
     {
       "id": 294,
       "label": "18650 Lithium Cell",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 7
     },
     {
       "id": 295,
       "label": "Series Battery Configuration",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 296,
       "label": "Parallel Battery Configuration",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 297,
       "label": "Battery Charging Circuit",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 6
     },
     {
       "id": 298,
       "label": "TC4056 Charger IC",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 3
     },
     {
       "id": 299,
       "label": "Overcharge Protection",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 300,
       "label": "Over-Discharge Protection",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 301,
       "label": "Charging Current Setting",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 302,
       "label": "LED Current Draw",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 3
     },
     {
       "id": 303,
       "label": "Total System Current Draw",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 304,
       "label": "Power Consumption Calculation",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 305,
       "label": "Heat Dissipation",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 306,
       "label": "Component Power Rating",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 307,
       "label": "Voltage Regulator",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 308,
       "label": "Buck Converter",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 309,
       "label": "Capacitor for Power Smoothing",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 310,
       "label": "Diode for Polarity Protection",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 311,
       "label": "Solderless Circuit Assembly",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 312,
       "label": "Circuit Diagram Reading",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 3
     },
     {
       "id": 313,
       "label": "Wire Color Conventions",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 314,
       "label": "LED Forward Voltage",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 2
     },
     {
       "id": 315,
       "label": "LED Series Resistor Calculation",
-      "group": "ELEC"
+      "group": "ELEC",
+      "cis": 1
     },
     {
       "id": 316,
       "label": "Decomposition",
       "group": "CT",
-      "shape": "box"
+      "shape": "box",
+      "cis": 54
     },
     {
       "id": 317,
       "label": "Pattern Recognition",
       "group": "CT",
-      "shape": "box"
+      "shape": "box",
+      "cis": 2
     },
     {
       "id": 318,
       "label": "Abstraction",
       "group": "CT",
-      "shape": "box"
+      "shape": "box",
+      "cis": 10
     },
     {
       "id": 319,
       "label": "Algorithm Design",
       "group": "CT",
-      "shape": "box"
+      "shape": "box",
+      "cis": 62
     },
     {
       "id": 320,
       "label": "Pseudocode Writing",
-      "group": "CT"
+      "group": "CT",
+      "cis": 4
     },
     {
       "id": 321,
       "label": "Flowchart Creation",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 322,
       "label": "Problem-Solving Steps",
-      "group": "CT"
+      "group": "CT",
+      "cis": 49
     },
     {
       "id": 323,
       "label": "Breaking Down Problems",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 324,
       "label": "Identifying Repeated Code",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 325,
       "label": "Hiding Implementation Details",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 326,
       "label": "Generalizing a Solution",
-      "group": "CT"
+      "group": "CT",
+      "cis": 3
     },
     {
       "id": 327,
       "label": "Template-Based Solving",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 328,
       "label": "Code Reuse via Functions",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 329,
       "label": "Event-Based Thinking",
-      "group": "CT"
+      "group": "CT",
+      "cis": 7
     },
     {
       "id": 330,
       "label": "State-Based Thinking",
-      "group": "CT"
+      "group": "CT",
+      "cis": 4
     },
     {
       "id": 331,
       "label": "Iterative Development",
-      "group": "CT"
+      "group": "CT",
+      "cis": 31
     },
     {
       "id": 332,
       "label": "Test Cases",
-      "group": "CT"
+      "group": "CT",
+      "cis": 15
     },
     {
       "id": 333,
       "label": "Edge Case Identification",
-      "group": "CT"
+      "group": "CT",
+      "cis": 7
     },
     {
       "id": 334,
       "label": "Boundary Conditions",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 335,
       "label": "Debugging Methodology",
-      "group": "CT"
+      "group": "CT",
+      "cis": 2
     },
     {
       "id": 336,
       "label": "Systematic Troubleshooting",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 337,
       "label": "Divide and Conquer",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 338,
       "label": "Bottom-Up Problem Solving",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 339,
       "label": "Top-Down Problem Solving",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 340,
       "label": "Documentation as Communication",
-      "group": "CT"
+      "group": "CT",
+      "cis": 23
     },
     {
       "id": 341,
       "label": "Code Commenting Strategy",
-      "group": "CT"
+      "group": "CT",
+      "cis": 11
     },
     {
       "id": 342,
       "label": "Readable Variable Names",
-      "group": "CT"
+      "group": "CT",
+      "cis": 2
     },
     {
       "id": 343,
       "label": "Meaningful Function Names",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 344,
       "label": "Separation of Concerns",
-      "group": "CT"
+      "group": "CT",
+      "cis": 2
     },
     {
       "id": 345,
       "label": "Modular Program Design",
-      "group": "CT"
+      "group": "CT",
+      "cis": 1
     },
     {
       "id": 346,
       "label": "Momentary Push Button",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 2
     },
     {
       "id": 347,
       "label": "Button Wiring to GPIO",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 348,
       "label": "GPIO Input Mode Setup",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 21
     },
     {
       "id": 349,
       "label": "Pin.PULL_UP Configuration",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 350,
       "label": "Pin.PULL_DOWN Configuration",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 351,
       "label": "Polling a Button State",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 18
     },
     {
       "id": 352,
       "label": "Button Debouncing",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 12
     },
     {
       "id": 353,
       "label": "Debounce Delay Value",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 354,
       "label": "Software Debounce Pattern",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 10
     },
     {
       "id": 355,
       "label": "Multiple Button Handling",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 2
     },
     {
       "id": 356,
       "label": "Mode Variable",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 30
     },
     {
       "id": 357,
       "label": "Mode Cycling Logic",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 14
     },
     {
       "id": 358,
       "label": "Mode Switching on Button",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 8
     },
     {
       "id": 359,
       "label": "State Machine Pattern",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 3
     },
     {
       "id": 360,
       "label": "Current Mode Tracking",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 361,
       "label": "State Transition Logic",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 362,
       "label": "Event-Driven Programming",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 2
     },
     {
       "id": 363,
       "label": "Photoresistor Sensor",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 16
     },
     {
       "id": 364,
       "label": "ADC Voltage Reading",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 11
     },
     {
       "id": 365,
       "label": "Sensor Value Mapping",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 7
     },
     {
       "id": 366,
       "label": "Light Threshold Setting",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 4
     },
     {
       "id": 367,
       "label": "Automatic Nightlight Trigger",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 2
     },
     {
       "id": 368,
       "label": "Analog Value Smoothing",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 2
     },
     {
       "id": 369,
       "label": "Sensor Calibration Steps",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 370,
       "label": "Interrupt vs Polling",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 371,
       "label": "Button Long-Press Logic",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 372,
       "label": "Two-Button Combination",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 373,
       "label": "Button LED Test Pattern",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 374,
       "label": "Interactive Mode Controller",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 3
     },
     {
       "id": 375,
       "label": "Real-Time Input Response",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 376,
       "label": "Input Validation",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 377,
       "label": "Sensor Data Range Mapping",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 378,
       "label": "Hysteresis in Sensor Reading",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 379,
       "label": "Capacitive Touch Concept",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 380,
       "label": "Input Abstraction Layer",
-      "group": "INPUT"
+      "group": "INPUT",
+      "cis": 1
     },
     {
       "id": 381,
       "label": "Thonny IDE Overview",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 2
     },
     {
       "id": 382,
       "label": "Thonny REPL Panel",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 383,
       "label": "Thonny Run Controls",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 384,
       "label": "Syntax Highlighting",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 385,
       "label": "Code Autocomplete",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 386,
       "label": "Serial Console in Thonny",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 387,
       "label": "REPL Interactive Testing",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 388,
       "label": "File Upload Workflow",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 389,
       "label": "Running Script on Pico",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 390,
       "label": "Git Version Control",
       "group": "TOOLS",
-      "shape": "box"
+      "shape": "box",
+      "cis": 14
     },
     {
       "id": 391,
       "label": "git clone Command",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 2
     },
     {
       "id": 392,
       "label": "git add Command",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 5
     },
     {
       "id": 393,
       "label": "git commit Command",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 4
     },
     {
       "id": 394,
       "label": "git push Command",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 395,
       "label": "git pull Command",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 396,
       "label": "git status Command",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 397,
       "label": "GitHub Repository",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 5
     },
     {
       "id": 398,
       "label": "Repository Structure",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 2
     },
     {
       "id": 399,
       "label": "README File Creation",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 400,
       "label": "File Organization in Repo",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 401,
       "label": "Firmware Flashing Workflow",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 2
     },
     {
       "id": 402,
       "label": "UF2 Drag-and-Drop Process",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 403,
       "label": "Python Module Paths",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 404,
       "label": "config.py Module Pattern",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 4
     },
     {
       "id": 405,
       "label": "Hardware Abstraction Layer",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 2
     },
     {
       "id": 406,
       "label": "Cross-Kit Compatibility",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 407,
       "label": "Thonny Package Manager",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 408,
       "label": "MicroPython Standard Library",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 409,
       "label": "Code Backup with GitHub",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 410,
       "label": "Commit Message Writing",
-      "group": "TOOLS"
+      "group": "TOOLS",
+      "cis": 1
     },
     {
       "id": 411,
       "label": "Project Ideation",
       "group": "PROJ",
-      "shape": "box"
+      "shape": "box",
+      "cis": 55
     },
     {
       "id": 412,
       "label": "Requirements Specification",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 36
     },
     {
       "id": 413,
       "label": "Circuit Connection Diagram",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 2
     },
     {
       "id": 414,
       "label": "Algorithm Pseudocode Plan",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 3
     },
     {
       "id": 415,
       "label": "Milestone Planning",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 5
     },
     {
       "id": 416,
       "label": "Timeline Creation",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 417,
       "label": "Iterative Development Cycle",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 15
     },
     {
       "id": 418,
       "label": "Build-Test-Revise Cycle",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 13
     },
     {
       "id": 419,
       "label": "Peer Code Review",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 3
     },
     {
       "id": 420,
       "label": "Code Review Criteria",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 421,
       "label": "Inline Code Comments",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 9
     },
     {
       "id": 422,
       "label": "Project Documentation",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 8
     },
     {
       "id": 423,
       "label": "Technical Presentation Skills",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 7
     },
     {
       "id": 424,
       "label": "Project Reflection",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 425,
       "label": "Wearable Electronics Design",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 4
     },
     {
       "id": 426,
       "label": "LED Costume Project",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 427,
       "label": "Room Decoration Project",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 428,
       "label": "Interactive Art Installation",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 429,
       "label": "Practical Device Project",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 5
     },
     {
       "id": 430,
       "label": "Solar-Powered LED System",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 431,
       "label": "LED Clock Project",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 432,
       "label": "LED Nightlight Project",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 433,
       "label": "Bike Safety Light Project",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 434,
       "label": "Project Proposal Document",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 2
     },
     {
       "id": 435,
       "label": "Component Parts List",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 436,
       "label": "Project Testing Protocol",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 5
     },
     {
       "id": 437,
       "label": "User Experience Design",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 438,
       "label": "Project Iteration",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 4
     },
     {
       "id": 439,
       "label": "Final Project Demo",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 3
     },
     {
       "id": 440,
       "label": "Capstone Presentation",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 2
     },
     {
       "id": 441,
       "label": "Project Peer Feedback",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 442,
       "label": "Design Constraint Analysis",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 4
     },
     {
       "id": 443,
       "label": "Project Complexity Estimate",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 3
     },
     {
       "id": 444,
       "label": "Feature Prioritization",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 2
     },
     {
       "id": 445,
       "label": "Minimum Viable Project",
-      "group": "PROJ"
+      "group": "PROJ",
+      "cis": 1
     },
     {
       "id": 446,
       "label": "Modulo Arithmetic",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 2
     },
     {
       "id": 447,
       "label": "Integer Arithmetic",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 24
     },
     {
       "id": 448,
       "label": "Floating-Point Arithmetic",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 33
     },
     {
       "id": 449,
       "label": "Linear Interpolation",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 2
     },
     {
       "id": 450,
       "label": "Sine Wave Function",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 2
     },
     {
       "id": 451,
       "label": "math.pow() Function",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 5
     },
     {
       "id": 452,
       "label": "Normalization (0.0 to 1.0)",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 43
     },
     {
       "id": 453,
       "label": "Mapping Value Ranges",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 11
     },
     {
       "id": 454,
       "label": "Random Number Generation",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 4
     },
     {
       "id": 455,
       "label": "Pseudorandom Numbers",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 3
     },
     {
       "id": 456,
       "label": "Uniform Distribution",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 2
     },
     {
       "id": 457,
       "label": "Weighted Random Selection",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 458,
       "label": "Array Index Calculation",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 459,
       "label": "Brightness Formula",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 460,
       "label": "Ohm's Law Arithmetic",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 461,
       "label": "Battery Life Calculation",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 462,
       "label": "Time Delay Calculation",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 463,
       "label": "Percentage Calculations",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 2
     },
     {
       "id": 464,
       "label": "Ratio and Proportion",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 465,
       "label": "Sequence Generation",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 466,
       "label": "Step Size Calculation",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 4
     },
     {
       "id": 467,
       "label": "Phase Offset Calculation",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 2
     },
     {
       "id": 468,
       "label": "Exponential Decay",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 469,
       "label": "Brightness Gamma Function",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 470,
       "label": "Sine-Based Breathing Effect",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 471,
       "label": "Coordinate Mapping",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 472,
       "label": "Wrap-Around Arithmetic",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 473,
       "label": "Scaling Between Ranges",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 474,
       "label": "Floor and Ceiling Functions",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 475,
       "label": "Absolute Value Function",
-      "group": "MATH"
+      "group": "MATH",
+      "cis": 1
     },
     {
       "id": 476,
       "label": "RP2040-Zero Form Factor",
-      "group": "HW"
+      "group": "HW",
+      "cis": 1
     },
     {
       "id": 477,
       "label": "8x8 NeoPixel Matrix",
-      "group": "HW"
+      "group": "HW",
+      "cis": 1
     },
     {
       "id": 478,
       "label": "16x16 LED Matrix",
-      "group": "HW"
+      "group": "HW",
+      "cis": 1
     },
     {
       "id": 479,
       "label": "Raspberry Pi 500 Keyboard",
-      "group": "HW"
+      "group": "HW",
+      "cis": 2
     },
     {
       "id": 480,
       "label": "Pi Keyboard RGB Effects",
-      "group": "HW"
+      "group": "HW",
+      "cis": 1
     },
     {
       "id": 481,
       "label": "Electrical Safety Rules",
-      "group": "HW"
+      "group": "HW",
+      "cis": 5
     },
     {
       "id": 482,
       "label": "Short Circuit Prevention",
-      "group": "HW"
+      "group": "HW",
+      "cis": 1
     },
     {
       "id": 483,
       "label": "LiPo Battery Safe Handling",
-      "group": "HW"
+      "group": "HW",
+      "cis": 2
     },
     {
       "id": 484,
       "label": "Wearable Safety Standards",
-      "group": "HW"
+      "group": "HW",
+      "cis": 1
     },
     {
       "id": 485,
       "label": "USB Power Safety Limits",
-      "group": "HW"
+      "group": "HW",
+      "cis": 1
     }
   ],
   "edges": [

@@ -41,10 +41,11 @@
     "map"
   ],
   "learningObjectives": [
-    "Understand the mathematical concept of template",
-    "Apply template to solve problems",
-    "Visualize and interpret template relationships",
-    "Experiment with parameters to observe their effects on template"
+    "Explain how the animated circles moving around the square wire loop represent electron flow as electric current",
+    "Predict how raising the speed slider from 0.02 to 0.5 changes the rate at which electrons traverse the circuit",
+    "Distinguish the effect of the spacing slider, which sets electron density along the wire, from the speed slider, which sets drift rate",
+    "Relate electron drift speed and spacing to the amount of current carried by a conductor",
+    "Trace how animationTime advances only while the simulation is running, so that Start and Pause leave the electrons visible in place"
   ],
   "pedagogical": {
     "pattern": "guided-discovery",
