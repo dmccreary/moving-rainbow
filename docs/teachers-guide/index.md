@@ -29,6 +29,11 @@ Essential advice for volunteers mentoring kids in coding. Topics include underst
 ### [Code of Conduct](./code-of-conduct.md)
 Our community's Contributor Covenant Code of Conduct outlining standards for behavior, enforcement responsibilities, and guidelines for maintaining an open, welcoming, diverse, inclusive, and healthy learning community. Adapted from the Contributor Covenant version 2.0.
 
+## Kit Logistics
+
+### [Parts Ordering](./parts-ordering.md)
+A log of parts that instructors have actually ordered for Moving Rainbow kits, with quantities, prices paid, and notes on hidden charges and compatibility. Use it to budget a classroom order from real totals rather than listed prices.
+
 ## Content Development
 
 ### [Content Authoring Guide](./content-authoring-guide.md)
