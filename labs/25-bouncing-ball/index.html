@@ -1,0 +1,3297 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/labs/25-bouncing-ball/">
+      
+      
+        <link rel="prev" href="../24-fading-stars/">
+      
+      
+        <link rel="next" href="../26-breathing-wave/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Lab 25: Bouncing Ball - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Lab 25: Bouncing Ball - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/labs/25-bouncing-ball.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/labs/25-bouncing-ball/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Lab 25: Bouncing Ball - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/labs/25-bouncing-ball.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-25-bouncing-ball" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 25: Bouncing Ball
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About this Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Hands on Labs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hands on Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 01: Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-blink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 02: Blink
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-red-green-blue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 03: Red, Green and Blue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-dimmer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 04: Dimmer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-move/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 05: Move a Pixel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-up-and-down/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 06: Up and Down
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-color-wipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 07: Color Wipe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-random/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 08: Random
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-color-wheel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 09: Color Wheel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-random-colors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 10: Random Colors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-rainbow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 11: Rainbow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-rainbow-cycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 12: Rainbow Cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-moving-rainbow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 13: Moving Rainbow with the Color Wheel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-band/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 14: Band
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-moving-band/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 15: Moving Band
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-comet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 16: Comet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-moving-rainbow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 17: Moving Rainbow with a Color List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-candle-flicker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 18: Candle Flicker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-theater-chase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 19: Theater Chase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-ripple/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 20: Ripple
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-twinkle-colors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 21: Twinkle Colors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-random-walk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 22: Random Walk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 23: Heartbeat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-fading-stars/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 24: Fading Stars
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab 25: Bouncing Ball
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab 25: Bouncing Ball
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      The program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-settings-at-the-top" class="md-nav__link">
+    <span class="md-ellipsis">
+      The settings at the top
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-and-velocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Position and velocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gravity-changes-the-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gravity changes the speed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-bounce" class="md-nav__link">
+    <span class="md-ellipsis">
+      The bounce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-the-ball-on-the-strip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keep the ball on the strip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-one-pixel-each-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draw one pixel each frame
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-loops-one-drop-then-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two loops: one drop, then again
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-real-bounce" class="md-nav__link">
+    <span class="md-ellipsis">
+      A real bounce
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try it yourself
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Try it yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-1-change-the-planet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenge 1: Change the planet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-2-change-the-bounce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenge 2: Change the bounce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-pick-a-new-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenge 3: Pick a new color
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonus-for-big-thinkers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bonus: for big thinkers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check your understanding
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-breathing-wave/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 26: Breathing Wave
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-sunrise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 27: Sunrise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-clock/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 28: Binary Clock
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-larson-scanner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 29: Larson Scanner
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-random-bounce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 30: Random Bounce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-modes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 31: Button Modes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-button-test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 32: Button Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-button-led-test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 33: Button and Built-in LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-two-button-print/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 34: Two Buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35-button-change-color/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 35: Button Change Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36-button-change-speed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 36: Button Change Speed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../37-modes-auto-cycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 37: Modes Auto Cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38-traffic-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 38: Traffic Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39-binary-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 39: Binary Counter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-charge-up-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 40: Charge-Up Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-tug-of-war/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 41: Tug of War
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-reaction-duel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 42: Reaction Duel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-fire-simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 43: Fire Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../44-cellular-automaton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 44: Cellular Automaton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45-sorting-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 45: Sorting Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../46-binary-search-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 46: Binary Search Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../47-buttons-move-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 47: Buttons Move a Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../48-pixel-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 48: Pixel Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../additional-labs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Additional Labs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      The program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-settings-at-the-top" class="md-nav__link">
+    <span class="md-ellipsis">
+      The settings at the top
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-and-velocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Position and velocity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gravity-changes-the-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gravity changes the speed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-bounce" class="md-nav__link">
+    <span class="md-ellipsis">
+      The bounce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-the-ball-on-the-strip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keep the ball on the strip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-one-pixel-each-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draw one pixel each frame
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-loops-one-drop-then-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two loops: one drop, then again
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-real-bounce" class="md-nav__link">
+    <span class="md-ellipsis">
+      A real bounce
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try it yourself
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Try it yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-1-change-the-planet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenge 1: Change the planet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-2-change-the-bounce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenge 2: Change the bounce
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-pick-a-new-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenge 3: Pick a new color
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonus-for-big-thinkers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bonus: for big thinkers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check your understanding
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/labs/25-bouncing-ball.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="lab-25-bouncing-ball">Lab 25: Bouncing Ball</h1>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+A ball made of light is about to bounce along your strip! It falls faster and faster, hits the floor, and hops back up a little lower each time. Let's light this up!</p>
+</div>
+<p><strong>Program file:</strong> <a href="https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/moving-rainbow-base/25-bouncing-ball.py"><code>25-bouncing-ball.py</code></a></p>
+<h2 id="what-youll-learn">What you'll learn</h2>
+<ul>
+<li>How to keep track of where the ball is (its position) and how fast it moves (its velocity)</li>
+<li>How one small rule, repeated every frame, makes a falling ball speed up</li>
+<li>How a minus sign and a number below 1 turn a fast fall into a slower bounce</li>
+<li>How a true-or-false variable can end a loop</li>
+<li>Why <code>round()</code> turns a decimal into a whole pixel number</li>
+</ul>
+<h2 id="what-youll-need">What you'll need</h2>
+<ul>
+<li>Your base kit: a Pico, a breadboard, and the 30-pixel LED strip, wired as shown in the <a href="../../kits/moving-rainbow-base/">Kit User's Guide</a></li>
+<li>The <code>config.py</code> file saved on the Pico (see <a href="../../kits/moving-rainbow-base/#getting-code-onto-the-kit">Getting Code onto the Kit</a>)</li>
+<li>Thonny open and connected to your Pico</li>
+<li>Optional: hold the strip upright with the Pico end at the bottom, so the ball really falls</li>
+</ul>
+<h2 id="the-program">The program</h2>
+<p>This program drops one orange ball from the top of the strip. It bounces on pixel 0 until it settles, rests for a second, and drops again.</p>
+<div class="highlight"><span class="filename">25-bouncing-ball.py</span><pre><span></span><code><span class="c1"># Lab 25: Bouncing Ball</span>
+<span class="c1"># Filename: 25-bouncing-ball.py</span>
+<span class="c1"># Version: 1.0.0</span>
+<span class="c1">#</span>
+<span class="c1"># A ball drops from the top of the strip, speeds up as it falls, and</span>
+<span class="c1"># bounces on pixel 0. Each bounce is lower than the one before, until the</span>
+<span class="c1"># ball comes to rest. Then it drops again.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+
+<span class="c1"># hardware settings from config.py</span>
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="n">BALL_COLOR</span> <span class="o">=</span> <span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># orange</span>
+<span class="n">GRAVITY</span> <span class="o">=</span> <span class="mf">0.2</span>               <span class="c1"># how much faster the ball falls each frame</span>
+<span class="n">BOUNCE</span> <span class="o">=</span> <span class="mf">0.8</span>                <span class="c1"># the ball keeps 80% of its speed after a bounce</span>
+<span class="n">MIN_SPEED</span> <span class="o">=</span> <span class="mf">0.6</span>             <span class="c1"># slower than this and the ball stops bouncing</span>
+<span class="n">FRAME_DELAY</span> <span class="o">=</span> <span class="mf">0.03</span>          <span class="c1"># seconds per frame</span>
+
+<span class="n">old_pixel</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># drop the ball from the top of the strip. Pixel 0 is the floor.</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># pixels per frame: up is positive, down is negative</span>
+    <span class="n">bouncing</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">while</span> <span class="n">bouncing</span><span class="p">:</span>
+        <span class="c1"># gravity changes the speed, and then the speed moves the ball</span>
+        <span class="n">velocity</span> <span class="o">=</span> <span class="n">velocity</span> <span class="o">-</span> <span class="n">GRAVITY</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">position</span> <span class="o">+</span> <span class="n">velocity</span>
+
+        <span class="c1"># the ball hit the floor: bounce back up, but slower</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">velocity</span> <span class="o">=</span> <span class="o">-</span><span class="n">velocity</span> <span class="o">*</span> <span class="n">BOUNCE</span>
+            <span class="k">if</span> <span class="n">velocity</span> <span class="o">&lt;</span> <span class="n">MIN_SPEED</span><span class="p">:</span>
+                <span class="n">bouncing</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># keep the ball on the strip, even if BOUNCE is set very high</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="o">&gt;</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="c1"># erase the old spot in memory, light the new spot, and write once</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">old_pixel</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">pixel</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">pixel</span><span class="p">]</span> <span class="o">=</span> <span class="n">BALL_COLOR</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">old_pixel</span> <span class="o">=</span> <span class="n">pixel</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">FRAME_DELAY</span><span class="p">)</span>
+
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># the ball rests for a moment, then drops again</span>
+</code></pre></div>
+<p>Run it. One orange pixel falls from the top and speeds up as it drops. It bounces on pixel 0, and each bounce is lower than the one before. After a little more than three seconds, the ball settles. It rests for one second, and then it drops again.</p>
+<h2 id="how-it-works">How it works</h2>
+<h3 id="the-settings-at-the-top">The settings at the top</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BALL_COLOR</span> <span class="o">=</span> <span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># orange</span>
+<span class="n">GRAVITY</span> <span class="o">=</span> <span class="mf">0.2</span>               <span class="c1"># how much faster the ball falls each frame</span>
+<span class="n">BOUNCE</span> <span class="o">=</span> <span class="mf">0.8</span>                <span class="c1"># the ball keeps 80% of its speed after a bounce</span>
+<span class="n">MIN_SPEED</span> <span class="o">=</span> <span class="mf">0.6</span>             <span class="c1"># slower than this and the ball stops bouncing</span>
+<span class="n">FRAME_DELAY</span> <span class="o">=</span> <span class="mf">0.03</span>          <span class="c1"># seconds per frame</span>
+</code></pre></div>
+<p>These five names are settings. Each one is set once, and the rest of the program reads it. You can change a setting without touching any other line.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BALL_COLOR</code></td>
+<td>The ball's color as (red, green, blue). Orange is a lot of red and a little green.</td>
+</tr>
+<tr>
+<td><code>GRAVITY</code></td>
+<td>How much faster the ball falls each frame.</td>
+</tr>
+<tr>
+<td><code>BOUNCE</code></td>
+<td>The share of its speed the ball keeps after a bounce. 0.8 means 80 percent.</td>
+</tr>
+<tr>
+<td><code>MIN_SPEED</code></td>
+<td>If a bounce is slower than this, the ball stops bouncing.</td>
+</tr>
+<tr>
+<td><code>FRAME_DELAY</code></td>
+<td>Seconds to wait after each <strong>frame</strong> (one picture on the strip). 0.03 gives about 30 pictures a second.</td>
+</tr>
+</tbody>
+</table>
+<p>Only one pixel is lit at a time, so this program is gentle on your USB port.</p>
+<h3 id="position-and-velocity">Position and velocity</h3>
+<div class="highlight"><pre><span></span><code><span class="n">position</span> <span class="o">=</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># pixels per frame: up is positive, down is negative</span>
+<span class="n">bouncing</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div>
+<p>A moving ball needs two facts: where it is, and how it is moving. These lines set both facts for the start of a drop.</p>
+<p>The <strong>position</strong> is where the ball is. Pixel 0 is the floor. It is the end of the strip nearest the Pico. Pixel 29 is the top, and <code>NUMBER_PIXELS - 1</code> is 29. So each drop starts from the top.</p>
+<p>The <strong>velocity</strong> is speed with a direction. It counts pixels per frame. A positive velocity means up, and a negative velocity means down. Starting at 0 means the ball begins at rest, like a ball the moment you let go.</p>
+<p>Both numbers start as whole numbers. The first frame turns them into <strong>floats</strong> (numbers with a decimal point), like 28.8. The ball moves only 0.2 pixels in its first frame, so it needs fractions of a pixel.</p>
+<h3 id="gravity-changes-the-speed">Gravity changes the speed</h3>
+<div class="highlight"><pre><span></span><code><span class="n">velocity</span> <span class="o">=</span> <span class="n">velocity</span> <span class="o">-</span> <span class="n">GRAVITY</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">position</span> <span class="o">+</span> <span class="n">velocity</span>
+</code></pre></div>
+<p>These two lines run once every frame. <strong>Gravity</strong> is something that changes the velocity by the same amount every frame. Here, gravity takes 0.2 away from the velocity. Then the new velocity moves the ball.</p>
+<p>So each frame the ball falls a little faster than the frame before. The order matters: change the speed first, and then move the ball.</p>
+<p>Here are the first frames of a drop. The table shows <code>position</code> rounded to one decimal place.</p>
+<table>
+<thead>
+<tr>
+<th>Frame</th>
+<th><code>velocity</code></th>
+<th><code>position</code></th>
+<th>Pixel lit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>-0.2</td>
+<td>28.8</td>
+<td>29</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-0.4</td>
+<td>28.4</td>
+<td>28</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-0.6</td>
+<td>27.8</td>
+<td>28</td>
+</tr>
+<tr>
+<td>4</td>
+<td>-0.8</td>
+<td>27.0</td>
+<td>27</td>
+</tr>
+<tr>
+<td>5</td>
+<td>-1.0</td>
+<td>26.0</td>
+<td>26</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>15</td>
+<td>-3.0</td>
+<td>5.0</td>
+<td>5</td>
+</tr>
+<tr>
+<td>16</td>
+<td>-3.2</td>
+<td>1.8</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Look at the last column. In frames 2 and 3, the ball stays on pixel 28, because it moves less than one pixel per frame. By frame 16, the ball moves 3.2 pixels per frame. It skips right over pixels 4 and 3. That growing jump is the speed-up you see.</p>
+<p>The same two lines also work on the way up. A positive velocity gets smaller each frame, because gravity keeps taking 0.2 away. It reaches 0 at the top of the hop. Then it turns negative, and the ball falls again. One rule makes the whole arc: up, pause, and down.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Want to see the real numbers? Add <code>print(round(position, 1), round(velocity, 1))</code> below the <code>position = position + velocity</code> line. Indent it to match. Thonny's Shell fills with the same kind of numbers as the table.</p>
+</div>
+<h3 id="the-bounce">The bounce</h3>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">position</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="o">-</span><span class="n">velocity</span> <span class="o">*</span> <span class="n">BOUNCE</span>
+    <span class="k">if</span> <span class="n">velocity</span> <span class="o">&lt;</span> <span class="n">MIN_SPEED</span><span class="p">:</span>
+        <span class="n">bouncing</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+<p>This block runs when the ball reaches the floor. On frame 17 of the first drop, gravity makes the velocity -3.4. The move puts the ball at 1.8 - 3.4 = -1.6, which is below the floor. The <code>if</code> line catches that. Then three things happen:</p>
+<ol>
+<li><code>position = 0</code> puts the ball back on the floor, so it stays at pixel 0 or above.</li>
+<li><code>-velocity</code> flips the sign. The ball was moving down at -3.4, so it now moves up at 3.4.</li>
+<li><code>* BOUNCE</code> keeps 80 percent of that speed: 3.4 x 0.8 = 2.72. Real balls lose some energy when they hit the floor, so they bounce lower.</li>
+</ol>
+<p>Multiplying by a number below 1, again and again, is the shrinking trick from <a href="../24-fading-stars/">Lab 24: Fading Stars</a>. There, <code>level * 3 // 4</code> faded a star. Here, <code>velocity * BOUNCE</code> shrinks the ball's speed.</p>
+<div class="admonition info">
+<p class="admonition-title">Key idea</p>
+<p>A minus sign flips a direction. Multiplying by a number below 1 shrinks a value. Together they turn a fast fall into a slower rise.</p>
+</div>
+<p>Each bounce is lower than the one before. Working through the numbers, the ball starts at pixel 29. Its next hops reach pixels 17, 10, 6, 3, 2, and 1. Each height is roughly 60 percent of the one before. The heights shrink faster than the speed does, because a slower ball has less time to climb.</p>
+<p>The inner <code>if</code> decides when to stop. It asks: is the new speed below <code>MIN_SPEED</code>? On the seventh time the ball touches the floor, its new speed is about 0.56. That is below 0.6, so the code sets <code>bouncing = False</code>.</p>
+<p>The <code>bouncing</code> variable is a <strong>flag</strong> (a variable that holds <code>True</code> or <code>False</code> and tells the program whether to keep going). The loop <code>while bouncing:</code> runs as long as the flag is <code>True</code>. When the flag turns <code>False</code>, the loop ends. The rest of that frame still runs, so the ball is drawn at rest on pixel 0.</p>
+<h3 id="keep-the-ball-on-the-strip">Keep the ball on the strip</h3>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">position</span> <span class="o">&gt;</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span>
+</code></pre></div>
+<p>This is a <strong>guard</strong>: an <code>if</code> that protects the program from a value that could cause trouble. Pixel 29 is the last pixel, and there is no pixel 30.</p>
+<p>With <code>BOUNCE</code> at 0.8, the ball stays at or below its starting height, so the guard stays quiet. If you set <code>BOUNCE</code> above 1, each bounce adds speed. The ball could then rise past pixel 29, and the program would stop. The guard holds the ball at the top instead. You'll try this in Challenge 2.</p>
+<h3 id="draw-one-pixel-each-frame">Draw one pixel each frame</h3>
+<div class="highlight"><pre><span></span><code><span class="n">strip</span><span class="p">[</span><span class="n">old_pixel</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pixel</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+<span class="n">strip</span><span class="p">[</span><span class="n">pixel</span><span class="p">]</span> <span class="o">=</span> <span class="n">BALL_COLOR</span>
+<span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+<span class="n">old_pixel</span> <span class="o">=</span> <span class="n">pixel</span>
+<span class="n">sleep</span><span class="p">(</span><span class="n">FRAME_DELAY</span><span class="p">)</span>
+</code></pre></div>
+<p>These six lines draw one frame:</p>
+<ol>
+<li>Erase the ball's old spot. This only changes a note in the Pico's memory.</li>
+<li><code>round(position)</code> turns a decimal like 24.8 into the nearest whole number, 25. A pixel number must be whole.</li>
+<li>Light the new pixel with <code>BALL_COLOR</code>.</li>
+<li><code>strip.write()</code> sends the picture to the strip. It runs once per frame, the same rule as <a href="../05-move/">Lab 05: Move a Pixel</a>.</li>
+<li><code>old_pixel = pixel</code> remembers the spot, so the next frame can erase it.</li>
+<li><code>sleep(FRAME_DELAY)</code> waits 0.03 seconds before the next frame.</li>
+</ol>
+<p>Erasing comes first and lighting comes second. That order keeps the ball lit when it stays on the same pixel for two frames. Exactly one pixel is lit in every frame.</p>
+<h3 id="two-loops-one-drop-then-again">Two loops: one drop, then again</h3>
+<div class="highlight"><pre><span></span><code><span class="n">old_pixel</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="o">...</span>
+    <span class="k">while</span> <span class="n">bouncing</span><span class="p">:</span>
+        <span class="o">...</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># the ball rests for a moment, then drops again</span>
+</code></pre></div>
+<p>This program has two loops, one inside the other. The inner loop, <code>while bouncing:</code>, draws one frame each time around. It runs until the flag turns <code>False</code>. That is one drop.</p>
+<p>The outer loop, <code>while True:</code>, repeats forever. When a drop ends, <code>sleep(1)</code> lets the ball rest for one second. Then the loop starts over. The three setup lines from earlier put <code>position</code>, <code>velocity</code>, and <code>bouncing</code> back where they began, and the ball drops from the top again. Press <strong>Stop</strong> in Thonny to end the program.</p>
+<p>The line <code>old_pixel = 0</code> gives the very first frame a pixel to erase. At the end of every drop, <code>old_pixel</code> holds 0 again, because the ball rests on the floor. So the first frame of the next drop erases the resting ball.</p>
+<p>Work through the numbers, and one drop takes 109 frames. At 0.03 seconds each, that is about 3.3 seconds. It is a little more once you add the time to write each frame. The ball first touches the floor on frame 17, about half a second after the drop starts. With the one-second rest, the whole cycle takes a little more than four seconds.</p>
+<h3 id="a-real-bounce">A real bounce</h3>
+<p><a href="../30-random-bounce/">Lab 30: Random Bounce</a> also has dots that bounce, but they are very different. Those dots move one pixel per step at a steady speed and turn around at the ends. This ball has gravity, so its speed changes every frame, and each bounce takes some speed away. That is what makes it look like a real ball.</p>
+<h2 id="try-it-yourself">Try it yourself</h2>
+<h3 id="challenge-1-change-the-planet">Challenge 1: Change the planet</h3>
+<p>Find the line <code>GRAVITY = 0.2</code>. Change it to <code>GRAVITY = 0.05</code>, and run the program. Gravity is weaker, so the ball should float down like a ball on the moon. Then try <code>GRAVITY = 0.5</code> for a heavy planet. Predict what you will see before you run each one.</p>
+<p>Look at how long the first fall takes. With <code>GRAVITY = 0.05</code>, the ball should take about twice as long to land as it does with 0.2.</p>
+<h3 id="challenge-2-change-the-bounce">Challenge 2: Change the bounce</h3>
+<p>Find the line <code>BOUNCE = 0.8</code>. Try these values, one at a time:</p>
+<ul>
+<li><code>BOUNCE = 0.5</code>: a dead thud. How many hops does the ball make before it stops?</li>
+<li><code>BOUNCE = 1.0</code>: a super ball. The ball keeps all of its speed. Does it ever stop?</li>
+<li><code>BOUNCE = 1.1</code>: the ball gains speed each time. Which line keeps it on the strip?</li>
+</ul>
+<p>Change it back to <code>0.8</code> when you are done.</p>
+<h3 id="challenge-3-pick-a-new-color">Challenge 3: Pick a new color</h3>
+<p>Find the line <code>BALL_COLOR = (140, 60, 0)</code>. Change the three numbers to make a ball in your favorite color. Try <code>(0, 0, 100)</code> for blue or <code>(100, 0, 100)</code> for purple. The <a href="../../sims/additive-subtractive-mixing/">Additive and Subtractive Mixing</a> MicroSim shows how the three numbers blend.</p>
+<h3 id="bonus-for-big-thinkers">Bonus: for big thinkers</h3>
+<p>These two ideas change more of the program. Take your time with them.</p>
+<ul>
+<li><strong>Add a fading tail.</strong> Keep a list with one brightness number for each pixel, like in Lab 24. Each frame, set the ball's pixel to full brightness. Then shrink every pixel's number a little, so the tail fades. You will need to replace the erase line.</li>
+<li><strong>Add a second ball.</strong> Each ball needs its own <code>position</code>, <code>velocity</code>, and <code>old_pixel</code>. Start the second ball at a different height, or a few frames later.</li>
+</ul>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<ol>
+<li>Why does the ball speed up while it falls?</li>
+<li>What does the minus sign in <code>-velocity * BOUNCE</code> do? What does <code>* BOUNCE</code> do?</li>
+<li>What would happen if <code>BOUNCE</code> were 0? Use <code>MIN_SPEED</code> in your answer.</li>
+<li>What makes the <code>bouncing</code> flag turn <code>False</code>, and which loop does that end?</li>
+<li>Which lines keep the ball on the strip if <code>BOUNCE</code> is 1.5, and why are they needed?</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Lab complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel celebrates">
+You gave a light its own gravity! One rule to speed up and one rule to bounce made a ball that looks alive. Game makers use the same trick.</p>
+</div>
+<p><strong>What's next:</strong> In <a href="../26-breathing-wave/">Lab 26: Breathing Wave</a>, a wave of blue light rolls along the strip as every pixel breathes in and out.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../24-fading-stars/" title="Lab 24: Fading Stars" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Lab 24: Fading Stars
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../26-breathing-wave/" title="Lab 26: Breathing Wave" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Lab 26: Breathing Wave
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

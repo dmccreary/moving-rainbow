@@ -1,0 +1,3067 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/labs/">
+      
+      
+        <link rel="prev" href="../getting-started/macos-usb-bugs/">
+      
+      
+        <link rel="next" href="01-blink-onboard-led/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>List of Labs - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/mascot.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="List of Labs - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/labs/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/labs/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="List of Labs - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/labs/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hands-on-labs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              List of Labs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About this Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    Hands on Labs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hands on Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 01: Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-blink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 02: Blink
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-red-green-blue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 03: Red, Green and Blue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-dimmer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 04: Dimmer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-move/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 05: Move a Pixel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06-up-and-down/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 06: Up and Down
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="07-color-wipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 07: Color Wipe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="08-random/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 08: Random
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="09-color-wheel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 09: Color Wheel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="10-random-colors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 10: Random Colors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11-rainbow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 11: Rainbow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12-rainbow-cycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 12: Rainbow Cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="13-moving-rainbow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 13: Moving Rainbow with the Color Wheel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="14-band/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 14: Band
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="15-moving-band/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 15: Moving Band
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-comet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 16: Comet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="17-moving-rainbow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 17: Moving Rainbow with a Color List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="18-candle-flicker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 18: Candle Flicker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="19-theater-chase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 19: Theater Chase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="20-ripple/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 20: Ripple
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="21-twinkle-colors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 21: Twinkle Colors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="22-random-walk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 22: Random Walk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="23-heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 23: Heartbeat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="24-fading-stars/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 24: Fading Stars
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="25-bouncing-ball/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 25: Bouncing Ball
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="26-breathing-wave/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 26: Breathing Wave
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="27-sunrise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 27: Sunrise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="28-clock/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 28: Binary Clock
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="29-larson-scanner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 29: Larson Scanner
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="30-random-bounce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 30: Random Bounce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="31-modes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 31: Button Modes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="32-button-test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 32: Button Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="33-button-led-test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 33: Button and Built-in LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="34-two-button-print/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 34: Two Buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="35-button-change-color/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 35: Button Change Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="36-button-change-speed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 36: Button Change Speed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="37-modes-auto-cycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 37: Modes Auto Cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="38-traffic-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 38: Traffic Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="39-binary-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 39: Binary Counter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="40-charge-up-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 40: Charge-Up Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="41-tug-of-war/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 41: Tug of War
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="42-reaction-duel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 42: Reaction Duel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="43-fire-simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 43: Fire Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="44-cellular-automaton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 44: Cellular Automaton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="45-sorting-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 45: Sorting Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="46-binary-search-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 46: Binary Search Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="47-buttons-move-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 47: Buttons Move a Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="48-pixel-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 48: Pixel Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../additional-labs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Additional Labs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-a-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use a lab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-steps-with-one-pixel-labs-01-to-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      First steps with one pixel (Labs 01 to 06)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color-and-randomness-labs-07-to-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color and randomness (Labs 07 to 13)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patterns-and-animation-labs-14-to-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      Patterns and animation (Labs 14 to 22)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brightness-motion-and-math-labs-23-to-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      Brightness, motion and math (Labs 23 to 27)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clock-scanner-and-bounce-labs-28-to-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clock, scanner and bounce (Labs 28 to 30)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buttons-and-modes-labs-31-to-37" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buttons and modes (Labs 31 to 37)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-patterns-and-games-labs-38-to-46" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced patterns and games (Labs 38 to 46)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-labs-47-and-48" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting it together (Labs 47 and 48)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demo-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Demo programs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#want-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Want more?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/labs/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="hands-on-labs">Hands on Labs</h1>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Welcome to the labs! Every lab is one small program you can run on your kit. You change a
+number, you see a light change. That's how coders learn. Let's light this up!</p>
+</div>
+<p>Each lab matches one program in the kit's source folder. The lab number is the program's number:
+Lab 05 is <code>05-move.py</code>, and Lab 28 is <code>28-clock.py</code>. Every lab uses only the parts in the
+<a href="../kits/moving-rainbow-base/">base kit</a>: a Raspberry Pi Pico, a 30-pixel LED strip, and two push buttons.</p>
+<h2 id="how-to-use-a-lab">How to use a lab</h2>
+<ol>
+<li>Wire your kit as shown in the <a href="../kits/moving-rainbow-base/">Kit User's Guide</a>.</li>
+<li>Save <code>config.py</code> on your Pico. Every program reads its pin numbers from that file. Lab 01 is the only one that does not need it.</li>
+<li>Open the lab's program in Thonny and press <strong>Run</strong>.</li>
+<li>Read the lab page, then try the challenges at the bottom.</li>
+</ol>
+<p>All the programs live in
+<a href="https://github.com/dmccreary/moving-rainbow/tree/master/src/kits/moving-rainbow-base"><code>src/kits/moving-rainbow-base/</code></a>
+on GitHub. The lab pages show the real program files, so the code you read here is the code that runs on your kit.</p>
+<h2 id="first-steps-with-one-pixel-labs-01-to-06">First steps with one pixel (Labs 01 to 06)</h2>
+<p>Start here. These labs use one pixel at a time and teach the basics: colors, <code>strip.write()</code>, loops, and moving along the strip.</p>
+<table>
+<thead>
+<tr>
+<th>Lab</th>
+<th>What you'll see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="01-blink-onboard-led/">01: Blink the Onboard LED</a></td>
+<td>The Pico's own tiny LED blinks. No wiring needed.</td>
+</tr>
+<tr>
+<td><a href="02-blink/">02: Blink</a></td>
+<td>One red pixel blinks on and off</td>
+</tr>
+<tr>
+<td><a href="03-red-green-blue/">03: Red, Green and Blue</a></td>
+<td>One pixel steps through red, green, and blue</td>
+</tr>
+<tr>
+<td><a href="04-dimmer/">04: Dimmer</a></td>
+<td>One pixel fades up and back down</td>
+</tr>
+<tr>
+<td><a href="05-move/">05: Move a Pixel</a></td>
+<td>A red dot slides along the strip</td>
+</tr>
+<tr>
+<td><a href="06-up-and-down/">06: Up and Down</a></td>
+<td>The dot slides up the strip and back down</td>
+</tr>
+</tbody>
+</table>
+<h2 id="color-and-randomness-labs-07-to-13">Color and randomness (Labs 07 to 13)</h2>
+<p>Fill the strip with color, add some chance, and build the color wheel that makes every rainbow in this book.</p>
+<table>
+<thead>
+<tr>
+<th>Lab</th>
+<th>What you'll see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="07-color-wipe/">07: Color Wipe</a></td>
+<td>Each color fills the strip one pixel at a time</td>
+</tr>
+<tr>
+<td><a href="08-random/">08: Random</a></td>
+<td>A pixel flashes in a random color at a random place</td>
+</tr>
+<tr>
+<td><a href="09-color-wheel/">09: Color Wheel</a></td>
+<td>One pixel steps through every color of the rainbow</td>
+</tr>
+<tr>
+<td><a href="10-random-colors/">10: Random Colors</a></td>
+<td>Color-wheel colors pop up at random places</td>
+</tr>
+<tr>
+<td><a href="11-rainbow/">11: Rainbow</a></td>
+<td>A still rainbow across the whole strip</td>
+</tr>
+<tr>
+<td><a href="12-rainbow-cycle/">12: Rainbow Cycle</a></td>
+<td>The rainbow rotates around the strip</td>
+</tr>
+<tr>
+<td><a href="13-moving-rainbow/">13: Moving Rainbow with the Color Wheel</a></td>
+<td>A short rainbow slides along the strip</td>
+</tr>
+</tbody>
+</table>
+<h2 id="patterns-and-animation-labs-14-to-22">Patterns and animation (Labs 14 to 22)</h2>
+<p>Bands, comets, candles, and chases: the classic LED strip patterns.</p>
+<table>
+<thead>
+<tr>
+<th>Lab</th>
+<th>What you'll see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="14-band/">14: Band</a></td>
+<td>Six bands of color fill the strip</td>
+</tr>
+<tr>
+<td><a href="15-moving-band/">15: Moving Band</a></td>
+<td>The bands slide along the strip</td>
+</tr>
+<tr>
+<td><a href="16-comet/">16: Comet</a></td>
+<td>A bright head with a fading tail</td>
+</tr>
+<tr>
+<td><a href="17-moving-rainbow/">17: Moving Rainbow with a Color List</a></td>
+<td>A seven-color rainbow slides along the strip</td>
+</tr>
+<tr>
+<td><a href="18-candle-flicker/">18: Candle Flicker</a></td>
+<td>A warm, random flicker like a candle flame</td>
+</tr>
+<tr>
+<td><a href="19-theater-chase/">19: Theater Chase</a></td>
+<td>Classic marquee chase lights</td>
+</tr>
+<tr>
+<td><a href="20-ripple/">20: Ripple</a></td>
+<td>Ripples spread out like drops in a pond</td>
+</tr>
+<tr>
+<td><a href="21-twinkle-colors/">21: Twinkle Colors</a></td>
+<td>A random pixel twinkles in a random color</td>
+</tr>
+<tr>
+<td><a href="22-random-walk/">22: Random Walk</a></td>
+<td>A dim pixel wanders left and right by chance</td>
+</tr>
+</tbody>
+</table>
+<h2 id="brightness-motion-and-math-labs-23-to-27">Brightness, motion and math (Labs 23 to 27)</h2>
+<p>A heartbeat, fading stars, a bouncing ball, a breathing wave, and a sunrise. These labs bring in lists that
+remember a brightness for every pixel, a little physics, sine waves, and blending one color into another.</p>
+<table>
+<thead>
+<tr>
+<th>Lab</th>
+<th>What you'll see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="23-heartbeat/">23: Heartbeat</a></td>
+<td>One pixel beats like a heart: a strong pulse, a soft pulse, and a rest</td>
+</tr>
+<tr>
+<td><a href="24-fading-stars/">24: Fading Stars</a></td>
+<td>Stars flare up at random places and fade away smoothly</td>
+</tr>
+<tr>
+<td><a href="25-bouncing-ball/">25: Bouncing Ball</a></td>
+<td>A ball drops, speeds up, and bounces lower and lower until it rests</td>
+</tr>
+<tr>
+<td><a href="26-breathing-wave/">26: Breathing Wave</a></td>
+<td>A wave of blue light breathes its way along the strip</td>
+</tr>
+<tr>
+<td><a href="27-sunrise/">27: Sunrise</a></td>
+<td>The whole strip blends from night to dawn to sunrise to day, then sets again</td>
+</tr>
+</tbody>
+</table>
+<h2 id="clock-scanner-and-bounce-labs-28-to-30">Clock, scanner and bounce (Labs 28 to 30)</h2>
+<table>
+<thead>
+<tr>
+<th>Lab</th>
+<th>What you'll see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="28-clock/">28: Binary Clock</a></td>
+<td>The time shown in binary, using colored pixels</td>
+</tr>
+<tr>
+<td><a href="29-larson-scanner/">29: Larson Scanner</a></td>
+<td>The Cylon eye sweeps back and forth</td>
+</tr>
+<tr>
+<td><a href="30-random-bounce/">30: Random Bounce</a></td>
+<td>Dots move back and forth along the strip</td>
+</tr>
+</tbody>
+</table>
+<h2 id="buttons-and-modes-labs-31-to-37">Buttons and modes (Labs 31 to 37)</h2>
+<p>These labs add the two push buttons. Lab 31 is a showcase: it runs twelve patterns from one program. It uses
+ideas that Labs 32 to 37 teach in small steps, so you can run it first for fun, or come back to it after Lab 37.</p>
+<table>
+<thead>
+<tr>
+<th>Lab</th>
+<th>What you'll see</th>
+<th>Buttons used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="31-modes/">31: Button Modes</a></td>
+<td>Twelve patterns in one program, and the buttons switch between them</td>
+<td>1 and 2</td>
+</tr>
+<tr>
+<td><a href="32-button-test/">32: Button Test</a></td>
+<td>The Shell prints <code>1</code> and <code>0</code> as you press Button 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="33-button-led-test/">33: Button and Built-in LED</a></td>
+<td>The Pico's own LED lights while you press Button 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="34-two-button-print/">34: Two Buttons</a></td>
+<td>A counter goes up with one button and down with the other</td>
+<td>1 and 2</td>
+</tr>
+<tr>
+<td><a href="35-button-change-color/">35: Button Change Color</a></td>
+<td>The buttons step through a list of colors</td>
+<td>1 and 2</td>
+</tr>
+<tr>
+<td><a href="36-button-change-speed/">36: Button Change Speed</a></td>
+<td>The buttons speed up and slow down a moving pixel</td>
+<td>1 and 2</td>
+</tr>
+<tr>
+<td><a href="37-modes-auto-cycle/">37: Modes Auto Cycle</a></td>
+<td>The strip changes mode by itself on a timer</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<h2 id="advanced-patterns-and-games-labs-38-to-46">Advanced patterns and games (Labs 38 to 46)</h2>
+<p>Each of these builds on skills from earlier labs. The first ones need no buttons. The games use them.</p>
+<table>
+<thead>
+<tr>
+<th>Lab</th>
+<th>What you'll see</th>
+<th>Buttons used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="38-traffic-light/">38: Traffic Light</a></td>
+<td>Red, green, and yellow pixels change on a timer</td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="39-binary-counter/">39: Binary Counter</a></td>
+<td>Pixels count from 0 to 31 in binary</td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="40-charge-up-game/">40: Charge-Up Game</a></td>
+<td>Hold the button to fill the strip and let go in the target zone</td>
+<td>1</td>
+</tr>
+<tr>
+<td><a href="41-tug-of-war/">41: Tug of War</a></td>
+<td>Two players race to pull a marker to their end of the strip</td>
+<td>1 and 2</td>
+</tr>
+<tr>
+<td><a href="42-reaction-duel/">42: Reaction Duel</a></td>
+<td>Two players race to press when the strip turns green</td>
+<td>1 and 2</td>
+</tr>
+<tr>
+<td><a href="43-fire-simulation/">43: Fire Simulation</a></td>
+<td>A flickering flame built from a heat simulation</td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="44-cellular-automaton/">44: Cellular Automaton</a></td>
+<td>One simple rule grows a complex pattern</td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="45-sorting-visualizer/">45: Sorting Visualizer</a></td>
+<td>Watch a bubble sort put pixel brightness in order</td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="46-binary-search-visualizer/">46: Binary Search Visualizer</a></td>
+<td>The Pico guesses your secret pixel in a few tries</td>
+<td>1 and 2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="putting-it-together-labs-47-and-48">Putting it together (Labs 47 and 48)</h2>
+<table>
+<thead>
+<tr>
+<th>Lab</th>
+<th>What you'll see</th>
+<th>Buttons used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="47-buttons-move-light/">47: Buttons Move a Light</a></td>
+<td>The buttons push a lit pixel up and down the strip</td>
+<td>1 and 2</td>
+</tr>
+<tr>
+<td><a href="48-pixel-demo/">48: Pixel Demo</a></td>
+<td>The full demo: twelve patterns, and the buttons step through them</td>
+<td>1 and 2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="demo-programs">Demo programs</h2>
+<p>The source folder also holds a few programs that are <em>not</em> numbered labs. They are handy for showing off a
+kit at a science fair or a classroom open house.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto-cycle.py</code></td>
+<td>Steps through sixteen light patterns automatically, repeating each one a few times</td>
+</tr>
+<tr>
+<td><code>main-demo-cycle.py</code></td>
+<td>Mode 0 cycles through all twelve patterns, five seconds each. Modes 1 to 12 each repeat one pattern. The buttons change the mode.</td>
+</tr>
+<tr>
+<td><code>main-old.py</code></td>
+<td>An older version of the demo program</td>
+</tr>
+</tbody>
+</table>
+<h2 id="want-more">Want more?</h2>
+<p>The <a href="../additional-labs/">Additional Labs</a> add one extra part, such as a potentiometer or a
+photoresistor, so your Pico can sense the world around it.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../getting-started/macos-usb-bugs/" title="macOS USB Bugs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  macOS USB Bugs
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="01-blink-onboard-led/" title="Lab 01: Blink the Onboard LED" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Lab 01: Blink the Onboard LED
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../js/extra.js"></script>
+      
+        <script src="../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

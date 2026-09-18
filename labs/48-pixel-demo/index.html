@@ -1,0 +1,3380 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/labs/48-pixel-demo/">
+      
+      
+        <link rel="prev" href="../47-buttons-move-light/">
+      
+      
+        <link rel="next" href="../../additional-labs/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Lab 48: Pixel Demo - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Lab 48: Pixel Demo - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/labs/48-pixel-demo.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/labs/48-pixel-demo/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Lab 48: Pixel Demo - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/labs/48-pixel-demo.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-48-pixel-demo" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 48: Pixel Demo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About this Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Hands on Labs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hands on Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 01: Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-blink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 02: Blink
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-red-green-blue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 03: Red, Green and Blue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-dimmer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 04: Dimmer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-move/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 05: Move a Pixel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-up-and-down/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 06: Up and Down
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-color-wipe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 07: Color Wipe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-random/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 08: Random
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-color-wheel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 09: Color Wheel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-random-colors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 10: Random Colors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-rainbow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 11: Rainbow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-rainbow-cycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 12: Rainbow Cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-moving-rainbow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 13: Moving Rainbow with the Color Wheel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-band/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 14: Band
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-moving-band/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 15: Moving Band
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-comet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 16: Comet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-moving-rainbow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 17: Moving Rainbow with a Color List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-candle-flicker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 18: Candle Flicker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-theater-chase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 19: Theater Chase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-ripple/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 20: Ripple
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-twinkle-colors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 21: Twinkle Colors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-random-walk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 22: Random Walk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 23: Heartbeat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-fading-stars/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 24: Fading Stars
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-bouncing-ball/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 25: Bouncing Ball
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-breathing-wave/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 26: Breathing Wave
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-sunrise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 27: Sunrise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-clock/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 28: Binary Clock
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-larson-scanner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 29: Larson Scanner
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30-random-bounce/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 30: Random Bounce
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-modes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 31: Button Modes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-button-test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 32: Button Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-button-led-test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 33: Button and Built-in LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-two-button-print/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 34: Two Buttons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35-button-change-color/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 35: Button Change Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36-button-change-speed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 36: Button Change Speed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../37-modes-auto-cycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 37: Modes Auto Cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38-traffic-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 38: Traffic Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39-binary-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 39: Binary Counter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-charge-up-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 40: Charge-Up Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-tug-of-war/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 41: Tug of War
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-reaction-duel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 42: Reaction Duel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-fire-simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 43: Fire Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../44-cellular-automaton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 44: Cellular Automaton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45-sorting-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 45: Sorting Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../46-binary-search-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 46: Binary Search Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../47-buttons-move-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 47: Buttons Move a Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab 48: Pixel Demo
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab 48: Pixel Demo
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      The program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-number-picks-the-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      One number picks the pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-buttons-change-the-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      The buttons change the mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-different-from-lab-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is different from Lab 31
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-each-pattern-came-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where each pattern came from
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-it-without-a-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run it without a computer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-demo-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      More demo programs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try it yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check your understanding
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../additional-labs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Additional Labs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../kits/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      The program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-number-picks-the-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      One number picks the pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-buttons-change-the-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      The buttons change the mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-different-from-lab-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is different from Lab 31
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-each-pattern-came-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where each pattern came from
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-it-without-a-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run it without a computer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-demo-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      More demo programs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try it yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check your understanding
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/labs/48-pixel-demo.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="lab-48-pixel-demo">Lab 48: Pixel Demo</h1>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+This is the big finale! One program, twelve light patterns, and two buttons to pick between them. See how many patterns you already know. Let's light this up!</p>
+</div>
+<p><strong>Program file:</strong> <a href="https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/moving-rainbow-base/48-pixel-demo.py"><code>48-pixel-demo.py</code></a></p>
+<h2 id="what-youll-learn">What you'll learn</h2>
+<ul>
+<li>How one program holds twelve patterns, using a <code>mode</code> number and an <code>if</code> / <code>elif</code> chain</li>
+<li>How one number, <code>BASE_DELAY</code>, sets the speed of the patterns</li>
+<li>Which lab taught each pattern</li>
+<li>How to make the demo start by itself when you plug in power</li>
+</ul>
+<h2 id="what-youll-need">What you'll need</h2>
+<ul>
+<li>Your base kit, including both push buttons wired as shown in <a href="../../kits/moving-rainbow-base/#the-two-buttons">The Two Buttons</a>. Each button reads <code>0</code> while you press it.</li>
+<li>The <code>config.py</code> file saved on the Pico (see <a href="../../kits/moving-rainbow-base/#getting-code-onto-the-kit">Getting Code onto the Kit</a>)</li>
+<li>Thonny open and connected to your Pico</li>
+<li>Recommended: <a href="../31-modes/">Lab 31: Button Modes</a>. Lab 48 is nearly the same program, and Lab 31 explains each pattern in detail.</li>
+<li>Recommended: <a href="../34-two-button-print/">Lab 34: Two Buttons</a> and <a href="../47-buttons-move-light/">Lab 47: Buttons Move a Light</a>. They teach the interrupt and debounce pattern behind the buttons.</li>
+</ul>
+<h2 id="the-program">The program</h2>
+<p>This program runs twelve light patterns. Button 1 moves to the next pattern, and Button 2 moves back to the previous one.</p>
+<details class="example">
+<summary>Full program: 48-pixel-demo.py (233 lines)</summary>
+<div class="highlight"><span class="filename">48-pixel-demo.py</span><pre><span></span><code><span class="c1"># Lab 48: Pixel Demo</span>
+<span class="c1"># Filename: 48-pixel-demo.py</span>
+<span class="c1"># Version: 1.0.0</span>
+<span class="c1">#</span>
+<span class="c1"># The full demo program: twelve light patterns, and the buttons step</span>
+<span class="c1"># through them.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urandom</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+
+<span class="c1"># hardware settings from config.py</span>
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+<span class="n">BUTTON_PIN_1</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">BUTTON_PIN_1</span>
+<span class="n">BUTTON_PIN_2</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">BUTTON_PIN_2</span>
+<span class="c1"># the LED built onto the Pico board (not set in config.py)</span>
+<span class="n">BUILT_IN_LED_PIN</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="c1"># time between a patten step</span>
+<span class="n">BASE_DELAY</span> <span class="o">=</span> <span class="mf">0.005</span>
+<span class="n">RAINBOW_LENGTH</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">PERCENT_SMALL_COLOR_WHEEL</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="n">RAINBOW_LENGTH</span><span class="p">)</span>
+<span class="n">PERCENT_COLOR_WHEEL</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">255</span><span class="o">/</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+
+
+<span class="n">button_presses</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># the count of times the button has been pressed</span>
+<span class="n">last_time</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># the last time we pressed the button</span>
+
+<span class="n">builtin_led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">BUILT_IN_LED_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="c1"># The lower left corner of the Pico has a wire that goes through the buttons upper left and the lower right goes to the 3.3 rail</span>
+
+<span class="n">button1</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">BUTTON_PIN_1</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+<span class="n">button2</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">BUTTON_PIN_2</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+
+<span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">orange</span> <span class="o">=</span> <span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">yellow</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">cyan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">indigo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
+<span class="n">violet</span> <span class="o">=</span> <span class="p">(</span><span class="mi">138</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">226</span><span class="p">)</span>
+<span class="n">white</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">cyan</span><span class="p">,</span> <span class="n">indigo</span><span class="p">,</span> <span class="n">violet</span><span class="p">)</span>
+<span class="n">color_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">level_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
+
+<span class="n">mode_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'moving rainbow'</span><span class="p">,</span> <span class="s1">'moving red dot'</span><span class="p">,</span> <span class="s1">'moving green dot'</span><span class="p">,</span> <span class="s1">'moving blue dot'</span><span class="p">,</span>
+             <span class="s1">'red comet'</span><span class="p">,</span> <span class="s1">'green comet'</span><span class="p">,</span> <span class="s1">'blue comet'</span><span class="p">,</span> <span class="s1">'candle flicker'</span><span class="p">,</span> <span class="s1">'random dots'</span><span class="p">,</span> <span class="s1">'bounce'</span><span class="p">,</span>
+             <span class="s1">'running lights'</span><span class="p">,</span> <span class="s1">'rainbow cycle'</span><span class="p">]</span>
+<span class="n">mode_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_list</span><span class="p">)</span>
+
+<span class="c1"># This function gets called every time the button is pressed.  The parameter "pin" is used to tell</span>
+<span class="c1"># which pin is used</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">mode</span><span class="p">,</span> <span class="n">last_time</span>
+    <span class="n">new_time</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
+    <span class="c1"># if it has been more that 1/5 of a second since the last event, we have a new event</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">new_time</span> <span class="o">-</span> <span class="n">last_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="c1"># print(pin)</span>
+        <span class="c1"># pin is the button object that triggered the interrupt</span>
+        <span class="k">if</span> <span class="n">pin</span> <span class="o">==</span> <span class="n">button1</span><span class="p">:</span>
+            <span class="n">mode</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mode</span> <span class="o">-=</span><span class="mi">1</span>
+        <span class="c1"># wrap around if we get too high</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span> <span class="o">%</span> <span class="n">mode_count</span>
+        <span class="n">last_time</span> <span class="o">=</span> <span class="n">new_time</span>
+
+<span class="c1"># now we register the handler function when the button is pressed</span>
+<span class="n">button1</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button_pressed_handler</span><span class="p">)</span>
+<span class="n">button2</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button_pressed_handler</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+    <span class="c1"># Input a value 0 to 255 to get a color value.</span>
+    <span class="c1"># The colors are a transition r - g - b - back to r.</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">170</span><span class="p">:</span>
+        <span class="n">pos</span> <span class="o">-=</span> <span class="mi">85</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">-=</span> <span class="mi">170</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>    
+
+<span class="c1"># erase the entire strip</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">erase</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">move_dot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">comet_tail</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color_count</span><span class="p">):</span>
+        <span class="c1"># we start to draw at the head of the comet N levels away from the counter</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="p">((</span><span class="n">level_count</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">counter</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
+        <span class="c1"># number to scale by</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">))</span>
+        <span class="c1"># erase the tail</span>
+        <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">moving_rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">RAINBOW_LENGTH</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">color_index</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">PERCENT_SMALL_COLOR_WHEEL</span><span class="p">)</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">color_index</span><span class="p">)</span>
+        <span class="c1"># print(color_index, color)</span>
+        <span class="c1"># start at the end and subtract to go backwards and add the counter for offset</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">RAINBOW_LENGTH</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span>  <span class="o">+</span> <span class="n">counter</span>
+        <span class="c1"># print(index)</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">NUMBER_PIXELS</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>    
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="c1"># erase the tail if we are not at the start</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="c1"># turn off the last pixel at the top</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">candle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+     <span class="n">green</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">155</span><span class="p">)</span>
+     <span class="n">red</span> <span class="o">=</span> <span class="n">green</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+     <span class="n">strip</span><span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">random_color</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+    <span class="n">random_offset</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">random_color</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">strip</span><span class="p">[</span><span class="n">random_offset</span><span class="p">]</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">random_color</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="n">HALF_LENGTH</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bounce</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="n">HALF_LENGTH</span><span class="p">:</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">half_counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">-</span> <span class="n">HALF_LENGTH</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">HALF_LENGTH</span> <span class="o">-</span> <span class="n">half_counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">HALF_LENGTH</span> <span class="o">+</span> <span class="n">half_counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">HALF_LENGTH</span> <span class="o">-</span> <span class="n">half_counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">HALF_LENGTH</span> <span class="o">+</span> <span class="n">half_counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">counter</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">spacing</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rainbow_cycle</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">wait</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">color_index</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">PERCENT_COLOR_WHEEL</span><span class="p">)</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">color_index</span><span class="p">)</span>
+        <span class="c1"># print(color_index, color)</span>
+        <span class="n">strip</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="n">counter</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">wait</span><span class="p">)</span>
+
+<span class="c1"># Global variables</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">last_mode</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">bd</span> <span class="o">=</span> <span class="n">BASE_DELAY</span>
+<span class="n">bd2</span> <span class="o">=</span> <span class="n">bd</span><span class="o">*</span><span class="mi">2</span>
+<span class="n">bd5</span> <span class="o">=</span> <span class="n">bd</span><span class="o">*</span><span class="mi">5</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># print only on change</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="n">last_mode</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'mode='</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="s1">'running program'</span><span class="p">,</span> <span class="n">mode_list</span><span class="p">[</span><span class="n">mode</span><span class="p">])</span>
+        <span class="n">last_mode</span> <span class="o">=</span> <span class="n">mode</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">moving_rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">bd</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">move_dot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">bd2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">move_dot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">bd2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">move_dot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">bd2</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>  
+        <span class="n">comet_tail</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">bd</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>  
+        <span class="n">comet_tail</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">bd</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>  
+        <span class="n">comet_tail</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">bd</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>  
+        <span class="n">candle</span><span class="p">(</span><span class="n">bd</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>  
+        <span class="n">random_color</span><span class="p">(</span><span class="n">bd</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>  
+        <span class="n">bounce</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">bd5</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span> 
+        <span class="n">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">.2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span> 
+        <span class="n">rainbow_cycle</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">bd</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'mode'</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="s1">'not configured'</span><span class="p">)</span>
+
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="c1"># wrap the counter using modulo</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
+</code></pre></div>
+</details>
+<p>Run it. A short rainbow slides along the strip. Press Button 1 and a red dot runs along the strip instead. Each press of Button 1 moves to the next pattern, and each press of Button 2 moves back. The Shell prints the name of the pattern every time it changes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Power check</p>
+<p>Three patterns can light all 30 pixels at once. Rainbow cycle and random dots use color-wheel colors, so a full strip draws about 600 mA. Candle flicker fills the strip with warm colors and draws about 660 mA. A USB port supplies about 500 mA (see <a href="../../kits/moving-rainbow-base/#how-bright-can-you-go">How Bright Can You Go?</a>). To stay safe, divide the color numbers by 4. In <code>wheel()</code>, change each returned number to a form like <code>(pos * 3) // 4</code> or <code>(255 - pos * 3) // 4</code>. That cuts rainbow cycle and random dots to about 150 mA. In <code>candle()</code>, use <code>12 + randint(0,38)</code> for <code>green</code> and <code>green + randint(0,12)</code> for <code>red</code>. That cuts candle flicker to about 160 mA.</p>
+</div>
+<h2 id="how-it-works">How it works</h2>
+<h3 id="one-number-picks-the-pattern">One number picks the pattern</h3>
+<p>A list of names matches each mode number to a pattern.</p>
+<div class="highlight"><pre><span></span><code><span class="n">mode_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'moving rainbow'</span><span class="p">,</span> <span class="s1">'moving red dot'</span><span class="p">,</span> <span class="s1">'moving green dot'</span><span class="p">,</span> <span class="s1">'moving blue dot'</span><span class="p">,</span>
+             <span class="s1">'red comet'</span><span class="p">,</span> <span class="s1">'green comet'</span><span class="p">,</span> <span class="s1">'blue comet'</span><span class="p">,</span> <span class="s1">'candle flicker'</span><span class="p">,</span> <span class="s1">'random dots'</span><span class="p">,</span> <span class="s1">'bounce'</span><span class="p">,</span>
+             <span class="s1">'running lights'</span><span class="p">,</span> <span class="s1">'rainbow cycle'</span><span class="p">]</span>
+<span class="n">mode_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_list</span><span class="p">)</span>
+</code></pre></div>
+<p>Mode 0 is the first name, <code>'moving rainbow'</code>. Mode 11 is the last name, <code>'rainbow cycle'</code>. Because <code>mode_count</code> is <code>len(mode_list)</code>, it stays right if you add names.</p>
+<p>The main loop runs forever. It prints the pattern name when the mode changes. Then it runs the function for the current mode.</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># print only on change</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="n">last_mode</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'mode='</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="s1">'running program'</span><span class="p">,</span> <span class="n">mode_list</span><span class="p">[</span><span class="n">mode</span><span class="p">])</span>
+        <span class="n">last_mode</span> <span class="o">=</span> <span class="n">mode</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">moving_rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">bd</span><span class="p">)</span>
+</code></pre></div>
+<p>The full loop has one <code>if</code> or <code>elif</code> branch for each mode, 0 through 11. A program that is in exactly one mode at a time, and that moves to another mode when something happens, is called a <strong>state machine</strong>. The <a href="../../sims/state-machine-diagram/">State Machine Diagram</a> shows the idea as a picture.</p>
+<p>At the bottom of the loop, <code>counter</code> steps forward and starts over at 0 after pixel 29.</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="c1"># wrap the counter using modulo</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
+</code></pre></div>
+<p>Most patterns use <code>counter</code> as the pixel where the action happens.</p>
+<h3 id="the-buttons-change-the-mode">The buttons change the mode</h3>
+<p>The handler uses the same interrupt and debounce pattern as Labs 34 and 47. It ignores any press that comes less than 200 milliseconds after the last one.</p>
+<div class="highlight"><pre><span></span><code>        <span class="k">if</span> <span class="n">pin</span> <span class="o">==</span> <span class="n">button1</span><span class="p">:</span>
+            <span class="n">mode</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mode</span> <span class="o">-=</span><span class="mi">1</span>
+        <span class="c1"># wrap around if we get too high</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span> <span class="o">%</span> <span class="n">mode_count</span>
+</code></pre></div>
+<p>Button 1 adds 1 to <code>mode</code>, and Button 2 subtracts 1. The <code>% mode_count</code> wraps the number around. Button 1 at mode 11 goes to mode 0, and Button 2 at mode 0 goes to mode 11. The new pattern starts when the old pattern finishes its current step.</p>
+<h3 id="what-is-different-from-lab-31">What is different from Lab 31</h3>
+<p>Lab 48 is nearly the same program as <a href="../31-modes/">Lab 31: Button Modes</a>. There are two changes.</p>
+<p><strong>First, the starting mode.</strong> Lab 31 starts at mode 11, the rainbow cycle. Lab 48 starts here, at mode 0, the moving rainbow.</p>
+<div class="highlight"><pre><span></span><code><span class="n">mode</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+<p><strong>Second, the speeds.</strong> Lab 31 types a fixed delay into each pattern. Lab 48 builds most delays from one number.</p>
+<div class="highlight"><pre><span></span><code><span class="n">BASE_DELAY</span> <span class="o">=</span> <span class="mf">0.005</span>
+</code></pre></div>
+<p>Three short names come from that number. Here <code>bd</code> stands for "base delay".</p>
+<div class="highlight"><pre><span></span><code><span class="n">bd</span> <span class="o">=</span> <span class="n">BASE_DELAY</span>
+<span class="n">bd2</span> <span class="o">=</span> <span class="n">bd</span><span class="o">*</span><span class="mi">2</span>
+<span class="n">bd5</span> <span class="o">=</span> <span class="n">bd</span><span class="o">*</span><span class="mi">5</span>
+</code></pre></div>
+<p>So <code>bd</code> is 0.005 seconds, <code>bd2</code> is 0.01 seconds, and <code>bd5</code> is 0.025 seconds. Most branches of the loop pick one of them.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">move_dot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">bd2</span><span class="p">)</span>
+</code></pre></div>
+<p>This table compares the waits in the two labs. The waits in Lab 48 are shorter, so most patterns run faster.</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th style="text-align: center;">Lab 31 wait</th>
+<th style="text-align: center;">Lab 48 wait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moving rainbow</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: center;"><code>bd</code> = 0.005</td>
+</tr>
+<tr>
+<td>Moving dots</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: center;"><code>bd2</code> = 0.01</td>
+</tr>
+<tr>
+<td>Comets</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;"><code>bd</code> = 0.005</td>
+</tr>
+<tr>
+<td>Candle flicker</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;"><code>bd</code> = 0.005</td>
+</tr>
+<tr>
+<td>Random dots</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;"><code>bd</code> = 0.005</td>
+</tr>
+<tr>
+<td>Bounce</td>
+<td style="text-align: center;">0.15</td>
+<td style="text-align: center;"><code>bd5</code> = 0.025</td>
+</tr>
+<tr>
+<td>Running lights</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.2 (a fixed number)</td>
+</tr>
+<tr>
+<td>Rainbow cycle</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: center;"><code>bd</code> = 0.005</td>
+</tr>
+</tbody>
+</table>
+<p>Change <code>BASE_DELAY</code> once, and every pattern that uses <code>bd</code>, <code>bd2</code>, or <code>bd5</code> changes speed. Running lights keeps its fixed 0.2.</p>
+<h3 id="where-each-pattern-came-from">Where each pattern came from</h3>
+<p>You have already met almost every pattern in this demo. This table shows where to find each one.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mode</th>
+<th>Pattern</th>
+<th>Function</th>
+<th>Learn it in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td>Moving rainbow</td>
+<td><code>moving_rainbow</code></td>
+<td><a href="../13-moving-rainbow/">Lab 13</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">1, 2, 3</td>
+<td>Moving red, green, and blue dot</td>
+<td><code>move_dot</code></td>
+<td><a href="../05-move/">Lab 05</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">4, 5, 6</td>
+<td>Red, green, and blue comet</td>
+<td><code>comet_tail</code></td>
+<td><a href="../16-comet/">Lab 16</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>Candle flicker</td>
+<td><code>candle</code></td>
+<td><a href="../18-candle-flicker/">Lab 18</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>Random dots (color-wheel colors at random pixels)</td>
+<td><code>random_color</code></td>
+<td><a href="../10-random-colors/">Lab 10</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td>Bounce (two dots race in from the ends, meet in the middle, and bounce back out)</td>
+<td><code>bounce</code></td>
+<td>New here. Labs <a href="../29-larson-scanner/">25</a> and <a href="../30-random-bounce/">26</a> have related back-and-forth ideas.</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td>Running lights (every fourth pixel is lit, and the pattern steps along)</td>
+<td><code>running_lights</code></td>
+<td>The idea of <a href="../19-theater-chase/">Lab 19</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td>Rainbow cycle</td>
+<td><code>rainbow_cycle</code></td>
+<td><a href="../12-rainbow-cycle/">Lab 12</a></td>
+</tr>
+</tbody>
+</table>
+<p>The moving rainbow, random dots, and rainbow cycle all use the <code>wheel()</code> function from <a href="../09-color-wheel/">Lab 09</a>.</p>
+<div class="admonition bug">
+<p class="admonition-title">Known issue</p>
+<p>Changing the mode does not clear the strip, and candle flicker and random dots only add pixels. Old pixels can stay lit and slowly fill the strip. The <code>erase()</code> function is in the file but nothing calls it; <code>main-demo-cycle.py</code> calls it on every mode change.</p>
+</div>
+<h2 id="run-it-without-a-computer">Run it without a computer</h2>
+<p>When the Pico gets power, MicroPython looks for a file named <code>main.py</code> and runs it. To make the demo start by itself, save a copy on your Pico under that name.</p>
+<ol>
+<li>Open <code>48-pixel-demo.py</code> in Thonny.</li>
+<li>Choose <strong>File</strong>, then <strong>Save as</strong>, and pick <strong>Raspberry Pi Pico</strong>.</li>
+<li>Type the name <code>main.py</code> and save.</li>
+<li>Make sure <code>config.py</code> is also on the Pico, because the demo imports it.</li>
+</ol>
+<p>Now unplug the USB cable from your computer and plug the kit into a USB phone charger or a battery pack. The light show starts on its own. To edit the program again, read <a href="../../kits/moving-rainbow-base/#running-without-a-computer">Running Without a Computer</a> first.</p>
+<h2 id="more-demo-programs">More demo programs</h2>
+<p>The kit folder also holds demo programs that are not numbered labs. They are handy for a science fair or a classroom open house. Open them in Thonny and compare them with Lab 48.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/moving-rainbow-base/auto-cycle.py"><code>auto-cycle.py</code></a></td>
+<td>Steps through sixteen light patterns automatically, repeating each one a few times before moving on. It adds bounce in three colors and running lights in three colors.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/moving-rainbow-base/main-demo-cycle.py"><code>main-demo-cycle.py</code></a></td>
+<td>Mode 0 cycles through all twelve patterns, five seconds each. Modes 1 to 12 each repeat one pattern. The buttons change the mode, and the strip is cleared on each change.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/moving-rainbow-base/main-old.py"><code>main-old.py</code></a></td>
+<td>An older version of the demo. Each pattern runs for one pass along the strip, and then the next one starts. The buttons also change the pattern. It has one extra pattern, a Cylon scanner like Lab 29.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="try-it-yourself">Try it yourself</h2>
+<ol>
+<li>Slow the whole show down. Change <code>BASE_DELAY = 0.005</code> to <code>BASE_DELAY = 0.02</code>. Which pattern keeps its old speed, and why?</li>
+<li>Add a pattern of your own. This is a great capstone project. First, add a new name to the end of <code>mode_list</code>.</li>
+</ol>
+<div class="highlight"><span class="filename">Your change</span><pre><span></span><code><span class="n">mode_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'moving rainbow'</span><span class="p">,</span> <span class="s1">'moving red dot'</span><span class="p">,</span> <span class="s1">'moving green dot'</span><span class="p">,</span> <span class="s1">'moving blue dot'</span><span class="p">,</span>
+             <span class="s1">'red comet'</span><span class="p">,</span> <span class="s1">'green comet'</span><span class="p">,</span> <span class="s1">'blue comet'</span><span class="p">,</span> <span class="s1">'candle flicker'</span><span class="p">,</span> <span class="s1">'random dots'</span><span class="p">,</span> <span class="s1">'bounce'</span><span class="p">,</span>
+             <span class="s1">'running lights'</span><span class="p">,</span> <span class="s1">'rainbow cycle'</span><span class="p">,</span> <span class="s1">'violet dot'</span><span class="p">]</span>
+</code></pre></div>
+<p>Then add a branch for mode 12. In the real file, the new <code>elif</code> goes right after <code>elif mode == 11:</code> and above the last <code>else:</code>.</p>
+<div class="highlight"><span class="filename">Your change</span><pre><span></span><code><span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span>
+    <span class="n">rainbow_cycle</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">bd</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="n">move_dot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">violet</span><span class="p">,</span> <span class="n">bd2</span><span class="p">)</span>
+</code></pre></div>
+<p>Run it and press Button 1 until you reach mode 12. Then swap in your own colors, or write a brand-new pattern function.</p>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<ol>
+<li>What does Button 2 do when the demo is in mode 0? Why?</li>
+<li>Which line sets the starting mode, and which pattern does it start with?</li>
+<li>What is <code>bd2</code>, and how many seconds does it wait?</li>
+<li>Which pattern keeps its speed when you change <code>BASE_DELAY</code>? Why?</li>
+<li>Which two files must be on your Pico for the demo to start by itself?</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Lab complete!</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel celebrates">
+You made it to the end of the labs! You know how every pattern in this demo works, and you can add your own. Now go build something that is all yours.</p>
+</div>
+<p><strong>What's next:</strong> Return to the <a href="../">labs list</a>, or build your own capstone by adding a pattern to the mode list.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../47-buttons-move-light/" title="Lab 47: Buttons Move a Light" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Lab 47: Buttons Move a Light
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../../additional-labs/" title="About Additional Labs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  About Additional Labs
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
