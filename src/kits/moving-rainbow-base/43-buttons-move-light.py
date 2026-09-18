@@ -60,11 +60,8 @@ def button_pressed_handler(pin):
     # if it has been more than 1/5 of a second since the last event, we have a new event
 
     if (new_time - last_time) > 200:
-        # this is a hack but I can't get the pin ID parameter without vars() or attr()
-        #pin_num = int(str(pin)[4:6])
-        pin_num = int(str(pin)[8:10])
-        # this works as long as one of the buttons is this one
-        if pin_num == BUTTON_PIN_1:
+        # pin is the button object that triggered the interrupt
+        if pin == button1:
             position +=1
             button1_presses +=1
         else: #we know that a button has been pressed, and it's not button 1, so it must be button 2

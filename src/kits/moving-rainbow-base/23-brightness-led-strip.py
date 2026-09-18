@@ -25,11 +25,11 @@ POLL_DELAY = .1 # poll the pot after this delay in seconds
 # repeat forever
 while True:
     pot_value = pot.read_u16() # read the value from the pot
-    # this shifts the data right 8 bits and subtracts 1
-    scaled_value = (pot_value >> 8) - 1
-    # same as shift right 8 bits
+    # shift the 16-bit value (0 to 65535) right 8 bits to get 0 to 255
+    scaled_value = pot_value >> 8
     print("scaled value:", scaled_value)
     for i in range(NUMBER_PIXELS):
         strip[i] = (scaled_value, scaled_value, scaled_value)
-        strip.write()
+    # one write per update, after every pixel is set
+    strip.write()
     sleep(POLL_DELAY)

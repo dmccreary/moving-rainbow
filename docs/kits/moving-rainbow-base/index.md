@@ -284,13 +284,6 @@ And these bring the buttons in:
 | `27-modes.py` | A **state machine** — twelve patterns in one program, buttons step through them |
 | `44-pixel-demo.py` | The full demo program we run at science fairs |
 
-!!! note "Two programs wire their buttons the other way"
-    Two of the older programs — `27-modes.py` and `44-pixel-demo.py` — set
-    their buttons up with `Pin.PULL_DOWN`, which expects the buttons wired to
-    3.3&nbsp;volts instead of ground. If your buttons do nothing in those two,
-    change `PULL_DOWN` to `PULL_UP` near the top of the file. Everything else
-    in the kit uses `PULL_UP`.
-
 ## A Path Through the Kit
 
 You do not have to follow this exactly. It is the order that has worked best

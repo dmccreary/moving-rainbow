@@ -35,8 +35,8 @@ last_time = 0 # the last time we pressed the button
 builtin_led = Pin(BUILT_IN_LED_PIN, Pin.OUT)
 # The lower left corner of the Pico has a wire that goes through the buttons upper left and the lower right goes to the 3.3 rail
 
-button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_DOWN)
-button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_DOWN)
+button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
+button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
 red = (255, 0, 0)
 pink = (255, 128, 128)
@@ -72,10 +72,8 @@ def button_pressed_handler(pin):
     # if it has been more that 1/5 of a second since the last event, we have a new event
     if (new_time - last_time) > 200:
         # print(pin)
-        # this is a hack but I can't get the pin ID parameter without vars() or attr()
-        pin_num = int(str(pin)[4:6])
-        # this works as long as one of the buttons is this one
-        if pin_num == BUTTON_PIN_1:
+        # pin is the button object that triggered the interrupt
+        if pin == button1:
             mode +=1
         else:
             mode -=1

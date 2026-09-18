@@ -18,9 +18,9 @@ strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 while True:
     location = randint(0, NUMBER_PIXELS-1)
-    red = randint(0, 256)
-    green = randint(0, 256)
-    blue = randint(0, 256)
+    red = randint(0, 255)
+    green = randint(0, 255)
+    blue = randint(0, 255)
     strip[location] = (red, green, blue)
     strip.write()
     sleep(.5)
