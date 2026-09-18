@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1952,6 +1972,8 @@
       
         
       
+        
+      
     
     
     
@@ -2537,7 +2559,7 @@ changes the look of whichever mode is showing.</p>
 <h2 id="the-list-of-modes">The List of Modes</h2>
 <p>The program keeps the mode names in a <strong>list</strong> (an ordered group of values). It
 also keeps a variable named <code>mode</code> that says which one is showing right now.</p>
-<div class="highlight"><pre><span></span><code><span class="n">MODE_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Knob Dot&#39;</span><span class="p">,</span> <span class="s1">&#39;Solid Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Scanner&#39;</span><span class="p">,</span> <span class="s1">&#39;Comet&#39;</span><span class="p">,</span> <span class="s1">&#39;Moving Rainbow&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">MODE_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Knob Dot'</span><span class="p">,</span> <span class="s1">'Solid Color'</span><span class="p">,</span> <span class="s1">'Scanner'</span><span class="p">,</span> <span class="s1">'Comet'</span><span class="p">,</span> <span class="s1">'Moving Rainbow'</span><span class="p">]</span>
 <span class="n">NUM_MODES</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">MODE_NAMES</span><span class="p">)</span>
 
 <span class="n">mode</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># which mode is showing now (0 = Knob Dot, the default)</span>
@@ -2567,7 +2589,7 @@ five memories!</p>
 <p>Button 1 (pin 14) moves to the <strong>next</strong> mode. Button 2 (pin 15) moves to the
 <strong>previous</strong> mode. The math uses <code>% NUM_MODES</code> so the modes wrap in a circle —
 after the last mode you land back on the first.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">button_callback</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">button_callback</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">mode</span><span class="p">,</span> <span class="n">mode_changed</span><span class="p">,</span> <span class="n">last_button_time</span>
     <span class="n">new_time</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">new_time</span><span class="p">,</span> <span class="n">last_button_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
@@ -2611,7 +2633,7 @@ shifts, or the pattern speeds up — depending on the mode you're in.</p>
 <h2 id="drawing-the-right-mode">Drawing the Right Mode</h2>
 <p>A function named <code>draw</code> looks at <code>mode</code> and paints the matching pattern. This
 choosing of one path out of many is called <strong>dispatch</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">step</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="n">step</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># Knob Dot: the knob moves a single bright pixel</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>

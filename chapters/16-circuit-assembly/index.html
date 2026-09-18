@@ -1241,6 +1241,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1625,6 +1645,8 @@
       
         
           
+        
+      
         
       
         
@@ -2304,7 +2326,7 @@ Welcome to Chapter 16! This is where theory becomes practice on a breadboard. Yo
 <li>Connect the transistor emitter to GND</li>
 </ol>
 <p>The MicroPython code to control this circuit:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">control</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>   <span class="c1"># GP0 drives the transistor base</span>
 
@@ -2364,7 +2386,7 @@ Welcome to Chapter 16! This is where theory becomes practice on a breadboard. Yo
 <h2 id="led-dimmer-circuit">LED Dimmer Circuit</h2>
 <p>An <strong>LED Dimmer Circuit</strong> uses PWM from the Pico to control a transistor, which controls LED brightness. This is more powerful than driving an LED directly from GPIO — the transistor can handle much more current.</p>
 <p>The MicroPython code to dim the LED with a PWM signal on the transistor base:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
 
 <span class="n">pwm</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">PWM</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>   <span class="c1"># PWM on GP0</span>
 <span class="n">pwm</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>                       <span class="c1"># 1000 Hz frequency</span>
@@ -2395,7 +2417,7 @@ Welcome to Chapter 16! This is where theory becomes practice on a breadboard. Yo
 - The midpoint (between fixed resistor and LDR) connects to ADC0 (GP26)
 - In bright light: LDR resistance is low → V_out is low → ADC reads low value
 - In darkness: LDR resistance is high → V_out is high → ADC reads high value</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
 
 <span class="n">ldr</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
 <span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>

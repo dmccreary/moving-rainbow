@@ -583,6 +583,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -967,6 +987,8 @@
       
         
           
+        
+      
         
       
         
@@ -1486,8 +1508,8 @@ Successfully installed rpi-keyboard-config-1.0
 <h2 id="using-thonny">Using Thonny</h2>
 <p>If you haven't done so already, go ahead and download the zip file containing all the Python scripts, and unzip it to a convenient location.</p>
 <p>Go ahead and open up <code>simple_colour.py</code>. This script is a stripped-back demo of how colors can be controlled. First, it imports the rpi-keyboard-config library, then initializes the keyboard, and sets the LED control mode (telling the keyboard we are about to start sending it RGB commands). These are the important first steps of any script controlling the RGB.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">RPiKeyboardConfig</span> <span class="kn">import</span> <span class="n">RPiKeyboardConfig</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">RPiKeyboardConfig</span><span class="w"> </span><span class="kn">import</span> <span class="n">RPiKeyboardConfig</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="c1"># Initialize the keyboard</span>
 <span class="n">keyboard</span> <span class="o">=</span> <span class="n">RPiKeyboardConfig</span><span class="p">()</span>
@@ -1531,9 +1553,9 @@ Successfully installed rpi-keyboard-config-1.0
 <h2 id="a-simple-notification-system">A Simple Notification System</h2>
 <p>Much of the things we did in the terminal can also be done through the library - including setting a preset. In the project folder you will find <code>flash_demo.py</code>. This short script creates a small "flash" effect on the Pi 500+ keyboard that triggers at random intervals — showing how you can temporarily override your normal RGB preset, display an animation, and then bring it straight back. Let's break it down step by step.</p>
 <p>We start by importing the required packages and setting up our keyboard object:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">RPiKeyboardConfig</span> <span class="kn">import</span> <span class="n">RPiKeyboardConfig</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">RPiKeyboardConfig</span><span class="w"> </span><span class="kn">import</span> <span class="n">RPiKeyboardConfig</span>
 <span class="n">keyboard</span> <span class="o">=</span> <span class="n">RPiKeyboardConfig</span><span class="p">()</span>
 </code></pre></div>
 <p>Here, <code>random</code> and <code>time</code> are standard Python libraries, and <code>RPiKeyboardConfig</code> is the official library that talks directly to the keyboard's lighting system. The final line initializes that library so we can start sending it commands.</p>
@@ -1541,7 +1563,7 @@ Successfully installed rpi-keyboard-config-1.0
 <div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="c1"># Generate a random number between 1 and 5</span>
     <span class="n">random_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Random number: </span><span class="si">{</span><span class="n">random_number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Random number: </span><span class="si">{</span><span class="n">random_number</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <p>This loop keeps the script running continuously. Each pass it rolls a new random number between 1 and 5. This is how we decide when to do our "flash" effect — only when the number comes up 3.</p>
 <p>Inside that condition, the magic happens:</p>
@@ -1572,7 +1594,7 @@ Successfully installed rpi-keyboard-config-1.0
         <span class="c1"># 6) Restore preset</span>
         <span class="k">if</span> <span class="n">current_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">keyboard</span><span class="o">.</span><span class="n">set_current_preset_index</span><span class="p">(</span><span class="n">current_idx</span><span class="p">,</span> <span class="n">save_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Restored preset index </span><span class="si">{</span><span class="n">current_idx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Restored preset index </span><span class="si">{</span><span class="n">current_idx</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <p>This brief pause keeps the flash visible, then the script wipes the LEDs and reloads your saved preset so it looks exactly how it did before.</p>
 <p>Finally, we wait a second before running the next loop.</p>

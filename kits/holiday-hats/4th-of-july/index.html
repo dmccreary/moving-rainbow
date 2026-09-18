@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1646,6 +1666,8 @@
       
         
       
+        
+      
     
     
     
@@ -2040,10 +2062,10 @@
 <p>This hat features a set of red, white and blue colors in
 alternating patterns.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># moving rainbow</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
-<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urandom</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>
@@ -2082,20 +2104,20 @@ alternating patterns.</p>
 <span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">level_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
 
-<span class="n">mode_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;moving rainbow&#39;</span><span class="p">,</span> <span class="s1">&#39;moving red dot&#39;</span><span class="p">,</span> <span class="s1">&#39;moving blue dot&#39;</span><span class="p">,</span> <span class="s1">&#39;moving green dot&#39;</span><span class="p">,</span>
-             <span class="s1">&#39;red commet&#39;</span><span class="p">,</span> <span class="s1">&#39;blue commet&#39;</span><span class="p">,</span> <span class="s1">&#39;green commet&#39;</span><span class="p">,</span> <span class="s1">&#39;candle flicker&#39;</span><span class="p">,</span> <span class="s1">&#39;random dots&#39;</span><span class="p">,</span> <span class="s1">&#39;bounce&#39;</span><span class="p">,</span>
-             <span class="s1">&#39;running lights&#39;</span><span class="p">,</span> <span class="s1">&#39;rainbow cycle&#39;</span><span class="p">,</span> <span class="s1">&#39;cylon scanner&#39;</span><span class="p">]</span>
+<span class="n">mode_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'moving rainbow'</span><span class="p">,</span> <span class="s1">'moving red dot'</span><span class="p">,</span> <span class="s1">'moving blue dot'</span><span class="p">,</span> <span class="s1">'moving green dot'</span><span class="p">,</span>
+             <span class="s1">'red commet'</span><span class="p">,</span> <span class="s1">'blue commet'</span><span class="p">,</span> <span class="s1">'green commet'</span><span class="p">,</span> <span class="s1">'candle flicker'</span><span class="p">,</span> <span class="s1">'random dots'</span><span class="p">,</span> <span class="s1">'bounce'</span><span class="p">,</span>
+             <span class="s1">'running lights'</span><span class="p">,</span> <span class="s1">'rainbow cycle'</span><span class="p">,</span> <span class="s1">'cylon scanner'</span><span class="p">]</span>
 <span class="n">mode_count</span> <span class="o">=</span> <span class="mi">16</span> <span class="c1"># len(mode_list)</span>
 
-<span class="c1"># This function gets called every time the button is pressed.  The parameter &quot;pin&quot; is used to tell</span>
+<span class="c1"># This function gets called every time the button is pressed.  The parameter "pin" is used to tell</span>
 <span class="c1"># which pin is used</span>
-<span class="k">def</span> <span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">mode</span><span class="p">,</span> <span class="n">last_time</span>
     <span class="n">new_time</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
     <span class="c1"># if it has been more that 1/5 of a second since the last event, we have a new event</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">new_time</span> <span class="o">-</span> <span class="n">last_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
         <span class="c1"># print(pin)</span>
-        <span class="c1"># this is a hack but I can&#39;t get the pin ID parameter without vars() or attr()</span>
+        <span class="c1"># this is a hack but I can't get the pin ID parameter without vars() or attr()</span>
         <span class="n">pin_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pin</span><span class="p">)[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
         <span class="c1"># this works as long as one of the buttons is this one</span>
         <span class="k">if</span> <span class="n">pin_num</span> <span class="o">==</span> <span class="n">BUTTON_PIN_1</span><span class="p">:</span>
@@ -2110,7 +2132,7 @@ alternating patterns.</p>
 <span class="n">button1</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button_pressed_handler</span><span class="p">)</span>
 <span class="n">button2</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">button_pressed_handler</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="c1"># Input a value 0 to 255 to get a color value.</span>
     <span class="c1"># The colors are a transition r - g - b - back to r.</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
@@ -2124,18 +2146,18 @@ alternating patterns.</p>
     <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>    
 
 <span class="c1"># erase the entire strip</span>
-<span class="k">def</span> <span class="nf">erase</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">erase</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">move_dot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">move_dot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
     <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">comet_tail</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">comet_tail</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color_count</span><span class="p">):</span>
         <span class="c1"># we start to draw at the head of the commet N levels away from the counter</span>
         <span class="n">target</span> <span class="o">=</span> <span class="p">((</span><span class="n">level_count</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">counter</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
@@ -2150,7 +2172,7 @@ alternating patterns.</p>
         <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">moving_rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">moving_rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">RAINBOW_LENGTH</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">color_index</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">PERCENT_SMALL_COLOR_WHEEL</span><span class="p">)</span>
         <span class="n">color</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">color_index</span><span class="p">)</span>
@@ -2170,21 +2192,21 @@ alternating patterns.</p>
         <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">candle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">candle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
      <span class="n">green</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">155</span><span class="p">)</span>
      <span class="n">red</span> <span class="o">=</span> <span class="n">green</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
      <span class="n">strip</span><span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
      <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
      <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">random_color</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">random_color</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="n">random_offset</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">random_color</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
     <span class="n">strip</span><span class="p">[</span><span class="n">random_offset</span><span class="p">]</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">random_color</span><span class="p">)</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">random_red_white_blue</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">random_red_white_blue</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
         <span class="n">random_offset</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">random_color</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -2198,7 +2220,7 @@ alternating patterns.</p>
         <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="n">HALF_LENGTH</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">bounce</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bounce</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="n">HALF_LENGTH</span><span class="p">:</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
@@ -2215,7 +2237,7 @@ alternating patterns.</p>
         <span class="n">strip</span><span class="p">[</span><span class="n">HALF_LENGTH</span> <span class="o">+</span> <span class="n">half_counter</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">counter</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">spacing</span><span class="p">:</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -2224,7 +2246,7 @@ alternating patterns.</p>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">rainbow_cycle</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rainbow_cycle</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">color_index</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">PERCENT_COLOR_WHEEL</span><span class="p">)</span>
         <span class="n">color</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">color_index</span><span class="p">)</span>
@@ -2235,10 +2257,10 @@ alternating patterns.</p>
 
 <span class="c1"># 0=fwd, 1=rev</span>
 <span class="n">state</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">def</span> <span class="nf">cylon_scanner</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cylon_scanner</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">counter</span><span class="p">,</span> <span class="n">state</span>
     <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1">#print(&#39;going forward&#39;, counter)</span>
+        <span class="c1">#print('going forward', counter)</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_light</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_med</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">red</span>
@@ -2252,11 +2274,11 @@ alternating patterns.</p>
         <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span>
             <span class="n">state</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="c1">#print(&#39;go to reverse&#39;, state)</span>
+            <span class="c1">#print('go to reverse', state)</span>
             <span class="k">return</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">NUMBER_PIXELS</span><span class="o">-</span><span class="n">counter</span> <span class="o">-</span> <span class="mi">5</span>
-        <span class="c1">#print(&#39;in reverse c=&#39;, counter, &#39;i=&#39;, i)</span>
+        <span class="c1">#print('in reverse c=', counter, 'i=', i)</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_light</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_med</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">red</span>
@@ -2272,7 +2294,7 @@ alternating patterns.</p>
         <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">state</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="c1">#print(&#39;switching to forward&#39;, counter)</span>
+            <span class="c1">#print('switching to forward', counter)</span>
 <span class="c1"># Global variables</span>
 <span class="n">mode</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2281,7 +2303,7 @@ alternating patterns.</p>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="c1"># print only on change</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="n">last_mode</span><span class="p">:</span>
-        <span class="c1"># print(&#39;mode=&#39;, mode, &#39;running program&#39;, mode_list[mode])</span>
+        <span class="c1"># print('mode=', mode, 'running program', mode_list[mode])</span>
         <span class="n">last_mode</span> <span class="o">=</span> <span class="n">mode</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">moving_rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
@@ -2316,7 +2338,7 @@ alternating patterns.</p>
     <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">16</span><span class="p">:</span> 
         <span class="n">cylon_scanner</span><span class="p">(</span><span class="mf">.05</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="s1">&#39;not configured&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'mode'</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="s1">'not configured'</span><span class="p">)</span>
 
     <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="c1"># wrap the counter using modulo</span>

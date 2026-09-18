@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1258,6 +1278,8 @@
       
         
       
+        
+      
     
     
     
@@ -1712,9 +1734,9 @@
 <p>Imagine trying to turn up the volume on a speaker: without correction, it might feel like the volume jumps too quickly, while with correction, the sound would get louder in a smooth and controlled way.</p>
 <p>In short, <strong>Gamma Correction</strong> is like a tool that smooths out the changes in brightness so the LED looks like it's getting brighter in a way that feels natural to your eyes.</p>
 <h2 id="python-function-to-do-gamma-correction">Python Function to Do Gamma Correction</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span><span class="p">,</span> <span class="n">ADC</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span><span class="p">,</span> <span class="n">ADC</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="c1"># Setup PWM pin</span>
 <span class="n">pwm_pin</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>  <span class="c1"># PWM pin connected to the base of the 2N2222 (e.g., GP15)</span>
@@ -1724,18 +1746,18 @@
 <span class="n">adc_pin</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>  <span class="c1"># Photoresistor connected to ADC pin (e.g., GP26)</span>
 
 <span class="c1"># Gamma correction function</span>
-<span class="k">def</span> <span class="nf">gamma_correct</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gamma_correct</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
     <span class="n">normalized</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">255</span>  <span class="c1"># normalize input to range 0-1</span>
     <span class="n">corrected</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>  <span class="c1"># apply gamma correction</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">corrected</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>  <span class="c1"># scale back to range 0-255</span>
 
 <span class="c1"># Function to set PWM duty cycle with Gamma Correction</span>
-<span class="k">def</span> <span class="nf">set_led_brightness</span><span class="p">(</span><span class="n">brightness</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.2</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_led_brightness</span><span class="p">(</span><span class="n">brightness</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.2</span><span class="p">):</span>
     <span class="n">corrected_brightness</span> <span class="o">=</span> <span class="n">gamma_correct</span><span class="p">(</span><span class="n">brightness</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>
     <span class="n">pwm_pin</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">corrected_brightness</span> <span class="o">*</span> <span class="mi">65535</span> <span class="o">/</span> <span class="mi">255</span><span class="p">))</span>  <span class="c1"># Set corrected PWM value</span>
 
 <span class="c1"># Test the setup by sweeping brightness values</span>
-<span class="k">def</span> <span class="nf">sweep_brightness</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sweep_brightness</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
         <span class="n">set_led_brightness</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Increase brightness</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
@@ -1744,21 +1766,21 @@
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
 
 <span class="c1"># Function to read the photoresistor value</span>
-<span class="k">def</span> <span class="nf">read_brightness</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_brightness</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">adc_pin</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>  <span class="c1"># Returns a value from 0 to 65535</span>
 
 <span class="c1"># Main loop to demonstrate brightness control</span>
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">gamma</span> <span class="o">=</span> <span class="mf">2.2</span>  <span class="c1"># Initial gamma value</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">brightness</span> <span class="o">=</span> <span class="mi">128</span>  <span class="c1"># Example fixed brightness level (can modify to test)</span>
         <span class="n">set_led_brightness</span><span class="p">(</span><span class="n">brightness</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>
         <span class="n">measured_light</span> <span class="o">=</span> <span class="n">read_brightness</span><span class="p">()</span>  <span class="c1"># Measure the actual brightness using photoresistor</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Measured light: </span><span class="si">{</span><span class="n">measured_light</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Display brightness reading</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Measured light: </span><span class="si">{</span><span class="n">measured_light</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># Display brightness reading</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Start the program</span>
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="explanation-of-code">Explanation of Code:</h3>

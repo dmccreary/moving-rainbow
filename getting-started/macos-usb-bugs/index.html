@@ -962,6 +962,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1346,6 +1366,8 @@
       
         
           
+        
+      
         
       
         
@@ -1862,7 +1884,7 @@ issues and the exact steps to work around them.</p>
 <p>You should see a device like <code>/dev/cu.usbmodem14301</code>. If you only see
 Bluetooth entries, the Pico is not being detected.</p>
 <p>Next, check whether the Mac can see it at the USB hardware level:</p>
-<div class="highlight"><pre><span></span><code>ioreg<span class="w"> </span>-p<span class="w"> </span>IOUSB<span class="w"> </span>-l<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;idVendor|USB Product Name&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;Apple\|1452&quot;</span>
+<div class="highlight"><pre><span></span><code>ioreg<span class="w"> </span>-p<span class="w"> </span>IOUSB<span class="w"> </span>-l<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">"idVendor|USB Product Name"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">"Apple\|1452"</span>
 </code></pre></div>
 <ul>
 <li><strong>Nothing appears</strong> → USB enumeration is completely blocked (see macOS 26 bug below).</li>

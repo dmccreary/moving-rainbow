@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1925,6 +1945,8 @@
       
         
       
+        
+      
     
     
     
@@ -2445,11 +2467,11 @@ dot one pixel in the current direction.</p>
 the pin number and pixel count for your box. The strip is on <strong>GPIO 0</strong> (a pin
 on the chip) and has 12 pixels.</p>
 <p>Here is the setup at the top of the file.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
 
-<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 

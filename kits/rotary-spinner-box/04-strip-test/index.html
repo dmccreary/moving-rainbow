@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1925,6 +1945,8 @@
       
         
       
+        
+      
     
     
     
@@ -2435,11 +2457,11 @@ this up!</p>
 <h2 id="setting-up-the-strip">Setting Up the Strip</h2>
 <p>The <strong>LED strip</strong> (a line of 12 colored lights) plugs into pin 0 of the Pico.
 Our program loads a few tools and then makes a strip object we can control.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
 
-<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="c1"># Create the strip object so we can control all 12 lights</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
@@ -2454,7 +2476,7 @@ starts at 0, so 12 pixels are numbered 0 through 11.</p>
 a while. Instead, we write a <strong>helper function</strong> (a named block of code we can
 reuse) called <code>fill</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Helper: set every pixel to the same color and show it</span>
-<span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -2485,23 +2507,23 @@ iteration.</p>
 numbers go from 0 to 255. We use 50, a gentle brightness that's kind to your
 eyes. Here is the main loop that paints the strip.</p>
 <div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Red&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Red'</span><span class="p">)</span>
     <span class="n">fill</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Green&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Green'</span><span class="p">)</span>
     <span class="n">fill</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Blue&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Blue'</span><span class="p">)</span>
     <span class="n">fill</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;White&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'White'</span><span class="p">)</span>
     <span class="n">fill</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Off&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Off'</span><span class="p">)</span>
     <span class="n">fill</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>

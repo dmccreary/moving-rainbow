@@ -1247,6 +1247,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1631,6 +1651,8 @@
       
         
           
+        
+      
         
       
         
@@ -2369,14 +2391,14 @@ Welcome to Chapter 11! Math powers every animation effect. The comet tail, the b
 <p>Before the formula, here's the concept: if you're traveling from point A (value 0) to point B (value 100), after going 30% of the way, you're at 30. After 70%, you're at 70. The formula:</p>
 <div class="arithmatex">\[ \text{lerp}(a, b, t) = a + t \times (b - a) \]</div>
 <p>Where <code>t</code> goes from 0.0 (start at <code>a</code>) to 1.0 (arrive at <code>b</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">lerp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">lerp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
 
 <span class="c1"># 50% of the way from 0 to 255</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>   <span class="c1"># → 127.5</span>
 </code></pre></div>
 <p><strong>Color interpolation</strong> applies lerp to each RGB channel separately. This creates a <strong>smooth color transition</strong> between two colors:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">lerp_color</span><span class="p">(</span><span class="n">color_a</span><span class="p">,</span> <span class="n">color_b</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">lerp_color</span><span class="p">(</span><span class="n">color_a</span><span class="p">,</span> <span class="n">color_b</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="n">color_a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color_b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">))</span>
     <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="n">color_a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color_b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">))</span>
     <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">lerp</span><span class="p">(</span><span class="n">color_a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color_b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">t</span><span class="p">))</span>
@@ -2402,7 +2424,7 @@ The <code>t</code> value in LERP is always between 0.0 and 1.0. If you compute <
 <hr />
 <h2 id="sine-wave-function">Sine Wave Function</h2>
 <p>The <strong>sine wave function</strong> produces a smoothly oscillating value that cycles between -1.0 and 1.0. Import it from Python's <code>math</code> module:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="n">value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_in_radians</span><span class="p">)</span>   <span class="c1"># returns a float from -1.0 to 1.0</span>
 </code></pre></div>
 <p>A <strong>radian</strong> is a unit of angle. One full revolution = 2π radians ≈ 6.28 radians. As the angle increases from 0 to 6.28, <code>math.sin()</code> produces one complete wave.</p>
@@ -2411,8 +2433,8 @@ The <code>t</code> value in LERP is always between 0.0 and 1.0. If you compute <
 - <code>time_step</code> increases over each loop iteration
 - <code>math.sin(time_step)</code> produces a value from -1 to +1
 - We convert that to a brightness from 0 to 255</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">time_step</span> <span class="o">=</span> <span class="mf">0.0</span>
 
@@ -2463,7 +2485,7 @@ The <code>t</code> value in LERP is always between 0.0 and 1.0. If you compute <
 <p><strong>Random number generation</strong> in Python uses the <code>urandom</code> module on MicroPython. A key concept: computers can't produce truly random numbers — they produce <strong>pseudorandom numbers</strong> that appear random but are generated by a formula.</p>
 <p><strong>Uniform distribution</strong> means every value in the range is equally likely. <code>urandom.randint(0, 255)</code> has equal probability of returning 0, 127, or 255 — or any other value in between.</p>
 <p><strong>Weighted random selection</strong> makes some outcomes more likely. One simple approach: build a list with the most common value repeated multiple times, then pick randomly from it:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urandom</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urandom</span>
 
 <span class="c1"># Red appears 5× more often than blue or green</span>
 <span class="n">weighted_choices</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">1</span>
@@ -2477,7 +2499,7 @@ The <code>t</code> value in LERP is always between 0.0 and 1.0. If you compute <
 <div class="highlight"><pre><span></span><code><span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">4.9</span><span class="p">)</span>   <span class="c1"># → 4 (rounded down)</span>
 </code></pre></div>
 <p><strong>Ceiling function</strong> <code>math.ceil()</code> — rounds <em>up</em> to the nearest integer:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="n">index</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">4.1</span><span class="p">)</span>   <span class="c1"># → 5 (rounded up)</span>
 </code></pre></div>
 <p><strong>Absolute value function</strong> <code>abs()</code> — returns the non-negative version of a number. Use it to measure distance without caring about direction:</p>
@@ -2502,8 +2524,8 @@ The <code>t</code> value in LERP is always between 0.0 and 1.0. If you compute <
 <hr />
 <h2 id="putting-it-together-smooth-gradient-with-breathing">Putting It Together: Smooth Gradient with Breathing</h2>
 <p>This final example combines normalization, LERP, and sine waves to create a gradient that breathes:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">time_step</span> <span class="o">=</span> <span class="mf">0.0</span>
 

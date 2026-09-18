@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2161,6 +2181,8 @@
       
         
       
+        
+      
     
     
     
@@ -2675,10 +2697,10 @@
 <p>Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.</p>
 <h2 id="iframe-embed-code">Iframe Embed Code</h2>
 <p>You can place this MicroSim on any web page by adding the following HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/moving-rainbow/sims/variable-scope-explorer/main.html&quot;</span>
-        <span class="na">height</span><span class="o">=</span><span class="s">&quot;432px&quot;</span>
-        <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
-        <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/moving-rainbow/sims/variable-scope-explorer/main.html"</span>
+        <span class="na">height</span><span class="o">=</span><span class="s">"432px"</span>
+        <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span>
+        <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="lesson-plan">Lesson Plan</h2>
 <h3 id="grade-level">Grade Level</h3>
@@ -2713,15 +2735,15 @@ Bloom Level: Understand (L2)
 Bloom Verb: differentiate, classify, identify
 Learning Objective: Students differentiate local from global variables by clicking variable names in a complete program and seeing which scope zone each variable belongs to, with a plain-English explanation of why.
 
-Instructional Rationale: Differentiate (L2) is served by a classify-on-click pattern: the student examines a full program, clicks a variable name, and the sim highlights the scope zone that contains it with an explanation. This makes scope concrete and spatial — students build an accurate mental map of what&#39;s visible where — rather than abstract.
+Instructional Rationale: Differentiate (L2) is served by a classify-on-click pattern: the student examines a full program, clicks a variable name, and the sim highlights the scope zone that contains it with an explanation. This makes scope concrete and spatial — students build an accurate mental map of what's visible where — rather than abstract.
 
 Canvas layout:
 - Left panel (60%): A complete Python program with two functions displayed in monospace font on a dark background. Each variable name occurrence is rendered as a clickable highlighted span.
 - Right panel (40%): Scope Inspector showing:
   - Variable name (e.g., `scaled`)
-  - Scope type: &quot;LOCAL — lives only inside `fill_color()`&quot;
-  - Explanation: &quot;This variable was created inside a function. Python deletes it when the function ends.&quot;
-  - Visual diagram: A nested rectangle diagram — outer rectangle labeled &quot;Program (global scope)&quot;, inner rectangle labeled &quot;fill_color function (local scope)&quot;, with the clicked variable highlighted inside its correct box
+  - Scope type: "LOCAL — lives only inside `fill_color()`"
+  - Explanation: "This variable was created inside a function. Python deletes it when the function ends."
+  - Visual diagram: A nested rectangle diagram — outer rectangle labeled "Program (global scope)", inner rectangle labeled "fill_color function (local scope)", with the clicked variable highlighted inside its correct box
 
 Code displayed (same for both panels):
 ```python

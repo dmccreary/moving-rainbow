@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1943,6 +1963,8 @@
       
         
       
+        
+      
     
     
     
@@ -2482,12 +2504,12 @@ code pick up right where it left off.</p>
 <h2 id="setting-up-the-interrupt">Setting Up the Interrupt</h2>
 <p>First the program imports its tools and builds the strip. It also picks a
 color and sets the starting speed.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
 
-<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
@@ -2516,7 +2538,7 @@ means "slower." Nothing happens on screen yet.</p>
 <h2 id="the-callback-runs-in-the-background">The Callback Runs in the Background</h2>
 <p>A <strong>callback</strong> is a function that the chip runs for you at the right moment.
 We do not call it ourselves. The chip calls it the instant a button is pressed.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">button_callback</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">button_callback</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">delay</span><span class="p">,</span> <span class="n">last_time</span>
     <span class="n">new_time</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">new_time</span><span class="p">,</span> <span class="n">last_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
@@ -2526,7 +2548,7 @@ We do not call it ourselves. The chip calls it the instant a button is pressed.<
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># slower means a bigger delay</span>
             <span class="n">delay</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">delay</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">MAX_DELAY</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;delay:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;seconds&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'delay:'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s1">'seconds'</span><span class="p">)</span>
         <span class="n">last_time</span> <span class="o">=</span> <span class="n">new_time</span>
 </code></pre></div>
 <p>When you press a button, this code changes <code>delay</code> and then ends right away.</p>

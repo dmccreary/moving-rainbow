@@ -1355,6 +1355,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1739,6 +1759,8 @@
       
         
           
+        
+      
         
       
         
@@ -2505,18 +2527,18 @@ Welcome to Chapter 2! We're about to learn the building blocks of every Python p
 <p>Python was created in 1991 by Guido van Rossum. It's now one of the most popular languages in the world. Scientists, game developers, and makers all use it.</p>
 <p>We use a special version called <strong>MicroPython</strong>. MicroPython is Python that runs on tiny computers like the Raspberry Pi Pico. It packs almost all of Python's features into a very small space.</p>
 <p>Here's the simplest Python program you can write. This single line prints a greeting to the screen:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>   <span class="c1"># This line shows text in the Shell panel</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, world!"</span><span class="p">)</span>   <span class="c1"># This line shows text in the Shell panel</span>
 </code></pre></div>
 <p>Run it in Thonny's Shell. You should see <code>Hello, world!</code> appear immediately.</p>
 <h2 id="variables-named-storage">Variables: Named Storage</h2>
 <p>A <strong>variable</strong> is a named storage spot for a piece of information. Think of it like a labeled box. You put something inside, give the box a name, and use that name whenever you need what's inside.</p>
 <p><strong>Variable assignment</strong> means placing a value into a variable. In Python, you use the equals sign (<code>=</code>) to assign a value. The variable name goes on the left, and the value goes on the right:</p>
-<div class="highlight"><pre><span></span><code><span class="n">color_name</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>       <span class="c1"># Store the text &quot;red&quot; in color_name</span>
+<div class="highlight"><pre><span></span><code><span class="n">color_name</span> <span class="o">=</span> <span class="s2">"red"</span>       <span class="c1"># Store the text "red" in color_name</span>
 <span class="n">led_brightness</span> <span class="o">=</span> <span class="mi">200</span>     <span class="c1"># Store the number 200 in led_brightness</span>
 <span class="n">is_on</span> <span class="o">=</span> <span class="kc">True</span>             <span class="c1"># Store True in is_on</span>
 </code></pre></div>
 <p>After assignment, you can read the value back by using the variable's name:</p>
-<div class="highlight"><pre><span></span><code><span class="n">color_name</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">color_name</span> <span class="o">=</span> <span class="s2">"red"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">color_name</span><span class="p">)</span>        <span class="c1"># Prints: red</span>
 </code></pre></div>
 <div class="admonition info">
@@ -2590,14 +2612,14 @@ Variable names can use letters, numbers, and underscores. Always start with a le
 <p>Use floats when whole numbers aren't precise enough — like setting brightness to 37.5%.</p>
 <h3 id="strings-text">Strings: Text</h3>
 <p>A <strong>string</strong> is a piece of text. You create a string by wrapping characters in quotation marks — either single quotes (<code>'</code>) or double quotes (<code>"</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="n">color_name</span> <span class="o">=</span> <span class="s2">&quot;rainbow&quot;</span>
-<span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Hello, coder!&#39;</span>
-<span class="n">empty</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>              <span class="c1"># An empty string — still a valid string</span>
+<div class="highlight"><pre><span></span><code><span class="n">color_name</span> <span class="o">=</span> <span class="s2">"rainbow"</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s1">'Hello, coder!'</span>
+<span class="n">empty</span> <span class="o">=</span> <span class="s2">""</span>              <span class="c1"># An empty string — still a valid string</span>
 </code></pre></div>
 <p><strong>String concatenation</strong> means joining two strings together using the <code>+</code> operator. The following code joins two strings and prints the combined result:</p>
-<div class="highlight"><pre><span></span><code><span class="n">first</span> <span class="o">=</span> <span class="s2">&quot;Moving&quot;</span>
-<span class="n">second</span> <span class="o">=</span> <span class="s2">&quot; Rainbow&quot;</span>
-<span class="n">full</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="n">second</span>   <span class="c1"># full is now &quot;Moving Rainbow&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">first</span> <span class="o">=</span> <span class="s2">"Moving"</span>
+<span class="n">second</span> <span class="o">=</span> <span class="s2">" Rainbow"</span>
+<span class="n">full</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="n">second</span>   <span class="c1"># full is now "Moving Rainbow"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">full</span><span class="p">)</span>             <span class="c1"># Prints: Moving Rainbow</span>
 </code></pre></div>
 <h3 id="booleans-true-or-false">Booleans: True or False</h3>
@@ -2633,7 +2655,7 @@ Python counts from 0, not 1. The first item is at index <code>[0]</code>, not <c
 <p><strong>Tuple immutability</strong> means tuples are "locked." You can read items from a tuple, but you can't add, remove, or change them after creation. This is exactly why color constants in NeoPixel code use tuples — you don't want to accidentally overwrite <code>RED</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">RED</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">RED</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>    <span class="c1"># 255 — reading is fine</span>
-<span class="c1"># RED[0] = 128  # This would raise a TypeError — tuples can&#39;t be changed</span>
+<span class="c1"># RED[0] = 128  # This would raise a TypeError — tuples can't be changed</span>
 </code></pre></div>
 <p>You index a tuple the same way you index a list — using <code>[position]</code>.</p>
 <h3 id="none-no-value-yet">None: No Value Yet</h3>
@@ -2703,16 +2725,16 @@ Stage 4: "Next" button advances to a new value</p>
 </ul>
 <p>Now let's see each one in action:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># String to integer</span>
-<span class="n">brightness_text</span> <span class="o">=</span> <span class="s2">&quot;200&quot;</span>               <span class="c1"># This is a string — you can&#39;t do math with it yet</span>
-<span class="n">brightness_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">brightness_text</span><span class="p">)</span>  <span class="c1"># Now it&#39;s the integer 200</span>
+<span class="n">brightness_text</span> <span class="o">=</span> <span class="s2">"200"</span>               <span class="c1"># This is a string — you can't do math with it yet</span>
+<span class="n">brightness_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">brightness_text</span><span class="p">)</span>  <span class="c1"># Now it's the integer 200</span>
 
 <span class="c1"># Integer to float</span>
 <span class="n">speed</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">speed_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>            <span class="c1"># Now it&#39;s 3.0</span>
+<span class="n">speed_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>            <span class="c1"># Now it's 3.0</span>
 
 <span class="c1"># Integer to string</span>
 <span class="n">channel_value</span> <span class="o">=</span> <span class="mi">255</span>
-<span class="n">channel_text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">channel_value</span><span class="p">)</span>     <span class="c1"># Now it&#39;s the string &quot;255&quot;</span>
+<span class="n">channel_text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">channel_value</span><span class="p">)</span>     <span class="c1"># Now it's the string "255"</span>
 </code></pre></div>
 <p>Type conversion matters in NeoPixel code. If a sensor returns a reading as a string, you must convert it to an integer before using it as a color value.</p>
 <div class="admonition tip">
@@ -2738,7 +2760,7 @@ You can check a variable's type with <code>type()</code>. In the REPL, try <code
 <li><code>100 % 3</code> gives <code>1</code> — what's left over after those 33 full groups</li>
 </ul>
 <p>The modulo operator shows up constantly in LED animation. It lets a pixel position wrap around the strip instead of falling off the end:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">position</span> <span class="o">=</span> <span class="mi">47</span>
 <span class="n">strip_length</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>   <span class="c1"># e.g., 30</span>
@@ -2923,24 +2945,24 @@ Stage 4: LED interpretation panel updates with a real NeoPixel context for this 
 <p>Python's built-in features are powerful, but sometimes you need extra tools. That's where <strong>modules</strong> come in.</p>
 <p>A <strong>module</strong> is a collection of ready-made code that someone else wrote and packaged for you to use. Python's <strong>module system</strong> lets you load these tools into your program with a single line.</p>
 <p>An <strong>import statement</strong> loads a module. The syntax is simple: <code>import module_name</code>. After importing, you access the module's functions and values using a dot (<code>.</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># Pause for 1 second — the utime module provides this</span>
 </code></pre></div>
 <p>The four modules you'll use most in this course are:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>      <span class="c1"># Time tools: sleep(), ticks_ms()</span>
-<span class="kn">import</span> <span class="nn">urandom</span>    <span class="c1"># Random numbers: randint()</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>   <span class="c1"># NeoPixel LED control: NeoPixel class</span>
-<span class="kn">import</span> <span class="nn">machine</span>    <span class="c1"># Hardware control: Pin, PWM, ADC</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>      <span class="c1"># Time tools: sleep(), ticks_ms()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urandom</span>    <span class="c1"># Random numbers: randint()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>   <span class="c1"># NeoPixel LED control: NeoPixel class</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>    <span class="c1"># Hardware control: Pin, PWM, ADC</span>
 </code></pre></div>
 <p>We also import a <code>config</code> module that stores your hardware settings — things like how many LEDs are on your strip:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>   <span class="c1"># e.g., 30 — how many LEDs</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">)</span>    <span class="c1"># The GPIO pin the strip connects to</span>
 </code></pre></div>
 <p>Here's a complete short program that uses imports to blink all LEDs red for one second:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="c1"># Create the strip object</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
@@ -2974,16 +2996,16 @@ Imports might feel like magic at first — they're not. They're shortcuts! Inste
 <div class="highlight"><pre><span></span><code><span class="c1"># CORRECT — lines inside the if block are indented 4 spaces</span>
 <span class="n">is_on</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">if</span> <span class="n">is_on</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LED is on!&quot;</span><span class="p">)</span>     <span class="c1"># 4 spaces — inside the if block</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Glowing bright&quot;</span><span class="p">)</span> <span class="c1"># 4 spaces — still inside the block</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Always runs&quot;</span><span class="p">)</span>        <span class="c1"># 0 spaces — outside the if block</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"LED is on!"</span><span class="p">)</span>     <span class="c1"># 4 spaces — inside the if block</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Glowing bright"</span><span class="p">)</span> <span class="c1"># 4 spaces — still inside the block</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Always runs"</span><span class="p">)</span>        <span class="c1"># 0 spaces — outside the if block</span>
 </code></pre></div>
 <p>The standard is <strong>4 spaces</strong> per indentation level. Thonny adds them automatically when you press Enter after <code>if</code>, <code>for</code>, <code>while</code>, or <code>def</code>. Do not mix tabs and spaces — Python treats them as different sizes and raises an error.</p>
 <p>Here's what a wrong indentation looks like:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># WRONG — IndentationError!</span>
 <span class="n">is_on</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">if</span> <span class="n">is_on</span><span class="p">:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LED is on!&quot;</span><span class="p">)</span>    <span class="c1"># Missing indentation — Python won&#39;t run this</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"LED is on!"</span><span class="p">)</span>    <span class="c1"># Missing indentation — Python won't run this</span>
 </code></pre></div>
 <p>Try this in Thonny and you'll see <code>IndentationError: expected an indented block</code>. That error is Python's way of saying "I expected indented lines here."</p>
 <p>Let's explore correct and incorrect indentation visually:</p>
@@ -3014,26 +3036,26 @@ Learning Objective: Students identify which lines of a Python snippet are correc
 <p>Example 1 (correct — single if block):
 <div class="highlight"><pre><span></span><code>is_on = True
 if is_on:
-    print(&quot;LED is on&quot;)
-    print(&quot;Glowing!&quot;)
-print(&quot;Outside the if block&quot;)
+    print("LED is on")
+    print("Glowing!")
+print("Outside the if block")
 </code></pre></div></p>
 <p>Example 2 (error — missing indentation):
 <div class="highlight"><pre><span></span><code>brightness = 100
 if brightness &gt; 50:
-print(&quot;Bright!&quot;)
+print("Bright!")
 </code></pre></div>
 Error on line 3: should be indented 4 spaces.</p>
 <p>Example 3 (correct — nested blocks):
 <div class="highlight"><pre><span></span><code>for i in range(30):
     if i % 2 == 0:
-        print(&quot;Even pixel:&quot;, i)
-    print(&quot;Pixel:&quot;, i)
+        print("Even pixel:", i)
+    print("Pixel:", i)
 </code></pre></div></p>
 <p>Example 4 (error — inconsistent indentation):
 <div class="highlight"><pre><span></span><code>for i in range(5):
     print(i)
-      print(&quot;extra spaces&quot;)
+      print("extra spaces")
 </code></pre></div>
 Error on line 3: 6 spaces instead of 4.</p>
 <p>Interactive features:
@@ -3047,8 +3069,8 @@ Error on line 3: 6 spaces instead of 4.</p>
 <p>A <strong>comment</strong> is a note inside your code that Python completely ignores. Comments are for humans — they help you (and your teammates) understand what code does and why.</p>
 <p>You create a comment with the hash symbol <code>#</code>. Everything to the right of <code>#</code> on that line is ignored by Python:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Set up the LED strip — this runs once when the program starts</span>
-<span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
@@ -3067,7 +3089,7 @@ Error on line 3: 6 spaces instead of 4.</p>
 <p><strong>Challenge 1 — Four Types:</strong> Create four variables, one of each type: an integer, a float, a string, and a boolean. Name each variable to describe an LED project property. Add a comment on each line. Then print all four variables.</p>
 <p><strong>Challenge 2 — Wrap the Pixel:</strong> A moving pixel starts at position 0 and jumps by 7 steps at a time. Your strip has 30 LEDs. Write a program that prints the pixel's position after each of 6 jumps — and wraps it around the strip using the modulo operator so it never goes past position 29.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Starter code for Challenge 2</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip_length</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>   <span class="c1"># 30 LEDs</span>
 <span class="n">step_size</span> <span class="o">=</span> <span class="mi">7</span>
@@ -3075,7 +3097,7 @@ Error on line 3: 6 spaces instead of 4.</p>
 
 <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
     <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="n">position</span> <span class="o">+</span> <span class="n">step_size</span><span class="p">)</span> <span class="o">%</span> <span class="n">strip_length</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jump&quot;</span><span class="p">,</span> <span class="n">step</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;→ position&quot;</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Jump"</span><span class="p">,</span> <span class="n">step</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"→ position"</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span>
 </code></pre></div>
 <p>Run this and you should see six position values, all between 0 and 29.</p>
 <h2 id="check-your-understanding">Check Your Understanding</h2>
@@ -3099,7 +3121,7 @@ Error on line 3: 6 spaces instead of 4.</p>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="n">brightness</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="k">if</span> <span class="n">brightness</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bright!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Bright!"</span><span class="p">)</span>
 </code></pre></div>
 <details class="question">
 <summary>Show answers</summary>

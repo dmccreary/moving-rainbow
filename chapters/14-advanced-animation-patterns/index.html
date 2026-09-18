@@ -1229,6 +1229,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1613,6 +1633,8 @@
       
         
           
+        
+      
         
       
         
@@ -2301,9 +2323,9 @@ Welcome to Chapter 14! These are the advanced patterns — the ones people remem
 - Phase 2: ramp up fast (bright flash 2, slightly smaller)
 - Phase 3: ramp down fast
 - Phase 4: long pause at darkness</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span>
 
-<span class="k">def</span> <span class="nf">heartbeat_value</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">total_phases</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">heartbeat_value</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">total_phases</span><span class="p">):</span>
     <span class="c1"># Returns brightness 0-255 for a given phase position</span>
     <span class="k">if</span> <span class="n">phase</span> <span class="o">&lt;</span> <span class="n">total_phases</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">phase</span> <span class="o">/</span> <span class="p">(</span><span class="n">total_phases</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>   <span class="c1"># ramp up fast</span>
@@ -2369,7 +2391,7 @@ The trail length is not a direct setting — it's an emergent property of the de
 <p>Before the code, the <strong>brightness formula</strong> for each pixel:
 - Distance from scan center → 0 = full brightness, higher distance = dimmer
 - The <strong>scanner width parameter</strong> controls how wide the bright spot appears</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="n">scan_pos</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1"># position (float for smooth motion)</span>
 <span class="n">direction</span> <span class="o">=</span> <span class="mf">1.0</span>
@@ -2423,7 +2445,7 @@ The trail length is not a direct setting — it's an emergent property of the de
 <hr />
 <h2 id="sine-based-breathing-effect">Sine-Based Breathing Effect</h2>
 <p>The <strong>Sine-Based Breathing Effect</strong> uses a sine wave to smoothly oscillate all pixel brightness. You learned the math in Chapter 11 — here's the full implementation:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">SPEED</span> <span class="o">=</span> <span class="mf">0.05</span>   <span class="c1"># how fast the breath cycles</span>
@@ -2505,7 +2527,7 @@ The trail length is not a direct setting — it's an emergent property of the de
 <h2 id="pattern-composition">Pattern Composition</h2>
 <p><strong>Pattern composition</strong> means combining two or more simpler animations into one complex effect. The key technique: compute the output from each sub-pattern and blend the results.</p>
 <p>Here's an example: a scanner pattern overlaid with a slow breathing effect.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">scan_pos</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">scan_dir</span> <span class="o">=</span> <span class="mf">0.5</span>

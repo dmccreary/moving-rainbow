@@ -589,6 +589,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -627,6 +647,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1329,6 +1370,195 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-traffic-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traffic Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-binary-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Counter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-charge-up-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charge-Up Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../44-tug-of-war/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tug of War
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45-reaction-duel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reaction Duel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../46-fire-simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fire Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../47-cellular-automaton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cellular Automaton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../48-sorting-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sorting Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../49-binary-search-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Search Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1688,6 +1918,8 @@
       
         
           
+        
+      
         
       
         
@@ -2130,7 +2362,7 @@
 <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">cyan</span><span class="p">,</span> <span class="n">indigo</span><span class="p">,</span> <span class="n">violet</span><span class="p">,</span> <span class="n">white</span><span class="p">)</span>
 </code></pre></div>
 <p>Now with this list</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">color_wipe</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="n">color_delay</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">color_wipe</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="n">color_delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
@@ -2140,10 +2372,10 @@
         <span class="c1"># how long to pause between color changes</span>
         <span class="n">sleep</span><span class="p">(</span><span class="n">color_delay</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="c1"># most people have a heart rate of around 60-70 beats per minute</span>
-<span class="c1"># If you add a once second deplay between &quot;beats&quot; you can make and LED</span>
+<span class="c1"># If you add a once second deplay between "beats" you can make and LED</span>
 <span class="c1"># look like a beating heart.</span>
 
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
@@ -2162,7 +2394,7 @@
 <span class="n">white</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">cyan</span><span class="p">,</span> <span class="n">indigo</span><span class="p">,</span> <span class="n">violet</span><span class="p">,</span> <span class="n">white</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">color_wipe</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="n">color_delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">color_wipe</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="n">color_delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>

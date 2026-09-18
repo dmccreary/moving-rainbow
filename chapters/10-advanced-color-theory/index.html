@@ -1253,6 +1253,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1637,6 +1657,8 @@
       
         
           
+        
+      
         
       
         
@@ -2391,7 +2413,7 @@ Welcome to Chapter 10! You know the RGB model. Now you'll learn its smarter sibl
 <p>To use HSV in your NeoPixel programs, you need to convert between HSV and RGB. The Pico's <code>neopixel</code> library only accepts RGB tuples.</p>
 <h3 id="hsv-to-rgb-conversion">HSV to RGB Conversion</h3>
 <p>This conversion function takes hue (0–360), saturation (0.0–1.0), and value (0.0–1.0) and returns an RGB tuple with values 0–255:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hsv_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hsv_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
     <span class="c1"># h = hue (0-360), s = saturation (0-1), v = value (0-1)</span>
     <span class="c1"># returns (r, g, b) with values 0-255</span>
     <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -2452,14 +2474,14 @@ Gamma correction doesn't change what colors you want — it changes the numbers 
 <h2 id="gamma-lookup-table">Gamma Lookup Table</h2>
 <p>Calculating the gamma formula for every pixel, every frame, on a microcontroller is slow. A smarter approach is a <strong>gamma lookup table</strong> — a pre-calculated list of 256 corrected values, one for each possible input.</p>
 <p>You calculate this table once at startup, then use it with a simple index lookup (fast!) instead of computing the formula each time:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="n">GAMMA</span> <span class="o">=</span> <span class="mf">2.2</span>
 
 <span class="c1"># Build the lookup table once</span>
 <span class="n">gamma_table</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">((</span><span class="n">i</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span> <span class="o">**</span> <span class="n">GAMMA</span> <span class="o">*</span> <span class="mi">255</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">)]</span>
 
-<span class="k">def</span> <span class="nf">apply_gamma</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_gamma</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">gamma_table</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="n">gamma_table</span><span class="p">[</span><span class="n">g</span><span class="p">],</span> <span class="n">gamma_table</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
 
 <span class="c1"># Use it when setting pixels</span>
@@ -2491,7 +2513,7 @@ Gamma correction doesn't change what colors you want — it changes the numbers 
 <span class="p">]</span>
 </code></pre></div>
 <p>Here's a program that cycles through the palette one color per frame, changing the whole strip each step:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">palette</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>

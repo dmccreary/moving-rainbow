@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2161,6 +2181,8 @@
       
         
       
+        
+      
     
     
     
@@ -2675,10 +2697,10 @@
 <p>Click any box or node in the diagram to read what it does. The explanation appears in the panel just below the diagram. Where an <strong>Animate</strong> button is present, press it to step through the sequence.</p>
 <h2 id="iframe-embed-code">Iframe Embed Code</h2>
 <p>You can place this MicroSim on any web page by adding the following HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/moving-rainbow/sims/problem-solving-steps/main.html&quot;</span>
-        <span class="na">height</span><span class="o">=</span><span class="s">&quot;782px&quot;</span>
-        <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
-        <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/moving-rainbow/sims/problem-solving-steps/main.html"</span>
+        <span class="na">height</span><span class="o">=</span><span class="s">"782px"</span>
+        <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span>
+        <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="lesson-plan">Lesson Plan</h2>
 <h3 id="grade-level">Grade Level</h3>
@@ -2709,38 +2731,38 @@
 **Library:** Mermaid&lt;br/&gt;
 **Status:** Specified
 
-**Learning Objective:** Students will *understand* (Bloom&#39;s Level 2) the five-step problem-solving framework and be able to sequence the steps correctly.
+**Learning Objective:** Students will *understand* (Bloom's Level 2) the five-step problem-solving framework and be able to sequence the steps correctly.
 
-**Description:** A vertical Mermaid flowchart (top-down direction) showing five problem-solving steps used by programmers. Every node has a `click` directive that calls a JavaScript function to update a `&lt;div id=&quot;step-info&quot;&gt;` element below the diagram with a one-sentence definition and a one-sentence LED-specific example. Default div text: &quot;Click any step to learn more.&quot;
+**Description:** A vertical Mermaid flowchart (top-down direction) showing five problem-solving steps used by programmers. Every node has a `click` directive that calls a JavaScript function to update a `&lt;div id="step-info"&gt;` element below the diagram with a one-sentence definition and a one-sentence LED-specific example. Default div text: "Click any step to learn more."
 
 **Nodes and click content:**
 
-- **step1** — &quot;Understand the Problem&quot; (stadium shape)
-  Click: &quot;Restate the problem in your own words before touching code. *LED example: &#39;I need 30 LEDs to display a rainbow that scrolls right, one pixel per frame.&#39;*&quot;
+- **step1** — "Understand the Problem" (stadium shape)
+  Click: "Restate the problem in your own words before touching code. *LED example: 'I need 30 LEDs to display a rainbow that scrolls right, one pixel per frame.'*"
 
-- **step2** — &quot;Plan Your Solution&quot; (rectangle)
-  Click: &quot;Write pseudocode or draw a flowchart before opening your editor. *LED example: Pseudocode listing how to calculate each pixel&#39;s color from its position.*&quot;
+- **step2** — "Plan Your Solution" (rectangle)
+  Click: "Write pseudocode or draw a flowchart before opening your editor. *LED example: Pseudocode listing how to calculate each pixel's color from its position.*"
 
-- **step3** — &quot;Write the Code&quot; (rectangle)
-  Click: &quot;Translate your plan into Python one small, testable piece at a time. *LED example: Write just the loop that assigns a hue to each pixel index.*&quot;
+- **step3** — "Write the Code" (rectangle)
+  Click: "Translate your plan into Python one small, testable piece at a time. *LED example: Write just the loop that assigns a hue to each pixel index.*"
 
-- **step4** — &quot;Test and Debug&quot; (diamond shape, question text: &quot;Does it work?&quot;)
-  Click: &quot;Run the program and compare actual output to expected output. *LED example: The rainbow scrolls backward — trace the offset increment sign.*&quot;
+- **step4** — "Test and Debug" (diamond shape, question text: "Does it work?")
+  Click: "Run the program and compare actual output to expected output. *LED example: The rainbow scrolls backward — trace the offset increment sign.*"
 
-- **step5** — &quot;Reflect and Improve&quot; (stadium shape)
-  Click: &quot;Ask: is the code readable? Can it be reused? What would you change? *LED example: Extract the hue formula into a named function for Chapter 9.*&quot;
+- **step5** — "Reflect and Improve" (stadium shape)
+  Click: "Ask: is the code readable? Can it be reused? What would you change? *LED example: Extract the hue formula into a named function for Chapter 9.*"
 
 **Arrows:**
 - step1 → step2 → step3 → step4 (main flow)
-- step4 → step3 (labeled &quot;bug found&quot;, loops back)
-- step4 → step5 (labeled &quot;it works!&quot;)
-- step5 → step1 (labeled &quot;new challenge&quot;)
+- step4 → step3 (labeled "bug found", loops back)
+- step4 → step5 (labeled "it works!")
+- step5 → step1 (labeled "new challenge")
 
-**Info box:** A `&lt;div id=&quot;step-info&quot;&gt;` below the Mermaid `&lt;div&gt;`, styled with a light-purple background, rounded corners, and 1em padding. Updated by `showStepInfo(id)` JavaScript function triggered by Mermaid `click` directives.
+**Info box:** A `&lt;div id="step-info"&gt;` below the Mermaid `&lt;div&gt;`, styled with a light-purple background, rounded corners, and 1em padding. Updated by `showStepInfo(id)` JavaScript function triggered by Mermaid `click` directives.
 
 **Visual style:** Node fill: purple (#642580), white text. Arrow labels styled in teal (#41BAC1). Direction: `flowchart TD`.
 
-Implementation: Mermaid 10.x `&lt;div class=&quot;mermaid&quot;&gt;` block. Companion `&lt;script&gt;` block defines `window.showStepInfo(id)` as a global function mapping node ids to content strings, and sets the innerHTML of `#step-info`. The Mermaid `click` directive uses: `click step1 showStepInfo &quot;step1&quot;`.
+Implementation: Mermaid 10.x `&lt;div class="mermaid"&gt;` block. Companion `&lt;script&gt;` block defines `window.showStepInfo(id)` as a global function mapping node ids to content strings, and sets the innerHTML of `#step-info`. The Mermaid `click` directive uses: `click step1 showStepInfo "step1"`.
 </code></pre></div>
 </details>
 

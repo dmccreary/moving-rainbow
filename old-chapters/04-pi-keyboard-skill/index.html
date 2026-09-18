@@ -583,6 +583,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -967,6 +987,8 @@
       
         
           
+        
+      
         
       
         
@@ -1424,11 +1446,11 @@ open is the <a href="../../glossary/#thonny">Thonny</a> editor.</p>
 </div>
 <p>The prompt above will generate the following code:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">Blink the F1 key red on and off with a 0.5 second delay.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">RPiKeyboardConfig</span> <span class="kn">import</span> <span class="n">RPiKeyboardConfig</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<span class="sd">"""</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">RPiKeyboardConfig</span><span class="w"> </span><span class="kn">import</span> <span class="n">RPiKeyboardConfig</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="c1"># F1 key matrix position</span>
 <span class="n">F1_KEY</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
@@ -1440,7 +1462,7 @@ open is the <a href="../../glossary/#thonny">Thonny</a> editor.</p>
 <span class="c1"># Blink delay in seconds</span>
 <span class="n">DELAY</span> <span class="o">=</span> <span class="mf">0.5</span>
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">keyboard</span> <span class="o">=</span> <span class="n">RPiKeyboardConfig</span><span class="p">()</span>
 
     <span class="k">try</span><span class="p">:</span>
@@ -1450,7 +1472,7 @@ open is the <a href="../../glossary/#thonny">Thonny</a> editor.</p>
         <span class="c1"># Enable direct LED control</span>
         <span class="n">keyboard</span><span class="o">.</span><span class="n">set_led_direct_effect</span><span class="p">()</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blinking F1 key red. Press Ctrl+C to stop.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Blinking F1 key red. Press Ctrl+C to stop."</span><span class="p">)</span>
 
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="c1"># Turn F1 red</span>
@@ -1464,7 +1486,7 @@ open is the <a href="../../glossary/#thonny">Thonny</a> editor.</p>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
 
     <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Interrupted by user&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Interrupted by user"</span><span class="p">)</span>
     <span class="k">finally</span><span class="p">:</span>
         <span class="c1"># Cleanup: restore previous state</span>
         <span class="n">keyboard</span><span class="o">.</span><span class="n">rgb_clear</span><span class="p">()</span>
@@ -1472,7 +1494,7 @@ open is the <a href="../../glossary/#thonny">Thonny</a> editor.</p>
         <span class="n">keyboard</span><span class="o">.</span><span class="n">set_current_preset_index</span><span class="p">(</span><span class="n">current_preset</span><span class="p">,</span> <span class="n">save_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">keyboard</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>You can run the command from our source code here:</p>

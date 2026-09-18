@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2268,6 +2288,8 @@
       
         
       
+        
+      
     
     
     
@@ -2888,7 +2910,7 @@
 <h1 id="pico-light-sensor-circuit">Pico Light Sensor Circuit</h1>
 <iframe src="main.html" height="485" scrolling="no"></iframe>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/moving-rainbow/sims/pico-light-sensor/main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;485px&quot;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/moving-rainbow/sims/pico-light-sensor/main.html"</span> <span class="na">height</span><span class="o">=</span><span class="s">"485px"</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <p><a class="md-button md-button--primary" href="main.html">Run the Pico Light Sensor MicroSim</a>
 <br/>
@@ -2961,8 +2983,8 @@
 </ul>
 <h2 id="micropython-code-example">MicroPython Code Example</h2>
 <p>Here's how to read the light sensor on a real Raspberry Pi Pico:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ADC</span><span class="p">,</span> <span class="n">Pin</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="c1"># Set up ADC on GP26 (ADC0)</span>
 <span class="n">light_sensor</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span>
@@ -2972,7 +2994,7 @@
     <span class="n">raw_value</span> <span class="o">=</span> <span class="n">light_sensor</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>
     <span class="n">adc_value</span> <span class="o">=</span> <span class="n">raw_value</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span>  <span class="c1"># Shift right 8 bits for 0-255 range</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Light sensor ADC value: </span><span class="si">{</span><span class="n">adc_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Light sensor ADC value: </span><span class="si">{</span><span class="n">adc_value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="experimentation">Experimentation</h2>

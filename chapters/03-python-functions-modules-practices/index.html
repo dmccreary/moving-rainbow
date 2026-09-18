@@ -1319,6 +1319,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1703,6 +1723,8 @@
       
         
           
+        
+      
         
       
         
@@ -2484,8 +2506,8 @@ Welcome to Chapter 3! In Chapter 2 you learned how to store and compute with dat
 </tbody>
 </table>
 <p>Let's see <code>len()</code> in a real NeoPixel context. <code>len()</code> counts the items in any list or collection. Here it counts the pixels in our strip:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">))</span>   <span class="c1"># Prints the number of LEDs in the strip, e.g. 30</span>
@@ -2494,9 +2516,9 @@ Welcome to Chapter 3! In Chapter 2 you learned how to store and compute with dat
 <p><code>range()</code> is one you'll use inside almost every <code>for</code> loop. It generates a sequence of integers starting from 0. <code>range(30)</code> generates 0, 1, 2, ... 29 — perfect for stepping through a 30-LED strip one pixel at a time.</p>
 <h2 id="why-write-your-own-functions">Why Write Your Own Functions?</h2>
 <p>Imagine you want to turn all your pixels red, then all green, then all blue. Without a custom function, you'd repeat almost identical code three times:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
@@ -2528,19 +2550,19 @@ How do you spot repeated code? Look for copy-paste patterns — blocks that look
 </div>
 <h2 id="defining-a-function">Defining a Function</h2>
 <p>A <strong>function definition</strong> tells Python: "here is a block of code, and here is its name." You use the <code>def</code> keyword (short for "define"):</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">):</span>
     <span class="c1"># Code that runs when the function is called</span>
     <span class="k">return</span> <span class="n">result</span>
 </code></pre></div>
 <p>The <code>def</code> line must end with a colon (<code>:</code>). Everything indented below it belongs to the function.</p>
 <p>Let's replace the three repeated blocks from above with one function. The function needs to accept a color, fill every pixel, send the update, and pause briefly:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -2571,7 +2593,7 @@ Think of a function like a recipe. The recipe's name is <code>fill_color</code>.
 <span class="c1">#          strip = our NeoPixel object</span>
 </code></pre></div>
 <p>A function can have as many parameters as it needs. A function with no parameters is also valid — just leave the parentheses empty:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clear_strip</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">clear_strip</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -2579,7 +2601,7 @@ Think of a function like a recipe. The recipe's name is <code>fill_color</code>.
 <h3 id="function-return-values">Function Return Values</h3>
 <p>A <strong>function return value</strong> is the result a function sends back to the caller. You use the <code>return</code> keyword followed by the value to send back.</p>
 <p>Not every function needs to return a value. <code>fill_color</code> does its work and that's it. But some functions calculate something you want to use later:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>   <span class="c1"># Scale the red channel</span>
     <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>   <span class="c1"># Scale the green channel</span>
     <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>   <span class="c1"># Scale the blue channel</span>
@@ -2626,7 +2648,7 @@ Learning Objective: Students trace the execution flow of a function call — fro
 <span class="nb">print</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
 
 <span class="c1"># Function body (bottom panel)</span>
-<span class="k">def</span> <span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
     <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
     <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
@@ -2666,7 +2688,7 @@ At each step the State Inspector shows:
 <div class="highlight"><pre><span></span><code><span class="n">NUM_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>        <span class="c1"># Global variable — visible everywhere in the program</span>
 <span class="n">BRIGHTNESS</span> <span class="o">=</span> <span class="mf">0.8</span>       <span class="c1"># Global variable — visible everywhere</span>
 
-<span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="n">pixel_index</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Local variable — only exists inside fill_color</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_PIXELS</span><span class="p">):</span>   <span class="c1"># i is also local — loop variable</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
@@ -2708,13 +2730,13 @@ Learning Objective: Students differentiate local from global variables by clicki
 <div class="highlight"><pre><span></span><code><span class="n">NUM_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>          <span class="c1"># global</span>
 <span class="n">BRIGHTNESS</span> <span class="o">=</span> <span class="mf">0.8</span>         <span class="c1"># global</span>
 
-<span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="n">scaled</span> <span class="o">=</span> <span class="n">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">BRIGHTNESS</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaled</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
     <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
     <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
@@ -2762,11 +2784,11 @@ Learning Objective: Students differentiate local from global variables by clicki
 </code></pre></div>
 <p><strong>Meaningful function names</strong> describe exactly what a function does. A function named <code>f()</code> tells you nothing. A function named <code>fill_strip_with_color()</code> tells you everything:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unclear name</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="o">...</span>
 
 <span class="c1"># Clear name — reads like a sentence</span>
-<span class="k">def</span> <span class="nf">fill_strip_with_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill_strip_with_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="o">...</span>
 </code></pre></div>
 <p>When your main program reads like plain English, you know you have great names:</p>
@@ -2801,7 +2823,7 @@ Learning Objective: Students differentiate local from global variables by clicki
 <p>Our <code>fill_color</code> function is a generalized solution. Instead of being locked to one color, it works with any color you pass in. Instead of assuming 30 pixels, it uses <code>len(strip)</code> to work with any strip length.</p>
 <p><strong>Template-based solving</strong> is closely related. You recognize that a new problem matches a pattern — a template — you've already solved. You adapt the template rather than starting from scratch.</p>
 <p>Here is the general "moving position" template for LED animations:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">move_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">max_pos</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">move_position</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">max_pos</span><span class="p">):</span>
     <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="n">position</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span> <span class="o">%</span> <span class="n">max_pos</span>   <span class="c1"># Wrap using modulo</span>
     <span class="k">return</span> <span class="n">position</span>
 </code></pre></div>
@@ -2903,7 +2925,7 @@ Learning Objective: Students compare repeated code ("Before DRY") with a refacto
 <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div></p>
 <p>After DRY code (right panel):
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -2930,24 +2952,24 @@ Learning Objective: Students compare repeated code ("Before DRY") with a refacto
 <li>When something breaks, you know which function to look in</li>
 </ul>
 <p>Here's a short but complete modular LED program. Notice how the main section at the bottom reads almost like plain English:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
     <span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
     <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">fade_to_black</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fade_to_black</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">factor</span> <span class="o">=</span> <span class="n">step</span> <span class="o">/</span> <span class="n">steps</span>          <span class="c1"># 1.0, 0.9, 0.8 ... 0.1</span>
         <span class="n">dim</span> <span class="o">=</span> <span class="n">scale_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">factor</span><span class="p">)</span>
@@ -2975,7 +2997,7 @@ Learning Objective: Students compare repeated code ("Before DRY") with a refacto
 <li>A position counter that reaches exactly the strip length during a wrap-around animation</li>
 </ul>
 <p>Here's a function that handles a boundary condition safely:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">safe_set_pixel</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">safe_set_pixel</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="c1"># Boundary condition check — index must be a valid position</span>
     <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">):</span>
         <span class="k">return</span>   <span class="c1"># Exit quietly instead of crashing</span>
@@ -2990,9 +3012,9 @@ Boundary conditions feel like a lot to think about — and they are! Good progra
 <h2 id="try-it-yourself">Try It Yourself</h2>
 <p><strong>Challenge 1 — Your First Function:</strong> Write a function called <code>set_single_pixel</code> that takes three parameters: <code>strip</code>, <code>index</code>, and <code>color</code>. It should set the pixel at <code>index</code> to <code>color</code> and call <code>strip.write()</code>. Test it by calling the function three times to light pixels 0, 1, and 2 in three different colors.</p>
 <p><strong>Challenge 2 — DRY Cleanup:</strong> Here is some repeated code. Identify what's repeated, write a function to replace it, then rewrite the code using three function calls.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
@@ -3038,7 +3060,7 @@ Boundary conditions feel like a lot to think about — and they are! Good progra
 <p>A classmate shows you this function. Find two problems with it and explain how you'd fix each one.</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">turn_on</span><span class="p">(</span><span class="n">strip</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">turn_on</span><span class="p">(</span><span class="n">strip</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>          <span class="c1"># 30 is hardcoded</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Color is hardcoded</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>

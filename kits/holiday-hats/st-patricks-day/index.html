@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1721,6 +1741,8 @@
       
         
       
+        
+      
     
     
     
@@ -2201,11 +2223,11 @@ pot of color at the end of your rainbow!</p>
 <h2 id="the-code">The Code</h2>
 <p>Copy this code into a file named <code>main.py</code> on your Pico. It runs all
 8 patterns and lets you switch between them with the two buttons.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># St. Patrick&#39;s Day Hat - green, gold, and white patterns</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
-<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># St. Patrick's Day Hat - green, gold, and white patterns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urandom</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># the data pin for the LED strip</span>
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>     <span class="c1"># how many LEDs are on the hat</span>
@@ -2214,7 +2236,7 @@ pot of color at the end of your rainbow!</p>
 <span class="n">BUTTON_PIN_1</span> <span class="o">=</span> <span class="mi">15</span>      <span class="c1"># next pattern</span>
 <span class="n">BUTTON_PIN_2</span> <span class="o">=</span> <span class="mi">14</span>      <span class="c1"># previous pattern</span>
 
-<span class="c1"># St. Patrick&#39;s Day color palette (red, green, blue) values from 0 to 255</span>
+<span class="c1"># St. Patrick's Day color palette (red, green, blue) values from 0 to 255</span>
 <span class="n">green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">gold</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">white</span> <span class="o">=</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
@@ -2229,7 +2251,7 @@ pot of color at the end of your rainbow!</p>
 <span class="n">last_time</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># the last time a button was pressed</span>
 
 <span class="c1"># A color wheel turns a number from 0 to 255 into a rainbow color.</span>
-<span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
@@ -2241,7 +2263,7 @@ pot of color at the end of your rainbow!</p>
     <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># This runs every time a button is pressed.</span>
-<span class="k">def</span> <span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">mode</span><span class="p">,</span> <span class="n">last_time</span>
     <span class="n">new_time</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
     <span class="c1"># ignore presses closer than 1/5 of a second apart (debounce)</span>
@@ -2260,13 +2282,13 @@ pot of color at the end of your rainbow!</p>
 <span class="n">button2</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">button_pressed_handler</span><span class="p">)</span>
 
 <span class="c1"># Turn every pixel off.</span>
-<span class="k">def</span> <span class="nf">erase</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">erase</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">off</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
 <span class="c1"># Pattern 0: fill the strip one pixel at a time with green.</span>
-<span class="k">def</span> <span class="nf">color_wipe</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">color_wipe</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
@@ -2274,7 +2296,7 @@ pot of color at the end of your rainbow!</p>
         <span class="n">erase</span><span class="p">()</span>
 
 <span class="c1"># Patterns 1 and 2: a bright dot with a fading tail.</span>
-<span class="k">def</span> <span class="nf">comet</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">comet</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="n">erase</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)):</span>
         <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">counter</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
@@ -2286,7 +2308,7 @@ pot of color at the end of your rainbow!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Pattern 3: moving green and white stripes.</span>
-<span class="k">def</span> <span class="nf">shamrock_chase</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">shamrock_chase</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="n">counter</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">green</span>
@@ -2296,7 +2318,7 @@ pot of color at the end of your rainbow!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Pattern 4: random gold sparkles, like scattered coins.</span>
-<span class="k">def</span> <span class="nf">gold_sparkle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gold_sparkle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="n">erase</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">gold</span>
@@ -2304,7 +2326,7 @@ pot of color at the end of your rainbow!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Pattern 5: green and gold lights spaced evenly that march along.</span>
-<span class="k">def</span> <span class="nf">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">green</span>
@@ -2316,7 +2338,7 @@ pot of color at the end of your rainbow!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Pattern 6: a full moving rainbow.</span>
-<span class="k">def</span> <span class="nf">rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rainbow</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">color_index</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">//</span> <span class="n">NUMBER_PIXELS</span> <span class="o">+</span> <span class="n">counter</span> <span class="o">*</span> <span class="mi">8</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">(</span><span class="n">color_index</span><span class="p">)</span>
@@ -2324,7 +2346,7 @@ pot of color at the end of your rainbow!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Pattern 7: flip the whole strip between green and gold.</span>
-<span class="k">def</span> <span class="nf">lucky_blink</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lucky_blink</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="n">color</span> <span class="o">=</span> <span class="n">green</span> <span class="k">if</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">gold</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>

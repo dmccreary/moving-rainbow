@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1925,6 +1945,8 @@
       
         
       
+        
+      
     
     
     
@@ -2435,8 +2457,8 @@ know your code made it all the way to the chip. Let's light this up!</p>
 is one of the metal connection points on the chip. Our program turns that pin
 on, waits, turns it off, waits, and repeats.</p>
 <p>Here is the full program. It is the file <code>01-blink-internal-led.py</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="c1"># Set up the onboard LED pin as an output we can turn on and off</span>
 <span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
@@ -2487,9 +2509,9 @@ code doesn't run, check that the indented lines all line up.</p>
 <p>The onboard LED can only do one thing: on or off. The 12-pixel strip in your
 box can show any color. The next file, <code>01-blink.py</code>, blinks the <strong>first
 pixel</strong> of the strip in red:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="c1"># Make a strip object so we can control the NeoPixels</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>

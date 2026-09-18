@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1934,6 +1954,8 @@
       
         
       
+        
+      
     
     
     
@@ -2520,8 +2542,8 @@ Here is what the knob does in each mode.</p>
 <p>Here is the heart of the program. Instead of nine programs, we keep nine
 small <strong>lists</strong> (rows of values, one slot per mode). Each list holds one number
 for each pattern.</p>
-<div class="highlight"><pre><span></span><code><span class="n">MODE_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Knob Dot&#39;</span><span class="p">,</span> <span class="s1">&#39;Bar / Level&#39;</span><span class="p">,</span> <span class="s1">&#39;Solid Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Larson Scanner&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;Comet&#39;</span><span class="p">,</span> <span class="s1">&#39;Theater Chase&#39;</span><span class="p">,</span> <span class="s1">&#39;Sparkle&#39;</span><span class="p">,</span> <span class="s1">&#39;Candle Flicker&#39;</span><span class="p">,</span> <span class="s1">&#39;Rainbow&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">MODE_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Knob Dot'</span><span class="p">,</span> <span class="s1">'Bar / Level'</span><span class="p">,</span> <span class="s1">'Solid Color'</span><span class="p">,</span> <span class="s1">'Larson Scanner'</span><span class="p">,</span>
+              <span class="s1">'Comet'</span><span class="p">,</span> <span class="s1">'Theater Chase'</span><span class="p">,</span> <span class="s1">'Sparkle'</span><span class="p">,</span> <span class="s1">'Candle Flicker'</span><span class="p">,</span> <span class="s1">'Rainbow'</span><span class="p">]</span>
 
 <span class="c1"># Each mode stores one value that the knob changes.</span>
 <span class="n">params</span> <span class="o">=</span>    <span class="p">[</span><span class="n">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>    <span class="mi">5</span><span class="p">,</span>     <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>   <span class="mi">20</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]</span>
@@ -2553,7 +2575,7 @@ the bottom), like colors on a wheel. The <code>WRAP</code> list decides which is
         <span class="c1"># colors roll over: 255 + 1 becomes 0 again</span>
         <span class="n">params</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">+</span> <span class="n">turn</span> <span class="o">*</span> <span class="n">PARAM_STEP</span><span class="p">[</span><span class="n">mode</span><span class="p">])</span> <span class="o">%</span> <span class="mi">256</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># everything else stops, or &quot;clamps,&quot; at its limits</span>
+        <span class="c1"># everything else stops, or "clamps," at its limits</span>
         <span class="n">new_value</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">+</span> <span class="n">turn</span> <span class="o">*</span> <span class="n">PARAM_STEP</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">new_value</span> <span class="o">&lt;</span> <span class="n">PARAM_MIN</span><span class="p">[</span><span class="n">mode</span><span class="p">]:</span>
             <span class="n">new_value</span> <span class="o">=</span> <span class="n">PARAM_MIN</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span>
@@ -2568,7 +2590,7 @@ the bottom), like colors on a wheel. The <code>WRAP</code> list decides which is
 way to pick one. We pick a random <strong>hue</strong> (a spot on the color wheel) and run it
 through <code>color_wheel</code>. We do <em>not</em> pick three random red, green, and blue
 numbers.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">random_vivid_hue</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">random_vivid_hue</span><span class="p">():</span>
     <span class="c1"># Pick one random spot on the color wheel, 0 to 255.</span>
     <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
 </code></pre></div>

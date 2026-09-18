@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2161,6 +2181,8 @@
       
         
       
+        
+      
     
     
     
@@ -2675,10 +2697,10 @@
 <p>Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.</p>
 <h2 id="iframe-embed-code">Iframe Embed Code</h2>
 <p>You can place this MicroSim on any web page by adding the following HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/moving-rainbow/sims/decomposition-in-action/main.html&quot;</span>
-        <span class="na">height</span><span class="o">=</span><span class="s">&quot;422px&quot;</span>
-        <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
-        <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/moving-rainbow/sims/decomposition-in-action/main.html"</span>
+        <span class="na">height</span><span class="o">=</span><span class="s">"422px"</span>
+        <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span>
+        <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="lesson-plan">Lesson Plan</h2>
 <h3 id="grade-level">Grade Level</h3>
@@ -2709,22 +2731,22 @@
 **Library:** p5.js&lt;br/&gt;
 **Status:** Specified
 
-**Learning Objective:** Students will *understand* (Bloom&#39;s Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.
+**Learning Objective:** Students will *understand* (Bloom's Level 2) how a complex LED animation can be decomposed into discrete, independently solvable sub-problems.
 
 **Description:** An interactive p5.js simulation showing a 30-LED strip playing a moving rainbow animation. The canvas is divided into two panels: a left panel showing the full running animation, and a right panel showing a labeled decomposition tree that reveals sub-problems one level at a time.
 
 **Canvas:** 760 × 420 px, responsive (responds to window resize events via `updateCanvasSize()` called first in `setup()`).
 
 **Controls (p5.js built-in):**
-- `createButton(&quot;Decompose&quot;)` — when clicked, animates the right panel to reveal the next level of the decomposition tree (4 levels total, one click per level).
-- `createButton(&quot;Reset&quot;)` — collapses the tree back to the root node only.
-- `createCheckbox(&quot;Animate&quot;, true)` — pauses or resumes the left-panel LED animation.
+- `createButton("Decompose")` — when clicked, animates the right panel to reveal the next level of the decomposition tree (4 levels total, one click per level).
+- `createButton("Reset")` — collapses the tree back to the root node only.
+- `createCheckbox("Animate", true)` — pauses or resumes the left-panel LED animation.
 
 **Decomposition tree structure (right panel):**
-- Root (always visible): &quot;Moving Rainbow Animation&quot; (purple node, #642580)
-  - Level 1 (click 1): &quot;Set pixel colors&quot;, &quot;Shift by 1 each frame&quot;, &quot;Loop forever&quot;
-  - Level 2 under &quot;Set pixel colors&quot; (click 2): &quot;Hue = position + offset&quot;, &quot;Convert hue → RGB&quot;
-  - Level 2 under &quot;Shift by 1 each frame&quot; (click 3): &quot;offset += 1 each frame&quot;, &quot;Use % to wrap around&quot;
+- Root (always visible): "Moving Rainbow Animation" (purple node, #642580)
+  - Level 1 (click 1): "Set pixel colors", "Shift by 1 each frame", "Loop forever"
+  - Level 2 under "Set pixel colors" (click 2): "Hue = position + offset", "Convert hue → RGB"
+  - Level 2 under "Shift by 1 each frame" (click 3): "offset += 1 each frame", "Use % to wrap around"
 
 **Interactions:** Every node in the decomposition tree is clickable. Clicking a node opens a one-sentence tooltip on the canvas explaining what that sub-problem is about. A second click on the same node closes the tooltip.
 
@@ -2734,7 +2756,7 @@
 - Node colors: root = purple (#642580), Level 1 = teal (#41BAC1), Level 2 = orange (#E8903A).
 - White text inside all nodes.
 
-Implementation: p5.js, vanilla JavaScript. HSV-to-RGB conversion defined inline. All controls created with p5.js built-in functions. Canvas parented to `document.querySelector(&#39;main&#39;)`.
+Implementation: p5.js, vanilla JavaScript. HSV-to-RGB conversion defined inline. All controls created with p5.js built-in functions. Canvas parented to `document.querySelector('main')`.
 </code></pre></div>
 </details>
 

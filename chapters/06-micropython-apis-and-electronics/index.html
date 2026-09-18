@@ -1304,6 +1304,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1688,6 +1708,8 @@
       
         
           
+        
+      
         
       
         
@@ -2475,7 +2497,7 @@ Always connect GND first. If you connect power before ground, some components ca
 <hr />
 <h2 id="the-machine-module-controlling-gpio-pins">The machine Module: Controlling GPIO Pins</h2>
 <p>MicroPython's <code>machine</code> module gives you control over the Pico's hardware. Before exploring each API, import the module:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
 </code></pre></div>
 <h3 id="machinepin-class">machine.Pin Class</h3>
 <p>The <strong><code>machine.Pin</code> class</strong> represents a single GPIO pin. The two most common modes are <strong>digital output</strong> (the Pico drives a signal) and <strong>digital input</strong> (the Pico reads a signal).</p>
@@ -2494,8 +2516,8 @@ Always connect GND first. If you connect power before ground, some components ca
 <li><strong><code>Pin.value()</code></strong> with no argument — reads the pin; returns <code>1</code> (high) or <code>0</code> (low)</li>
 </ul>
 <p>Here's a blink example using the built-in LED:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 
@@ -2511,7 +2533,7 @@ Always connect GND first. If you connect power before ground, some components ca
 <p>Before writing PWM code, here are the key terms:
 - <strong>PWM Frequency</strong> — how many on/off cycles per second, in Hertz (Hz). For LEDs, 1000 Hz works well (1000 cycles per second — too fast for the eye to see flicker).
 - <strong>PWM Duty Cycle</strong> — the percentage of each cycle that the pin is "on". 0 = always off, 65535 = always on (MicroPython uses a 16-bit value, 0–65535).</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
 
 <span class="n">pwm</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">PWM</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>   <span class="c1"># attach PWM to the built-in LED pin</span>
 <span class="n">pwm</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>                        <span class="c1"># set frequency to 1000 Hz</span>
@@ -2522,7 +2544,7 @@ Always connect GND first. If you connect power before ground, some components ca
 <p>The <strong>Analog to Digital Converter (ADC)</strong> reads an analog voltage (anything from 0 to 3.3 V) and converts it to a number your program can use. The Pico's ADC has <strong>16-bit resolution</strong>, meaning it produces values from 0 to 65535.</p>
 <p>Before reading the code, here's what the numbers mean: 0 represents 0 V (no signal), and 65535 represents 3.3 V (maximum signal). Values in between are proportional.</p>
 <p>The <strong><code>ADC.read_u16()</code> method</strong> takes a reading and returns a value from 0 to 65535:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
 
 <span class="n">sensor</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>         <span class="c1"># create ADC on pin GP26 (ADC0)</span>
 <span class="n">reading</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>      <span class="c1"># take a reading (0–65535)</span>
@@ -2569,7 +2591,7 @@ Always connect GND first. If you connect power before ground, some components ca
 </tbody>
 </table>
 <p>The <code>sleep()</code> function is the one you'll use most often to control animation speed. The <code>ticks_ms()</code> function is useful when you want something to happen after a certain amount of time <em>without stopping the whole program</em>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">start</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>           <span class="c1"># record the current time</span>
 
@@ -2577,14 +2599,14 @@ Always connect GND first. If you connect power before ground, some components ca
 
 <span class="n">elapsed</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
 <span class="k">if</span> <span class="n">elapsed</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>                 <span class="c1"># if more than 1000 ms have passed</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One second has passed!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"One second has passed!"</span><span class="p">)</span>
 </code></pre></div>
 <p>The <strong><code>localtime()</code> function</strong> returns the current date and time as a tuple <code>(year, month, day, weekday, hour, minute, second, microsecond)</code>. You'll use this in the clock display animation in a later chapter.</p>
 <hr />
 <h2 id="the-urandom-module-random-numbers">The urandom Module: Random Numbers</h2>
 <p>The <strong><code>urandom</code> module</strong> generates random numbers. The most useful function is <code>randint()</code>.</p>
 <p><strong><code>randint(a, b)</code></strong> returns a random integer between <code>a</code> and <code>b</code>, inclusive. Both endpoints are included.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urandom</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urandom</span>
 
 <span class="n">color</span> <span class="o">=</span> <span class="n">urandom</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>    <span class="c1"># random number from 0 to 255</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
@@ -2600,9 +2622,9 @@ Always connect GND first. If you connect power before ground, some components ca
 <p>The <strong><code>neopixel</code> module</strong> is the MicroPython library specifically designed for WS2812B addressable LEDs. It handles all the complex timing needed to send color data to the strip.</p>
 <h3 id="neopixel-class">NeoPixel Class</h3>
 <p>The <strong><code>NeoPixel</code> class</strong> represents your entire LED strip. To create one, you need two things: the pin the data wire is connected to, and how many pixels are on your strip. In this course, we always get these from <code>config.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 </code></pre></div>
@@ -2639,11 +2661,11 @@ Always connect GND first. If you connect power before ground, some components ca
 - <code>config.NEOPIXEL_PIN</code> — the GP number your data wire connects to
 - <code>config.NUMBER_PIXELS</code> — how many LEDs are on your strip
 - <code>utime.sleep_ms(50)</code> — 50 milliseconds per frame = roughly 20 frames per second</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="kn">import</span> <span class="nn">urandom</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urandom</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="c1"># Create the strip object</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>

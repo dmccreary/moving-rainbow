@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/lessons/01-blink/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../00-blink-onboard-led/">
       
       
         <link rel="next" href="../02-fade-in-and-out/">
@@ -589,6 +589,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -627,6 +647,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1398,6 +1439,195 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-traffic-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traffic Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-binary-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Counter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-charge-up-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charge-Up Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../44-tug-of-war/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tug of War
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45-reaction-duel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reaction Duel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../46-fire-simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fire Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../47-cellular-automaton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cellular Automaton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../48-sorting-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sorting Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../49-binary-search-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Search Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1757,6 +1987,8 @@
       
         
           
+        
+      
         
       
         
@@ -2256,8 +2488,8 @@
 <h1 id="blink">Blink</h1>
 <p>Here is one of simplest moving rainbow programs.  It is our version of "Hello World!. </p>
 <p>Our first program will just blink the first pixel on and off every 1/2 second.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
 
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
@@ -2360,7 +2592,7 @@ and change the
       <div class="md-footer-nav">
         <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../" title="List of Lessons" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <a href="../00-blink-onboard-led/" title="Blink the Onboard LED" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
                 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
               </div>
@@ -2369,7 +2601,7 @@ and change the
                   <span class="md-footer-nav__direction">
                     Previous
                   </span>
-                  List of Lessons
+                  Blink the Onboard LED
                 </span>
               </div>
             </a>

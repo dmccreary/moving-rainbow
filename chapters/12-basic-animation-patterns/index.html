@@ -1232,6 +1232,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1616,6 +1636,8 @@
       
         
           
+        
+      
         
       
         
@@ -2286,7 +2308,7 @@ Welcome to Chapter 12! This is where the lights really come on. You've got all t
 <h2 id="pattern-1-blink">Pattern 1: Blink</h2>
 <p>The <strong>Blink Pattern</strong> turns the entire strip on, waits, then turns it off, then repeats.</p>
 <p>This pattern introduces two key concepts: <strong>parallel pixel update</strong> (setting all pixels at once in a loop) and the simplest possible animation delay.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span><span class="o">,</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span><span class="o">,</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span><span class="o">,</span><span class="w"> </span><span class="nn">machine</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span><span class="o">,</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
@@ -2309,12 +2331,12 @@ Welcome to Chapter 12! This is where the lights really come on. You've got all t
 <h2 id="pattern-2-rainbow-static-pattern">Pattern 2: Rainbow Static Pattern</h2>
 <p>The <strong>Rainbow Static Pattern</strong> spreads a full spectrum of colors across the strip simultaneously. Each pixel gets a different hue.</p>
 <p>Before the code, here's the idea: divide 360 hue degrees evenly among all pixels. Pixel 0 gets hue 0 (red), the middle pixel gets hue 180 (cyan), and the last pixel gets hue 359 (almost-red again).</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span><span class="o">,</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span><span class="o">,</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span><span class="o">,</span><span class="w"> </span><span class="nn">machine</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span><span class="o">,</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">hsv_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hsv_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
@@ -2380,7 +2402,7 @@ The difference between Moving Rainbow and Rainbow Cycle is in how the offset is 
 1. Each frame, dim all pixels slightly (so previous twinkles fade)
 2. Pick 3 random pixels and set them to bright colors
 3. Write and wait</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urandom</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urandom</span>
 
 <span class="c1"># Start with all pixels off</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
@@ -2408,7 +2430,7 @@ The difference between Moving Rainbow and Rainbow Cycle is in how the offset is 
 <h2 id="pattern-6-candle-flicker-animation">Pattern 6: Candle Flicker Animation</h2>
 <p>The <strong>Candle Flicker Animation</strong> simulates a flame: mostly warm yellow-orange with random dips to red or orange, and random brightness variation.</p>
 <p>The key ideas: warm colors (no blue), and random variation in brightness on every frame.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urandom</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urandom</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
@@ -2425,7 +2447,7 @@ The difference between Moving Rainbow and Rainbow Cycle is in how the offset is 
 <hr />
 <h2 id="pattern-7-random-colors-animation">Pattern 7: Random Colors Animation</h2>
 <p>The <strong>Random Colors Animation</strong> assigns a new random color to every pixel on every frame. It's energetic and chaotic — good for party effects.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urandom</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urandom</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
@@ -2465,7 +2487,7 @@ The difference between Moving Rainbow and Rainbow Cycle is in how the offset is 
 - <code>t[5]</code> — minutes (0–59)
 - <code>t[6]</code> — seconds (0–59)</p>
 <p>Before the code, here's the mapping scheme: divide the strip into three segments. The first third shows hours, the second shows minutes, the third shows seconds.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">N</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
 <span class="n">THIRD</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">3</span>   <span class="c1"># pixels per segment</span>

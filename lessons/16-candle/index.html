@@ -589,6 +589,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -627,6 +647,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1338,6 +1379,195 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-traffic-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traffic Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-binary-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Counter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-charge-up-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charge-Up Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../44-tug-of-war/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tug of War
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45-reaction-duel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reaction Duel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../46-fire-simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fire Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../47-cellular-automaton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cellular Automaton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../48-sorting-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sorting Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../49-binary-search-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Search Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1697,6 +1927,8 @@
       
         
           
+        
+      
         
       
         
@@ -2143,7 +2375,7 @@ the <code>randint()</code> function.  To do this we will need a function that ge
 <p>Our goal is to generate variations in both color and brightness.  We can do this by starteding out with a green that varies from 50 to 200 and a red that varies above this value by 25 to 50.</p>
 <h2 id="sample-candle-function">Sample Candle Function</h2>
 <p>Our function will draw the new value on a random location on the LED strip.  It will take a single parameter of the delay on how often the values are updated, typically about 1/100th of a second.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">candle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">candle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
          <span class="n">green</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">155</span><span class="p">)</span>
          <span class="n">red</span> <span class="o">=</span> <span class="n">green</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
@@ -2152,17 +2384,17 @@ the <code>randint()</code> function.  To do this we will need a function that ge
          <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="full-demonstration-program">Full Demonstration Program</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urandom</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 <span class="c1"># https://docs.micropython.org/en/latest/library/random.html</span>
 
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">candle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">candle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span><span class="p">):</span>
          <span class="n">green</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">155</span><span class="p">)</span>
          <span class="n">red</span> <span class="o">=</span> <span class="n">green</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>

@@ -1310,6 +1310,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1694,6 +1714,8 @@
       
         
           
+        
+      
         
       
         
@@ -2630,10 +2652,10 @@ Before you write any animation code, ask yourself: "What do I want this light to
 <h2 id="putting-color-theory-into-code">Putting Color Theory Into Code</h2>
 <p>Now that you understand color relationships, let's put them to use. Here's a program that displays a complementary pair — red and cyan — alternating across the strip.</p>
 <p>The key idea: red is <code>(255, 0, 0)</code>. Its complement is <code>(255-255, 255-0, 255-0)</code> = <code>(0, 255, 255)</code> (cyan).</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 

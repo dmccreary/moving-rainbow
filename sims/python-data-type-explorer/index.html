@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2161,6 +2181,8 @@
       
         
       
+        
+      
     
     
     
@@ -2675,10 +2697,10 @@
 <p>Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.</p>
 <h2 id="iframe-embed-code">Iframe Embed Code</h2>
 <p>You can place this MicroSim on any web page by adding the following HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/moving-rainbow/sims/python-data-type-explorer/main.html&quot;</span>
-        <span class="na">height</span><span class="o">=</span><span class="s">&quot;422px&quot;</span>
-        <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
-        <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/moving-rainbow/sims/python-data-type-explorer/main.html"</span>
+        <span class="na">height</span><span class="o">=</span><span class="s">"422px"</span>
+        <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span>
+        <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="lesson-plan">Lesson Plan</h2>
 <h3 id="grade-level">Grade Level</h3>
@@ -2716,10 +2738,10 @@ Learning Objective: Students classify Python values by data type — given a dis
 Instructional Rationale: The classify objective (L2 Understand) calls for a prediction-then-reveal pattern, not animation. Students see a value, commit to a type selection, then receive confirmation with an explanation. Prediction before reveal is the key retrieval-practice mechanism for retention at this level.
 
 Canvas layout:
-- Top area: A large &quot;value card&quot; showing a Python value in monospace font on a dark background (e.g., `42`, `&quot;hello&quot;`, `True`, `3.14`, `[1,2,3]`, `(255,0,0)`, `None`)
+- Top area: A large "value card" showing a Python value in monospace font on a dark background (e.g., `42`, `"hello"`, `True`, `3.14`, `[1,2,3]`, `(255,0,0)`, `None`)
 - Center area: Seven labeled type buttons — Integer, Float, String, Boolean, List, Tuple, None — arranged in a row or two rows on narrow screens
 - Bottom area: Feedback panel showing correct/incorrect result with an explanation and an LED code example
-- Progress bar: &quot;Question X of 15&quot; shown below the value card
+- Progress bar: "Question X of 15" shown below the value card
 
 Visual elements:
 - Value card: Large rounded rectangle, dark background, white monospace text, border color matches type (blue=int, cyan=float, green=string, yellow=bool, orange=list, purple=tuple, gray=none) — border only shown AFTER student answers
@@ -2730,31 +2752,31 @@ Data Visibility Requirements:
 Stage 1: Show value card with value visible, border color hidden
 Stage 2: Student clicks a type button
 Stage 3: Reveal correct type, color the border, show feedback:
-- Why: e.g., &quot;255 is an integer — it&#39;s a whole number with no decimal point&quot;
-- LED example: e.g., &quot;In NeoPixel code: `strip[0] = (255, 0, 0)` — 255 is the red channel value&quot;
-Stage 4: &quot;Next&quot; button advances to a new value
+- Why: e.g., "255 is an integer — it's a whole number with no decimal point"
+- LED example: e.g., "In NeoPixel code: `strip[0] = (255, 0, 0)` — 255 is the red channel value"
+Stage 4: "Next" button advances to a new value
 
 Values to cycle through (15 total):
 - `42` → Integer
 - `3.14` → Float
-- `&quot;hello&quot;` → String
+- `"hello"` → String
 - `True` → Boolean
 - `[255, 0, 0]` → List
 - `(128, 0, 200)` → Tuple
 - `None` → None
 - `0` → Integer
 - `0.5` → Float
-- `&quot;Moving Rainbow&quot;` → String
+- `"Moving Rainbow"` → String
 - `False` → Boolean
 - `[1, 2, 3, 4, 5]` → List
 - `(255, 255, 255)` → Tuple
 - `255` → Integer
-- `&quot;&quot;` → String (empty string)
+- `""` → String (empty string)
 
 Controls:
 - Seven type buttons (one per type)
-- &quot;Next Value&quot; button — shown after student answers, advances to next card
-- &quot;Shuffle&quot; button — randomizes card order for replay
+- "Next Value" button — shown after student answers, advances to next card
+- "Shuffle" button — randomizes card order for replay
 
 Responsive design: Canvas width fills container; font sizes and button layout scale with canvas width; buttons reflow to two rows on narrow screens.
 </code></pre></div>

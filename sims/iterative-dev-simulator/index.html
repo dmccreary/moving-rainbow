@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2161,6 +2181,8 @@
       
         
       
+        
+      
     
     
     
@@ -2675,10 +2697,10 @@
 <p>Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.</p>
 <h2 id="iframe-embed-code">Iframe Embed Code</h2>
 <p>You can place this MicroSim on any web page by adding the following HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/moving-rainbow/sims/iterative-dev-simulator/main.html&quot;</span>
-        <span class="na">height</span><span class="o">=</span><span class="s">&quot;382px&quot;</span>
-        <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
-        <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/moving-rainbow/sims/iterative-dev-simulator/main.html"</span>
+        <span class="na">height</span><span class="o">=</span><span class="s">"382px"</span>
+        <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span>
+        <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="lesson-plan">Lesson Plan</h2>
 <h3 id="grade-level">Grade Level</h3>
@@ -2709,39 +2731,39 @@
 **Library:** p5.js&lt;br/&gt;
 **Status:** Specified
 
-**Learning Objective:** Students will *apply* (Bloom&#39;s Level 3) the iterative development process by constructing a working LED animation through four small, independently testable stages.
+**Learning Objective:** Students will *apply* (Bloom's Level 3) the iterative development process by constructing a working LED animation through four small, independently testable stages.
 
 **Description:** A p5.js canvas showing a row of 10 simulated LED circles on a dark background. A step panel on the right guides the student through four build stages. Each stage adds exactly one new feature and produces visible, verifiable output.
 
-**Canvas:** 760 × 380 px, responsive (responds to window resize events via `updateCanvasSize()` called first in `setup()`). Canvas parented to `document.querySelector(&#39;main&#39;)`.
+**Canvas:** 760 × 380 px, responsive (responds to window resize events via `updateCanvasSize()` called first in `setup()`). Canvas parented to `document.querySelector('main')`.
 
 **Step Panel (right side, ~240 px wide):**
-- Title: &quot;Build It Step by Step&quot;
+- Title: "Build It Step by Step"
 - Numbered list showing all four steps. Current active step highlighted with teal (#41BAC1) background.
-- `createButton(&quot;Apply Next Step&quot;)` — advances to the next step and updates the LED display and status message.
-- `createButton(&quot;Reset&quot;)` — returns to the initial state (all LEDs off, Step 1 highlighted).
+- `createButton("Apply Next Step")` — advances to the next step and updates the LED display and status message.
+- `createButton("Reset")` — returns to the initial state (all LEDs off, Step 1 highlighted).
 
 **Steps:**
 
 1. **Step 1 – One Pixel On:** LED at index 0 lights up red `(255, 0, 0)`. All others remain dark.
-   Status message: &quot;One pixel on! We can control a single LED.&quot;
+   Status message: "One pixel on! We can control a single LED."
 
 2. **Step 2 – All Pixels One Color:** All 10 LEDs light up red.
-   Status message: &quot;All 10 pixels on! We extended the same idea to the whole strip.&quot;
+   Status message: "All 10 pixels on! We extended the same idea to the whole strip."
 
 3. **Step 3 – Rainbow Spread:** Each LED gets a unique hue: `hue = (i / 10.0) * 360`, converted to RGB.
-   Status message: &quot;Each pixel has its own hue — that&#39;s a rainbow!&quot;
+   Status message: "Each pixel has its own hue — that's a rainbow!"
 
 4. **Step 4 – Animate:** The rainbow scrolls using `offset`, incrementing by 1 each `draw()` frame. Pixel hue: `hue = ((i + offset) / 10.0) * 360 % 360`.
-   Status message: &quot;It&#39;s moving! A full animation built in four tested steps.&quot;
+   Status message: "It's moving! A full animation built in four tested steps."
 
 **Edge Case Panel (visible only after Step 4 is applied):**
-- Section header: &quot;Try some edge cases:&quot;
-- `createSlider(&quot;Pixels&quot;, 1, 30, 10, 1)` — adjusts the number of active LED circles. Extremes labeled &quot;1 (edge)&quot; and &quot;30 (edge)&quot;. At 1 pixel, show the single-pixel animation so students see the degenerate case.
-- `createSlider(&quot;Speed&quot;, 1, 20, 4, 1)` — controls offset increment per frame. At value 20, the animation jumps too fast to look smooth (intentional edge case demonstration).
-- Text note below sliders: &quot;Extreme values are called edge cases. Testing them now beats discovering them at the demo.&quot;
+- Section header: "Try some edge cases:"
+- `createSlider("Pixels", 1, 30, 10, 1)` — adjusts the number of active LED circles. Extremes labeled "1 (edge)" and "30 (edge)". At 1 pixel, show the single-pixel animation so students see the degenerate case.
+- `createSlider("Speed", 1, 20, 4, 1)` — controls offset increment per frame. At value 20, the animation jumps too fast to look smooth (intentional edge case demonstration).
+- Text note below sliders: "Extreme values are called edge cases. Testing them now beats discovering them at the demo."
 
-Implementation: p5.js, vanilla JavaScript. HSV-to-RGB conversion inline (no external library). All controls created with p5.js built-in `createButton` and `createSlider`. Canvas parented to `document.querySelector(&#39;main&#39;)`.
+Implementation: p5.js, vanilla JavaScript. HSV-to-RGB conversion inline (no external library). All controls created with p5.js built-in `createButton` and `createSlider`. Canvas parented to `document.querySelector('main')`.
 </code></pre></div>
 </details>
 

@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1934,6 +1954,8 @@
       
         
       
+        
+      
     
     
     
@@ -2459,7 +2481,7 @@ some input, and it gives you back a result.</p>
 <p>Here is the function from <code>07-rainbow.py</code>. It is named <code>color_wheel</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Give it a position from 0 to 255 and it returns an (r, g, b) color.</span>
 <span class="c1"># As the position grows, the color moves through red, green, and blue.</span>
-<span class="k">def</span> <span class="nf">color_wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">color_wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">%</span> <span class="mi">256</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>

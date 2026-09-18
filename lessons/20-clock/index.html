@@ -589,6 +589,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -627,6 +647,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1290,6 +1331,195 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-traffic-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traffic Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-binary-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Counter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-charge-up-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charge-Up Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../44-tug-of-war/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tug of War
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45-reaction-duel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reaction Duel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../46-fire-simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fire Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../47-cellular-automaton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cellular Automaton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../48-sorting-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sorting Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../49-binary-search-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Search Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1649,6 +1879,8 @@
       
         
           
+        
+      
         
       
         
@@ -2062,11 +2294,11 @@
 <h1 id="clock">Clock</h1>
 <p>Can you turn your LED strip into a clock?</p>
 <p>You can use binary encoding to display the numbers in a clock.  To do this we will need a function to display a digit as a binary pattern.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">localtime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">localtime</span>
 <span class="c1"># get the configuration information</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">np</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">np</span><span class="p">)</span>
@@ -2075,7 +2307,7 @@
 <span class="n">min_bits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">hr_bits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">decimal_to_binary</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">decimal_to_binary</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">sec_bits</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
@@ -2085,9 +2317,9 @@
         <span class="c1">## n halfed</span>
         <span class="n">n</span> <span class="o">//=</span> <span class="mi">2</span>
 
-<span class="k">def</span> <span class="nf">display_binary</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">display_binary</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
-        <span class="c1"># print(i, &#39; &#39;, end=&#39;&#39;)</span>
+        <span class="c1"># print(i, ' ', end='')</span>
         <span class="k">if</span> <span class="n">binary</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
         <span class="k">else</span><span class="p">:</span>
@@ -2095,7 +2327,7 @@
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
 <span class="c1"># light mark and write</span>
-<span class="k">def</span> <span class="nf">display_mark</span><span class="p">(</span><span class="n">loc</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">display_mark</span><span class="p">(</span><span class="n">loc</span><span class="p">):</span>
     <span class="n">strip</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
@@ -2121,11 +2353,11 @@
 
 <span class="c1"># this is not working</span>
 <span class="n">decimal_to_binary</span><span class="p">(</span><span class="n">minute</span><span class="p">,</span> <span class="n">min_bits</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;initial min:&#39;</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">min_bits</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'initial min:'</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">min_bits</span><span class="p">)</span>
 <span class="n">display_binary</span><span class="p">(</span><span class="n">min_bits</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
 
 <span class="n">decimal_to_binary</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span> <span class="n">hr_bits</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;initial hour:&#39;</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">hr_bits</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'initial hour:'</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">hr_bits</span><span class="p">)</span>
 <span class="n">display_binary</span><span class="p">(</span><span class="n">hr_bits</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -2136,20 +2368,20 @@
         <span class="n">hour</span> <span class="o">=</span> <span class="n">hour</span> <span class="o">-</span> <span class="mi">12</span>
     <span class="n">minute</span> <span class="o">=</span> <span class="n">now</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
     <span class="n">sec</span> <span class="o">=</span> <span class="n">now</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">sec</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span> <span class="s1">':'</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">sec</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">decimal_to_binary</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span> <span class="n">sec_bits</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sec:&#39;</span><span class="p">,</span> <span class="n">sec</span><span class="p">,</span> <span class="n">sec_bits</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'sec:'</span><span class="p">,</span> <span class="n">sec</span><span class="p">,</span> <span class="n">sec_bits</span><span class="p">)</span>
     <span class="n">display_binary</span><span class="p">(</span><span class="n">sec_bits</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">sec</span> <span class="o">==</span> <span class="mi">60</span><span class="p">:</span>
         <span class="n">minute</span> <span class="o">=</span> <span class="n">minute</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="n">sec</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">decimal_to_binary</span><span class="p">(</span><span class="n">minute</span><span class="p">,</span> <span class="n">min_bits</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;min:&#39;</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">min_bits</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'min:'</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">min_bits</span><span class="p">)</span>
         <span class="n">display_binary</span><span class="p">(</span><span class="n">min_bits</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">minute</span> <span class="o">==</span> <span class="mi">60</span><span class="p">:</span>
             <span class="n">decimal_to_binary</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span> <span class="n">hr_bits</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hour:&#39;</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">hr_bits</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'hour:'</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">hr_bits</span><span class="p">)</span>
             <span class="n">display_binary</span><span class="p">(</span><span class="n">hr_bits</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
             <span class="n">hour</span> <span class="o">=</span> <span class="n">hour</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="n">minute</span> <span class="o">=</span> <span class="mi">0</span>

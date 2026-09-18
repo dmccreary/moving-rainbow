@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1552,6 +1572,8 @@
       
         
       
+        
+      
     
     
     
@@ -2068,12 +2090,12 @@ I covered them with a thin translucent sheet of diffusion material.</p>
 <h2 id="sample-code">Sample Code</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Simple Fire Effect for Pattern Integration</span>
 <span class="c1"># Can be easily added to your main-demo-cycle.py</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">ADC</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">ADC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urandom</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
-<span class="kn">import</span> <span class="nn">dual_ring_config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dual_ring_config</span>
 
 <span class="n">pot</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">dual_ring_config</span><span class="o">.</span><span class="n">POT_PIN</span><span class="p">)</span>
 
@@ -2085,7 +2107,7 @@ I covered them with a thin translucent sheet of diffusion material.</p>
 <span class="c1"># 12 pixels</span>
 <span class="n">strip1</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">dual_ring_config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN1</span><span class="p">),</span> <span class="n">NUMBER_PIXELS1</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="c1"># Input a value 0 to 255 to get a color value.</span>
     <span class="c1"># The colors are a transition r - g - b - back to r.</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
@@ -2098,7 +2120,7 @@ I covered them with a thin translucent sheet of diffusion material.</p>
     <span class="n">pos</span> <span class="o">-=</span> <span class="mi">170</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">standard_fire</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">standard_fire</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS0</span><span class="p">):</span>
          <span class="n">green</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">155</span><span class="p">)</span>
          <span class="n">red</span> <span class="o">=</span> <span class="n">green</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
@@ -2111,7 +2133,7 @@ I covered them with a thin translucent sheet of diffusion material.</p>
     <span class="n">strip1</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">simulate_fire_pattern</span><span class="p">(</span><span class="n">pattern_number</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_fire_pattern</span><span class="p">(</span><span class="n">pattern_number</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
 
     <span class="c1"># TODO: Check that the pattern number is in the range of 0 to 7</span>
 
@@ -2129,7 +2151,7 @@ I covered them with a thin translucent sheet of diffusion material.</p>
         <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Erase all the pixels</span>
-<span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS0</span><span class="p">):</span>
         <span class="n">strip0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">strip0</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -2139,24 +2161,24 @@ I covered them with a thin translucent sheet of diffusion material.</p>
 
 <span class="c1"># Run the effect</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fire effect running - Press Ctrl+C to stop&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Fire effect running - Press Ctrl+C to stop"</span><span class="p">)</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="c1"># shift over 13 bits to get a value from 0 to 7</span>
         <span class="n">pattern</span> <span class="o">=</span> <span class="n">pot</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
         <span class="n">simulate_fire_pattern</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Stopping fire effect&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Stopping fire effect"</span><span class="p">)</span>
     <span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>You can find the full source code and some unit tests here:</p>
 <h2 id="code-walk-through">Code Walk Through</h2>
 <p>Let's break down this fire simulation code step-by-step to understand how it creates realistic flickering fire effects on two NeoPixel rings.</p>
 <h3 id="1-imports-and-hardware-setup-lines-33-48">1. Imports and Hardware Setup (Lines 33-48)</h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">ADC</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">ADC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urandom</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 </code></pre></div>
 <p>These imports give us access to:
 - <strong>Pin &amp; ADC</strong>: For controlling hardware pins and reading analog values from the potentiometer
@@ -2173,7 +2195,7 @@ I covered them with a thin translucent sheet of diffusion material.</p>
 - <strong>strip0</strong>: The outer ring with 24 LEDs
 - <strong>strip1</strong>: The inner ring with 12 LEDs</p>
 <h3 id="2-the-color-wheel-function-lines-50-61">2. The Color Wheel Function (Lines 50-61)</h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
@@ -2190,7 +2212,7 @@ I covered them with a thin translucent sheet of diffusion material.</p>
 - <strong>170-255</strong>: Transitions from blue to red (blue decreases, red increases)</p>
 <p>This creates a smooth color wheel effect useful for rainbow and color-cycling patterns.</p>
 <h3 id="3-standard-fire-effect-lines-63-74">3. Standard Fire Effect (Lines 63-74)</h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">standard_fire</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">standard_fire</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS0</span><span class="p">):</span>
          <span class="n">green</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">155</span><span class="p">)</span>
          <span class="n">red</span> <span class="o">=</span> <span class="n">green</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
@@ -2218,7 +2240,7 @@ I covered them with a thin translucent sheet of diffusion material.</p>
 </ol>
 <p><strong>Key insight</strong>: By randomly selecting which pixels to update and using random intensity variations, this creates the chaotic, flickering appearance of real fire!</p>
 <h3 id="4-simulate-fire-pattern-function-lines-76-91">4. Simulate Fire Pattern Function (Lines 76-91)</h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">simulate_fire_pattern</span><span class="p">(</span><span class="n">pattern_number</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_fire_pattern</span><span class="p">(</span><span class="n">pattern_number</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">pattern_number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
         <span class="n">standard_fire</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -2242,7 +2264,7 @@ I covered them with a thin translucent sheet of diffusion material.</p>
 </code></pre></div>
 <p>All LEDs in the outer ring get <code>color_1</code>, while all LEDs in the inner ring get <code>color_2</code>, creating a two-tone effect.</p>
 <h3 id="5-clear-function-lines-94-100">5. Clear Function (Lines 94-100)</h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS0</span><span class="p">):</span>
         <span class="n">strip0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">strip0</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -2250,10 +2272,10 @@ I covered them with a thin translucent sheet of diffusion material.</p>
 <p>Sets all LEDs in both rings to (0, 0, 0) which is black (off). This is called when the program stops.</p>
 <h3 id="6-main-program-loop-lines-103-112">6. Main Program Loop (Lines 103-112)</h3>
 <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fire effect running - Press Ctrl+C to stop&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Fire effect running - Press Ctrl+C to stop"</span><span class="p">)</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">pattern</span> <span class="o">=</span> <span class="n">pot</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
         <span class="n">simulate_fire_pattern</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 </code></pre></div>
 <p>The main loop:</p>
@@ -2265,7 +2287,7 @@ I covered them with a thin translucent sheet of diffusion material.</p>
 <li><strong>Call simulation</strong>: Updates LEDs with 0.1 second delay (10 frames per second)</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Stopping fire effect&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Stopping fire effect"</span><span class="p">)</span>
     <span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>When you press Ctrl+C:

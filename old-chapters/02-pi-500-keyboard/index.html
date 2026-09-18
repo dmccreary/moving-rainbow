@@ -583,6 +583,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -967,6 +987,8 @@
       
         
           
+        
+      
         
       
         
@@ -1570,7 +1592,7 @@ Moving Rainbow GitHub site <a href="https://github.com/dmccreary/moving-rainbow/
 GitHub repository.  You can do this using the github <code>clone</code> command.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/projects
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dmccreary/moving-rainbow
-<span class="nb">set</span><span class="w"> </span><span class="nv">MOVING_RAINBOW_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/projects/moving-rainbow&quot;</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">MOVING_RAINBOW_HOME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/projects/moving-rainbow"</span>
 </code></pre></div>
 <p>Alternatively, you can also simply download the individual shell scripts from GitHub and put them in your local bin <code>~/.local/bin</code> if you don't want to download the entire repository.  After you install them
 you might need to run the <code>chmod +x ~/.local/bin/*.sh</code> program to give the scripts execution permission.</p>
@@ -1978,7 +2000,7 @@ Effect 24 of 44
 
 ____       _           _
 |  _ \ __ _(_)_ __   __| |_ __ ___  _ __  ___ 
-| |_) / _` | | &#39;_ \ / _` | &#39;__/ _ \| &#39;_ \/ __|
+| |_) / _` | | '_ \ / _` | '__/ _ \| '_ \/ __|
 |  _ &lt; (_| | | | | | (_| | | | (_) | |_) \__ \
 |_| \_\__,_|_|_| |_|\__,_|_|  \___/| .__/|___/
                                 |_|        
@@ -2029,15 +2051,15 @@ It will skip 9 out of the 10 colors so that the script will finish in about 25 s
 <div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>leds<span class="w"> </span>clear
 </code></pre></div>
 <p>Let's use a basic command to set all the LEDs on our keyboard a specific color with:</p>
-<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>leds<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--colour<span class="w"> </span><span class="s2">&quot;0,255,255&quot;</span>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>leds<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--colour<span class="w"> </span><span class="s2">"0,255,255"</span>
 </code></pre></div>
 <p>Note that <code>colour</code> is not a typo.  This is the British spelling of the command.</p>
 <p>The command above uses the HSV format to represent colors. If it is not your cup of tea, you can instead choose to use the RGB format with:</p>
-<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>leds<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--colour<span class="w"> </span><span class="s2">&quot;rgb(255,0,0)&quot;</span>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>leds<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--colour<span class="w"> </span><span class="s2">"rgb(255,0,0)"</span>
 </code></pre></div>
 <p>Both of these commands achieve the same thing; they just use different ways of representing the color red. Also note that usually the hue value in HSVs range from 0 to 360, in this library it instead only takes a number from 0 to 255. So cyan (which is usually 180), will be scaled down to 128.</p>
 <p>Now let's set individual LED colors! It may be wise to run the LEDs clear command to start with a blank canvas again. Then we can use the following command to set the W key to an aqua color with:</p>
-<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>led<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="s2">&quot;2,3&quot;</span><span class="w"> </span>--colour<span class="w"> </span><span class="s2">&quot;rgb(0,255,255)&quot;</span>
+<div class="highlight"><pre><span></span><code>rpi-keyboard-config<span class="w"> </span>led<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="s2">"2,3"</span><span class="w"> </span>--colour<span class="w"> </span><span class="s2">"rgb(0,255,255)"</span>
 </code></pre></div>
 <p>This is very similar to the previous command, but this time we have a row and column being used to specify which key to light up.</p>
 <p>You can generate a nice visualization of what key has what number row and column with the following command:</p>
@@ -2065,7 +2087,7 @@ of a region and put it in the <sub>/screenshots/</sub> directory.</p>
 <span class="k">[command]</span>
 <span class="c1"># F9: Screenshot selected area (interactive)</span>
 <span class="na">binding_screenshot_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">KEY_F9</span>
-<span class="na">command_screenshot_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">bash -c &#39;grim -g &quot;$(slurp)&quot; ~/screenshots/ss-$(date +%Y%m%d-%H%M%S).png&#39;</span>
+<span class="na">command_screenshot_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">bash -c 'grim -g "$(slurp)" ~/screenshots/ss-$(date +%Y%m%d-%H%M%S).png'</span>
 
 <span class="c1"># This is what the PrtScn screen should do!</span>
 <span class="c1"># F8: Screenshot entire screen</span>
@@ -2081,21 +2103,21 @@ This program reads a sequence of startup *<em>run commands</em> in <sub>/</sub>/
 <p>This file has a set of <code>keybind</code> elements that bind a key to an action.  The action can
 be any shell script.  Here are some examples:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Print Screen: select area screenshot with timestamp and store the region in the home Screenshots directory --&gt;</span>
-<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Print&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Execute&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>&#39;grim<span class="w"> </span>-g<span class="w"> </span>&quot;$(slurp)&quot;<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png&#39;<span class="nt">&lt;/command&gt;</span>
+<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">"Print"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">"Execute"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>'grim<span class="w"> </span>-g<span class="w"> </span>"$(slurp)"<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png'<span class="nt">&lt;/command&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/action&gt;</span>
 <span class="nt">&lt;/keybind&gt;</span>
 <span class="cm">&lt;!-- F8: full screenshot with timestamp --&gt;</span>
-<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;F8&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Execute&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>&#39;grim<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png&#39;<span class="nt">&lt;/command&gt;</span>
+<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">"F8"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">"Execute"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>'grim<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png'<span class="nt">&lt;/command&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/action&gt;</span>
 <span class="nt">&lt;/keybind&gt;</span>
 <span class="cm">&lt;!-- F9: select area screenshot with timestamp --&gt;</span>
-<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;F9&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Execute&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>&#39;grim<span class="w"> </span>-g<span class="w"> </span>&quot;$(slurp)&quot;<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png&#39;<span class="nt">&lt;/command&gt;</span>
+<span class="nt">&lt;keybind</span><span class="w"> </span><span class="na">key=</span><span class="s">"F9"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">name=</span><span class="s">"Execute"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;command&gt;</span>sh<span class="w"> </span>-c<span class="w"> </span>'grim<span class="w"> </span>-g<span class="w"> </span>"$(slurp)"<span class="w"> </span>~/Screenshots/ss-$(date<span class="w"> </span>+%Y%m%d-%H%M%S).png'<span class="nt">&lt;/command&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/action&gt;</span>
 <span class="nt">&lt;/keybind&gt;</span>
 </code></pre></div>

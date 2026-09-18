@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1943,6 +1963,8 @@
       
         
       
+        
+      
     
     
     
@@ -2478,7 +2500,7 @@ we slide the colors by). The offset starts at <code>0</code> and grows each step
 <p>This is the same <code>color_wheel</code> function from Lab 7. It takes a <strong>position</strong>
 (a number from 0 to 255) and returns an <code>(r, g, b)</code> color.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># The color wheel: position 0-255 in, an (r,g,b) color out</span>
-<span class="k">def</span> <span class="nf">color_wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">color_wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">%</span> <span class="mi">256</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>

@@ -589,6 +589,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -627,6 +647,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1347,6 +1388,195 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-traffic-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traffic Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-binary-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Counter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-charge-up-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charge-Up Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../44-tug-of-war/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tug of War
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45-reaction-duel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reaction Duel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../46-fire-simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fire Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../47-cellular-automaton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cellular Automaton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../48-sorting-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sorting Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../49-binary-search-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Search Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1706,6 +1936,8 @@
       
         
           
+        
+      
         
       
         
@@ -2168,7 +2400,7 @@
 <li>the delay (about 50 milliseconds)</li>
 <li>the number of times the pattern should be repeated (iterations)</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">theater_chase</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">wait_ms</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">theater_chase</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">wait_ms</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
             <span class="c1"># turn every third pixel on</span>
@@ -2184,8 +2416,8 @@
 <p>If you want to lower the power of the LED strip, you can change the skip number in the inner loop from 3 to 4, 5 or 6 etc.</p>
 <h2 id="full-program">Full Program</h2>
 <p>This program will run a theater chase for the seven colors of the rainbow and then repeat.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">sleep_ms</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">sleep_ms</span>
 
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">60</span>
@@ -2198,11 +2430,11 @@
 <span class="n">blue</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
 <span class="n">indigo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">130</span><span class="p">)</span>
 <span class="n">violet</span> <span class="o">=</span> <span class="p">(</span><span class="mi">138</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">226</span><span class="p">)</span>
-<span class="n">color_names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;indigo&#39;</span><span class="p">,</span> <span class="s1">&#39;violet&#39;</span><span class="p">)</span>
+<span class="n">color_names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'green'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'indigo'</span><span class="p">,</span> <span class="s1">'violet'</span><span class="p">)</span>
 <span class="n">num_colors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_names</span><span class="p">)</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">yellow</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">indigo</span><span class="p">,</span> <span class="n">violet</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">theater_chase</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">wait_ms</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">theater_chase</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">wait_ms</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">strip</span><span class="o">.</span><span class="n">numPixels</span><span class="p">(),</span> <span class="mi">3</span><span class="p">):</span>

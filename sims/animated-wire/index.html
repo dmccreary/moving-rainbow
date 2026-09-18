@@ -583,6 +583,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -967,6 +987,8 @@
       
         
           
+        
+      
         
       
         
@@ -1517,12 +1539,12 @@
 <h1 id="microsim-template">MicroSim Template</h1>
 <iframe src="main.html" height="480"></iframe>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;480px&quot;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"main.html"</span> <span class="na">height</span><span class="o">=</span><span class="s">"480px"</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <p><a class="md-button md-button--primary" href="main.html">Run the MicroSim</a>
 <a href="https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4">Edit this MicroSim</a></p>
 <h2 id="sample-iframe">Sample iframe</h2>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/name/main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;400&quot;</span>  <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/microsims/sims/name/main.html"</span> <span class="na">height</span><span class="o">=</span><span class="s">"400"</span>  <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="about-this-microsim">About this MicroSim</h2>
 <p>This MicroSim teaches us how to
@@ -1545,17 +1567,17 @@ specify the drawing of a static filled circle.</p>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">mainElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">mainElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'main'</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">mainElement</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// background of drawing region</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;aliceblue&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">'aliceblue'</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
 
 <span class="w">  </span><span class="c1">// background of controls</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;whitegray&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">'whitegray'</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="p">);</span>
 <span class="p">}</span>

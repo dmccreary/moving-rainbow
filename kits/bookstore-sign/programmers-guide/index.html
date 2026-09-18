@@ -583,6 +583,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -967,6 +987,8 @@
       
         
           
+        
+      
         
       
         
@@ -1564,7 +1586,7 @@ to set colors but forget to "push" them to the strip.</p>
 for you: give it a single number from <code>0</code> to <code>255</code> and it returns a rainbow
 color. The numbers travel <strong>red → green → blue → back to red</strong>, so the wheel
 wraps around smoothly with no hard edges.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">&amp;</span> <span class="mi">255</span>            <span class="c1"># keep pos in the range 0-255</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -1597,7 +1619,7 @@ new mode almost instantly.</p>
 <a href="01-test-buttons.py"><code>01-test-buttons.py</code></a>). Instead of the main loop constantly
 asking "is the button pressed yet?", the Pico hardware calls a small function
 the instant a button goes down:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">button_callback</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">button_callback</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">mode</span><span class="p">,</span> <span class="n">last_time</span>
     <span class="n">new_time</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">new_time</span><span class="p">,</span> <span class="n">last_time</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>   <span class="c1"># debounce</span>

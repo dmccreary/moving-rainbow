@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2161,6 +2181,8 @@
       
         
       
+        
+      
     
     
     
@@ -2675,10 +2697,10 @@
 <p>Click any box or node in the diagram to read what it does. The explanation appears in the panel just below the diagram. Where an <strong>Animate</strong> button is present, press it to step through the sequence.</p>
 <h2 id="iframe-embed-code">Iframe Embed Code</h2>
 <p>You can place this MicroSim on any web page by adding the following HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/moving-rainbow/sims/micropython-api-connections/main.html&quot;</span>
-        <span class="na">height</span><span class="o">=</span><span class="s">&quot;682px&quot;</span>
-        <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
-        <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/moving-rainbow/sims/micropython-api-connections/main.html"</span>
+        <span class="na">height</span><span class="o">=</span><span class="s">"682px"</span>
+        <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span>
+        <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="lesson-plan">Lesson Plan</h2>
 <h3 id="grade-level">Grade Level</h3>
@@ -2708,14 +2730,14 @@
 **Library:** Mermaid
 **Status:** Specified
 
-A Mermaid diagram showing a central &quot;Raspberry Pi Pico&quot; box with arrows going to hardware components. Each arrow is labeled with the MicroPython API used:
-- Pico → LED strip (NeoPixel): &quot;neopixel.NeoPixel via machine.Pin(GP0)&quot;
-- Pico → Buzzer or servo: &quot;machine.PWM via machine.Pin&quot;
-- Pico → Photoresistor: &quot;machine.ADC via machine.Pin(GP26)&quot;
-- Pico → Button: &quot;machine.Pin(GP15, IN)&quot;
-- Pico → Built-in LED: &quot;machine.Pin(25, OUT)&quot;
-- Pico → Time/Delays: &quot;utime.sleep()&quot;
-- Pico → Random effects: &quot;urandom.randint()&quot;
+A Mermaid diagram showing a central "Raspberry Pi Pico" box with arrows going to hardware components. Each arrow is labeled with the MicroPython API used:
+- Pico → LED strip (NeoPixel): "neopixel.NeoPixel via machine.Pin(GP0)"
+- Pico → Buzzer or servo: "machine.PWM via machine.Pin"
+- Pico → Photoresistor: "machine.ADC via machine.Pin(GP26)"
+- Pico → Button: "machine.Pin(GP15, IN)"
+- Pico → Built-in LED: "machine.Pin(25, OUT)"
+- Pico → Time/Delays: "utime.sleep()"
+- Pico → Random effects: "urandom.randint()"
 
 Each node is clickable: clicking opens an overlay explaining what that API does and which chapter covers it in depth. Use a left-to-right flow layout. Color-code: GPIO in blue, PWM in orange, ADC in green, time in purple, random in yellow.
 </code></pre></div>

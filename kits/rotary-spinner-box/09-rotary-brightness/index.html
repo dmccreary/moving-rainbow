@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1934,6 +1954,8 @@
       
         
       
+        
+      
     
     
     
@@ -2473,7 +2495,7 @@ top.</p>
 <h2 id="scaling-the-color">Scaling the Color</h2>
 <p>To dim the strip, we shrink the color by a fraction. We divide the current
 brightness by the maximum to get that fraction.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">show_brightness</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">show_brightness</span><span class="p">():</span>
     <span class="n">fade</span> <span class="o">=</span> <span class="n">brightness</span> <span class="o">/</span> <span class="n">MAX_BRIGHTNESS</span>
     <span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">BASE_COLOR</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">fade</span><span class="p">),</span>
              <span class="nb">int</span><span class="p">(</span><span class="n">BASE_COLOR</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">fade</span><span class="p">),</span>
@@ -2506,7 +2528,7 @@ it). We watch two pins, <code>clk</code> and <code>dt</code>, to learn which way
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># counterclockwise: dimmer (but not below zero)</span>
             <span class="n">brightness</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">brightness</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;brightness:&#39;</span><span class="p">,</span> <span class="n">brightness</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'brightness:'</span><span class="p">,</span> <span class="n">brightness</span><span class="p">)</span>
         <span class="n">show_brightness</span><span class="p">()</span>
     <span class="n">last_clk</span> <span class="o">=</span> <span class="n">current_clk</span>
 </code></pre></div>

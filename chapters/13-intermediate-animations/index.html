@@ -1232,6 +1232,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1616,6 +1636,8 @@
       
         
           
+        
+      
         
       
         
@@ -2287,7 +2309,7 @@ Welcome to Chapter 13! The patterns in Chapter 12 were like single notes. Now yo
 <div class="highlight"><pre><span></span><code><span class="n">BASE_COLOR</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="c1"># orange base</span>
 <span class="n">STEPS</span> <span class="o">=</span> <span class="mi">50</span>                    <span class="c1"># steps from dark to full brightness</span>
 
-<span class="k">def</span> <span class="nf">fade</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">delay_ms</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fade</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">delay_ms</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
         <span class="n">scale</span> <span class="o">=</span> <span class="n">step</span> <span class="o">/</span> <span class="p">(</span><span class="n">steps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># 0.0 to 1.0</span>
         <span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
@@ -2316,13 +2338,13 @@ Welcome to Chapter 13! The patterns in Chapter 12 were like single notes. Now yo
 <h2 id="pattern-color-wipe-animation">Pattern: Color Wipe Animation</h2>
 <p>The <strong>Color Wipe Animation</strong> lights pixels one at a time from left to right, then clears them left to right. It's like drawing a line, then erasing it.</p>
 <p>This introduces <strong>sequential pixel lighting</strong> — updating pixels one at a time instead of all at once.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">color_wipe</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay_ms</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">color_wipe</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay_ms</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
         <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
         <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="n">delay_ms</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">color_clear</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">delay_ms</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">color_clear</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">delay_ms</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -2445,7 +2467,7 @@ The order matters in bounce logic. Check <code>&gt;= NUM_PIXELS - 1</code> first
 - <code>center</code> — the pixel index the ripple originates from
 - <code>phase</code> — how far the ripple has traveled
 - <code>ripple_decay_rate</code> — how quickly amplitude falls with distance</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="n">center</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">//</span> <span class="mi">2</span>   <span class="c1"># middle of the strip</span>
 <span class="n">phase</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2478,7 +2500,7 @@ The order matters in bounce logic. Check <code>&gt;= NUM_PIXELS - 1</code> first
 <hr />
 <h2 id="pattern-random-walk-animation">Pattern: Random Walk Animation</h2>
 <p>The <strong>Random Walk Animation</strong> moves a pixel that doesn't bounce — instead, it randomly steps left or right each frame. Over time, it explores the strip unpredictably.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">urandom</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">urandom</span>
 
 <span class="n">pos</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">//</span> <span class="mi">2</span>   <span class="c1"># start in the middle</span>
 <span class="n">trail</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>

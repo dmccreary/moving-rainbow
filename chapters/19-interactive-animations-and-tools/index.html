@@ -1382,6 +1382,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1766,6 +1786,8 @@
       
         
           
+        
+      
         
       
         
@@ -2606,8 +2628,8 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
 <h3 id="animation-restart-logic">Animation Restart Logic</h3>
 <p>When the mode changes, many animations need to reset their state. Without this, a comet tail animation might start mid-trail when you switch into it — which looks glitchy.</p>
 <p><strong>Animation Restart Logic</strong> resets all animation-specific variables when the mode changes:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span><span class="o">,</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span><span class="o">,</span><span class="w"> </span><span class="nn">math</span><span class="o">,</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
@@ -2627,7 +2649,7 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
 <span class="n">trail</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>  <span class="c1"># comet trail</span>
 <span class="n">breath_t</span> <span class="o">=</span> <span class="mf">0.0</span>                  <span class="c1"># breathing phase</span>
 
-<span class="k">def</span> <span class="nf">restart_animation</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">restart_animation</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">offset</span><span class="p">,</span> <span class="n">scan_pos</span><span class="p">,</span> <span class="n">scan_dir</span><span class="p">,</span> <span class="n">trail</span><span class="p">,</span> <span class="n">breath_t</span>
     <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">scan_pos</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -2643,7 +2665,7 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
 <li>Check the button — if pressed, increment <code>mode</code></li>
 <li>Run one frame of the current animation function</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">frame_rainbow</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">frame_rainbow</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">offset</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">hue</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">i</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">)</span>
@@ -2659,7 +2681,7 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span>
 
-<span class="k">def</span> <span class="nf">frame_scanner</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">frame_scanner</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">scan_pos</span><span class="p">,</span> <span class="n">scan_dir</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">scan_pos</span><span class="p">)</span>
@@ -2670,7 +2692,7 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
     <span class="k">if</span> <span class="n">scan_pos</span> <span class="o">&gt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">scan_pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">scan_dir</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
 
-<span class="k">def</span> <span class="nf">frame_comet</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">frame_comet</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">trail</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">trail</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">0.82</span>
@@ -2681,7 +2703,7 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">frame_breathe</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">frame_breathe</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">breath_t</span>
     <span class="n">level</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">breath_t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
@@ -2716,16 +2738,16 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
 <p>An <strong>Input Abstraction Layer</strong> is a helper module that handles all the low-level input details (pin setup, debouncing, state tracking) so the main program can just call <code>button_pressed()</code> without thinking about those details.</p>
 <p>Before the code, here's the value: if you ever change which GPIO pin your button is on, you update one line in the abstraction layer — not every place in the main program that checks the button.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># input_helpers.py  — save this file to the Pico alongside main.py</span>
-<span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span>
 
-<span class="k">class</span> <span class="nc">Button</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pin_num</span><span class="p">,</span> <span class="n">debounce_ms</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Button</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pin_num</span><span class="p">,</span> <span class="n">debounce_ms</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">pin_num</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">debounce_ms</span> <span class="o">=</span> <span class="n">debounce_ms</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prev</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_last_press</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">def</span> <span class="nf">just_pressed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">just_pressed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
         <span class="n">pressed</span> <span class="o">=</span> <span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span>
                    <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_press</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">debounce_ms</span><span class="p">)</span>
@@ -2735,7 +2757,7 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
         <span class="k">return</span> <span class="n">pressed</span>
 </code></pre></div>
 <p>With this class, <code>btn.just_pressed()</code> returns <code>True</code> exactly once per button press. Your main loop becomes clean:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">input_helpers</span> <span class="kn">import</span> <span class="n">Button</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">input_helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Button</span>
 <span class="n">btn</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -2754,14 +2776,14 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
 <p><strong>Photo-Reactive Animation</strong>: the ADC reads the photoresistor and maps it to a brightness parameter that all animations use. In bright room conditions, animations run dimmer; in dark rooms, they run brighter.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ldr</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">get_brightness</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_brightness</span><span class="p">():</span>
     <span class="n">raw</span> <span class="o">=</span> <span class="n">ldr</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span>
     <span class="c1"># Map 20000–55000 to 60–220 brightness (inverted: darker = brighter LEDs)</span>
     <span class="n">clamped</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">20000</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">55000</span><span class="p">,</span> <span class="n">raw</span><span class="p">))</span>
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="mi">220</span> <span class="o">-</span> <span class="p">(</span><span class="n">clamped</span> <span class="o">-</span> <span class="mi">20000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">35000</span> <span class="o">*</span> <span class="mi">160</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Sensor-Driven Animation</strong>: instead of a fixed color, the animation hue or speed responds to sensor values:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">frame_sensor_rainbow</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">frame_sensor_rainbow</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">offset</span>
     <span class="n">speed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ldr</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">/</span> <span class="mi">65535</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1"># 1–7 pixels per frame</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
@@ -2772,7 +2794,7 @@ Welcome to Chapter 19! This is where everything connects. You have animations fr
 </code></pre></div>
 <p>Moving the photoresistor from dark to bright changes the rainbow speed from slow to fast.</p>
 <p><strong>Button-Triggered Animation</strong>: a specific mode that only animates while the button is held, then stops when released. Useful for a "flash" or "strobe" effect:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">frame_hold_to_flash</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">frame_hold_to_flash</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">btn</span><span class="o">.</span><span class="n">pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># held</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">220</span><span class="p">)</span>
@@ -2792,7 +2814,7 @@ The "frame function returns immediately" rule is what makes all of this work. If
 <h3 id="thonny-repl-panel">Thonny REPL Panel</h3>
 <p>The <strong>Thonny REPL Panel</strong> (also called the Shell) is the interactive Python console at the bottom of the Thonny window. REPL stands for Read–Eval–Print Loop.</p>
 <p><strong>REPL Interactive Testing</strong> means typing Python expressions directly and seeing the result immediately — without writing a full file. This is ideal for hardware debugging:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">machine</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
 <span class="mi">1</span>
 </code></pre></div>
@@ -2873,7 +2895,7 @@ The "frame function returns immediately" rule is what makes all of this work. If
 <span class="n">LDR_PIN</span> <span class="o">=</span> <span class="mi">26</span>              <span class="c1"># ADC0 (GP26) → photoresistor</span>
 </code></pre></div>
 <p>Every program file starts with:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Cross-Kit Compatibility</strong>: when a student borrows a kit with a different number of pixels or a different pin assignment, they only change <code>config.py</code>. All programs import from config, so they all adapt automatically.</p>
@@ -2900,7 +2922,7 @@ Untracked files:
 </code></pre></div>
 <h3 id="git-commit-command">git commit Command</h3>
 <p><code>git commit</code> saves a permanent snapshot of all staged files. The <code>-m</code> flag lets you write a <strong>Commit Message</strong> on the same line.</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add button input abstraction and four-mode animation&quot;</span>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add button input abstraction and four-mode animation"</span>
 </code></pre></div>
 <p><strong>Commit Message Writing</strong>: a good commit message answers "what changed and why in one sentence." Use the imperative mood ("Add", "Fix", "Remove", not "Added", "Fixed", "Removed"). A reader should be able to understand the purpose of the snapshot without reading the code diff.</p>
 <h3 id="git-push-command">git push Command</h3>

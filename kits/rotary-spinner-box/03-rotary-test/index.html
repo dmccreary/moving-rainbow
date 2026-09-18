@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1925,6 +1945,8 @@
       
         
       
+        
+      
     
     
     
@@ -2445,11 +2467,11 @@ switch A is named <code>clk</code> and switch B is named <code>dt</code>.</p>
 <h2 id="setting-up-the-pins">Setting Up the Pins</h2>
 <p>First, the program brings in its tools and reads the pin numbers from a settings
 file called <code>config.py</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">utime</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">utime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
 
-<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="c1"># Set up the two encoder pins as inputs with internal pull-up resistors</span>
 <span class="n">clk</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">ROTARY_ENCODER_PIN_A</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
@@ -2488,10 +2510,10 @@ the saved value.</p>
     <span class="k">if</span> <span class="n">current_clk</span> <span class="o">!=</span> <span class="n">last_clk</span> <span class="ow">and</span> <span class="n">current_clk</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">dt</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">!=</span> <span class="n">current_clk</span><span class="p">:</span>
             <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CW  -&gt; count:&#39;</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'CW  -&gt; count:'</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">counter</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CCW -&gt; count:&#39;</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'CCW -&gt; count:'</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
     <span class="n">last_clk</span> <span class="o">=</span> <span class="n">current_clk</span>
 </code></pre></div>
 <p>When you spin the knob, the console prints <code>CW</code> (clockwise) and counts up, or

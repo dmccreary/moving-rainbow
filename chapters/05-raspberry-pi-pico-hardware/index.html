@@ -1301,6 +1301,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1685,6 +1705,8 @@
       
         
           
+        
+      
         
       
         
@@ -2561,11 +2583,11 @@ If you have a <code>main.py</code> on your Pico that crashes immediately, you mi
 <h2 id="using-the-repl-for-interactive-testing">Using the REPL for Interactive Testing</h2>
 <p>The <strong>REPL</strong> stands for <strong>Read-Eval-Print Loop</strong>. It's the interactive console in Thonny's Shell panel. You type a line of Python, press Enter, and the Pico runs it immediately and shows the result.</p>
 <p>Try typing these in the REPL after connecting your Pico:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from the Pico!&quot;</span><span class="p">)</span>
-<span class="n">Hello</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">Pico</span><span class="err">!</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello from the Pico!"</span><span class="p">)</span>
+<span class="n">Hello</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">Pico</span><span class="err">!</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="mi">5</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">machine</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
 </code></pre></div>
@@ -2637,7 +2659,7 @@ Setting up new hardware always takes a few tries. If something doesn't connect r
 <ol>
 <li>
 <p><strong>Blink the built-in LED:</strong> Open Thonny, connect to your Pico, and type these lines in the REPL one at a time:
-   <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span>
+   <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span>
 <span class="n">led</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
 <span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
 <span class="n">utime</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>

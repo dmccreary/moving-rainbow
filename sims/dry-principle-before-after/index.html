@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2161,6 +2181,8 @@
       
         
       
+        
+      
     
     
     
@@ -2675,10 +2697,10 @@
 <p>Use the on-screen controls - buttons, sliders, dropdowns, and clickable regions - to explore the idea. Every change updates the canvas immediately, so you can predict an outcome and then check it.</p>
 <h2 id="iframe-embed-code">Iframe Embed Code</h2>
 <p>You can place this MicroSim on any web page by adding the following HTML:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/moving-rainbow/sims/dry-principle-before-after/main.html&quot;</span>
-        <span class="na">height</span><span class="o">=</span><span class="s">&quot;472px&quot;</span>
-        <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
-        <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/moving-rainbow/sims/dry-principle-before-after/main.html"</span>
+        <span class="na">height</span><span class="o">=</span><span class="s">"472px"</span>
+        <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span>
+        <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="lesson-plan">Lesson Plan</h2>
 <h3 id="grade-level">Grade Level</h3>
@@ -2711,16 +2733,16 @@
 
 Bloom Level: Analyze (L4)
 Bloom Verb: differentiate, compare, examine
-Learning Objective: Students compare repeated code (&quot;Before DRY&quot;) with a refactored version that uses a function (&quot;After DRY&quot;), identifying which lines were duplicated, what the function parameter replaced, and why the refactored version is better.
+Learning Objective: Students compare repeated code ("Before DRY") with a refactored version that uses a function ("After DRY"), identifying which lines were duplicated, what the function parameter replaced, and why the refactored version is better.
 
-Instructional Rationale: Compare/differentiate (L4 Analyze) is served by a side-by-side comparison with interactive highlighting. The student clicks a repeated block on the left to see it matched to its corresponding function call on the right. A &quot;Find the Bug&quot; challenge makes the DRY benefit concrete: a bug inserted in only two of three copies illustrates how DRY reduces a three-fix problem to a one-fix problem.
+Instructional Rationale: Compare/differentiate (L4 Analyze) is served by a side-by-side comparison with interactive highlighting. The student clicks a repeated block on the left to see it matched to its corresponding function call on the right. A "Find the Bug" challenge makes the DRY benefit concrete: a bug inserted in only two of three copies illustrates how DRY reduces a three-fix problem to a one-fix problem.
 
 Canvas layout:
 - Two code panels side by side (47% each, 6% gap):
-  - Left panel: &quot;Before DRY&quot; — three repeated fill-strip blocks
-  - Right panel: &quot;After DRY&quot; — one function definition, three short calls
-- Below panels: &quot;What changed&quot; explanation panel
-- Line count badges: &quot;Before: 15 lines&quot; and &quot;After: 9 lines&quot; shown above each panel
+  - Left panel: "Before DRY" — three repeated fill-strip blocks
+  - Right panel: "After DRY" — one function definition, three short calls
+- Below panels: "What changed" explanation panel
+- Line count badges: "Before: 15 lines" and "After: 9 lines" shown above each panel
 
 Before DRY code (left panel):
 ```python
@@ -2743,7 +2765,7 @@ strip.write()
 utime.sleep(0.5)
 </code></pre></div>
 <p>After DRY code (right panel):
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fill_color</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>

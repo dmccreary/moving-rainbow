@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1623,6 +1643,8 @@
       
         
       
+        
+      
     
     
     
@@ -2161,12 +2183,12 @@ flat, making the recommended slot cut <strong>7 inches</strong> wide.</p>
 <span class="c1"># leaving a fading red tail behind it - just like the eye of a</span>
 <span class="c1"># Cylon from Battlestar Galactica or KITT from Knight Rider.</span>
 <span class="c1">#</span>
-<span class="c1"># Uses the built-in MicroPython &quot;neopixel&quot; library with array index syntax:</span>
+<span class="c1"># Uses the built-in MicroPython "neopixel" library with array index syntax:</span>
 <span class="c1">#   strip[i] = (r, g, b)   sets the color of pixel i</span>
 <span class="c1">#   strip.write()          sends the colors out to the strip</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
 
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2180,8 +2202,8 @@ flat, making the recommended slot cut <strong>7 inches</strong> wide.</p>
 <span class="c1"># How many pixels long the fading tail is</span>
 <span class="n">TAIL</span> <span class="o">=</span> <span class="mi">4</span>
 
-<span class="k">def</span> <span class="nf">draw_eye</span><span class="p">(</span><span class="n">position</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Light the eye at &#39;position&#39; with a fading red tail and clear the rest.&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">draw_eye</span><span class="p">(</span><span class="n">position</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Light the eye at 'position' with a fading red tail and clear the rest."""</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="c1"># How far is this pixel from the center of the eye?</span>
         <span class="n">distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">position</span><span class="p">)</span>
@@ -2206,7 +2228,7 @@ flat, making the recommended slot cut <strong>7 inches</strong> wide.</p>
 </code></pre></div>
 <h2 id="moving-rainbow">Moving Rainbow</h2>
 <div class="highlight"><pre><span></span><code>from utime import sleep
-# Uses the built-in MicroPython &quot;neopixel&quot; library with array index syntax:
+# Uses the built-in MicroPython "neopixel" library with array index syntax:
 #   strip[i] = (r, g, b)   sets the color of pixel i
 #   strip.write()          sends the colors out to the strip
 from machine import Pin
@@ -2234,11 +2256,11 @@ TAIL = 6
 
 
 def draw_eye(position, direction, r, g, b):
-    &quot;&quot;&quot;Draw the eye at &#39;position&#39; with a fading tail trailing behind it.
+    """Draw the eye at 'position' with a fading tail trailing behind it.
 
-    &#39;direction&#39; is +1 when the eye is moving right and -1 when moving left,
+    'direction' is +1 when the eye is moving right and -1 when moving left,
     so the tail always trails behind the direction of motion.
-    &quot;&quot;&quot;
+    """
     for i in range(NUMBER_PIXELS):
         # How many pixels is this one *behind* the eye along the travel path?
         distance = (position - i) * direction
@@ -2318,12 +2340,12 @@ It finally does the rainbow sweep.</p>
 <span class="c1"># After every color has had its turn, the rainbow band sweeps back and forth</span>
 <span class="c1"># once, and then the whole show repeats.</span>
 <span class="c1">#</span>
-<span class="c1"># Uses the built-in MicroPython &quot;neopixel&quot; library with array index syntax:</span>
+<span class="c1"># Uses the built-in MicroPython "neopixel" library with array index syntax:</span>
 <span class="c1">#   strip[i] = (r, g, b)   sets the color of pixel i</span>
 <span class="c1">#   strip.write()          sends the colors out to the strip</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
 
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">0</span>
@@ -2367,12 +2389,12 @@ It finally does the rainbow sweep.</p>
 <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">draw_eye</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Draw the eye at &#39;position&#39; with a fading tail trailing behind it.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">draw_eye</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Draw the eye at 'position' with a fading tail trailing behind it.</span>
 
-<span class="sd">    &#39;direction&#39; is +1 when the eye is moving right and -1 when moving left,</span>
+<span class="sd">    'direction' is +1 when the eye is moving right and -1 when moving left,</span>
 <span class="sd">    so the tail always trails behind the direction of motion.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="c1"># How many pixels is this one *behind* the eye along the travel path?</span>
         <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">position</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">direction</span>
@@ -2388,8 +2410,8 @@ It finally does the rainbow sweep.</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">sweep_eye</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;One back-and-forth trip of the eye in the given color.&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sweep_eye</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""One back-and-forth trip of the eye in the given color."""</span>
     <span class="c1"># Sweep the eye from the left end to the right end</span>
     <span class="k">for</span> <span class="n">position</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">draw_eye</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -2398,8 +2420,8 @@ It finally does the rainbow sweep.</p>
         <span class="n">draw_eye</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">sweep_rainbow</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;One back-and-forth trip of the 7-color rainbow band.&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sweep_rainbow</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""One back-and-forth trip of the 7-color rainbow band."""</span>
     <span class="c1"># Slide the rainbow band from the left end to the right end</span>
     <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">6</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>

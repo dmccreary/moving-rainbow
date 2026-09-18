@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1637,6 +1657,8 @@
       
         
       
+        
+      
     
     
     
@@ -2115,7 +2137,7 @@ get the look Jake wants for each game.</p>
 yellow, to near-white at the hottest core. This function maps a heat
 value (0 to 255) onto that range:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Turn a heat value (0-255) into a fire color (red, green, blue).</span>
-<span class="k">def</span> <span class="nf">heat_to_color</span><span class="p">(</span><span class="n">heat</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">heat_to_color</span><span class="p">(</span><span class="n">heat</span><span class="p">):</span>
     <span class="c1"># scale heat down into 0-191 so we can split it into three bands</span>
     <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">heat</span> <span class="o">*</span> <span class="mi">191</span><span class="p">)</span> <span class="o">//</span> <span class="mi">255</span>
     <span class="n">band</span> <span class="o">=</span> <span class="n">t</span> <span class="o">&amp;</span> <span class="mh">0x3F</span>          <span class="c1"># the lower part within a band (0-63)</span>
@@ -2132,15 +2154,15 @@ value (0 to 255) onto that range:</p>
 <p>This program runs the heat model on both NeoPixel rings using the same
 <code>dual_ring_config.py</code> file as the basic version. The potentiometer
 changes how hot and tall the fire gets.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Jake&#39;s Fire - Advanced heat-model version</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Jake's Fire - Advanced heat-model version</span>
 <span class="c1"># Uses a heat map so flames rise, flicker, and cool like real fire.</span>
 <span class="c1"># untested - adapt the COOLING and SPARKING values for your setup</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">ADC</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span>
-<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">ADC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urandom</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
-<span class="kn">import</span> <span class="nn">dual_ring_config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dual_ring_config</span>
 
 <span class="n">pot</span> <span class="o">=</span> <span class="n">ADC</span><span class="p">(</span><span class="n">dual_ring_config</span><span class="o">.</span><span class="n">POT_PIN</span><span class="p">)</span>
 
@@ -2160,7 +2182,7 @@ changes how hot and tall the fire gets.</p>
 <span class="n">heat1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">NUMBER_PIXELS1</span>
 
 <span class="c1"># Turn a heat value (0-255) into a fire color.</span>
-<span class="k">def</span> <span class="nf">heat_to_color</span><span class="p">(</span><span class="n">heat</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">heat_to_color</span><span class="p">(</span><span class="n">heat</span><span class="p">):</span>
     <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">heat</span> <span class="o">*</span> <span class="mi">191</span><span class="p">)</span> <span class="o">//</span> <span class="mi">255</span>
     <span class="n">band</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">&amp;</span> <span class="mh">0x3F</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
     <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mh">0x80</span><span class="p">:</span>
@@ -2171,7 +2193,7 @@ changes how hot and tall the fire gets.</p>
         <span class="k">return</span> <span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Run one frame of the fire model on a single ring.</span>
-<span class="k">def</span> <span class="nf">update_fire</span><span class="p">(</span><span class="n">heat</span><span class="p">,</span> <span class="n">num_pixels</span><span class="p">,</span> <span class="n">strip</span><span class="p">,</span> <span class="n">sparking</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_fire</span><span class="p">(</span><span class="n">heat</span><span class="p">,</span> <span class="n">num_pixels</span><span class="p">,</span> <span class="n">strip</span><span class="p">,</span> <span class="n">sparking</span><span class="p">):</span>
     <span class="c1"># Step 1: cool every pixel down by a small random amount.</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_pixels</span><span class="p">):</span>
         <span class="n">cooldown</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">((</span><span class="n">COOLING</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">//</span> <span class="n">num_pixels</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
@@ -2192,7 +2214,7 @@ changes how hot and tall the fire gets.</p>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
 <span class="c1"># Turn both rings off.</span>
-<span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS0</span><span class="p">):</span>
         <span class="n">strip0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">strip0</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -2201,7 +2223,7 @@ changes how hot and tall the fire gets.</p>
     <span class="n">strip1</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Advanced fire running - Press Ctrl+C to stop&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Advanced fire running - Press Ctrl+C to stop"</span><span class="p">)</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="c1"># The pot sets the spark rate: turn it up for a bigger blaze.</span>
         <span class="n">sparking</span> <span class="o">=</span> <span class="mi">40</span> <span class="o">+</span> <span class="p">(</span><span class="n">pot</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span>   <span class="c1"># ranges about 40-295</span>
@@ -2209,7 +2231,7 @@ changes how hot and tall the fire gets.</p>
         <span class="n">update_fire</span><span class="p">(</span><span class="n">heat1</span><span class="p">,</span> <span class="n">NUMBER_PIXELS1</span><span class="p">,</span> <span class="n">strip1</span><span class="p">,</span> <span class="n">sparking</span><span class="p">)</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">0.03</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Stopping fire effect&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Stopping fire effect"</span><span class="p">)</span>
     <span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
 <p>You should see flames that rise and fade smoothly instead of flickering

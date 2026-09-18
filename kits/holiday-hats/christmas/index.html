@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1721,6 +1741,8 @@
       
         
       
+        
+      
     
     
     
@@ -2204,10 +2226,10 @@ it's my favorite!</p>
 <p>Copy this code into a file named <code>main.py</code> on your Pico. It runs all
 10 patterns and lets you switch between them with the two buttons.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Christmas Hat - 10 red, green, and white patterns</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
-<span class="kn">from</span> <span class="nn">urandom</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urandom</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># the data pin for the LED strip</span>
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>     <span class="c1"># how many LEDs are on the hat</span>
@@ -2232,7 +2254,7 @@ it's my favorite!</p>
 <span class="n">last_time</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># the last time a button was pressed</span>
 
 <span class="c1"># This runs every time a button is pressed.</span>
-<span class="k">def</span> <span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">button_pressed_handler</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">mode</span><span class="p">,</span> <span class="n">last_time</span>
     <span class="n">new_time</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
     <span class="c1"># ignore presses closer than 1/5 of a second apart (debounce)</span>
@@ -2251,13 +2273,13 @@ it's my favorite!</p>
 <span class="n">button2</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">button_pressed_handler</span><span class="p">)</span>
 
 <span class="c1"># Turn every pixel off.</span>
-<span class="k">def</span> <span class="nf">erase</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">erase</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">off</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
 <span class="c1"># Pattern 0: moving red and white stripes, like a candy cane.</span>
-<span class="k">def</span> <span class="nf">candy_cane</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">candy_cane</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="n">counter</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">red</span>
@@ -2267,7 +2289,7 @@ it's my favorite!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Pattern 1: flip the whole strip between red and green.</span>
-<span class="k">def</span> <span class="nf">red_green_blink</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">red_green_blink</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="n">color</span> <span class="o">=</span> <span class="n">red</span> <span class="k">if</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">green</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
@@ -2275,7 +2297,7 @@ it's my favorite!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
 
 <span class="c1"># Pattern 2: random white pixels twinkle like falling snow.</span>
-<span class="k">def</span> <span class="nf">snow</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">snow</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="n">erase</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUMBER_PIXELS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">white</span>
@@ -2283,7 +2305,7 @@ it's my favorite!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Pattern 3 and 4: fill the strip one pixel at a time with one color.</span>
-<span class="k">def</span> <span class="nf">color_wipe</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">color_wipe</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="n">strip</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
@@ -2291,7 +2313,7 @@ it's my favorite!</p>
         <span class="n">erase</span><span class="p">()</span>
 
 <span class="c1"># Patterns 5 and 6: a bright dot with a fading tail.</span>
-<span class="k">def</span> <span class="nf">comet</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">comet</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="n">erase</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">)):</span>
         <span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">counter</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUMBER_PIXELS</span>
@@ -2303,7 +2325,7 @@ it's my favorite!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Pattern 7: red and green lights spaced evenly that march along.</span>
-<span class="k">def</span> <span class="nf">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">running_lights</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">red</span>
@@ -2315,7 +2337,7 @@ it's my favorite!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Pattern 8: random red, green, and white sparkles.</span>
-<span class="k">def</span> <span class="nf">sparkle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sparkle</span><span class="p">(</span><span class="n">delay</span><span class="p">):</span>
     <span class="n">erase</span><span class="p">()</span>
     <span class="n">palette</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">white</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
@@ -2324,7 +2346,7 @@ it's my favorite!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
 
 <span class="c1"># Pattern 9: gold lights that step forward, like a theater marquee.</span>
-<span class="k">def</span> <span class="nf">theater_chase</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">theater_chase</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">counter</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">gold</span>

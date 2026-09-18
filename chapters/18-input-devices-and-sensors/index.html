@@ -1262,6 +1262,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1646,6 +1666,8 @@
       
         
           
+        
+      
         
       
         
@@ -2347,7 +2369,7 @@ Welcome to Chapter 18! Your projects have been running on their own until now. I
 <p>With this wiring and a pull-up resistor, the GPIO pin reads HIGH (1) when the button is not pressed, and LOW (0) when it is pressed.</p>
 <h3 id="gpio-input-mode-setup">GPIO Input Mode Setup</h3>
 <p>To read a button, configure the pin as an input with <strong>Pin.PULL_UP Configuration</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
 
 <span class="n">btn</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
 </code></pre></div>
@@ -2360,7 +2382,7 @@ Welcome to Chapter 18! Your projects have been running on their own until now. I
 <li>Compare it to the previous value to detect a change</li>
 <li>React only when a press (LOW) is detected for the first time (not every frame it stays pressed)</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">machine</span><span class="o">,</span> <span class="nn">utime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">machine</span><span class="o">,</span><span class="w"> </span><span class="nn">utime</span>
 
 <span class="n">btn</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
 <span class="n">prev_state</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># 1 = not pressed (pull-up default)</span>
@@ -2370,7 +2392,7 @@ Welcome to Chapter 18! Your projects have been running on their own until now. I
 
     <span class="k">if</span> <span class="n">current_state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">prev_state</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="c1"># Button was just pressed (transition from 1 → 0)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Button pressed!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Button pressed!"</span><span class="p">)</span>
 
     <span class="n">prev_state</span> <span class="o">=</span> <span class="n">current_state</span>
     <span class="n">utime</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># check 100 times per second</span>
@@ -2392,7 +2414,7 @@ Welcome to Chapter 18! Your projects have been running on their own until now. I
 
     <span class="k">if</span> <span class="n">current_state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">prev_state</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">-</span> <span class="n">last_press_time</span> <span class="o">&gt;</span> <span class="n">DEBOUNCE_MS</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Debounced press!&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Debounced press!"</span><span class="p">)</span>
             <span class="n">last_press_time</span> <span class="o">=</span> <span class="n">now</span>
 
     <span class="n">prev_state</span> <span class="o">=</span> <span class="n">current_state</span>
@@ -2414,7 +2436,7 @@ Without debouncing, one press can register as 2, 5, or even 10 presses — makin
 <div class="highlight"><pre><span></span><code><span class="n">NUM_MODES</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">mode</span> <span class="o">=</span> <span class="mi">0</span>         <span class="c1"># current animation mode</span>
 
-<span class="k">def</span> <span class="nf">run_animation</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_animation</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># Mode 0: solid red</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
@@ -2490,7 +2512,7 @@ In dark conditions: LDR resistance rises → less voltage → ADC reads lower va
 <p><strong>Sensor Value Mapping</strong> converts the raw ADC range (0–65535) to a useful range (e.g., 0–255 for brightness, or 0–360 for hue).</p>
 <p>Before the formula, here's the concept: if your LDR reads 20,000 in darkness and 55,000 in bright light, you want 20,000 to map to 0 and 55,000 to map to 255.</p>
 <p><strong>Sensor Data Range Mapping</strong> formula:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">map_value</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">in_min</span><span class="p">,</span> <span class="n">in_max</span><span class="p">,</span> <span class="n">out_min</span><span class="p">,</span> <span class="n">out_max</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">map_value</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">in_min</span><span class="p">,</span> <span class="n">in_max</span><span class="p">,</span> <span class="n">out_min</span><span class="p">,</span> <span class="n">out_max</span><span class="p">):</span>
     <span class="c1"># Clamp to input range first</span>
     <span class="n">value</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">in_min</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">in_max</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
     <span class="c1"># Then map linearly</span>
@@ -2500,7 +2522,7 @@ In dark conditions: LDR resistance rises → less voltage → ADC reads lower va
 <span class="n">brightness</span> <span class="o">=</span> <span class="n">map_value</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">55000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Analog Value Smoothing</strong>: raw ADC readings can jump around. Averaging several readings reduces noise:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">smooth_read</span><span class="p">(</span><span class="n">adc</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">smooth_read</span><span class="p">(</span><span class="n">adc</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">adc</span><span class="o">.</span><span class="n">read_u16</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">samples</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">total</span> <span class="o">//</span> <span class="n">samples</span>
 </code></pre></div>
@@ -2545,9 +2567,9 @@ In dark conditions: LDR resistance rises → less voltage → ADC reads lower va
 <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">prev_state</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">held_time</span> <span class="o">=</span> <span class="n">utime</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span> <span class="o">-</span> <span class="n">press_start</span>
     <span class="k">if</span> <span class="n">held_time</span> <span class="o">&gt;</span> <span class="n">LONG_PRESS_MS</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Long press!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Long press!"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Short press!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Short press!"</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Input Validation</strong> means checking that input values are in a safe range before using them. For sensor readings: clamp the result with <code>max(0, min(255, value))</code> before using it as a brightness parameter.</p>
 <p><strong>Real-Time Input Response</strong> — the goal is to make the system feel responsive. With polling at 20–50 ms intervals, a button press is detected within at most 50 ms — imperceptible to humans.</p>

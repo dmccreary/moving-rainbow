@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1552,6 +1572,8 @@
       
         
       
+        
+      
     
     
     
@@ -2324,7 +2346,7 @@ channel</strong> — the groove down the middle. They are built to fit that way.
 <p>No resistors are needed. The Pico has <strong>internal pull-up resistors</strong> — tiny
 resistors inside the chip that hold the pin at 3.3&nbsp;volts until something
 pulls it down. Your code turns one on like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
 
 <span class="c1"># PULL_UP holds the pin HIGH until the button connects it to ground</span>
 <span class="n">button</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
@@ -2364,8 +2386,8 @@ this too, including what to do if the automatic download stalls.</p>
 bottom-right corner of Thonny you should see <em>MicroPython (Raspberry Pi Pico)</em>.</p>
 <p><strong>4. Say hello in the Shell.</strong> Click in the Thonny <strong>Shell</strong> panel at the
 bottom and type these lines one at a time:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="mi">30</span><span class="p">)</span>
 <span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>

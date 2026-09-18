@@ -589,6 +589,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -627,6 +647,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1374,6 +1415,195 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41-traffic-light/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traffic Light
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../42-binary-counter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Counter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-charge-up-game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charge-Up Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../44-tug-of-war/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tug of War
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../45-reaction-duel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reaction Duel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../46-fire-simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fire Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../47-cellular-automaton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cellular Automaton
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../48-sorting-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sorting Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../49-binary-search-visualizer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Search Visualizer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1733,6 +1963,8 @@
       
         
           
+        
+      
         
       
         
@@ -2231,7 +2463,7 @@ pattern to run next!</p>
 active right now." Mode <code>0</code> might mean solid red, mode <code>1</code> might mean solid
 green, and so on. A function called <code>run_mode</code> looks at the mode variable
 and runs the matching pattern:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">fill_strip</span><span class="p">((</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>    <span class="c1"># mode 0: solid red</span>
     <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -2244,10 +2476,10 @@ adds buttons so <em>you</em> get to decide when to switch.</p>
 <h2 id="the-full-program">The Full Program</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Automatically cycle through three light patterns, staying on each one</span>
 <span class="c1"># for a few seconds before moving to the next.</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
-<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span> <span class="nn">utime</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">ticks_ms</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 
@@ -2255,13 +2487,13 @@ adds buttons so <em>you</em> get to decide when to switch.</p>
 <span class="n">NUM_MODES</span> <span class="o">=</span> <span class="mi">3</span>
 
 
-<span class="k">def</span> <span class="nf">fill_strip</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fill_strip</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">run_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">fill_strip</span><span class="p">((</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>    <span class="c1"># mode 0: solid red</span>
     <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -2281,7 +2513,7 @@ adds buttons so <em>you</em> get to decide when to switch.</p>
         <span class="n">mode</span> <span class="o">=</span> <span class="p">(</span><span class="n">mode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUM_MODES</span>   <span class="c1"># advance to the next mode, then wrap</span>
         <span class="n">run_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
         <span class="n">mode_start_time</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mode:&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"mode:"</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
 
     <span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </code></pre></div>

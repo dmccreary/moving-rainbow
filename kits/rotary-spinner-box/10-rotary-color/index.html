@@ -587,6 +587,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1934,6 +1954,8 @@
       
         
       
+        
+      
     
     
     
@@ -2468,7 +2490,7 @@ far each click of the knob moves us around that wheel.</p>
 from <code>0</code> to <code>255</code>, and it hands back one color as red, green, and blue amounts.
 You met this same idea back in Lab 7.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># The color wheel: position 0-255 in, an (r,g,b) color out</span>
-<span class="k">def</span> <span class="nf">color_wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">color_wheel</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">%</span> <span class="mi">256</span>
     <span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">pos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -2492,7 +2514,7 @@ anytime by name. That saves us from writing the same math over and over.</p>
 <p>This part fills every pixel with the color for the current <code>hue</code>. It reuses the
 <code>color_wheel</code> function we just read.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Fill the whole strip with the current color</span>
-<span class="k">def</span> <span class="nf">show_color</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_color</span><span class="p">():</span>
     <span class="n">color</span> <span class="o">=</span> <span class="n">color_wheel</span><span class="p">(</span><span class="n">hue</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
@@ -2510,7 +2532,7 @@ exact same shade.</p>
             <span class="n">hue</span> <span class="o">=</span> <span class="p">(</span><span class="n">hue</span> <span class="o">+</span> <span class="n">STEP</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span>   <span class="c1"># clockwise</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">hue</span> <span class="o">=</span> <span class="p">(</span><span class="n">hue</span> <span class="o">-</span> <span class="n">STEP</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span>   <span class="c1"># counterclockwise</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hue:&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'hue:'</span><span class="p">,</span> <span class="n">hue</span><span class="p">)</span>
         <span class="n">show_color</span><span class="p">()</span>
     <span class="n">last_clk</span> <span class="o">=</span> <span class="n">current_clk</span>
 </code></pre></div>

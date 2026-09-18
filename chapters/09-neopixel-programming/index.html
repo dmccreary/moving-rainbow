@@ -1256,6 +1256,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1640,6 +1660,8 @@
       
         
           
+        
+      
         
       
         
@@ -2333,9 +2355,9 @@ Welcome to Chapter 9! You've got your hardware wired up and you know your RGB co
 <span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="mi">30</span>     <span class="c1"># 30-pixel strip</span>
 </code></pre></div>
 <p><strong>NeoPixel Class Instantiation</strong> — creating the strip object:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 </code></pre></div>
@@ -2393,7 +2415,7 @@ Forgetting <code>strip.write()</code> is one of the most common first-week mista
 <hr />
 <h2 id="clearing-all-pixels">Clearing All Pixels</h2>
 <p>To turn off all LEDs, set every pixel to <code>(0, 0, 0)</code> and call <code>strip.write()</code>. Clearing is useful at the start of an animation and to reset between patterns.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clear_strip</span><span class="p">(</span><span class="n">strip</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">clear_strip</span><span class="p">(</span><span class="n">strip</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strip</span><span class="p">)):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -2409,7 +2431,7 @@ Forgetting <code>strip.write()</code> is one of the most common first-week mista
 <p>A <strong>brightness scale factor</strong> from 0.0 to 1.0 lets you scale all colors down proportionally:</p>
 <div class="highlight"><pre><span></span><code><span class="n">BRIGHTNESS</span> <span class="o">=</span> <span class="mf">0.3</span>   <span class="c1"># 30% brightness — safe for USB-powered strips</span>
 
-<span class="k">def</span> <span class="nf">scale_color</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scale_color</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">BRIGHTNESS</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">g</span> <span class="o">*</span> <span class="n">BRIGHTNESS</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">BRIGHTNESS</span><span class="p">))</span>
 
 <span class="n">strip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale_color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1"># red at 30% brightness = (76, 0, 0)</span>
@@ -2469,7 +2491,7 @@ Forgetting <code>strip.write()</code> is one of the most common first-week mista
 <p>Before reading the code, here are the key terms:
 - <code>start</code> — the first pixel index in a segment
 - <code>end</code> — one past the last pixel in a segment (to match Python's <code>range()</code> convention)</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fill_segment</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fill_segment</span><span class="p">(</span><span class="n">strip</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
         <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
 
@@ -2510,9 +2532,9 @@ The modulo operator <code>%</code> is your segmentation superpower. <code>i % 2 
 <h2 id="putting-it-together-rainbow-segment-display">Putting It Together: Rainbow Segment Display</h2>
 <p>Here's a program that uses pixel indexing, segmentation, and group operations to display a five-color rainbow across any strip length:</p>
 <p>Before reading the code, the key idea: we divide the strip into 5 equal segments and give each a different color from the rainbow.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">neopixel</span>
-<span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">machine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">Pin</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span><span class="p">)</span>
 

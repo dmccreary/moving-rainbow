@@ -583,6 +583,26 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -967,6 +987,8 @@
       
         
           
+        
+      
         
       
         
@@ -1805,25 +1827,25 @@
 <h3 id="step-4-configure-claude-code-hooks">Step 4: Configure Claude Code Hooks</h3>
 <p>Now for the magic! Add these hooks to your <code>~/.claude/settings.json</code> file to automatically update the Touch Bar when Claude's state changes:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"PreToolUse"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/claude-notify-simple.sh running&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/claude-notify-simple.sh running"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;Stop&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"Stop"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/claude-notify-simple.sh prompt&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/claude-notify-simple.sh prompt"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -1835,25 +1857,25 @@
 <p><strong>Important:</strong> After modifying <code>settings.json</code>, restart Claude Code for the hooks to take effect.</p>
 <h3 id="step-5-enjoy-the-colorful-experience">Step 5: Enjoy the Colorful Experience!</h3>
 <p>Test all the wonderful status colors:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Beautiful blue - &quot;Running Task...&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Beautiful blue - "Running Task..."</span>
 ./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>running
 
-<span class="c1"># Lovely green - &quot;Waiting for Prompt&quot;</span>
+<span class="c1"># Lovely green - "Waiting for Prompt"</span>
 ./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>prompt
 
-<span class="c1"># Bright green success - &quot;Task Complete&quot;</span>
+<span class="c1"># Bright green success - "Task Complete"</span>
 ./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>flash
 
-<span class="c1"># Royal blue - &quot;Question Waiting&quot;</span>
+<span class="c1"># Royal blue - "Question Waiting"</span>
 ./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>question
 
-<span class="c1"># Attention-grabbing yellow - &quot;Permission Needed&quot;</span>
+<span class="c1"># Attention-grabbing yellow - "Permission Needed"</span>
 ./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>permission
 
-<span class="c1"># Urgent red - &quot;Waiting for Input&quot;</span>
+<span class="c1"># Urgent red - "Waiting for Input"</span>
 ./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>waiting
 
-<span class="c1"># Warning orange - &quot;Context Warning&quot;</span>
+<span class="c1"># Warning orange - "Context Warning"</span>
 ./src/macbook-status-bar/claude-notify-simple.sh<span class="w"> </span>context
 
 <span class="c1"># Clear the status</span>
@@ -1903,14 +1925,14 @@
 </table>
 <h3 id="hook-configuration-structure">Hook Configuration Structure</h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;HookName&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"HookName"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/script.sh argument&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/script.sh argument"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -1958,18 +1980,18 @@
 <h3 id="using-matchers-for-even-more-control">Using Matchers for Even More Control</h3>
 <p>The <code>matcher</code> field lets you create different colors for different tools:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"PreToolUse"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bash&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/script.sh bash-running&quot;</span><span class="w"> </span><span class="p">}]</span>
+<span class="w">      </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bash"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/script.sh bash-running"</span><span class="w"> </span><span class="p">}]</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Read&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/script.sh reading-file&quot;</span><span class="w"> </span><span class="p">}]</span>
+<span class="w">      </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Read"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/script.sh reading-file"</span><span class="w"> </span><span class="p">}]</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/script.sh running&quot;</span><span class="w"> </span><span class="p">}]</span>
+<span class="w">      </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/script.sh running"</span><span class="w"> </span><span class="p">}]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
@@ -1986,67 +2008,67 @@
 <span class="c1">#</span>
 <span class="c1"># JSON Format for BetterTouchTool:</span>
 <span class="c1">#   {</span>
-<span class="c1">#     &quot;text&quot;: &quot;Display Text&quot;,</span>
-<span class="c1">#     &quot;background_color&quot;: &quot;R,G,B,A&quot;,   (0-255 for each)</span>
-<span class="c1">#     &quot;font_color&quot;: &quot;R,G,B,A&quot;,          (0-255 for each)</span>
-<span class="c1">#     &quot;font_size&quot;: 12</span>
+<span class="c1">#     "text": "Display Text",</span>
+<span class="c1">#     "background_color": "R,G,B,A",   (0-255 for each)</span>
+<span class="c1">#     "font_color": "R,G,B,A",          (0-255 for each)</span>
+<span class="c1">#     "font_size": 12</span>
 <span class="c1">#   }</span>
 
-<span class="nv">STATUS_FILE</span><span class="o">=</span><span class="s2">&quot;/tmp/claude-code-status.txt&quot;</span>
+<span class="nv">STATUS_FILE</span><span class="o">=</span><span class="s2">"/tmp/claude-code-status.txt"</span>
 <span class="nv">FONT_SIZE</span><span class="o">=</span><span class="m">12</span>
 
 <span class="c1"># Color Definitions (RGBA format)</span>
-<span class="nv">WHITE</span><span class="o">=</span><span class="s2">&quot;255,255,255,255&quot;</span>
-<span class="nv">BLACK</span><span class="o">=</span><span class="s2">&quot;0,0,0,255&quot;</span>
-<span class="nv">GREEN_BG</span><span class="o">=</span><span class="s2">&quot;34,139,34,255&quot;</span><span class="w">       </span><span class="c1"># Forest green - ready states</span>
-<span class="nv">BRIGHT_GREEN_BG</span><span class="o">=</span><span class="s2">&quot;0,180,0,255&quot;</span><span class="w">  </span><span class="c1"># Bright green - success</span>
-<span class="nv">BLUE_BG</span><span class="o">=</span><span class="s2">&quot;30,144,255,255&quot;</span><span class="w">       </span><span class="c1"># Dodger blue - working states</span>
-<span class="nv">ROYAL_BLUE_BG</span><span class="o">=</span><span class="s2">&quot;65,105,225,255&quot;</span><span class="w"> </span><span class="c1"># Royal blue - questions</span>
-<span class="nv">YELLOW_BG</span><span class="o">=</span><span class="s2">&quot;255,200,0,255&quot;</span><span class="w">      </span><span class="c1"># Gold - permission needed</span>
-<span class="nv">RED_BG</span><span class="o">=</span><span class="s2">&quot;220,20,60,255&quot;</span><span class="w">         </span><span class="c1"># Crimson - blocked states</span>
-<span class="nv">ORANGE_BG</span><span class="o">=</span><span class="s2">&quot;255,140,0,255&quot;</span><span class="w">      </span><span class="c1"># Dark orange - warnings</span>
+<span class="nv">WHITE</span><span class="o">=</span><span class="s2">"255,255,255,255"</span>
+<span class="nv">BLACK</span><span class="o">=</span><span class="s2">"0,0,0,255"</span>
+<span class="nv">GREEN_BG</span><span class="o">=</span><span class="s2">"34,139,34,255"</span><span class="w">       </span><span class="c1"># Forest green - ready states</span>
+<span class="nv">BRIGHT_GREEN_BG</span><span class="o">=</span><span class="s2">"0,180,0,255"</span><span class="w">  </span><span class="c1"># Bright green - success</span>
+<span class="nv">BLUE_BG</span><span class="o">=</span><span class="s2">"30,144,255,255"</span><span class="w">       </span><span class="c1"># Dodger blue - working states</span>
+<span class="nv">ROYAL_BLUE_BG</span><span class="o">=</span><span class="s2">"65,105,225,255"</span><span class="w"> </span><span class="c1"># Royal blue - questions</span>
+<span class="nv">YELLOW_BG</span><span class="o">=</span><span class="s2">"255,200,0,255"</span><span class="w">      </span><span class="c1"># Gold - permission needed</span>
+<span class="nv">RED_BG</span><span class="o">=</span><span class="s2">"220,20,60,255"</span><span class="w">         </span><span class="c1"># Crimson - blocked states</span>
+<span class="nv">ORANGE_BG</span><span class="o">=</span><span class="s2">"255,140,0,255"</span><span class="w">      </span><span class="c1"># Dark orange - warnings</span>
 
-<span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="k">case</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="k">in</span>
 <span class="w">    </span>running<span class="o">)</span>
 <span class="w">        </span><span class="c1"># Blue background - Claude is working hard!</span>
-<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-<span class="s">{&quot;text&quot;:&quot;⚙ Running Task...&quot;,&quot;background_color&quot;:&quot;${BLUE_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$STATUS_FILE</span><span class="s2">"</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{"text":"⚙ Running Task...","background_color":"${BLUE_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}</span>
 <span class="s">EOF</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>prompt<span class="o">)</span>
 <span class="w">        </span><span class="c1"># Green background - Ready for your next brilliant idea!</span>
-<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-<span class="s">{&quot;text&quot;:&quot;💬 Waiting for Prompt&quot;,&quot;background_color&quot;:&quot;${GREEN_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$STATUS_FILE</span><span class="s2">"</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{"text":"💬 Waiting for Prompt","background_color":"${GREEN_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}</span>
 <span class="s">EOF</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>flash<span class="o">)</span>
 <span class="w">        </span><span class="c1"># Bright green - Success!</span>
-<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-<span class="s">{&quot;text&quot;:&quot;✓ Task Complete&quot;,&quot;background_color&quot;:&quot;${BRIGHT_GREEN_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$STATUS_FILE</span><span class="s2">"</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{"text":"✓ Task Complete","background_color":"${BRIGHT_GREEN_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}</span>
 <span class="s">EOF</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>question<span class="o">)</span>
 <span class="w">        </span><span class="c1"># Royal blue - Claude has a question</span>
-<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-<span class="s">{&quot;text&quot;:&quot;? Question Waiting&quot;,&quot;background_color&quot;:&quot;${ROYAL_BLUE_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$STATUS_FILE</span><span class="s2">"</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{"text":"? Question Waiting","background_color":"${ROYAL_BLUE_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}</span>
 <span class="s">EOF</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>permission<span class="o">)</span>
 <span class="w">        </span><span class="c1"># Yellow with black text - High visibility warning</span>
-<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-<span class="s">{&quot;text&quot;:&quot;⚠ Permission Needed&quot;,&quot;background_color&quot;:&quot;${YELLOW_BG}&quot;,&quot;font_color&quot;:&quot;${BLACK}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$STATUS_FILE</span><span class="s2">"</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{"text":"⚠ Permission Needed","background_color":"${YELLOW_BG}","font_color":"${BLACK}","font_size":${FONT_SIZE}}</span>
 <span class="s">EOF</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>waiting<span class="o">)</span>
 <span class="w">        </span><span class="c1"># Red - Needs your attention now!</span>
-<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-<span class="s">{&quot;text&quot;:&quot;⏳ Waiting for Input&quot;,&quot;background_color&quot;:&quot;${RED_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$STATUS_FILE</span><span class="s2">"</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{"text":"⏳ Waiting for Input","background_color":"${RED_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}</span>
 <span class="s">EOF</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>context<span class="o">)</span>
 <span class="w">        </span><span class="c1"># Orange - Warning about context</span>
-<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$STATUS_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-<span class="s">{&quot;text&quot;:&quot;⚡ Context Warning&quot;,&quot;background_color&quot;:&quot;${ORANGE_BG}&quot;,&quot;font_color&quot;:&quot;${WHITE}&quot;,&quot;font_size&quot;:${FONT_SIZE}}</span>
+<span class="w">        </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="nv">$STATUS_FILE</span><span class="s2">"</span><span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">{"text":"⚡ Context Warning","background_color":"${ORANGE_BG}","font_color":"${WHITE}","font_size":${FONT_SIZE}}</span>
 <span class="s">EOF</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="k">esac</span>
@@ -2059,25 +2081,25 @@
 <h2 id="complete-example-configuration">Complete Example Configuration</h2>
 <p>Here's a complete <code>~/.claude/settings.json</code> with Touch Bar hooks ready to go:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;PreToolUse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"PreToolUse"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Users/dan/Documents/ws/moving-rainbow/src/macbook-status-bar/claude-notify-simple.sh running&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Users/dan/Documents/ws/moving-rainbow/src/macbook-status-bar/claude-notify-simple.sh running"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;Stop&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"Stop"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;matcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;hooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"matcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"hooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;command&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Users/dan/Documents/ws/moving-rainbow/src/macbook-status-bar/claude-notify-simple.sh prompt&quot;</span>
+<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/Users/dan/Documents/ws/moving-rainbow/src/macbook-status-bar/claude-notify-simple.sh prompt"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -2102,7 +2124,7 @@
 </code></pre></div>
 <h3 id="colors-not-showing">Colors not showing</h3>
 <p>Make sure BetterTouchTool is configured to parse JSON output. The script outputs JSON in this format:
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;💬 Waiting for Prompt&quot;</span><span class="p">,</span><span class="nt">&quot;background_color&quot;</span><span class="p">:</span><span class="s2">&quot;34,139,34,255&quot;</span><span class="p">,</span><span class="nt">&quot;font_color&quot;</span><span class="p">:</span><span class="s2">&quot;255,255,255,255&quot;</span><span class="p">,</span><span class="nt">&quot;font_size&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"text"</span><span class="p">:</span><span class="s2">"💬 Waiting for Prompt"</span><span class="p">,</span><span class="nt">"background_color"</span><span class="p">:</span><span class="s2">"34,139,34,255"</span><span class="p">,</span><span class="nt">"font_color"</span><span class="p">:</span><span class="s2">"255,255,255,255"</span><span class="p">,</span><span class="nt">"font_size"</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
 </code></pre></div></p>
 <h3 id="touch-bar-not-visible">Touch Bar not visible</h3>
 <p>Press the <strong>fn</strong> key to toggle between system Touch Bar and BetterTouchTool Touch Bar.</p>
