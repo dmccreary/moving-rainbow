@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/danmccreary/Documents/ws/moving-rainbow/src/tiki-bar-sign/ /Users/danmccreary/Documents/ws/moving-rainbow/src/jason-sign/ 2>&1)"
+    ]
+  }
+}
