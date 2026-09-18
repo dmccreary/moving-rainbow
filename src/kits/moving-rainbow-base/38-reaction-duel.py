@@ -1,18 +1,29 @@
-# Reaction Duel! Wait for the strip to flash green, then be the first
-# to press your button. Press too early and you lose!
+# Lab 38: Reaction Duel
+# Filename: 38-reaction-duel.py
+# Version: 1.0.0
+#
+# Wait for the strip to flash green, then be the first to press your
+# button. Press too early and you lose!
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 from urandom import randint
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
-button1 = Pin(config.BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
-button2 = Pin(config.BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+BUTTON_PIN_1 = config.BUTTON_PIN_1
+BUTTON_PIN_2 = config.BUTTON_PIN_2
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
+button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
 
 def fill_strip(color):
-    for i in range(config.NUMBER_PIXELS):
+    for i in range(NUMBER_PIXELS):
         strip[i] = color
     strip.write()
 

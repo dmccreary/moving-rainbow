@@ -1,13 +1,21 @@
-# random bounce
-# pixels appear to bounce around on the LED strip as they move back-and-forth
+# Lab 26: Random Bounce
+# Filename: 26-random-bounce.py
+# Version: 1.0.0
+#
+# Pixels appear to bounce around on the LED strip as they move back-and-
+# forth.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 from urandom import randint
 import config
 
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
 NUMBER_PIXELS = config.NUMBER_PIXELS
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 red = (255, 0, 0)
 red_med = (32, 0, 0)

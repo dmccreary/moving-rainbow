@@ -1,6 +1,11 @@
+# Lab 01: Blink the Onboard LED
+# Filename: 01-blink-onboard-led.py
+# Version: 1.0.0
+#
 # Use this program to test that your Pico is connected to Thonny and
 # running MicroPython. No wiring needed - this uses the LED already
 # built onto the Pico board.
+
 from machine import Pin
 from utime import sleep
 

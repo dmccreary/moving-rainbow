@@ -1,19 +1,29 @@
+# Lab 33: Modes Auto Cycle
+# Filename: 33-modes-auto-cycle.py
+# Version: 1.0.0
+#
 # Automatically cycle through three light patterns, staying on each one
 # for a few seconds before moving to the next. No buttons yet - this is
-# the "mode variable" pattern that the button-driven modes lesson builds on.
+# the "mode variable" pattern that the button-driven modes lesson builds
+# on.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 SECONDS_PER_MODE = 4   # how long to stay on each mode before switching
 NUM_MODES = 3
 
 
 def fill_strip(color):
-    for i in range(config.NUMBER_PIXELS):
+    for i in range(NUMBER_PIXELS):
         strip[i] = color
     strip.write()
 

@@ -1,16 +1,23 @@
-# 07-random color at a random location
+# Lab 08: Random
+# Filename: 08-random.py
+# Version: 1.0.0
+#
+# Light a pixel in a random color at a random location.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 from urandom import randint
-# get the configuration information
 import config
 
-np = config.NUMBER_PIXELS
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), np)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 while True:
-    location = randint(0, np-1)
+    location = randint(0, NUMBER_PIXELS-1)
     red = randint(0, 256)
     green = randint(0, 256)
     blue = randint(0, 256)

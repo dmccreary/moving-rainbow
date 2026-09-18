@@ -1,13 +1,20 @@
-# 08-color-wheel
+# Lab 09: Color Wheel
+# Filename: 09-color-wheel.py
+# Version: 1.0.0
+#
+# The first pixel steps through every color on the color wheel.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 from urandom import randint
-# get the configuration information
 import config
 
-np = config.NUMBER_PIXELS
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), np)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.

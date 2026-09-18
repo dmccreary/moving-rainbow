@@ -1,12 +1,21 @@
-# moving rainbow
+# Lab 20: Ripple
+# Filename: 20-ripple.py
+# Version: 1.0.0
+#
+# Ripples spread out in both directions from a random spot, like drops
+# in a pond.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 from urandom import randint
 import config
 
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
 NUMBER_PIXELS = config.NUMBER_PIXELS
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 
 red = (255, 0, 0)

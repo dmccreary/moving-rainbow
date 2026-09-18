@@ -1,14 +1,23 @@
-# moving rainbow
+# Lab 13: Moving Rainbow with the Color Wheel
+# Filename: 13-moving-rainbow.py
+# Version: 1.0.0
+#
+# A short rainbow, built with the color wheel function, slides along the
+# strip.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 import config
 
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
 NUMBER_PIXELS = config.NUMBER_PIXELS
+
 RAINBOW_LENGTH = 7
 PERCENT_COLOR_WHEEL = round(255/RAINBOW_LENGTH)
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.

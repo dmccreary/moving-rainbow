@@ -1,11 +1,20 @@
+# Lab 40: Cellular Automaton
+# Filename: 40-cellular-automaton.py
+# Version: 1.0.0
+#
 # Rule 30: a simple rule turns one row of pixels into the next, one
 # generation at a time. Watch the pattern grow more complex over time!
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 ON_COLOR = (0, 150, 200)
 OFF_COLOR = (0, 0, 0)
@@ -37,8 +46,8 @@ def draw(cells):
 
 
 # start with a single lit pixel in the middle
-cells = [0] * config.NUMBER_PIXELS
-cells[config.NUMBER_PIXELS // 2] = 1
+cells = [0] * NUMBER_PIXELS
+cells[NUMBER_PIXELS // 2] = 1
 
 while True:
     draw(cells)

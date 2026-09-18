@@ -1,11 +1,20 @@
+# Lab 24: Binary Clock
+# Filename: 24-clock.py
+# Version: 1.0.0
+#
+# Show the time in binary: seconds, minutes and hours each use six
+# pixels.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, localtime
-# get the configuration information
 import config
 
-np = config.NUMBER_PIXELS
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), np)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 sec_bits = [0,0,0,0,0,0]
 min_bits = [0,0,0,0,0,0]

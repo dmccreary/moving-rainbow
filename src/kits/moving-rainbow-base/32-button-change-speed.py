@@ -1,13 +1,24 @@
+# Lab 32: Button Change Speed
+# Filename: 32-button-change-speed.py
+# Version: 1.0.0
+#
 # Button 1 speeds up a moving pixel. Button 2 slows it down.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+BUTTON_PIN_1 = config.BUTTON_PIN_1
+BUTTON_PIN_2 = config.BUTTON_PIN_2
 
-button1 = Pin(config.BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
-button2 = Pin(config.BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+
+button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
+button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
 delay = 0.1          # seconds between moves - this is our "speed"
 MIN_DELAY = 0.01     # fastest we will allow (too fast looks like a blur)
@@ -38,7 +49,7 @@ button2.irq(trigger=Pin.IRQ_FALLING, handler=button_handler)
 position = 0
 while True:
     strip[position] = (0, 0, 0)                    # erase the old spot
-    position = (position + 1) % config.NUMBER_PIXELS
+    position = (position + 1) % NUMBER_PIXELS
     strip[position] = (0, 120, 255)                 # light the new spot
     strip.write()
     sleep(delay)   # delay can change any time a button interrupt fires

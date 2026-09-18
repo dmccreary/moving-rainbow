@@ -1,11 +1,19 @@
+# Lab 23: Brightness Control
+# Filename: 23-brightness-led-strip.py
+# Version: 1.0.0
+#
+# Turn a potentiometer to change the brightness of the whole strip.
+
 from machine import ADC, Pin, PWM
 from utime import sleep
 from neopixel import NeoPixel
 import config
 
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
 NUMBER_PIXELS = config.NUMBER_PIXELS
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 # Pins
 POT_PIN = 26

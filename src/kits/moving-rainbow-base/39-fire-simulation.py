@@ -1,16 +1,25 @@
+# Lab 39: Fire Simulation
+# Filename: 39-fire-simulation.py
+# Version: 1.0.0
+#
 # A flickering fire effect using a simple heat simulation. Heat cools
 # down over time, drifts upward, and new sparks appear near the bottom.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 from urandom import randint
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 COOLING = 55      # how fast each pixel cools down (higher = shorter flames)
 SPARKING = 120    # chance (0-255) of a new spark appearing each frame
-heat = [0] * config.NUMBER_PIXELS
+heat = [0] * NUMBER_PIXELS
 
 
 def heat_to_color(h):
@@ -25,12 +34,12 @@ def heat_to_color(h):
 
 while True:
     # Step 1: cool down every pixel a little
-    for i in range(config.NUMBER_PIXELS):
-        cooldown = randint(0, (COOLING * 10) // config.NUMBER_PIXELS + 2)
+    for i in range(NUMBER_PIXELS):
+        cooldown = randint(0, (COOLING * 10) // NUMBER_PIXELS + 2)
         heat[i] = max(0, heat[i] - cooldown)
 
     # Step 2: heat drifts upward and mixes with its neighbors
-    for i in range(config.NUMBER_PIXELS - 1, 1, -1):
+    for i in range(NUMBER_PIXELS - 1, 1, -1):
         heat[i] = (heat[i - 1] + heat[i - 2] + heat[i - 2]) // 3
 
     # Step 3: randomly spark a new flame near the bottom of the strip
@@ -39,7 +48,7 @@ while True:
         heat[spark_pixel] = min(255, heat[spark_pixel] + randint(160, 255))
 
     # Step 4: draw the heat values as fire colors
-    for i in range(config.NUMBER_PIXELS):
+    for i in range(NUMBER_PIXELS):
         strip[i] = heat_to_color(heat[i])
     strip.write()
 

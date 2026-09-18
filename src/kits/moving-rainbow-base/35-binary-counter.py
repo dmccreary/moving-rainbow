@@ -1,10 +1,19 @@
+# Lab 35: Binary Counter
+# Filename: 35-binary-counter.py
+# Version: 1.0.0
+#
 # Count up in binary, using the first 5 pixels as bits.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 NUM_BITS = 5    # 5 bits can count from 0 to 31
 ON_COLOR = (0, 150, 0)

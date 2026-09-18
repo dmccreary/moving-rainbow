@@ -255,37 +255,37 @@ single new idea. Here are the ones worth running first:
 
 | File | What you'll see | Lesson |
 |------|-----------------|--------|
-| `01-blink.py` | One red pixel blinks on and off | [Blink](../../lessons/01-blink.md) |
-| `02-red-green-blue.py` | Red, green, and blue in different spots | [Red, Green and Blue](../../lessons/04-red-green-blue.md) |
-| `03-dimmer.py` | One pixel fades up and down | [A Better Dimmer](../../lessons/06-linear-dimmer.md) |
-| `04-move.py` | A single dot slides along the strip | [Moving Pixel](../../lessons/07-motion.md) |
-| `06-color-wipe.py` | Color fills the strip one pixel at a time | [Color Wipe](../../lessons/08-color-wipe.md) |
-| `07-random.py` | Pixels light in random colors | [Random Numbers](../../lessons/07-random.md) |
-| `08-color-wheel.py` | Every color of the rainbow, from one function | [Color Wheel](../../lessons/05-color-wheel.md) |
-| `09-rainbow.py` | A still rainbow across all 30 pixels | [Rainbow](../../lessons/08-rainbow.md) |
-| `10-moving-rainbow.py` | The rainbow slides — the program the project is named for | [Moving Rainbow](../../lessons/10-moving-rainbow.md) |
-| `12-moving-band.py` | A band of color travels down the strip | [Moving Bands](../../lessons/08-moving-bands.md) |
-| `13-comet.py` | A bright head with a fading tail | [Comet Tail](../../lessons/09-comet-tail.md) |
-| `15-candle-flicker.py` | A warm, random candle flame | [Candle Flicker](../../lessons/16-candle.md) |
-| `16-theater-chase.py` | Classic chasing marquee lights | [Theater Chase](../../lessons/17-theater-chase.md) |
-| `17-ripple.py` | Drops falling in a one-pixel-wide pond | [Ripple](../../lessons/18-ripple.md) |
-| `18-twinkle.py` | Random pixels sparkle for a moment | [Twinkle](../../lessons/18-twinkle.md) |
-| `20-clock.py` | The time, shown in colored pixels | [Clock](../../lessons/20-clock.md) |
-| `21-larson-scanner.py` | The Cylon eye sweeping back and forth | [Larson Scanner](../../lessons/19-larson-scanner.md) |
+| `02-blink.py` | One red pixel blinks on and off | [Blink](../../lessons/01-blink.md) |
+| `03-red-green-blue.py` | Red, green, and blue in different spots | [Red, Green and Blue](../../lessons/04-red-green-blue.md) |
+| `04-dimmer.py` | One pixel fades up and down | [A Better Dimmer](../../lessons/06-linear-dimmer.md) |
+| `05-move.py` | A single dot slides along the strip | [Moving Pixel](../../lessons/07-motion.md) |
+| `07-color-wipe.py` | Color fills the strip one pixel at a time | [Color Wipe](../../lessons/08-color-wipe.md) |
+| `08-random.py` | Pixels light in random colors | [Random Numbers](../../lessons/07-random.md) |
+| `09-color-wheel.py` | Every color of the rainbow, from one function | [Color Wheel](../../lessons/05-color-wheel.md) |
+| `11-rainbow.py` | A still rainbow across all 30 pixels | [Rainbow](../../lessons/08-rainbow.md) |
+| `13-moving-rainbow.py` | The rainbow slides — the program the project is named for | [Moving Rainbow](../../lessons/10-moving-rainbow.md) |
+| `15-moving-band.py` | A band of color travels down the strip | [Moving Bands](../../lessons/08-moving-bands.md) |
+| `16-comet.py` | A bright head with a fading tail | [Comet Tail](../../lessons/09-comet-tail.md) |
+| `18-candle-flicker.py` | A warm, random candle flame | [Candle Flicker](../../lessons/16-candle.md) |
+| `19-theater-chase.py` | Classic chasing marquee lights | [Theater Chase](../../lessons/17-theater-chase.md) |
+| `20-ripple.py` | Drops falling in a one-pixel-wide pond | [Ripple](../../lessons/18-ripple.md) |
+| `21-twinkle-colors.py` | Random pixels sparkle for a moment | [Twinkle](../../lessons/18-twinkle.md) |
+| `24-clock.py` | The time, shown in colored pixels | [Clock](../../lessons/20-clock.md) |
+| `25-larson-scanner.py` | The Cylon eye sweeping back and forth | [Larson Scanner](../../lessons/19-larson-scanner.md) |
 
 And these bring the buttons in:
 
 | File | What you'll see |
 |------|-----------------|
-| `30-button-test.py` | Prints `1` and `0` in the Shell as you press — the fastest way to prove a button is wired right |
-| `31-button-led-test.py` | The Pico's own tiny green LED follows the button |
-| `32-two-button-print.py` | A counter that goes up with one button and down with the other |
-| `50-buttons-move-light.py` | Buttons push a lit pixel up and down the strip |
-| `25-modes.py` | A **state machine** — twelve patterns in one program, buttons step through them |
-| `60-pixel-demo.py` | The full demo program we run at science fairs |
+| `28-button-test.py` | Prints `1` and `0` in the Shell as you press — the fastest way to prove a button is wired right |
+| `29-button-led-test.py` | The Pico's own tiny green LED follows the button |
+| `30-two-button-print.py` | A counter that goes up with one button and down with the other |
+| `43-buttons-move-light.py` | Buttons push a lit pixel up and down the strip |
+| `27-modes.py` | A **state machine** — twelve patterns in one program, buttons step through them |
+| `44-pixel-demo.py` | The full demo program we run at science fairs |
 
 !!! note "Two programs wire their buttons the other way"
-    Two of the older programs — `25-modes.py` and `60-pixel-demo.py` — set
+    Two of the older programs — `27-modes.py` and `44-pixel-demo.py` — set
     their buttons up with `Pin.PULL_DOWN`, which expects the buttons wired to
     3.3&nbsp;volts instead of ground. If your buttons do nothing in those two,
     change `PULL_DOWN` to `PULL_UP` near the top of the file. Everything else
@@ -296,21 +296,21 @@ And these bring the buttons in:
 You do not have to follow this exactly. It is the order that has worked best
 in classrooms.
 
-**First hour.** Run `01-blink.py`. Change the color. Change the sleep time.
+**First hour.** Run `02-blink.py`. Change the color. Change the sleep time.
 Change `strip[0]` to `strip[5]`. Four small edits, four instant results — that
 loop of *change something, see something* is the whole method.
 
 **First week.** Work through the single-pattern programs, roughly `01` to
-`13`. Along the way you will meet `for` loops, lists, functions, and the RGB
+`16`. Along the way you will meet `for` loops, lists, functions, and the RGB
 color model. [Chapter 9](../../chapters/09-neopixel-programming/index.md)
 explains what the NeoPixel library is doing underneath.
 
-**Second week.** Add the buttons. Start with `30-button-test.py`, then
-`32-two-button-print.py`, then `50-buttons-move-light.py`.
+**Second week.** Add the buttons. Start with `28-button-test.py`, then
+`30-two-button-print.py`, then `43-buttons-move-light.py`.
 [Chapter 18](../../chapters/18-input-devices-and-sensors/index.md) covers
 debouncing — the trick that keeps one press from counting as three.
 
-**After that.** Open `25-modes.py` and read it as a map. It ties every pattern
+**After that.** Open `27-modes.py` and read it as a map. It ties every pattern
 you wrote into one program with a **mode variable**. The
 [State Machine simulation](../../sims/state-machine-diagram/index.md) shows the
 same idea as a picture.
@@ -382,7 +382,7 @@ top rows are the most common by far.
 | The board won't stop or reset | A `main.py` program has the board busy | See [Troubleshooting Resets](../../getting-started/troubleshooting-resets.md) |
 
 !!! tip "Test before you change anything"
-    Run `30-button-test.py` or the five-line Shell test from Power-Up first.
+    Run `28-button-test.py` or the five-line Shell test from Power-Up first.
     They tell you in ten seconds whether the problem is in your wiring or in
     your code, which cuts the list above in half.
 

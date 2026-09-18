@@ -1,10 +1,20 @@
+# Lab 19: Theater Chase
+# Filename: 19-theater-chase.py
+# Version: 1.0.0
+#
+# Classic marquee lights: every fourth pixel is lit and the pattern
+# steps along, one color at a time.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, sleep_ms
 import config
 
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
 NUMBER_PIXELS = config.NUMBER_PIXELS
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 # Color RGB values
 red = (255, 0, 0)

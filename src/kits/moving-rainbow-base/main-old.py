@@ -1,25 +1,36 @@
-# moving rainbow
+# Demo Program: Old Main Demo (not a numbered lab)
+# Filename: main-old.py
+# Version: 1.0.0
+#
+# An older version of the demo program. Each pattern runs for one pass
+# along the strip and then the next one starts. The buttons also change
+# the pattern.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 from urandom import randint
 import config
 
+# hardware settings from config.py
 NEOPIXEL_PIN = config.NEOPIXEL_PIN
 NUMBER_PIXELS = config.NUMBER_PIXELS
+BUTTON_PIN_1 = config.BUTTON_PIN_1
+BUTTON_PIN_2 = config.BUTTON_PIN_2
+# the LED built onto the Pico board (not set in config.py)
+BUILT_IN_LED_PIN = 25
+
 RAINBOW_LENGTH = 7
 PERCENT_SMALL_COLOR_WHEEL = round(255/RAINBOW_LENGTH)
 PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
 
 strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
-BUTTON_PIN_1 = config.BUTTON_PIN_1
-BUTTON_PIN_2 = config.BUTTON_PIN_2
 
 button_presses = 0 # the count of times the button has been pressed
 last_time = 0 # the last time we pressed the button
 
-builtin_led = Pin(25, Pin.OUT)
+builtin_led = Pin(BUILT_IN_LED_PIN, Pin.OUT)
 # The lower left corner of the Pico has a wire that goes through the buttons upper left and the lower right goes to the 3.3 rail
 
 button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)

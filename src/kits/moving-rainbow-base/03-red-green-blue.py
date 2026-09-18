@@ -1,10 +1,19 @@
+# Lab 03: Red, Green and Blue
+# Filename: 03-red-green-blue.py
+# Version: 1.0.0
+#
+# The first pixel turns red, then green, then blue, one second each.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
-# get the configuration information
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 while True:
     

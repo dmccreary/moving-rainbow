@@ -1,15 +1,22 @@
-# 09-rainbow.py
+# Lab 12: Rainbow Cycle
+# Filename: 12-rainbow-cycle.py
+# Version: 1.0.0
+#
+# The rainbow rotates around the strip.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 from urandom import randint
-# get the configuration information
 import config
 
-np = config.NUMBER_PIXELS
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), np)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 # we have each pixel step through the color wheel
-color_wheel_step = int(256 / np)
+color_wheel_step = int(256 / NUMBER_PIXELS)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
@@ -26,10 +33,10 @@ def wheel(pos):
 
 current_color = 0
 offset = 0
-print('Drawing rainbow in', np, 'steps with step size of: ', color_wheel_step)
+print('Drawing rainbow in', NUMBER_PIXELS, 'steps with step size of: ', color_wheel_step)
 while True:
-    for i in range(0,np):
-        strip[(i+offset) % np] = wheel(current_color)
+    for i in range(0,NUMBER_PIXELS):
+        strip[(i+offset) % NUMBER_PIXELS] = wheel(current_color)
         current_color = current_color + color_wheel_step
         strip.write()
         sleep(.001)

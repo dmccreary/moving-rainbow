@@ -1,23 +1,31 @@
-# Use the buttons on the controller to "move a light up and down the strip
+# Lab 43: Buttons Move a Light
+# Filename: 43-buttons-move-light.py
+# Version: 1.0.0
+#
+# Use the buttons to move a light up and down the strip.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 from urandom import randint
 import config
 
+# hardware settings from config.py
 NEOPIXEL_PIN = config.NEOPIXEL_PIN
 NUMBER_PIXELS = config.NUMBER_PIXELS
+BUTTON_PIN_1 = config.BUTTON_PIN_1  #Button 1 uses pin 15 on the Raspberry Pi circuit board (closer to board)
+BUTTON_PIN_2 = config.BUTTON_PIN_2  #Button 2 uses pin 14 on the Raspberry Pi circuit board (closer to edge)
+# the LED built onto the Pico board (not set in config.py)
+BUILT_IN_LED_PIN = 25
 
 strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
-BUTTON_PIN_1 = config.BUTTON_PIN_1 #Button 1 uses pin 15 on the Raspberry Pi circuit board (closer to board)
-BUTTON_PIN_2 = config.BUTTON_PIN_2 #Button 2 uses pin 14 on the Raspberry Pi circuit board (closer to edge)
 
 button1_presses = 0 # the count of times the button has been pressed
 button2_presses = 0
 last_time = 0 # the last time we pressed the button
 
-builtin_led = Pin(25, Pin.OUT)
+builtin_led = Pin(BUILT_IN_LED_PIN, Pin.OUT)
 # The lower left corner of the Pico has a wire that goes through the buttons upper left and the lower right goes to the 3.3 rail
 
 button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)

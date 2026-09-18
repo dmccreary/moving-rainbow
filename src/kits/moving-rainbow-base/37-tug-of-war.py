@@ -1,16 +1,27 @@
+# Lab 37: Tug of War
+# Filename: 37-tug-of-war.py
+# Version: 1.0.0
+#
 # Two-player tug of war! Button 1 pulls the marker toward the high end.
 # Button 2 pulls it toward the low end. First to reach their end wins!
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
-button1 = Pin(config.BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
-button2 = Pin(config.BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+BUTTON_PIN_1 = config.BUTTON_PIN_1
+BUTTON_PIN_2 = config.BUTTON_PIN_2
 
-LAST_PIXEL = config.NUMBER_PIXELS - 1
-position = config.NUMBER_PIXELS // 2   # marker starts in the middle
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
+button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
+
+LAST_PIXEL = NUMBER_PIXELS - 1
+position = NUMBER_PIXELS // 2   # marker starts in the middle
 
 DEBOUNCE_MS = 120
 last_press = 0
@@ -18,7 +29,7 @@ game_over = False
 
 
 def draw_marker():
-    for i in range(config.NUMBER_PIXELS):
+    for i in range(NUMBER_PIXELS):
         strip[i] = (0, 0, 0)
     strip[position] = (200, 0, 200)
     strip.write()

@@ -1,15 +1,24 @@
+# Lab 07: Color Wipe
+# Filename: 07-color-wipe.py
+# Version: 1.0.0
+#
+# Fill the strip one pixel at a time with each color in a list.
+
 import machine
 from neopixel import NeoPixel
 from time import sleep
 import config
 
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+
 # most people have a heart rate of around 60-70 beats per minute
 # If you add a once second deplay between "beats" you can make and LED
 # look like a beating heart.
 
-NUMBER_PIXELS = config.NUMBER_PIXELS
 
-strip = NeoPixel(machine.Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
+strip = NeoPixel(machine.Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 red = (255, 0, 0)
 orange = (140, 60, 0)

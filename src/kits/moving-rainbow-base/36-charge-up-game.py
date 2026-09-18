@@ -1,20 +1,30 @@
+# Lab 36: Charge-Up Game
+# Filename: 36-charge-up-game.py
+# Version: 1.0.0
+#
 # Hold Button 1 to fill the strip. Try to release exactly when the bar
 # reaches the target zone (marked in blue) to win!
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms, ticks_diff
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
-button1 = Pin(config.BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+BUTTON_PIN_1 = config.BUTTON_PIN_1
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
 
 FILL_SECONDS = 3.0     # time it takes to fill the whole strip
-TARGET_START = config.NUMBER_PIXELS - 10
-TARGET_END = config.NUMBER_PIXELS - 6
+TARGET_START = NUMBER_PIXELS - 10
+TARGET_END = NUMBER_PIXELS - 6
 
 
 def draw_bar(lit_count):
-    for i in range(config.NUMBER_PIXELS):
+    for i in range(NUMBER_PIXELS):
         in_target = TARGET_START <= i <= TARGET_END
         if i < lit_count:
             strip[i] = (255, 255, 0) if in_target else (0, 120, 0)
@@ -25,11 +35,11 @@ def draw_bar(lit_count):
 
 def flash(color, times=3):
     for _ in range(times):
-        for i in range(config.NUMBER_PIXELS):
+        for i in range(NUMBER_PIXELS):
             strip[i] = color
         strip.write()
         sleep(0.15)
-        for i in range(config.NUMBER_PIXELS):
+        for i in range(NUMBER_PIXELS):
             strip[i] = (0, 0, 0)
         strip.write()
         sleep(0.15)
@@ -47,8 +57,8 @@ while True:
     lit_count = 0
     while button1.value() == 0:
         held_seconds = ticks_diff(ticks_ms(), press_time) / 1000
-        lit_count = min(config.NUMBER_PIXELS,
-                         int((held_seconds / FILL_SECONDS) * config.NUMBER_PIXELS))
+        lit_count = min(NUMBER_PIXELS,
+                         int((held_seconds / FILL_SECONDS) * NUMBER_PIXELS))
         draw_bar(lit_count)
         sleep(0.02)
 

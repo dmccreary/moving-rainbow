@@ -1,11 +1,20 @@
+# Lab 21: Twinkle Colors
+# Filename: 21-twinkle-colors.py
+# Version: 1.0.0
+#
+# A random pixel twinkles in a random color and then goes dark.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 from urandom import randint
 import config
 
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
 NUMBER_PIXELS = config.NUMBER_PIXELS
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), NUMBER_PIXELS)
+
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 
 red = (255, 0, 0)
 red_med = (32, 0, 0)

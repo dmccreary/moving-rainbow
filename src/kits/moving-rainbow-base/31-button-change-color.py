@@ -1,14 +1,25 @@
-# Press Button 1 to move forward through a list of colors.
-# Press Button 2 to move backward through the list.
+# Lab 31: Button Change Color
+# Filename: 31-button-change-color.py
+# Version: 1.0.0
+#
+# Press Button 1 to move forward through a list of colors. Press Button
+# 2 to move backward through the list.
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep, ticks_ms
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+BUTTON_PIN_1 = config.BUTTON_PIN_1
+BUTTON_PIN_2 = config.BUTTON_PIN_2
 
-button1 = Pin(config.BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
-button2 = Pin(config.BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+
+button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
+button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
 # A small list of colors to cycle through.
 colors = [
@@ -26,7 +37,7 @@ last_press = 0
 
 
 def fill_strip(color):
-    for i in range(config.NUMBER_PIXELS):
+    for i in range(NUMBER_PIXELS):
         strip[i] = color
     strip.write()
 

@@ -1,21 +1,31 @@
-# Binary Search: think of a pixel number from 0 to NUMBER_PIXELS-1 in
-# your head. Press Button 1 if your number is HIGHER than the lit pixel.
-# Press Button 2 if it's LOWER than or equal to the lit pixel. Watch how
-# few guesses it takes to find your number!
+# Lab 42: Binary Search Visualizer
+# Filename: 42-binary-search-visualizer.py
+# Version: 1.0.0
+#
+# Think of a pixel number from 0 to NUMBER_PIXELS-1 in your head. Press
+# Button 1 if your number is HIGHER than the lit pixel. Press Button 2
+# if it is LOWER than or equal to the lit pixel. Watch how few guesses
+# it takes to find your number!
+
 from machine import Pin
 from neopixel import NeoPixel
 from utime import sleep
 import config
 
-strip = NeoPixel(Pin(config.NEOPIXEL_PIN), config.NUMBER_PIXELS)
-button1 = Pin(config.BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
-button2 = Pin(config.BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
+# hardware settings from config.py
+NEOPIXEL_PIN = config.NEOPIXEL_PIN
+NUMBER_PIXELS = config.NUMBER_PIXELS
+BUTTON_PIN_1 = config.BUTTON_PIN_1
+BUTTON_PIN_2 = config.BUTTON_PIN_2
 
-n = config.NUMBER_PIXELS
+strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
+button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
+button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
+
 
 
 def draw_range(low, high, guess):
-    for i in range(n):
+    for i in range(NUMBER_PIXELS):
         if i == guess:
             strip[i] = (255, 255, 255)   # current guess: white
         elif low <= i <= high:
@@ -40,10 +50,10 @@ def wait_for_release():
 
 
 while True:
-    print("Think of a pixel number from 0 to", n - 1)
+    print("Think of a pixel number from 0 to", NUMBER_PIXELS - 1)
     sleep(2)
 
-    low, high = 0, n - 1
+    low, high = 0, NUMBER_PIXELS - 1
     guesses = 0
 
     while low < high:
