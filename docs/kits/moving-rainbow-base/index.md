@@ -29,7 +29,7 @@ code onto it, and fix it when it acts up.
 
 - To **buy or build** a kit, see the [Purchasing Guide](./purchasing-guide/index.md).
 - To **learn the ideas** behind the code, see the [Chapters](../../chapters/index.md).
-- To **write your first programs**, see the [Lessons](../../lessons/index.md).
+- To **write your first programs**, see the [Hands on Labs](../../labs/index.md).
 
 ## What You Can Build With It
 
@@ -38,6 +38,8 @@ Everything below runs on this one kit, with no extra parts:
 - A pixel that **blinks**, then **fades**, then **moves** along the strip
 - A full **rainbow** that slides down the strip and wraps around
 - A **comet** with a glowing tail, a **candle** that flickers, and a **Larson scanner** like the Cylon eye
+- A **heartbeat**, a field of **fading stars**, and a **bouncing ball** that settles to rest
+- A **breathing wave** of light and a **sunrise** that blends colors from night to day
 - A **clock** that shows the time as colored pixels
 - A **mode machine** — one program with a dozen light shows, and buttons that switch between them
 
@@ -253,36 +255,44 @@ if you would rather browse it on GitHub.
 The files are numbered so you can work through them in order. Each one adds a
 single new idea. Here are the ones worth running first:
 
-| File | What you'll see | Lesson |
-|------|-----------------|--------|
-| `02-blink.py` | One red pixel blinks on and off | [Blink](../../lessons/01-blink.md) |
-| `03-red-green-blue.py` | Red, green, and blue in different spots | [Red, Green and Blue](../../lessons/04-red-green-blue.md) |
-| `04-dimmer.py` | One pixel fades up and down | [A Better Dimmer](../../lessons/06-linear-dimmer.md) |
-| `05-move.py` | A single dot slides along the strip | [Moving Pixel](../../lessons/07-motion.md) |
-| `07-color-wipe.py` | Color fills the strip one pixel at a time | [Color Wipe](../../lessons/08-color-wipe.md) |
-| `08-random.py` | Pixels light in random colors | [Random Numbers](../../lessons/07-random.md) |
-| `09-color-wheel.py` | Every color of the rainbow, from one function | [Color Wheel](../../lessons/05-color-wheel.md) |
-| `11-rainbow.py` | A still rainbow across all 30 pixels | [Rainbow](../../lessons/08-rainbow.md) |
-| `13-moving-rainbow.py` | The rainbow slides — the program the project is named for | [Moving Rainbow](../../lessons/10-moving-rainbow.md) |
-| `15-moving-band.py` | A band of color travels down the strip | [Moving Bands](../../lessons/08-moving-bands.md) |
-| `16-comet.py` | A bright head with a fading tail | [Comet Tail](../../lessons/09-comet-tail.md) |
-| `18-candle-flicker.py` | A warm, random candle flame | [Candle Flicker](../../lessons/16-candle.md) |
-| `19-theater-chase.py` | Classic chasing marquee lights | [Theater Chase](../../lessons/17-theater-chase.md) |
-| `20-ripple.py` | Drops falling in a one-pixel-wide pond | [Ripple](../../lessons/18-ripple.md) |
-| `21-twinkle-colors.py` | Random pixels sparkle for a moment | [Twinkle](../../lessons/18-twinkle.md) |
-| `24-clock.py` | The time, shown in colored pixels | [Clock](../../lessons/20-clock.md) |
-| `25-larson-scanner.py` | The Cylon eye sweeping back and forth | [Larson Scanner](../../lessons/19-larson-scanner.md) |
+| File | What you'll see | Lab |
+|------|-----------------|-----|
+| `02-blink.py` | One red pixel blinks on and off | [Lab 02: Blink](../../labs/02-blink.md) |
+| `03-red-green-blue.py` | One pixel steps through red, green, and blue | [Lab 03: Red, Green and Blue](../../labs/03-red-green-blue.md) |
+| `04-dimmer.py` | One pixel fades up and down | [Lab 04: Dimmer](../../labs/04-dimmer.md) |
+| `05-move.py` | A single dot slides along the strip | [Lab 05: Move a Pixel](../../labs/05-move.md) |
+| `07-color-wipe.py` | Color fills the strip one pixel at a time | [Lab 07: Color Wipe](../../labs/07-color-wipe.md) |
+| `08-random.py` | Pixels light in random colors | [Lab 08: Random](../../labs/08-random.md) |
+| `09-color-wheel.py` | Every color of the rainbow, from one function | [Lab 09: Color Wheel](../../labs/09-color-wheel.md) |
+| `11-rainbow.py` | A still rainbow across all 30 pixels | [Lab 11: Rainbow](../../labs/11-rainbow.md) |
+| `13-moving-rainbow.py` | The rainbow slides — the program the project is named for | [Lab 13: Moving Rainbow with the Color Wheel](../../labs/13-moving-rainbow.md) |
+| `15-moving-band.py` | Bands of color travel down the strip | [Lab 15: Moving Band](../../labs/15-moving-band.md) |
+| `16-comet.py` | A bright head with a fading tail | [Lab 16: Comet](../../labs/16-comet.md) |
+| `18-candle-flicker.py` | A warm, random candle flame | [Lab 18: Candle Flicker](../../labs/18-candle-flicker.md) |
+| `19-theater-chase.py` | Classic chasing marquee lights | [Lab 19: Theater Chase](../../labs/19-theater-chase.md) |
+| `20-ripple.py` | Drops falling in a one-pixel-wide pond | [Lab 20: Ripple](../../labs/20-ripple.md) |
+| `21-twinkle-colors.py` | Random pixels sparkle for a moment | [Lab 21: Twinkle Colors](../../labs/21-twinkle-colors.md) |
+| `23-heartbeat.py` | One pixel beats like a heart | [Lab 23: Heartbeat](../../labs/23-heartbeat.md) |
+| `24-fading-stars.py` | Stars flare up and fade away smoothly | [Lab 24: Fading Stars](../../labs/24-fading-stars.md) |
+| `25-bouncing-ball.py` | A ball drops and bounces lower each time | [Lab 25: Bouncing Ball](../../labs/25-bouncing-ball.md) |
+| `26-breathing-wave.py` | A wave of blue light breathes along the strip | [Lab 26: Breathing Wave](../../labs/26-breathing-wave.md) |
+| `27-sunrise.py` | Colors blend from night to dawn to day | [Lab 27: Sunrise](../../labs/27-sunrise.md) |
+| `28-clock.py` | The time, shown in binary with colored pixels | [Lab 28: Binary Clock](../../labs/28-clock.md) |
+| `29-larson-scanner.py` | The Cylon eye sweeping back and forth | [Lab 29: Larson Scanner](../../labs/29-larson-scanner.md) |
 
 And these bring the buttons in:
 
-| File | What you'll see |
-|------|-----------------|
-| `28-button-test.py` | Prints `1` and `0` in the Shell as you press — the fastest way to prove a button is wired right |
-| `29-button-led-test.py` | The Pico's own tiny green LED follows the button |
-| `30-two-button-print.py` | A counter that goes up with one button and down with the other |
-| `43-buttons-move-light.py` | Buttons push a lit pixel up and down the strip |
-| `27-modes.py` | A **state machine** — twelve patterns in one program, buttons step through them |
-| `44-pixel-demo.py` | The full demo program we run at science fairs |
+| File | What you'll see | Lab |
+|------|-----------------|-----|
+| `32-button-test.py` | Prints `1` and `0` in the Shell as you press — the fastest way to prove a button is wired right | [Lab 32: Button Test](../../labs/32-button-test.md) |
+| `33-button-led-test.py` | The Pico's own tiny green LED follows the button | [Lab 33: Button and Built-in LED](../../labs/33-button-led-test.md) |
+| `34-two-button-print.py` | A counter that goes up with one button and down with the other | [Lab 34: Two Buttons](../../labs/34-two-button-print.md) |
+| `47-buttons-move-light.py` | Buttons push a lit pixel up and down the strip | [Lab 47: Buttons Move a Light](../../labs/47-buttons-move-light.md) |
+| `31-modes.py` | A **state machine** — twelve patterns in one program, buttons step through them | [Lab 31: Button Modes](../../labs/31-modes.md) |
+| `48-pixel-demo.py` | The full demo program we run at science fairs | [Lab 48: Pixel Demo](../../labs/48-pixel-demo.md) |
+
+Every numbered program has its own lab page. The [Hands on Labs](../../labs/index.md)
+list shows all of them in order, including the ones not listed here.
 
 ## A Path Through the Kit
 
@@ -298,12 +308,12 @@ loop of *change something, see something* is the whole method.
 color model. [Chapter 9](../../chapters/09-neopixel-programming/index.md)
 explains what the NeoPixel library is doing underneath.
 
-**Second week.** Add the buttons. Start with `28-button-test.py`, then
-`30-two-button-print.py`, then `43-buttons-move-light.py`.
+**Second week.** Add the buttons. Start with `32-button-test.py`, then
+`34-two-button-print.py`, then `47-buttons-move-light.py`.
 [Chapter 18](../../chapters/18-input-devices-and-sensors/index.md) covers
 debouncing — the trick that keeps one press from counting as three.
 
-**After that.** Open `27-modes.py` and read it as a map. It ties every pattern
+**After that.** Open `31-modes.py` and read it as a map. It ties every pattern
 you wrote into one program with a **mode variable**. The
 [State Machine simulation](../../sims/state-machine-diagram/index.md) shows the
 same idea as a picture.
@@ -347,6 +357,36 @@ At 64, all 30 pixels together draw roughly 450 milliamps, which a USB port
 handles comfortably. Patterns that light only a few pixels at a time — comets,
 scanners, twinkle — can go brighter, because most of the strip is dark.
 
+### Why Some Programs Use Small Numbers
+
+The "64 or below" rule is a shortcut. What really counts is the **total**
+current for every lit pixel. Add it up in three steps:
+
+1. Add one pixel's red, green, and blue numbers together.
+2. Divide by 255, then multiply by 20. That is the pixel's milliamps.
+3. Multiply by the number of pixels lit at the same time.
+
+Try it on the `day` color from Lab 27, which is `(80, 60, 20)`. The numbers add
+up to 160. That is about 12.5 milliamps for one pixel, and about 377 for all 30.
+The red number is 80, which is more than 64, but the total is still under 500.
+
+Color matters too. A solid red strip at 200 draws about 471 milliamps, because
+only one of the three LEDs is on. A solid *white* strip at 200 would draw about
+1,412, because all three are on.
+
+Two programs keep their numbers small on purpose:
+
+| Program | How it stays under the limit | Most the whole strip can draw |
+|---------|------------------------------|-------------------------------|
+| [Lab 26: Breathing Wave](../../labs/26-breathing-wave.md) | `MAX_BRIGHTNESS = 60`, and only the green and blue LEDs light | About 212 mA if every pixel peaked at once. The wave keeps it lower, because the pixels peak at different times. |
+| [Lab 27: Sunrise](../../labs/27-sunrise.md) | Every sky color uses small numbers | About 377 mA, at its brightest color, `day` |
+
+When you write your own pattern that lights the whole strip, add up the total
+first. Aim for 450 milliamps or less. Some lab pages have a **Power check** box.
+It shows the estimate for that program and a smaller number to try. If the far
+end of your strip flickers or turns white, the strip needs more current. See
+[When Something Doesn't Work](#when-something-doesnt-work).
+
 Try the [LED Current Predictor](../../sims/current-predictor/index.md) to see
 the numbers change as you adjust brightness, and the
 [Battery Life Calculator](../../sims/battery-life-calculator/index.md) to plan
@@ -375,7 +415,7 @@ top rows are the most common by far.
 | The board won't stop or reset | A `main.py` program has the board busy | See [Troubleshooting Resets](../../getting-started/troubleshooting-resets.md) |
 
 !!! tip "Test before you change anything"
-    Run `28-button-test.py` or the five-line Shell test from Power-Up first.
+    Run `32-button-test.py` or the five-line Shell test from Power-Up first.
     They tell you in ten seconds whether the problem is in your wiring or in
     your code, which cuts the list above in half.
 
@@ -400,6 +440,7 @@ and the same code you already know:
 
 ## What's Next
 
-Start with [Lesson 1: Blink](../../lessons/01-blink.md). It uses one pixel and
-about eight lines of code, and it is the beginning of every light show in this
-book.
+Start with [Lab 01: Blink the Onboard LED](../../labs/01-blink-onboard-led.md).
+It needs no wiring and proves your Pico and Thonny are working. Then move on to
+[Lab 02: Blink](../../labs/02-blink.md). It uses one pixel and a few lines of
+code, and it is the beginning of every light show in this book.

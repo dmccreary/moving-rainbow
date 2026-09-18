@@ -6,6 +6,11 @@ site_author: 'Dan McCreary'
 # repo_name: 'GitHub Repo'
 edit_uri: edit/master/docs/
 
+# The lab pages embed the kit programs with pymdownx.snippets, so rebuild when one changes
+watch:
+  - src/kits/moving-rainbow-base
+  - src/kits/moving-rainbow-extras
+
 nav:
   - About this Project: about.md
   - Course Description: course-description.md
@@ -50,49 +55,61 @@ nav:
     - macOS USB Bugs: getting-started/macos-usb-bugs.md
   
 
-  - NeoPixel Lessons:
-    - List of Lessons: lessons/index.md
-    - Blink the Onboard LED: lessons/00-blink-onboard-led.md
-    - Blink: lessons/01-blink.md
-    - Fade In and Out: lessons/02-fade-in-and-out.md
-    - Heartbeat: lessons/03-heartbeat.md
-    - Red, Green and Blue: lessons/04-red-green-blue.md
-    - Color Wheel: lessons/05-color-wheel.md
-    - A Better Dimmer: lessons/06-linear-dimmer.md
-    - Moving Pixel: lessons/07-motion.md
-    - Rainbow: lessons/08-rainbow.md
-    - Color Wipe: lessons/08-color-wipe.md
-    - Random Numbers: lessons/07-random.md
-    - Moving Bands: lessons/08-moving-bands.md
-    - Comet Tail: lessons/09-comet-tail.md
-    - Moving Rainbow: lessons/10-moving-rainbow.md
-    - Larson Scanner: lessons/19-larson-scanner.md
-    - Rainbow Cycle: lessons/11-rainbow-cycle.md 
-    - Random: lessons/15-random.md
-    - Candle Flicker: lessons/16-candle.md
-    - Twinkle: lessons/18-twinkle.md
-    - Ripple: lessons/18-ripple.md
-    - Theater Chase: lessons/17-theater-chase.md
-    - Clock: lessons/20-clock.md
-    - How NeoPixels Work: lessons/40-how-neopixels-work.md
-    - Photo Resistor: lessons/21-photo-resistor.md
-    - Testing a Button: lessons/22-button-test.md
-    - Button + Built-in LED: lessons/23-button-led-test.md
-    - Two Buttons and Interrupts: lessons/24-two-button-counter.md
-    - Button-Controlled Color: lessons/25-button-change-color.md
-    - Button-Controlled Speed: lessons/26-button-change-speed.md
-    - Buttons Move a Pixel: lessons/27-buttons-move-pixel.md
-    - Modes: lessons/28-modes.md
-    - Button Modes: lessons/29-button-modes.md
-    - Traffic Light: lessons/41-traffic-light.md
-    - Binary Counter: lessons/42-binary-counter.md
-    - Charge-Up Game: lessons/43-charge-up-game.md
-    - Tug of War: lessons/44-tug-of-war.md
-    - Reaction Duel: lessons/45-reaction-duel.md
-    - Fire Simulation: lessons/46-fire-simulation.md
-    - Cellular Automaton: lessons/47-cellular-automaton.md
-    - Sorting Visualizer: lessons/48-sorting-visualizer.md
-    - Binary Search Visualizer: lessons/49-binary-search-visualizer.md
+  - Hands on Labs:
+    - List of Labs: labs/index.md
+    - 'Lab 01: Blink the Onboard LED': labs/01-blink-onboard-led.md
+    - 'Lab 02: Blink': labs/02-blink.md
+    - 'Lab 03: Red, Green and Blue': labs/03-red-green-blue.md
+    - 'Lab 04: Dimmer': labs/04-dimmer.md
+    - 'Lab 05: Move a Pixel': labs/05-move.md
+    - 'Lab 06: Up and Down': labs/06-up-and-down.md
+    - 'Lab 07: Color Wipe': labs/07-color-wipe.md
+    - 'Lab 08: Random': labs/08-random.md
+    - 'Lab 09: Color Wheel': labs/09-color-wheel.md
+    - 'Lab 10: Random Colors': labs/10-random-colors.md
+    - 'Lab 11: Rainbow': labs/11-rainbow.md
+    - 'Lab 12: Rainbow Cycle': labs/12-rainbow-cycle.md
+    - 'Lab 13: Moving Rainbow with the Color Wheel': labs/13-moving-rainbow.md
+    - 'Lab 14: Band': labs/14-band.md
+    - 'Lab 15: Moving Band': labs/15-moving-band.md
+    - 'Lab 16: Comet': labs/16-comet.md
+    - 'Lab 17: Moving Rainbow with a Color List': labs/17-moving-rainbow.md
+    - 'Lab 18: Candle Flicker': labs/18-candle-flicker.md
+    - 'Lab 19: Theater Chase': labs/19-theater-chase.md
+    - 'Lab 20: Ripple': labs/20-ripple.md
+    - 'Lab 21: Twinkle Colors': labs/21-twinkle-colors.md
+    - 'Lab 22: Random Walk': labs/22-random-walk.md
+    - 'Lab 23: Heartbeat': labs/23-heartbeat.md
+    - 'Lab 24: Fading Stars': labs/24-fading-stars.md
+    - 'Lab 25: Bouncing Ball': labs/25-bouncing-ball.md
+    - 'Lab 26: Breathing Wave': labs/26-breathing-wave.md
+    - 'Lab 27: Sunrise': labs/27-sunrise.md
+    - 'Lab 28: Binary Clock': labs/28-clock.md
+    - 'Lab 29: Larson Scanner': labs/29-larson-scanner.md
+    - 'Lab 30: Random Bounce': labs/30-random-bounce.md
+    - 'Lab 31: Button Modes': labs/31-modes.md
+    - 'Lab 32: Button Test': labs/32-button-test.md
+    - 'Lab 33: Button and Built-in LED': labs/33-button-led-test.md
+    - 'Lab 34: Two Buttons': labs/34-two-button-print.md
+    - 'Lab 35: Button Change Color': labs/35-button-change-color.md
+    - 'Lab 36: Button Change Speed': labs/36-button-change-speed.md
+    - 'Lab 37: Modes Auto Cycle': labs/37-modes-auto-cycle.md
+    - 'Lab 38: Traffic Light': labs/38-traffic-light.md
+    - 'Lab 39: Binary Counter': labs/39-binary-counter.md
+    - 'Lab 40: Charge-Up Game': labs/40-charge-up-game.md
+    - 'Lab 41: Tug of War': labs/41-tug-of-war.md
+    - 'Lab 42: Reaction Duel': labs/42-reaction-duel.md
+    - 'Lab 43: Fire Simulation': labs/43-fire-simulation.md
+    - 'Lab 44: Cellular Automaton': labs/44-cellular-automaton.md
+    - 'Lab 45: Sorting Visualizer': labs/45-sorting-visualizer.md
+    - 'Lab 46: Binary Search Visualizer': labs/46-binary-search-visualizer.md
+    - 'Lab 47: Buttons Move a Light': labs/47-buttons-move-light.md
+    - 'Lab 48: Pixel Demo': labs/48-pixel-demo.md
+
+  - Additional Labs:
+    - About Additional Labs: additional-labs/index.md
+    - Brightness Control: additional-labs/potentiometer-brightness.md
+    - Photoresistor: additional-labs/photoresistor.md
   
   - LED Noodles:
     - Introduction: led-noodles/index.md

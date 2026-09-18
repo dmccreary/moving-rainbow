@@ -29,7 +29,7 @@ The Moving Rainbow Project is a collection of MicroPython and Arduino projects d
 |----------|-------------|
 | [🚀 Getting Started](https://dmccreary.github.io/moving-rainbow/getting-started/about/) | Set up your development environment |
 | [🔧 Hardware Guide](https://dmccreary.github.io/moving-rainbow/getting-started/parts/) | Understanding the hardware components |
-| [💻 Programming Guide](https://dmccreary.github.io/moving-rainbow/lessons/) | Learn to program LED animations |
+| [💻 Programming Guide](https://dmccreary.github.io/moving-rainbow/labs/) | Learn to program LED animations |
 | [👨‍🏫 Instructor's Guide](https://dmccreary.github.io/moving-rainbow/teachers-guide/) | Teaching resources and methodology |
 | [🛒 Bill of Materials](https://dmccreary.github.io/moving-rainbow/getting-started/parts/) | Parts to build your own kits |
 | [📖 Glossary](https://dmccreary.github.io/moving-rainbow/glossary/) | Technical terms explained |

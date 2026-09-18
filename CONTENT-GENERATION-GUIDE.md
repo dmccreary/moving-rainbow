@@ -14,7 +14,7 @@ them.
 
 | | Student Content | Teacher's Guide Content |
 |---|---|---|
-| **Location** | `docs/chapters/`, `docs/lessons/`, `docs/kits/`, `docs/sims/` | `docs/teachers-guide/` |
+| **Location** | `docs/chapters/`, `docs/labs/`, `docs/additional-labs/`, `docs/kits/`, `docs/sims/` | `docs/teachers-guide/` |
 | **Reader** | Grades 6–9, first-time coders, age 11–15 | Adult educators, college-level readers |
 | **Reading level** | Flesch–Kincaid grade 5–7 | College / professional |
 | **Mascot (Pixel)** | Yes — appears in callout boxes and chapter openings | No — omit Pixel entirely |
@@ -107,8 +107,8 @@ These rules apply wherever Pixel speaks (inside admonition blocks):
 
 ## Student Content Writing Rules
 
-Apply these rules to everything in `docs/chapters/`, `docs/lessons/`,
-`docs/kits/`, and `docs/sims/`.
+Apply these rules to everything in `docs/chapters/`, `docs/labs/`,
+`docs/additional-labs/`, `docs/kits/`, and `docs/sims/`.
 
 ### Reading Level
 

@@ -1,9 +1,9 @@
-# Demo Program: Auto Cycle (not a numbered lab)
-# Filename: auto-cycle.py
+# Lab 48: Pixel Demo
+# Filename: 48-pixel-demo.py
 # Version: 1.0.0
 #
-# Steps through sixteen light patterns automatically, repeating each one
-# a few times before moving on.
+# The full demo program: twelve light patterns, and the buttons step
+# through them.
 
 from machine import Pin
 from neopixel import NeoPixel
@@ -21,7 +21,6 @@ BUILT_IN_LED_PIN = 25
 
 # time between a patten step
 BASE_DELAY = 0.005
-REPEAT_COUNT = 3
 RAINBOW_LENGTH = 7
 PERCENT_SMALL_COLOR_WHEEL = round(255/RAINBOW_LENGTH)
 PERCENT_COLOR_WHEEL = round(255/NUMBER_PIXELS)
@@ -39,7 +38,6 @@ button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
 button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
 red = (255, 0, 0)
-pink = (255, 128, 128)
 orange = (140, 60, 0)
 yellow = (255, 255, 0)
 green = (0, 255, 0)
@@ -47,22 +45,16 @@ blue = (0, 0, 255)
 cyan = (0, 255, 255)
 indigo = (75, 0, 130)
 violet = (138, 43, 226)
-purple = (255, 0, 255)
 white = (128, 128, 128)
 colors = (red, orange, yellow, green, blue, cyan, indigo, violet)
 color_count = len(colors)
 levels = [255, 128, 64, 32, 16, 8, 4, 2, 1]
 level_count = len(levels)
 
-mode_list = ['moving rainbow',
-             'moving red dot', 'moving green dot', 'moving blue dot',
-             'red comet', 'green comet', 'blue comet',
-             'candle flicker', 'random dots',
-             'bounce yellow', 'bounce cyan', 'bounce purple',
-             'running lights red', 'running lights green', 'running lights blue',
-             'rainbow cycle',
-             'restart']
-mode_count = len(mode_list) -1
+mode_list = ['moving rainbow', 'moving red dot', 'moving green dot', 'moving blue dot',
+             'red comet', 'green comet', 'blue comet', 'candle flicker', 'random dots', 'bounce',
+             'running lights', 'rainbow cycle']
+mode_count = len(mode_list)
 
 # This function gets called every time the button is pressed.  The parameter "pin" is used to tell
 # which pin is used
@@ -178,16 +170,13 @@ def bounce(counter, color, delay):
         sleep(delay)
 
 def running_lights(counter, color, spacing, delay):
-    # how many times to repeat the run
-    if counter < 3:
-        for c in range(0, spacing):
-            for i in range(0, NUMBER_PIXELS-spacing, spacing):
-                strip[i+c] = color
-                for j in range(1, spacing):
-                    strip[c+i+j] = (0,0,0)          
-            strip.write()
-            sleep(delay)
-    else: return
+    for i in range(0, NUMBER_PIXELS):
+        if (counter+i) % spacing:
+            strip[i] = (0,0,0)
+        else:
+            strip[i] = color
+    strip.write()
+    sleep(delay)
 
 def rainbow_cycle(counter, wait):
     for i in range(0, NUMBER_PIXELS):
@@ -200,7 +189,6 @@ def rainbow_cycle(counter, wait):
 
 # Global variables
 mode = 0
-repeat_count = 0
 counter = 0
 last_mode = 1
 bd = BASE_DELAY
@@ -213,58 +201,33 @@ while True:
         last_mode = mode
     if mode == 0:
         moving_rainbow(counter, bd)
-        
     elif mode == 1:
-        move_dot(counter, red, bd5)
+        move_dot(counter, red, bd2)
     elif mode == 2:
-        move_dot(counter, green, bd5)
+        move_dot(counter, green, bd2)
     elif mode == 3:
-        move_dot(counter, blue, bd5)
+        move_dot(counter, blue, bd2)
         
     elif mode == 4:  
-        comet_tail(counter, red, bd/5)
+        comet_tail(counter, red, bd)
     elif mode == 5:  
-        comet_tail(counter, green, bd/5)
+        comet_tail(counter, green, bd)
     elif mode == 6:  
-        comet_tail(counter, blue, bd/5)
+        comet_tail(counter, blue, bd)
         
     elif mode == 7:  
-        candle(bd5)
+        candle(bd)
     elif mode == 8:  
-        random_color(bd5)
-        
+        random_color(bd)
     elif mode == 9:  
-        bounce(counter, yellow, bd5)
-    elif mode == 10:  
-        bounce(counter, cyan, bd5)
-    elif mode == 11:  
-        bounce(counter, purple, bd5)
-
-    elif mode == 12: 
-        running_lights(counter, red, 4, .2)
-    elif mode == 13: 
-        running_lights(counter, green, 4, .2)
-    elif mode == 14: 
+        bounce(counter, red, bd5)
+    elif mode == 10: 
         running_lights(counter, blue, 4, .2)
-    
-    elif mode == 15: 
-        rainbow_cycle(counter, bd2)
+    elif mode == 11: 
+        rainbow_cycle(counter, bd)
     else:
         print('mode', mode, 'not configured')
 
+    counter += 1
     # wrap the counter using modulo
-    if (counter+1) % (NUMBER_PIXELS):
-        counter += 1;
-    else:
-        # reset the counter to 0
-        counter = 0
-        # reset the mode to 0
-        if mode == mode_count:
-            print('mode 0')
-            mode = 0
-        else:      
-            repeat_count += 1
-            if repeat_count >= REPEAT_COUNT:
-                print('incrementing mode', mode)
-                mode += 1
-                repeat_count = 0
+    counter = counter % NUMBER_PIXELS

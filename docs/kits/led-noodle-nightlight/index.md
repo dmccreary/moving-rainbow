@@ -72,7 +72,7 @@ versions that use the Pico:
 
 - [Analog Nightlight kit](../analog-nightlight/index.md) — the same idea with a NeoPixel
 - [Digital Nightlight kit](../digital-nightlight/index.md) — code-controlled with patterns
-- [Photoresistor lesson](../../lessons/21-photo-resistor.md) — learn the sensor in code
+- [Photoresistor lab](../../additional-labs/photoresistor.md) — learn the sensor in code
 
 ## Try It Yourself
 

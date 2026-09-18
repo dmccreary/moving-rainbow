@@ -151,7 +151,7 @@ Learn the six essential Git commands needed to download lesson code and optional
 
 After completing this Getting Started section, you'll be ready to:
 
-1. **Start the [Lessons](../lessons/index.md)** - Begin with simple blink patterns and progress to complex animations
+1. **Start the [Hands on Labs](../labs/index.md)** - Begin with simple blink patterns and progress to complex animations
 2. **Explore [Kits](../kits/index.md)** - Build specialized projects like nightlights and holiday decorations
 3. **Try [MicroSims](../sims/index.md)** - Use interactive web tools to understand concepts
 4. **Review the [Teachers Guide](../teachers-guide/index.md)** - Learn pedagogical approaches for teaching with Moving Rainbow

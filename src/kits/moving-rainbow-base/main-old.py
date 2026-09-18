@@ -53,8 +53,8 @@ color_count = len(colors)
 levels = [255, 128, 64, 32, 16, 8, 4, 2, 1]
 level_count = len(levels)
 
-mode_list = ['moving rainbow', 'moving red dot', 'moving blue dot', 'moving green dot',
-             'red commet', 'blue commet', 'green commet', 'candle flicker', 'random dots', 'bounce',
+mode_list = ['moving rainbow', 'moving red dot', 'moving green dot', 'moving blue dot',
+             'red comet', 'green comet', 'blue comet', 'candle flicker', 'random dots', 'bounce',
              'running lights', 'rainbow cycle', 'cylon scanner']
 mode_count = len(mode_list)
 
@@ -106,7 +106,7 @@ def move_dot(counter, color, delay):
 
 def comet_tail(counter, color, delay):
     for i in range(0, color_count):
-        # we start to draw at the head of the commet N levels away from the counter
+        # we start to draw at the head of the comet N levels away from the counter
         target = ((level_count - i - 1) + counter) % NUMBER_PIXELS
         # number to scale by
         scale = (levels[i] / 255)
