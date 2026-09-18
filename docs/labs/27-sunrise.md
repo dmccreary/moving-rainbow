@@ -49,7 +49,7 @@ sky_colors = [night, dawn, sunrise, day]
 Each color is a tuple of red, green, and blue amounts, as in [Lab 03](03-red-green-blue.md). The last line makes a **list**, which is an ordered group of values inside square brackets. Positions start at 0, so `sky_colors[0]` is `night` and `sky_colors[3]` is `day`.
 
 !!! info "Key idea"
-    The color numbers stay small on purpose, because all 30 pixels are lit at once. The brightest color is `day`. Its numbers add up to 160, and 30 pixels showing it draw about 377 mA. A USB port supplies about 500 mA. Full white would need about 1,800 mA. Read more in [How Bright Can You Go?](../kits/moving-rainbow-base/index.md#how-bright-can-you-go)
+    The color numbers stay small on purpose, because all 30 pixels are lit at once. The brightest color is `day`. Its numbers add up to 160, and 30 pixels showing it draw about 377 mA. A USB port supplies about 500 mA. Full white would need about 1,800 mA. Read more in [Why Some Programs Use Small Numbers](../kits/moving-rainbow-base/index.md#why-some-programs-use-small-numbers)
 
 ### Two settings
 

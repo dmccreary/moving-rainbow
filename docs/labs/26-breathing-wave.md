@@ -82,7 +82,7 @@ Multiplying by `MAX_BRIGHTNESS`, which is 60, stretches 0 to 1 into 0 to about 6
 The color is `(0, level // 2, level)`. Red is 0, blue is `level`, and green is half of `level`. The `//` sign divides and drops any leftover decimal. A little green mixed into blue gives a teal-blue.
 
 !!! info "Key idea"
-    The brightness cap of 60 is on purpose. If all 30 pixels were at their very brightest at the same moment, the strip would draw about 210 mA. A USB port supplies about 500 mA. Read more in [How Bright Can You Go?](../kits/moving-rainbow-base/index.md#how-bright-can-you-go)
+    The brightness cap of 60 is on purpose. If all 30 pixels were at their very brightest at the same moment, the strip would draw about 212 mA. A USB port supplies about 500 mA. Read more in [Why Some Programs Use Small Numbers](../kits/moving-rainbow-base/index.md#why-some-programs-use-small-numbers)
 
 ### Make the wave travel
 
