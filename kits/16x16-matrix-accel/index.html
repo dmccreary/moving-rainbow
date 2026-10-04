@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+        <meta name="description" content="A fun low-cost kit that includes a 16x16 RGB LED matrix and a tilt sensor.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Intro - Moving Rainbow</title>
+        <title>Tilt a Rainbow Kit - Moving Rainbow</title>
       
     
     
@@ -75,11 +75,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Intro - Moving Rainbow" >
+        <meta  property="og:title"  content="Tilt a Rainbow Kit - Moving Rainbow" >
       
-        <meta  property="og:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+        <meta  property="og:description"  content="A fun low-cost kit that includes a 16x16 RGB LED matrix and a tilt sensor." >
       
-        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/kits/16x16-matrix-accel/index.png" >
+        <meta property="og:image" content="https://dmccreary.github.io/moving-rainbow/kits/16x16-matrix-accel/img/box-cover.png">
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -91,11 +91,11 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Intro - Moving Rainbow" >
+        <meta  name="twitter:title"  content="Tilt a Rainbow Kit - Moving Rainbow" >
       
-        <meta  name="twitter:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+        <meta  name="twitter:description"  content="A fun low-cost kit that includes a 16x16 RGB LED matrix and a tilt sensor." >
       
-        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/kits/16x16-matrix-accel/index.png" >
+        <meta name="twitter:image" content="https://dmccreary.github.io/moving-rainbow/kits/16x16-matrix-accel/img/box-cover.png">
       
     
     
@@ -151,7 +151,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Intro
+              Tilt a Rainbow Kit
             
           </span>
         </div>
@@ -2403,9 +2403,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-wire-the-accelerometer" class="md-nav__link">
+  <a href="#step-3-wire-the-lis3dh-accelerometer" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Wire the accelerometer
+      Step 3: Wire the LIS3DH accelerometer
     </span>
   </a>
   
@@ -2521,6 +2521,8 @@
 
 
 <h1 id="16x16-matrix-tilt-kit">16x16 Matrix Tilt Kit</h1>
+<p><img alt="" src="img/box-cover.png" /></p>
+<p><img alt="" src="img/16x16-matrix-tilt-kit.jpg" /></p>
 <p><img alt="A simulated 16x16 LED matrix showing ten small pictures, one for each mode of the kit: bouncing dots, rain, rings, rolling dots, sloshing water, and a maze" src="img/mode-grid.png" width="640" /></p>
 <p><em>This picture was drawn by a computer simulator, so the lights on your real kit may look a little different.</em></p>
 <div class="admonition tip">
@@ -2630,6 +2632,7 @@ Each pin has a number and a name. The names that start with <strong>GP</strong> 
 <li>Connect the matrix <strong>5V</strong> (power) wire to <code>VBUS</code>, which is pin 40. This is the 5 volts that comes from the USB cable.</li>
 <li>Connect the matrix <strong>DIN</strong> (data in) wire to <code>GP0</code>, which is pin 1.</li>
 </ol>
+<p><img alt="" src="img/wires-on-back.jpg" /></p>
 <table>
 <thead>
 <tr>
@@ -2663,7 +2666,8 @@ A matrix has an input end and an output end. Look for the letters <strong>DIN</s
 (data out), or for small arrows. Wire the Pico to DIN. A matrix wired to DOUT stays dark,
 and the wiring looks perfect the whole time.</p>
 </div>
-<h3 id="step-3-wire-the-accelerometer">Step 3: Wire the accelerometer</h3>
+<h3 id="step-3-wire-the-lis3dh-accelerometer">Step 3: Wire the LIS3DH accelerometer</h3>
+<p><img alt="" src="img/lis3dh-on-breadboard.jpg" /></p>
 <p>The accelerometer talks to the Pico over two wires. This way of talking is called <strong>I2C</strong>
 (say "eye-squared-see"). One wire is <strong>SDA</strong>, the data wire. The other is <strong>SCL</strong>, the
 clock wire that keeps both sides in step.</p>
