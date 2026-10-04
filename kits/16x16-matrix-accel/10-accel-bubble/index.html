@@ -1,0 +1,2875 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/moving-rainbow/kits/16x16-matrix-accel/10-accel-bubble/">
+      
+      
+        <link rel="prev" href="../09-accel-print/">
+      
+      
+        <link rel="next" href="../11-sloshing-water/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Lab 10: Accelerometer Bubble - Moving Rainbow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HGKRQ8K7VG"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HGKRQ8K7VG",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HGKRQ8K7VG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Lab 10: Accelerometer Bubble - Moving Rainbow" >
+      
+        <meta  property="og:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/kits/16x16-matrix-accel/10-accel-bubble.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/moving-rainbow/kits/16x16-matrix-accel/10-accel-bubble/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Lab 10: Accelerometer Bubble - Moving Rainbow" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching computational thinking to CoderDojo Twin Cities students using LED strips.  All content licensed Creative Commons ShareAlike Attribution Noncommercial" >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/moving-rainbow/assets/images/social/kits/16x16-matrix-accel/10-accel-bubble.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#642580" data-md-color-accent="#41BAC1">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-10-accelerometer-bubble" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Moving Rainbow" class="md-header__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Moving Rainbow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 10: Accelerometer Bubble
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Moving Rainbow" class="md-nav__button md-logo" aria-label="Moving Rainbow" data-md-component="logo">
+      
+  <img src="../../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Moving Rainbow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/moving-rainbow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About this Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concept-sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../getting-started/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../labs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Hands on Labs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../additional-labs/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Additional Labs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../led-noodles/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    LED Noodles
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Project Kits
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Project Kits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../moving-rainbow-base/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Base Moving Rainbow Kit
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../8x8-neopixel-matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8x8 NeoPixel Matrix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cylon-pumpkin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cylon Pumpkin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../rotary-spinner-box/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Rotary Spinner Box
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    16x16 Matrix Tilt Kit
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_6" id="__nav_10_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            16x16 Matrix Tilt Kit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-blink-onboard-led/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 1: Blink the Onboard LED
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-probe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 2: Hardware Probe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-button-test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 3: Button Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-first-pixel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 4: First Pixel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-fill-colors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 5: Fill Colors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-walk-pixels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 6: Walk the Pixels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-xy-corners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 7: X-Y Corners
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-row-column-sweep/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 8: Row and Column Sweep
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-accel-print/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 9: Accelerometer Print
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab 10: Accelerometer Bubble
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab 10: Accelerometer Bubble
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      The program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#turn-g-into-a-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Turn g into a column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix the direction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-the-22-dot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draw the 2×2 dot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try it yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check your understanding
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-sloshing-water/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 11: Sloshing Water
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-tilt-a-maze/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 12: Tilt-a-Maze
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-modes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab 13: Modes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../solar-powered-led-nightlight/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Solar Powered Nightlight
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../holiday-hats/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Holiday Hats
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../halloween/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Halloween Patterns
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../jakes-fire/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Jake's Fire
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../led-dimmer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LED Dimmer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analog-nightlight/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analog Nightlight
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../led-noodle-nightlight/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LED Noodle Nightlight
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../digital-nightlight/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Nightlight
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../signs/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Signs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../teachers-guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Teachers Guide
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../challenges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../challenges-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenges v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Moving Rainbow Skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../stories/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stories
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How we built this site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll learn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What you'll need
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      The program
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#turn-g-into-a-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Turn g into a column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-the-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fix the direction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-the-22-dot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draw the 2×2 dot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try it yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-your-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check your understanding
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/moving-rainbow/edit/master/docs/kits/16x16-matrix-accel/10-accel-bubble.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="lab-10-accelerometer-bubble">Lab 10: Accelerometer Bubble</h1>
+<div class="admonition tip">
+<p class="admonition-title">Pixel says...</p>
+<p><img src="../../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
+Time to put the sensor in charge of the lights! Tip your kit and watch a glowing dot slide toward the low side.
+Let's light this up!</p>
+</div>
+<p><strong>Program file:</strong> <a href="https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/10-accel-bubble.py"><code>10-accel-bubble.py</code></a></p>
+<h2 id="what-youll-learn">What you'll learn</h2>
+<ul>
+<li>How to turn a tilt number into a pixel position</li>
+<li>How a small function does the math for both x and y</li>
+<li>How <code>FLIP_X</code>, <code>FLIP_Y</code>, and <code>SWAP_XY</code> fix the direction</li>
+<li>How nested loops draw a 2×2 dot</li>
+</ul>
+<h2 id="what-youll-need">What you'll need</h2>
+<ul>
+<li>Your whole kit: the matrix and the accelerometer, wired as shown in the <a href="../">Kit Guide</a></li>
+<li><code>config.py</code> saved on the Pico</li>
+<li>Thonny open and connected to your Pico</li>
+<li>The <code>xy</code> function from <a href="../07-xy-corners/">Lab 7</a> and the readings from <a href="../09-accel-print/">Lab 9</a></li>
+</ul>
+<h2 id="the-program">The program</h2>
+<p>This program draws a small blue-green dot. The dot slides toward whichever side of the kit is lowest.</p>
+<div class="highlight"><span class="filename">10-accel-bubble.py</span><pre><span></span><code><span class="c1"># Test 10: Accelerometer Bubble</span>
+<span class="c1"># Filename: 10-accel-bubble.py</span>
+<span class="c1"># Version: 1.0.0</span>
+<span class="c1">#</span>
+<span class="c1"># A 2x2 dot on the matrix acts like a bubble in a level: tilt the kit</span>
+<span class="c1"># and the dot slides toward the low side. If it slides the wrong way,</span>
+<span class="c1"># change FLIP_X or FLIP_Y. If left-right and up-down are swapped,</span>
+<span class="c1"># change SWAP_XY.</span>
+<span class="c1"># Not yet tested on hardware.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ustruct</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Test 10: Accelerometer Bubble (version 1.0.0)"</span><span class="p">)</span>
+
+<span class="c1"># hardware settings from config.py</span>
+<span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span>
+<span class="n">NUMBER_PIXELS</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NUMBER_PIXELS</span>
+<span class="n">MATRIX_WIDTH</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">MATRIX_WIDTH</span>
+<span class="n">MATRIX_HEIGHT</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">MATRIX_HEIGHT</span>
+<span class="n">SERPENTINE</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">SERPENTINE</span>
+<span class="n">ACCEL_I2C_ID</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ACCEL_I2C_ID</span>
+<span class="n">ACCEL_SDA_PIN</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ACCEL_SDA_PIN</span>
+<span class="n">ACCEL_SCL_PIN</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ACCEL_SCL_PIN</span>
+<span class="n">ACCEL_ADDRESS</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ACCEL_ADDRESS</span>
+
+<span class="c1"># LIS3DH registers</span>
+<span class="n">CTRL_REG1</span> <span class="o">=</span> <span class="mh">0x20</span>
+<span class="n">CTRL_REG4</span> <span class="o">=</span> <span class="mh">0x23</span>
+<span class="n">ACCEL_DATA_REGISTER</span> <span class="o">=</span> <span class="mh">0x28</span> <span class="o">|</span> <span class="mh">0x80</span>   <span class="c1"># the 0x80 bit makes the chip step through x, y, z</span>
+<span class="n">COUNTS_PER_G</span> <span class="o">=</span> <span class="mi">16384</span>
+
+<span class="c1"># how the sensor is mounted relative to the matrix</span>
+<span class="n">FLIP_X</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">FLIP_Y</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">SWAP_XY</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="n">ACCEL_I2C_ID</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">ACCEL_SDA_PIN</span><span class="p">),</span> <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">ACCEL_SCL_PIN</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">.</span><span class="n">writeto_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">CTRL_REG1</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'</span><span class="se">\x57</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># 100 readings a second, x y z on</span>
+<span class="n">i2c</span><span class="o">.</span><span class="n">writeto_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">CTRL_REG4</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'</span><span class="se">\x88</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># high resolution, +/- 2 g</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">xy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">SERPENTINE</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">y</span> <span class="o">*</span> <span class="n">MATRIX_WIDTH</span> <span class="o">+</span> <span class="p">(</span><span class="n">MATRIX_WIDTH</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span> <span class="o">*</span> <span class="n">MATRIX_WIDTH</span> <span class="o">+</span> <span class="n">x</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">to_column</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="c1"># -1 g -&gt; 0, 0 g -&gt; middle, +1 g -&gt; size - 2 (leaves room for the 2x2 dot)</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">g</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">position</span><span class="p">))</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">readfrom_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">ACCEL_DATA_REGISTER</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span> <span class="o">=</span> <span class="n">ustruct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">'&lt;hhh'</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
+    <span class="n">gx</span> <span class="o">=</span> <span class="n">ax</span> <span class="o">/</span> <span class="n">COUNTS_PER_G</span>
+    <span class="n">gy</span> <span class="o">=</span> <span class="n">ay</span> <span class="o">/</span> <span class="n">COUNTS_PER_G</span>
+    <span class="k">if</span> <span class="n">SWAP_XY</span><span class="p">:</span>
+        <span class="n">gx</span><span class="p">,</span> <span class="n">gy</span> <span class="o">=</span> <span class="n">gy</span><span class="p">,</span> <span class="n">gx</span>
+    <span class="k">if</span> <span class="n">FLIP_X</span><span class="p">:</span>
+        <span class="n">gx</span> <span class="o">=</span> <span class="o">-</span><span class="n">gx</span>
+    <span class="k">if</span> <span class="n">FLIP_Y</span><span class="p">:</span>
+        <span class="n">gy</span> <span class="o">=</span> <span class="o">-</span><span class="n">gy</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="n">to_column</span><span class="p">(</span><span class="n">gx</span><span class="p">,</span> <span class="n">MATRIX_WIDTH</span><span class="p">)</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">to_column</span><span class="p">(</span><span class="n">gy</span><span class="p">,</span> <span class="n">MATRIX_HEIGHT</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_PIXELS</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">dx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">dy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="n">strip</span><span class="p">[</span><span class="n">xy</span><span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">row</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.03</span><span class="p">)</span>
+</code></pre></div>
+<p>Run it and tilt the kit. The 2×2 dot slides toward the low side. Hold the kit level and the dot sits near the middle.</p>
+<div class="highlight"><pre><span></span><code>Test 10: Accelerometer Bubble (version 1.0.0)
+</code></pre></div>
+<p><img alt="A simulated 16x16 LED matrix with one small 2 by 2 square of blue-green pixels near the upper right" src="../img/bubble.png" width="320" /></p>
+<p><em>This picture was drawn by a computer simulator, so your real matrix may look a little different.</em></p>
+<h2 id="how-it-works">How it works</h2>
+<h3 id="turn-g-into-a-column">Turn g into a column</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">to_column</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="c1"># -1 g -&gt; 0, 0 g -&gt; middle, +1 g -&gt; size - 2 (leaves room for the 2x2 dot)</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">g</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">position</span><span class="p">))</span>
+</code></pre></div>
+<p>The sensor gives a tilt between -1 and +1. The matrix needs a column between 0 and 14 (14 leaves room for a two-pixel-wide dot). The math in the middle stretches one range onto the other:</p>
+<ol>
+<li>Add 1, so the tilt goes from 0 to 2.</li>
+<li>Divide by 2, so it goes from 0 to 1.</li>
+<li>Multiply by <code>size - 2</code>, so it goes from 0 to 14.</li>
+</ol>
+<p>Here is the math for a 16-pixel-wide matrix:</p>
+<table>
+<thead>
+<tr>
+<th>Tilt (g)</th>
+<th>Math</th>
+<th>Column</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1</td>
+<td>(-1 + 1) / 2 × 14</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>(0 + 1) / 2 × 14</td>
+<td>7</td>
+</tr>
+<tr>
+<td>0.25</td>
+<td>(0.25 + 1) / 2 × 14 = 8.75</td>
+<td>9</td>
+</tr>
+<tr>
+<td>1</td>
+<td>(1 + 1) / 2 × 14</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p>The last line, <code>max(0, min(size - 2, position))</code>, keeps the answer between 0 and 14, even if a hard shake pushes g past 1.</p>
+<p>The same function works for the rows. We give it the tilt in y and the matrix height.</p>
+<h3 id="fix-the-direction">Fix the direction</h3>
+<div class="highlight"><pre><span></span><code><span class="n">FLIP_X</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">FLIP_Y</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">SWAP_XY</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+<p>How you mount the sensor decides which way its x and y numbers point. These three settings turn them around so the dot slides <em>down</em> the hill. <code>FLIP_Y = True</code> makes the program use <code>-gy</code> instead of <code>gy</code>. <code>SWAP_XY</code> would trade x and y. If your dot slides the wrong way, change one of these settings and run it again.</p>
+<h3 id="draw-the-22-dot">Draw the 2×2 dot</h3>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">dx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">dy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">strip</span><span class="p">[</span><span class="n">xy</span><span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">row</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+</code></pre></div>
+<p>This is a nested loop from Lab 8. Both <code>dx</code> and <code>dy</code> count 0, 1. So the loop colors four pixels: the one at <code>(col, row)</code> and the three next to it. Together they make a 2×2 square.</p>
+<div class="admonition info">
+<p class="admonition-title">Key idea</p>
+<p>A <strong>mapping</strong> takes numbers from one range and stretches them onto another range. Sensors, games, and graphs all use mappings.</p>
+</div>
+<h2 id="try-it-yourself">Try it yourself</h2>
+<ol>
+<li>Change the color of the dot from <code>(0, 40, 40)</code> to something you like. Keep the numbers small.</li>
+<li>Flip an axis. Change <code>FLIP_X = False</code> to <code>FLIP_X = True</code>. Predict what changes, then tilt the kit left and right.</li>
+<li>Draw a bigger dot. A 3×3 dot needs four changes. Use <code>range(3)</code> in each of the two loops. Change <code>size - 2</code> to <code>size - 3</code> in two places inside <code>to_column</code>. Can you find all four?</li>
+</ol>
+<h2 id="check-your-understanding">Check your understanding</h2>
+<ol>
+<li>What range of tilt numbers does the sensor give? What range of columns does the matrix need?</li>
+<li>In <code>to_column</code>, what column comes out when the tilt is 0?</li>
+<li>What does <code>FLIP_Y = True</code> do?</li>
+<li>How many pixels light up in the dot? How does a nested loop make them?</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Lab complete!</p>
+<p><img src="../../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel celebrates">
+You made lights follow gravity! That mapping idea shows up in every game you will ever play.</p>
+</div>
+<p><strong>What's next:</strong> In <a href="../11-sloshing-water/">Lab 11: Sloshing Water</a>, the whole matrix becomes a pan of water that sloshes.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <footer class="md-footer">
+    
+      <div class="md-footer-nav">
+        <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../09-accel-print/" title="Lab 9: Accelerometer Print" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Previous
+                  </span>
+                  Lab 9: Accelerometer Print
+                </span>
+              </div>
+            </a>
+          
+          
+            <a href="../11-sloshing-water/" title="Lab 11: Sloshing Water" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span class="md-footer-nav__direction">
+                    Next
+                  </span>
+                  Lab 11: Sloshing Water
+                </span>
+              </div>
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+              </div>
+            </a>
+          
+        </nav>
+      </div>
+    
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          
+            <div class="md-footer-copyright__highlight">
+              Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+            </div>
+          
+            All content including images are licenses under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons 
+              Attribution NonCommercial ShareAlike</a>
+        </div>
+        <div class="md-social">
+  
+</div>
+      </div>
+    </div>
+  </footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../js/extra.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

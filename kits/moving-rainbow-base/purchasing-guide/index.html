@@ -996,6 +996,8 @@
         
       
         
+      
+        
           
         
       
@@ -1195,6 +1197,15 @@
   <a href="#addressable-led-strip" class="md-nav__link">
     <span class="md-ellipsis">
       Addressable LED Strip
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16x16-neopixel-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      16x16 NeoPixel Matrix
     </span>
   </a>
   
@@ -1403,6 +1414,78 @@
   
   <span class="md-ellipsis">
     Rotary Spinner Box
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../16x16-matrix-accel/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    16x16 Matrix Tilt Kit
   </span>
   
 
@@ -2212,6 +2295,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#16x16-neopixel-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      16x16 NeoPixel Matrix
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#momentary-push-buttons" class="md-nav__link">
     <span class="md-ellipsis">
       Momentary Push Buttons
@@ -2349,6 +2441,7 @@ below always show current pricing.</p>
 <p><strong>Optional</strong></p>
 <ul>
 <li><a href="#three-screw-terminal-header">Three-screw terminal header</a> — swap strips without re-soldering (~$0.40)</li>
+<li><a href="#16x16-neopixel-matrix">16x16 NeoPixel matrix</a> — 256 pixels for the <a href="../../16x16-matrix-accel/">16x16 Matrix Tilt Kit</a>, in place of the strip (~$7–20)</li>
 <li><a href="#heat-shrink-tubing">Heat shrink tubing</a> — strain-relieves and color-codes the strip leads (~$0.50)</li>
 <li><a href="#acrylic-base">Acrylic base</a> — mounts the breadboard and strip into something backpack-proof (~$2)</li>
 </ul>
@@ -2449,6 +2542,52 @@ the price for an electrically identical strip.</p>
 <li><a href="https://www.ebay.com/sch/i.html?_nkw=WS2812B+LED+strip+60+LED%2Fm+5V+IP20">Search eBay for "WS2812B LED strip 60 LED/m 5V IP20"</a></li>
 <li><a href="https://www.aliexpress.com/w/wholesale-ws2812b-led-strip-60-led-m-5v-ip20.html">Search AliExpress for "WS2812B LED strip 60 LED/m 5V IP20"</a></li>
 <li><a href="https://www.amazon.com/s?k=WS2812B+LED+strip+60+LED%2Fm+5V+IP20">Search Amazon for "WS2812B LED strip 60 LED/m 5V IP20"</a></li>
+</ul>
+<h2 id="16x16-neopixel-matrix">16x16 NeoPixel Matrix</h2>
+<p><img alt="An AliExpress listing for a WS2812 LED matrix panel module with 16 rows and 16 columns of pixels, 256 in all, priced at $7.25 on sale from $14.69, with 355 sold and 5.0 stars from 8 reviews" src="../../../img/16x16-matrix-on-aliexpress.png" width="640" /></p>
+<p>This part is not in the base kit. It replaces the 30-pixel strip in the
+<a href="../../16x16-matrix-accel/">16x16 Matrix Tilt Kit</a>, where 256 pixels in a
+square give students a small screen instead of a line. It is the same WS2812B
+pixel as the strip and speaks the same one-wire protocol, so the same <code>neopixel</code>
+library drives it. The kit's configuration puts the data line on <strong>GPIO 0</strong>,
+exactly as the base kit does.</p>
+<p>The listing above is typical: a black circuit-board panel, 115 mm square, with
+mounting holes in the corners, selling for <strong>$7.25</strong> on sale (regular price
+$14.69, seen in October 2026). Two details of that listing matter for a teacher.
+The sale price carries a "one-time offer: applies to one item only" notice, so
+plan on the regular price for a class order. And at the regular price, this one
+panel costs more than the Pico, the breadboard, the buttons, the wire and the
+cable put together.</p>
+<p>Specifications to match when comparing listings:</p>
+<ul>
+<li><strong>16x16 with 256 pixels.</strong> Many sellers list 8x8, 8x32 and 16x16 panels together, so read the pixel count.</li>
+<li><strong>5V.</strong> The listing above is rated DC 4.5–5.4V. Wire it to the Pico's VBUS pin, as in the base kit.</li>
+<li><strong>WS2812 or WS2812B.</strong> Avoid APA102 panels, which need two data wires and different code.</li>
+<li><strong>Rows that run the same way.</strong> Panels differ. Some run every row left to right, and some zig-zag, with the second row running right to left. The kit handles both with the <code>SERPENTINE</code> setting in <code>config.py</code>, and <a href="../../16x16-matrix-accel/06-walk-pixels/">Lab 6: Walk the Pixels</a> shows students how to tell which kind they have.</li>
+</ul>
+<p>Power deserves one warning. At full white, 256 pixels need more than 15 amps,
+and a USB port supplies about 0.5. The kit's programs keep the color numbers
+small (<code>LEVEL = 8</code> in <code>config.py</code>) so the whole panel stays under about 480 milliamps.
+Tell students not to raise it.</p>
+<p><strong>Prep work:</strong> Check the listing photos for lead wires. Many panels ship as a
+bare board with solder pads on one edge, and then it needs three wires soldered
+to the <strong>5V</strong>, <strong>GND</strong> and <strong>DIN</strong> (data in) pads, using 22-gauge solid-core wire
+as for the strip. Budget about 10 minutes per panel. Mark which edge is DIN
+before you solder, because wiring to DOUT leaves the panel dark.</p>
+<p><strong>Cost:</strong> ~<span class="arithmatex">\(7 for a single panel while the sale lasts · ~\)</span>15 each at the regular
+AliExpress price, so ~<span class="arithmatex">\(295 for a class of 20 unless the seller offers pack
+pricing · ~\)</span>20 each for flexible panels on eBay. Order a semester ahead if you
+buy from AliExpress, and ask the seller about quantity discounts.</p>
+<p><strong>Search keywords:</strong> <code>WS2812B 16x16 LED matrix panel 256 pixels</code>, <code>WS2812 LED
+matrix panel module 16x16 5V</code>, <code>16x16 addressable RGB matrix</code>. The listing above
+is titled "WS2812 LED Matrix Panel Module 16x16 256 Pixels". As with the strip,
+<strong>"NeoPixel" is Adafruit's brand name</strong>, so searching for it returns branded
+product at a higher price for an electrically similar panel.</p>
+<p><strong>Where to buy:</strong></p>
+<ul>
+<li><a href="https://www.ebay.com/sch/i.html?_nkw=WS2812B+16x16+LED+matrix+panel+256+pixels">Search eBay for "WS2812B 16x16 LED matrix panel 256 pixels"</a></li>
+<li><a href="https://www.aliexpress.com/w/wholesale-ws2812b-16x16-led-matrix-panel-256-pixels.html">Search AliExpress for "WS2812B 16x16 LED matrix panel 256 pixels"</a></li>
+<li><a href="https://www.amazon.com/s?k=WS2812B+16x16+LED+matrix+panel+256+pixels">Search Amazon for "WS2812B 16x16 LED matrix panel 256 pixels"</a></li>
 </ul>
 <h2 id="momentary-push-buttons">Momentary Push Buttons</h2>
 <p><img alt="Momentary push button (6mm tactile switch) with four leads" src="../../../img/momentary-push-button.png" /></p>
