@@ -26,6 +26,7 @@ Run these in order the first time you wire up the kit.
 | `09-accel-print.py` | The accelerometer reads sensible x, y and z values |
 | `10-accel-bubble.py` | A dot on the matrix slides as you tilt the kit |
 | `11-sloshing-water.py` | A half-full pan of blue water that sloshes as you rock the board |
+| `12-tilt-a-maze.py` | A nine-level tilt maze: roll the red ball to the green hole, then a rainbow |
 
 To run the probe from your computer after uploading, use `./run-probe.sh`.
 
