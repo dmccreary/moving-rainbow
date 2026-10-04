@@ -1,4 +1,14 @@
-# 16x16 Matrix Tilt Kit
+---
+title: Tilt a Rainbow Kit
+description: A fun low-cost kit that includes a 16x16 RGB LED matrix and a tilt sensor.
+image: kits/16x16-matrix-accel/img/box-cover.png
+og:image: kits/16x16-matrix-accel/img/box-cover.png
+---
+# Tilt a Rainbow Kit
+
+![](./img/box-cover.png)
+
+![](./img/16x16-matrix-tilt-kit.jpg)
 
 ![A simulated 16x16 LED matrix showing ten small pictures, one for each mode of the kit: bouncing dots, rain, rings, rolling dots, sloshing water, and a maze](./img/mode-grid.png){ width="640" }
 
@@ -87,6 +97,8 @@ The matrix has three wires. Connect them in this order: **ground first, then pow
 2. Connect the matrix **5V** (power) wire to `VBUS`, which is pin 40. This is the 5 volts that comes from the USB cable.
 3. Connect the matrix **DIN** (data in) wire to `GP0`, which is pin 1.
 
+![](./img/wires-on-back.jpg)
+
 | Matrix wire | Goes to | Pico pin |
 |-------------|---------|----------|
 | GND (ground) | Any `GND` pin | Pin 38 works well |
@@ -99,7 +111,9 @@ The matrix has three wires. Connect them in this order: **ground first, then pow
     (data out), or for small arrows. Wire the Pico to DIN. A matrix wired to DOUT stays dark,
     and the wiring looks perfect the whole time.
 
-### Step 3: Wire the accelerometer
+### Step 3: Wire the LIS3DH accelerometer
+
+![](./img/lis3dh-on-breadboard.jpg)
 
 The accelerometer talks to the Pico over two wires. This way of talking is called **I2C**
 (say "eye-squared-see"). One wire is **SDA**, the data wire. The other is **SCL**, the
