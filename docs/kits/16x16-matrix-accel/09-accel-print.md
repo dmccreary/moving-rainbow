@@ -5,7 +5,7 @@
     Your kit can feel which way is down! In this lab we'll listen to the tilt sensor and print what it says.
     Let's light this up!
 
-**Program file:** [`09-accel-print.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/09-accel-print.py)
+**Program file:** [`09-accel-print.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/09-accel-print.py)
 
 ## What you'll learn
 
@@ -27,7 +27,7 @@
 This program reads the accelerometer five times a second and prints x, y, and z in g.
 
 ```python title="09-accel-print.py"
---8<-- "src/kits/16x16-matrixs-accel/09-accel-print.py"
+--8<-- "src/kits/16x16-matrix-accel/09-accel-print.py"
 ```
 
 Run it with the kit lying flat on the table. The numbers should look like this, with z close to 1 and x and y close to 0. Then pick the kit up and tilt it slowly. Watch the numbers change.

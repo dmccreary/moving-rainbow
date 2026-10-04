@@ -5,7 +5,7 @@
     Ready for a splash? Your matrix is about to become a pan of blue water. Rock it back and forth and
     watch the water slosh! Let's light this up!
 
-**Program files:** [`11-sloshing-water.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/11-sloshing-water.py) and [`sloshing_water.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/sloshing_water.py)
+**Program files:** [`11-sloshing-water.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/11-sloshing-water.py) and [`sloshing_water.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/sloshing_water.py)
 
 ## What you'll learn
 
@@ -26,7 +26,7 @@
 This lab has two files. The short one, `11-sloshing-water.py`, is the one you run. It starts the module.
 
 ```python title="11-sloshing-water.py"
---8<-- "src/kits/16x16-matrixs-accel/11-sloshing-water.py"
+--8<-- "src/kits/16x16-matrix-accel/11-sloshing-water.py"
 ```
 
 The real work lives in the **module** `sloshing_water.py`. A module is a Python file that other programs can load with `import`. It also uses `kit.py`. This helper module sets up the matrix, the sensor, and the buttons for every program from here on. Keeping the water in its own module lets Lab 13 load it as one of its modes.
@@ -51,7 +51,7 @@ Picture the matrix as a square pan, seen from the side. Half of the pixels are w
 ### Find the deepest pixels
 
 ```python title="sloshing_water.py (lines 57 to 71)"
---8<-- "src/kits/16x16-matrixs-accel/sloshing_water.py:57:71"
+--8<-- "src/kits/16x16-matrix-accel/sloshing_water.py:57:71"
 ```
 
 The numbers `nx` and `ny` point downhill. For each pixel, `depth` tells how far downhill it sits. Standing upright, `nx` is 0 and `ny` is 1. Then the depth is just the row number, so the bottom row is deepest.
@@ -66,7 +66,7 @@ The tiny `nudge` number added to each depth breaks ties, so two pixels never hav
 ### The water follows on a spring
 
 ```python title="sloshing_water.py (lines 100 to 103)"
---8<-- "src/kits/16x16-matrixs-accel/sloshing_water.py:100:103"
+--8<-- "src/kits/16x16-matrix-accel/sloshing_water.py:100:103"
 ```
 
 If the water always pointed exactly downhill, it would flip instantly and look stiff. Real water is lazy. So the program uses a **spring**, like a weight hanging on a rubber band. Gravity (the `target`) is where the weight is pulled to. The water's own idea of "down" (`sx` and `sy`) is the weight on the band.
@@ -80,7 +80,7 @@ With a small `DAMPING`, the water overshoots, swings back, and rings a few times
 ### What if the board is flat?
 
 ```python title="sloshing_water.py (lines 88 to 92)"
---8<-- "src/kits/16x16-matrixs-accel/sloshing_water.py:88:92"
+--8<-- "src/kits/16x16-matrix-accel/sloshing_water.py:88:92"
 ```
 
 When the kit lies flat, there is no "downhill" along the board, so the numbers are tiny and jumpy. The check `size >= MIN_TILT` ignores tiny tilts. The water stays where it was until you tilt the board enough.

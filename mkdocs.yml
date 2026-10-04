@@ -188,6 +188,22 @@ nav:
       - 'Lab 12: The Mode Machine': kits/rotary-spinner-box/20-mode-machine.md
       - 'Lab 13: The Capability Demo': kits/rotary-spinner-box/21-demo.md
 
+    - 16x16 Matrix Tilt Kit:
+      - Intro: kits/16x16-matrix-accel/index.md
+      - 'Lab 1: Blink the Onboard LED': kits/16x16-matrix-accel/01-blink-onboard-led.md
+      - 'Lab 2: Hardware Probe': kits/16x16-matrix-accel/02-probe.md
+      - 'Lab 3: Button Test': kits/16x16-matrix-accel/03-button-test.md
+      - 'Lab 4: First Pixel': kits/16x16-matrix-accel/04-first-pixel.md
+      - 'Lab 5: Fill Colors': kits/16x16-matrix-accel/05-fill-colors.md
+      - 'Lab 6: Walk the Pixels': kits/16x16-matrix-accel/06-walk-pixels.md
+      - 'Lab 7: X-Y Corners': kits/16x16-matrix-accel/07-xy-corners.md
+      - 'Lab 8: Row and Column Sweep': kits/16x16-matrix-accel/08-row-column-sweep.md
+      - 'Lab 9: Accelerometer Print': kits/16x16-matrix-accel/09-accel-print.md
+      - 'Lab 10: Accelerometer Bubble': kits/16x16-matrix-accel/10-accel-bubble.md
+      - 'Lab 11: Sloshing Water': kits/16x16-matrix-accel/11-sloshing-water.md
+      - 'Lab 12: Tilt-a-Maze': kits/16x16-matrix-accel/12-tilt-a-maze.md
+      - 'Lab 13: Modes': kits/16x16-matrix-accel/13-modes.md
+
     - Solar Powered Nightlight:
       - Intro: kits/solar-powered-led-nightlight/index.md
       - kits/solar-powered-led-nightlight/how-it-works.md

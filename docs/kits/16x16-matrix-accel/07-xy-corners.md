@@ -5,7 +5,7 @@
     Counting from 0 to 255 is fine for a walk. To draw a picture, you want to say column 3, row 2.
     Let's write a helper that does that math. Let's light this up!
 
-**Program file:** [`07-xy-corners.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/07-xy-corners.py)
+**Program file:** [`07-xy-corners.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/07-xy-corners.py)
 
 ## What you'll learn
 
@@ -26,7 +26,7 @@
 This program draws one pixel in each corner of the matrix. It uses a function named `xy` to turn a column and a row into a pixel number.
 
 ```python title="07-xy-corners.py"
---8<-- "src/kits/16x16-matrixs-accel/07-xy-corners.py"
+--8<-- "src/kits/16x16-matrix-accel/07-xy-corners.py"
 ```
 
 Run it. Four pixels light up, one in each corner:

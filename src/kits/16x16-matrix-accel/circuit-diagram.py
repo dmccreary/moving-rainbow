@@ -10,7 +10,7 @@ Run it from this folder (needs schemdraw):
 
     python3 circuit-diagram.py
 
-It writes circuit-diagram.png and circuit-diagram.svg into docs/kits/16x16-matrixs-accel/img/.
+It writes circuit-diagram.png and circuit-diagram.svg into docs/kits/16x16-matrix-accel/img/.
 This file runs on your computer, not on the Pico, so upload-code.sh skips it.
 """
 
@@ -31,7 +31,7 @@ ACCEL_FILL = "#e6dcf3"   # light purple
 
 OUT_DIR = os.path.normpath(os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "..", "..", "..",
-    "docs", "kits", "16x16-matrixs-accel", "img"))
+    "docs", "kits", "16x16-matrix-accel", "img"))
 TITLE = "16x16 Matrix Tilt Kit - Wiring Diagram"
 
 

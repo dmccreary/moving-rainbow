@@ -5,7 +5,7 @@
     I'm going for a walk, and I'm visiting every pixel on the matrix! Watch my path. It will tell us how
     the pixels are numbered. Let's light this up!
 
-**Program file:** [`06-walk-pixels.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/06-walk-pixels.py)
+**Program file:** [`06-walk-pixels.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/06-walk-pixels.py)
 
 ## What you'll learn
 
@@ -26,7 +26,7 @@
 This program lights one pixel at a time, in purple, starting at pixel 0 and ending at pixel 255.
 
 ```python title="06-walk-pixels.py"
---8<-- "src/kits/16x16-matrixs-accel/06-walk-pixels.py"
+--8<-- "src/kits/16x16-matrix-accel/06-walk-pixels.py"
 ```
 
 Run it. A purple pixel starts in the upper-left corner and runs along the top row from left to right. Then it jumps to the start of the second row and runs left to right again. It takes about eight seconds to visit all 256 pixels.

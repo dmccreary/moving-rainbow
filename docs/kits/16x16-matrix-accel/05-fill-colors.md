@@ -5,7 +5,7 @@
     One pixel is cute. 256 pixels is a party! But a big party needs big power, so we'll do some math first.
     Let's light this up!
 
-**Program file:** [`05-fill-colors.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/05-fill-colors.py)
+**Program file:** [`05-fill-colors.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/05-fill-colors.py)
 
 ## What you'll learn
 
@@ -26,7 +26,7 @@
 This program fills the whole matrix with red, then green, then blue, then white. Each color stays for one and a half seconds.
 
 ```python title="05-fill-colors.py"
---8<-- "src/kits/16x16-matrixs-accel/05-fill-colors.py"
+--8<-- "src/kits/16x16-matrix-accel/05-fill-colors.py"
 ```
 
 Run it. The whole matrix changes color every one and a half seconds. The colors are dim on purpose. If your Pico disconnects or the lights flicker when white appears, stop the program and read the power section below.

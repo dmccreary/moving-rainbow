@@ -5,7 +5,7 @@
     Every big light show starts with one little blink! I'm an LED (a light-emitting diode) too, so this one is close to my heart.
     Let's light this up!
 
-**Program file:** [`01-blink-onboard-led.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/01-blink-onboard-led.py)
+**Program file:** [`01-blink-onboard-led.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/01-blink-onboard-led.py)
 
 ## What you'll learn
 
@@ -26,7 +26,7 @@
 This program blinks the Pico's own LED over and over. It checks that your Pico is connected to Thonny and running Python.
 
 ```python title="01-blink-onboard-led.py"
---8<-- "src/kits/16x16-matrixs-accel/01-blink-onboard-led.py"
+--8<-- "src/kits/16x16-matrix-accel/01-blink-onboard-led.py"
 ```
 
 Open the file in Thonny and click the green **Run** button. The small LED near the USB connector blinks twice every second. The **Shell** at the bottom of Thonny shows the name and version of the program.

@@ -5,7 +5,7 @@
     Now we put it all together! One program, ten light shows, and two buttons to switch between them.
     Let's light this up!
 
-**Program file:** [`13-modes.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/13-modes.py)
+**Program file:** [`13-modes.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/13-modes.py)
 
 ## What you'll learn
 
@@ -27,7 +27,7 @@
 This program is the mode machine. Button 1 (GP14) loads the next mode. Button 2 (GP15) loads the previous one. When a mode starts, the matrix shows the mode number for a moment.
 
 ```python title="13-modes.py"
---8<-- "src/kits/16x16-matrixs-accel/13-modes.py"
+--8<-- "src/kits/16x16-matrix-accel/13-modes.py"
 ```
 
 Run it. You should see a **1** on the matrix, then three slow dots bouncing. Press Button 1 to move on. Each press loads the next mode.
@@ -79,7 +79,7 @@ Modes 1, 2, and 3 all use `bounce_dots`, but they act differently. The differenc
 ### A list of modes
 
 ```python title="13-modes.py (lines 35 to 52)"
---8<-- "src/kits/16x16-matrixs-accel/13-modes.py:35:52"
+--8<-- "src/kits/16x16-matrix-accel/13-modes.py:35:52"
 ```
 
 `MODES` is a list. Each item has three parts: a name, the module to load, and the **settings** to give that module. The settings are a **dictionary**, which is a set of labels with values, written in curly braces. For mode 1, the dictionary says `"speed": 4`. For mode 2, it says `"speed": 7`. The `bounce_dots` module reads these settings and acts differently each time.
@@ -89,7 +89,7 @@ Items with `None` have no settings. They do not need any.
 ### Load a mode only when you need it
 
 ```python title="13-modes.py (lines 62 to 80)"
---8<-- "src/kits/16x16-matrixs-accel/13-modes.py:62:80"
+--8<-- "src/kits/16x16-matrix-accel/13-modes.py:62:80"
 ```
 
 The loop picks the current item from the list: `name, module_name, settings = MODES[mode]`. Then `__import__(module_name)` loads that module right now, from its name. The line `module.run(settings)` starts the show.
@@ -103,11 +103,11 @@ The last line, `mode = (mode + step) % len(MODES)`, moves to the next mode. The 
 A show runs in a loop that never ends. How can a button press get out? The shows use `kit.wait` instead of `sleep`. Here is the code from `kit.py`:
 
 ```python title="kit.py (lines 97 to 100)"
---8<-- "src/kits/16x16-matrixs-accel/kit.py:97:100"
+--8<-- "src/kits/16x16-matrix-accel/kit.py:97:100"
 ```
 
 ```python title="kit.py (lines 127 to 134)"
---8<-- "src/kits/16x16-matrixs-accel/kit.py:127:134"
+--8<-- "src/kits/16x16-matrix-accel/kit.py:127:134"
 ```
 
 The `wait` function sleeps in 10 millisecond pieces. After each piece it calls `check()`, which looks at both buttons. If one was just pressed, `check()` **raises** a `ModeChange`. An **exception** is Python's way of shouting, stop what you are doing! The shout travels out of the show. The `except kit.ModeChange` line in `13-modes.py` catches it. That line reads the `step` from the exception: 1 for Button 1 and -1 for Button 2. Then the loop starts the next mode.

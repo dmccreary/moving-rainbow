@@ -5,7 +5,7 @@
     It's game time! Roll the red ball through a maze of light blue walls to the green hole. There are nine
     levels, and each one is a little harder. Let's light this up!
 
-**Program files:** [`12-tilt-a-maze.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/12-tilt-a-maze.py) and [`tilt_a_maze.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/tilt_a_maze.py)
+**Program files:** [`12-tilt-a-maze.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/12-tilt-a-maze.py) and [`tilt_a_maze.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/tilt_a_maze.py)
 
 ## What you'll learn
 
@@ -27,7 +27,7 @@
 Like Lab 11, this lab has a short file that you run and a module with the real code.
 
 ```python title="12-tilt-a-maze.py"
---8<-- "src/kits/16x16-matrixs-accel/12-tilt-a-maze.py"
+--8<-- "src/kits/16x16-matrix-accel/12-tilt-a-maze.py"
 ```
 
 Run `12-tilt-a-maze.py`. The matrix first shows **L1**, and then the first maze appears. Your red ball waits in the upper-left corner. The green hole waits in the opposite corner. Tilt the kit to roll the ball. A bigger tilt rolls it faster.
@@ -64,7 +64,7 @@ Here is the recipe for a maze. A **recipe** like this is called an **algorithm**
 5. Stop when you have backed all the way to the start.
 
 ```python title="tilt_a_maze.py (lines 94 to 114)"
---8<-- "src/kits/16x16-matrixs-accel/tilt_a_maze.py:94:114"
+--8<-- "src/kits/16x16-matrix-accel/tilt_a_maze.py:94:114"
 ```
 
 The list `path` remembers where you have been. The loop `while len(path) > 0` keeps going until you have backed up to the start. The line `random_number(len(options))` picks one of the open neighbors. When there are no options, `path.pop()` removes the last cell, which is the "back up" step.
@@ -74,7 +74,7 @@ This recipe visits every cell and leaves exactly one way between any two cells. 
 ### Random, but the same every time
 
 ```python title="tilt_a_maze.py (lines 79 to 82)"
---8<-- "src/kits/16x16-matrixs-accel/tilt_a_maze.py:79:82"
+--8<-- "src/kits/16x16-matrix-accel/tilt_a_maze.py:79:82"
 ```
 
 A computer cannot truly pick a number at random. It follows a rule that scrambles the last number into a new one. If you start with the same first number, called the **seed**, you get the same list every time.
@@ -111,7 +111,7 @@ The ball starts in a different corner each level, and the hole is always in the 
 ### A tilt rolls the ball
 
 ```python title="tilt_a_maze.py (lines 163 to 167)"
---8<-- "src/kits/16x16-matrixs-accel/tilt_a_maze.py:163:167"
+--8<-- "src/kits/16x16-matrix-accel/tilt_a_maze.py:163:167"
 ```
 
 The variable `size` is the strongest tilt. A tilt smaller than `TILT_MIN` does nothing. A bigger tilt makes `speed` go from 0 up to 1. The `interval` is how long the ball waits before its next step, in milliseconds. It is 260 for a gentle tilt and 90 for a big one.

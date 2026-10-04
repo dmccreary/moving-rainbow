@@ -5,7 +5,7 @@
     Time to put the sensor in charge of the lights! Tip your kit and watch a glowing dot slide toward the low side.
     Let's light this up!
 
-**Program file:** [`10-accel-bubble.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/10-accel-bubble.py)
+**Program file:** [`10-accel-bubble.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/10-accel-bubble.py)
 
 ## What you'll learn
 
@@ -26,7 +26,7 @@
 This program draws a small blue-green dot. The dot slides toward whichever side of the kit is lowest.
 
 ```python title="10-accel-bubble.py"
---8<-- "src/kits/16x16-matrixs-accel/10-accel-bubble.py"
+--8<-- "src/kits/16x16-matrix-accel/10-accel-bubble.py"
 ```
 
 Run it and tilt the kit. The 2×2 dot slides toward the low side. Hold the kit level and the dot sits near the middle.

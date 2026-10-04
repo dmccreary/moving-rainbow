@@ -5,7 +5,7 @@
     Now we light up the matrix! One pixel is plenty. We'll make it red, then green, then blue. Those three colors are
     the secret behind every other color. Let's light this up!
 
-**Program file:** [`04-first-pixel.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/04-first-pixel.py)
+**Program file:** [`04-first-pixel.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/04-first-pixel.py)
 
 ## What you'll learn
 
@@ -26,7 +26,7 @@
 This program lights pixel 0, the pixel in the upper-left corner, in red, then green, then blue. It does this over and over.
 
 ```python title="04-first-pixel.py"
---8<-- "src/kits/16x16-matrixs-accel/04-first-pixel.py"
+--8<-- "src/kits/16x16-matrix-accel/04-first-pixel.py"
 ```
 
 Run it. The corner pixel is red for one second, then green, then blue, and then it starts again. The Shell tells you which color to expect.

@@ -4,7 +4,7 @@
     <img src="../../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Pixel waves hello">
     Buttons are how you talk back to your program. Let's find out how a press looks to the Pico!
 
-**Program file:** [`03-button-test.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/03-button-test.py)
+**Program file:** [`03-button-test.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/03-button-test.py)
 
 ## What you'll learn
 
@@ -25,7 +25,7 @@
 This program prints a message each time you press or let go of a button. It also lights a pixel in the top row while you hold a button down.
 
 ```python title="03-button-test.py"
---8<-- "src/kits/16x16-matrixs-accel/03-button-test.py"
+--8<-- "src/kits/16x16-matrix-accel/03-button-test.py"
 ```
 
 Run it and press each button a few times. The Shell shows a message for every press and release. Button 1 lights the first pixel green while you hold it. Button 2 lights the last pixel of the top row blue.

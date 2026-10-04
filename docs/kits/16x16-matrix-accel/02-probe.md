@@ -5,7 +5,7 @@
     Before we build, let's check that every part is awake. This program asks each part a question: are you there?
     Every bug is just a puzzle in disguise, and this one finds the puzzles for us!
 
-**Program file:** [`02-probe.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/02-probe.py)
+**Program file:** [`02-probe.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/02-probe.py)
 
 ## What you'll learn
 
@@ -62,7 +62,7 @@ The report has more lines than we show here. The last line is the one that matte
 ### Is a wire stuck?
 
 ```python title="02-probe.py (lines 122 to 127)"
---8<-- "src/kits/16x16-matrixs-accel/02-probe.py:122:127"
+--8<-- "src/kits/16x16-matrix-accel/02-probe.py:122:127"
 ```
 
 A pin that nothing is driving reads **1** or **0**. These two lines turn on the Pico's tiny internal pull-up resistor, which holds the pin at 3.3 volts. A healthy pin then reads **1**. If a pin reads **0**, it is stuck to ground, and the wire may be touching something it should not.
@@ -72,7 +72,7 @@ The variable `lines_ok` becomes `True` only when both the clock and data pins re
 ### Who is on the I2C wires?
 
 ```python title="02-probe.py (lines 244 to 252)"
---8<-- "src/kits/16x16-matrixs-accel/02-probe.py:244:252"
+--8<-- "src/kits/16x16-matrix-accel/02-probe.py:244:252"
 ```
 
 **I2C** is a two-wire way for parts to talk. Every part on the wires has its own **address**, like a house number. The line `devices = i2c.scan()` knocks on every address and collects the ones that answer.
@@ -82,7 +82,7 @@ Addresses are printed in **hexadecimal** (hex for short). Hex counts in sixteens
 ### Is it really the right chip?
 
 ```python title="02-probe.py (lines 165 to 172)"
---8<-- "src/kits/16x16-matrixs-accel/02-probe.py:165:172"
+--8<-- "src/kits/16x16-matrix-accel/02-probe.py:165:172"
 ```
 
 Our chip has a **register** (a numbered mailbox inside the chip) that always holds the number `0x33`. It is named `WHO_AM_I`. The line with `readfrom_mem` opens that mailbox and reads it. If the answer is `0x33`, we know the chip is a LIS3DH.

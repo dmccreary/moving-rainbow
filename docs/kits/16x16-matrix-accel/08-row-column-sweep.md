@@ -5,7 +5,7 @@
     One loop draws a line. Two loops draw a whole picture! Let's sweep a stripe of light across the matrix.
     Let's light this up!
 
-**Program file:** [`08-row-column-sweep.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrixs-accel/08-row-column-sweep.py)
+**Program file:** [`08-row-column-sweep.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/16x16-matrix-accel/08-row-column-sweep.py)
 
 ## What you'll learn
 
@@ -26,7 +26,7 @@
 This program sweeps a green bar down the rows, one row at a time. Then it sweeps a blue bar across the columns.
 
 ```python title="08-row-column-sweep.py"
---8<-- "src/kits/16x16-matrixs-accel/08-row-column-sweep.py"
+--8<-- "src/kits/16x16-matrix-accel/08-row-column-sweep.py"
 ```
 
 Run it. A green line moves from the top of the matrix to the bottom. Then a blue line moves from left to right. Both lines should look perfectly straight. If a line looks bent or broken, check the `SERPENTINE` setting from Lab 6.

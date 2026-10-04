@@ -30,14 +30,17 @@ After this guide you will be able to:
 
 Check each part off before you start.
 
-| Part | How many | What it does |
-|------|----------|--------------|
-| Raspberry Pi Pico | 1 | The small computer that runs your code |
-| 16x16 NeoPixel matrix | 1 | 256 lights in 16 rows and 16 columns. Each light is a **pixel** |
-| LIS3DH accelerometer | 1 | A sensor that feels tilt and movement |
-| Push buttons | 2 | Buttons you press to change modes |
-| Breadboard and jumper wires | 1 set | Connect the parts with no soldering. Your kit may use a different kind of wire |
-| Micro USB cable | 1 | Carries your code and the power |
+| Part | Approximate Cost | What it does |
+|------|------------------|--------------|
+| Raspberry Pi Pico | $4.00 | The small computer that runs your code |
+| [16x16 NeoPixel matrix](../moving-rainbow-base/purchasing-guide/index.md#16x16-neopixel-matrix) | $10.00 | 256 lights in 16 rows and 16 columns. Each light is a **pixel** |
+| LIS3DH accelerometer | $5.00 | A sensor that feels tilt and movement |
+| Push buttons (QTY=2) | $0.50 | Buttons you press to change modes |
+| Breadboard and jumper wires | $3.50 | Connect the parts with no soldering. Your kit may use a different kind of wire |
+| Micro USB cable | $2.50 | Carries your code and the power |
+| **Total cost** | **$25.50** | |
+
+*These are single-kit prices from October 2026. Prices change, and buying parts in packs costs less.*
 
 !!! warning "Check your USB cable"
     <img src="../../img/mascot/warning.png" class="mascot-admonition-img" alt="Pixel holds up both hands">
@@ -146,7 +149,7 @@ and you will always be on the right pair.
 Every program in this kit reads its pin numbers from one file called `config.py`.
 
 ```python title="config.py"
---8<-- "src/kits/16x16-matrixs-accel/config.py"
+--8<-- "src/kits/16x16-matrix-accel/config.py"
 ```
 
 Because every program starts with `import config`, you never have to remember pin numbers.
@@ -247,5 +250,5 @@ Lab 5 shows you the math.
 
 ## Source Code
 
-The whole kit lives in one folder, [`src/kits/16x16-matrixs-accel/`](https://github.com/dmccreary/moving-rainbow/tree/master/src/kits/16x16-matrixs-accel).
+The whole kit lives in one folder, [`src/kits/16x16-matrix-accel/`](https://github.com/dmccreary/moving-rainbow/tree/master/src/kits/16x16-matrix-accel).
 The wiring diagram is drawn by `circuit-diagram.py` in that folder.
