@@ -1,4 +1,4 @@
-# 16x16 Matrix Accelerometer Kit
+# Tilt-a-Rainbow Kit
 
 This kit contains:
 

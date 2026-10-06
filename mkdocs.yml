@@ -188,7 +188,7 @@ nav:
       - 'Lab 12: The Mode Machine': kits/rotary-spinner-box/20-mode-machine.md
       - 'Lab 13: The Capability Demo': kits/rotary-spinner-box/21-demo.md
 
-    - 16x16 Matrix Tilt Kit:
+    - Tilt-a-Rainbow Kit:
       - Intro: kits/16x16-matrix-accel/index.md
       - 'Lab 1: Blink the Onboard LED': kits/16x16-matrix-accel/01-blink-onboard-led.md
       - 'Lab 2: Hardware Probe': kits/16x16-matrix-accel/02-probe.md

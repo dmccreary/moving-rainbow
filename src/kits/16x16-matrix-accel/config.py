@@ -2,8 +2,8 @@
 # Filename: config.py
 # Version: 1.0.0
 #
-# This file contains the hardware configuration for the 16x16 matrix
-# accelerometer kit. It is imported by each program.
+# This file contains the hardware configuration for the Tilt-a-Rainbow
+# kit. It is imported by each program.
 
 # 16x16 NeoPixel matrix (256 pixels)
 NEOPIXEL_PIN = 0

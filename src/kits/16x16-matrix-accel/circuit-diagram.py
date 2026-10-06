@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Wiring diagram for the 16x16 Matrix Accelerometer Kit (Moving Rainbow house style).
+"""Wiring diagram for the Tilt-a-Rainbow Kit (Moving Rainbow house style).
 
 Draws the Pico, the 16x16 NeoPixel matrix, the LIS3DH accelerometer and the two
 mode buttons. Pins come from config.py:
@@ -32,7 +32,7 @@ ACCEL_FILL = "#e6dcf3"   # light purple
 OUT_DIR = os.path.normpath(os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "..", "..", "..",
     "docs", "kits", "16x16-matrix-accel", "img"))
-TITLE = "16x16 Matrix Tilt Kit - Wiring Diagram"
+TITLE = "Tilt-a-Rainbow Kit - Wiring Diagram"
 
 
 def build():

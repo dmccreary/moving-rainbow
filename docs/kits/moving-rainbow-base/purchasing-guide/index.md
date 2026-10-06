@@ -29,7 +29,7 @@ shipping — so order a semester ahead if you can.
 **Optional**
 
 - [Three-screw terminal header](#three-screw-terminal-header) — swap strips without re-soldering (~$0.40)
-- [16x16 NeoPixel matrix](#16x16-neopixel-matrix) — 256 pixels for the [16x16 Matrix Tilt Kit](../../16x16-matrix-accel/index.md), in place of the strip (~$7–20)
+- [16x16 NeoPixel matrix](#16x16-neopixel-matrix) — 256 pixels for the [Tilt-a-Rainbow Kit](../../16x16-matrix-accel/index.md), in place of the strip (~$7–20)
 - [Heat shrink tubing](#heat-shrink-tubing) — strain-relieves and color-codes the strip leads (~$0.50)
 - [Acrylic base](#acrylic-base) — mounts the breadboard and strip into something backpack-proof (~$2)
 
@@ -169,7 +169,7 @@ the price for an electrically identical strip.
 ![An AliExpress listing for a WS2812 LED matrix panel module with 16 rows and 16 columns of pixels, 256 in all, priced at $7.25 on sale from $14.69, with 355 sold and 5.0 stars from 8 reviews](../../../img/16x16-matrix-on-aliexpress.png){ width="640" }
 
 This part is not in the base kit. It replaces the 30-pixel strip in the
-[16x16 Matrix Tilt Kit](../../16x16-matrix-accel/index.md), where 256 pixels in a
+[Tilt-a-Rainbow Kit](../../16x16-matrix-accel/index.md), where 256 pixels in a
 square give students a small screen instead of a line. It is the same WS2812B
 pixel as the strip and speaks the same one-wire protocol, so the same `neopixel`
 library drives it. The kit's configuration puts the data line on **GPIO 0**,

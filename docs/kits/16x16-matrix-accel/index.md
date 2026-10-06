@@ -1,10 +1,10 @@
 ---
-title: Tilt a Rainbow Kit
+title: Tilt-a-Rainbow Kit
 description: A fun low-cost kit that includes a 16x16 RGB LED matrix and a tilt sensor.
 image: kits/16x16-matrix-accel/img/box-cover.png
 og:image: kits/16x16-matrix-accel/img/box-cover.png
 ---
-# Tilt a Rainbow Kit
+# Tilt-a-Rainbow Kit
 
 ![](./img/box-cover.png)
 
