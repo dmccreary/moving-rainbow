@@ -204,6 +204,27 @@ nav:
       - 'Lab 12: Tilt-a-Maze': kits/16x16-matrix-accel/12-tilt-a-maze.md
       - 'Lab 13: Modes': kits/16x16-matrix-accel/13-modes.md
 
+    - Tilt-a-Rainbow Mini Kit:
+      - Intro: kits/8x8-matrix-accel/index.md
+      - 'Lab 1: Blink the Onboard LED': kits/8x8-matrix-accel/01-blink-onboard-led.md
+      - 'Lab 2: Hardware Probe': kits/8x8-matrix-accel/02-probe.md
+      - 'Lab 3: Button Test': kits/8x8-matrix-accel/03-button-test.md
+      - 'Lab 4: First Pixel': kits/8x8-matrix-accel/04-first-pixel.md
+      - 'Lab 5: Fill Colors': kits/8x8-matrix-accel/05-fill-colors.md
+      - 'Lab 6: Walk the Pixels': kits/8x8-matrix-accel/06-walk-pixels.md
+      - 'Lab 7: X-Y Corners': kits/8x8-matrix-accel/07-xy-corners.md
+      - 'Lab 8: Row and Column Sweep': kits/8x8-matrix-accel/08-row-column-sweep.md
+      - 'Lab 9: Smiley Face': kits/8x8-matrix-accel/09-smiley-face.md
+      - 'Lab 10: Picture Show': kits/8x8-matrix-accel/10-picture-show.md
+      - 'Lab 11: Winking Face': kits/8x8-matrix-accel/11-winking-face.md
+      - 'Lab 12: Scrolling Message': kits/8x8-matrix-accel/12-scrolling-message.md
+      - 'Lab 13: Accelerometer Print': kits/8x8-matrix-accel/13-accel-print.md
+      - 'Lab 14: Accelerometer Bubble': kits/8x8-matrix-accel/14-accel-bubble.md
+      - 'Lab 15: Sloshing Water': kits/8x8-matrix-accel/15-sloshing-water.md
+      - 'Lab 16: Tilt-a-Maze': kits/8x8-matrix-accel/16-tilt-a-maze.md
+      - 'Lab 17: Tilt-a-Sketch': kits/8x8-matrix-accel/17-tilt-a-sketch.md
+      - 'Lab 18: Modes': kits/8x8-matrix-accel/18-modes.md
+
     - Solar Powered Nightlight:
       - Intro: kits/solar-powered-led-nightlight/index.md
       - kits/solar-powered-led-nightlight/how-it-works.md
