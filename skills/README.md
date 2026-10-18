@@ -64,9 +64,13 @@ Raspberry Pi 500+ keyboard. Use this skill when you need to:
 
 ### purchasing-guide-generator (project-scoped)
 
+Now lives in `ibook-skills/optional-skills/purchasing-guide-generator/` and is
+linked in as `.claude/skills/purchasing-guide-generator` (enable it in another
+book with `ibook-skills/scripts/link-skill.sh purchasing-guide-generator <book>`).
+
 Turns a short parts list into a complete, teacher-ready **Purchasing Guide**
-page at `docs/kits/{kit}/purchasing-guide/index.md`. Use this skill when you
-need to:
+section of the Teacher's Guide at `docs/learning-graph/teachers-guide/index.md`.
+Use this skill when you need to:
 
 - Build a bill of materials for a kit, with required parts before optional ones
 - Price a kit both for one build and for a classroom order of 20+
