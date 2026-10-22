@@ -158,8 +158,8 @@ The `wait` function sleeps in 10 millisecond pieces. After each piece it calls `
 4. What happens when you press a button during a show?
 5. Why does the program unload a mode when you leave it?
 
-!!! success "Kit complete!"
+!!! success "Lab complete!"
     <img src="../../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Pixel celebrates">
-    You wired a kit, drew pictures, and built a program that loads twelve shows! You are a real light-maker now.
+    You built a program that loads twelve shows with two buttons! That is a real mode machine.
 
-**What's next:** Make your own mode, or head to the [Hands on Labs](../../labs/index.md) to learn more patterns for LED strips.
+**What's next:** In [Lab 19: Demo Mode](19-template-main.md), you will put every show and game in the kit into one program that can start by itself.

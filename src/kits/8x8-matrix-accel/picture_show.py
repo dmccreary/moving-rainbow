@@ -1,4 +1,4 @@
-# Module: Picture Show (used by mode 6 of program 18)
+# Module: Picture Show (used by mode 6 of program 18, and by program 19)
 # Filename: picture_show.py
 # Version: 1.0.0
 #

@@ -5,7 +5,7 @@
     You've drawn pictures by typing letters. Now let's draw by tilting! A blinking dot is your pen.
     Tip the kit and it rolls, leaving a trail of color behind. Let's light this up!
 
-**Program file:** [`17-tilt-a-sketch.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/8x8-matrix-accel/17-tilt-a-sketch.py)
+**Program files:** [`17-tilt-a-sketch.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/8x8-matrix-accel/17-tilt-a-sketch.py) and [`tilt_a_sketch.py`](https://github.com/dmccreary/moving-rainbow/blob/master/src/kits/8x8-matrix-accel/tilt_a_sketch.py)
 
 ## What you'll learn
 
@@ -18,7 +18,7 @@
 ## What you'll need
 
 - Your whole kit: the matrix, the accelerometer, and both buttons, wired as shown in the [Kit Guide](index.md)
-- These files saved on the Pico: `config.py`, `font.py`, `kit.py`, and `17-tilt-a-sketch.py`
+- These files saved on the Pico: `config.py`, `font.py`, `kit.py`, `tilt_a_sketch.py`, and `17-tilt-a-sketch.py`
 - Thonny open and connected to your Pico
 - The rolling ball from [Lab 16](16-tilt-a-maze.md) and the pictures from [Lab 9](09-smiley-face.md)
 
@@ -26,11 +26,19 @@
 
 This program turns the kit into a drawing toy. You tilt to move the pen, and the pen paints every pixel it rolls over.
 
+This lab has two files, like Lab 15. The short one, `17-tilt-a-sketch.py`, is the one you run. It starts the module.
+
 ```python title="17-tilt-a-sketch.py"
 --8<-- "src/kits/8x8-matrix-accel/17-tilt-a-sketch.py"
 ```
 
-Run it and hold the kit flat. A red dot blinks near the middle. Tip the kit a little and the dot rolls toward the low side, leaving a red line. Hold the kit level to stop.
+The real work lives in the module `tilt_a_sketch.py`. Keeping the sketch in its own module lets the demo program `19-template-main.py` load it as one of its modes.
+
+```python title="tilt_a_sketch.py"
+--8<-- "src/kits/8x8-matrix-accel/tilt_a_sketch.py"
+```
+
+Run `17-tilt-a-sketch.py` and hold the kit flat. A red dot blinks near the middle. Tip the kit a little and the dot rolls toward the low side, leaving a red line. Hold the kit level to stop.
 
 | To do this | Do this |
 |------------|---------|
@@ -42,7 +50,7 @@ Run it and hold the kit flat. A red dot blinks near the middle. Tip the kit a li
 When the pen is lifted, it blinks white and does not paint. That is how you move to a new spot without leaving a line. The Shell tells you what is happening:
 
 ```text
-Lab 17: Tilt-a-Sketch (version 1.0.0)
+Lab 17: Tilt-a-Sketch (version 1.1.0)
 Button 1: next color. Button 2: pen up or down. Shake: erase.
 Pen color: red
 Pen color: orange
@@ -59,8 +67,8 @@ Shake! The picture is erased.
 
 ### A list that remembers the picture
 
-```python title="17-tilt-a-sketch.py (lines 43 to 53)"
---8<-- "src/kits/8x8-matrix-accel/17-tilt-a-sketch.py:43:53"
+```python title="tilt_a_sketch.py (lines 43 to 53)"
+--8<-- "src/kits/8x8-matrix-accel/tilt_a_sketch.py:43:53"
 ```
 
 The list `canvas` holds 64 colors, one for every pixel. It starts with every spot set to off. When the pen rolls over a spot, the program stores the pen's color there. A real **canvas** is the cloth a painter paints on.
@@ -69,12 +77,14 @@ Why not paint straight onto the matrix? Because the pen blinks. The blinking pen
 
 The four variables after it are the **state** of the pen. State means everything the program must remember right now. That is where the pen is, whether it is down, and which color it holds.
 
+The function `run` changes the state as you draw. Its first line is `global pen_x, pen_y, pen_down, color_number`. The word **global** tells Python to change the variables at the top of the file. Without it, `run` would make new variables of its own, and `show` would never see the pen move.
+
 The function `spot(x, y)` turns a column and a row into a place in the list. It uses the same math as `xy` from Lab 7: row times 8, plus column.
 
 ### Draw in layers
 
-```python title="17-tilt-a-sketch.py (lines 59 to 71)"
---8<-- "src/kits/8x8-matrix-accel/17-tilt-a-sketch.py:59:71"
+```python title="tilt_a_sketch.py (lines 59 to 71)"
+--8<-- "src/kits/8x8-matrix-accel/tilt_a_sketch.py:59:71"
 ```
 
 The function `show` draws in two layers. First the nested loop copies the whole `canvas` to the matrix. Then the pen is drawn on top.
@@ -83,18 +93,20 @@ The pen blinks so that you can find it. When the pen is down, it flips between a
 
 ### Buttons change the state
 
-```python title="17-tilt-a-sketch.py (lines 104 to 109)"
---8<-- "src/kits/8x8-matrix-accel/17-tilt-a-sketch.py:104:109"
+```python title="tilt_a_sketch.py (lines 116 to 121)"
+--8<-- "src/kits/8x8-matrix-accel/tilt_a_sketch.py:116:121"
 ```
 
 Look at the line `pen_down = not pen_down`. The word `not` flips a value. If `pen_down` was `True`, it becomes `False`. If it was `False`, it becomes `True`. One button can switch something on and off this way.
 
 Button 1 works like the picture show in Lab 10. It adds 1 to `color_number` and uses `%` to wrap around after the last color.
 
+All the button code sits inside `if use_buttons:`. In the demo program `19-template-main.py`, the buttons switch between modes. There, the sketch leaves the buttons alone.
+
 ### Shake to erase
 
-```python title="17-tilt-a-sketch.py (lines 116 to 124)"
---8<-- "src/kits/8x8-matrix-accel/17-tilt-a-sketch.py:116:124"
+```python title="tilt_a_sketch.py (lines 128 to 136)"
+--8<-- "src/kits/8x8-matrix-accel/tilt_a_sketch.py:128:136"
 ```
 
 The numbers `gx` and `gy` are the pull along the board, left to right and top to bottom. The `if` line joins them into one number: the total pull along the board. It squares each one, adds them, and takes the square root. The `** 0.5` part is the square root.
@@ -113,16 +125,20 @@ Here is one example. A shake gives `gx` = 1.5 and `gy` = 1.0.
 
 ### Stay on the matrix
 
-```python title="17-tilt-a-sketch.py (lines 139 to 146)"
---8<-- "src/kits/8x8-matrix-accel/17-tilt-a-sketch.py:139:146"
+```python title="tilt_a_sketch.py (lines 151 to 160)"
+--8<-- "src/kits/8x8-matrix-accel/tilt_a_sketch.py:151:160"
 ```
 
 The pen takes one step at a time, the same way the ball did in the maze. Before it moves, this check makes sure the new spot is on the matrix. Columns and rows both go from 0 to 7. If the new spot would be off the edge, the pen stays where it is.
+
+The two `auto_color` lines are for the demo program. Its buttons are busy changing modes, so the pen moves to the next color with every step instead.
 
 !!! info "Key idea"
     A drawing program keeps two things apart: the picture it remembers and the picture it shows. The pen, the blinking, and the erasing all change what is shown without losing what is remembered.
 
 ## Try it yourself
+
+For questions 2 to 5, open `tilt_a_sketch.py` in Thonny, change it, and save it onto the Pico. Then run `17-tilt-a-sketch.py` again.
 
 1. Draw the first letter of your name. Use Button 2 to lift the pen between lines.
 2. Add a pen color. Add the line `("pink", (24, 4, 12)),` to the `PEN_COLORS` list. How many presses of Button 1 does it take to reach pink?

@@ -184,10 +184,10 @@ The quickest way uses a helper program named `mpremote`. A grown-up helper can r
 ./upload-code.sh
 ```
 
-It should say `Uploading 30 file(s) to Pico...` and end with a list of files.
+It should say `Uploading 37 file(s) to Pico...` and end with a list of files.
 
 You can also copy files one at a time with Thonny. Open a file, choose **File > Save as**, pick
-**Raspberry Pi Pico**, and keep the same file name. You do not need all 30 files for the first labs:
+**Raspberry Pi Pico**, and keep the same file name. You do not need all 37 files for the first labs:
 
 | Labs | Files the Pico needs |
 |------|----------------------|
@@ -196,8 +196,8 @@ You can also copy files one at a time with Thonny. Open a file, choose **File > 
 | Lab 10 | `config.py`, `pictures.py`, plus the lab file |
 | Lab 12 | `config.py`, `font.py`, plus the lab file |
 | Labs 15 and 16 | `config.py`, `font.py`, `kit.py`, the lab file, and its module (`sloshing_water.py` or `tilt_a_maze.py`) |
-| Lab 17 | `config.py`, `font.py`, `kit.py`, plus the lab file |
-| Lab 18 | Everything: all 30 files |
+| Lab 17 | `config.py`, `font.py`, `kit.py`, `tilt_a_sketch.py`, plus the lab file |
+| Labs 18 and 19 | Everything: all 37 files |
 
 ## Your Labs
 
@@ -224,6 +224,9 @@ If something breaks later, you already know which parts work.
 | [Lab 16: Tilt-a-Maze](./16-tilt-a-maze.md) | `16-tilt-a-maze.py` | Roll a ball through nine mazes |
 | [Lab 17: Tilt-a-Sketch](./17-tilt-a-sketch.md) | `17-tilt-a-sketch.py` | Draw your own picture by tilting |
 | [Lab 18: Modes](./18-modes.md) | `18-modes.py` | Switch between twelve light shows with your buttons |
+| [Lab 19: Demo Mode](./19-template-main.md) | `19-template-main.py` | Run all 18 shows and games, and make the kit start by itself |
+
+Showing your kit at a club night or a science fair? Print the one-page [Demo Mode Guide](demo-mode-guide.pdf) and set it next to the kit.
 
 ## Power Safety
 
@@ -233,6 +236,11 @@ All 64 pixels at full white would need about 3,800 mA, which is 3.8 amps. That i
 So the programs in this kit keep the color numbers small. `LEVEL = 20` in `config.py` is the
 color number the programs use when all 64 pixels light at once. Labs that light only a few pixels can use bigger numbers.
 Lab 5 shows you the math.
+
+To run the kit away from a computer, use a USB wall charger, like a phone charger. Many power banks
+turn themselves off when a device draws only a little current, and this kit often does. With only a
+few dim pixels lit, the power bank decides nothing is plugged in and switches off after a short time.
+[Lab 19](19-template-main.md#make-the-kit-start-by-itself) shows how to make the kit start by itself.
 
 ## Troubleshooting
 

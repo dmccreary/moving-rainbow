@@ -1,4 +1,4 @@
-# Module: Tilt Balls (used by modes 8, 9 and 10 of program 18)
+# Module: Tilt Balls (used by modes 8, 9 and 10 of program 18, and by program 19)
 # Filename: tilt_balls.py
 # Version: 1.0.0
 #

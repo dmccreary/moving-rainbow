@@ -1,4 +1,4 @@
-# Module: Rainbow Rain (used by mode 4 of program 18)
+# Module: Rainbow Rain (used by mode 4 of program 18, and by program 19)
 # Filename: rain.py
 # Version: 1.0.0
 #

@@ -1,4 +1,4 @@
-# Module: Scrolling Message (used by mode 7 of program 18)
+# Module: Scrolling Message (used by mode 7 of program 18, and by program 19)
 # Filename: scroll_text.py
 # Version: 1.0.0
 #

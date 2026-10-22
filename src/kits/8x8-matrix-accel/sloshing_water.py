@@ -1,4 +1,4 @@
-# Module: Sloshing Water (program 15, and mode 11 of program 18)
+# Module: Sloshing Water (program 15, mode 11 of program 18, and program 19)
 # Filename: sloshing_water.py
 # Version: 1.0.0
 #

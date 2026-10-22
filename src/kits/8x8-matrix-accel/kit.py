@@ -1,15 +1,15 @@
-# Module: Kit Helpers (shared by programs 15 to 18 and the modes they load)
+# Module: Kit Helpers (shared by programs 15 to 19 and the modes they load)
 # Filename: kit.py
-# Version: 1.0.0
+# Version: 1.1.0
 #
 # Sets up the matrix, the accelerometer and the two mode buttons one time,
 # and gives every mode the same helpers: xy(), clear(), fade_pixels(),
 # read_tilt(), draw_text(), wait() and a list of colors.
 #
 # wait() is how a mode sleeps. It also watches the two mode buttons. When
-# program 18 has turned the buttons on (mode_buttons_on) and one is pressed,
-# wait() raises ModeChange and program 18 loads the next or previous mode.
-# When a mode runs on its own (programs 15 and 16) the buttons are off.
+# program 18 or 19 has turned the buttons on (mode_buttons_on) and one is
+# pressed, wait() raises ModeChange and the next or previous mode loads.
+# When a mode runs on its own (programs 15 to 17) the buttons are off.
 
 from machine import Pin, I2C
 from neopixel import NeoPixel
@@ -74,8 +74,8 @@ button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
 button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
 i2c = I2C(ACCEL_I2C_ID, sda=Pin(ACCEL_SDA_PIN), scl=Pin(ACCEL_SCL_PIN), freq=400000)
-i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG1, b'\x57')   # 100 readings a second, x y z on
-i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG4, b'\x88')   # high resolution, +/- 2 g
+# setup_sensor(), near the end of this file, turns the sensor on. It runs
+# again if the sensor stops answering, for example after a loose wire.
 
 
 class ModeChange(Exception):
@@ -138,10 +138,46 @@ def dim(color, brightness):
     # brightness is 0.0 to 1.0
     return (int(color[0] * brightness), int(color[1] * brightness), int(color[2] * brightness))
 
+# The tilt sensor. If it misses a reading (a wire that lost contact for a
+# moment, or a bump while you press a button), Python raises OSError. The
+# shows keep the last good reading instead of stopping, and the Shell says
+# what happened, one time.
+sensor_answering = True
+last_tilt = (0.0, 0.0)
+
+def sensor_lost():
+    global sensor_answering
+    if sensor_answering:
+        print("The tilt sensor is not answering. Check its wires: GP16, GP17, 3V3 and GND.")
+    sensor_answering = False
+
+def setup_sensor():
+    # the chip starts powered down, and powers down again if it loses power
+    global sensor_answering
+    try:
+        i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG1, b'\x57')   # 100 readings a second, x y z on
+        i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG4, b'\x88')   # high resolution, +/- 2 g
+    except OSError:
+        sensor_lost()
+        return
+    if not sensor_answering:
+        print("The tilt sensor is answering again.")
+    sensor_answering = True
+
+setup_sensor()
+
 def read_tilt():
     # the pull of gravity along the board, as (gx, gy) in g, pointing
     # toward the low side. When the board stands upright the pull is about 1.
-    ax, ay, az = ustruct.unpack('<hhh', i2c.readfrom_mem(ACCEL_ADDRESS, ACCEL_DATA_REGISTER, 6))
+    global last_tilt
+    if not sensor_answering:
+        setup_sensor()          # it may have lost power, so turn it on again
+    try:
+        raw = i2c.readfrom_mem(ACCEL_ADDRESS, ACCEL_DATA_REGISTER, 6)
+    except OSError:
+        sensor_lost()
+        return last_tilt
+    ax, ay, az = ustruct.unpack('<hhh', raw)
     gx = ax / COUNTS_PER_G
     gy = ay / COUNTS_PER_G
     if SWAP_XY:
@@ -150,6 +186,7 @@ def read_tilt():
         gx = -gx
     if FLIP_Y:
         gy = -gy
+    last_tilt = (gx, gy)
     return gx, gy
 
 def draw_text(text, color=TEXT_COLOR):

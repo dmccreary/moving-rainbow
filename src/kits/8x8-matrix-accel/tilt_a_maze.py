@@ -1,4 +1,4 @@
-# Module: Tilt-a-Maze (program 16, and mode 12 of program 18)
+# Module: Tilt-a-Maze (program 16, mode 12 of program 18, and program 19)
 # Filename: tilt_a_maze.py
 # Version: 1.0.0
 #

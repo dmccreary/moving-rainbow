@@ -1,4 +1,4 @@
-# Module: Bouncing Dots (used by modes 1, 2 and 3 of program 18)
+# Module: Bouncing Dots (used by modes 1, 2 and 3 of program 18, and by program 19)
 # Filename: bounce_dots.py
 # Version: 1.0.0
 #

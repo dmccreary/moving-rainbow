@@ -1,4 +1,4 @@
-# Module: Pixel Font (used by program 12, kit.py and the message mode of program 18)
+# Module: Pixel Font (used by program 12, kit.py and the message modes of programs 18 and 19)
 # Filename: font.py
 # Version: 1.0.0
 #

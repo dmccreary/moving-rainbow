@@ -224,6 +224,7 @@ nav:
       - 'Lab 16: Tilt-a-Maze': kits/8x8-matrix-accel/16-tilt-a-maze.md
       - 'Lab 17: Tilt-a-Sketch': kits/8x8-matrix-accel/17-tilt-a-sketch.md
       - 'Lab 18: Modes': kits/8x8-matrix-accel/18-modes.md
+      - 'Lab 19: Demo Mode': kits/8x8-matrix-accel/19-template-main.md
 
     - Solar Powered Nightlight:
       - Intro: kits/solar-powered-led-nightlight/index.md

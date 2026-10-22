@@ -1,4 +1,4 @@
-# Module: Picture Gallery (used by program 10 and by the picture mode of program 18)
+# Module: Picture Gallery (used by program 10 and by the picture modes of programs 18 and 19)
 # Filename: pictures.py
 # Version: 1.0.0
 #
