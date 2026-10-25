@@ -43,12 +43,12 @@ Check each part off before you start.
 | Part | Approximate Cost | What it does |
 |------|------------------|--------------|
 | Raspberry Pi Pico | $4.00 | The small computer that runs your code |
-| [16x16 NeoPixel matrix](../moving-rainbow-base/purchasing-guide/index.md#16x16-neopixel-matrix) | $10.00 | 256 lights in 16 rows and 16 columns. Each light is a **pixel** |
+| [16x16 NeoPixel matrix](../moving-rainbow-base/purchasing-guide/index.md#16x16-neopixel-matrix) | $5.49 | 256 lights in 16 rows and 16 columns. Each light is a **pixel** |
 | LIS3DH accelerometer | $5.00 | A sensor that feels tilt and movement |
 | Push buttons (QTY=2) | $0.50 | Buttons you press to change modes |
 | Breadboard and jumper wires | $3.50 | Connect the parts with no soldering. Your kit may use a different kind of wire |
 | Micro USB cable | $2.50 | Carries your code and the power |
-| **Total cost** | **$25.50** | |
+| **Total cost** | **$20.99** | |
 
 *These are single-kit prices from October 2026. Prices change, and buying parts in packs costs less.*
 
