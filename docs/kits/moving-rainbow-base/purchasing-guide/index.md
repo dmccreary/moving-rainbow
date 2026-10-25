@@ -29,7 +29,7 @@ shipping — so order a semester ahead if you can.
 **Optional**
 
 - [Three-screw terminal header](#three-screw-terminal-header) — swap strips without re-soldering (~$0.40)
-- [16x16 NeoPixel matrix](#16x16-neopixel-matrix) — 256 pixels for the [Tilt-a-Rainbow Kit](../../16x16-matrix-accel/index.md), in place of the strip (~$7–20)
+- [16x16 NeoPixel matrix](#16x16-neopixel-matrix) — 256 pixels for the [Tilt-a-Rainbow Kit](../../16x16-matrix-accel/index.md), in place of the strip (~$5.49–20)
 - [Heat shrink tubing](#heat-shrink-tubing) — strain-relieves and color-codes the strip leads (~$0.50)
 - [Acrylic base](#acrylic-base) — mounts the breadboard and strip into something backpack-proof (~$2)
 
@@ -195,13 +195,24 @@ and a USB port supplies about 0.5. The kit's programs keep the color numbers
 small (`LEVEL = 8` in `config.py`) so the whole panel stays under about 480 milliamps.
 Tell students not to raise it.
 
+### New Low Price: $5.49
+
+![An AliExpress listing from FAR EAST ELECTRONICS for a WS2812 16x16 LED matrix panel with 256 pixels, priced at $5.49](../../../img/16x16-matrix-for-five-dollars.png){ width="640" }
+
+*The $5.49 listing from FAR EAST ELECTRONICS, seen October 25, 2026: about 2 cents per pixel.*
+
+New low price seen Oct 25, 2026, about 2 cents per pixel; used in the
+Tilt-a-Rainbow kit. The [FAR EAST ELECTRONICS listing](https://www.aliexpress.us/item/3256813159380731.html)
+sells the 16x16 panel for **$5.49** on AliExpress. It is a Choice listing, with
+free shipping on orders over $10 and about 7-day delivery.
+
 **Prep work:** Check the listing photos for lead wires. Many panels ship as a
 bare board with solder pads on one edge, and then it needs three wires soldered
 to the **5V**, **GND** and **DIN** (data in) pads, using 22-gauge solid-core wire
 as for the strip. Budget about 10 minutes per panel. Mark which edge is DIN
 before you solder, because wiring to DOUT leaves the panel dark.
 
-**Cost:** ~$7 for a single panel while the sale lasts · ~$15 each at the regular
+**Cost:** $5.49 per panel at the [new low price](https://www.aliexpress.us/item/3256813159380731.html) (Oct 25, 2026) · ~$7 for a single panel while the earlier sale lasts · ~$15 each at the regular
 AliExpress price, so ~$295 for a class of 20 unless the seller offers pack
 pricing · ~$20 each for flexible panels on eBay. Order a semester ahead if you
 buy from AliExpress, and ask the seller about quantity discounts.
@@ -214,6 +225,7 @@ product at a higher price for an electrically similar panel.
 
 **Where to buy:**
 
+- [FAR EAST ELECTRONICS 16x16 WS2812 panel on AliExpress, $5.49](https://www.aliexpress.us/item/3256813159380731.html) — new low price seen Oct 25, 2026, about 2 cents per pixel; Choice, free shipping over $10, about 7-day delivery
 - [Search eBay for "WS2812B 16x16 LED matrix panel 256 pixels"](https://www.ebay.com/sch/i.html?_nkw=WS2812B+16x16+LED+matrix+panel+256+pixels)
 - [Search AliExpress for "WS2812B 16x16 LED matrix panel 256 pixels"](https://www.aliexpress.com/w/wholesale-ws2812b-16x16-led-matrix-panel-256-pixels.html)
 - [Search Amazon for "WS2812B 16x16 LED matrix panel 256 pixels"](https://www.amazon.com/s?k=WS2812B+16x16+LED+matrix+panel+256+pixels)
