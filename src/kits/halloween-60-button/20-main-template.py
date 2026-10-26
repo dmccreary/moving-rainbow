@@ -3,9 +3,10 @@
 # Version: 1.0.0
 # Not yet tested on hardware.
 #
-# All eleven Halloween patterns from Labs 06 to 16 in one program. Each
-# press of the button moves to the next pattern, and after the last one
-# it goes back to the first. Save a copy of this file on the Pico as
+# All eleven Halloween patterns from Labs 06 to 16 in one program.
+# Mode 0 is auto mode: it shows every pattern for 10 seconds and then
+# moves on by itself. Each press of the button moves to the next mode,
+# and after the last one it goes back to mode 0. Save a copy of this file on the Pico as
 # main.py and your costume starts the light show on its own every time
 # you plug in the battery.
 #
@@ -29,6 +30,7 @@ BUTTON_PIN = config.BUTTON_PIN
 BRIGHTNESS = config.BRIGHTNESS
 
 DEBOUNCE_MS = 250        # ignore extra presses closer together than this
+AUTO_MS = 10000          # in auto mode, each pattern shows for 10 seconds
 
 strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 button = Pin(BUTTON_PIN, Pin.IN, Pin.PULL_UP)   # the button connects GPIO 15 to GND
@@ -254,10 +256,10 @@ def draw_lightning_storm(step):
             storm["next_strike"] = now + randint(2000, 6000)
 
 # ---------------------------------------------------------------------
-# The mode list: a name, a draw function and a delay for every pattern.
+# The pattern list: a name, a draw function and a delay for every pattern.
 # To add your own pattern, write a draw function and add a line here.
 # ---------------------------------------------------------------------
-modes = [
+patterns = [
     ("orange and purple chase", draw_chase, 0.03),
     ("pumpkin glow", draw_pumpkin_glow, 0.02),
     ("candy corn", draw_candy_corn, 0.08),
@@ -271,6 +273,10 @@ modes = [
     ("lightning storm", draw_lightning_storm, 0.02),
 ]
 
+# Mode 0 is auto mode. Modes 1 to 11 each show one pattern:
+# mode 1 is patterns[0], mode 2 is patterns[1] and so on.
+MODE_COUNT = len(patterns) + 1
+
 mode = 0
 last_press = 0
 
@@ -281,23 +287,42 @@ def button_pressed(pin):
     # a button "bounces" and can look like many presses, so we ignore
     # any press that comes too soon after the last one
     if ticks_diff(now, last_press) > DEBOUNCE_MS:
-        mode = (mode + 1) % len(modes)      # % goes back to 0 after the last mode
+        mode = (mode + 1) % MODE_COUNT      # % goes back to 0 after the last mode
         last_press = now
 
 # call button_pressed when the pin falls from 1 (released) to 0 (pressed)
 button.irq(trigger=Pin.IRQ_FALLING, handler=button_pressed)
 
-print("Halloween costume ready! Press the button to change the pattern.")
+print("Halloween costume ready! Press the button to change the mode.")
 current_mode = -1
+current_pattern = -1
+auto_start = 0           # when auto mode switched to its current pattern
 step = 0
 while True:
     if mode != current_mode:
-        # the button changed the mode: start the new pattern fresh
+        # the button changed the mode
         current_mode = mode
+        if current_mode == 0:
+            print("Mode 0 - auto: a new pattern every", AUTO_MS // 1000, "seconds")
+            pattern = 0
+            auto_start = ticks_ms()
+        else:
+            pattern = current_mode - 1
+            print("Mode", current_mode, "-", patterns[pattern][0])
+    elif current_mode == 0 and ticks_diff(ticks_ms(), auto_start) >= AUTO_MS:
+        # auto mode: time is up, so move on to the next pattern
+        pattern = (pattern + 1) % len(patterns)
+        auto_start = ticks_ms()
+
+    if pattern != current_pattern:
+        # a new pattern is starting: clear the strip and start it fresh
+        current_pattern = pattern
         step = 0
         strip.fill(black)
-        print("Mode", current_mode, "-", modes[current_mode][0])
-    name, draw, delay = modes[current_mode]
+        if current_mode == 0:
+            print("  auto:", patterns[pattern][0])
+
+    name, draw, delay = patterns[current_pattern]
     draw(step)               # set the colors for this step
     strip.write()            # one write per step
     sleep(delay)
