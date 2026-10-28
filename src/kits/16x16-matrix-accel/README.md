@@ -31,6 +31,19 @@ Run these in order the first time you wire up the kit.
 
 To run the probe from your computer after uploading, use `./run-probe.sh`.
 
+## Watching for a Hang
+
+Programs 09 to 13 blink the LED on the Pico board while they run. If it stops blinking, the
+program has stopped; look in the Thonny Shell for an error.
+
+The accelerometer code never stops the program on a bad reading. If a reading fails, it keeps
+the last good one. Once a second it checks the sensor, and restarts it if readings keep failing,
+come back exactly the same every time (stuck), or the sensor has lost its settings (a power dip
+resets it to sleep). Restarting frees the I2C bus with nine clock pulses first, in case the
+sensor was left holding SDA low. Each restart prints `Accelerometer ... restarting it`. The I2C
+clock is 100 kHz instead of 400 kHz, which is less bothered by noise from the matrix wires.
+Program 13 also catches any other error in a mode, prints it, and starts that mode again.
+
 ## Program 13: Modes
 
 Press button 1 for the next mode and button 2 for the previous one. The matrix shows the

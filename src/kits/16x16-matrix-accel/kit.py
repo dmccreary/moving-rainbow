@@ -1,6 +1,6 @@
 # Module: Kit Helpers (shared by program 13 and the programs it loads)
 # Filename: kit.py
-# Version: 1.0.0
+# Version: 1.1.0
 #
 # Sets up the matrix, the accelerometer and the two mode buttons one time,
 # and gives every mode the same helpers: xy(), clear(), fade_pixels(),
@@ -10,11 +10,16 @@
 # program 13 has turned the buttons on (mode_buttons_on) and one is pressed,
 # wait() raises ModeChange and program 13 loads the next or previous mode.
 # When a mode runs on its own (programs 11 and 12) the buttons are off.
+#
+# wait() also blinks the LED on the Pico board. If the LED stops blinking,
+# the program has stopped. read_tilt() never stops the program: if the
+# sensor does not answer, it uses the last good reading and restarts the
+# sensor (see read_accel()).
 # Not yet tested on hardware.
 
 from machine import Pin, I2C
 from neopixel import NeoPixel
-from utime import sleep_ms, ticks_ms, ticks_diff
+from utime import sleep_ms, sleep_us, ticks_ms, ticks_diff
 import ustruct
 import config
 
@@ -36,6 +41,18 @@ CTRL_REG1 = 0x20
 CTRL_REG4 = 0x23
 ACCEL_DATA_REGISTER = 0x28 | 0x80   # the 0x80 bit makes the chip step through x, y, z
 COUNTS_PER_G = 16384
+CTRL_REG1_VALUE = 0x57      # 100 readings a second, x y z on
+CTRL_REG4_VALUE = 0x88      # high resolution, +/- 2 g
+
+# keeping the sensor working
+I2C_FREQ = 100000           # a slower clock is less bothered by noise from the matrix wires
+MAX_BAD_READINGS = 5        # this many failed readings in a row restarts the sensor
+MAX_SAME_READINGS = 100     # a working sensor always wiggles a little, so this many
+                            # exactly equal readings in a row means it is stuck
+CHECK_MS = 1000             # how often to check on the sensor
+
+# the LED on the Pico board blinks while the program runs
+HEARTBEAT_MS = 250
 
 # how the sensor is mounted relative to the matrix (same as programs 10, 11 and 12)
 FLIP_X = False
@@ -89,9 +106,103 @@ strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
 button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
-i2c = I2C(ACCEL_I2C_ID, sda=Pin(ACCEL_SDA_PIN), scl=Pin(ACCEL_SCL_PIN), freq=400000)
-i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG1, b'\x57')   # 100 readings a second, x y z on
-i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG4, b'\x88')   # high resolution, +/- 2 g
+led = Pin("LED", Pin.OUT)     # "LED" works on the Pico, Pico W and Pico 2
+last_blink = ticks_ms()
+
+def heartbeat():
+    # flip the LED on the Pico board every HEARTBEAT_MS
+    global last_blink
+    now = ticks_ms()
+    if ticks_diff(now, last_blink) >= HEARTBEAT_MS:
+        led.toggle()
+        last_blink = now
+
+def free_bus():
+    # If a program stops in the middle of a reading, the sensor can be left
+    # holding the SDA wire low, and every reading after that fails. Nine
+    # clock pulses let it finish sending its byte, then a stop signal
+    # (SDA going high while SCL is high) frees the bus.
+    scl = Pin(ACCEL_SCL_PIN, Pin.OUT, value=1)
+    sda = Pin(ACCEL_SDA_PIN, Pin.IN, Pin.PULL_UP)
+    for i in range(9):
+        scl.value(0)
+        sleep_us(5)
+        scl.value(1)
+        sleep_us(5)
+    scl.value(0)
+    sda.init(Pin.OUT, value=0)
+    sleep_us(5)
+    scl.value(1)
+    sleep_us(5)
+    sda.init(Pin.IN, Pin.PULL_UP)
+    sleep_us(5)
+
+def start_sensor():
+    # free the bus, set up I2C and give the sensor its settings
+    global i2c
+    free_bus()
+    i2c = I2C(ACCEL_I2C_ID, sda=Pin(ACCEL_SDA_PIN), scl=Pin(ACCEL_SCL_PIN), freq=I2C_FREQ)
+    try:
+        i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG1, bytes([CTRL_REG1_VALUE]))
+        i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG4, bytes([CTRL_REG4_VALUE]))
+        return True
+    except OSError:
+        print("Accelerometer did not answer at address", hex(ACCEL_ADDRESS))
+        return False
+
+def sensor_has_settings():
+    # A dip in the power can reset the sensor. A reset sensor goes to sleep
+    # and keeps sending its last reading, so tilting seems to do nothing.
+    try:
+        return i2c.readfrom_mem(ACCEL_ADDRESS, CTRL_REG1, 1)[0] == CTRL_REG1_VALUE
+    except OSError:
+        return False
+
+start_sensor()
+last_good = (0, 0, COUNTS_PER_G)    # until the first reading: lying flat
+last_raw = None
+bad_readings = 0
+same_readings = 0
+last_check = ticks_ms()
+
+def read_accel():
+    # Returns the raw x, y and z counts. If the sensor does not answer or
+    # sends nonsense, this returns the last good reading instead of stopping
+    # the program. Once a second it checks on the sensor and restarts it if
+    # the readings failed, got stuck, or the sensor lost its settings.
+    global last_good, last_raw, bad_readings, same_readings, last_check
+    try:
+        raw = i2c.readfrom_mem(ACCEL_ADDRESS, ACCEL_DATA_REGISTER, 6)
+    except OSError:
+        raw = None
+    # all zeros or all ones is what a missing or sleeping sensor sends
+    if raw is None or raw == b'\x00' * 6 or raw == b'\xff' * 6:
+        bad_readings += 1
+    else:
+        bad_readings = 0
+        if raw == last_raw:
+            same_readings += 1
+        else:
+            same_readings = 0
+        last_raw = raw
+        last_good = ustruct.unpack('<hhh', raw)
+
+    now = ticks_ms()
+    if ticks_diff(now, last_check) >= CHECK_MS:
+        last_check = now
+        problem = None
+        if bad_readings >= MAX_BAD_READINGS:
+            problem = "stopped answering"
+        elif same_readings >= MAX_SAME_READINGS:
+            problem = "got stuck"
+        elif not sensor_has_settings():
+            problem = "lost its settings"
+        if problem:
+            print("Accelerometer", problem, "- restarting it")
+            start_sensor()
+            bad_readings = 0
+            same_readings = 0
+    return last_good
 
 
 class ModeChange(Exception):
@@ -126,11 +237,13 @@ def check():
 
 def wait(ms):
     # sleep for ms milliseconds, but notice a button press right away
+    heartbeat()
     check()
     while ms > 0:
         step = min(ms, 10)
         sleep_ms(step)
         ms -= step
+        heartbeat()
         check()
 
 def xy(x, y):
@@ -157,7 +270,7 @@ def dim(color, brightness):
 def read_tilt():
     # the pull of gravity along the board, as (gx, gy) in g, pointing
     # toward the low side. When the board stands upright the pull is about 1.
-    ax, ay, az = ustruct.unpack('<hhh', i2c.readfrom_mem(ACCEL_ADDRESS, ACCEL_DATA_REGISTER, 6))
+    ax, ay, az = read_accel()
     gx = ax / COUNTS_PER_G
     gy = ay / COUNTS_PER_G
     if SWAP_XY:

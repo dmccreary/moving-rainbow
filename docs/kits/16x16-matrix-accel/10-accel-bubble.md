@@ -31,8 +31,10 @@ This program draws a small blue-green dot. The dot slides toward whichever side 
 
 Run it and tilt the kit. The 2×2 dot slides toward the low side. Hold the kit level and the dot sits near the middle.
 
+Watch the small LED on the Pico board. It blinks while the program runs. If a reading fails, the dot stays put and the program restarts the sensor. Lab 9 explains how that works.
+
 ```text
-Test 10: Accelerometer Bubble (version 1.0.0)
+Test 10: Accelerometer Bubble (version 1.1.0)
 ```
 
 ![A simulated 16x16 LED matrix with one small 2 by 2 square of blue-green pixels near the upper right](./img/bubble.png){ width="320" }

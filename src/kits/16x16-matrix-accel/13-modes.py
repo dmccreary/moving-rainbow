@@ -1,6 +1,6 @@
 # Test 13: Modes
 # Filename: 13-modes.py
-# Version: 1.0.0
+# Version: 1.1.0
 #
 # Ten light shows in one program. Press button 1 (GPIO 14) for the next
 # mode and button 2 (GPIO 15) for the previous one. The matrix shows the
@@ -27,7 +27,7 @@ import sys
 import gc
 import kit
 
-print("Test 13: Modes (version 1.0.0)")
+print("Test 13: Modes (version 1.1.0)")
 
 MODE_NUMBER_MS = 700    # how long the mode number shows before the mode starts
 
@@ -73,6 +73,11 @@ while True:
         module.run(settings)
     except kit.ModeChange as change:
         step = change.args[0]
+    except Exception as error:
+        # any other problem: print it, then start the same mode again
+        print("  Mode", mode + 1, "stopped with an error:")
+        sys.print_exception(error)
+        step = 0
     module = None       # let go of the module, then forget it
     kit.clear()
     kit.strip.write()

@@ -33,7 +33,7 @@ This program reads the accelerometer five times a second and prints x, y, and z 
 Run it with the kit lying flat on the table. The numbers should look like this, with z close to 1 and x and y close to 0. Then pick the kit up and tilt it slowly. Watch the numbers change.
 
 ```text
-Test 09: Accelerometer Print (version 1.0.0)
+Test 09: Accelerometer Print (version 1.1.0)
 WHO_AM_I: 0x33 (0x33 is a LIS3DH)
 x:  0.01  y:  0.02  z:  1.03
 x:  0.00  y:  0.01  z:  1.04
@@ -53,10 +53,12 @@ x:  0.87  y: -0.20  z:  0.46
 ### Open a line to the chip
 
 ```python
-i2c = I2C(ACCEL_I2C_ID, sda=Pin(ACCEL_SDA_PIN), scl=Pin(ACCEL_SCL_PIN), freq=400000)
+i2c = I2C(ACCEL_I2C_ID, sda=Pin(ACCEL_SDA_PIN), scl=Pin(ACCEL_SCL_PIN), freq=I2C_FREQ)
 ```
 
-This line sets up the two I2C wires. It says which pin is the data wire (`sda`) and which is the clock wire (`scl`). The number `freq=400000` is the speed: 400,000 ticks of the clock every second.
+This line sets up the two I2C wires. It says which pin is the data wire (`sda`) and which is the clock wire (`scl`). `I2C_FREQ` is the speed: 100,000 ticks of the clock every second. The chip can go four times faster, but a slower clock gets fewer mix-ups from electrical noise.
+
+This line lives inside `start_sensor()`, along with the next two lines. The program calls `start_sensor()` once at the start. It calls it again if the sensor ever stops working.
 
 ### Wake the chip
 
@@ -77,6 +79,23 @@ x, y, z = ustruct.unpack('<hhh', raw)
 ```
 
 The first line asks the chip for six bytes. Each reading uses two bytes, and there are three readings: x, y, and z. The second line, `ustruct.unpack`, turns those six bytes into three whole numbers. The letters `hhh` mean "three numbers that can be positive or negative."
+
+### Keep going when a reading fails
+
+Sometimes a reading fails. A loose wire or a dip in the power can cause it. Then `readfrom_mem` raises an `OSError` (an error that means the chip did not answer). Without help, the program would stop right there.
+
+```python
+try:
+    raw = i2c.readfrom_mem(ACCEL_ADDRESS, ACCEL_DATA_REGISTER, 6)
+except OSError:
+    raw = None
+```
+
+The `try` and `except` lines catch the error. Instead of stopping, the program sets `raw` to `None` (Python's word for "nothing") and prints `no reading`.
+
+Once a second, the program checks on the chip. If five readings failed in a row, or the chip lost its settings, the program calls `start_sensor()` to set it up again. `free_bus()` runs first. It sends nine clock pulses that unstick a chip left holding the data wire.
+
+The small LED on the Pico board blinks each time through the loop. If it stops blinking, the program has stopped.
 
 ### Change the numbers into g
 

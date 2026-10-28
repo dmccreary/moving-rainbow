@@ -235,6 +235,8 @@ Lab 5 shows you the math.
 | A button does nothing | Run Lab 3. Check both legs are on the correct side of the center channel |
 | A dot rolls the wrong way when you tilt | Change `FLIP_X`, `FLIP_Y`, or `SWAP_XY` in `kit.py` (or in Lab 10) |
 | The Pico restarts when many pixels light | The lights are drawing too much power. Lower `LEVEL` in `config.py` |
+| The LED on the Pico board stops blinking | The program has stopped. Look for an error message in the Thonny Shell |
+| The Shell says `Accelerometer ... restarting it` | A reading failed and the program restarted the sensor. If it happens often, check the SDA and SCL wires |
 
 ## Words to Know
 
