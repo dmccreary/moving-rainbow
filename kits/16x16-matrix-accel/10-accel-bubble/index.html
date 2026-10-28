@@ -2769,21 +2769,23 @@ Let's light this up!</p>
 <p>This program draws a small blue-green dot. The dot slides toward whichever side of the kit is lowest.</p>
 <div class="highlight"><span class="filename">10-accel-bubble.py</span><pre><span></span><code><span class="c1"># Test 10: Accelerometer Bubble</span>
 <span class="c1"># Filename: 10-accel-bubble.py</span>
-<span class="c1"># Version: 1.0.0</span>
+<span class="c1"># Version: 1.1.0</span>
 <span class="c1">#</span>
 <span class="c1"># A 2x2 dot on the matrix acts like a bubble in a level: tilt the kit</span>
 <span class="c1"># and the dot slides toward the low side. If it slides the wrong way,</span>
 <span class="c1"># change FLIP_X or FLIP_Y. If left-right and up-down are swapped,</span>
 <span class="c1"># change SWAP_XY.</span>
+<span class="c1"># The LED on the Pico board blinks while the program runs. If a reading</span>
+<span class="c1"># fails, the dot stays where it was and the program keeps going.</span>
 <span class="c1"># Not yet tested on hardware.</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">I2C</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">neopixel</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeoPixel</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utime</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">sleep_us</span><span class="p">,</span> <span class="n">ticks_ms</span><span class="p">,</span> <span class="n">ticks_diff</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">ustruct</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Test 10: Accelerometer Bubble (version 1.0.0)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Test 10: Accelerometer Bubble (version 1.1.0)"</span><span class="p">)</span>
 
 <span class="c1"># hardware settings from config.py</span>
 <span class="n">NEOPIXEL_PIN</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">NEOPIXEL_PIN</span>
@@ -2802,15 +2804,57 @@ Let's light this up!</p>
 <span class="n">ACCEL_DATA_REGISTER</span> <span class="o">=</span> <span class="mh">0x28</span> <span class="o">|</span> <span class="mh">0x80</span>   <span class="c1"># the 0x80 bit makes the chip step through x, y, z</span>
 <span class="n">COUNTS_PER_G</span> <span class="o">=</span> <span class="mi">16384</span>
 
+<span class="c1"># keeping the sensor working</span>
+<span class="n">I2C_FREQ</span> <span class="o">=</span> <span class="mi">100000</span>       <span class="c1"># a slower clock is less bothered by noise from the matrix wires</span>
+<span class="n">MAX_BAD_READINGS</span> <span class="o">=</span> <span class="mi">5</span>    <span class="c1"># this many failed readings in a row restarts the sensor</span>
+<span class="n">CHECK_MS</span> <span class="o">=</span> <span class="mi">1000</span>         <span class="c1"># how often to check on the sensor</span>
+<span class="n">HEARTBEAT_MS</span> <span class="o">=</span> <span class="mi">250</span>      <span class="c1"># how often the LED on the Pico board blinks</span>
+
 <span class="c1"># how the sensor is mounted relative to the matrix</span>
 <span class="n">FLIP_X</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">FLIP_Y</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">SWAP_XY</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="n">strip</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">NEOPIXEL_PIN</span><span class="p">),</span> <span class="n">NUMBER_PIXELS</span><span class="p">)</span>
-<span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="n">ACCEL_I2C_ID</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">ACCEL_SDA_PIN</span><span class="p">),</span> <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">ACCEL_SCL_PIN</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400000</span><span class="p">)</span>
-<span class="n">i2c</span><span class="o">.</span><span class="n">writeto_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">CTRL_REG1</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'</span><span class="se">\x57</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># 100 readings a second, x y z on</span>
-<span class="n">i2c</span><span class="o">.</span><span class="n">writeto_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">CTRL_REG4</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'</span><span class="se">\x88</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># high resolution, +/- 2 g</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="s2">"LED"</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>   <span class="c1"># the LED on the Pico board</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">free_bus</span><span class="p">():</span>
+    <span class="c1"># If a program stops in the middle of a reading, the sensor can be left</span>
+    <span class="c1"># holding the SDA wire low. Nine clock pulses let it finish sending its</span>
+    <span class="c1"># byte, then a stop signal (SDA going high while SCL is high) frees the bus.</span>
+    <span class="n">scl</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">ACCEL_SCL_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sda</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="n">ACCEL_SDA_PIN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+        <span class="n">scl</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">sleep_us</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">scl</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sleep_us</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">scl</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">sda</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">sleep_us</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">scl</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sleep_us</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">sda</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">PULL_UP</span><span class="p">)</span>
+    <span class="n">sleep_us</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">start_sensor</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">i2c</span>
+    <span class="n">free_bus</span><span class="p">()</span>
+    <span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="n">ACCEL_I2C_ID</span><span class="p">,</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">ACCEL_SDA_PIN</span><span class="p">),</span> <span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="n">ACCEL_SCL_PIN</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="n">I2C_FREQ</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">i2c</span><span class="o">.</span><span class="n">writeto_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">CTRL_REG1</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'</span><span class="se">\x57</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># 100 readings a second, x y z on</span>
+        <span class="n">i2c</span><span class="o">.</span><span class="n">writeto_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">CTRL_REG4</span><span class="p">,</span> <span class="sa">b</span><span class="s1">'</span><span class="se">\x88</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># high resolution, +/- 2 g</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Accelerometer did not answer at address"</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sensor_has_settings</span><span class="p">():</span>
+    <span class="c1"># a dip in the power can reset the chip, which puts it back to sleep</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">i2c</span><span class="o">.</span><span class="n">readfrom_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">CTRL_REG1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0x57</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">start_sensor</span><span class="p">()</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">xy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">SERPENTINE</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -2822,9 +2866,29 @@ Let's light this up!</p>
     <span class="n">position</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">g</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
     <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">position</span><span class="p">))</span>
 
+<span class="n">ax</span><span class="p">,</span> <span class="n">ay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>         <span class="c1"># the last good reading: level until the first one</span>
+<span class="n">bad_readings</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">last_check</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
+<span class="n">last_blink</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">raw</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">readfrom_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">ACCEL_DATA_REGISTER</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span> <span class="o">=</span> <span class="n">ustruct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">'&lt;hhh'</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">last_blink</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">HEARTBEAT_MS</span><span class="p">:</span>
+        <span class="n">led</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>    <span class="c1"># blinks while the program runs</span>
+        <span class="n">last_blink</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">raw</span> <span class="o">=</span> <span class="n">i2c</span><span class="o">.</span><span class="n">readfrom_mem</span><span class="p">(</span><span class="n">ACCEL_ADDRESS</span><span class="p">,</span> <span class="n">ACCEL_DATA_REGISTER</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span> <span class="o">=</span> <span class="n">ustruct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">'&lt;hhh'</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
+        <span class="n">bad_readings</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+        <span class="n">bad_readings</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># keep the last good ax and ay</span>
+    <span class="c1"># once a second, restart the sensor if it stopped answering or lost its settings</span>
+    <span class="k">if</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">last_check</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">CHECK_MS</span><span class="p">:</span>
+        <span class="n">last_check</span> <span class="o">=</span> <span class="n">ticks_ms</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">bad_readings</span> <span class="o">&gt;=</span> <span class="n">MAX_BAD_READINGS</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">sensor_has_settings</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Accelerometer not working - restarting it"</span><span class="p">)</span>
+            <span class="n">start_sensor</span><span class="p">()</span>
+            <span class="n">bad_readings</span> <span class="o">=</span> <span class="mi">0</span>
+
     <span class="n">gx</span> <span class="o">=</span> <span class="n">ax</span> <span class="o">/</span> <span class="n">COUNTS_PER_G</span>
     <span class="n">gy</span> <span class="o">=</span> <span class="n">ay</span> <span class="o">/</span> <span class="n">COUNTS_PER_G</span>
     <span class="k">if</span> <span class="n">SWAP_XY</span><span class="p">:</span>
@@ -2845,7 +2909,8 @@ Let's light this up!</p>
     <span class="n">sleep</span><span class="p">(</span><span class="mf">0.03</span><span class="p">)</span>
 </code></pre></div>
 <p>Run it and tilt the kit. The 2×2 dot slides toward the low side. Hold the kit level and the dot sits near the middle.</p>
-<div class="highlight"><pre><span></span><code>Test 10: Accelerometer Bubble (version 1.0.0)
+<p>Watch the small LED on the Pico board. It blinks while the program runs. If a reading fails, the dot stays put and the program restarts the sensor. Lab 9 explains how that works.</p>
+<div class="highlight"><pre><span></span><code>Test 10: Accelerometer Bubble (version 1.1.0)
 </code></pre></div>
 <p><img alt="A simulated 16x16 LED matrix with one small 2 by 2 square of blue-green pixels near the upper right" src="../img/bubble.png" width="320" /></p>
 <p><em>This picture was drawn by a computer simulator, so your real matrix may look a little different.</em></p>

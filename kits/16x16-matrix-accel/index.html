@@ -2968,9 +2968,9 @@ change the number in this one file and every program follows along.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># copy every program in this folder onto the Pico</span>
 ./upload-code.sh
 </code></pre></div>
-<p>It should end with <code>Uploading 21 file(s) to Pico...</code> and then a list of files.</p>
+<p>It should end with <code>Uploading 27 file(s) to Pico...</code> and then a list of files.</p>
 <p>You can also copy files one at a time with Thonny. Open a file, choose <strong>File &gt; Save as</strong>, pick
-<strong>Raspberry Pi Pico</strong>, and keep the same file name. You do not need all 21 files for the first labs:</p>
+<strong>Raspberry Pi Pico</strong>, and keep the same file name. You do not need all 27 files for the first labs:</p>
 <table>
 <thead>
 <tr>
@@ -3122,6 +3122,14 @@ Lab 5 shows you the math.</p>
 <tr>
 <td>The Pico restarts when many pixels light</td>
 <td>The lights are drawing too much power. Lower <code>LEVEL</code> in <code>config.py</code></td>
+</tr>
+<tr>
+<td>The LED on the Pico board stops blinking</td>
+<td>The program has stopped. Look for an error message in the Thonny Shell</td>
+</tr>
+<tr>
+<td>The Shell says <code>Accelerometer ... restarting it</code></td>
+<td>A reading failed and the program restarted the sensor. If it happens often, check the SDA and SCL wires</td>
 </tr>
 </tbody>
 </table>

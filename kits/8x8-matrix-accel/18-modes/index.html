@@ -2914,7 +2914,7 @@ Let's light this up!</p>
 <p>This program is the mode machine. Button 1 (GP14) loads the next mode. Button 2 (GP15) loads the previous one. When a mode starts, the matrix shows the mode number for a moment.</p>
 <div class="highlight"><span class="filename">18-modes.py</span><pre><span></span><code><span class="c1"># Lab 18: Modes</span>
 <span class="c1"># Filename: 18-modes.py</span>
-<span class="c1"># Version: 1.0.0</span>
+<span class="c1"># Version: 1.1.0</span>
 <span class="c1">#</span>
 <span class="c1"># Twelve light shows in one program. Press button 1 (GPIO 14) for the next</span>
 <span class="c1"># mode and button 2 (GPIO 15) for the previous one. The matrix shows the</span>
@@ -2943,7 +2943,7 @@ Let's light this up!</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">kit</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Lab 18: Modes (version 1.0.0)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Lab 18: Modes (version 1.1.0)"</span><span class="p">)</span>
 
 <span class="n">MODE_NUMBER_MS</span> <span class="o">=</span> <span class="mi">700</span>    <span class="c1"># how long the mode number shows before the mode starts</span>
 
@@ -2994,6 +2994,11 @@ Let's light this up!</p>
         <span class="n">module</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">kit</span><span class="o">.</span><span class="n">ModeChange</span> <span class="k">as</span> <span class="n">change</span><span class="p">:</span>
         <span class="n">step</span> <span class="o">=</span> <span class="n">change</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="c1"># any other problem: print it, then start the same mode again</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"  Mode"</span><span class="p">,</span> <span class="n">mode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"stopped with an error:"</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">print_exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">module</span> <span class="o">=</span> <span class="kc">None</span>       <span class="c1"># let go of the module, then forget it</span>
     <span class="n">kit</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
     <span class="n">kit</span><span class="o">.</span><span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -3001,7 +3006,7 @@ Let's light this up!</p>
     <span class="n">mode</span> <span class="o">=</span> <span class="p">(</span><span class="n">mode</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">MODES</span><span class="p">)</span>
 </code></pre></div>
 <p>Run it. You should see a <strong>1</strong> on the matrix, then three slow dots bouncing. Press Button 1 to move on. Each press loads the next mode.</p>
-<div class="highlight"><pre><span></span><code>Lab 18: Modes (version 1.0.0)
+<div class="highlight"><pre><span></span><code>Lab 18: Modes (version 1.1.0)
 Mode 1 - Three dots (module bounce_dots)
   RAM free: 209264 bytes
 Mode 2 - Seven dots (module bounce_dots)
@@ -3157,7 +3162,7 @@ Mode 2 - Seven dots (module bounce_dots)
 <p><code>MODES</code> is a list. Each item has three parts: a name, the module to load, and the <strong>settings</strong> to give that module. The settings are a <strong>dictionary</strong>, like the color key in Lab 9. It is a set of labels with values, written in curly braces. For mode 1, the dictionary says <code>"speed": 2.5</code>. For mode 2, it says <code>"speed": 4</code>. The <code>bounce_dots</code> module reads these settings and acts differently each time.</p>
 <p>Items with <code>None</code> have no settings. They do not need any.</p>
 <h3 id="load-a-mode-only-when-you-need-it">Load a mode only when you need it</h3>
-<div class="highlight"><span class="filename">18-modes.py (lines 69 to 87)</span><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<div class="highlight"><span class="filename">18-modes.py (lines 69 to 92)</span><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">name</span><span class="p">,</span> <span class="n">module_name</span><span class="p">,</span> <span class="n">settings</span> <span class="o">=</span> <span class="n">MODES</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Mode"</span><span class="p">,</span> <span class="n">mode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">"(module "</span> <span class="o">+</span> <span class="n">module_name</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">)</span>
     <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
@@ -3171,6 +3176,11 @@ Mode 2 - Seven dots (module bounce_dots)
         <span class="n">module</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">kit</span><span class="o">.</span><span class="n">ModeChange</span> <span class="k">as</span> <span class="n">change</span><span class="p">:</span>
         <span class="n">step</span> <span class="o">=</span> <span class="n">change</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="c1"># any other problem: print it, then start the same mode again</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"  Mode"</span><span class="p">,</span> <span class="n">mode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"stopped with an error:"</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">print_exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">module</span> <span class="o">=</span> <span class="kc">None</span>       <span class="c1"># let go of the module, then forget it</span>
     <span class="n">kit</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
     <span class="n">kit</span><span class="o">.</span><span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -3182,21 +3192,25 @@ Mode 2 - Seven dots (module bounce_dots)
 <p>The last line, <code>mode = (mode + step) % len(MODES)</code>, moves to the next mode. The <code>%</code> sign gives the remainder, so after mode 12 the count wraps back to mode 1. Button 2 gives a <code>step</code> of -1, so mode 1 wraps back to mode 12.</p>
 <h3 id="how-a-button-stops-a-show">How a button stops a show</h3>
 <p>A show runs in a loop that never ends. How can a button press get out? The shows use <code>kit.wait</code> instead of <code>sleep</code>. Here is the code from <code>kit.py</code>:</p>
-<div class="highlight"><span class="filename">kit.py (lines 81 to 84)</span><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ModeChange</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<div class="highlight"><span class="filename">kit.py (lines 108 to 111)</span><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ModeChange</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="c1"># raised by wait() when a mode button is pressed: args[0] is 1 for the</span>
     <span class="c1"># next mode (button 1) or -1 for the previous mode (button 2)</span>
     <span class="k">pass</span>
 </code></pre></div>
-<div class="highlight"><span class="filename">kit.py (lines 111 to 118)</span><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="n">ms</span><span class="p">):</span>
+<div class="highlight"><span class="filename">kit.py (lines 138 to 147)</span><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="n">ms</span><span class="p">):</span>
     <span class="c1"># sleep for ms milliseconds, but notice a button press right away</span>
+    <span class="n">heartbeat</span><span class="p">()</span>
     <span class="n">check</span><span class="p">()</span>
     <span class="k">while</span> <span class="n">ms</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">step</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
         <span class="n">sleep_ms</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
         <span class="n">ms</span> <span class="o">-=</span> <span class="n">step</span>
+        <span class="n">heartbeat</span><span class="p">()</span>
         <span class="n">check</span><span class="p">()</span>
 </code></pre></div>
 <p>The <code>wait</code> function sleeps in 10 millisecond pieces. After each piece it calls <code>check()</code>, which looks at both buttons. If one was just pressed, <code>check()</code> <strong>raises</strong> a <code>ModeChange</code>. An <strong>exception</strong> is Python's way of shouting, stop what you are doing! The shout travels out of the show. The <code>except kit.ModeChange</code> line in <code>18-modes.py</code> catches it. That line reads the <code>step</code> from the exception: 1 for Button 1 and -1 for Button 2. Then the loop starts the next mode.</p>
+<p>The second <code>except</code> catches any other problem. It prints the error in the Shell, and <code>step = 0</code> starts the same mode again. The matrix keeps running instead of freezing.</p>
+<p><code>wait</code> also calls <code>heartbeat()</code>, which blinks the small LED on the Pico board twice a second. If that LED stops blinking, the program has stopped. Look in the Thonny Shell for an error message.</p>
 <div class="admonition info">
 <p class="admonition-title">Key idea</p>
 <p>A program can be built from parts that you swap in and out. With separate modules, a new show needs one new file and one new line in a list.</p>

@@ -2940,7 +2940,7 @@ Print it and set it next to your kit. There is also a <a href="../demo-mode-guid
 <p>This program is a bigger mode machine. It works like Lab 18, but it holds every show and game from Labs 5 to 18.</p>
 <div class="highlight"><span class="filename">19-template-main.py</span><pre><span></span><code><span class="c1"># Lab 19: Demo Mode</span>
 <span class="c1"># Filename: 19-template-main.py</span>
-<span class="c1"># Version: 1.0.0</span>
+<span class="c1"># Version: 1.1.0</span>
 <span class="c1">#</span>
 <span class="c1"># Every show and game in the kit in one program, for showing the kit off.</span>
 <span class="c1"># Press button 1 (GPIO 14) for the next mode and button 2 (GPIO 15) for the</span>
@@ -2986,7 +2986,7 @@ Print it and set it next to your kit. There is also a <a href="../demo-mode-guid
 <span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">kit</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Lab 19: Demo Mode (version 1.0.0)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Lab 19: Demo Mode (version 1.1.0)"</span><span class="p">)</span>
 
 <span class="n">MODE_NUMBER_MS</span> <span class="o">=</span> <span class="mi">700</span>    <span class="c1"># how long the mode number shows before the mode starts</span>
 
@@ -3046,6 +3046,11 @@ Print it and set it next to your kit. There is also a <a href="../demo-mode-guid
         <span class="n">module</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">kit</span><span class="o">.</span><span class="n">ModeChange</span> <span class="k">as</span> <span class="n">change</span><span class="p">:</span>
         <span class="n">step</span> <span class="o">=</span> <span class="n">change</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="c1"># any other problem: print it, then start the same mode again</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"  Mode"</span><span class="p">,</span> <span class="n">mode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"stopped with an error:"</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">print_exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">module</span> <span class="o">=</span> <span class="kc">None</span>       <span class="c1"># let go of the module, then forget it</span>
     <span class="n">kit</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
     <span class="n">kit</span><span class="o">.</span><span class="n">strip</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
@@ -3053,7 +3058,7 @@ Print it and set it next to your kit. There is also a <a href="../demo-mode-guid
     <span class="n">mode</span> <span class="o">=</span> <span class="p">(</span><span class="n">mode</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">MODES</span><span class="p">)</span>
 </code></pre></div>
 <p>Run it. A <strong>1</strong> appears on the matrix, then all 64 pixels fill with red. Press Button 1 (GP14) for the next mode and Button 2 (GP15) to go back. The Shell names each mode as it loads:</p>
-<div class="highlight"><pre><span></span><code>Lab 19: Demo Mode (version 1.0.0)
+<div class="highlight"><pre><span></span><code>Lab 19: Demo Mode (version 1.1.0)
 Mode 1 - Fill colors (module fill_colors)
   RAM free: 200816 bytes
 Mode 2 - Walk the pixels (module walk_pixels)
@@ -3306,7 +3311,7 @@ Mode 2 - Walk the pixels (module walk_pixels)
 <h3 id="when-the-tilt-sensor-stops-answering">When the tilt sensor stops answering</h3>
 <p>The tilt sensor talks to the Pico over the wires on GP16 and GP17. If one of its four wires loses contact, even for a moment, a reading fails. Python then raises an <code>OSError</code>. That is an <strong>error</strong> that means a piece of hardware did not answer.</p>
 <p>Here is how <code>kit.py</code> reads the sensor:</p>
-<div class="highlight"><span class="filename">kit.py (lines 172 to 179)</span><pre><span></span><code>    <span class="k">global</span> <span class="n">last_tilt</span>
+<div class="highlight"><span class="filename">kit.py (lines 254 to 261)</span><pre><span></span><code>    <span class="k">global</span> <span class="n">last_tilt</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">sensor_answering</span><span class="p">:</span>
         <span class="n">setup_sensor</span><span class="p">()</span>          <span class="c1"># it may have lost power, so turn it on again</span>
     <span class="k">try</span><span class="p">:</span>
@@ -3319,6 +3324,8 @@ Mode 2 - Walk the pixels (module walk_pixels)
 <div class="highlight"><pre><span></span><code>The tilt sensor is not answering. Check its wires: GP16, GP17, 3V3 and GND.
 </code></pre></div>
 <p>On the next reading, <code>kit.py</code> tries to turn the sensor on again. When it answers, the Shell says <code>The tilt sensor is answering again.</code> If you see the first message, press each of the sensor's four wires in firmly.</p>
+<p>Once a second, <code>check_sensor</code> also makes sure the sensor kept its settings. A dip in the power can reset the sensor. A reset sensor goes to sleep and keeps sending the same reading, so tilting seems to do nothing. When that happens, the Shell says <code>The tilt sensor lost its settings. Turning it on again.</code></p>
+<p>The small LED on the Pico board blinks while the program runs. If it stops blinking, the program has stopped.</p>
 <h3 id="make-the-kit-start-by-itself">Make the kit start by itself</h3>
 <p>When the Pico gets power, MicroPython looks for a file named <code>main.py</code>. If it finds one, it runs it right away, with no computer and no Thonny. That is why this program is a <strong>template</strong>: a starting file that you copy and save under a new name.</p>
 <p>Follow these steps in Thonny:</p>
