@@ -181,10 +181,10 @@ The quickest way uses a helper program named `mpremote`. A grown-up helper can r
 ./upload-code.sh
 ```
 
-It should end with `Uploading 21 file(s) to Pico...` and then a list of files.
+It should end with `Uploading 27 file(s) to Pico...` and then a list of files.
 
 You can also copy files one at a time with Thonny. Open a file, choose **File > Save as**, pick
-**Raspberry Pi Pico**, and keep the same file name. You do not need all 21 files for the first labs:
+**Raspberry Pi Pico**, and keep the same file name. You do not need all 27 files for the first labs:
 
 | Labs | Files the Pico needs |
 |------|----------------------|

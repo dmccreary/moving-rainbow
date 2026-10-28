@@ -28,6 +28,7 @@ Run these in order the first time you wire up the kit.
 | `11-sloshing-water.py` | A half-full pan of blue water that sloshes as you rock the board |
 | `12-tilt-a-maze.py` | A nine-level tilt maze: roll the red ball to the green hole, then a rainbow |
 | `13-modes.py` | Ten light shows in one program. Button 1 (GPIO 14) is the next mode, button 2 (GPIO 15) the previous mode |
+| `14-template-main.py` | Demo mode: every show and game in fifteen modes. Save it on the Pico as `main.py` to start by itself |
 
 To run the probe from your computer after uploading, use `./run-probe.sh`.
 
@@ -76,6 +77,26 @@ in `13-modes.py`.
 | `tilt_balls.py` | modes 6, 7 and 8 |
 | `sloshing_water.py` | mode 9, and program 11 |
 | `tilt_a_maze.py` | mode 10, and program 12 |
+| `fill_colors.py` | program 14 only (the demo version of program 05) |
+| `walk_pixels.py` | program 14 only (the demo version of program 06) |
+| `row_column_sweep.py` | program 14 only (the demo version of program 08) |
+| `accel_bubble.py` | program 14 only (the demo version of program 10) |
+| `tilt_a_sketch.py` | program 14 only (copied from the 8x8 kit) |
+
+## Program 14: Demo Mode
+
+Program 14 is for showing the kit off, copied from program 19 of the 8x8 kit. It works like
+program 13, with the same buttons, but it steps through fifteen modes: fill colors, walk the
+pixels, the row and column sweep, the eight shows of program 13, the accelerometer bubble,
+sloshing water, tilt-a-maze, and tilt-a-sketch (tilt to draw, shake to erase). The list is at
+the top of `14-template-main.py`. Programs 05, 06, 08 and 10 sleep with `sleep()`, so the demo
+uses demo versions of them that sleep with `kit.wait()` and stop when you press a button. The
+8x8 kit's winking face, picture show and scrolling message are left out; they need its
+8x8 font and pictures.
+
+The file is a template for `main.py`. The Pico runs a file named `main.py` by itself whenever
+it powers up, so save a copy of `14-template-main.py` on the Pico as `main.py` and the kit starts
+the demo with no computer attached. The Stop button in Thonny still stops it.
 
 Programs 11 and 12 are short wrappers around their modules, so run `./upload-code.sh` to put
 all the `.py` files on the Pico before you run them.
