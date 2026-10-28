@@ -1,6 +1,6 @@
 # Lab 19: Demo Mode
 # Filename: 19-template-main.py
-# Version: 1.0.0
+# Version: 1.1.0
 #
 # Every show and game in the kit in one program, for showing the kit off.
 # Press button 1 (GPIO 14) for the next mode and button 2 (GPIO 15) for the
@@ -46,7 +46,7 @@ import sys
 import gc
 import kit
 
-print("Lab 19: Demo Mode (version 1.0.0)")
+print("Lab 19: Demo Mode (version 1.1.0)")
 
 MODE_NUMBER_MS = 700    # how long the mode number shows before the mode starts
 
@@ -106,6 +106,11 @@ while True:
         module.run(settings)
     except kit.ModeChange as change:
         step = change.args[0]
+    except Exception as error:
+        # any other problem: print it, then start the same mode again
+        print("  Mode", mode + 1, "stopped with an error:")
+        sys.print_exception(error)
+        step = 0
     module = None       # let go of the module, then forget it
     kit.clear()
     kit.strip.write()

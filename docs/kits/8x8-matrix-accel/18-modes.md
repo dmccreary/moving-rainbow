@@ -33,7 +33,7 @@ This program is the mode machine. Button 1 (GP14) loads the next mode. Button 2 
 Run it. You should see a **1** on the matrix, then three slow dots bouncing. Press Button 1 to move on. Each press loads the next mode.
 
 ```text
-Lab 18: Modes (version 1.0.0)
+Lab 18: Modes (version 1.1.0)
 Mode 1 - Three dots (module bounce_dots)
   RAM free: 209264 bytes
 Mode 2 - Seven dots (module bounce_dots)
@@ -92,8 +92,8 @@ Items with `None` have no settings. They do not need any.
 
 ### Load a mode only when you need it
 
-```python title="18-modes.py (lines 69 to 87)"
---8<-- "src/kits/8x8-matrix-accel/18-modes.py:69:87"
+```python title="18-modes.py (lines 69 to 92)"
+--8<-- "src/kits/8x8-matrix-accel/18-modes.py:69:92"
 ```
 
 The loop picks the current item from the list: `name, module_name, settings = MODES[mode]`. Then `__import__(module_name)` loads that module right now, from its name. The line `module.run(settings)` starts the show.
@@ -106,15 +106,19 @@ The last line, `mode = (mode + step) % len(MODES)`, moves to the next mode. The 
 
 A show runs in a loop that never ends. How can a button press get out? The shows use `kit.wait` instead of `sleep`. Here is the code from `kit.py`:
 
-```python title="kit.py (lines 81 to 84)"
---8<-- "src/kits/8x8-matrix-accel/kit.py:81:84"
+```python title="kit.py (lines 108 to 111)"
+--8<-- "src/kits/8x8-matrix-accel/kit.py:108:111"
 ```
 
-```python title="kit.py (lines 111 to 118)"
---8<-- "src/kits/8x8-matrix-accel/kit.py:111:118"
+```python title="kit.py (lines 138 to 147)"
+--8<-- "src/kits/8x8-matrix-accel/kit.py:138:147"
 ```
 
 The `wait` function sleeps in 10 millisecond pieces. After each piece it calls `check()`, which looks at both buttons. If one was just pressed, `check()` **raises** a `ModeChange`. An **exception** is Python's way of shouting, stop what you are doing! The shout travels out of the show. The `except kit.ModeChange` line in `18-modes.py` catches it. That line reads the `step` from the exception: 1 for Button 1 and -1 for Button 2. Then the loop starts the next mode.
+
+The second `except` catches any other problem. It prints the error in the Shell, and `step = 0` starts the same mode again. The matrix keeps running instead of freezing.
+
+`wait` also calls `heartbeat()`, which blinks the small LED on the Pico board twice a second. If that LED stops blinking, the program has stopped. Look in the Thonny Shell for an error message.
 
 !!! info "Key idea"
     A program can be built from parts that you swap in and out. With separate modules, a new show needs one new file and one new line in a list.

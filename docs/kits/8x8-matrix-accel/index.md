@@ -256,6 +256,8 @@ few dim pixels lit, the power bank decides nothing is plugged in and switches of
 | A button does nothing | Run Lab 3. Check both legs are on the correct side of the center channel |
 | A dot rolls the wrong way when you tilt | Change `FLIP_X`, `FLIP_Y`, or `SWAP_XY` in `kit.py` (or in Lab 14) |
 | The Pico restarts when many pixels light | The lights are drawing too much power. Lower `LEVEL` in `config.py` |
+| The LED on the Pico board stops blinking | The program has stopped. Look for an error message in the Thonny Shell |
+| The Shell says the tilt sensor is not answering or lost its settings | The program turns the sensor on again by itself. If it happens often, check the SDA and SCL wires |
 
 ## Words to Know
 

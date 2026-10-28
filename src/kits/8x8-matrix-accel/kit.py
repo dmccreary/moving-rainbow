@@ -1,6 +1,6 @@
 # Module: Kit Helpers (shared by programs 15 to 19 and the modes they load)
 # Filename: kit.py
-# Version: 1.1.0
+# Version: 1.2.0
 #
 # Sets up the matrix, the accelerometer and the two mode buttons one time,
 # and gives every mode the same helpers: xy(), clear(), fade_pixels(),
@@ -10,10 +10,15 @@
 # program 18 or 19 has turned the buttons on (mode_buttons_on) and one is
 # pressed, wait() raises ModeChange and the next or previous mode loads.
 # When a mode runs on its own (programs 15 to 17) the buttons are off.
+#
+# wait() also blinks the LED on the Pico board. If the LED stops blinking,
+# the program has stopped. read_tilt() never stops the program: if the
+# sensor does not answer, gets stuck, or loses its settings, it uses the
+# last good reading and turns the sensor on again.
 
 from machine import Pin, I2C
 from neopixel import NeoPixel
-from utime import sleep_ms, ticks_ms, ticks_diff
+from utime import sleep_ms, sleep_us, ticks_ms, ticks_diff
 import ustruct
 import config
 from font import LETTERS
@@ -36,6 +41,17 @@ CTRL_REG1 = 0x20
 CTRL_REG4 = 0x23
 ACCEL_DATA_REGISTER = 0x28 | 0x80   # the 0x80 bit makes the chip step through x, y, z
 COUNTS_PER_G = 16384
+CTRL_REG1_VALUE = 0x57      # 100 readings a second, x y z on
+CTRL_REG4_VALUE = 0x88      # high resolution, +/- 2 g
+
+# keeping the sensor working
+I2C_FREQ = 100000           # a slower clock is less bothered by noise from the matrix wires
+MAX_SAME_READINGS = 100     # a working sensor always wiggles a little, so this many
+                            # exactly equal readings in a row means it is stuck
+CHECK_MS = 1000             # how often to check that the sensor kept its settings
+
+# the LED on the Pico board blinks while the program runs
+HEARTBEAT_MS = 250
 
 # how the sensor is mounted relative to the matrix (same as program 14)
 FLIP_X = False
@@ -73,9 +89,20 @@ strip = NeoPixel(Pin(NEOPIXEL_PIN), NUMBER_PIXELS)
 button1 = Pin(BUTTON_PIN_1, Pin.IN, Pin.PULL_UP)
 button2 = Pin(BUTTON_PIN_2, Pin.IN, Pin.PULL_UP)
 
-i2c = I2C(ACCEL_I2C_ID, sda=Pin(ACCEL_SDA_PIN), scl=Pin(ACCEL_SCL_PIN), freq=400000)
-# setup_sensor(), near the end of this file, turns the sensor on. It runs
-# again if the sensor stops answering, for example after a loose wire.
+led = Pin("LED", Pin.OUT)     # "LED" works on the Pico, Pico W and Pico 2
+last_blink = ticks_ms()
+
+def heartbeat():
+    # flip the LED on the Pico board every HEARTBEAT_MS
+    global last_blink
+    now = ticks_ms()
+    if ticks_diff(now, last_blink) >= HEARTBEAT_MS:
+        led.toggle()
+        last_blink = now
+
+# setup_sensor(), near the end of this file, sets up I2C and turns the
+# sensor on. It runs again if the sensor stops answering, for example
+# after a loose wire.
 
 
 class ModeChange(Exception):
@@ -110,11 +137,13 @@ def check():
 
 def wait(ms):
     # sleep for ms milliseconds, but notice a button press right away
+    heartbeat()
     check()
     while ms > 0:
         step = min(ms, 10)
         sleep_ms(step)
         ms -= step
+        heartbeat()
         check()
 
 def xy(x, y):
@@ -144,6 +173,9 @@ def dim(color, brightness):
 # what happened, one time.
 sensor_answering = True
 last_tilt = (0.0, 0.0)
+last_raw = None
+same_readings = 0
+last_check = ticks_ms()
 
 def sensor_lost():
     global sensor_answering
@@ -151,12 +183,35 @@ def sensor_lost():
         print("The tilt sensor is not answering. Check its wires: GP16, GP17, 3V3 and GND.")
     sensor_answering = False
 
+def free_bus():
+    # If a program stops in the middle of a reading, the sensor can be left
+    # holding the SDA wire low, and every reading after that fails. Nine
+    # clock pulses let it finish sending its byte, then a stop signal
+    # (SDA going high while SCL is high) frees the bus.
+    scl = Pin(ACCEL_SCL_PIN, Pin.OUT, value=1)
+    sda = Pin(ACCEL_SDA_PIN, Pin.IN, Pin.PULL_UP)
+    for i in range(9):
+        scl.value(0)
+        sleep_us(5)
+        scl.value(1)
+        sleep_us(5)
+    scl.value(0)
+    sda.init(Pin.OUT, value=0)
+    sleep_us(5)
+    scl.value(1)
+    sleep_us(5)
+    sda.init(Pin.IN, Pin.PULL_UP)
+    sleep_us(5)
+
 def setup_sensor():
     # the chip starts powered down, and powers down again if it loses power
-    global sensor_answering
+    global i2c, sensor_answering, same_readings
+    free_bus()
+    i2c = I2C(ACCEL_I2C_ID, sda=Pin(ACCEL_SDA_PIN), scl=Pin(ACCEL_SCL_PIN), freq=I2C_FREQ)
+    same_readings = 0
     try:
-        i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG1, b'\x57')   # 100 readings a second, x y z on
-        i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG4, b'\x88')   # high resolution, +/- 2 g
+        i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG1, bytes([CTRL_REG1_VALUE]))
+        i2c.writeto_mem(ACCEL_ADDRESS, CTRL_REG4, bytes([CTRL_REG4_VALUE]))
     except OSError:
         sensor_lost()
         return
@@ -165,6 +220,33 @@ def setup_sensor():
     sensor_answering = True
 
 setup_sensor()
+
+def check_sensor(raw):
+    # Once a second, make sure the sensor still works. A dip in the power can
+    # reset it: a reset sensor goes to sleep and keeps sending its last
+    # reading, so tilting seems to do nothing.
+    global last_raw, same_readings, last_check
+    if raw == last_raw:
+        same_readings += 1
+    else:
+        same_readings = 0
+    last_raw = raw
+    now = ticks_ms()
+    if ticks_diff(now, last_check) < CHECK_MS:
+        return
+    last_check = now
+    if same_readings >= MAX_SAME_READINGS:
+        print("The tilt sensor got stuck. Turning it on again.")
+        setup_sensor()
+        return
+    try:
+        settings = i2c.readfrom_mem(ACCEL_ADDRESS, CTRL_REG1, 1)[0]
+    except OSError:
+        sensor_lost()
+        return
+    if settings != CTRL_REG1_VALUE:
+        print("The tilt sensor lost its settings. Turning it on again.")
+        setup_sensor()
 
 def read_tilt():
     # the pull of gravity along the board, as (gx, gy) in g, pointing
@@ -177,6 +259,7 @@ def read_tilt():
     except OSError:
         sensor_lost()
         return last_tilt
+    check_sensor(raw)
     ax, ay, az = ustruct.unpack('<hhh', raw)
     gx = ax / COUNTS_PER_G
     gy = ay / COUNTS_PER_G

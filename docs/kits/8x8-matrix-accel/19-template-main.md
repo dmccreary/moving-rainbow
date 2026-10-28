@@ -42,7 +42,7 @@ This program is a bigger mode machine. It works like Lab 18, but it holds every 
 Run it. A **1** appears on the matrix, then all 64 pixels fill with red. Press Button 1 (GP14) for the next mode and Button 2 (GP15) to go back. The Shell names each mode as it loads:
 
 ```text
-Lab 19: Demo Mode (version 1.0.0)
+Lab 19: Demo Mode (version 1.1.0)
 Mode 1 - Fill colors (module fill_colors)
   RAM free: 200816 bytes
 Mode 2 - Walk the pixels (module walk_pixels)
@@ -137,8 +137,8 @@ The tilt sensor talks to the Pico over the wires on GP16 and GP17. If one of its
 
 Here is how `kit.py` reads the sensor:
 
-```python title="kit.py (lines 172 to 179)"
---8<-- "src/kits/8x8-matrix-accel/kit.py:172:179"
+```python title="kit.py (lines 254 to 261)"
+--8<-- "src/kits/8x8-matrix-accel/kit.py:254:261"
 ```
 
 `try` means "try these lines." `except OSError` means "if the sensor did not answer, do this instead." Then `read_tilt` hands back `last_tilt`, the last good reading, and the show keeps going. The function `sensor_lost` prints one message in the Shell:
@@ -148,6 +148,10 @@ The tilt sensor is not answering. Check its wires: GP16, GP17, 3V3 and GND.
 ```
 
 On the next reading, `kit.py` tries to turn the sensor on again. When it answers, the Shell says `The tilt sensor is answering again.` If you see the first message, press each of the sensor's four wires in firmly.
+
+Once a second, `check_sensor` also makes sure the sensor kept its settings. A dip in the power can reset the sensor. A reset sensor goes to sleep and keeps sending the same reading, so tilting seems to do nothing. When that happens, the Shell says `The tilt sensor lost its settings. Turning it on again.`
+
+The small LED on the Pico board blinks while the program runs. If it stops blinking, the program has stopped.
 
 ### Make the kit start by itself
 

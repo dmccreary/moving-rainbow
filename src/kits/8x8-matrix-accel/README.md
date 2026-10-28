@@ -43,6 +43,19 @@ Programs 09 to 12 and 17 are new for this kit: they are the drawing programs. Pr
 
 To run the probe from your computer after uploading, use `./run-probe.sh`.
 
+## Watching for a Hang
+
+Programs 13 to 19 blink the LED on the Pico board while they run. If it stops blinking, the
+program has stopped; look in the Thonny Shell for an error.
+
+The accelerometer code never stops the program on a bad reading. If a reading fails, it keeps
+the last good one and turns the sensor on again. Once a second it also restarts the sensor if
+readings come back exactly the same every time (stuck) or the sensor has lost its settings (a
+power dip resets it to sleep). Setting up the sensor frees the I2C bus with nine clock pulses
+first, in case the sensor was left holding SDA low. The I2C clock is 100 kHz instead of
+400 kHz, which is less bothered by noise from the matrix wires. Programs 18 and 19 also catch
+any other error in a mode, print it, and start that mode again.
+
 ## Differences from the 16x16 kit
 
 | Setting | 16x16 kit | This kit | Why |
