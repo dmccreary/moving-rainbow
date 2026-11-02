@@ -11,6 +11,7 @@ watch:
   - src/kits/moving-rainbow-base
   - src/kits/moving-rainbow-extras
   - src/kits/halloween-60-button
+  - src/kits/ring-24
 
 nav:
   - About this Project: about.md
@@ -263,6 +264,36 @@ nav:
       - "Lab 15: Jack-o'-Lantern Fire": kits/halloween-60-button/15-jack-o-lantern-fire.md
       - "Lab 16: Lightning Storm": kits/halloween-60-button/16-lightning-storm.md
       - "Lab 20: Main Template": kits/halloween-60-button/20-main-template.md
+
+    - Ring 24 Kit:
+      - Intro: kits/ring-24/index.md
+      - "Lab 1: Blink the Onboard LED": kits/ring-24/01-blink-onboard-led.md
+      - "Lab 2: First Pixel": kits/ring-24/02-first-pixel.md
+      - "Lab 3: Clock Positions": kits/ring-24/03-clock-positions.md
+      - "Lab 4: Button Test": kits/ring-24/04-button-test.md
+      - "Lab 5: Spin a Dot": kits/ring-24/05-spin-dot.md
+      - "Lab 6: Comet": kits/ring-24/06-comet.md
+      - "Lab 7: Two Comets": kits/ring-24/07-two-comets.md
+      - "Lab 8: Meet and Flash": kits/ring-24/08-meet-and-flash.md
+      - "Lab 9: Color Wheel": kits/ring-24/09-color-wheel.md
+      - "Lab 10: Spinning Rainbow": kits/ring-24/10-spinning-rainbow.md
+      - "Lab 11: Pinwheel": kits/ring-24/11-pinwheel.md
+      - "Lab 12: Loading Spinner": kits/ring-24/12-loading-spinner.md
+      - "Lab 13: Breathing Halo": kits/ring-24/13-breathing-halo.md
+      - "Lab 14: Sine Wave": kits/ring-24/14-sine-wave.md
+      - "Lab 15: Ripples": kits/ring-24/15-ripple.md
+      - "Lab 16: Radar": kits/ring-24/16-radar.md
+      - "Lab 17: Planets": kits/ring-24/17-planets.md
+      - "Lab 18: Pendulum": kits/ring-24/18-pendulum.md
+      - "Lab 19: Water Level": kits/ring-24/19-water-level.md
+      - "Lab 20: Ring of Fire": kits/ring-24/20-ring-of-fire.md
+      - "Lab 21: Ring Automaton": kits/ring-24/21-ring-automaton.md
+      - "Lab 22: Button Dial": kits/ring-24/22-button-dial.md
+      - "Lab 23: Speed and Direction": kits/ring-24/23-speed-and-direction.md
+      - "Lab 24: Ring Clock": kits/ring-24/24-ring-clock.md
+      - "Lab 25: Prize Wheel": kits/ring-24/25-prize-wheel.md
+      - "Lab 26: Cyclone Game": kits/ring-24/26-cyclone-game.md
+      - "Lab 27: Main Template": kits/ring-24/27-main-template.md
 
     - Jake's Fire:
       - Intro: kits/jakes-fire/index.md

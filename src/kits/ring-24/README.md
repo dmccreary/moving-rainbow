@@ -12,6 +12,18 @@ This kit contains:
 
 All pins are set in `config.py`. Save it on the Pico along with the programs.
 
+The student lesson and one page per lab are at `docs/kits/ring-24/` on the
+[Moving Rainbow site](https://dmccreary.github.io/moving-rainbow/kits/ring-24/).
+
+## Wiring Diagram
+
+`circuit-diagram.py` draws `docs/kits/ring-24/img/circuit-diagram.png` and `.svg` with schemdraw.
+It runs on a computer, not on the Pico, so `upload-code.sh` skips it. Run it again after any pin change:
+
+```bash
+python3 circuit-diagram.py
+```
+
 ## Where the Pixels Are
 
 The pixel numbers run clockwise. Pixel 0 sits at about 1:30 on a clock dial, so 12 o'clock is
@@ -43,7 +55,7 @@ Run these in order the first time you wire up the kit.
 | `08-meet-and-flash.py` | Two dots go opposite ways, and the ring flashes when they meet |
 | `09-color-wheel.py` | **Color:** a real color wheel, where each color depends on the angle |
 | `10-spinning-rainbow.py` | The color wheel spins |
-| `11-pinwheel.py` | Colored blades spin, and the number of blades changes (2, 3, 4, 6 and 12 all divide evenly into 24) |
+| `11-pinwheel.py` | Colored blades spin, and the number of blades changes (each blade comes with a gap, and 4, 6, 8, 12 and 24 blade-and-gap parts all divide evenly into 24) |
 | `12-loading-spinner.py` | The busy spinner from a phone: an arc that grows and shrinks |
 | `13-breathing-halo.py` | The whole ring breathes, with a new color at its darkest point |
 | `14-sine-wave.py` | **Math and motion:** waves of light roll around and join up with themselves |

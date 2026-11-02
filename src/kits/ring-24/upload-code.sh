@@ -85,6 +85,15 @@ shopt -s nullglob
 files=( *.py )
 shopt -u nullglob
 
+# circuit-diagram.py draws the wiring picture on your computer, so it does not go on the Pico
+filtered=()
+for f in "${files[@]}"; do
+    if [[ "$f" != "circuit-diagram.py" ]]; then
+        filtered+=( "$f" )
+    fi
+done
+files=( "${filtered[@]}" )
+
 if (( ${#files[@]} == 0 )); then
     echo "No .py files found in $SCRIPT_DIR" >&2
     exit 1

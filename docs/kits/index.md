@@ -16,6 +16,12 @@ Light up a Halloween costume with a 60-pixel LED strip. One button switches betw
 
 [Halloween Costume Kit](./halloween-60-button/index.md)
 
+## Ring 24 Kit
+
+A circle of 24 color lights and two buttons. Make spinners, clocks, planets and a prize wheel in 27 labs.
+
+[Ring 24 Kit](./ring-24/index.md)
+
 ## LED Noodle Nightlight Kit
 
 [LED Noodle Nightlight](./led-noodle-nightlight/index.md)
